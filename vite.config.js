@@ -1,14 +1,13 @@
-/* eslint-disable no-use-before-define */
-import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import legacyPlugin from '@vitejs/plugin-legacy'
-
-import { resolve } from 'path'
 import eslintPlugin from 'vite-plugin-eslint'
 import vueI18n from '@intlify/unplugin-vue-i18n/vite'
 import svgLoader from 'vite-svg-loader'
-import { terser } from 'rollup-plugin-terser'
 import unHeadVite from '@unhead/addons/vite'
+import { defineConfig } from 'vite'
+import { getOutputDir } from './node-utils/output'
+import { terser } from 'rollup-plugin-terser'
+import { resolve } from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -48,11 +47,3 @@ export default defineConfig({
     proxy: {},
   },
 })
-
-const getOutputDir = () => {
-  const args = process.argv.slice(2)
-  if (args.includes('staging')) {
-    return 'dist-staging'
-  }
-  return 'dist'
-}
