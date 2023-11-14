@@ -6,5 +6,4 @@
   printWidth: 120,
   trailingComma: 'all',
   arrowParens: 'always',
-  htmlWhitespaceSensitivity: 'ignore',
 }
