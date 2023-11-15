@@ -88,7 +88,7 @@ export const locales = Object.freeze([
 ])
 
 export function initLocale() {
-  const defaultLang = navigator.language?.toLocaleLowerCase()
+  const defaultLang = import.meta.env.SSR ? 'en' : navigator.language?.toLocaleLowerCase()
   return getLang(defaultLang)
 }
 
