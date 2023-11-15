@@ -7,10 +7,12 @@ import unHeadVite from '@unhead/addons/vite'
 import { defineConfig } from 'vite'
 import { getOutputDir } from './node-utils/output'
 import { terser } from 'rollup-plugin-terser'
-import { resolve } from 'path'
+import { dirname, resolve } from 'path'
+import { fileURLToPath } from 'url'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/',
   build: {
     minify: 'terser',
     rollupOptions: {
@@ -28,7 +30,7 @@ export default defineConfig({
         drop_console: process.env.APP_ENV === 'production',
       },
     },
-    outDir: getOutputDir(),
+    // outDir: getOutputDir(),
   },
   resolve: {
     alias: {
@@ -39,7 +41,10 @@ export default defineConfig({
     vue(),
     legacyPlugin(),
     eslintPlugin({ cache: false }),
-    vueI18n({ include: resolve(__dirname, 'src/i18n/locale/**') }),
+    vueI18n({
+      include: resolve(dirname(fileURLToPath(import.meta.url)), './src/i18n/locale/**'),
+      ssr: true,
+    }),
     svgLoader(),
   ],
   server: {
