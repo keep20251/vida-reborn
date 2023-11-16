@@ -86,7 +86,7 @@ async function createServer(root = process.cwd(), hmrPort = 6173) {
 }
 
 function main() {
-  let port = 6174
+  let port = 3001
   const args = process.argv.slice(2)
   args.forEach((arg) => {
     if (arg.startsWith('--port=')) port = arg.split('=')[1]

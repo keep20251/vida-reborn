@@ -1,0 +1,23 @@
+name: vida
+volumes:
+  node_modules:
+services:
+  node:
+    image: node:16.19.0
+    container_name: vida_node
+    ports:
+      - ${PORT}:3001
+    volumes:
+      - ${PROJ}:/var/www/html
+      - node_modules:/var/www/html/node_modules
+    tty: true
+    working_dir: /var/www/html
+    command: bash -c "npm install && npm run prod"
+
+  # nginx:
+  #   image: nginx:latest
+  #   container_name: vida_nginx
+  #   ports:
+  #     - 80:80
+  #   volumes:
+  #     - ./nginx/site.conf:/etc/nginx/conf.d/default.conf
