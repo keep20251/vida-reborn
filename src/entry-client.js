@@ -17,6 +17,7 @@ router.isReady().then(() => {
 
   if (window.__INITIAL_STATE__) {
     store.state.value = JSON.parse(window.__INITIAL_STATE__)
+    document.getElementById('ssr-store').remove()
     console.log('[hydrated]Pinia state is hydrated')
   }
 

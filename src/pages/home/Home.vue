@@ -2,7 +2,7 @@
   <div class="mt-32 p-8 w-full">
     <div class="flex flex-col gap-4 justify-center align-middle">
       <div class="text-3xl font-bold underline text-blue-300 whitespace-nowrap flex justify-center">
-        Hello <span class="text-3xl text-green-500">Vite</span>
+        Vite <span class="text-3xl text-green-500">SSR</span>
       </div>
       <div class="text-xl font-bold text-red-600 flex justify-center">Store Counter: {{ counter }}</div>
       <div class="flex justify-center align-middle">
