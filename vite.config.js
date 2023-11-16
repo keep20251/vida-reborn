@@ -5,7 +5,6 @@ import vueI18n from '@intlify/unplugin-vue-i18n/vite'
 import svgLoader from 'vite-svg-loader'
 import unHeadVite from '@unhead/addons/vite'
 import { defineConfig } from 'vite'
-import { getOutputDir } from './node-utils/output'
 import { terser } from 'rollup-plugin-terser'
 import { dirname, resolve } from 'path'
 import { fileURLToPath } from 'url'
@@ -30,7 +29,6 @@ export default defineConfig({
         drop_console: process.env.APP_ENV === 'production',
       },
     },
-    // outDir: getOutputDir(),
   },
   resolve: {
     alias: {

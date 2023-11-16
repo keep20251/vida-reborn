@@ -6,10 +6,9 @@
   "scripts": {
     "dev": "node server",
     "prod": "NODE_ENV=production node server",
-    "build": "npm run build:client && npm run build:server",
-    "build:client": "vite build --ssrManifest .vite/ssr-manifest.json --outDir dist/client",
-    "build:server": "vite build --ssr src/entry-server.js --outDir dist/server",
-    "preview": "vite preview",
+    "stag": "NODE_ENV=staging node server",
+    "build": "APP_ENV=production vite build --ssrManifest --outDir dist/client && APP_ENV=production vite build --ssr src/entry-server.js --outDir dist/server",
+    "build:staging": "APP_ENV=staging vite build --mode staging --ssrManifest --outDir dist-staging/client && APP_ENV=staging vite build --mode staging --ssr src/entry-server.js --outDir dist-staging/server",
     "format": "npx prettier --write ./src",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "parse": "node ./i18n-transformer/csv-to-object.js && npx prettier --write ./src/i18n/locale",

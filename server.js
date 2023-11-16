@@ -5,18 +5,31 @@ import express from 'express'
 import { fileURLToPath } from 'node:url'
 import { createServer as createViteServer } from 'vite'
 
-async function createServer(root = process.cwd(), isProd = process.env.NODE_ENV === 'production', hmrPort = 6173) {
-  console.log(`[createServer]Environment: ${isProd ? 'production' : 'development'}`)
+async function createServer(root = process.cwd(), hmrPort = 6173) {
+  const isProd = process.env.NODE_ENV === 'production'
+  const isStag = process.env.NODE_ENV === 'staging'
+  const isDev = !isProd && !isStag
+  console.log(`[createServer]Environment: ${process.env.NODE_ENV}`)
+  console.log(`server env`, { isProd, isStag, isDev })
   const __dirname = path.dirname(fileURLToPath(import.meta.url))
   const resolve = (p) => path.resolve(__dirname, p)
 
-  const indexProd = isProd ? fs.readFileSync(resolve('dist/client/index.html'), 'utf-8') : ''
-  const manifest = isProd ? JSON.parse(fs.readFileSync(resolve('dist/client/.vite/ssr-manifest.json'), 'utf-8')) : {}
+  const indexProd = isProd
+    ? fs.readFileSync(resolve('dist/client/index.html'), 'utf-8')
+    : isStag
+      ? fs.readFileSync(resolve('dist-staging/client/index.html'), 'utf-8')
+      : ''
+
+  const manifest = isProd
+    ? JSON.parse(fs.readFileSync(resolve('dist-staging/client/ssr-manifest.json'), 'utf-8'))
+    : isStag
+      ? JSON.parse(fs.readFileSync(resolve('dist-staging/client/ssr-manifest.json'), 'utf-8'))
+      : {}
 
   const app = express()
 
   let vite
-  if (!isProd) {
+  if (isDev) {
     vite = await createViteServer({
       base: '/',
       root,
@@ -44,13 +57,15 @@ async function createServer(root = process.cwd(), isProd = process.env.NODE_ENV 
       const url = req.originalUrl.replace('/test/', '/')
 
       let template, render
-      if (!isProd) {
+      if (isDev) {
         template = fs.readFileSync(resolve('index.html'), 'utf-8')
         template = await vite.transformIndexHtml(url, template)
         render = (await vite.ssrLoadModule('/src/entry-server.js')).render
       } else {
         template = indexProd
-        render = (await import('./dist/server/entry-server.js')).render
+        render = isProd
+          ? (await import('./dist/server/entry-server.js')).render
+          : (await import('./dist-staging/server/entry-server.js')).render
       }
 
       const [appHtml, preloadLinks, store] = await render(url, manifest)
