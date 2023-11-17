@@ -5,7 +5,7 @@ import vueI18n from '@intlify/unplugin-vue-i18n/vite'
 import svgLoader from 'vite-svg-loader'
 import unHeadVite from '@unhead/addons/vite'
 import { defineConfig } from 'vite'
-import { terser } from 'rollup-plugin-terser'
+import terser from '@rollup/plugin-terser'
 import { dirname, resolve } from 'path'
 import { fileURLToPath } from 'url'
 
