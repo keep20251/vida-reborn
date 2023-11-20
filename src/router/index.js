@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory, createMemoryHistory } from 'vue-router'
+import { devRoutes } from './routes/dev'
 import beforeGuard from './guards/before'
 import afterGuard from './guards/after'
 
@@ -12,12 +13,9 @@ const routes = [
   { name: 'home', path: '/home', component: Home, meta: {} },
 ]
 
-// 開發測試用路由
-const testRoutes = []
-
 const router = createRouter({
   history: import.meta.env.SSR ? createMemoryHistory() : createWebHistory(),
-  routes: import.meta.env.DEV ? [...routes, ...testRoutes] : routes,
+  routes: import.meta.env.DEV ? [...routes, ...devRoutes] : routes,
 })
 
 beforeGuard.forEach((guard) => router.beforeEach(guard))
