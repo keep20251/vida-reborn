@@ -1,3 +1,12 @@
+const generateSpacing = () => {
+  const set = {}
+  for (let index = 4; index <= 100; index++) {
+    set[index] = `${index / 16}rem`
+  }
+  console.log(`[Tailwind.config.js] spacing: ${JSON.stringify(set)}`)
+  return set
+}
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
@@ -18,6 +27,7 @@ export default {
         12: 'repeat(12, minmax(0, 1fr))',
       },
     },
+    spacing: generateSpacing(),
   },
   plugins: [],
 }

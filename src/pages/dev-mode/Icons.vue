@@ -1,8 +1,9 @@
 <template>
   <div class="flex justify-center align-middle bg-slate-600">
-    <div class="w-full h-full grid grid-cols-12">
-      <div v-for="icon in icons" :key="`icon-${icon}`">
-        <Icon :name="icon" size="32"></Icon>
+    <div class="my-32 grid grid-cols-6">
+      <div v-for="icon in icons" :key="`icon-${icon}`" class="flex flex-col mb-16">
+        <Icon class="mx-auto w-50 h-50" :name="icon" :shadow="true"></Icon>
+        <div class="mx-auto">{{ icon }}</div>
       </div>
     </div>
   </div>
@@ -14,8 +15,7 @@ import Icon from '@/components/common/Icon.vue'
 const { fantasi: fantasiIcon } = IconSet
 
 const icons = []
-Object.entries(fantasiIcon).forEach(([key, value]) => {
+Object.keys(fantasiIcon).forEach((key) => {
   icons.push(key)
 })
-console.log(`IconSet`, icons)
 </script>

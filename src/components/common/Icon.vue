@@ -1,5 +1,5 @@
 <template>
-  <component class="icon" :is="component" :style="style" :class="[props.class, `icon-size-${props.size}`]"></component>
+  <component :is="component" :class="[props.class, dropShadow]"></component>
 </template>
 <script setup>
 import { computed } from 'vue'
@@ -30,8 +30,5 @@ const props = defineProps({
 
 const iconSet = computed(() => IconSet[props.set])
 const component = computed(() => iconSet.value[props.name])
-
-const style = computed(() => {
-  return props.shadow ? { filter: 'drop-shadow(0rem 0rem 0.5rem rgba(0, 0, 0, 0.3))' } : {}
-})
+const dropShadow = computed(() => (props.shadow ? 'drop-shadow-lg' : ''))
 </script>
