@@ -8,7 +8,7 @@
     "prod": "NODE_ENV=production node server",
     "stag": "NODE_ENV=staging node server",
     "build": "APP_ENV=production vite build --ssrManifest --outDir dist/client && APP_ENV=production vite build --ssr src/entry-server.js --outDir dist/server",
-    "build:staging": "APP_ENV=staging vite build --mode staging --ssrManifest --outDir dist-staging/client && APP_ENV=staging vite build --mode staging --ssr src/entry-server.js --outDir dist-staging/server",
+    "build:stag": "APP_ENV=staging vite build --mode staging --ssrManifest --outDir dist-staging/client && APP_ENV=staging vite build --mode staging --ssr src/entry-server.js --outDir dist-staging/server",
     "format": "npx prettier --write ./src",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "parse": "node ./i18n-transformer/csv-to-object.js && npx prettier --write ./src/i18n/locale",
