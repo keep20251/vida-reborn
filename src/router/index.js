@@ -3,7 +3,10 @@ import { devRoutes } from './routes/dev'
 import beforeGuard from './guards/before'
 import afterGuard from './guards/after'
 
-const Home = () => import('@/pages/home/Home.vue')
+import Home from '@/pages/home/Home.vue'
+import Search from '@/pages/search/Search.vue'
+import Message from '@/pages/message/Message.vue'
+import Mine from '@/pages/mine/Mine.vue'
 
 /**
  * @property checkLogin 用於判斷該頁面是否需要驗證登入狀態
@@ -11,6 +14,9 @@ const Home = () => import('@/pages/home/Home.vue')
 const routes = [
   { path: '/', redirect: { name: 'home' } },
   { name: 'home', path: '/home', component: Home, meta: {} },
+  { name: 'search', path: '/search', component: Search, meta: {} },
+  { name: 'message', path: '/message', component: Message, meta: {} },
+  { name: 'mine', path: '/mine', component: Mine, meta: {} },
 ]
 
 const router = createRouter({

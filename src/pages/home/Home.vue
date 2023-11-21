@@ -1,10 +1,174 @@
 <template>
-  <div class="mt-32 p-8 w-full">
-    <div class="flex flex-col gap-4 justify-center align-middle">
-      <div class="text-3xl font-bold underline text-blue-300 whitespace-nowrap flex justify-center">
-        Hello <span class="text-3xl text-green-500">Vida</span>
+  <Page>
+    <template #default>
+      <div class="bg-lime-200 overflow-x-hidden">
+        <div>Home123321Home123321Home123321Home123321Home123321Home123321Home123321Home123321</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
       </div>
-    </div>
-  </div>
+    </template>
+    <template #main-top> Main Top </template>
+    <template #aside>
+      <div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+      </div>
+    </template>
+    <template #aside-top> Aside Top </template>
+  </Page>
 </template>
-<script setup></script>
+
+<script setup>
+import Page from '@/components/layout/Page.vue'
+</script>

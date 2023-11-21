@@ -1,7 +1,10 @@
 <template>
-  <div class="w-full h-full">
+  <div class="w-full h-full flex flex-row justify-center">
+    <Navigator></Navigator>
     <router-view></router-view>
   </div>
 </template>
-<script setup></script>
-<style scoped></style>
+
+<script setup>
+import Navigator from '@/components/layout/Navigator.vue'
+</script>
