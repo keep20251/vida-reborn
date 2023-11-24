@@ -17,6 +17,7 @@ const routes = [
   { name: 'search', path: '/search', component: Search, meta: {} },
   { name: 'message', path: '/message', component: Message, meta: {} },
   { name: 'mine', path: '/mine', component: Mine, meta: {} },
+  { name: '404', path: '/:catchAll(.*)', component: () => import('@/pages/errors/404.vue'), meta: {} },
 ]
 
 const router = createRouter({
@@ -24,8 +25,10 @@ const router = createRouter({
   routes: import.meta.env.DEV ? [...routes, ...devRoutes] : routes,
 })
 
-beforeGuard.forEach((guard) => router.beforeEach(guard))
-afterGuard.forEach((guard) => router.afterEach(guard))
+if (!import.meta.env.SSR) {
+  beforeGuard.forEach((guard) => router.beforeEach(guard))
+  afterGuard.forEach((guard) => router.afterEach(guard))
+}
 
 router.onError((e) => {
   console.error(e.message)
