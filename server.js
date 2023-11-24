@@ -3,6 +3,7 @@ import path from 'path'
 import express from 'express'
 import { fileURLToPath } from 'node:url'
 import { createServer as createViteServer } from 'vite'
+import cookieParser from 'cookie-parser'
 
 async function createServer(root = process.cwd(), hmrPort = 6173) {
   const isProd = process.env.NODE_ENV === 'production'
@@ -28,6 +29,7 @@ async function createServer(root = process.cwd(), hmrPort = 6173) {
       : {}
 
   const app = express()
+  app.use(cookieParser())
 
   let vite
   if (isDev) {
@@ -56,6 +58,16 @@ async function createServer(root = process.cwd(), hmrPort = 6173) {
   app.use('*', async (req, res) => {
     try {
       const url = req.originalUrl.replace('/test/', '/')
+
+      const token = req.cookies._AUTH
+      console.log('[SSR]token:', token)
+
+      const newToken = {
+        accessToken: 'access-token:' + Date.now(),
+        refreshToken: 'refresh-token:' + Date.now(),
+        fromServer: true,
+      }
+      res.cookie('_AUTH', JSON.stringify(newToken), { maxAge: 900000, path: '/' })
 
       let template, render
       if (isDev) {
