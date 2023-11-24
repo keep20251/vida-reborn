@@ -3,11 +3,11 @@
     <template #default>
       <div>
         <div class="p-16">
-          <button class="px-16 text-white bg-green-400 rounded-xl h-48" @click="addSize">Add Icon Size</button>
+          <button class="h-48 rounded-xl bg-green-400 px-16 text-white" @click="addSize">Add Icon Size</button>
         </div>
-        <div class="flex justify-center align-middle bg-slate-600">
+        <div class="flex justify-center bg-slate-600 align-middle">
           <div class="my-32 grid grid-cols-6">
-            <div v-for="icon in icons" :key="`icon-${icon}`" class="flex flex-col mb-16">
+            <div v-for="icon in icons" :key="`icon-${icon}`" class="mb-16 flex flex-col">
               <Icon class="mx-auto" :name="icon" :shadow="true" :size="size"></Icon>
               <div class="mx-auto">{{ icon }}</div>
             </div>

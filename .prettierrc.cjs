@@ -6,4 +6,5 @@
   printWidth: 120,
   trailingComma: 'all',
   arrowParens: 'always',
+  plugins:['prettier-plugin-tailwindcss']
 }

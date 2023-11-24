@@ -19,5 +19,4 @@ export default {
 
   // 创作者 - 推送信息列表
   pushlist: { method: 'post', url: '/api/creatorcentor/pushlist' },
-
 }

@@ -1,7 +1,7 @@
 <template>
   <Page>
     <template #default>
-      <div class="bg-lime-200 overflow-x-hidden">
+      <div class="overflow-x-hidden bg-lime-200">
         <div>Home123321Home123321Home123321Home123321Home123321Home123321Home123321Home123321</div>
         <div>Home</div>
         <div>Home</div>

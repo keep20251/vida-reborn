@@ -1,11 +1,11 @@
 <template>
   <Page>
     <template #default>
-      <div class="mt-32 p-8 w-full">
-        <div class="flex flex-col gap-4 justify-center align-middle">
-          <div class="text-xl font-bold text-red-600 flex justify-center">Store Counter: {{ counter }}</div>
+      <div class="mt-32 w-full p-8">
+        <div class="flex flex-col justify-center gap-4 align-middle">
+          <div class="flex justify-center text-xl font-bold text-red-600">Store Counter: {{ counter }}</div>
           <div class="flex justify-center align-middle">
-            <button class="px-8 py-1 rounded-md bg-green-500" @click="increment">Increment</button>
+            <button class="rounded-md bg-green-500 px-8 py-1" @click="increment">Increment</button>
           </div>
         </div>
       </div>
