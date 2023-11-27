@@ -17,8 +17,10 @@ async function createServer(root = process.cwd(), hmrPort = 6173) {
   const resolve = (p) => path.resolve(__dirname, p)
   const resolvePath = isProd ? 'dist' : 'dist-staging'
 
-  const indexProd = isDev ? '' : fs.readFileSync(resolve(`${resolvePath}/client/index.html`), 'utf-8')
-  const manifest = isDev ? {} : JSON.parse(fs.readFileSync(resolve(`${resolvePath}/client/ssr-manifest.json`), 'utf-8'))
+  const indexProd = isDev ? '' : fs.readFileSync(resolve(`../${resolvePath}/client/index.html`), 'utf-8')
+  const manifest = isDev
+    ? {}
+    : JSON.parse(fs.readFileSync(resolve(`../${resolvePath}/client/ssr-manifest.json`), 'utf-8'))
 
   const app = express()
   app.use(cookieParser())
@@ -44,31 +46,26 @@ async function createServer(root = process.cwd(), hmrPort = 6173) {
     app.use(vite.middlewares)
   } else {
     app.use((await import('compression')).default())
-    app.use('/', (await import('serve-static')).default(resolve(resolvePath + '/client'), { index: false }))
+    app.use('/', (await import('serve-static')).default(resolve(`../${resolvePath}/client`), { index: false }))
   }
 
-  app.use('*', async (req, res) => {
+  app.use('*', async (req, res, next) => {
     try {
-      const url = req.originalUrl.replace('/test/', '/')
-
-      const token = req.cookies._AUTH
+      const { token, refreshToken } = await (await import('./auth.js')).useSSRAuth({ req, res, next })
+      refreshToken()
       console.log('[SSR]token:', token)
 
-      const newToken = {
-        accessToken: 'access-token:' + Date.now(),
-        refreshToken: 'refresh-token:' + Date.now(),
-        fromServer: true,
-      }
-      res.cookie('_AUTH', JSON.stringify(newToken), { maxAge: 900000, path: '/' })
+      console.log(`\x1b[96m [vida:request]${req.originalUrl} \x1b[0m`)
+      const url = req.originalUrl.replace('/test/', '/')
 
       let template, render
       if (isDev) {
-        template = fs.readFileSync(resolve('index.html'), 'utf-8')
+        template = fs.readFileSync(resolve('../index.html'), 'utf-8')
         template = await vite.transformIndexHtml(url, template)
         render = (await vite.ssrLoadModule('/src/entry-server.js')).render
       } else {
         template = indexProd
-        render = (await import(`./${resolvePath}/server/entry-server.js`)).render
+        render = (await import(`../${resolvePath}/server/entry-server.js`)).render
       }
 
       const [appHtml, preloadLinks, store] = await render(url, manifest)
