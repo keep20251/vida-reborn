@@ -15,18 +15,10 @@ async function createServer(root = process.cwd(), hmrPort = 6173) {
 
   const __dirname = path.dirname(fileURLToPath(import.meta.url))
   const resolve = (p) => path.resolve(__dirname, p)
+  const resolvePath = isProd ? 'dist' : 'dist-staging'
 
-  const indexProd = isProd
-    ? fs.readFileSync(resolve('dist/client/index.html'), 'utf-8')
-    : isStag
-      ? fs.readFileSync(resolve('dist-staging/client/index.html'), 'utf-8')
-      : ''
-
-  const manifest = isProd
-    ? JSON.parse(fs.readFileSync(resolve('dist/client/ssr-manifest.json'), 'utf-8'))
-    : isStag
-      ? JSON.parse(fs.readFileSync(resolve('dist-staging/client/ssr-manifest.json'), 'utf-8'))
-      : {}
+  const indexProd = isDev ? '' : fs.readFileSync(resolve(`${resolvePath}/client/index.html`), 'utf-8')
+  const manifest = isDev ? {} : JSON.parse(fs.readFileSync(resolve(`${resolvePath}/client/ssr-manifest.json`), 'utf-8'))
 
   const app = express()
   app.use(cookieParser())
@@ -52,7 +44,7 @@ async function createServer(root = process.cwd(), hmrPort = 6173) {
     app.use(vite.middlewares)
   } else {
     app.use((await import('compression')).default())
-    app.use('/', (await import('serve-static')).default(resolve('dist/client'), { index: false }))
+    app.use('/', (await import('serve-static')).default(resolve(resolvePath + '/client'), { index: false }))
   }
 
   app.use('*', async (req, res) => {
@@ -76,9 +68,7 @@ async function createServer(root = process.cwd(), hmrPort = 6173) {
         render = (await vite.ssrLoadModule('/src/entry-server.js')).render
       } else {
         template = indexProd
-        render = isProd
-          ? (await import('./dist/server/entry-server.js')).render
-          : (await import('./dist-staging/server/entry-server.js')).render
+        render = (await import(`./${resolvePath}/server/entry-server.js`)).render
       }
 
       const [appHtml, preloadLinks, store] = await render(url, manifest)
