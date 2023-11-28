@@ -3,6 +3,7 @@ import i18n from '@/pages/dev-mode/i18n.vue'
 import Pinia from '@/pages/dev-mode/Pinia.vue'
 import Icons from '@/pages/dev-mode/Icons.vue'
 import Cookie from '@/pages/dev-mode/Cookie.vue'
+import ClientOnly from '@/pages/dev-mode/ClientOnly.vue'
 
 const prefix = '/devmode'
 export const devRoutes = [
@@ -12,4 +13,5 @@ export const devRoutes = [
   { name: `${prefix}-pinia`, path: `${prefix}/pinia`, component: Pinia, meta: {} },
   { name: `${prefix}-icons`, path: `${prefix}/icons`, component: Icons, meta: {} },
   { name: `${prefix}-cookie`, path: `${prefix}/cookie`, component: Cookie, meta: {} },
+  { name: `${prefix}-client-only`, path: `${prefix}/client-only`, component: ClientOnly, meta: {} },
 ]
