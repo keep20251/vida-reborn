@@ -13,11 +13,23 @@
   </Page>
 </template>
 <script setup>
-import { useCounterStore } from '@/store/counter'
 import { storeToRefs } from 'pinia'
+import { useCounterStore } from '@/store/counter'
 import Page from '@/components/layout/Page.vue'
+import { onServerClientOnce, onHydration } from '@/compositions/lifecycle'
 
 const counterStore = useCounterStore()
 const { counter } = storeToRefs(counterStore)
 const { increment } = counterStore
+
+onServerClientOnce(() => {
+  const l = new Date().getSeconds()
+  for (let i = 0; i < l; i++) {
+    increment()
+  }
+})
+
+onHydration(() => {
+  console.log('這邊前端第一次拿到的時候進入 hydration 階段')
+})
 </script>
