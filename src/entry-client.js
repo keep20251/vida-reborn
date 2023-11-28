@@ -1,6 +1,7 @@
 import '@/style.scss'
 // import API from '@/http'
 import { createApp } from './main'
+import { hydrated } from '@/compositions/lifecycle'
 // import { createGtm } from '@/gtm'
 // import { storeToRefs } from 'pinia'
 // import { useAppStore } from '@/store/app'
@@ -24,6 +25,7 @@ router.isReady().then(() => {
   }
 
   app.mount('#app')
+  hydrated()
   console.log('[hydrated]Client side is mounted')
 
   //   initGlobalData().then(() => {})

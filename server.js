@@ -16,14 +16,14 @@ async function createServer(root = process.cwd(), hmrPort = 6173) {
   const indexProd = isProd
     ? fs.readFileSync(resolve('dist/client/index.html'), 'utf-8')
     : isStag
-    ? fs.readFileSync(resolve('dist-staging/client/index.html'), 'utf-8')
-    : ''
+      ? fs.readFileSync(resolve('dist-staging/client/index.html'), 'utf-8')
+      : ''
 
   const manifest = isProd
     ? JSON.parse(fs.readFileSync(resolve('dist-staging/client/ssr-manifest.json'), 'utf-8'))
     : isStag
-    ? JSON.parse(fs.readFileSync(resolve('dist-staging/client/ssr-manifest.json'), 'utf-8'))
-    : {}
+      ? JSON.parse(fs.readFileSync(resolve('dist-staging/client/ssr-manifest.json'), 'utf-8'))
+      : {}
 
   const app = express()
 
