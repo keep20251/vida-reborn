@@ -2,13 +2,12 @@ import { basename } from 'node:path'
 import { renderToString } from 'vue/server-renderer'
 import { createApp } from './main'
 
-export async function render(url, manifest) {
+export async function render(url, manifest, ctx) {
   const { app, router, store } = createApp()
 
   await router.push(url)
   await router.isReady()
 
-  const ctx = {}
   const html = await renderToString(app, ctx)
 
   const preloadLinks = renderPreloadLinks(ctx.modules, manifest)

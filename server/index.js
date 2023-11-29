@@ -51,9 +51,9 @@ async function createServer(root = process.cwd(), hmrPort = 6173) {
 
   app.use('*', async (req, res, next) => {
     try {
-      const { token, refreshToken } = await (await import('./auth.js')).useSSRAuth({ req, res, next })
-      refreshToken()
-      console.log('[SSR]token:', token)
+      // const { token, refreshToken } = await (await import('./auth.js')).useSSRAuth({ req, res, next })
+      // refreshToken()
+      // console.log('[SSR]token:', token)
 
       console.log(`\x1b[96m [vida:request]${req.originalUrl} \x1b[0m`)
       const url = req.originalUrl.replace('/test/', '/')
@@ -68,7 +68,8 @@ async function createServer(root = process.cwd(), hmrPort = 6173) {
         render = (await import(`../${resolvePath}/server/entry-server.js`)).render
       }
 
-      const [appHtml, preloadLinks, store] = await render(url, manifest)
+      const ctx = { req, res }
+      const [appHtml, preloadLinks, store] = await render(url, manifest, ctx)
       const html = template
         .replace('<!--preload-links-->', preloadLinks)
         .replace(`<!--ssr-outlet-->`, appHtml)

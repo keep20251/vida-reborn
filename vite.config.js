@@ -33,6 +33,9 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
+      '@comp': resolve(__dirname, 'src/components'),
+      '@use': resolve(__dirname, 'src/compositions'),
+      '@const': resolve(__dirname, 'src/constant'),
     },
   },
   plugins: [
