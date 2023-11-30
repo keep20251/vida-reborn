@@ -11,18 +11,9 @@ import { hydrated } from '@/compositions/lifecycle'
 // import { nextTick } from 'vue'
 
 const { app, router, store } = createApp()
-router.isReady().then(() => {
-  //   if (import.meta.env.VITE_GTM_ID) {
-  //     app.use(createGtm(router))
-  //   }
 
-  if (window.__INITIAL_STATE__) {
-    store.state.value = JSON.parse(window.__INITIAL_STATE__)
-    if (!import.meta.env.DEV) {
-      document.getElementById('ssr-store').remove()
-    }
-    console.log('[hydrated]Pinia state is hydrated')
-  }
+router.isReady().then(() => {
+  setupStoreHydrate()
 
   app.mount('#app')
   hydrated()
@@ -35,6 +26,20 @@ router.isReady().then(() => {
   // 如果整個應用有需要使用雙擊事件可能要深思熟慮一下
   document.addEventListener('dblclick', (evt) => evt.preventDefault())
 })
+function setupGoogleTagManager() {
+  // if (import.meta.env.VITE_GTM_ID) {
+  //   app.use(createGtm(router))
+  // }
+}
+function setupStoreHydrate() {
+  if (window.__INITIAL_STATE__) {
+    store.state.value = JSON.parse(window.__INITIAL_STATE__)
+    if (!import.meta.env.DEV) {
+      document.getElementById('ssr-store').remove()
+    }
+    console.log('[hydrated]Pinia state is hydrated')
+  }
+}
 
 // async function initGlobalData() {
 //   const appStore = useAppStore()
