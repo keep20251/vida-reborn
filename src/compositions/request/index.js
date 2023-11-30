@@ -43,6 +43,11 @@ function useRequest(
 
     const reqParams = execParams ? { ...execParams } : { ...params }
 
+    // 開發模式下需要給debug key才能啟用後端API的debug模式
+    if (import.meta.env.DEV) {
+      reqParams.debug = 'VjTdTfVx1kEyr4IV'
+    }
+
     // 塞 oauth
     reqParams.oauth_id = cookies.get(COOKIE_KEY.GUEST_ID)
     reqParams.oauth_type = 'pwa'
