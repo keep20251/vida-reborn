@@ -11,8 +11,8 @@
           <router-link class="font-bold hover:text-green-700" to="/devmode/i18n">i18n</router-link>
           <router-link class="font-bold hover:text-green-700" to="/devmode/pinia">Pinia(ssr/csr lifecycle)</router-link>
           <router-link class="font-bold hover:text-green-700" to="/devmode/icons">Icons</router-link>
-          <router-link class="font-bold hover:text-green-700" to="/devmode/cookie">Cookie</router-link>
           <router-link class="font-bold hover:text-green-700" to="/devmode/client-only">ClientOnly</router-link>
+          <router-link class="font-bold hover:text-green-700" to="/devmode/google">GoogleLogin</router-link>
         </div>
       </div>
     </nav>

@@ -51,12 +51,8 @@ async function createServer(root = process.cwd(), hmrPort = 6173) {
 
   app.use('*', async (req, res, next) => {
     try {
-      // const { token, refreshToken } = await (await import('./auth.js')).useSSRAuth({ req, res, next })
-      // refreshToken()
-      // console.log('[SSR]token:', token)
-
-      console.log(`\x1b[96m [vida:request]${req.originalUrl} \x1b[0m`)
       const url = req.originalUrl.replace('/test/', '/')
+      console.log(`\x1b[96m [vida:request]${url} \x1b[0m`)
 
       let template, render
       if (isDev) {
