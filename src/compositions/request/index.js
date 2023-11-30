@@ -8,14 +8,11 @@ export default useRequest
 
 function useRequest(
   apiKey,
-  params,
-  { immediate = true, shallow = true, initialData = null, onSuccess, onError, onFinish },
+  { params = {}, immediate = true, shallow = true, initialData = null, onSuccess, onError, onFinish },
 ) {
-  const reqParams = { ...params }
-
   let cookies
   if (import.meta.env.SSR) {
-    const { req, res } = useSSRContext
+    const { req, res } = useSSRContext()
     cookies = createCookies(req)()
     // TODO: 這邊可能需要初始化 cookie 的 oauth_id
     // if (!cookies.get(COOKIE_KEY.GUEST_ID)) {
@@ -27,23 +24,16 @@ function useRequest(
     cookies = useCookies()
   }
 
-  // 塞 oauth
-  reqParams.oauth_id = cookies.get(COOKIE_KEY.GUEST_ID)
-  reqParams.oauth_type = 'pwa'
-
-  // 塞 token
-  reqParams.token = cookies.get(COOKIE_KEY.AUTH)
-
   const data = (shallow ? shallowRef : ref)(initialData)
   const error = shallowRef(null)
   const isLoading = ref(false)
   const isFinished = ref(false)
   const isCanceled = ref(false)
 
-  const [moduleName, name] = apiKey.split('.')
+  const [moduleName, fnName] = apiKey.split('.')
   const controller = new AbortController()
 
-  function execute() {
+  function execute(execParams) {
     cancel()
 
     error.value = null
@@ -51,7 +41,19 @@ function useRequest(
     isFinished.value = false
     isCanceled.value = false
 
-    API[moduleName][name](
+    const reqParams = execParams ? { ...execParams } : { ...params }
+
+    // 塞 oauth
+    reqParams.oauth_id = cookies.get(COOKIE_KEY.GUEST_ID)
+    reqParams.oauth_type = 'pwa'
+
+    // 塞 token
+    const token = cookies.get(COOKIE_KEY.AUTH)
+    if (token) {
+      reqParams.token = token
+    }
+
+    API[moduleName][fnName](
       { data: reqParams },
       {
         signal: controller.signal,
