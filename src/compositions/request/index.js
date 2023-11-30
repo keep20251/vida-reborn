@@ -1,5 +1,5 @@
 import { ref, shallowRef, readonly, useSSRContext } from 'vue'
-import { useCookies, createCookies } from '@vueuse/integrations'
+import { useCookies, createCookies } from '@vueuse/integrations/useCookies'
 import { v4 as uuidv4 } from 'uuid'
 import { COOKIE_KEY } from '@const'
 import API from '@/http'
@@ -14,14 +14,18 @@ function useRequest(
   if (import.meta.env.SSR) {
     const { req, res } = useSSRContext()
     cookies = createCookies(req)()
-    // TODO: 這邊可能需要初始化 cookie 的 oauth_id
-    // if (!cookies.get(COOKIE_KEY.GUEST_ID)) {
-    //   const uuid = uuidv4()
-    //   cookies.set(COOKIE_KEY.GUEST_ID, uuid)
-    //   res.cookie(COOKIE_KEY.GUEST_ID, uuid)
-    // }
+
+    if (!cookies.get(COOKIE_KEY.GUEST_ID)) {
+      const uuid = uuidv4()
+      cookies.set(COOKIE_KEY.GUEST_ID, uuid)
+      res.cookie(COOKIE_KEY.GUEST_ID, uuid)
+    }
   } else {
     cookies = useCookies()
+    if (!cookies.get(COOKIE_KEY.GUEST_ID)) {
+      const uuid = uuidv4()
+      cookies.set(COOKIE_KEY.GUEST_ID, uuid)
+    }
   }
 
   const data = (shallow ? shallowRef : ref)(initialData)
@@ -66,8 +70,8 @@ function useRequest(
     )
       .then((resData) => {
         if (isCanceled.value) return
-        data.value = resData
-        onSuccess && onSuccess(resData)
+        data.value = resData.data
+        onSuccess && onSuccess(resData.data)
       })
       .catch((e) => {
         if (isCanceled.value) return

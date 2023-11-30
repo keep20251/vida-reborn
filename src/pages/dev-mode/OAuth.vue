@@ -22,18 +22,9 @@
 <script setup>
 import Page from '@/components/layout/Page.vue'
 import { useRoute } from 'vue-router'
-import { onMounted, onServerPrefetch } from 'vue'
+import { onMounted } from 'vue'
 import { useLocalStorage } from '@vueuse/core'
-import API from '@/http'
-
-onServerPrefetch(async () => {
-  const response = await API.ThirdParty.getRedirectToTwitter({
-    data: {
-      oauth_callback: `http://localhost:3001/devmode/google`,
-    },
-  })
-  console.log('response', response.data.data)
-})
+import useRequest from '@/compositions/request'
 
 function googleLogin(event) {
   console.log('event', event)
@@ -44,42 +35,52 @@ const googleOAuth = useLocalStorage('googleOAuth', {})
 
 async function twitterLogin() {
   try {
-    const response = await API.ThirdParty.getRedirectToTwitter({
-      data: {
+    useRequest('ThirdParty.getRedirectToTwitter', {
+      params: {
         oauth_callback: `http://localhost:3001/devmode/google`,
       },
+      onSuccess: onTwitterRedirected,
     })
-    console.log('response', response)
-
-    if (response.status === 200) {
-      twitterOAuth.value = response.data.data
-      window.location.href = response.data.data.url
-    }
   } catch (e) {
     console.error(e)
   }
 }
 
-onMounted(async () => {
-  try {
-    const route = useRoute()
-    console.log('route', !!twitterOAuth.value)
-    if (twitterOAuth.value.oauth_token && twitterOAuth.value.oauth_token_secret) {
-      const response = await API.ThirdParty.loginByTwitter({
-        data: {
-          oauth_verifier: route.query.oauth_verifier,
-          oauth_token: route.query.oauth_token,
-          oauth_token_secret: twitterOAuth.value.oauth_token_secret,
-        },
-      })
+function onTwitterRedirected(responseData) {
+  console.log('data', responseData)
+  if (responseData.data) {
+    console.log('data', responseData.data)
+    twitterOAuth.value = responseData.data
+    window.location.href = responseData.data.url
+  } else {
+    console.log('data is not ready.')
+  }
+}
 
-      if (response.status === 200) {
-        alert(`Twitter Login Success, Token:${response.data.data.token}`)
-        twitterOAuth.value = {}
-      }
-    }
-  } catch (e) {
-    console.error(e)
+const route = useRoute()
+function onTwitterLoginSuccess() {
+  useRequest('ThirdParty.loginByTwitter', {
+    params: {
+      oauth_verifier: route.query.oauth_verifier,
+      oauth_token: route.query.oauth_token,
+      oauth_token_secret: twitterOAuth.value.oauth_token_secret,
+    },
+    onSuccess: (responseData) => {
+      console.log('responseData', responseData)
+      alert(`Twitter login success! token:${responseData.data.token}`)
+      twitterOAuth.value = {}
+    },
+  })
+}
+
+onMounted(async () => {
+  if (
+    twitterOAuth.value.oauth_token &&
+    twitterOAuth.value.oauth_token_secret &&
+    route.query.oauth_verifier &&
+    route.query.oauth_token
+  ) {
+    onTwitterLoginSuccess()
   }
 })
 </script>
