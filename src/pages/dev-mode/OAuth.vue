@@ -33,28 +33,16 @@ function googleLogin(event) {
 const twitterOAuth = useLocalStorage('twitterOAuth', {})
 const googleOAuth = useLocalStorage('googleOAuth', {})
 
-async function twitterLogin() {
-  try {
-    useRequest('ThirdParty.getRedirectToTwitter', {
-      params: {
-        oauth_callback: `http://localhost:3001/devmode/google`,
-      },
-      onSuccess: onTwitterRedirected,
-    })
-  } catch (e) {
-    console.error(e)
-  }
-}
-
-function onTwitterRedirected(responseData) {
-  console.log('data', responseData)
-  if (responseData.data) {
-    console.log('data', responseData.data)
-    twitterOAuth.value = responseData.data
-    window.location.href = responseData.data.url
-  } else {
-    console.log('data is not ready.')
-  }
+function twitterLogin() {
+  useRequest('ThirdParty.getRedirectToTwitter', {
+    params: {
+      oauth_callback: `http://localhost:3001/devmode/google`,
+    },
+    onSuccess: (responseData) => {
+      twitterOAuth.value = responseData.data
+      window.location.href = responseData.data.url
+    },
+  })
 }
 
 const route = useRoute()
@@ -66,7 +54,6 @@ function onTwitterLoginSuccess() {
       oauth_token_secret: twitterOAuth.value.oauth_token_secret,
     },
     onSuccess: (responseData) => {
-      console.log('responseData', responseData)
       alert(`Twitter login success! token:${responseData.data.token}`)
       twitterOAuth.value = {}
     },
