@@ -8,7 +8,6 @@
 
 <script setup>
 import { ref } from 'vue'
-import Page from '@comp/layout/Page.vue'
 import Tab from '@comp/navigation/Tab.vue'
 
 const tab = ref(1)

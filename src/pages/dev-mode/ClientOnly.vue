@@ -10,7 +10,6 @@
 </template>
 
 <script setup>
-import Page from '@/components/layout/Page.vue'
 import ClientOnly from '@/components/common/ClientOnly'
 </script>
 

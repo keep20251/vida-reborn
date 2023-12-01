@@ -27,7 +27,6 @@
 <script setup>
 import { initLocale } from '@/i18n'
 import { useLocalStorage } from '@vueuse/core'
-import Page from '@/components/layout/Page.vue'
 
 const langs = ['en', 'zh_cn', 'zh_tw', 'es', 'fr', 'de', 'th', 'vi', 'ja', 'ko', 'ru', 'pt', 'id', 'ar', 'hi']
 const storageLocale = useLocalStorage('__LOCALE', initLocale)

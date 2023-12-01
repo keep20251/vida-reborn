@@ -5,6 +5,4 @@
   </Page>
 </template>
 
-<script setup>
-import Page from '@/components/layout/Page.vue'
-</script>
+<script setup></script>

@@ -20,7 +20,6 @@
   </Page>
 </template>
 <script setup>
-import Page from '@/components/layout/Page.vue'
 import { useRoute } from 'vue-router'
 import { onMounted } from 'vue'
 import { useLocalStorage } from '@vueuse/core'

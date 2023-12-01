@@ -20,7 +20,6 @@
 <script setup>
 import { IconSet } from '@/constant'
 import Icon from '@/components/common/Icon.vue'
-import Page from '@/components/layout/Page.vue'
 import { ref } from 'vue'
 
 const { fantasi: fantasiIcon } = IconSet

@@ -24,7 +24,6 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import { devRoutes } from '@/router/routes/dev'
-import Page from '@/components/layout/Page.vue'
 
 const renderType = ref('SSR')
 

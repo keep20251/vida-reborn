@@ -15,7 +15,6 @@
 <script setup>
 import { storeToRefs } from 'pinia'
 import { useCounterStore } from '@/store/counter'
-import Page from '@/components/layout/Page.vue'
 import { onServerClientOnce, onHydration } from '@/compositions/lifecycle'
 
 const counterStore = useCounterStore()
