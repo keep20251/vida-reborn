@@ -118,7 +118,9 @@
         <div>Home</div>
       </div>
     </template>
-    <template #main-top> Main Top </template>
+    <template #main-top>
+      <Tab v-model="tab" :options="tabOptions"></Tab>
+    </template>
     <template #aside>
       <div>
         <div>home aside</div>
@@ -170,5 +172,14 @@
 </template>
 
 <script setup>
-import Page from '@/components/layout/Page.vue'
+import { ref } from 'vue'
+import Page from '@comp/layout/Page.vue'
+import Tab from '@comp/navigation/Tab.vue'
+
+const tab = ref(1)
+const tabOptions = ref([
+  { label: 'Tab1', value: 1 },
+  { label: 'Tab2', value: 2 },
+  { label: 'Tab3', value: 3 },
+])
 </script>

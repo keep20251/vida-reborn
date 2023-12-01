@@ -4,6 +4,7 @@ import Pinia from '@/pages/dev-mode/Pinia.vue'
 import Icons from '@/pages/dev-mode/Icons.vue'
 import ClientOnly from '@/pages/dev-mode/ClientOnly.vue'
 import OAuth from '@/pages/dev-mode/OAuth.vue'
+import Tab from '@/pages/dev-mode/Tab.vue'
 
 const prefix = '/devmode'
 export const devRoutes = [
@@ -14,4 +15,5 @@ export const devRoutes = [
   { name: `${prefix}-icons`, path: `${prefix}/icons`, component: Icons, meta: {} },
   { name: `${prefix}-client-only`, path: `${prefix}/client-only`, component: ClientOnly, meta: {} },
   { name: `${prefix}-google`, path: `${prefix}/google`, component: OAuth, meta: {} },
+  { name: `${prefix}-tab`, path: `${prefix}/tab`, component: Tab, meta: {} },
 ]

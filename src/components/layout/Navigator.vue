@@ -7,12 +7,13 @@
       <router-link to="/mine">Mine</router-link>
       <div v-if="isDev" class="mt-16 border-spacing-16 border-y border-solid border-gray-500">
         <div class="flex flex-col">
-          <router-link class="font-bold hover:text-green-700" to="/devmode/home">Home</router-link>
-          <router-link class="font-bold hover:text-green-700" to="/devmode/i18n">i18n</router-link>
-          <router-link class="font-bold hover:text-green-700" to="/devmode/pinia">Pinia(ssr/csr lifecycle)</router-link>
-          <router-link class="font-bold hover:text-green-700" to="/devmode/icons">Icons</router-link>
-          <router-link class="font-bold hover:text-green-700" to="/devmode/client-only">ClientOnly</router-link>
-          <router-link class="font-bold hover:text-green-700" to="/devmode/google">GoogleLogin</router-link>
+          <router-link
+            v-for="route in devRoutes"
+            class="font-bold hover:text-green-700"
+            :to="route.path"
+            :key="route.path"
+            >{{ route.name }}</router-link
+          >
         </div>
       </div>
     </nav>
@@ -20,6 +21,7 @@
 </template>
 <script setup>
 import { computed } from 'vue'
+import { devRoutes } from '@/router/routes/dev'
 
 const isDev = computed(() => import.meta.env.DEV)
 </script>
