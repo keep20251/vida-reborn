@@ -1,5 +1,8 @@
 <template>
   <Page>
+    <template #default>
+      {{ content }}
+    </template>
     <template #main-top>
       <Tab v-model="tab" :options="tabOptions"></Tab>
     </template>
@@ -7,7 +10,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import Tab from '@comp/navigation/Tab.vue'
 
 const tab = ref(1)
@@ -16,4 +19,6 @@ const tabOptions = ref([
   { label: 'Tab2', value: 2 },
   { label: 'Tab3', value: 3 },
 ])
+
+const content = computed(() => `目前在 ${tabOptions.value.find((o) => o.value === tab.value).label}`)
 </script>
