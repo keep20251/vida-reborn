@@ -5,6 +5,7 @@ import Icons from '@/pages/dev-mode/Icons.vue'
 import ClientOnly from '@/pages/dev-mode/ClientOnly.vue'
 import OAuth from '@/pages/dev-mode/OAuth.vue'
 import Tab from '@/pages/dev-mode/Tab.vue'
+import Form from '@/pages/dev-mode/Form.vue'
 
 const prefix = '/devmode'
 export const devRoutes = [
@@ -16,4 +17,5 @@ export const devRoutes = [
   { name: `${prefix}-client-only`, path: `${prefix}/client-only`, component: ClientOnly, meta: {} },
   { name: `${prefix}-google`, path: `${prefix}/google`, component: OAuth, meta: {} },
   { name: `${prefix}-tab`, path: `${prefix}/tab`, component: Tab, meta: {} },
+  { name: `${prefix}-form`, path: `${prefix}/form`, component: Form, meta: {} },
 ]
