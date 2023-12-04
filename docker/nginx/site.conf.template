@@ -1,17 +1,18 @@
 server {
     listen 80;
     server_name vida-reborn.com;
-    return 301 https://$host$request_uri;
-}
-
-server {
-    listen 443 ssl;
-    server_name vida-reborn.com;
-
-    ssl_certificate /etc/nginx/ssl/site.crt;
-    ssl_certificate_key /etc/nginx/ssl/site.key;
 
     location / {
-        proxy_pass http://node:3001;
+        proxy_pass http://$IP:3001;
     }
+
+    # return 301 https://$host$request_uri;
 }
+
+# server {
+#     listen 443 ssl;
+#     server_name vida-reborn.com;
+
+#     ssl_certificate /etc/nginx/ssl/site.crt;
+#     ssl_certificate_key /etc/nginx/ssl/site.key;
+# }
