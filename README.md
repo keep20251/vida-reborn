@@ -78,10 +78,11 @@ VITE_BASE_URL=/
 4. 按下 `esc` 鍵，輸入 `:wq` 並按下 `Enter` 來儲存並離開
    
 ### 啟動 Docker
-1. `cd` 到 `/vida-reborn/docker` 資料夾，執行 `docker-compose up` 來啟動 `Docker` 環境
-2. 如果要關閉 `Docker` 環境，請使用 `Ctrl + C` 來關閉
-3. 如果不想一開始就查看 `log` ，可以使用 `docker-compose up -d` 來背景執行
-4.  如果背景執行後想要查看容器的 `log`，可以使用 `docker-compose logs -f` 來查看
-5.  如果想要移除 `Docker` 環境，可以使用 `docker-compose down` 來移除
-6.  如果想要查看容器狀態，可以使用 `docker ps` 來查看
-7.  如果想要進入 `Docker` 容器，可以使用 `docker exec -it {containerName} bash` 來進入，例如 `docker exec -it vida-nginx bash`
+1. `cd` 到 `/vida-reborn/docker` 資料夾，將.env.example複製一份，更名為.env，並且設定環境變數
+2. 執行 `docker-compose up` 來啟動 `Docker` 環境
+3. 如果要關閉 `Docker` 環境，請使用 `Ctrl + C` 來關閉
+4. 如果不想一開始就查看 `log` ，可以使用 `docker-compose up -d` 來背景執行
+5.  如果背景執行後想要查看容器的 `log`，可以使用 `docker-compose logs -f` 來查看
+6.  如果想要移除 `Docker` 環境，可以使用 `docker-compose down` 來移除
+7.  如果想要查看容器狀態，可以使用 `docker ps` 來查看
+8.  如果想要進入 `Docker` 容器，可以使用 `docker exec -it {containerName} bash` 來進入，例如 `docker exec -it vida-nginx bash`
