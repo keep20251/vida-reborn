@@ -33,7 +33,7 @@ const redirect_uri = `${import.meta.env.VITE_APP_URL}/devmode/google`
  */
 const { data: twitterRedirection, execute: getRedirectToTwitter } = useRequest('ThirdParty.getRedirectToTwitter', {
   params: {
-    oauth_callback: redirect_uri,
+    redirect_uri,
   },
   onSuccess: (responseData) => {
     console.log('onSuccess', responseData)
@@ -43,9 +43,14 @@ const { data: twitterRedirection, execute: getRedirectToTwitter } = useRequest('
 const twitterOAuth = useLocalStorage('twitterOAuth', {})
 
 async function twitterLogin() {
-  await getRedirectToTwitter()
-  twitterOAuth.value = twitterRedirection.value.data
-  window.location.href = twitterRedirection.value.data.url
+  try {
+    await getRedirectToTwitter()
+    console.log('twitterRedirection', twitterRedirection.value.data)
+    twitterOAuth.value = twitterRedirection.value.data
+    window.location.href = twitterRedirection.value.data.url
+  } catch (err) {
+    console.error(err)
+  }
 }
 
 const route = useRoute()
@@ -113,17 +118,21 @@ async function onGoogleLoginSuccess() {
 
 // TODO 先用同一頁做重新定向的網址，之後再改成另一個頁面
 onMounted(async () => {
-  if (
-    twitterOAuth.value.oauth_token &&
-    twitterOAuth.value.oauth_token_secret &&
-    route.query.oauth_verifier &&
-    route.query.oauth_token
-  ) {
-    await onTwitterLoginSuccess()
-  }
+  try {
+    if (
+      twitterOAuth.value.oauth_token &&
+      twitterOAuth.value.oauth_token_secret &&
+      route.query.oauth_verifier &&
+      route.query.oauth_token
+    ) {
+      await onTwitterLoginSuccess()
+    }
 
-  if (route.query.code) {
-    await onGoogleLoginSuccess()
+    if (route.query.code) {
+      await onGoogleLoginSuccess()
+    }
+  } catch (err) {
+    console.error(err)
   }
 })
 </script>
