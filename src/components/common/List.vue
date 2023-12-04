@@ -16,6 +16,4 @@ defineProps({
   items: { type: Array, required: true },
   itemKey: { type: String },
 })
-
-defineEmits(['intersect'])
 </script>
