@@ -1,11 +1,11 @@
 <template>
-  <Page>
+  <Page infinite @load="onLoad">
     <template #default>
       <div class="overflow-x-hidden px-20">
         <List :items="items" item-key="id">
-          <template #default="{ index }">
+          <template #default="{ last }">
             <Feed class="py-20"></Feed>
-            <div v-if="index !== items.length - 1" class="h-1 bg-black opacity-[0.15]"></div>
+            <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
           </template>
           <template #bottom>
             <div class="text-gray36 py-8 text-center">載入中.../沒有更多了</div>
@@ -80,4 +80,8 @@ const tabOptions = ref([
   { label: 'Tab2', value: 2 },
   { label: 'Tab3', value: 3 },
 ])
+
+function onLoad() {
+  console.log('load at', new Date())
+}
 </script>

@@ -2,12 +2,15 @@
   <div class="flex h-full w-full flex-row">
     <div
       v-for="option in options"
-      class="flex grow cursor-pointer items-center justify-center hover:bg-slate-300"
-      :class="{ 'bg-cyan-800': option[optionValue] === modelValue }"
+      class="hover:bg-gray05 flex grow cursor-pointer flex-col items-center justify-center"
       :key="option[optionValue]"
       @click="onClick(option[optionValue])"
     >
-      <div>{{ $t(option[optionLabel]) }}</div>
+      <div class="flex grow items-center">{{ $t(option[optionLabel]) }}</div>
+      <div
+        class="bg-gray30 h-3 w-full rounded-full"
+        :class="{ 'bg-primary': option[optionValue] === modelValue }"
+      ></div>
     </div>
   </div>
 </template>
