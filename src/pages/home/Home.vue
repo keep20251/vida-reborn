@@ -18,6 +18,7 @@
     </template>
     <template #aside>
       <div>
+        <div>第一行home aside</div>
         <div>home aside</div>
         <div>home aside</div>
         <div>home aside</div>
@@ -58,8 +59,7 @@
         <div>home aside</div>
         <div>home aside</div>
         <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
+        <div>最後一行home aside</div>
       </div>
     </template>
     <template #aside-top> Aside Top </template>
