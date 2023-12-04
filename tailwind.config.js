@@ -20,6 +20,15 @@ export default {
       gridTemplateColumns: {
         'auto-fit': 'repeat(auto-fit, minmax(250px, 1fr))',
       },
+      colors: {
+        primary: '#6567E8',
+        contrast: '#7FE2D3',
+        gray66: 'rgba(0, 0, 0, 0.66)',
+        gray36: 'rgba(0, 0, 0, 0.36)',
+        gray30: 'rgba(0, 0, 0, 0.30)',
+        gray10: 'rgba(0, 0, 0, 0.10)',
+        gray05: 'rgba(0, 0, 0, 0.05)',
+      },
     },
     spacing: generateSpacing(),
   },

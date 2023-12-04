@@ -1,121 +1,16 @@
 <template>
   <Page>
     <template #default>
-      <div class="overflow-x-hidden bg-lime-200">
-        <div>Home123321Home123321Home123321Home123321Home123321Home123321Home123321Home123321</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
+      <div class="overflow-x-hidden px-20">
+        <List :items="items" item-key="id">
+          <template #default="{ index }">
+            <Feed class="py-20"></Feed>
+            <div v-if="index !== items.length - 1" class="h-1 bg-black opacity-[0.15]"></div>
+          </template>
+          <template #bottom>
+            <div class="text-gray36 py-8 text-center">載入中.../沒有更多了</div>
+          </template>
+        </List>
       </div>
     </template>
     <template #main-top>
@@ -174,6 +69,10 @@
 <script setup>
 import { ref } from 'vue'
 import Tab from '@comp/navigation/Tab.vue'
+import List from '@comp/common/List.vue'
+import Feed from '@comp/main/Feed.vue'
+
+const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
 
 const tab = ref(1)
 const tabOptions = ref([
