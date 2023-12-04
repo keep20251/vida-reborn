@@ -4,9 +4,16 @@
       <!-- {{ content }} -->
     </template>
     <template #main-top>
-      <div class="my-10 grid w-5/6 gap-y-10 px-10">
+      <div class="my-10 grid gap-y-10 px-10">
         <div>【 Input Text | Password | Number 】</div>
-        <InputWrap v-model="inputValue" :placeholder="'我是标题，不是必填'" :label="'标题'" text></InputWrap>
+        <InputWrap
+          v-model="inputValue"
+          :label="'标题'"
+          :placeholder="'搜索...'"
+          :appendIcon="'heartActive'"
+          class="w-96"
+          @click="console.log('123')"
+        ></InputWrap>
         <p class="font-size-12">輸入的值：{{ inputValue }}</p>
         <hr />
         <div>【 Input Radio 】</div>

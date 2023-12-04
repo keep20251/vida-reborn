@@ -1,7 +1,20 @@
 <template>
   <div class="input-wrap">
     <label v-if="label">{{ label }}</label>
-    <input v-model="value" :type="type" :placeholder="placeholder" :disabled="disabled" :value="value" />
+    <div class="input-row">
+      <input
+        v-model="value"
+        :type="type"
+        :placeholder="placeholder"
+        :disabled="disabled"
+        :value="value"
+        :class="{
+          'append-icon': !!appendIcon,
+        }"
+      />
+      <div class="px-5"></div>
+      <Icon v-if="!!appendIcon" :size="20" :name="appendIcon" class="append" @click="emits('click:append-icon')"></Icon>
+    </div>
   </div>
 </template>
 <script setup>
@@ -15,9 +28,10 @@ const props = defineProps({
   number: { type: Boolean, default: false },
   disabled: { type: Boolean, default: false },
   value: { type: String },
+  appendIcon: { type: String, default: '' },
 })
 
-const emits = defineEmits(['update:modelValue'])
+const emits = defineEmits(['update:modelValue', 'click:append-icon'])
 
 const value = computed({
   get() {
@@ -35,32 +49,45 @@ const type = props.password ? 'password' : props.number ? 'number' : 'text'
   &-wrap {
     display: flex;
     flex-direction: column;
+    .input-row {
+      display: flex;
+      position: relative;
+      align-items: center;
+    }
+    .append {
+      position: absolute;
+      right: 0.625rem;
+      cursor: pointer;
+    }
+    .append-icon {
+      padding-right: 1.875rem;
+    }
     & input {
-      border-radius: 18px;
-      border: 0.1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 1.125rem;
+      border: 0.00625rem solid rgba(0, 0, 0, 0.2);
       background: #fff;
-      box-shadow: 0px -1px 8px 0px rgba(0, 0, 0, 0.1) inset;
+      box-shadow: 0 -0.0625rem 0.5rem 0 rgba(0, 0, 0, 0.1) inset;
       width: 100%;
-      height: 35px;
+      height: 2.1875rem;
       flex-shrink: 0;
       outline: none;
-      padding: 12px 10px 11px 10px;
+      padding: 0.75rem 0.625rem 0.6875rem 0.625rem;
       color: rgba(0, 0, 0, 0.66);
-      font-size: 12px;
+      font-size: 0.75rem;
       font-style: normal;
       font-weight: 400;
-      line-height: 12px;
+      line-height: 0.75rem;
       &::placeholder {
         color: rgba(0, 0, 0, 0.36);
       }
     }
     & label {
-      margin-bottom: 10px;
+      margin-bottom: 0.625rem;
       color: #000;
-      font-size: 14px;
+      font-size: 0.875rem;
       font-style: normal;
       font-weight: 400;
-      line-height: 14px;
+      line-height: 0.875rem;
     }
   }
 }

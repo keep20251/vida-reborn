@@ -38,12 +38,12 @@ const handleChange = () => {
     display: flex;
     flex-direction: row;
     & label {
-      margin-left: 10px;
+      margin-left: 0.625rem;
       color: #000;
-      font-size: 14px;
+      font-size: 0.875rem;
       font-style: normal;
       font-weight: 400;
-      line-height: 14px;
+      line-height: 0.875rem;
     }
     & input {
       &[type='radio'] {
@@ -52,12 +52,12 @@ const handleChange = () => {
         & + label:before {
           content: '';
           background: #d9d9d9;
-          border-radius: 4px;
+          border-radius: 0.25rem;
           display: inline-block;
-          width: 15px;
-          height: 15px;
+          width: 0.9375rem;
+          height: 0.9375rem;
           position: relative;
-          margin-right: 10px;
+          margin-right: 0.625rem;
           vertical-align: top;
           cursor: pointer;
           text-align: center;

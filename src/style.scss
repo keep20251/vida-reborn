@@ -40,7 +40,6 @@ $font-size-values: (
   @each $px,
   $rem in $font-size-values {
     &-#{$px} {
-      font-family: Helvetica Neue;
       font-size: $rem;
       line-height: 100%;
       font-style: normal;
