@@ -8,7 +8,7 @@ export default useRequest
 
 function useRequest(
   apiKey,
-  { params = {}, immediate = true, shallow = true, initialData = null, onSuccess, onError, onFinish },
+  { params = {}, immediate = false, shallow = true, initialData = null, onSuccess, onError, onFinish },
 ) {
   let cookies
   if (import.meta.env.SSR) {
@@ -37,7 +37,7 @@ function useRequest(
   const [moduleName, fnName] = apiKey.split('.')
   const controller = new AbortController()
 
-  function execute(execParams) {
+  async function execute(execParams) {
     cancel()
 
     error.value = null
@@ -62,7 +62,7 @@ function useRequest(
       reqParams.token = token
     }
 
-    API[moduleName][fnName](
+    return API[moduleName][fnName](
       { data: reqParams },
       {
         signal: controller.signal,
