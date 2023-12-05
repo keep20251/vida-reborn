@@ -45,8 +45,8 @@
       <div class="flex items-end space-x-5">
         <div>
           <div class="flex space-x-5">
-            <div class="text-sm leading-[1.125rem] text-[#6567E8]">#黑丝</div>
-            <div class="text-sm leading-[1.125rem] text-[#6567E8]">#写真</div>
+            <div class="text-sm leading-[1.125rem] text-primary">#黑丝</div>
+            <div class="text-sm leading-[1.125rem] text-primary">#写真</div>
           </div>
           <div class="text-sm leading-[1.125rem]">
             Thank you so much for joining my Fansly! ❤️ Throw back ❤️ DM me! Hello everyone, this is...
