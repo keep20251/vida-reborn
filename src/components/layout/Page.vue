@@ -28,22 +28,22 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
-import { useEventListener, useInfiniteScroll, useResizeObserver, useWindowSize } from '@vueuse/core'
+import { ref, computed, watch, onMounted } from 'vue'
+import { useEventListener, useInfiniteScroll, useWindowSize, useElementSize } from '@vueuse/core'
 
 const props = defineProps({
+  mainTopToggleDisabled: { type: Boolean, default: false },
   infinite: { type: Boolean, default: false },
   infiniteDistance: { type: Number, default: 100 },
 })
 
 const emits = defineEmits(['load'])
 
-const aside = ref(null)
-
 // main-top 滾動切換顯示/隱藏
 const mainTopOpen = ref(true)
 
 // 側邊欄滑到底黏在最下方不再繼續往上滑
+const aside = ref(null)
 const asidePosition = ref(null)
 const asideTop = ref(0)
 const asideStyle = computed(() => {
@@ -54,10 +54,9 @@ const asideStyle = computed(() => {
   return {}
 })
 const { height: windowHeight } = useWindowSize()
-useResizeObserver(aside, (entries) => {
-  const entry = entries[0]
-  const height = entry.borderBoxSize[0].blockSize
-  const diff = height - windowHeight.value
+const { height: asideHeight } = useElementSize(aside, undefined, { box: 'border-box' })
+watch(asideHeight, () => {
+  const diff = asideHeight.value - windowHeight.value
   if (diff <= 0) {
     asidePosition.value = 'fixed'
     asideTop.value = 0
@@ -79,7 +78,7 @@ function onScroll() {
   const diff = scrollTop - prevScrollTop
   // 下滑
   if (diff > 0) {
-    if (scrollTop > 100) {
+    if (scrollTop > 100 && !props.mainTopToggleDisabled) {
       mainTopOpen.value = false
     }
     if (asideTop.value > 0 && asidePosition.value === null && scrollTop >= asideTop.value) {
