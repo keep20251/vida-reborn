@@ -8,7 +8,7 @@
             <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
           </template>
           <template #bottom>
-            <div class="text-gray36 py-8 text-center">載入中.../沒有更多了</div>
+            <div class="py-8 text-center text-gray36">載入中.../沒有更多了</div>
           </template>
         </List>
       </div>
@@ -19,6 +19,11 @@
     <template #aside>
       <div>
         <div>第一行home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
+        <div>home aside</div>
         <div>home aside</div>
         <div>home aside</div>
         <div>home aside</div>

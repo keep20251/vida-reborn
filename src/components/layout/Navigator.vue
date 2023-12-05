@@ -1,6 +1,8 @@
 <template>
   <header class="flex shrink-0 grow basis-[60px] justify-end overflow-x-hidden md:basis-[72px] xl:basis-[270px]">
-    <nav class="flex min-h-[600px] w-[60px] flex-col bg-fuchsia-200 md:w-[72px] xl:w-[270px]">
+    <nav
+      class="fixed flex h-full min-h-[600px] w-[60px] flex-col overflow-auto bg-fuchsia-200 md:w-[72px] xl:w-[270px]"
+    >
       <router-link to="/home">Home</router-link>
       <router-link to="/search">Search</router-link>
       <router-link to="/message">Message</router-link>

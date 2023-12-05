@@ -1,9 +1,5 @@
 <template>
-  <div
-    class="flex grow basis-full flex-row justify-start overflow-auto sm:basis-[600px] md:basis-[900px] xl:basis-[950px]"
-    ref="page"
-    @scroll="onScroll"
-  >
+  <div class="flex grow basis-full flex-row justify-start sm:basis-[600px] md:basis-[900px] xl:basis-[950px]">
     <div class="w-full max-w-[600px] md:w-[600px]">
       <main>
         <div
@@ -20,7 +16,7 @@
     </div>
     <div class="hidden md:block md:w-[300px] xl:w-[350px]">
       <aside>
-        <div ref="aside" :class="{ 'pt-52': $slots['aside-top'] }" :style="asideStyle">
+        <div ref="aside" class="pb-64" :class="{ 'pt-52': $slots['aside-top'] }" :style="asideStyle">
           <slot name="aside"></slot>
         </div>
         <div v-if="$slots['aside-top']" class="fixed top-0 h-52 bg-white md:w-[300px] xl:w-[350px]">
@@ -32,8 +28,8 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
-import { useInfiniteScroll, useResizeObserver, useWindowSize } from '@vueuse/core'
+import { ref, computed, onMounted } from 'vue'
+import { useEventListener, useInfiniteScroll, useResizeObserver, useWindowSize } from '@vueuse/core'
 
 const props = defineProps({
   infinite: { type: Boolean, default: false },
@@ -42,19 +38,7 @@ const props = defineProps({
 
 const emits = defineEmits(['load'])
 
-const page = ref(null)
 const aside = ref(null)
-
-// 無限滑動通知
-if (props.infinite) {
-  useInfiniteScroll(
-    page,
-    () => {
-      emits('load')
-    },
-    { distance: props.infiniteDistance },
-  )
-}
 
 // main-top 滾動切換顯示/隱藏
 const mainTopOpen = ref(true)
@@ -65,32 +49,33 @@ const asideTop = ref(0)
 const asideStyle = computed(() => {
   const [position, top] = [asidePosition.value, asideTop.value]
   if (position) {
-    if (top > 0) {
-      return { position, bottom: 0 }
-    } else {
-      return { position, top: 0 }
-    }
+    return { position, [top > 0 ? 'bottom' : 'top']: 0 }
   }
   return {}
 })
 const { height: windowHeight } = useWindowSize()
 useResizeObserver(aside, (entries) => {
   const entry = entries[0]
-  const { height } = entry.contentRect
+  const height = entry.borderBoxSize[0].blockSize
   const diff = height - windowHeight.value
   if (diff <= 0) {
     asidePosition.value = 'fixed'
+    asideTop.value = 0
   } else {
     asideTop.value = diff
   }
 })
 
+// 滾動事件是偵測最頂層 html
 let prevScrollTop
-function onScroll({ target: { scrollTop } }) {
+function onScroll() {
+  const scrollTop = document.documentElement.scrollTop
+
   if (!prevScrollTop) {
     prevScrollTop = scrollTop
     return
   }
+
   const diff = scrollTop - prevScrollTop
   // 下滑
   if (diff > 0) {
@@ -112,4 +97,14 @@ function onScroll({ target: { scrollTop } }) {
   }
   prevScrollTop = scrollTop
 }
+
+onMounted(() => {
+  // 頂層 scroll
+  useEventListener('scroll', onScroll)
+
+  // 無限滑動通知
+  if (props.infinite) {
+    useInfiniteScroll(window, () => emits('load'), { distance: props.infiniteDistance })
+  }
+})
 </script>

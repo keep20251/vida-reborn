@@ -1,18 +1,20 @@
 <!doctype html>
-<html lang="en" class="h-full w-full">
-  <head>
-    <title>%VITE_APP_NAME%</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <!--preload-links-->
-  </head>
+<html lang="en">
 
-  <body class="h-full w-full">
-    <div id="app" class="h-full w-full"><!--ssr-outlet--></div>
-    <script type="module" src="/src/entry-client.js"></script>
-    <script id="ssr-store">
-      window.__INITIAL_STATE__ = '<!--pinia-state-->'
-    </script>
-  </body>
+<head>
+  <title>%VITE_APP_NAME%</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <!--preload-links-->
+</head>
+
+<body>
+  <div id="app"><!--ssr-outlet--></div>
+  <script type="module" src="/src/entry-client.js"></script>
+  <script id="ssr-store">
+    window.__INITIAL_STATE__ = '<!--pinia-state-->'
+  </script>
+</body>
+
 </html>

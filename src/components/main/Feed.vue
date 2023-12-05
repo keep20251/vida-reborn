@@ -4,7 +4,7 @@
     <div class="flex h-30 w-full items-center">
       <div class="mr-5 h-30 w-30 rounded-full bg-lime-700"></div>
       <div class="grow text-sm font-bold leading-none">Angelababy</div>
-      <div class="text-gray66 grow text-right text-xs font-medium leading-5">6 minutes</div>
+      <div class="grow text-right text-xs font-medium leading-5 text-gray66">6 minutes</div>
       <Icon name="more" :size="20"></Icon>
     </div>
 
@@ -52,7 +52,7 @@
             Thank you so much for joining my Fansly! ❤️ Throw back ❤️ DM me! Hello everyone, this is...
           </div>
         </div>
-        <div class="text-gray66 text-sm leading-[1.125rem]">more</div>
+        <div class="text-sm leading-[1.125rem] text-gray66">more</div>
       </div>
     </div>
   </div>
