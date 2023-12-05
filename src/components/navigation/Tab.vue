@@ -2,13 +2,13 @@
   <div class="flex h-full w-full flex-row">
     <div
       v-for="option in options"
-      class="hover:bg-gray05 flex grow cursor-pointer flex-col items-center justify-center"
+      class="flex grow cursor-pointer flex-col items-center justify-center hover:bg-gray05"
       :key="option[optionValue]"
       @click="onClick(option[optionValue])"
     >
       <div class="flex grow items-center">{{ $t(option[optionLabel]) }}</div>
       <div
-        class="bg-gray30 h-3 w-full rounded-full"
+        class="h-3 w-full rounded-full bg-gray30"
         :class="{ 'bg-primary': option[optionValue] === modelValue }"
       ></div>
     </div>
@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-const props = defineProps({
+defineProps({
   modelValue: { required: true },
   options: { type: Array, required: true },
   optionLabel: { type: String, default: 'label' },
