@@ -8,7 +8,7 @@
         <div>【 Input Text | Password | Number 】</div>
         <InputWrap
           v-model="inputValue"
-          :label="'标题'"
+          :label="'標題'"
           :placeholder="'搜索...'"
           :appendIcon="'heartActive'"
           class="w-96"
@@ -20,6 +20,10 @@
         <InputRadio v-model="selectedValue" id="radioOption1" label="Option 1" value="option1" name="options" />
         <InputRadio v-model="selectedValue" id="radioOption2" label="Option 2" value="option2" name="options" />
         <p class="font-size-12">選擇的值：{{ selectedValue }}</p>
+        <hr />
+        <div>【 Input Switch 】</div>
+        <InputSwitch :label="'選取切換'" v-model="switchValue"></InputSwitch>
+        <p class="font-size-12">選擇的值：{{ switchValue }}</p>
         <hr />
         <div>【 Text Style 】</div>
         <div class="font-size-25 line-height-25 font-bold">Helvetica Neue-25-特重标题</div>
@@ -38,7 +42,9 @@
 import { ref } from 'vue'
 import InputWrap from '../../components/form/InputWrap.vue'
 import InputRadio from '../../components/form/InputRadio.vue'
+import InputSwitch from '../../components/form/InputSwitch.vue'
 
 const inputValue = ref('')
 const selectedValue = ref('option1')
+const switchValue = ref(true)
 </script>

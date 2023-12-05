@@ -9,7 +9,7 @@
       :disabled="disabled"
       @change="handleChange"
     />
-    <label :for="id" v-if="label">{{ label }}</label>
+    <label :for="id" v-if="label" class="select-none">{{ label }}</label>
   </div>
 </template>
 
@@ -38,7 +38,6 @@ const handleChange = () => {
     display: flex;
     flex-direction: row;
     & label {
-      margin-left: 0.625rem;
       color: #000;
       font-size: 0.875rem;
       font-style: normal;
