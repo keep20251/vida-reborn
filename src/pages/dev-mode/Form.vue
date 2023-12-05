@@ -33,7 +33,52 @@
         <div class="font-size-14 line-height-14 font-bold">Helvetica Neue-14-按钮</div>
         <div class="font-size-14 line-height-14 font-normal">Helvetica Neue-14-按钮未选中</div>
         <hr />
+        <div>【 Button 】</div>
+        <div class="mb-8">
+          <button class="rounded-[1.125rem] bg-primary px-45 py-10 text-sm font-bold leading-[0.875rem] text-white">
+            primary button
+          </button>
+        </div>
+        <div class="mb-8">
+          <button
+            class="w-1/2 rounded-[1.125rem] bg-primary px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
+          >
+            primary half width button
+          </button>
+        </div>
+        <div class="mb-8">
+          <button
+            class="w-full rounded-[1.125rem] bg-primary px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
+          >
+            primary full width button
+          </button>
+        </div>
+        <div class="mb-8">
+          <button class="rounded-[1.125rem] bg-contrast px-45 py-10 text-sm font-bold leading-[0.875rem] text-white">
+            contrast button
+          </button>
+        </div>
+        <div class="mb-8">
+          <button
+            class="rounded-[1.125rem] bg-gradient-to-r from-primary to-contrast px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
+          >
+            gradient button
+          </button>
+        </div>
+        <div class="flex space-x-8">
+          <button
+            class="w-1/2 rounded-[1.125rem] bg-gray30 px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
+          >
+            cancel button
+          </button>
+          <button
+            class="w-1/2 rounded-[1.125rem] bg-primary px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
+          >
+            confirm button
+          </button>
+        </div>
       </div>
+      <hr />
     </template>
   </Page>
 </template>
