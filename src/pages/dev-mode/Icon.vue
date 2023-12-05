@@ -18,13 +18,11 @@
   </Page>
 </template>
 <script setup>
-import { IconSet } from '@/constant'
 import { ref } from 'vue'
-
-const { vida: vidaIcon } = IconSet
+import { iconSet } from '@/utils/icon-set'
 
 const icons = []
-Object.keys(vidaIcon).forEach((key) => {
+Object.keys(iconSet).forEach((key) => {
   icons.push(key)
 })
 
