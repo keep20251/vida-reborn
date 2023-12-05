@@ -34,7 +34,7 @@
         <div class="text-xs font-medium leading-5">23,000</div>
       </div>
       <div class="flex grow space-x-10">
-        <Icon name="starOutline" :size="20"></Icon>
+        <Icon name="collection" :size="20"></Icon>
         <div class="text-xs font-medium leading-5">94</div>
       </div>
     </div>
