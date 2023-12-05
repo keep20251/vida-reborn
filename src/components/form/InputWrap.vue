@@ -1,7 +1,14 @@
 <template>
-  <div class="input-wrap">
-    <label v-if="label">{{ label }}</label>
-    <div class="input-row">
+  <div class="input-wrap flex flex-col">
+    <label v-if="title" class="mb-10 text-[0.75rem] font-normal not-italic leading-[0.875rem]"
+      >{{ title }}
+
+      <span v-if="subtitle" class="text-gray66 text-[0.75rem] font-normal not-italic leading-[0.75rem]">{{
+        subtitle
+      }}</span>
+    </label>
+
+    <div class="input-row relative flex items-center">
       <input
         v-model="value"
         :type="type"
@@ -11,9 +18,15 @@
         :class="{
           'append-icon': !!appendIcon,
         }"
+        class="text-gray66 border-gray20 placeholder:text-gray36 h-35 w-full shrink-0 divide-solid rounded-[1.125rem] bg-white px-[0.625rem] pb-[0.6875rem] pt-[0.75rem] text-xs font-normal not-italic shadow-[0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)inset] outline-none"
       />
-      <div class="px-5"></div>
-      <Icon v-if="!!appendIcon" :size="20" :name="appendIcon" class="append" @click="emits('click:append-icon')"></Icon>
+      <Icon
+        v-if="!!appendIcon"
+        :size="20"
+        :name="appendIcon"
+        class="absolute right-10 cursor-pointer"
+        @click="emits('click:append-icon')"
+      ></Icon>
     </div>
   </div>
 </template>
@@ -21,7 +34,8 @@
 import { computed } from 'vue'
 
 const props = defineProps({
-  label: { type: String },
+  title: { type: String },
+  subtitle: { type: String },
   modelValue: { type: [String, Number], required: true },
   placeholder: { type: String, default: '输入文字...' },
   password: { type: Boolean, default: false },
@@ -47,47 +61,11 @@ const type = props.password ? 'password' : props.number ? 'number' : 'text'
 <style lang="scss" scoped>
 .input {
   &-wrap {
-    display: flex;
-    flex-direction: column;
-    .input-row {
-      display: flex;
-      position: relative;
-      align-items: center;
-    }
-    .append {
-      position: absolute;
-      right: 0.625rem;
-      cursor: pointer;
-    }
     .append-icon {
-      padding-right: 1.875rem;
+      padding-right: 1.875rem; // 30px
     }
     & input {
-      border-radius: 1.125rem;
-      border: 0.00625rem solid rgba(0, 0, 0, 0.2);
-      background: #fff;
-      box-shadow: 0 -0.0625rem 0.5rem 0 rgba(0, 0, 0, 0.1) inset;
-      width: 100%;
-      height: 2.1875rem;
-      flex-shrink: 0;
-      outline: none;
-      padding: 0.75rem 0.625rem 0.6875rem 0.625rem;
-      color: rgba(0, 0, 0, 0.66);
-      font-size: 0.75rem;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 0.75rem;
-      &::placeholder {
-        color: rgba(0, 0, 0, 0.36);
-      }
-    }
-    & label {
-      margin-bottom: 0.625rem;
-      color: #000;
-      font-size: 0.875rem;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 0.875rem;
+      border: 0.00625rem;
     }
   }
 }

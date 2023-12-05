@@ -10,10 +10,10 @@
     />
     <span
       class="slider mr-10 flex h-[20px] w-[35px] items-center rounded-full p-1 pl-3 duration-200"
-      :class="{ 'bg-primary': isChecked, 'bg-gray10': !isChecked }"
+      :class="{ 'bg-primary': isChecked, 'bg-gray10': !isChecked, 'bg-gray36': disabled }"
     >
       <span
-        class="dot h-[14px] w-[14px] rounded-full bg-white shadow-inner duration-200"
+        class="dot h-[14px] w-[14px] rounded-full bg-white drop-shadow-[1px_1px_4px_rgba(0,0,0,0.25)] duration-200"
         :class="{ 'translate-x-15': isChecked }"
       ></span>
     </span>
@@ -25,7 +25,7 @@
 import { ref, computed, defineProps, defineEmits, watch } from 'vue'
 
 const props = defineProps({
-  modelValue: { type: Boolean, default: true },
+  modelValue: { type: Boolean, default: false },
   label: { type: String, required: false },
   disabled: { type: Boolean, default: false },
 })
@@ -50,8 +50,4 @@ const modelValue = computed({
   set: (value) => emit('update:modelValue', value),
 })
 </script>
-<style lang="scss" scoped>
-.shadow-inner {
-  filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.25));
-}
-</style>
+<style lang="scss" scoped></style>

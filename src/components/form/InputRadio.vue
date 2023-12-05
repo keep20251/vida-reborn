@@ -1,5 +1,5 @@
 <template>
-  <div class="input-wrap">
+  <div class="flex items-center">
     <input
       type="radio"
       :id="id"
@@ -8,8 +8,9 @@
       :checked="isChecked"
       :disabled="disabled"
       @change="handleChange"
+      class="[&:checked]:bg-primary before:[&:checked]: relative h-15 w-15 cursor-pointer select-none appearance-none rounded-[0.25rem] bg-[#d9d9d9] outline-none disabled:border-[0.0625rem] disabled:border-solid disabled:border-[#d6d6d6] disabled:bg-[#d6d6d6] before:[&:checked]:absolute before:[&:checked]:left-[0.275rem] before:[&:checked]:top-[0.07rem] before:[&:checked]:block before:[&:checked]:h-[0.6rem] before:[&:checked]:w-[0.3625rem] before:[&:checked]:rotate-45 before:[&:checked]:rounded-[0.0625rem] before:[&:checked]:border-b-[0.15rem] before:[&:checked]:border-l-[0] before:[&:checked]:border-r-[0.15rem] before:[&:checked]:border-solid before:[&:checked]:border-white before:[&:checked]:border-t-[1] disabled:[&:checked]:border-[0.0625rem] disabled:[&:checked]:bg-[#d6d6d6] disabled:[&:checked]:bg-[#d6d6d6]"
     />
-    <label :for="id" v-if="label" class="select-none">{{ label }}</label>
+    <label :for="id" v-if="label" class="text-14 ml-10 font-normal leading-[0.875rem]">{{ label }}</label>
   </div>
 </template>
 
@@ -32,49 +33,4 @@ const handleChange = () => {
   emits('update:modelValue', props.value)
 }
 </script>
-<style lang="scss" scoped>
-.input {
-  &-wrap {
-    display: flex;
-    flex-direction: row;
-    & label {
-      color: #000;
-      font-size: 0.875rem;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 0.875rem;
-    }
-    & input {
-      &[type='radio'] {
-        position: absolute;
-        opacity: 0;
-        & + label:before {
-          content: '';
-          background: #d9d9d9;
-          border-radius: 0.25rem;
-          display: inline-block;
-          width: 0.9375rem;
-          height: 0.9375rem;
-          position: relative;
-          margin-right: 0.625rem;
-          vertical-align: top;
-          cursor: pointer;
-          text-align: center;
-          -webkit-transition: all 250ms ease;
-          transition: all 250ms ease;
-        }
-        &:checked + label:before {
-          background-color: #6567e8;
-          content: url('@/assets/icons/fantasi/common/radio-check.svg');
-        }
-        &:focus + label:before {
-          outline: none;
-        }
-        &:disabled + label:before {
-          background: #b4b4b4;
-        }
-      }
-    }
-  }
-}
-</style>
+<style lang="scss" scoped></style>
