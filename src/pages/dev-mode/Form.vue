@@ -13,6 +13,7 @@
           :placeholder="'9.99'"
           :appendText="'最高设置为90元'"
           class="w-[353px]"
+          :maxLength="5"
         ></InputWrap>
 
         <InputWrap
@@ -77,44 +78,44 @@
         <hr />
         <div>【 Button 】</div>
         <div class="mb-8">
-          <button class="rounded-[1.125rem] bg-primary px-45 py-10 text-sm font-bold leading-[0.875rem] text-white">
+          <button class="bg-primary rounded-[1.125rem] px-45 py-10 text-sm font-bold leading-[0.875rem] text-white">
             primary button
           </button>
         </div>
         <div class="mb-8">
           <button
-            class="w-1/2 rounded-[1.125rem] bg-primary px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
+            class="bg-primary w-1/2 rounded-[1.125rem] px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
           >
             primary half width button
           </button>
         </div>
         <div class="mb-8">
           <button
-            class="w-full rounded-[1.125rem] bg-primary px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
+            class="bg-primary w-full rounded-[1.125rem] px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
           >
             primary full width button
           </button>
         </div>
         <div class="mb-8">
-          <button class="rounded-[1.125rem] bg-contrast px-45 py-10 text-sm font-bold leading-[0.875rem] text-white">
+          <button class="bg-contrast rounded-[1.125rem] px-45 py-10 text-sm font-bold leading-[0.875rem] text-white">
             contrast button
           </button>
         </div>
         <div class="mb-8">
           <button
-            class="rounded-[1.125rem] bg-gradient-to-r from-primary to-contrast px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
+            class="from-primary to-contrast rounded-[1.125rem] bg-gradient-to-r px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
           >
             gradient button
           </button>
         </div>
         <div class="flex space-x-8">
           <button
-            class="w-1/2 rounded-[1.125rem] bg-gray30 px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
+            class="bg-gray30 w-1/2 rounded-[1.125rem] px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
           >
             cancel button
           </button>
           <button
-            class="w-1/2 rounded-[1.125rem] bg-primary px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
+            class="bg-primary w-1/2 rounded-[1.125rem] px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
           >
             confirm button
           </button>

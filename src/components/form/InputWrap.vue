@@ -15,13 +15,14 @@
         :placeholder="placeholder"
         :disabled="disabled"
         :value="value"
+        :maxlength="maxLength"
         :class="{
-          'pr-32': !!appendIcon,
-          'pr-[calc(1.25em_+_6rem)]': !!appendText,
+          'pr-35': !!appendIcon,
+          'pr-[7.25rem]': !!appendText,
           'pl-[1.25rem]': !!appendText,
-          'pr-[calc(1.25em_+_2.65rem)]': !!appendTextBtn,
+          'pr-[3.75rem]': !!appendTextBtn,
           'pl-20': !!appendTextBtn,
-          'pr-[calc(1.25em_+_2.15rem)]': !!appendIconBtn,
+          'pr-[3.25rem]': !!appendIconBtn,
           'pl-[0.9175rem]': !!appendIconBtn,
         }"
         class="text-gray66 border-gray20 placeholder:text-gray36 h-35 w-full shrink-0 divide-solid rounded-[1.125rem] bg-white px-[0.625rem] pb-[0.6875rem] pt-[0.75rem] text-xs font-normal not-italic shadow-[0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)inset] outline-none"
@@ -73,6 +74,7 @@ const props = defineProps({
   appendIcon: { type: String, default: '' },
   appendTextBtn: { type: String, default: '' },
   appendIconBtn: { type: String, default: '' },
+  maxLength: { type: Number },
 })
 
 const emits = defineEmits(['update:modelValue', 'click:append'])
