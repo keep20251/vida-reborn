@@ -17,7 +17,7 @@
         :class="{ 'translate-x-15': isChecked }"
       ></span>
     </span>
-    <span v-if="label" class="font-size-14 line-height-14 flex items-center font-normal">{{ label }}</span>
+    <span v-if="label" class="flex items-center text-[0.875rem] font-normal leading-[0.875rem]">{{ label }}</span>
   </label>
 </template>
 
