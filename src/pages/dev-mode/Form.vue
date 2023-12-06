@@ -1,9 +1,6 @@
 <template>
   <Page>
     <template #default>
-      <!-- {{ content }} -->
-    </template>
-    <template #main-top>
       <div class="my-10 grid gap-y-10 px-10">
         <div>【 Input Text | Password | Number 】</div>
         <InputWrap
@@ -39,50 +36,53 @@
         <hr />
         <div>【 Button 】</div>
         <div class="mb-8">
-          <button class="bg-primary rounded-[1.125rem] px-45 py-10 text-sm font-bold leading-[0.875rem] text-white">
+          <button class="rounded-[1.125rem] bg-primary px-45 py-10 text-sm font-bold leading-[0.875rem] text-white">
             primary button
           </button>
         </div>
         <div class="mb-8">
           <button
-            class="bg-primary w-1/2 rounded-[1.125rem] px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
+            class="w-1/2 rounded-[1.125rem] bg-primary px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
           >
             primary half width button
           </button>
         </div>
         <div class="mb-8">
           <button
-            class="bg-primary w-full rounded-[1.125rem] px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
+            class="w-full rounded-[1.125rem] bg-primary px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
           >
             primary full width button
           </button>
         </div>
         <div class="mb-8">
-          <button class="bg-contrast rounded-[1.125rem] px-45 py-10 text-sm font-bold leading-[0.875rem] text-white">
+          <button class="rounded-[1.125rem] bg-contrast px-45 py-10 text-sm font-bold leading-[0.875rem] text-white">
             contrast button
           </button>
         </div>
         <div class="mb-8">
           <button
-            class="from-primary to-contrast rounded-[1.125rem] bg-gradient-to-r px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
+            class="rounded-[1.125rem] bg-gradient-to-r from-primary to-contrast px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
           >
             gradient button
           </button>
         </div>
         <div class="flex space-x-8">
           <button
-            class="bg-gray30 w-1/2 rounded-[1.125rem] px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
+            class="w-1/2 rounded-[1.125rem] bg-gray30 px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
           >
             cancel button
           </button>
           <button
-            class="bg-primary w-1/2 rounded-[1.125rem] px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
+            class="w-1/2 rounded-[1.125rem] bg-primary px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
           >
             confirm button
           </button>
         </div>
+        <hr />
+        <OptionsPicker v-model="pickedOptions" :options="options"></OptionsPicker>
+        <p class="font-size-12">選擇的值：{{ pickedOptions }}</p>
+        <hr />
       </div>
-      <hr />
     </template>
   </Page>
 </template>
@@ -92,8 +92,23 @@ import { ref } from 'vue'
 import InputWrap from '@comp/form/InputWrap.vue'
 import InputRadio from '@comp/form/InputRadio.vue'
 import InputSwitch from '@comp/form/InputSwitch.vue'
+import OptionsPicker from '@comp/form/OptionsPicker.vue'
 
 const inputValue = ref('')
 const selectedValue = ref('radio1')
 const switchValue = ref(true)
+
+const pickedOptions = ref([1])
+const options = ref([
+  { label: 'Option1', value: 1 },
+  { label: 'Option2', value: 2 },
+  { label: 'Option3', value: 3 },
+  { label: 'Option4', value: 4 },
+  { label: 'Option5', value: 5 },
+  { label: 'Option6', value: 6 },
+  { label: 'Option7', value: 7 },
+  { label: 'Option8', value: 8 },
+  { label: 'Option9', value: 9 },
+  { label: 'Option10', value: 10 },
+])
 </script>

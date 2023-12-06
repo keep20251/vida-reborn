@@ -1,0 +1,36 @@
+<template>
+  <div class="flex flex-wrap gap-x-10 gap-y-15">
+    <div
+      v-for="option in options"
+      :key="option[optionValue]"
+      class="cursor-pointer rounded-[0.9375rem] px-18 py-6 text-xs leading-[0.75rem]"
+      :class="[modelValue.includes(option[optionValue]) ? 'bg-primary text-white' : 'bg-gray05']"
+      @click="onClick(option[optionValue])"
+    >
+      {{ option[optionLabel] }}
+    </div>
+  </div>
+</template>
+
+<script setup>
+const props = defineProps({
+  modelValue: { type: Array, required: true },
+  options: { type: Array, required: true },
+  optionLabel: { type: String, default: 'label' },
+  optionValue: { type: String, default: 'value' },
+})
+
+const emits = defineEmits(['update:modelValue'])
+
+function onClick(v) {
+  const r = [...props.modelValue]
+  const index = r.findIndex((o) => o === v)
+  if (index === -1) {
+    r.push(v)
+    r.sort((a, b) => a - b)
+  } else {
+    r.splice(index, 1)
+  }
+  emits('update:modelValue', r)
+}
+</script>
