@@ -70,51 +70,57 @@
         <div class="text-[0.875rem] font-bold leading-[0.875rem]">Helvetica Neue-14-按钮</div>
         <div class="text-[0.875rem] font-normal leading-[0.875rem]">Helvetica Neue-14-按钮未选中</div>
         <hr />
+        <div>【 Dropdown 】</div>
+        <div class="bg-gray05 p-8">
+          <Dropdown class="w-96" v-model="dropdownValue" :options="options"></Dropdown>
+        </div>
+        <hr />
         <div>【 Button 】</div>
         <div class="mb-8">
-          <button class="bg-primary rounded-[1.125rem] px-45 py-10 text-sm font-bold leading-[0.875rem] text-white">
+          <button class="rounded-[1.125rem] bg-primary px-45 py-10 text-sm font-bold leading-[0.875rem] text-white">
             primary button
           </button>
         </div>
         <div class="mb-8">
           <button
-            class="bg-primary w-1/2 rounded-[1.125rem] px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
+            class="w-1/2 rounded-[1.125rem] bg-primary px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
           >
             primary half width button
           </button>
         </div>
         <div class="mb-8">
           <button
-            class="bg-primary w-full rounded-[1.125rem] px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
+            class="w-full rounded-[1.125rem] bg-primary px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
           >
             primary full width button
           </button>
         </div>
         <div class="mb-8">
-          <button class="bg-contrast rounded-[1.125rem] px-45 py-10 text-sm font-bold leading-[0.875rem] text-white">
+          <button class="rounded-[1.125rem] bg-contrast px-45 py-10 text-sm font-bold leading-[0.875rem] text-white">
             contrast button
           </button>
         </div>
         <div class="mb-8">
           <button
-            class="from-primary to-contrast rounded-[1.125rem] bg-gradient-to-r px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
+            class="rounded-[1.125rem] bg-gradient-to-r from-primary to-contrast px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
           >
             gradient button
           </button>
         </div>
         <div class="flex space-x-8">
           <button
-            class="bg-gray30 w-1/2 rounded-[1.125rem] px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
+            class="w-1/2 rounded-[1.125rem] bg-gray30 px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
           >
             cancel button
           </button>
           <button
-            class="bg-primary w-1/2 rounded-[1.125rem] px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
+            class="w-1/2 rounded-[1.125rem] bg-primary px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
           >
             confirm button
           </button>
         </div>
         <hr />
+        <div>【 OptionsPicker 】</div>
         <OptionsPicker v-model="pickedOptions" :options="options"></OptionsPicker>
         <p class="text-[0.75rem]">選擇的值：{{ pickedOptions }}</p>
         <hr />
@@ -129,10 +135,13 @@ import InputWrap from '@comp/form/InputWrap.vue'
 import InputRadio from '@comp/form/InputRadio.vue'
 import InputSwitch from '@comp/form/InputSwitch.vue'
 import OptionsPicker from '@comp/form/OptionsPicker.vue'
+import Dropdown from '@comp/form/Dropdown.vue'
 
 const inputValue = ref('')
 const selectedValue = ref('radio2')
 const switchValue = ref(true)
+
+const dropdownValue = ref(1)
 
 const pickedOptions = ref([1])
 const options = ref([
