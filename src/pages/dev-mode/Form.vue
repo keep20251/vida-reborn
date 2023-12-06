@@ -3,16 +3,44 @@
     <template #default>
       <div class="my-10 grid gap-y-10 px-10">
         <div>【 Input Text | Password | Number 】</div>
+
+        <InputWrap v-model="inputValue" :title="'帳號'" :subtitle="'(必填)'" class="w-[353px]"></InputWrap>
+
         <InputWrap
           v-model="inputValue"
-          :title="'標題'"
-          :subtitle="'(必填)'"
-          :placeholder="'搜索...'"
-          :appendIcon="'emoji'"
-          class="w-96"
-          @click:append-icon="console.log('123')"
+          :title="'Price'"
+          :subtitle="'单位：美金'"
+          :placeholder="'9.99'"
+          :appendText="'最高设置为90元'"
+          class="w-[353px]"
         ></InputWrap>
+
+        <InputWrap
+          v-model="inputValue"
+          :placeholder="'搜索...'"
+          :appendIcon="'search'"
+          class="w-[353px]"
+          @click:append="console.log('appendIcon')"
+        ></InputWrap>
+
+        <InputWrap
+          v-model="inputValue"
+          :placeholder="'Add new tag...'"
+          :appendTextBtn="'Add'"
+          class="w-[353px]"
+          @click:append="console.log('appendTextBtn')"
+        ></InputWrap>
+
+        <InputWrap
+          v-model="inputValue"
+          :placeholder="'Add new tag...'"
+          :appendIconBtn="'sendWhite'"
+          class="w-[353px]"
+          @click:append="console.log('appendIconBtn')"
+        ></InputWrap>
+
         <p class="text-[0.75rem]">輸入的值：{{ inputValue }}</p>
+
         <hr />
 
         <div>【 Input Radio 】</div>

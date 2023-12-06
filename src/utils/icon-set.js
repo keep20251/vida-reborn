@@ -20,6 +20,7 @@ const play = defineAsyncComponent(() => import('@/assets/icons/function/play.svg
 const report = defineAsyncComponent(() => import('@/assets/icons/function/report.svg'))
 const search = defineAsyncComponent(() => import('@/assets/icons/function/search.svg'))
 const send = defineAsyncComponent(() => import('@/assets/icons/function/send.svg'))
+const sendWhite = defineAsyncComponent(() => import('@/assets/icons/function/send-white.svg'))
 const setting = defineAsyncComponent(() => import('@/assets/icons/function/setting.svg'))
 const sharePage = defineAsyncComponent(() => import('@/assets/icons/function/share-page.svg'))
 const video = defineAsyncComponent(() => import('@/assets/icons/function/video.svg'))
@@ -61,6 +62,7 @@ export const iconSet = {
   report,
   search,
   send,
+  sendWhite,
   setting,
   sharePage,
   video,

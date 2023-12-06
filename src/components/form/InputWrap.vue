@@ -16,7 +16,13 @@
         :disabled="disabled"
         :value="value"
         :class="{
-          'append-icon': !!appendIcon,
+          'pr-32': !!appendIcon,
+          'pr-[calc(1.25em_+_6rem)]': !!appendText,
+          'pl-[1.25rem]': !!appendText,
+          'pr-[calc(1.25em_+_2.65rem)]': !!appendTextBtn,
+          'pl-20': !!appendTextBtn,
+          'pr-[calc(1.25em_+_2.15rem)]': !!appendIconBtn,
+          'pl-[0.9175rem]': !!appendIconBtn,
         }"
         class="text-gray66 border-gray20 placeholder:text-gray36 h-35 w-full shrink-0 divide-solid rounded-[1.125rem] bg-white px-[0.625rem] pb-[0.6875rem] pt-[0.75rem] text-xs font-normal not-italic shadow-[0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)inset] outline-none"
       />
@@ -25,8 +31,29 @@
         :size="20"
         :name="appendIcon"
         class="absolute right-10 cursor-pointer"
-        @click="emits('click:append-icon')"
+        @click="emits('click:append')"
       ></Icon>
+      <div
+        v-if="!!appendText"
+        class="text-gray36 absolute right-20 flex items-center justify-center rounded-[0.9375rem] text-center text-[0.75rem] font-normal leading-[0.75rem]"
+        @click="emits('click:append')"
+      >
+        {{ appendText }}
+      </div>
+      <div
+        v-if="!!appendTextBtn"
+        class="bg-primary absolute right-5 flex h-[1.625rem] min-w-[2.9375rem] cursor-pointer items-center justify-center rounded-[0.9375rem] px-[0.375rem] py-[0.625rem] text-center text-[0.875rem] font-bold leading-[0.875rem] text-white shadow-[0_0.125rem_0.25rem_0_rgba(0,0,0,0.25)]"
+        @click="emits('click:append')"
+      >
+        {{ appendTextBtn }}
+      </div>
+      <div
+        v-if="!!appendIconBtn"
+        class="bg-primary absolute right-5 flex h-30 w-40 cursor-pointer items-center justify-center rounded-[0.9375rem] px-[0.375rem] py-[0.625rem] text-center text-[0.875rem] font-bold leading-[0.875rem] text-white shadow-[0_0.125rem_0.25rem_0_rgba(0,0,0,0.25)]"
+        @click="emits('click:append')"
+      >
+        <Icon :size="20" :name="appendIconBtn" class="text-white"></Icon>
+      </div>
     </div>
   </div>
 </template>
@@ -42,10 +69,13 @@ const props = defineProps({
   number: { type: Boolean, default: false },
   disabled: { type: Boolean, default: false },
   value: { type: String },
+  appendText: { type: String, default: '' },
   appendIcon: { type: String, default: '' },
+  appendTextBtn: { type: String, default: '' },
+  appendIconBtn: { type: String, default: '' },
 })
 
-const emits = defineEmits(['update:modelValue', 'click:append-icon'])
+const emits = defineEmits(['update:modelValue', 'click:append'])
 
 const value = computed({
   get() {
@@ -58,15 +88,3 @@ const value = computed({
 
 const type = props.password ? 'password' : props.number ? 'number' : 'text'
 </script>
-<style lang="scss" scoped>
-.input {
-  &-wrap {
-    .append-icon {
-      padding-right: 1.875rem; // 30px
-    }
-    & input {
-      border: 0.00625rem;
-    }
-  }
-}
-</style>
