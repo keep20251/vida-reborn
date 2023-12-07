@@ -1,5 +1,16 @@
 import { defineAsyncComponent } from 'vue'
 
+// navigation
+// 這些不能用 lazyload，會導致點擊 nav 的時候會閃一下
+import exploreOutline from '@/assets/icons/navigation/explore-outline.svg'
+import explore from '@/assets/icons/navigation/explore.svg'
+import homeOutline from '@/assets/icons/navigation/home-outline.svg'
+import home from '@/assets/icons/navigation/home.svg'
+import messageOutline from '@/assets/icons/navigation/message-outline.svg'
+import message from '@/assets/icons/navigation/message.svg'
+import starOutline from '@/assets/icons/navigation/star-outline.svg'
+import star from '@/assets/icons/navigation/star.svg'
+
 // function
 const add = defineAsyncComponent(() => import('@/assets/icons/function/add.svg'))
 const analysis = defineAsyncComponent(() => import('@/assets/icons/function/analysis.svg'))
@@ -30,16 +41,6 @@ const comment = defineAsyncComponent(() => import('@/assets/icons/interaction/co
 const likeOutline = defineAsyncComponent(() => import('@/assets/icons/interaction/like-outline.svg'))
 const like = defineAsyncComponent(() => import('@/assets/icons/interaction/like.svg'))
 const sharePost = defineAsyncComponent(() => import('@/assets/icons/interaction/share-post.svg'))
-
-// navigation
-const explorOutline = defineAsyncComponent(() => import('@/assets/icons/navigation/explore-outline.svg'))
-const explore = defineAsyncComponent(() => import('@/assets/icons/navigation/explore.svg'))
-const homeOutline = defineAsyncComponent(() => import('@/assets/icons/navigation/home-outline.svg'))
-const home = defineAsyncComponent(() => import('@/assets/icons/navigation/home.svg'))
-const messageOutline = defineAsyncComponent(() => import('@/assets/icons/navigation/message-outline.svg'))
-const message = defineAsyncComponent(() => import('@/assets/icons/navigation/message.svg'))
-const starOutline = defineAsyncComponent(() => import('@/assets/icons/navigation/star-outline.svg'))
-const star = defineAsyncComponent(() => import('@/assets/icons/navigation/star.svg'))
 
 export const iconSet = {
   // function
@@ -74,7 +75,7 @@ export const iconSet = {
   sharePost,
 
   // navigation
-  explorOutline,
+  exploreOutline,
   explore,
   homeOutline,
   home,

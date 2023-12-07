@@ -12,7 +12,7 @@ export default {
   theme: {
     screens: {
       sm: '672px', // header(60) + main(fit) + aside(0)
-      md: '980px', // header(72) + main(600) + aside(300) = 972
+      md: '987px', // header(72) + main(600) + aside(300) = 972
       lg: '1108px', // header(72) + main(600) + aside(300) = 972
       xl: '1295px', // header(270) + main(600) + aside(350) = 1220
     },
