@@ -1,8 +1,5 @@
 import '@/style.scss'
 // import API from '@/http'
-import { createApp } from './main'
-import { hydrated } from '@/compositions/lifecycle'
-// import { createGtm } from '@/gtm'
 // import { storeToRefs } from 'pinia'
 // import { useAppStore } from '@/store/app'
 // import { useAccountStore } from '@/store/account'
@@ -10,10 +7,17 @@ import { hydrated } from '@/compositions/lifecycle'
 // import { init } from '@/ws'
 // import { nextTick } from 'vue'
 
+import { createApp } from './main'
+import { hydrated } from '@/compositions/lifecycle'
+import { setupStoreHydrate } from '@/utils/init'
+import { useAppleSignIn } from '@/utils/apple'
+
 const { app, router, store } = createApp()
+const { setupAppleInit } = useAppleSignIn()
 
 router.isReady().then(() => {
-  setupStoreHydrate()
+  setupStoreHydrate(store)
+  setupAppleInit()
 
   app.mount('#app')
   hydrated()
@@ -26,52 +30,3 @@ router.isReady().then(() => {
   // 如果整個應用有需要使用雙擊事件可能要深思熟慮一下
   document.addEventListener('dblclick', (evt) => evt.preventDefault())
 })
-function setupGoogleTagManager() {
-  // if (import.meta.env.VITE_GTM_ID) {
-  //   app.use(createGtm(router))
-  // }
-}
-function setupStoreHydrate() {
-  if (window.__INITIAL_STATE__) {
-    store.state.value = JSON.parse(window.__INITIAL_STATE__)
-    if (!import.meta.env.DEV) {
-      document.getElementById('ssr-store').remove()
-    }
-    console.log('[hydrated]Pinia state is hydrated')
-  }
-}
-
-// async function initGlobalData() {
-//   const appStore = useAppStore()
-//   const { initAppConfig } = appStore
-
-//   const accountStore = useAccountStore()
-//   const { isLogin } = storeToRefs(accountStore)
-//   const { resetUserData } = accountStore
-
-//   const creditCardStore = useCreditCardStore()
-//   const { cardList } = storeToRefs(creditCardStore)
-
-//   // 初始化全域參數
-//   await initAppConfig()
-
-//   // 有登入
-//   if (isLogin.value) {
-//     // 初始化自己的資料
-//     const data = await API.Auth.detail()
-//     resetUserData(data)
-
-//     await nextTick()
-
-//     API.CreditCard.list({ data: { page: 1, limit: 10 } })
-//       .then((response) => {
-//         cardList.value = response
-//       })
-//       .catch((e) => {
-//         console.error(e)
-//       })
-//   }
-
-//   // 初始化IM
-//   init()
-// }

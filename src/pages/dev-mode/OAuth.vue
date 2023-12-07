@@ -15,14 +15,33 @@
           <h5 class="text-xl font-bold text-blue-500">Twitter</h5>
           <button class="w-80 bg-blue-500 px-8 py-1 text-white" @click="twitterLogin">Login</button>
         </div>
+        <div class="m-16 p-16">
+          <h5 class="text-xl font-bold text-blue-500">Apple SignIn with EventListener</h5>
+          <div id="appleid-signin" data-color="light" data-border="true" data-type="sign in" class="h-32 w-full"></div>
+        </div>
+        <div class="m-16 p-16">
+          <h5 class="text-xl font-bold text-blue-500">Apple SignIn with Custom Trigger</h5>
+          <button
+            class="h-32 w-full rounded-lg border border-black"
+            @click="
+              onAppleSignIn({
+                onSuccess: onAppleLoginSuccess,
+                onFailure: (e) => console.error(`Apple SignIn Failed`, e),
+              })
+            "
+          >
+            Apple Sign In
+          </button>
+        </div>
       </div>
     </template>
   </Page>
 </template>
 <script setup>
 import { useRoute } from 'vue-router'
-import { onMounted } from 'vue'
+import { onMounted, onUnmounted } from 'vue'
 import { useLocalStorage } from '@vueuse/core'
+import { useAppleSignIn } from '@/utils/apple.js'
 import useRequest from '@/compositions/request'
 
 /** 第三方登入後重定向的網址，告訴 Google, Twitter 要往哪個網址送GET參數過去 */
@@ -116,6 +135,7 @@ async function onGoogleLoginSuccess() {
   })
 }
 
+const { bindEvents, unbindEvents, onAppleSignIn } = useAppleSignIn()
 // TODO 先用同一頁做重新定向的網址，之後再改成另一個頁面
 onMounted(async () => {
   try {
@@ -134,5 +154,33 @@ onMounted(async () => {
   } catch (err) {
     console.error(err)
   }
+
+  bindEvents({
+    onSuccess: onAppleLoginSuccess,
+    onFailure: () => console.error('onFailure'),
+  })
 })
+
+onUnmounted(() => {
+  unbindEvents()
+})
+
+async function onAppleLoginSuccess(event) {
+  console.log('onAppleLoginSuccess', event)
+
+  const { code } = event
+  useRequest('ThirdParty.webLoginByApple', {
+    params: {
+      redirect_uri,
+      apple_code: code,
+    },
+    onSuccess: (responseData) => {
+      alert(`Apple login success! token:${responseData.data.token}`)
+    },
+    onError: (err) => {
+      console.error(err)
+    },
+    immediate: true,
+  })
+}
 </script>

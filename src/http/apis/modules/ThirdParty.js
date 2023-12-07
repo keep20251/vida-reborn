@@ -6,4 +6,5 @@ export default {
   loginByTwitter: { method: 'post', url: '/api/thirdparty/loginByTwitter' },
   getGoogleOauthPage: { method: 'post', url: '/api/thirdparty/getGoogleOauthPage' },
   webLoginByGoogle: { method: 'post', url: '/api/thirdparty/webLoginByGoogle' },
+  webLoginByApple: { method: 'post', url: '/api/thirdparty/webLoginByApple' },
 }
