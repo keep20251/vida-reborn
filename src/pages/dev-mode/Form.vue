@@ -132,8 +132,10 @@
         </div>
         <hr />
         <div>【 OptionsPicker 】</div>
-        <OptionsPicker v-model="pickedOptions" :options="options"></OptionsPicker>
-        <p class="text-[0.75rem]">選擇的值：{{ pickedOptions }}</p>
+        <OptionsPicker v-model="singlePickedOption" :options="options"></OptionsPicker>
+        <p class="text-[0.75rem]">單選的值：{{ singlePickedOption }}</p>
+        <OptionsPicker v-model="multiplePickedOptions" :options="options"></OptionsPicker>
+        <p class="text-[0.75rem]">多選的值：{{ multiplePickedOptions }}</p>
         <hr />
       </div>
     </template>
@@ -156,7 +158,8 @@ const switchValue = ref(true)
 
 const dropdownValue = ref(1)
 
-const pickedOptions = ref([1])
+const singlePickedOption = ref(1)
+const multiplePickedOptions = ref([1])
 const options = ref([
   { label: 'Option1', value: 1 },
   { label: 'Option2', value: 2 },

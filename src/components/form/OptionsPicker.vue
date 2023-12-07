@@ -4,7 +4,11 @@
       v-for="option in options"
       :key="option[optionValue]"
       class="cursor-pointer rounded-[0.9375rem] px-18 py-6 text-xs leading-[0.75rem]"
-      :class="[modelValue.includes(option[optionValue]) ? 'bg-primary text-white' : 'bg-gray05']"
+      :class="[
+        (Array.isArray(modelValue) ? modelValue.includes(option[optionValue]) : modelValue === option[optionValue])
+          ? 'bg-primary text-white'
+          : 'bg-gray05',
+      ]"
       @click="onClick(option[optionValue])"
     >
       {{ option[optionLabel] }}
@@ -14,7 +18,7 @@
 
 <script setup>
 const props = defineProps({
-  modelValue: { type: Array, required: true },
+  modelValue: { type: [Array, Number], required: true },
   options: { type: Array, required: true },
   optionLabel: { type: String, default: 'label' },
   optionValue: { type: String, default: 'value' },
@@ -23,14 +27,18 @@ const props = defineProps({
 const emits = defineEmits(['update:modelValue'])
 
 function onClick(v) {
-  const r = [...props.modelValue]
-  const index = r.findIndex((o) => o === v)
-  if (index === -1) {
-    r.push(v)
-    r.sort((a, b) => a - b)
+  if (Array.isArray(props.modelValue)) {
+    const r = [...props.modelValue]
+    const index = r.findIndex((o) => o === v)
+    if (index === -1) {
+      r.push(v)
+      r.sort((a, b) => a - b)
+    } else {
+      r.splice(index, 1)
+    }
+    emits('update:modelValue', r)
   } else {
-    r.splice(index, 1)
+    emits('update:modelValue', v)
   }
-  emits('update:modelValue', r)
 }
 </script>
