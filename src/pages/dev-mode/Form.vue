@@ -41,7 +41,17 @@
         ></InputWrap>
 
         <p class="text-[0.75rem]">輸入的值：{{ inputValue }}</p>
+        <hr />
 
+        <div>【 Textarea 】</div>
+        <TextareaWrap
+          v-model="textareaValue"
+          :title="'标题'"
+          :subtitle="'(副标题)'"
+          :placeholder="'填写内文'"
+          class="w-[353px]"
+        ></TextareaWrap>
+        <p class="text-[0.75rem]">輸入的值：{{ textareaValue }}</p>
         <hr />
 
         <div>【 Input Radio 】</div>
@@ -78,44 +88,44 @@
         <hr />
         <div>【 Button 】</div>
         <div class="mb-8">
-          <button class="bg-primary rounded-[1.125rem] px-45 py-10 text-sm font-bold leading-[0.875rem] text-white">
+          <button class="rounded-[1.125rem] bg-primary px-45 py-10 text-sm font-bold leading-[0.875rem] text-white">
             primary button
           </button>
         </div>
         <div class="mb-8">
           <button
-            class="bg-primary w-1/2 rounded-[1.125rem] px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
+            class="w-1/2 rounded-[1.125rem] bg-primary px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
           >
             primary half width button
           </button>
         </div>
         <div class="mb-8">
           <button
-            class="bg-primary w-full rounded-[1.125rem] px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
+            class="w-full rounded-[1.125rem] bg-primary px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
           >
             primary full width button
           </button>
         </div>
         <div class="mb-8">
-          <button class="bg-contrast rounded-[1.125rem] px-45 py-10 text-sm font-bold leading-[0.875rem] text-white">
+          <button class="rounded-[1.125rem] bg-contrast px-45 py-10 text-sm font-bold leading-[0.875rem] text-white">
             contrast button
           </button>
         </div>
         <div class="mb-8">
           <button
-            class="from-primary to-contrast rounded-[1.125rem] bg-gradient-to-r px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
+            class="rounded-[1.125rem] bg-gradient-to-r from-primary to-contrast px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
           >
             gradient button
           </button>
         </div>
         <div class="flex space-x-8">
           <button
-            class="bg-gray30 w-1/2 rounded-[1.125rem] px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
+            class="w-1/2 rounded-[1.125rem] bg-gray30 px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
           >
             cancel button
           </button>
           <button
-            class="bg-primary w-1/2 rounded-[1.125rem] px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
+            class="w-1/2 rounded-[1.125rem] bg-primary px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
           >
             confirm button
           </button>
@@ -137,8 +147,10 @@ import InputRadio from '@comp/form/InputRadio.vue'
 import InputSwitch from '@comp/form/InputSwitch.vue'
 import OptionsPicker from '@comp/form/OptionsPicker.vue'
 import Dropdown from '@comp/form/Dropdown.vue'
+import TextareaWrap from '@comp/form/TextareaWrap.vue'
 
 const inputValue = ref('')
+const textareaValue = ref('')
 const selectedValue = ref('radio2')
 const switchValue = ref(true)
 

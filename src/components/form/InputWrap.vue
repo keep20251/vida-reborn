@@ -3,7 +3,7 @@
     <label v-if="title" class="mb-10 text-[0.75rem] font-normal not-italic leading-[0.875rem]"
       >{{ title }}
 
-      <span v-if="subtitle" class="text-gray66 text-[0.75rem] font-normal not-italic leading-[0.75rem]">{{
+      <span v-if="subtitle" class="text-[0.75rem] font-normal not-italic leading-[0.75rem] text-gray66">{{
         subtitle
       }}</span>
     </label>
@@ -25,7 +25,7 @@
           'pr-[3.25rem]': !!appendIconBtn,
           'pl-[0.9175rem]': !!appendIconBtn,
         }"
-        class="text-gray66 border-gray20 placeholder:text-gray36 h-35 w-full shrink-0 divide-solid rounded-[1.125rem] bg-white px-[0.625rem] pb-[0.6875rem] pt-[0.75rem] text-xs font-normal not-italic shadow-[0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)inset] outline-none"
+        class="h-35 w-full shrink-0 divide-solid rounded-[1.125rem] border-gray20 bg-white px-[0.625rem] pb-[0.6875rem] pt-[0.75rem] text-xs font-normal not-italic leading-[0.75rem] text-gray66 shadow-[0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)inset] outline-none placeholder:text-gray36"
       />
       <Icon
         v-if="!!appendIcon"
@@ -36,21 +36,21 @@
       ></Icon>
       <div
         v-if="!!appendText"
-        class="text-gray36 absolute right-20 flex items-center justify-center rounded-[0.9375rem] text-center text-[0.75rem] font-normal leading-[0.75rem]"
+        class="absolute right-20 flex items-center justify-center rounded-[0.9375rem] text-center text-[0.75rem] font-normal leading-[0.75rem] text-gray36"
         @click="emits('click:append')"
       >
         {{ appendText }}
       </div>
       <div
         v-if="!!appendTextBtn"
-        class="bg-primary absolute right-5 flex h-[1.625rem] min-w-[2.9375rem] cursor-pointer items-center justify-center rounded-[0.9375rem] px-[0.375rem] py-[0.625rem] text-center text-[0.875rem] font-bold leading-[0.875rem] text-white shadow-[0_0.125rem_0.25rem_0_rgba(0,0,0,0.25)]"
+        class="absolute right-5 flex h-[1.625rem] min-w-[2.9375rem] cursor-pointer items-center justify-center rounded-[0.9375rem] bg-primary px-[0.375rem] py-[0.625rem] text-center text-[0.875rem] font-bold leading-[0.875rem] text-white shadow-[0_0.125rem_0.25rem_0_rgba(0,0,0,0.25)]"
         @click="emits('click:append')"
       >
         {{ appendTextBtn }}
       </div>
       <div
         v-if="!!appendIconBtn"
-        class="bg-primary absolute right-5 flex h-30 w-40 cursor-pointer items-center justify-center rounded-[0.9375rem] px-[0.375rem] py-[0.625rem] text-center text-[0.875rem] font-bold leading-[0.875rem] text-white shadow-[0_0.125rem_0.25rem_0_rgba(0,0,0,0.25)]"
+        class="absolute right-5 flex h-30 w-40 cursor-pointer items-center justify-center rounded-[0.9375rem] bg-primary px-[0.375rem] py-[0.625rem] text-center text-[0.875rem] font-bold leading-[0.875rem] text-white shadow-[0_0.125rem_0.25rem_0_rgba(0,0,0,0.25)]"
         @click="emits('click:append')"
       >
         <Icon :size="20" :name="appendIconBtn" class="text-white"></Icon>
