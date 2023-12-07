@@ -2,6 +2,7 @@ import { defineAsyncComponent } from 'vue'
 
 // navigation
 // 這些不能用 lazyload，會導致點擊 nav 的時候會閃一下
+import publish from '@/assets/icons/navigation/publish.svg'
 import exploreOutline from '@/assets/icons/navigation/explore-outline.svg'
 import explore from '@/assets/icons/navigation/explore.svg'
 import homeOutline from '@/assets/icons/navigation/home-outline.svg'
@@ -12,7 +13,6 @@ import starOutline from '@/assets/icons/navigation/star-outline.svg'
 import star from '@/assets/icons/navigation/star.svg'
 
 // function
-const add = defineAsyncComponent(() => import('@/assets/icons/function/add.svg'))
 const analysis = defineAsyncComponent(() => import('@/assets/icons/function/analysis.svg'))
 const attach = defineAsyncComponent(() => import('@/assets/icons/function/attach.svg'))
 const back = defineAsyncComponent(() => import('@/assets/icons/function/back.svg'))
@@ -44,7 +44,6 @@ const sharePost = defineAsyncComponent(() => import('@/assets/icons/interaction/
 
 export const iconSet = {
   // function
-  add,
   analysis,
   attach,
   back,
@@ -75,6 +74,7 @@ export const iconSet = {
   sharePost,
 
   // navigation
+  publish,
   exploreOutline,
   explore,
   homeOutline,

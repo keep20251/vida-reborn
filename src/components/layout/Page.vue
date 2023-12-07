@@ -1,6 +1,6 @@
 <template>
   <div class="flex grow basis-full flex-row justify-start sm:basis-[600px] md:basis-[900px] xl:basis-[950px]">
-    <div class="w-full max-w-[600px] md:w-[600px]">
+    <div class="w-full max-w-[600px] pb-44 sm:pb-0 md:w-[600px]">
       <main>
         <div
           v-if="$slots['main-top']"
