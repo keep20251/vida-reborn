@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node server",
+    "dev": "HMR_SSL=false node server",
+    "dev:ssl": "HMR_SSL=true node server",
     "prod": "NODE_ENV=production node server",
     "stag": "NODE_ENV=staging node server",
     "build": "APP_ENV=production vite build --ssrManifest --outDir dist/client && APP_ENV=production vite build --ssr src/entry-server.js --outDir dist/server",

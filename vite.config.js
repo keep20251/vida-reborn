@@ -9,6 +9,10 @@ import terser from '@rollup/plugin-terser'
 import { dirname, resolve } from 'path'
 import { fileURLToPath } from 'url'
 
+const hmrSSL = process.env.HMR_SSL === 'true' ?? false
+const hmrPort = hmrSSL ? 443 : 6173
+const hmrPath = hmrSSL ? '/socket' : '/'
+
 // https://vitejs.dev/config/
 export default defineConfig({
   base: '/',
@@ -51,5 +55,10 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     proxy: {},
+    hmr: {
+      port: hmrPort,
+      clientPort: hmrPort,
+      path: hmrPath,
+    },
   },
 })
