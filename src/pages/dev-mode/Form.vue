@@ -1,10 +1,16 @@
 <template>
   <Page>
     <template #default>
-      <div class="my-10 grid gap-y-10 px-20">
+      <div class="my-10 grid gap-y-20 px-20">
         <div>【 Input Text | Password | Number 】</div>
 
-        <InputWrap v-model="inputValue" :title="'帳號'" :subtitle="'(必填)'" class="w-[280px]"></InputWrap>
+        <InputWrap
+          v-model="inputValue"
+          :title="'帳號'"
+          :subtitle="'(必填)'"
+          :errMsg="'帳號不得為空'"
+          class="w-[280px]"
+        ></InputWrap>
 
         <InputWrap
           v-model="inputValue"
@@ -49,6 +55,7 @@
           :title="'标题'"
           :subtitle="'(副标题)'"
           :placeholder="'填写内文'"
+          :errMsg="'錯誤訊息'"
           class="w-[280px]"
         ></TextareaWrap>
         <p class="text-[0.75rem]">輸入的值：{{ textareaValue }}</p>

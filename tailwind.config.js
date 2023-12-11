@@ -29,6 +29,7 @@ export default {
         gray20: 'rgba(0, 0, 0, 0.20)',
         gray10: 'rgba(0, 0, 0, 0.10)',
         gray05: 'rgba(0, 0, 0, 0.05)',
+        warning: '#FF1D00',
       },
     },
     spacing: generateSpacing(),

@@ -1,6 +1,6 @@
 <template>
-  <div class="input-wrap flex flex-col">
-    <label v-if="title" class="mb-10 text-left text-[0.75rem] font-normal not-italic leading-[0.875rem]"
+  <div class="input-wrap flex flex-col gap-y-10">
+    <label v-if="title" class="text-left text-[0.875rem] font-normal not-italic leading-[0.875rem]"
       >{{ title }}
 
       <span v-if="subtitle" class="text-[0.75rem] font-normal not-italic leading-[0.75rem] text-gray66">{{
@@ -57,6 +57,9 @@
         <Icon :size="20" :name="appendIconBtn" class="text-white"></Icon>
       </div>
     </div>
+    <div v-if="errMsg" class="text-warning text-left text-[0.875rem] font-normal not-italic leading-[0.875rem]">
+      {{ errMsg }}
+    </div>
   </div>
 </template>
 <script setup>
@@ -76,6 +79,7 @@ const props = defineProps({
   appendTextBtn: { type: String, default: '' },
   appendIconBtn: { type: String, default: '' },
   maxLength: { type: Number },
+  errMsg: { type: String, default: '' },
 })
 
 const emits = defineEmits(['update:modelValue', 'click:append'])

@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-col">
-    <label v-if="title" class="mb-10 text-[0.75rem] font-normal not-italic leading-[0.875rem]"
+  <div class="flex flex-col gap-y-10">
+    <label v-if="title" class="text-left text-[0.875rem] font-normal not-italic leading-[0.875rem]"
       >{{ title }}
       <span v-if="subtitle" class="text-[0.75rem] font-normal not-italic leading-[0.75rem] text-gray66">{{
         subtitle
@@ -12,6 +12,9 @@
       :style="{ height }"
       class="w-full shrink-0 resize-none divide-solid rounded-[1.125rem] border-gray20 bg-white px-20 py-[0.75rem] text-xs font-normal not-italic leading-[0.75rem] text-gray66 shadow-[0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)inset] outline-none placeholder:text-gray36"
     ></textarea>
+    <div v-if="errMsg" class="text-warning text-left text-[0.875rem] font-normal not-italic leading-[0.875rem]">
+      {{ errMsg }}
+    </div>
   </div>
 </template>
 <script setup>
@@ -24,6 +27,7 @@ const props = defineProps({
   placeholder: { type: String, default: '输入文字...' },
   disabled: { type: Boolean, default: false },
   line: { type: Number, default: 3 },
+  errMsg: { type: String, default: '' },
 })
 const emits = defineEmits(['update:modelValue'])
 const value = computed({
