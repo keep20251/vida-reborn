@@ -1,6 +1,6 @@
 <template>
   <div class="input-wrap flex flex-col">
-    <label v-if="title" class="mb-10 text-[0.75rem] font-normal not-italic leading-[0.875rem]"
+    <label v-if="title" class="mb-10 text-left text-[0.75rem] font-normal not-italic leading-[0.875rem]"
       >{{ title }}
 
       <span v-if="subtitle" class="text-[0.75rem] font-normal not-italic leading-[0.75rem] text-gray66">{{
@@ -18,6 +18,7 @@
         :maxlength="maxLength"
         :class="{
           'pr-35': !!appendIcon,
+          'pl-10': !!appendIcon,
           'pr-[7.25rem]': !!appendText,
           'pl-[1.25rem]': !!appendText,
           'pr-[3.75rem]': !!appendTextBtn,
@@ -25,7 +26,7 @@
           'pr-[3.25rem]': !!appendIconBtn,
           'pl-[0.9175rem]': !!appendIconBtn,
         }"
-        class="h-35 w-full shrink-0 divide-solid rounded-[1.125rem] border-gray20 bg-white px-[0.625rem] pb-[0.6875rem] pt-[0.75rem] text-xs font-normal not-italic leading-[0.75rem] text-gray66 shadow-[0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)inset] outline-none placeholder:text-gray36"
+        class="h-35 w-full shrink-0 divide-solid rounded-[1.125rem] border-gray20 bg-white px-20 pb-[0.6875rem] pt-[0.75rem] text-xs font-normal not-italic leading-[0.75rem] text-gray66 shadow-[0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)inset] outline-none placeholder:text-gray36"
       />
       <Icon
         v-if="!!appendIcon"

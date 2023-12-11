@@ -1,10 +1,10 @@
 <template>
   <Page>
     <template #default>
-      <div class="my-10 grid gap-y-10 px-10">
+      <div class="my-10 grid gap-y-10 px-20">
         <div>【 Input Text | Password | Number 】</div>
 
-        <InputWrap v-model="inputValue" :title="'帳號'" :subtitle="'(必填)'" class="w-[353px]"></InputWrap>
+        <InputWrap v-model="inputValue" :title="'帳號'" :subtitle="'(必填)'" class="w-[280px]"></InputWrap>
 
         <InputWrap
           v-model="inputValue"
@@ -12,7 +12,7 @@
           :subtitle="'单位：美金'"
           :placeholder="'9.99'"
           :appendText="'最高设置为90元'"
-          class="w-[353px]"
+          class="w-[280px]"
           :maxLength="5"
         ></InputWrap>
 
@@ -20,7 +20,7 @@
           v-model="inputValue"
           :placeholder="'搜索...'"
           :appendIcon="'search'"
-          class="w-[353px]"
+          class="w-[280px]"
           @click:append="console.log('appendIcon')"
         ></InputWrap>
 
@@ -28,7 +28,7 @@
           v-model="inputValue"
           :placeholder="'Add new tag...'"
           :appendTextBtn="'Add'"
-          class="w-[353px]"
+          class="w-[280px]"
           @click:append="console.log('appendTextBtn')"
         ></InputWrap>
 
@@ -36,7 +36,7 @@
           v-model="inputValue"
           :placeholder="'Add new tag...'"
           :appendIconBtn="'sendWhite'"
-          class="w-[353px]"
+          class="w-[280px]"
           @click:append="console.log('appendIconBtn')"
         ></InputWrap>
 
@@ -49,7 +49,7 @@
           :title="'标题'"
           :subtitle="'(副标题)'"
           :placeholder="'填写内文'"
-          class="w-[353px]"
+          class="w-[280px]"
         ></TextareaWrap>
         <p class="text-[0.75rem]">輸入的值：{{ textareaValue }}</p>
         <hr />
