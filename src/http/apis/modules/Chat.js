@@ -1,10 +1,7 @@
-/**
- * 訊息歷史紀錄
- */
 export default {
-  // 聯絡人列表
-  getContactList: { method: 'post', url: '/api/chat/getContactList' },
+  // 指定對象訊息歷史紀錄
+  history: { method: 'post', url: '/api/chat/getHistory' },
 
   // 訊息列表
-  getHistory: { method: 'post', url: '/api/chat/getHistory' },
+  contactList: { method: 'post', url: '/api/chat/getContactList' },
 }
