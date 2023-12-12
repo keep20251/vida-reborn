@@ -38,149 +38,20 @@
   </Page>
 </template>
 <script setup>
-import { useRoute } from 'vue-router'
 import { onMounted, onUnmounted } from 'vue'
-import { useLocalStorage } from '@vueuse/core'
-import { useAppleSignIn } from '@/utils/apple.js'
-import useRequest from '@/compositions/request'
+import { useThirdPartyAuth } from '@/compositions/request/third-party-auth'
 
-/** 第三方登入後重定向的網址，告訴 Google, Twitter 要往哪個網址送GET參數過去 */
-const redirect_uri = `${import.meta.env.VITE_APP_URL}/devmode/google`
+const { twitterLogin, googleLogin, bindAppleEvent, unbindAppleEvent, onAppleSignIn, onAppleLoginSuccess } =
+  useThirdPartyAuth()
 
-/**
- * 向後端請求取得 Twitter 登入頁面的網址
- */
-const { data: twitterRedirection, execute: getRedirectToTwitter } = useRequest('ThirdParty.getRedirectToTwitter', {
-  params: {
-    redirect_uri,
-  },
-  onSuccess: (responseData) => {
-    console.log('onSuccess', responseData)
-  },
-})
-
-const twitterOAuth = useLocalStorage('twitterOAuth', {})
-
-async function twitterLogin() {
-  try {
-    await getRedirectToTwitter()
-    console.log('twitterRedirection', twitterRedirection.value.data)
-    twitterOAuth.value = twitterRedirection.value.data
-    window.location.href = twitterRedirection.value.data.url
-  } catch (err) {
-    console.error(err)
-  }
-}
-
-const route = useRoute()
-
-/**
- * Twitter 登入成功後，Twitter 會將 oauth_verifier, oauth_token, oauth_token_secret 這三個參數帶在網址上
- * 然後再向後端請求取得 token
- */
-function onTwitterLoginSuccess() {
-  useRequest('ThirdParty.loginByTwitter', {
-    params: {
-      oauth_verifier: route.query.oauth_verifier,
-      oauth_token: route.query.oauth_token,
-      oauth_token_secret: twitterOAuth.value.oauth_token_secret,
-    },
-    onSuccess: (responseData) => {
-      alert(`Twitter login success! token:${responseData.data.token}`)
-      twitterOAuth.value = {}
-    },
-    immediate: true,
-  })
-}
-
-/**
- * 向後端請求取得 Google 登入頁面的網址
- */
-const { data: googleRedirection, execute: getGoogleOuathPage } = useRequest('ThirdParty.getGoogleOauthPage', {
-  params: {
-    redirect_uri,
-  },
-  onSuccess: (responseData) => {
-    console.log('onSuccess', responseData)
-  },
-})
-
-const googleOAuth = useLocalStorage('googleOAuth', {})
-
-async function googleLogin() {
-  await getGoogleOuathPage()
-  console.log('googleRedirection', googleRedirection.value.data.url)
-
-  googleOAuth.value = googleRedirection.value.data
-  window.location.href = googleRedirection.value.data.url
-}
-
-/**
- * Google 登入成功後，Google 會將 code 這個參數帶在網址上
- * 然後再向後端請求取得 token
- */
-async function onGoogleLoginSuccess() {
-  console.log('onGoogleLoginSuccess', route.query.code)
-  const googleCode = decodeURIComponent(route.query.code)
-  useRequest('ThirdParty.webLoginByGoogle', {
-    params: {
-      redirect_uri,
-      google_code: googleCode,
-    },
-    onSuccess: (responseData) => {
-      alert(`Google login success! token:${responseData.data.token}`)
-      // googleOAuth.value = {}
-    },
-    immediate: true,
-  })
-}
-
-const { bindEvents, unbindEvents, onAppleSignIn } = useAppleSignIn()
-// TODO 先用同一頁做重新定向的網址，之後再改成另一個頁面
 onMounted(async () => {
-  try {
-    if (
-      twitterOAuth.value.oauth_token &&
-      twitterOAuth.value.oauth_token_secret &&
-      route.query.oauth_verifier &&
-      route.query.oauth_token
-    ) {
-      await onTwitterLoginSuccess()
-    }
-
-    if (route.query.code) {
-      await onGoogleLoginSuccess()
-    }
-  } catch (err) {
-    console.error(err)
-  }
-
-  bindEvents({
+  bindAppleEvent({
     onSuccess: onAppleLoginSuccess,
     onFailure: () => console.error('onFailure'),
   })
 })
 
 onUnmounted(() => {
-  unbindEvents()
+  unbindAppleEvent()
 })
-
-async function onAppleLoginSuccess(event) {
-  console.log('onAppleLoginSuccess', event)
-
-  const { code } = event
-  useRequest('ThirdParty.webLoginByApple', {
-    params: {
-      redirect_uri,
-      apple_code: code,
-    },
-    onSuccess: (responseData) => {
-      alert(`Apple login success! token:${responseData.data.token}`)
-    },
-    onError: (err) => {
-      console.error(err)
-    },
-    immediate: true,
-  })
-}
 </script>

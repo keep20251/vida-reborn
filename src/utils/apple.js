@@ -9,7 +9,7 @@ export function useAppleSignIn() {
     window.AppleID.auth.init({
       clientId: 'cc.test.vida',
       scope: 'name email',
-      redirectURI: `${import.meta.env.VITE_APP_URL}/devmode/google`,
+      redirectURI: import.meta.env.VITE_APP_URL,
       state,
       nonce,
       usePopup: true,
