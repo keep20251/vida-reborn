@@ -1,11 +1,9 @@
 <template>
   <BaseDialog>
     <template #default>
-      <!-- <div class="m-100 mx-20 w-full max-w-[353px] rounded-xl bg-white"> -->
       <keep-alive>
         <component :is="authComponent"></component>
       </keep-alive>
-      <!-- </div> -->
     </template>
   </BaseDialog>
 </template>
