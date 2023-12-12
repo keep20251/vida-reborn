@@ -36,8 +36,9 @@
             class="font-bold hover:text-green-700"
             :to="route.path"
             :key="route.path"
-            >{{ route.name }}</router-link
           >
+            {{ route.name }}
+          </router-link>
         </div>
       </div>
     </nav>
