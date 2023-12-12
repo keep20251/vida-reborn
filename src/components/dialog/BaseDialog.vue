@@ -12,6 +12,15 @@
 <script setup>
 import { onMounted, onUnmounted } from 'vue'
 
-onMounted(() => (document.body.style.overflowY = 'hidden'))
-onUnmounted(() => (document.body.style.overflowY = 'auto'))
+let html = null
+
+onMounted(() => {
+  html = document.getElementsByTagName('html')[0]
+  html.style.overflow = 'hidden'
+  html.style.marginRight = '12px'
+})
+onUnmounted(() => {
+  html.style.overflow = 'auto'
+  html.style.marginRight = ''
+})
 </script>
