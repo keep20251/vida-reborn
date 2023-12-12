@@ -1,6 +1,6 @@
-import { ref, shallowRef, readonly, useSSRContext } from 'vue'
-import { useCookies, createCookies } from '@vueuse/integrations/useCookies'
+import { ref, shallowRef, readonly } from 'vue'
 import { v4 as uuidv4 } from 'uuid'
+import { useCookie } from '@use/utils/cookie'
 import { COOKIE_KEY } from '@const'
 import API from '@/http'
 
@@ -10,23 +10,8 @@ function useRequest(
   apiKey,
   { params = {}, immediate = false, shallow = true, initialData = null, onSuccess, onError, onFinish },
 ) {
-  let cookies
-  if (import.meta.env.SSR) {
-    const { req, res } = useSSRContext()
-    cookies = createCookies(req)()
-
-    if (!cookies.get(COOKIE_KEY.GUEST_ID)) {
-      const uuid = uuidv4()
-      cookies.set(COOKIE_KEY.GUEST_ID, uuid)
-      res.cookie(COOKIE_KEY.GUEST_ID, uuid)
-    }
-  } else {
-    cookies = useCookies()
-    if (!cookies.get(COOKIE_KEY.GUEST_ID)) {
-      const uuid = uuidv4()
-      cookies.set(COOKIE_KEY.GUEST_ID, uuid)
-    }
-  }
+  const guestIdCookie = useCookie(COOKIE_KEY.GUEST_ID, { default: uuidv4(), readonly: true })
+  const tokenCookie = useCookie(COOKIE_KEY.AUTH)
 
   const data = (shallow ? shallowRef : ref)(initialData)
   const error = shallowRef(null)
@@ -53,13 +38,12 @@ function useRequest(
     }
 
     // 塞 oauth
-    reqParams.oauth_id = cookies.get(COOKIE_KEY.GUEST_ID)
+    reqParams.oauth_id = guestIdCookie.value
     reqParams.oauth_type = 'pwa'
 
     // 塞 token
-    const token = cookies.get(COOKIE_KEY.AUTH)
-    if (token) {
-      reqParams.token = token
+    if (tokenCookie.value) {
+      reqParams.token = tokenCookie.value
     }
 
     return API[moduleName][fnName](
