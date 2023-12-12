@@ -93,10 +93,10 @@ function onLoad() {
 
 const { bindTwitterSuccess, bindGoogleSuccess } = useThirdPartyAuth()
 
-onMounted(async () => {
+onMounted(() => {
   try {
-    await bindTwitterSuccess()
-    await bindGoogleSuccess()
+    bindTwitterSuccess()
+    bindGoogleSuccess()
   } catch (e) {
     console.error(e)
   }

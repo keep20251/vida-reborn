@@ -7,7 +7,7 @@
         </div>
       </div>
       <div class="flex flex-col justify-center gap-y-10 px-20">
-        <InputWrap title="電子郵箱" placeholder="請輸入電子郵箱"></InputWrap>
+        <InputWrap v-model="email" title="電子郵箱" placeholder="請輸入電子郵箱"></InputWrap>
         <button
           class="w-full rounded-[1.125rem] bg-primary px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
           @click="to(AUTH_ROUTES.SIGN_UP)"
@@ -44,8 +44,10 @@ import { useAuthRouteStore } from '@/store/auth-route'
 import { AUTH_ROUTES } from '@/constant'
 import InputWrap from '@comp/form/InputWrap.vue'
 import { useThirdPartyAuth } from '@/compositions/request/third-party-auth'
+import { ref } from 'vue'
 
 const { twitterLogin, googleLogin, onAppleSignIn, onAppleLoginSuccess } = useThirdPartyAuth()
-
 const { to, close } = useAuthRouteStore()
+
+const email = ref('')
 </script>

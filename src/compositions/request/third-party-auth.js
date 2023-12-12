@@ -2,7 +2,6 @@ import useRequest from '@/compositions/request'
 import { useLocalStorage } from '@vueuse/core'
 import { useRoute } from 'vue-router'
 import { useAppleSignIn } from '@/utils/apple.js'
-import { readonly } from 'vue'
 
 export function useThirdPartyAuth() {
   /**
@@ -155,7 +154,7 @@ export function useThirdPartyAuth() {
   }
 
   return {
-    redirect_uri: readonly(redirect_uri),
+    redirect_uri,
     twitterOAuth,
     googleOAuth,
     twitterLogin,

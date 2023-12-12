@@ -9,3 +9,7 @@ export const AUTH_ROUTES = {
   LOGIN: 2,
   SIGN_UP: 3,
 }
+
+export const LOCAL_STORAGE_KEYS = {
+  ACCOUNT_INFO: '__ACCOUNT_INFO',
+}
