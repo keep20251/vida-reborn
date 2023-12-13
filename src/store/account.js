@@ -4,6 +4,8 @@ import { useRouter } from 'vue-router'
 import { useLocalStorage } from '@vueuse/core'
 import { useDialogStore } from '@/store/dialog'
 import { LOCAL_STORAGE_KEYS } from '@/constant'
+import { useCookie } from '@use/utils/cookie'
+import { COOKIE_KEY } from '@const'
 
 export const useAccountStore = defineStore('account-store', () => {
   // 用來暫存 afterLoginAction 的待執行函式
@@ -22,9 +24,10 @@ export const useAccountStore = defineStore('account-store', () => {
     uuid: null,
     chatToken: null,
   })
+  const tokenCookie = useCookie(COOKIE_KEY.AUTH)
   const userData = ref({})
 
-  const isLogin = computed(() => !!accountRef.value.token)
+  const isLogin = computed(() => !!tokenCookie.value)
   const username = computed(() => accountRef.value.username)
   const token = computed(() => accountRef.value.token)
   const userId = computed(() => accountRef.value.aff)

@@ -9,4 +9,7 @@
  * 才可以變更NavigationBar的狀態
  * */
 // export default [locale, checkLogin, nav]
-export default []
+
+import oauth from '@/router/guards/before/oauth'
+
+export default [oauth]

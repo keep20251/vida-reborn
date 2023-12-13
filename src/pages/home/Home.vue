@@ -72,8 +72,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
-import { useThirdPartyAuth } from '@use/request/third-party-auth'
+import { ref } from 'vue'
 import Tab from '@comp/navigation/Tab.vue'
 import List from '@comp/common/List.vue'
 import Feed from '@comp/main/Feed.vue'
@@ -91,15 +90,4 @@ const tabOptions = ref([
 function onLoad() {
   console.log('load at', new Date())
 }
-
-const { bindTwitterSuccess, bindGoogleSuccess } = useThirdPartyAuth()
-
-onMounted(() => {
-  try {
-    bindTwitterSuccess()
-    bindGoogleSuccess()
-  } catch (e) {
-    console.error(e)
-  }
-})
 </script>
