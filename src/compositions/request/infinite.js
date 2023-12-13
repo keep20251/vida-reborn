@@ -1,17 +1,13 @@
 import { readonly, ref } from 'vue'
-import API from '@/http'
-import { FEED_PERMISION } from '@/constant'
+import useRequest from '.'
 
 /**
  *
- * @param {Function} request 請求函式
+ * @param {Function} apiKey api key
  * @param {Object} params 其他額外的參數
  * @param {Number} limit 分頁數量，預設 10
- * @param {String} dataArrayKey 回應資料中的目標陣列位在的 property，預設為回應資料本身
  */
-export function useInfinite({ request, params, limit = 10, dataArrayKey }) {
-  const controller = new AbortController()
-
+export function useInfinite(apiKey, { params = {}, limit = 10 } = {}) {
   // 請求資料清單
   const dataList = ref([])
 
@@ -24,18 +20,29 @@ export function useInfinite({ request, params, limit = 10, dataArrayKey }) {
   // 任何請求時捕捉到的錯誤訊息
   const errorMsg = ref('')
 
-  function init(newDataNotify) {
+  const { execute } = useRequest(apiKey, {
+    onSuccess(data) {
+      if (data.length < limit) {
+        noMore.value = true
+      }
+      dataList.value.push(...data)
+    },
+    onError(e) {
+      console.warn(e)
+      errorMsg.value = e.message
+    },
+    onFinish() {
+      loading.value = false
+    },
+  })
+
+  async function init() {
     if (!loading.value && !noMore.value && dataList.value.length === 0) {
-      nextPage(newDataNotify)
+      return nextPage()
     }
   }
 
-  function refresh({ newRequest = request, newParams = params, newLimit = limit } = {}, newDataNotify) {
-    if (loading.value) {
-      controller.abort()
-    }
-
-    request = newRequest
+  async function refresh({ newParams = params, newLimit = limit } = {}) {
     params = newParams
     limit = newLimit
 
@@ -43,10 +50,10 @@ export function useInfinite({ request, params, limit = 10, dataArrayKey }) {
     noMore.value = false
     errorMsg.value = ''
     dataList.value = []
-    nextPage(newDataNotify)
+    return nextPage()
   }
 
-  function nextPage(newDataNotify) {
+  async function nextPage() {
     if (loading.value) {
       console.warn('Infinite reqeust is loading, but you still call nextPage() to request.')
       return
@@ -60,43 +67,7 @@ export function useInfinite({ request, params, limit = 10, dataArrayKey }) {
     loading.value = true
     const page = Math.ceil(dataList.value.length / limit) + 1
 
-    /**
-     * 只要是拿視頻或圖片都把商品給過濾掉，限制要求ALL, SUB類的媒體
-     */
-    let visibleParams = {}
-    if ([API.Media.getVideoList, API.Media.getPhotoList].includes(request)) {
-      visibleParams = { visible: `${FEED_PERMISION.ALL},${FEED_PERMISION.SUB}` }
-    }
-    request(
-      {
-        data: {
-          page,
-          limit,
-          ...visibleParams,
-          ...params,
-        },
-      },
-      {
-        signal: controller.signal,
-      },
-    )
-      .then((data) => {
-        const arr = dataArrayKey ? data[dataArrayKey] : data
-
-        if (arr.length < limit) {
-          noMore.value = true
-        }
-        dataList.value.push(...arr)
-
-        if (newDataNotify) {
-          newDataNotify(data)
-        }
-      })
-      .catch((e) => {
-        console.warn(e)
-        errorMsg.value = e.message
-      })
-      .finally(() => (loading.value = false))
+    return execute({ page, limit, ...params })
   }
 
   return {
