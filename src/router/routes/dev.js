@@ -10,7 +10,7 @@ import Dialog from '@/pages/dev-mode/Dialog.vue'
 import Loading from '@/pages/dev-mode/Loading.vue'
 
 const prefix = '/devmode'
-export const devRoutes = [
+export default [
   { path: `${prefix}/`, component: Home, meta: {} },
   { name: `${prefix}-home`, path: `${prefix}/home`, component: Home, meta: {} },
   { name: `${prefix}-i18n`, path: `${prefix}/i18n`, component: i18n, meta: {} },

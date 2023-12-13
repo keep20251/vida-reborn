@@ -23,7 +23,7 @@
 </template>
 <script setup>
 import { onMounted, ref } from 'vue'
-import { devRoutes } from '@/router/routes/dev'
+import devRoutes from '@/router/routes/dev'
 
 const renderType = ref('SSR')
 

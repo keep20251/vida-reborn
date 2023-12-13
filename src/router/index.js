@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory, createMemoryHistory } from 'vue-router'
-import { devRoutes } from './routes/dev'
+import devRoutes from './routes/dev'
+import errorRoutes from './routes/error'
 import beforeGuard from './guards/before'
 import afterGuard from './guards/after'
 
@@ -17,7 +18,7 @@ const routes = [
   { name: 'search', path: '/search', component: Search, meta: {} },
   { name: 'message', path: '/message', component: Message, meta: {} },
   { name: 'mine', path: '/mine', component: Mine, meta: {} },
-  { name: '404', path: '/:catchAll(.*)', component: () => import('@/pages/errors/404.vue'), meta: {} },
+  ...errorRoutes,
 ]
 
 const router = createRouter({
