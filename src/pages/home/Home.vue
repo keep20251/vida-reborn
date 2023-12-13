@@ -8,7 +8,7 @@
             <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
           </template>
           <template #bottom>
-            <div class="py-8 text-center text-gray36">載入中.../沒有更多了</div>
+            <div class="flex items-center justify-center py-8 text-gray36"><Loading></Loading>/沒有更多了</div>
           </template>
         </List>
       </div>
@@ -72,11 +72,12 @@
 </template>
 
 <script setup>
+import { onMounted, ref } from 'vue'
+import { useThirdPartyAuth } from '@use/request/third-party-auth'
 import Tab from '@comp/navigation/Tab.vue'
 import List from '@comp/common/List.vue'
 import Feed from '@comp/main/Feed.vue'
-import { onMounted, ref } from 'vue'
-import { useThirdPartyAuth } from '@/compositions/request/third-party-auth'
+import Loading from '@/comp/common/Loading.vue'
 
 const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
 
