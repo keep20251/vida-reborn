@@ -1,5 +1,7 @@
 import { readonly, ref } from 'vue'
-import { concat, flatten, sumBy } from 'lodash'
+import concat from 'lodash/concat'
+import flatten from 'lodash/flatten'
+import sumBy from 'lodash/sumBy'
 import { resizeColumns } from '@/utils/resort-columns'
 
 /**

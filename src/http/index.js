@@ -5,7 +5,7 @@ import globalResponseInterceptors from './response/interceptors/index.global'
 import globalRequestErrorHandlers from './request/error-handlers/index.global'
 import globalResponseErrorHandlers from './response/error-handlers/index.global'
 import apis from './apis'
-import { mapValues } from 'lodash'
+import mapValues from 'lodash/mapValues'
 
 const instance = axios.create(config)
 
