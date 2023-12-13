@@ -31,6 +31,12 @@ export default {
         gray05: 'rgba(0, 0, 0, 0.05)',
         warning: '#FF1D00',
       },
+      keyframes: {
+        flash: {
+          '0%': { opacity: 1 },
+          '100%': { opacity: 0 },
+        },
+      },
     },
     spacing: generateSpacing(),
   },
