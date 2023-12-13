@@ -89,53 +89,27 @@
         <div class="text-[0.875rem] font-normal leading-[0.875rem]">Helvetica Neue-14-按钮未选中</div>
         <hr />
         <div>【 Dropdown 】</div>
-        <div class="bg-gray05 p-8">
+        <div class="flex flex-col gap-16 p-8">
           <Dropdown class="w-96" v-model="dropdownValue" :options="options"></Dropdown>
+          <Dropdown v-model="dropdownValue" :options="options" inset></Dropdown>
         </div>
         <hr />
         <div>【 Button 】</div>
         <div class="mb-8">
-          <button class="rounded-[1.125rem] bg-primary px-45 py-10 text-sm font-bold leading-[0.875rem] text-white">
-            primary button
-          </button>
+          <Button @click="onBtnClick('primary button')">primary button</Button>
         </div>
         <div class="mb-8">
-          <button
-            class="w-1/2 rounded-[1.125rem] bg-primary px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
-          >
-            primary half width button
-          </button>
+          <Button @click="onBtnClick('contrast button')" contrast>contrast button</Button>
         </div>
         <div class="mb-8">
-          <button
-            class="w-full rounded-[1.125rem] bg-primary px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
-          >
-            primary full width button
-          </button>
-        </div>
-        <div class="mb-8">
-          <button class="rounded-[1.125rem] bg-contrast px-45 py-10 text-sm font-bold leading-[0.875rem] text-white">
-            contrast button
-          </button>
-        </div>
-        <div class="mb-8">
-          <button
-            class="rounded-[1.125rem] bg-gradient-to-r from-primary to-contrast px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
-          >
-            gradient button
-          </button>
+          <Button @click="onBtnClick('gradient button')" gradient>gradient button</Button>
         </div>
         <div class="flex space-x-8">
-          <button
-            class="w-1/2 rounded-[1.125rem] bg-gray30 px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
-          >
-            cancel button
-          </button>
-          <button
-            class="w-1/2 rounded-[1.125rem] bg-primary px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
-          >
-            confirm button
-          </button>
+          <Button @click="onBtnClick('cancel button')" cancel>cancel button</Button>
+          <Button @click="onBtnClick('confirm button')">confirm button</Button>
+        </div>
+        <div class="flex space-x-8">
+          <Button loading>loading button</Button>
         </div>
         <hr />
         <div>【 OptionsPicker 】</div>
@@ -157,6 +131,7 @@ import InputSwitch from '@comp/form/InputSwitch.vue'
 import OptionsPicker from '@comp/form/OptionsPicker.vue'
 import Dropdown from '@comp/form/Dropdown.vue'
 import TextareaWrap from '@comp/form/TextareaWrap.vue'
+import Button from '@comp/common/Button.vue'
 
 const inputValue = ref('')
 const textareaValue = ref('')
@@ -179,4 +154,8 @@ const options = ref([
   { label: 'Option9', value: 9 },
   { label: 'Option10', value: 10 },
 ])
+
+function onBtnClick(v) {
+  console.log(v)
+}
 </script>
