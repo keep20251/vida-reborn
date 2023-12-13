@@ -4,7 +4,7 @@
       <main>
         <div
           v-if="$slots['main-top']"
-          class="sticky top-0 h-52 w-full max-w-[600px] bg-white transition-transform md:w-[600px]"
+          class="sticky top-0 z-10 h-52 w-full max-w-[600px] bg-white transition-transform md:w-[600px]"
           :class="{ 'translate-y-[-100%]': !mainTopOpen }"
         >
           <slot name="main-top"></slot>
