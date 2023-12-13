@@ -20,7 +20,7 @@ onMounted(() => {
   html.style.marginRight = '12px'
 })
 onUnmounted(() => {
-  html.style.overflow = 'auto'
+  html.style.overflow = ''
   html.style.marginRight = ''
 })
 </script>

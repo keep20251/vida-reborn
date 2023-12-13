@@ -1,9 +1,11 @@
 <template>
   <Page>
+    <template #main-top>
+      <Tab v-model="tab" :options="tabOptions"></Tab>
+    </template>
     <template #default>
-      <div class="my-10 grid gap-y-20 px-20">
+      <div v-if="tab === 1" class="my-10 grid gap-y-20 px-20">
         <div>【 Input Text | Password | Number 】</div>
-
         <InputWrap
           v-model="inputValue"
           :title="'帳號'"
@@ -78,8 +80,8 @@
         <div>【 Input Switch 】</div>
         <InputSwitch :label="'選取切換'" v-model="switchValue"></InputSwitch>
         <p class="text-[0.75rem]">選擇的值：{{ switchValue }}</p>
-        <hr />
-
+      </div>
+      <div v-else-if="tab === 2" class="my-10 grid gap-y-20 px-20">
         <div>【 Text Style 】</div>
         <div class="text-[1.5625rem] font-bold leading-[1.5625rem]">Helvetica Neue-25-特重标题</div>
         <div class="text-[1.125rem] font-bold leading-[1.125rem]">Helvetica Neue-18-大标题</div>
@@ -87,13 +89,15 @@
         <div class="text-[0.75rem] font-normal leading-[0.75rem]">＠Helvetica Neue-12-注释</div>
         <div class="text-[0.875rem] font-bold leading-[0.875rem]">Helvetica Neue-14-按钮</div>
         <div class="text-[0.875rem] font-normal leading-[0.875rem]">Helvetica Neue-14-按钮未选中</div>
-        <hr />
+      </div>
+      <div v-else-if="tab === 3" class="my-10 grid gap-y-20 px-20">
         <div>【 Dropdown 】</div>
         <div class="flex flex-col gap-16 p-8">
           <Dropdown class="w-96" v-model="dropdownValue" :options="options"></Dropdown>
           <Dropdown v-model="dropdownValue" :options="options" inset></Dropdown>
         </div>
-        <hr />
+      </div>
+      <div v-else-if="tab === 4" class="my-10 grid gap-y-20 px-20">
         <div>【 Button 】</div>
         <div class="mb-8">
           <Button @click="onBtnClick('primary button')">primary button</Button>
@@ -111,13 +115,13 @@
         <div class="flex space-x-8">
           <Button loading>loading button</Button>
         </div>
-        <hr />
+      </div>
+      <div v-else-if="tab === 5" class="my-10 grid gap-y-20 px-20">
         <div>【 OptionsPicker 】</div>
         <OptionsPicker v-model="singlePickedOption" :options="options"></OptionsPicker>
         <p class="text-[0.75rem]">單選的值：{{ singlePickedOption }}</p>
         <OptionsPicker v-model="multiplePickedOptions" :options="options"></OptionsPicker>
         <p class="text-[0.75rem]">多選的值：{{ multiplePickedOptions }}</p>
-        <hr />
       </div>
     </template>
   </Page>
@@ -132,6 +136,16 @@ import OptionsPicker from '@comp/form/OptionsPicker.vue'
 import Dropdown from '@comp/form/Dropdown.vue'
 import TextareaWrap from '@comp/form/TextareaWrap.vue'
 import Button from '@comp/common/Button.vue'
+import Tab from '@comp/navigation/Tab.vue'
+
+const tab = ref(1)
+const tabOptions = ref([
+  { label: 'Input', value: 1 },
+  { label: 'Text', value: 2 },
+  { label: 'Dropdown', value: 3 },
+  { label: 'Button', value: 4 },
+  { label: 'Picker', value: 5 },
+])
 
 const inputValue = ref('')
 const textareaValue = ref('')
