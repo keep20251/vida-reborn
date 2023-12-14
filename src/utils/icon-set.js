@@ -16,6 +16,7 @@ import star from '@/assets/icons/navigation/star.svg'
 const analysis = defineAsyncComponent(() => import('@/assets/icons/function/analysis.svg'))
 const attach = defineAsyncComponent(() => import('@/assets/icons/function/attach.svg'))
 const back = defineAsyncComponent(() => import('@/assets/icons/function/back.svg'))
+const calendar = defineAsyncComponent(() => import('@/assets/icons/function/calendar.svg'))
 const close = defineAsyncComponent(() => import('@/assets/icons/function/close.svg'))
 const collection = defineAsyncComponent(() => import('@/assets/icons/function/collection.svg'))
 const draft = defineAsyncComponent(() => import('@/assets/icons/function/draft.svg'))
@@ -47,6 +48,7 @@ export const iconSet = {
   analysis,
   attach,
   back,
+  calendar,
   close,
   collection,
   draft,

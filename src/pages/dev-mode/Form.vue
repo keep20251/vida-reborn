@@ -122,6 +122,10 @@
         <p class="text-[0.75rem]">單選的值：{{ singlePickedOption }}</p>
         <OptionsPicker v-model="multiplePickedOptions" :options="options"></OptionsPicker>
         <p class="text-[0.75rem]">多選的值：{{ multiplePickedOptions }}</p>
+        <hr />
+        <div>【 DatePicker 】</div>
+        <DatePicker v-model="datePicked" include-time></DatePicker>
+        <p class="text-[0.75rem]">日期的值：{{ datePicked.toLocaleString() }}</p>
       </div>
     </template>
   </Page>
@@ -133,6 +137,7 @@ import InputWrap from '@comp/form/InputWrap.vue'
 import InputRadio from '@comp/form/InputRadio.vue'
 import InputSwitch from '@comp/form/InputSwitch.vue'
 import OptionsPicker from '@comp/form/OptionsPicker.vue'
+import DatePicker from '@comp/form/DatePicker.vue'
 import Dropdown from '@comp/form/Dropdown.vue'
 import TextareaWrap from '@comp/form/TextareaWrap.vue'
 import Button from '@comp/common/Button.vue'
@@ -168,6 +173,8 @@ const options = ref([
   { label: 'Option9', value: 9 },
   { label: 'Option10', value: 10 },
 ])
+
+const datePicked = ref(new Date())
 
 function onBtnClick(v) {
   console.log(v)
