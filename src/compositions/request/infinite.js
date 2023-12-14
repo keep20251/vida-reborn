@@ -12,7 +12,7 @@ export function useInfinite(apiKey, { params = {}, limit = 10 } = {}) {
   const dataList = ref([])
 
   // 是否正在請求中
-  const loading = ref(false)
+  const isLoading = ref(false)
 
   // 沒有更多了，當判斷到回傳資料數量小於 limit 就會被判定為沒有更多資料
   const noMore = ref(false)
@@ -20,25 +20,11 @@ export function useInfinite(apiKey, { params = {}, limit = 10 } = {}) {
   // 任何請求時捕捉到的錯誤訊息
   const errorMsg = ref('')
 
-  const { execute } = useRequest(apiKey, {
-    onSuccess(data) {
-      if (data.length < limit) {
-        noMore.value = true
-      }
-      dataList.value.push(...data)
-    },
-    onError(e) {
-      console.warn(e)
-      errorMsg.value = e.message
-    },
-    onFinish() {
-      loading.value = false
-    },
-  })
+  const { data, execute } = useRequest(apiKey)
 
   async function init() {
-    if (!loading.value && !noMore.value && dataList.value.length === 0) {
-      return nextPage()
+    if (!isLoading.value && !noMore.value && dataList.value.length === 0) {
+      await nextPage()
     }
   }
 
@@ -46,15 +32,15 @@ export function useInfinite(apiKey, { params = {}, limit = 10 } = {}) {
     params = newParams
     limit = newLimit
 
-    loading.value = false
+    isLoading.value = false
     noMore.value = false
     errorMsg.value = ''
     dataList.value = []
-    return nextPage()
+    await nextPage()
   }
 
   async function nextPage() {
-    if (loading.value) {
+    if (isLoading.value) {
       console.warn('Infinite reqeust is loading, but you still call nextPage() to request.')
       return
     }
@@ -64,15 +50,27 @@ export function useInfinite(apiKey, { params = {}, limit = 10 } = {}) {
     }
 
     errorMsg.value = ''
-    loading.value = true
+    isLoading.value = true
     const page = Math.ceil(dataList.value.length / limit) + 1
 
-    return execute({ page, limit, ...params })
+    try {
+      await execute({ page, limit, ...params })
+
+      if (data.value.length < limit) {
+        noMore.value = true
+      }
+      dataList.value.push(...data.value)
+    } catch (e) {
+      console.warn(e)
+      errorMsg.value = e.message
+    } finally {
+      isLoading.value = false
+    }
   }
 
   return {
     dataList,
-    loading: readonly(loading),
+    isLoading: readonly(isLoading),
     noMore: readonly(noMore),
     errorMsg: readonly(errorMsg),
     init,
