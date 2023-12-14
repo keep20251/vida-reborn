@@ -3,12 +3,7 @@
     <template #default>
       <div class="m-20">
         <div v-for="i in 100" :key="`test-regoin-${i}`">Hello Dialog</div>
-        <button
-          class="rounded-[1.125rem] bg-primary px-45 py-10 text-sm font-bold leading-[0.875rem] text-white"
-          @click="showDialog = true"
-        >
-          Show Dialog
-        </button>
+        <Button @click="showDialog = true"> Show Dialog </Button>
         <BaseDialog v-if="showDialog">
           <template #default>
             <div class="relative">
@@ -33,7 +28,7 @@
 </template>
 <script setup>
 import BaseDialog from '@/components/dialog/BaseDialog.vue'
-import Icon from '@/components/common/Icon.vue'
+import Button from '@comp/common/Button.vue'
 import { ref } from 'vue'
 
 const showDialog = ref(false)
