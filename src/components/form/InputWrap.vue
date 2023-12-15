@@ -1,5 +1,5 @@
 <template>
-  <div class="input-wrap flex flex-col gap-y-10">
+  <div class="flex flex-col gap-y-10">
     <label v-if="title" class="text-left text-[0.875rem] font-normal not-italic leading-[0.875rem]"
       >{{ title }}
 
@@ -8,7 +8,7 @@
       }}</span>
     </label>
 
-    <div class="input-row relative flex items-center">
+    <div class="relative flex items-center">
       <input
         v-model="value"
         :type="type"
@@ -57,7 +57,7 @@
         <Icon :size="20" :name="appendIconBtn" class="text-white"></Icon>
       </div>
     </div>
-    <div v-if="errMsg" class="text-warning text-left text-[0.875rem] font-normal not-italic leading-[0.875rem]">
+    <div v-if="errMsg" class="text-left text-[0.875rem] font-normal not-italic leading-[0.875rem] text-warning">
       {{ errMsg }}
     </div>
   </div>

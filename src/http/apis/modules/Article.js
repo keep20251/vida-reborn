@@ -6,7 +6,7 @@ export default {
   list: { method: 'post', url: '/api/article/getList' },
 
   // 取得用戶興趣相關帖子
-  listByInterested: { method: 'post', url: '/api/article/getArticlByInterseted' },
+  listByInterested: { method: 'post', url: '/api/article/getArticleByInterseted' },
 
   // 指定創作者帖子列表
   listByUser: { method: 'post', url: '/api/article/getArticleByUser' },
