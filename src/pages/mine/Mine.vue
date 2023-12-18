@@ -7,20 +7,28 @@
     </template>
     <template #default>
       <div class="px-20">
-        <div
-          class="relative mb-35 flex h-[400px] w-full bg-cover bg-center bg-no-repeat"
-          :style="{ backgroundImage: `url(${profileBg})` }"
-        >
+        <div class="relative mb-35 flex h-[400px] w-full bg-gray66">
+          <div class="absolute left-1/2 top-1/2 w-full translate-x-[-50%] translate-y-[-50%]">
+            <div class="flex justify-around">
+              <div class="flex w-[175px] flex-col items-center gap-y-5">
+                <p class="text-[1.5625rem] font-bold leading-[1.5625rem] text-white">35K</p>
+                <p class="text-[0.75rem] font-normal leading-[0.75rem] text-white opacity-50">Subscribers</p>
+              </div>
+              <div class="h-25 w-1 bg-[#DCDCDC]"></div>
+              <div class="flex w-[175px] flex-col items-center gap-y-5">
+                <p class="text-[1.5625rem] font-bold leading-[1.5625rem] text-white">85</p>
+                <p class="text-[0.75rem] font-normal leading-[0.75rem] text-white opacity-50">Posts</p>
+              </div>
+            </div>
+          </div>
           <div class="absolute bottom-[-35px] flex h-70 w-full items-end justify-between px-20">
-            <div
-              class="h-70 w-70 rounded-full bg-cover bg-center bg-no-repeat"
-              :style="{ backgroundImage: `url(${profileAvatar})` }"
-            ></div>
+            <div class="h-70 w-70 rounded-full bg-lime-700"></div>
             <div class="flex items-center gap-x-15">
-              <Icon class="cursor-pointer" name="sharePage" :size="20"></Icon>
+              <Icon class="cursor-pointer" name="link" :size="20"></Icon>
+              <Icon class="cursor-pointer" name="setting" :size="20"></Icon>
               <Icon class="cursor-pointer" name="moreHorizontal" :size="20"></Icon>
               <button
-                class="rounded-full border-[1.5px] border-gray66 bg-gray03 px-20 py-6 text-[0.875rem] font-normal leading-[0.875rem]"
+                class="bg-gray03 rounded-full border-[1.5px] border-gray66 px-20 py-6 text-[0.875rem] font-normal leading-[0.875rem]"
               >
                 Subscribe
               </button>
@@ -43,10 +51,10 @@
             to the spread, daddy💦💦
           </p>
         </div>
-        <div class="my-20 flex gap-x-12">
-          <Button>View subscription plans</Button>
+        <div class="my-20 flex">
+          <Button>Profile Page</Button>
         </div>
-        <div class="flex h-36 w-full items-center bg-gray03 px-20 text-[0.875rem] font-bold leading-[0.875rem]">
+        <div class="bg-gray03 flex h-36 w-full items-center px-20 text-[0.875rem] font-bold leading-[0.875rem]">
           All Posts 85
         </div>
         <div class="overflow-x-hidden">
@@ -115,6 +123,6 @@ const cats = ref([
   { img: 'https://images.pexels.com/photos/1440403/pexels-photo-1440403.jpeg' },
 ])
 
-const profileBg = ref('https://images.pexels.com/photos/1818608/pexels-photo-1818608.jpeg')
+const profileBg = ref('https://images.pexels.com/photos/134060/pexels-photo-134060.jpeg')
 const profileAvatar = ref('https://images.pexels.com/photos/129753/pexels-photo-129753.jpeg')
 </script>

@@ -36,6 +36,7 @@ const sendWhite = defineAsyncComponent(() => import('@/assets/icons/function/sen
 const setting = defineAsyncComponent(() => import('@/assets/icons/function/setting.svg'))
 const sharePage = defineAsyncComponent(() => import('@/assets/icons/function/share-page.svg'))
 const video = defineAsyncComponent(() => import('@/assets/icons/function/video.svg'))
+const link = defineAsyncComponent(() => import('@/assets/icons/function/link.svg'))
 
 // interaction
 const comment = defineAsyncComponent(() => import('@/assets/icons/interaction/comment.svg'))
@@ -68,6 +69,7 @@ export const iconSet = {
   setting,
   sharePage,
   video,
+  link,
 
   // interaction
   comment,
