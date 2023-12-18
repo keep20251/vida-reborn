@@ -1,11 +1,11 @@
 <template>
   <div class="relative hidden md:block">
     <div
-      class="h-[250px] w-full rounded-md bg-cover bg-center bg-no-repeat p-10 transition-all duration-300 ease-in-out"
+      class="h-[250px] w-full rounded-md bg-cover bg-center bg-no-repeat p-10"
       :style="{ backgroundImage: `url(${props.items[activeSlide].img})` }"
     ></div>
-    <div class="absolute bottom-[10px] left-[50%] translate-x-[-50%] translate-y-[-50%] overflow-hidden" ref="wrapper">
-      <ul class="flex justify-center gap-x-8" :style="{ left: left + 'px' }" ref="slider">
+    <div class="absolute bottom-[10px] left-[50%] translate-x-[-50%] translate-y-[-50%] overflow-hidden">
+      <ul class="flex justify-center gap-x-8">
         <li
           class="h-10 w-10 cursor-pointer rounded-full bg-gray36 shadow-[0_0_3px_0_rgba(0,0,0,0.25)]"
           v-for="(item, i) in props.items"
@@ -47,7 +47,6 @@ const props = defineProps({
 })
 
 const activeSlide = ref(0)
-const left = ref(0)
 let time
 
 const showSlide = (n) => {
@@ -63,6 +62,7 @@ const showNext = () => {
   } else {
     activeSlide.value = props.items.length - 1
   }
+  resetInterval()
 }
 
 const showPrev = () => {
@@ -74,19 +74,28 @@ const showPrev = () => {
   } else {
     activeSlide.value = 0
   }
+  resetInterval()
 }
 
 const getActiveSlide = (i) => i === activeSlide.value
 
 onMounted(() => {
+  startInterval()
+})
+
+onBeforeUnmount(() => {
+  resetInterval()
+})
+
+const startInterval = () => {
   if (props.intervalTime) {
     time = setInterval(() => {
       showNext()
     }, 5000)
   }
-})
-
-onBeforeUnmount(() => {
+}
+const resetInterval = () => {
   clearInterval(time)
-})
+  startInterval()
+}
 </script>
