@@ -4,7 +4,7 @@
       <main>
         <div
           v-if="$slots['main-top']"
-          class="sticky top-0 z-10 flex h-52 w-full max-w-[600px] items-center bg-white transition-transform md:w-[600px]"
+          class="sticky top-0 z-10 h-52 w-full max-w-[600px] bg-white transition-transform md:w-[600px]"
           :class="{ 'translate-y-[-100%]': !mainTopOpen }"
         >
           <slot name="main-top"></slot>
@@ -16,7 +16,12 @@
     </div>
     <div class="hidden md:block md:w-[300px] xl:w-[350px]">
       <aside>
-        <div ref="aside" class="pb-64" :class="{ 'pt-52': $slots['aside-top'] }" :style="asideStyle">
+        <div
+          ref="aside"
+          class="pb-64 md:w-[300px] xl:w-[350px]"
+          :class="{ 'pt-52': $slots['aside-top'] }"
+          :style="asideStyle"
+        >
           <slot name="aside"></slot>
         </div>
         <div v-if="$slots['aside-top']" class="fixed top-0 h-52 bg-white md:w-[300px] xl:w-[350px]">

@@ -1,7 +1,7 @@
 <template>
   <Page>
     <template #main-top>
-      <div class="flex w-full px-20">
+      <div class="flex h-full w-full items-center px-20">
         <div class="flex cursor-pointer"><Icon name="back" :size="24"></Icon> <span>Back</span></div>
       </div>
     </template>
@@ -20,7 +20,7 @@
               <Icon class="cursor-pointer" name="sharePage" :size="20"></Icon>
               <Icon class="cursor-pointer" name="moreHorizontal" :size="20"></Icon>
               <button
-                class="bg-gray03 rounded-full border-[1.5px] border-gray66 px-20 py-6 text-[0.875rem] font-normal leading-[0.875rem]"
+                class="rounded-full border-[1.5px] border-gray66 bg-gray03 px-20 py-6 text-[0.875rem] font-normal leading-[0.875rem]"
               >
                 Subscribe
               </button>
@@ -46,7 +46,7 @@
         <div class="my-20 flex gap-x-12">
           <Button>View subscription plans</Button>
         </div>
-        <div class="bg-gray03 flex h-36 w-full items-center px-20 text-[0.875rem] font-bold leading-[0.875rem]">
+        <div class="flex h-36 w-full items-center bg-gray03 px-20 text-[0.875rem] font-bold leading-[0.875rem]">
           All Posts 85
         </div>
         <div class="overflow-x-hidden">
@@ -67,14 +67,19 @@
         </div>
       </div>
     </template>
-    <template #aside>
-      <div class="m-15 grid gap-y-20">
+    <template #aside-top>
+      <div class="flex h-full items-center">
         <InputWrap
+          class="grow"
           v-model="inputValue"
           :placeholder="'搜索...'"
           :appendIcon="'search'"
           @click:append="console.log('appendIcon')"
         ></InputWrap>
+      </div>
+    </template>
+    <template #aside>
+      <div class="m-15 grid gap-y-20">
         <SetList />
         <div class="grid gap-y-5">
           <span>VIDA 活動與廣告</span>
