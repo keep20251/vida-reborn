@@ -96,6 +96,7 @@ import Carousel from '@comp/common/Carousel.vue'
 import List from '@comp/common/List.vue'
 import Feed from '@comp/main/Feed.vue'
 import Button from '@comp/common/Button.vue'
+import Loading from '@comp/common/Loading.vue'
 
 const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
 

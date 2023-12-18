@@ -9,9 +9,8 @@
         <li
           class="h-10 w-10 cursor-pointer rounded-full bg-gray36 shadow-[0_0_3px_0_rgba(0,0,0,0.25)]"
           v-for="(item, i) in props.items"
-          :class="{ 'bg-[#ffffff]': getActiveSlide(i) }"
+          :class="{ 'bg-[#fffbfb]': getActiveSlide(i) }"
           @click="showSlide(i)"
-          @pointerdown="moveSlide($event)"
           :key="i"
         ></li>
       </ul>
@@ -78,27 +77,6 @@ const showPrev = () => {
 }
 
 const getActiveSlide = (i) => i === activeSlide.value
-
-const moveSlide = (event) => {
-  const slider = event.target
-  const startX = event.clientX
-  const wrapper = slider.parentElement
-  const posElement = slider.getBoundingClientRect()
-  wrapper.addEventListener('pointermove', sliderMoved)
-  wrapper.addEventListener('pointerup', sliderReleased)
-  wrapper.addEventListener('pointercancel', sliderReleased)
-
-  function sliderMoved(event) {
-    const deltaX = event.clientX - startX
-    left.value = posElement.left + deltaX + 'px'
-  }
-
-  function sliderReleased() {
-    wrapper.removeEventListener('pointermove', sliderMoved)
-    wrapper.removeEventListener('pointerup', sliderReleased)
-    wrapper.removeEventListener('pointercancel', sliderReleased)
-  }
-}
 
 onMounted(() => {
   if (props.intervalTime) {
