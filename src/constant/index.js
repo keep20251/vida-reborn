@@ -8,6 +8,9 @@ export const AUTH_ROUTES = {
   MAIN_PAGE: 1,
   LOGIN: 2,
   SIGN_UP: 3,
+  VERIFY_EMAIL_CODE: 4,
+  VERIFY_PASSWORD: 5,
+  SIGN_UP_SUCCESS: 6,
 }
 
 export const LOCAL_STORAGE_KEYS = {

@@ -1,7 +1,10 @@
-// import CreatePassword from '@/components/auth/CreatePassword.vue'
 import MainPage from '@/components/auth/MainPage.vue'
 import SignUp from '@/components/auth/SignUp.vue'
-// import UserProfile from '@/components/auth/UserProfile.vue'
+import VerifyEmailCode from '@/components/auth/VerifyEmailCode.vue'
+import VerifyPassword from '@/components/auth/VerifyPassword.vue'
+import Login from '@/components/auth/Login.vue'
+import SignUpSuccess from '@/components/auth/SignUpSuccess.vue'
+
 import { defineStore, storeToRefs } from 'pinia'
 import { computed, ref } from 'vue'
 import { AUTH_ROUTES } from '@/constant'
@@ -14,17 +17,28 @@ export const useAuthRouteStore = defineStore('authRoute', () => {
 
   const routes = [
     { value: AUTH_ROUTES.MAIN_PAGE, component: MainPage },
+    { value: AUTH_ROUTES.LOGIN, component: Login },
     { value: AUTH_ROUTES.SIGN_UP, component: SignUp },
-    // { value: AUTH_ROUTES.CREATE_PASSWORD, component: CreatePassword },
-    // { value: AUTH_ROUTES.USER_PROFILE, component: UserProfile },
+    { value: AUTH_ROUTES.VERIFY_EMAIL_CODE, component: VerifyEmailCode },
+    { value: AUTH_ROUTES.VERIFY_PASSWORD, component: VerifyPassword },
+    { value: AUTH_ROUTES.SIGN_UP_SUCCESS, component: SignUpSuccess },
   ]
 
   const now = ref(AUTH_ROUTES.MAIN_PAGE)
   const authComponent = computed(() => routes.find((route) => route.value === now.value).component)
+  const history = ref([])
 
   function to(value) {
     // triggerGtm(value)
+    history.value.push(now.value)
     now.value = value
+  }
+
+  function back() {
+    if (history.value.length <= 0) {
+      throw new Error('[Auth Route Error] History is empty, you shoud not call back()')
+    }
+    now.value = history.value.pop()
   }
 
   function close() {
@@ -52,5 +66,5 @@ export const useAuthRouteStore = defineStore('authRoute', () => {
   //     }
   //   }
 
-  return { now, authComponent, to, close }
+  return { now, authComponent, to, back, close }
 })
