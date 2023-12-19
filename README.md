@@ -86,3 +86,26 @@ VITE_BASE_URL=/
 6.  如果想要移除 `Docker` 環境，可以使用 `docker-compose down` 來移除
 7.  如果想要查看容器狀態，可以使用 `docker ps` 來查看
 8.  如果想要進入 `Docker` 容器，可以使用 `docker exec -it {containerName} bash` 來進入，例如 `docker exec -it vida-nginx bash`
+
+
+### Custom Icon 設定
+
+#### 引入
+1. 將SVG檔案放置於`src/assets/icons`資料夾內
+2. 在 src/constant/icon-map.js 內新增對應的icon名稱，範例：
+```javascript
+export const iconMap = {
+  ...
+  camera: 'folder/icon-name', // icon名稱key: '資料夾名稱/檔案名稱'，不要副檔名
+}
+``` 
+#### 使用
+目前已經將 `Icon.vue` 在 `main.js` 全域載入，所以不需要特別 import
+
+```html
+<!-- 使用方式 -->
+<!-- size預設為16 -->
+<!-- name需要對應custom-icon.js的customSvgNameToComponent -->
+<!-- shadow陰影預設關閉 -->
+<Icon size="20" name="camera" :shadow="true"></Icon>
+```

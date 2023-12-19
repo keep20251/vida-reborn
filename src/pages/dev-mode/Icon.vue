@@ -19,10 +19,10 @@
 </template>
 <script setup>
 import { ref } from 'vue'
-import { iconSet } from '@/utils/icon-set'
+import { iconMap } from '@/constant/icon-map'
 
 const icons = []
-Object.keys(iconSet).forEach((key) => {
+Object.keys(iconMap).forEach((key) => {
   icons.push(key)
 })
 
