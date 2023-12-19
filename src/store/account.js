@@ -25,14 +25,9 @@ export const useAccountStore = defineStore('account-store', () => {
     chatToken: null,
   })
   const tokenCookie = useCookie(COOKIE_KEY.AUTH, { default: '' })
-  console.log('tokenCookie', tokenCookie)
-  const tokenLocalStorage = useLocalStorage(COOKIE_KEY.AUTH, '')
   const userData = ref({})
 
-  const isLogin = computed(() => {
-    console.log('isLogin computed')
-    return !!tokenLocalStorage.value
-  })
+  const isLogin = computed(() => !!tokenCookie.value)
   const username = computed(() => accountRef.value.username)
   const token = computed(() => accountRef.value.token)
   const userId = computed(() => accountRef.value.aff)
@@ -45,6 +40,17 @@ export const useAccountStore = defineStore('account-store', () => {
       tempAction = null
     }
   })
+
+  // 登入後關閉登入彈窗並跳轉至首頁
+  watch(
+    isLogin,
+    (newValue) => {
+      if (!newValue) return
+      authDialog.value = false
+      router.replace('/home')
+    },
+    { immediate: true },
+  )
 
   function login(data) {
     ;['username', 'token', 'aff', 'uuid', 'chat_token'].forEach((k) => {
@@ -126,6 +132,10 @@ export const useAccountStore = defineStore('account-store', () => {
     }
   }
 
+  function setToken(token) {
+    tokenCookie.value = token
+  }
+
   return {
     isLogin,
     username,
@@ -139,5 +149,6 @@ export const useAccountStore = defineStore('account-store', () => {
     afterLoginAction,
     setUserData,
     resetUserData,
+    setToken,
   }
 })

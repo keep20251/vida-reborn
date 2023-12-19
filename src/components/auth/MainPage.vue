@@ -42,15 +42,11 @@ import { useAuthRouteStore } from '@/store/auth-route'
 import { AUTH_ROUTES } from '@/constant'
 import { useThirdPartyAuth } from '@/compositions/request/third-party-auth'
 import { ref } from 'vue'
-import { useCookie } from '@use/utils/cookie'
-import { COOKIE_KEY } from '@const'
-import { useLocalStorage } from '@vueuse/core'
+import { useAccountStore } from '@/store/account'
 
 const { twitterLogin, googleLogin, onAppleSignIn, redirect_uri } = useThirdPartyAuth()
 const { to, close } = useAuthRouteStore()
-
-const tokenCookie = useCookie(COOKIE_KEY.AUTH, { default: '' })
-const tokenLocalStorage = useLocalStorage(COOKIE_KEY.AUTH, '')
+const { setToken } = useAccountStore()
 
 const email = ref('')
 
@@ -69,8 +65,7 @@ async function onAppleLoginSuccess(event) {
     },
     onSuccess: (responseData) => {
       console.log('ThirdParty.webLoginByApple.response', responseData)
-      tokenCookie.value = responseData.data.token
-      tokenLocalStorage.value = responseData.data.token
+      setToken(responseData.data.token)
     },
     onError: (err) => {
       console.error(err)

@@ -33,6 +33,10 @@
             Apple Sign In
           </button>
         </div>
+        <div class="m-16 flex flex-row gap-x-16 p-16">
+          <button class="w-80 bg-blue-500 px-8 py-1 text-white" @click="() => (authDialog = true)">Login</button>
+          <button class="w-80 bg-blue-500 px-8 py-1 text-white" @click="logout">Logout</button>
+        </div>
       </div>
     </template>
   </Page>
@@ -40,6 +44,13 @@
 <script setup>
 import { onMounted, onUnmounted } from 'vue'
 import { useThirdPartyAuth } from '@/compositions/request/third-party-auth'
+import { useAccountStore } from '@/store/account'
+import { useDialogStore } from '@/store/dialog'
+import { storeToRefs } from 'pinia'
+
+const { authDialog } = storeToRefs(useDialogStore())
+
+const { logout } = useAccountStore()
 
 const { twitterLogin, googleLogin, bindAppleEvent, unbindAppleEvent, onAppleSignIn, onAppleLoginSuccess } =
   useThirdPartyAuth()

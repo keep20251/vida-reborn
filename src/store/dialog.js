@@ -1,12 +1,8 @@
-import { defineStore, storeToRefs } from 'pinia'
-import { computed } from 'vue'
-import { useAccountStore } from './account'
+import { defineStore } from 'pinia'
+import { ref } from 'vue'
 
 export const useDialogStore = defineStore('dialog-store', () => {
-  const accountStore = useAccountStore()
-  const { isLogin } = storeToRefs(accountStore)
-
-  const authDialog = computed(() => !isLogin.value)
+  const authDialog = ref(false)
 
   return {
     authDialog,
