@@ -24,10 +24,15 @@ export const useAccountStore = defineStore('account-store', () => {
     uuid: null,
     chatToken: null,
   })
-  const tokenCookie = useCookie(COOKIE_KEY.AUTH)
+  const tokenCookie = useCookie(COOKIE_KEY.AUTH, { default: '' })
+  console.log('tokenCookie', tokenCookie)
+  const tokenLocalStorage = useLocalStorage(COOKIE_KEY.AUTH, '')
   const userData = ref({})
 
-  const isLogin = computed(() => !!tokenCookie.value)
+  const isLogin = computed(() => {
+    console.log('isLogin computed')
+    return !!tokenLocalStorage.value
+  })
   const username = computed(() => accountRef.value.username)
   const token = computed(() => accountRef.value.token)
   const userId = computed(() => accountRef.value.aff)
