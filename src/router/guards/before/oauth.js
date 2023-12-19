@@ -7,7 +7,7 @@ export default async (to, from, next) => {
   if (import.meta.env.SSR) next()
 
   const { twitterOAuth, redirect_uri } = useThirdPartyAuth()
-  const tokenCookie = useCookie(COOKIE_KEY.AUTH)
+  const tokenCookie = useCookie(COOKIE_KEY.AUTH, { default: '' })
 
   if (
     twitterOAuth.value.oauth_token &&

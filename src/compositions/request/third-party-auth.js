@@ -65,30 +65,6 @@ export function useThirdPartyAuth() {
     window.location.href = googleRedirection.value.data.url
   }
 
-  /**
-   * 蘋果登入成功後向後端請求取得 token
-   * @param {Object} event
-   */
-  async function onAppleLoginSuccess(event) {
-    console.log('onAppleLoginSuccess', event)
-
-    const { code } = event
-    useRequest('ThirdParty.webLoginByApple', {
-      params: {
-        redirect_uri,
-        apple_code: code,
-      },
-      onSuccess: (responseData) => {
-        console.log('ThirdParty.webLoginByApple.response', responseData)
-        alert(`Apple login success! token:${responseData.data.token}`)
-      },
-      onError: (err) => {
-        console.error(err)
-      },
-      immediate: true,
-    })
-  }
-
   return {
     redirect_uri,
     twitterOAuth,
@@ -98,6 +74,5 @@ export function useThirdPartyAuth() {
     bindAppleEvent,
     unbindAppleEvent,
     onAppleSignIn,
-    onAppleLoginSuccess,
   }
 }

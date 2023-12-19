@@ -35,15 +35,47 @@
   </div>
 </template>
 <script setup>
-import { useAuthRouteStore } from '@/store/auth-route'
-import { AUTH_ROUTES } from '@/constant'
 import InputWrap from '@comp/form/InputWrap.vue'
 import Button from '@comp/common/Button.vue'
+import useRequest from '@/compositions/request'
+import { useAuthRouteStore } from '@/store/auth-route'
+import { AUTH_ROUTES } from '@/constant'
 import { useThirdPartyAuth } from '@/compositions/request/third-party-auth'
 import { ref } from 'vue'
+import { useCookie } from '@use/utils/cookie'
+import { COOKIE_KEY } from '@const'
+import { useLocalStorage } from '@vueuse/core'
 
-const { twitterLogin, googleLogin, onAppleSignIn, onAppleLoginSuccess } = useThirdPartyAuth()
+const { twitterLogin, googleLogin, onAppleSignIn, redirect_uri } = useThirdPartyAuth()
 const { to, close } = useAuthRouteStore()
 
+const tokenCookie = useCookie(COOKIE_KEY.AUTH, { default: '' })
+const tokenLocalStorage = useLocalStorage(COOKIE_KEY.AUTH, '')
+
 const email = ref('')
+
+/**
+ * 蘋果登入成功後向後端請求取得 token
+ * @param {Object} event
+ */
+async function onAppleLoginSuccess(event) {
+  console.log('onAppleLoginSuccess', event)
+
+  const { code } = event
+  useRequest('ThirdParty.webLoginByApple', {
+    params: {
+      redirect_uri,
+      apple_code: code,
+    },
+    onSuccess: (responseData) => {
+      console.log('ThirdParty.webLoginByApple.response', responseData)
+      tokenCookie.value = responseData.data.token
+      tokenLocalStorage.value = responseData.data.token
+    },
+    onError: (err) => {
+      console.error(err)
+    },
+    immediate: true,
+  })
+}
 </script>
