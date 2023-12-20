@@ -20,6 +20,7 @@ export default {
     agree: '同意する',
     continue: '続く',
     skip: 'スキップ',
+    back: '戻る',
     confirm: '確認する',
     cancel: 'キャンセル',
     follow: 'フォローする',
@@ -123,6 +124,8 @@ export default {
     perPost: '投稿',
     perSubscriber: '購読者',
     subAmount: '売上金額(米ドル)',
+    schedulePublish: 'タイムリーなリリース',
+    autoPublishAt: '{0}で自動的にリリースされます',
     setLanguageSucceed: '言語が正常に設定されました',
     subIn: '定期購入は',
     renew: '更新する',
@@ -201,8 +204,15 @@ export default {
     notReviewed: '未レビュー',
     underReview: '検討中',
     auditFailure: '監査の失敗',
+    pushMsgMost: 'ほとんどのニュースメッセージ',
+    pushMsgLeast: 'プッシュメッセージで少なくとも1つ',
+    dates: '空',
+    hours: '時',
+    minutes: '分',
+    seconds: '秒',
   },
   label: {
+    confirm: '確認する',
     login: 'ログイン',
     register: '登録する',
     password: 'パスワード',
@@ -263,6 +273,14 @@ export default {
     paymentFailed: '支払いに失敗しました。後でもう一度お試しください',
     canSendMessage: 'メッセージ送信用',
     newMessage: '新しいメッセージ',
+    fanSendSet: {
+      para1_1: '新しく参加する',
+      para1_2: '消費されることはありません',
+      para1_3: 'ファンはビデオ/写真と購入情報を送信します。',
+      para2_1: 'メディアとコンテンツの設定',
+      para2_2: 'あなたはたくさんのストロークを送ってランダムに送ることができます',
+    },
+    addPushMsg: 'プッシュコンテンツを増やします',
   },
   placeholder: {
     message: 'メッセージを入力してください...',
@@ -331,11 +349,11 @@ export default {
     takePicture: '写真を撮る',
     personalInfo: 'プロフィール',
     loginCountDown: '見るべき制限はありません！',
-    fanSendSet: 'ファンメッセージ設定',
+    fanSendSet: 'メッセージプッシュ',
     selectMedia: 'メディアを選択してください',
     popularCreator: 'ホットクリエイター',
     followToView: '特定のアカウントを追跡して、最新の映画を表示します',
-    popularSetName: '{year}/{month}人気リスト',
+    popularSetName: '{year}-{month}人気リスト',
   },
   content: {
     logout: 'ログアウトしてもよろしいですか?',
@@ -366,6 +384,8 @@ export default {
       restoreSub: '再購読しますか?',
       resubscribe: 'サブスクリプションを更新しますか?',
     },
+    saveCfm: 'ストレージ確認',
+    changesSave: '変更を保存して保存します',
     publish: {
       createSuccess: '公開成功',
       createFail: '公開失敗',
@@ -512,6 +532,7 @@ export default {
       cardNum: 'カード番号を入力してください (例: 1234********1234)。',
     },
     date: { min: '日付は {min} より前であってはなりません。', max: '日付は {max} 以降であってはなりません。' },
+    time: { format: '時間形式は23:59です' },
     array: {
       of: '',
       json: '',
@@ -554,7 +575,7 @@ export default {
     title2: '11/02 - 11/08',
     line1: 'ファンタシのメンバーになることを歓迎します！',
     line2:
-      '「アジア最大の大人のショートビデオステーション - ファンタジ」のグランドオープニングイベントに参加するよう招待されています',
+      '「アジア最大の大人のショートビデオステーション - ファンタシ」のグランドオープニングイベントに参加するよう招待されています',
     list1: '限られた時間のオファー',
     list1_Cnt1: '最初のログインから3日以内、たった$',
     list1Price: '9.99',
@@ -562,29 +583,129 @@ export default {
     list2: 'この期間中にサブスクリプションを必要とするビデオや写真の無制限の探索！',
     btn: '今すぐ購読してください',
   },
+  creatorCampaign: {
+    title1: 'ファンタジークリエーターになり、賞品を何百万も獲得してください',
+    title2: '2023.11.15-2024.2.10',
+    list1: '赤い封筒',
+    list1_Cnt1: '登録および公開+指定されたタスクを完了し、豊富な現金赤い封筒を受け取ります',
+    list2: '二重収入',
+    list2_Cnt1: '毎月の収入は2回発行され、ボーナスコレクションは無制限であり、より多くの収入があります',
+    getNow: '今すぐ参加してください',
+    box1_line1: 'Fantasi 1000万ゴールドプランに参加して、高い給与を獲得してください！',
+    box1_line2:
+      'あなたが作成し、私は請求書を支払い、3,000万のインセンティブボーナスとレッドエンベロープ、「ダブルゴールド」が限られた時間を与えられます。',
+    box1_line3:
+      '多様なグループからあなたを歓迎し、共有するのが大好きです。 Fantasi Creator Allianceに参加して、コンテンツを作成し、魅力をリリースし、数億のボーナスを解き放ちます！',
+    box2_title1: 'Red Envelopeを決済',
+    'box2_Cnt1-1': '投稿への登録 +完全な指定されたタスクを完了し、寛大な赤い封筒を受け取ります',
+    box2_title2: '収益は2倍になりました',
+    'box2_Cnt2-1':
+      '毎月の収入に2回乗算され、ボーナスに上限はありません。あなたが稼ぐほど、あなたはより多くを得ることができます。',
+    box2_title3: '登録方法',
+    'box2_Cnt3-1': 'Telegramにお問い合わせください',
+    'box2_Cnt3-2': 'または電子メールを送信します',
+    box3_line1:
+      'しきい値もタスクもありません。ファンタジーを投稿するために登録する限り、イベント中に生成された収入は2倍になり、個人アカウントに配布されます\n               3,000万以内のボーナスに上限はありません。',
+    box3_line2: '例：月額300ドルの収入x 2回= 600ドルの獲得',
+    box4_title: '参加方法',
+    box4_title1: '第一歩',
+    'box4_Cnt1-1': 'ここをクリック',
+    'box4_Cnt1-2': 'または "',
+    'box4_Cnt1-3':
+      '(टेलीग्राम) या एक ईमेल भेजें\ncreatorCampaign.box4_title2\t步驟二\tStep 2\t步骤二\tPaso 2\tÉtape 2\tSchritt 2\tขั้นตอนที่ 2\tBước 2\tステップ2\t2 단계\tШаг 2\tPasso 2\tLangkah 2\tالخطوة 2\tचरण दो\ncreatorCampaign.box4_Cnt2-1\t根據“FANTASI Support”的指導，開設個人 FANTASI 帳號，並成為創作者\tFollow the guidance of FANTASI Support" to open a personal FANTASI account and become a creator',
+    box4_title3: 'ステップ3',
+    'box4_Cnt3-1': 'コンテンツプレゼンテーション（数量は不要）',
+    box4_title4: 'ステップ4',
+    'box4_Cnt4-1': 'ダブルボーナス支払い（収益が生み出された場合）',
+    box5_line1:
+      'Fantasiアカウントを開設した後、3日以内にヘッドショット、背景画像、プロファイルをアップロードできない場合、プラットフォームはイベントへの参加から自動的に失格となり、アカウントを削除します。',
+    box5_line2: '収入は毎月12日から10日まで自動的に解決され、17日前に資金は指定された支払い方法に正常に撤回されます。',
+    box5_line3:
+      'たとえば、作成者が11/15にイベントに参加した場合、収益決済期間は11/15-12/10の場合、プラットフォームは12/12に撤回を完了し、作成者は12で支払いを受け取ります。 /最新の17。',
+    box6_line1:
+      'あなたが新しい作成者であろうと成熟したクリエイターであろうと（Fantasi以外のプラットフォームを操作する）、以下の指示に従ってFantasiに登録し、指定されたコンテンツプレゼンテーションタスクを完了して現金の赤い封筒を受け取ります。',
+    table_th1: 'ネットワークファン',
+    table_th2: '無料の記事',
+    table_th3: '購読された記事',
+    table_th4: 'シングルロック解除',
+    table_th5: 'タスクの共有',
+    table_th6: '赤いパケット（米国）',
+    'table_td1-1': '<1K',
+    'table_td1-2': '1k-5k',
+    'table_td1-3': '5k-10k',
+    'table_td1-4': '10k-50k',
+    'table_td1-5': '50K-100K',
+    'table_td1-6': '100k+',
+    'table_td5-1': 'Fantasiでコンテンツを提示する場合、各投稿にはタグ＃万金creatorを含める必要があります。',
+    'table_td5-2':
+      'コンテンツショップの完成の日に、個人のファンタジーのホームページリンクとDIYコピーライティングを最も多くの個人ファンでソーシャルプラットフォームに共有し、タグを追加します\n #fantasiと＃。',
+    'table_td6-6': 'アシスタントに連絡してください',
+    box7_title: '収集方法',
+    box7_title1: '第一歩',
+    'box7_Cnt1-1': 'ここをクリック',
+    'box7_Cnt1-2': 'または "',
+    'box7_Cnt1-3':
+      '(टेलीग्राम) या एक ईमेल भेजें\ncreatorCampaign.box7_title2\t步驟二\tStep 2\t步骤二\tPaso 2\tÉtape 2\tSchritt 2\tขั้นตอนที่ 2\tBước 2\tステップ2\t2 단계\tШаг 2\tPasso 2\tLangkah 2\tالخطوة 2\tचरण दो\ncreatorCampaign.box7_Cnt2-1\t根據「FANTASI Support小助手」的指導，開設個人 FANTASI 帳號\tOpen a personal FANTASI account according to the guidance of FANTASI Support Assistant"',
+    box7_title3: 'ステップ3',
+    'box7_Cnt3-1': 'コンテンツプレゼンテーションタスク +アクティビティ共有タスクを実行します',
+    box7_title4: 'ステップ4',
+    'box7_Cnt4-1':
+      'タスクを完了したら、「Fantasiサポートアシスタント」に連絡するか、レビューのために電子メールを送信してください',
+    box7_title5: 'ステップ5',
+    'box7_Cnt5-1': '赤い封筒を受け取ります',
+    box8_line1:
+      'Fantasiアカウントを開設した後、3日以内にヘッドショット、背景画像、プロファイルをアップロードできない場合、プラットフォームは自動的にイベントへの参加から削除し、アカウントを削除します。',
+    box8_line2:
+      'クリエイターは、割り当てられたタスクを完了し、レッドエンベロープを受け取る前にレビューに合格する必要があります。そうしないと、数千万の金にしか参加できません。',
+    box8_line3: 'Fantasiに表示されるビデオの数は、表示される写真の数よりも大きくなければなりません。',
+    box8_line4:
+      'Red Envelopeの受信者は、イベント後のFantasiの承認なしにアカウントをキャンセルしたり、コンテンツを削除したりすることはできません。',
+    box8_line5: 'アクティビティ共有タスクは、アクティビティ期間中に削除することはできません。',
+    box9_title1: '利益1',
+    'box9_Cnt1-1':
+      'このプラットフォームは、クリエイターが自然な交通を介して（プラットフォームを使用してトラフィックを迂回させることなく）収入から委託することはなく、作成者はすべての収入の100％を保有しています。',
+    box9_title2: '利益2',
+    'box9_Cnt2-1':
+      'Fantasiが広告/排水を通じて作成者にもたらす収益のうち、収益の20％はプラットフォームに、80％が作成者に属します。',
+    box9_title3: '利益3',
+    'box9_Cnt3-1':
+      '他のクリエイターから消費するクリエイターが持ち込んだファンは、プラットフォーム上のコンテンツ消費の無制限の10％のシェアを受け取ります（クリエイターのユーザーページの「排他的招待リンク」を通じてFantasiとして登録したファンユーザーに限定）',
+    box10_title1: 'クリエイターが登録するように招待されたファンのための3つのステップ：',
+    box10_Cnt1: '指示に従うことによってのみ、あなたは利益を得ることができます3',
+    box10_line1:
+      'クリエイターは、個人用ホームページの右上隅にある「独占招待状リンク」をクリックして、他のプラットフォームガイドストリームに公開します。',
+    box10_line2: 'ファンが排他的なリンクURLをクリックした後、リンクURLページにアカウントを登録する必要があります。',
+    box10_line3:
+      '作成者の招待リンクを通じて登録されているアカウントは、クリエイターが招待したファンの「福利厚生3」に含まれます。',
+    box10_title2: 'ヒント',
+    box10_Cnt2:
+      '「Creator Exclusive Invitationリンク」をクリックして登録しているユーザーのみが、システムに記録され、「Benefit 3」に含まれ、この収入を受け取ります。',
+    term: '公式は、いつでもイベントを調整、修正、またはキャンセルする権利を留保し、解釈の最終的な権利はFantasiに属します',
+    joinNow: '今すぐ参加してください',
+  },
   meta: {
     home: {
-      title: 'fantasi.one {pipe} 高品質のアダルトショートビデオプラットフォーム',
+      title: 'Fantasi {pipe} 高品質のアダルトショートビデオプラットフォーム',
       description:
-        'Fantasi.oneは、大人の大人の短いビデオ共有プラットフォームです。ここでは、高品質のクリエイター映画を見るだけでなく、個人的にやり取りすることもできます。',
+        'Fantasiは、大人のショートビデオ共有プラットフォームです。ここでは、高品質のクリエイター映画を見るだけでなく、個人的にやり取りすることもできます。',
     },
     search: {
-      title: '検索ページ{pipe}最高の大人の短いビデオ-fantasi.oneを発見する',
+      title: '検索ページ{pipe}最高の大人の短いビデオ-Fantasiを発見する',
       description:
-        'fantasi.oneで検索すると、短いビデオ、ネットイエロー、エロティックな俳優を見つけることができ、好みを見つけて、カラフルな大人のビデオを探索できます',
+        'Fantasiで検索すると、短いビデオ、ネットイエロー、エロティックな俳優を見つけ、好みを見つけて、カラフルな大人のビデオを探索できます',
     },
     searchResult: {
-      title: '検索結果{pipe} {keyword} -fantasi.one',
-      description: '{keyword}検索結果。 Fantasi.oneで高品質のアダルト映画を発見して探索します',
+      title: '検索結果{pipe} {keyword} -Fantasi',
+      description: '{keyword}検索結果。 Fantasiで高品質のアダルト映画を発見して探索します',
     },
     mine: {
-      title: '私のパーソナルセンター{pipe} fantasi.one',
+      title: '私のパーソナルセンター{pipe} Fantasi',
       description:
-        'Fantasi.oneで個人的なコレクションとサブスクリプションを管理し、個人環境のマンダリン部門に切り替え、いつでもお気に入りの大人のビデオとインタラクティブコンテンツを閲覧します。',
+        'Fantasiで個人的なコレクションとサブスクリプションを管理し、個人的な設定のマンダリン部門に切り替え、いつでもお気に入りの大人のビデオとインタラクティブコンテンツを閲覧します。',
     },
     creator: {
-      title: '{name}  - クリエイターホームページ{pipe} fantasi.one',
-      description: '{name}は、fantasi.oneの有名なクリエイターです。 {bio}',
+      title: '{name}  - クリエイターホームページ{pipe} Fantasi',
+      description: '{name}は、Fantasiの有名なクリエイターです。 {bio}',
     },
     keywords: {
       short: '大人の短いビデオ',
@@ -592,12 +713,14 @@ export default {
       video: 'アダルトビデオ',
       interact: 'プライベートインタラクション',
       content: '成人コンテンツ',
-      title: 'fantasi.one',
+      title: 'Fantasi',
       popular: '人気の大人の映画',
-      search: 'fantasi.one検索',
+      search: 'Fantasi検索',
       favorite: '私のコレクション',
       intl: 'マルチマンダリンスイッチ',
       subscribe: '私のサブスクリプション',
     },
   },
+  NSPhotoLibraryUsageDescription: 'このアプリケーションは、写真ライブラリにアクセスする必要があります。',
+  unknownError: 'システムエラー',
 }

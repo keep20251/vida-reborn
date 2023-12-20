@@ -20,6 +20,7 @@ export default {
     agree: 'Concordar',
     continue: 'Continuar',
     skip: 'Pular',
+    back: 'Voltar',
     confirm: 'confirme',
     cancel: 'Cancelar',
     follow: 'Seguir',
@@ -123,6 +124,8 @@ export default {
     perPost: 'Postagens',
     perSubscriber: 'Assinantes',
     subAmount: 'Valor das vendas (dólares americanos)',
+    schedulePublish: 'Liberação oportuna',
+    autoPublishAt: 'Será lançado automaticamente em {0}',
     setLanguageSucceed: 'Idioma definido com sucesso',
     subIn: 'A assinatura irá',
     renew: 'Renovar',
@@ -207,8 +210,15 @@ export default {
     notReviewed: 'Não revisado',
     underReview: 'Sob revisão',
     auditFailure: 'Falha na auditoria',
+    pushMsgMost: 'A maior parte da mensagem de notícias',
+    pushMsgLeast: 'Pelo menos 1 na mensagem push',
+    dates: 'céu',
+    hours: 'hora',
+    minutes: 'min.',
+    seconds: 'Sec.',
   },
   label: {
+    confirm: 'confirme',
     login: 'Conecte-se',
     register: 'Registro',
     password: 'Senha',
@@ -272,6 +282,14 @@ export default {
     paymentFailed: 'Falha no pagamento, tente novamente mais tarde',
     canSendMessage: 'para enviar mensagem',
     newMessage: 'nova mensagem',
+    fanSendSet: {
+      para1_1: 'Para participar recentemente',
+      para1_2: 'Nunca consumido',
+      para1_3: 'Os fãs enviam vídeos/fotos e informações de compra.',
+      para2_1: 'Configurações de mídia e conteúdo',
+      para2_2: 'Você pode enviar muitos golpes e enviá -lo aleatoriamente',
+    },
+    addPushMsg: 'Aumentar o conteúdo push',
   },
   placeholder: {
     message: 'Digite a mensagem...',
@@ -340,11 +358,11 @@ export default {
     takePicture: 'Tirar fotos',
     personalInfo: 'Perfil',
     loginCountDown: 'Sem restrições para assistir!',
-    fanSendSet: 'Configurações da mensagem do ventilador',
+    fanSendSet: 'Mensagem de mensagem',
     selectMedia: 'Escolha a mídia',
     popularCreator: 'Criador quente',
     followToView: 'Rastreie uma determinada conta para ver seu último filme',
-    popularSetName: '{year}/{month} Lista popular',
+    popularSetName: '{year}-{month} Lista popular',
   },
   content: {
     logout: 'Tem certeza que deseja sair?',
@@ -378,6 +396,8 @@ export default {
       restoreSub: 'Quer se inscrever novamente?',
       resubscribe: 'Quer renovar sua assinatura?',
     },
+    saveCfm: 'Confirmação de armazenamento',
+    changesSave: 'Salvará sua modificação e salvará',
     publish: {
       createSuccess: 'Publicar sucesso',
       createFail: 'Falha na publicação',
@@ -529,6 +549,7 @@ export default {
       cardNum: 'Por favor insira o número do cartão, ex: 1234********1234.',
     },
     date: { min: 'A data não deve ser anterior a {min}.', max: 'A data não deve ser posterior a {max}.' },
+    time: { format: 'O formato de tempo é 23:59' },
     array: {
       of: '',
       json: '',
@@ -571,7 +592,7 @@ export default {
     title2: '11/02 - 11/08',
     line1: 'Bem -vindo para se tornar um membro da Fantasi!',
     line2:
-      'Você está convidado a participar do grande evento de abertura da maior estação de vídeo adulta da Ásia - Fantasi "',
+      'Você está convidado a participar do grande evento de abertura da "maior estação de vídeo adulta da Ásia - Fantasi"',
     list1: 'Tempo limitado de oferta',
     list1_Cnt1: 'Dentro de 3 dias após o primeiro login, apenas $',
     list1Price: '9.99',
@@ -580,30 +601,132 @@ export default {
     list2: 'Exploração ilimitada de vídeos e fotos que exigem uma assinatura durante esse período!',
     btn: 'Inscreva-se agora',
   },
+  creatorCampaign: {
+    title1: 'Torne -se um criador de Fantasi e ganhe milhões em prêmios',
+    title2: '2023.11.15-2024.2.10',
+    list1: 'envelope vermelho',
+    list1_Cnt1:
+      'Registre e publique postagens+Conclua a tarefa designada, receba envelopes vermelhos ricos em dinheiro',
+    list2: 'Dupla renda',
+    list2_Cnt1: 'A renda mensal é emitida por 2 vezes, a coleção de bônus é ilimitada e mais ganha',
+    getNow: 'Entrar',
+    box1_line1: 'Junte -se ao Plano de Ouro de dez milhões de Fantasi e ganhe um salário alto!',
+    box1_line2:
+      'Você cria, eu pago a conta, 30 milhões de bônus de incentivo e envelope vermelho, "Double Gold" são concedidos por um tempo limitado.',
+    box1_line3:
+      'Congratulamo -nos com diversos grupos e amamos compartilhar. Junte -se à Fantasi Creator Alliance para criar conteúdo, liberar seu charme e desbloquear dezenas de milhões de bônus!',
+    box2_title1: 'Envelope vermelho de assentamento',
+    'box2_Cnt1-1':
+      'Registre -se para publicar postagens + tarefas completas designadas e receber generosos envelopes vermelhos',
+    box2_title2: 'A receita dobrou',
+    'box2_Cnt2-1':
+      'A renda mensal é multiplicada por 2 vezes e não há limite superior em bônus. Quanto mais você ganha, mais você recebe.',
+    box2_title3: 'maneiras de registro',
+    'box2_Cnt3-1': 'Entre em contato com o telegrama',
+    'box2_Cnt3-2': 'ou envie um email',
+    box3_line1:
+      'Sem limiar, sem tarefas, desde que você se registre para publicar Fantasi, qualquer renda gerada durante o evento será dobrada e distribuída à sua conta pessoal\n               Não há limite superior em bônus dentro de 30 milhões, quanto mais você ganha, mais você recebe!',
+    box3_line2: 'Exemplo: Renda de US $ 300 por mês x 2 vezes = $ 600 ganhos',
+    box4_title: 'maneira de participação',
+    box4_title1: 'passo um',
+    'box4_Cnt1-1': 'Clique aqui',
+    'box4_Cnt1-2': 'ou "',
+    'box4_Cnt1-3':
+      'Suivez les conseils de "Fantasi Support" pour ouvrir un compte Fantasi personnel et devenir créateur',
+    box4_title3: 'etapa 3',
+    'box4_Cnt3-1': 'Apresentação de conteúdo (nenhuma quantidade necessária)',
+    box4_title4: 'Passo 4',
+    'box4_Cnt4-1': 'Pagamento de bônus duplo (se a receita for gerada)',
+    box5_line1:
+      'Depois de abrir uma conta Fantasi, se você não conseguir fazer upload do tiro na cabeça, imagem de fundo e perfil dentro de três dias, a plataforma o desqualificará automaticamente de participar do evento e excluir sua conta.',
+    box5_line2:
+      'A renda será liquidada automaticamente do dia 12 a 10 de cada mês, e os fundos serão retirados com sucesso para o seu método de pagamento designado antes do dia 17.',
+    box5_line3:
+      'Por exemplo: se um criador ingressar no evento em 15/11, o período de liquidação de receita é 11/15-12/10, a plataforma concluirá a liquidação + solicitará retirada em 12/12, e o Criador receberá o pagamento em 12 /17 o mais recente.',
+    box6_line1:
+      'Seja você um novo criador ou um criador maduro (operando uma plataforma que não seja Fantasi), siga as instruções abaixo para se registrar para o Fantasi e preencha as tarefas de apresentação de conteúdo designadas para receber envelopes vermelhos em dinheiro.',
+    table_th1: 'Fãs de rede',
+    table_th2: 'Artigos gratuitos',
+    table_th3: 'Artigos assinados',
+    table_th4: 'Desbloqueio único',
+    table_th5: 'Compartilhando tarefas',
+    table_th6: 'Pacote vermelho (EUA)',
+    'table_td1-1': '<1k',
+    'table_td1-2': '1K-5K',
+    'table_td1-3': '5k-10k',
+    'table_td1-4': '10k-50k',
+    'table_td1-5': '50k-100k',
+    'table_td1-6': '100k+',
+    'table_td5-1': 'Ao apresentar conteúdo no Fantasi, cada postagem deve incluir o criador da tag #万 金.',
+    'table_td5-2':
+      'No dia da conclusão da loja de conteúdo, compartilhe o link pessoal da página inicial do Fantasi e a redação de bricolage à plataforma social com o maior volume de fãs pessoais e adicione tags\n #Fantasi e #.',
+    'table_td6-6': 'Entre em contato com o assistente',
+    box7_title: 'Método de coleta',
+    box7_title1: 'passo um',
+    'box7_Cnt1-1': 'Clique aqui',
+    'box7_Cnt1-2': 'ou "',
+    'box7_Cnt1-3': 'Ouvrez un compte Fantasi personnel en fonction des conseils de "Fantasi Support Assistant"',
+    box7_title3: 'etapa 3',
+    'box7_Cnt3-1': 'Executar tarefas de apresentação de conteúdo + tarefas de compartilhamento de atividades',
+    box7_title4: 'Passo 4',
+    'box7_Cnt4-1':
+      'Depois de concluir a tarefa, entre em contato com o "Assistente de Suporte Fantasi" ou envie um email para revisão',
+    box7_title5: 'Etapa 5',
+    'box7_Cnt5-1': 'Receber envelope vermelho',
+    box8_line1:
+      'Depois de abrir uma conta Fantasi, se você não conseguir fazer upload do tiro na cabeça, imagem de fundo e perfil dentro de três dias, a plataforma o removerá automaticamente da participação no evento e excluirá sua conta.',
+    box8_line2:
+      'Os criadores precisam concluir as tarefas atribuídas e passar na revisão antes que possam receber o envelope vermelho, caso contrário, eles só poderão participar de dezenas de milhões de ouro.',
+    box8_line3: 'O número de vídeos exibidos no Fantasi deve ser maior que o número de fotos exibidas.',
+    box8_line4:
+      'Os destinatários do Red Envelope não podem cancelar suas contas ou excluir conteúdo sem a autorização de Fantasi após o evento.',
+    box8_line5: 'As tarefas de compartilhamento de atividades não podem ser excluídas durante o período da atividade.',
+    box9_title1: 'Benefício 1',
+    'box9_Cnt1-1':
+      'A plataforma não recebe uma comissão da renda que os criadores trazem pelo tráfego natural (sem usar a plataforma para desviar o tráfego), e o criador detém 100% de toda a renda.',
+    box9_title2: 'Benefício 2',
+    'box9_Cnt2-1':
+      'Da receita Fantasi traz aos criadores através da publicidade/drenagem, 20% da receita pertence à plataforma e 80% ao Criador.',
+    box9_title3: 'Benefício 3',
+    'box9_Cnt3-1':
+      'Os fãs trazidos por criadores que consomem de outros criadores receberão uma participação ilimitada de 10% no consumo de conteúdo na plataforma (limitada a usuários de fãs que se registraram como Fantasi através do "link exclusivo de convite" na página de usuário do criador)',
+    box10_title1: 'Três etapas para os fãs convidados pelos criadores para se registrar:',
+    box10_Cnt1: 'Somente seguindo as instruções, você pode obter benefícios três',
+    box10_line1:
+      'O criador clica no "link de convite exclusivo" no canto superior direito da página inicial pessoal para publicar em outros fluxos de guia de plataforma.',
+    box10_line2:
+      'Depois que os fãs clicam no URL do link exclusivo, eles precisam registrar uma conta na página URL do link.',
+    box10_line3:
+      'As contas registradas através do link de convite do Criador serão incluídas nos "benefícios três" para os fãs convidados pelo Criador.',
+    box10_title2: 'dica',
+    box10_Cnt2:
+      'Somente os usuários que se registram clicando no "link de convite exclusivo do Criador" serão registrados no sistema e incluídos em "Benefit Three" e receberão essa receita.',
+    term: 'O oficial se reserva o direito de ajustar, alterar ou cancelar o evento a qualquer momento, e o direito final de interpretação pertence a Fantasi',
+    joinNow: 'Entrar',
+  },
   meta: {
     home: {
-      title: 'Fantasi.One {pipe} Plataforma de vídeo curta adulta de alta qualidade',
+      title: 'Fantasi {pipe} Plataforma de vídeo curta adulta de alta qualidade',
       description:
-        'Fantasi.One é a principal plataforma de compartilhamento de vídeo adulto. Aqui, você não pode apenas assistir filmes de criadores de alta qualidade, mas também interagir com eles em particular.',
+        'Fantasi é a principal plataforma de compartilhamento de vídeo adulto adulto. Aqui, você não pode apenas assistir filmes de criadores de alta qualidade, mas também interagir com eles em particular.',
     },
     search: {
-      title: 'Página de pesquisa {pipe} Descubra o melhor vídeo adulto curto -Fantasi.One',
+      title: 'Página de pesquisa {pipe} Descubra o melhor vídeo adulto curto -Fantasi',
       description:
-        'Pesquise em Fantasi.one, você pode encontrar vídeos curtos, atores amarelos e eróticos da rede, encontrar suas preferências e explorar vídeos coloridos de adultos',
+        'Pesquise no Fantasi, você pode encontrar vídeos curtos, atores amarelos líquidos, encontrar suas preferências e explorar vídeos adultos coloridos',
     },
     searchResult: {
-      title: 'Resultados da pesquisa {pipe} {keyword} -Fantasi.One',
-      description:
-        '{keyword} resultados de pesquisa. Descubra e explore filmes adultos de alta qualidade em Fantasi.One',
+      title: 'Resultados da pesquisa {pipe} {keyword} -Fantasi',
+      description: '{keyword} resultados de pesquisa. Descubra e explore filmes adultos de alta qualidade em Fantasi',
     },
     mine: {
-      title: 'Meu centro pessoal {pipe} Fantasi.One',
+      title: 'Meu centro pessoal {pipe} Fantasi',
       description:
-        'Gerencie sua coleção e assinatura pessoal em Fantasi.One e mude com o Departamento de Configurações Pessoais de Mandarim e navegue por seus vídeos adultos favoritos e conteúdo interativo a qualquer momento.',
+        'Gerencie sua coleção e assinatura pessoal em Fantasi e mude com o Departamento de Configurações Pessoais de Mandarim e navegue por seus vídeos adultos favoritos e conteúdo interativo a qualquer momento.',
     },
     creator: {
-      title: '{name} -A página inicial do criador {pipe} Fantasi.One',
-      description: '{name} é um criador bem conhecido no Fantasi.one. {bio}',
+      title: '{name} -A página inicial do criador {pipe} Fantasi',
+      description: '{name} é um criador bem conhecido no Fantasi. {bio}',
     },
     keywords: {
       short: 'Vídeo curto adulto',
@@ -611,12 +734,14 @@ export default {
       video: 'Vídeo adulto',
       interact: 'Interação privada',
       content: 'Conteúdo adulto',
-      title: 'Fantasi.One',
+      title: 'Fantasi',
       popular: 'Filme adulto popular',
-      search: 'Fantasi.One Search',
+      search: 'Fantasi Search',
       favorite: 'minha coleção',
       intl: 'Interruptor multi -mandarin',
       subscribe: 'minha assinatura',
     },
   },
+  NSPhotoLibraryUsageDescription: 'Este aplicativo precisa acessar a biblioteca de fotos.',
+  unknownError: 'Erro no sistema',
 }

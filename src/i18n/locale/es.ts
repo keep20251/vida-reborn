@@ -20,6 +20,7 @@ export default {
     agree: 'Aceptar',
     continue: 'Continuar',
     skip: 'Saltar',
+    back: 'Atrás',
     confirm: 'Confirmar',
     cancel: 'Cancelar',
     follow: 'Seguir',
@@ -118,6 +119,8 @@ export default {
     perPost: 'Publicaciones',
     perSubscriber: 'Suscriptores',
     subAmount: 'Monto de ventas (dólares estadounidenses)',
+    schedulePublish: 'Liberación oportuna',
+    autoPublishAt: 'Se lanzará automáticamente en {0}',
     setLanguageSucceed: 'Idioma configurado correctamente',
     subIn: 'La suscripción',
     renew: 'Renovar',
@@ -202,8 +205,15 @@ export default {
     notReviewed: 'No revisado',
     underReview: 'Bajo revisión',
     auditFailure: 'Fallo de auditoría',
+    pushMsgMost: 'La mayoría del mensaje de noticias',
+    pushMsgLeast: 'Al menos 1 en el mensaje de empuje',
+    dates: 'cielo',
+    hours: 'hora',
+    minutes: 'mínimo',
+    seconds: 'segundo.',
   },
   label: {
+    confirm: 'confirmar',
     login: 'Acceso',
     register: 'Registro',
     password: 'Contraseña',
@@ -267,6 +277,14 @@ export default {
     paymentFailed: 'Error en el pago, inténtelo de nuevo más tarde',
     canSendMessage: 'para enviar mensaje',
     newMessage: 'nuevo mensaje',
+    fanSendSet: {
+      para1_1: 'Para unirme recién',
+      para1_2: 'Nunca consumido',
+      para1_3: 'Los fanáticos envían videos/fotos e información de compra.',
+      para2_1: 'Configuración de medios y contenido',
+      para2_2: 'Puedes enviar muchos trazos y enviarlo al azar',
+    },
+    addPushMsg: 'Aumentar el contenido de empuje',
   },
   placeholder: {
     message: 'Introducir mensaje...',
@@ -335,11 +353,11 @@ export default {
     takePicture: 'Tomar fotos',
     personalInfo: 'Perfil',
     loginCountDown: '¡No hay restricciones para mirar!',
-    fanSendSet: 'Configuración del mensaje del ventilador',
+    fanSendSet: 'Push del mensaje',
     selectMedia: 'Elija los medios',
     popularCreator: 'Creador caliente',
     followToView: 'Rastrear una determinada cuenta para ver su última película',
-    popularSetName: '{year}/{month} Lista popular',
+    popularSetName: '{year}-{month} Lista popular',
   },
   content: {
     logout: '¿Está seguro de que desea cerrar sesión?',
@@ -370,6 +388,8 @@ export default {
       restoreSub: '¿Quieres volver a suscribirte?',
       resubscribe: '¿Quieres renovar tu suscripción?',
     },
+    saveCfm: 'Confirmación de almacenamiento',
+    changesSave: 'Guardará su modificación y guardará',
     publish: {
       createSuccess: 'Publicar con éxito',
       createFail: 'Error de publicación',
@@ -516,6 +536,7 @@ export default {
       cardNum: 'Introduzca el número de tarjeta, por ejemplo: 1234********1234.',
     },
     date: { min: 'La fecha no debe ser anterior a {min}.', max: 'La fecha no debe ser posterior al {max}.' },
+    time: { format: 'El formato de tiempo es 23:59' },
     array: {
       of: '',
       json: '',
@@ -567,30 +588,132 @@ export default {
     list2: '¡Exploración ilimitada de videos y fotos que requieren una suscripción durante este período!',
     btn: 'Suscríbase ahora',
   },
+  creatorCampaign: {
+    title1: 'Convertirse en un creador de fantasi y ganar millones en premios',
+    title2: '2023.11.15-2024.2.10',
+    list1: 'sobre rojo',
+    list1_Cnt1:
+      'Regístrese y publique publicaciones+Complete la tarea designada, reciba sobres rojos en efectivo ricos',
+    list2: 'Doble ingreso',
+    list2_Cnt1: 'El ingreso mensual es emitido por 2 veces, la recolección de bonos es ilimitado y más gana',
+    getNow: 'Únete ahora',
+    box1_line1: '¡Únete al Plan de Oro Fantasi Diez millones y gana un salario alto!',
+    box1_line2:
+      'Usted crea, pago la factura, los 30 millones de bonos de incentivos y el sobre rojo, se entregan el "doble oro" por tiempo limitado.',
+    box1_line3:
+      'Le damos la bienvenida de diversos grupos y nos encanta compartir. ¡Únase a la Alianza Fantasi Creator para crear contenido, liberar su encanto y desbloquear decenas de millones de bonos!',
+    box2_title1: 'SECHLEMENTO RED SUN',
+    'box2_Cnt1-1':
+      'Regístrese para publicar publicaciones + tareas designadas completas y reciba generosos sobres rojos',
+    box2_title2: 'Los ingresos se duplicaron',
+    'box2_Cnt2-1':
+      'El ingreso mensual se multiplica 2 veces, y no hay límite superior en bonos. Cuanto más ganes, más obtienes.',
+    box2_title3: 'formas de registro',
+    'box2_Cnt3-1': 'Póngase en contacto con Telegram',
+    'box2_Cnt3-2': 'o enviar correo electrónico',
+    box3_line1:
+      'Sin umbral, sin tareas, siempre y cuando se registre para publicar fantasi, cualquier ingreso generado durante el evento se duplicará y distribuirá a su cuenta personal.\n               No hay límite superior en bonos dentro de los 30 millones, ¡cuanto más gane, más obtendrá!',
+    box3_line2: 'Ejemplo: Ingresos de $ 300 por mes x 2 veces = $ 600 ganado',
+    box4_title: 'forma de participación',
+    box4_title1: 'paso uno',
+    'box4_Cnt1-1': 'haga clic aquí',
+    'box4_Cnt1-2': 'o "',
+    'box4_Cnt1-3': '”(Telegrama) o enviar un correo electrónico a',
+    box4_title3: 'Paso 3',
+    'box4_Cnt3-1': 'Presentación de contenido (no se requiere cantidad)',
+    box4_title4: 'Etapa 4',
+    'box4_Cnt4-1': 'Pago de doble bonificación (si se generan ingresos)',
+    box5_line1:
+      'Después de abrir una cuenta de Fantasi, si no puede subir su tiro en la cabeza, imagen de fondo y perfil dentro de los tres días, la plataforma lo descalificará automáticamente de participar en el evento y eliminar su cuenta.',
+    box5_line2:
+      'Los ingresos se resolverán automáticamente del 12 al 10 de cada mes, y los fondos se retirarán con éxito a su método de pago designado antes del 17.',
+    box5_line3:
+      'Por ejemplo: si un creador se une al evento el 15/11, el período de liquidación de ingresos es 11/15-12/10, la plataforma completará la liquidación + solicitará el retiro el 12/12, y el Creador recibirá el pago de 12 /17 a más tardar.',
+    box6_line1:
+      'Ya sea que sea un nuevo creador o un creador maduro (que opere una plataforma que no sea Fantasi), siga las instrucciones a continuación para registrarse para Fantasi y complete las tareas de presentación de contenido designadas para recibir sobres rojos en efectivo.',
+    table_th1: 'Fanáticos de la red',
+    table_th2: 'Artículos gratuitos',
+    table_th3: 'Artículos suscritos',
+    table_th4: 'Desbloquear',
+    table_th5: 'Compartir tareas',
+    table_th6: 'Paquete rojo (EE. UU.)',
+    'table_td1-1': '<1k',
+    'table_td1-2': '1K-5K',
+    'table_td1-3': '5k-10k',
+    'table_td1-4': '10k-50k',
+    'table_td1-5': '50k-100k',
+    'table_td1-6': '100k+',
+    'table_td5-1': 'Al presentar contenido en Fantasi, cada publicación debe incluir la etiqueta #万 金 Creador.',
+    'table_td5-2':
+      'El día de la finalización de la tienda de contenido, comparta el enlace personal de la página de inicio de Fantasi y la redacción de bricolaje a la plataforma social con el mayor volumen de fanáticos personales, y agregue etiquetas\n #Fantasi y #.',
+    'table_td6-6': 'Póngase en contacto con el asistente',
+    box7_title: 'Método de recolección',
+    box7_title1: 'paso uno',
+    'box7_Cnt1-1': 'haga clic aquí',
+    'box7_Cnt1-2': 'o "',
+    'box7_Cnt1-3': '”(Telegrama) o enviar un correo electrónico a',
+    box7_title3: 'Paso 3',
+    'box7_Cnt3-1': 'Ejecutar tareas de presentación de contenido + tareas de intercambio de actividades',
+    box7_title4: 'Etapa 4',
+    'box7_Cnt4-1':
+      'Después de completar la tarea, comuníquese con el "Asistente de soporte de Fantasi" o envíe un correo electrónico para su revisión',
+    box7_title5: 'Paso 5',
+    'box7_Cnt5-1': 'Recibir sobre rojo',
+    box8_line1:
+      'Después de abrir una cuenta de Fantasi, si no puede subir su tiro en la cabeza, imagen de fondo y perfil dentro de los tres días, la plataforma lo eliminará automáticamente de participar en el evento y eliminar su cuenta.',
+    box8_line2:
+      'Los creadores deben completar las tareas asignadas y aprobar la revisión antes de que puedan recibir el sobre rojo, de lo contrario solo pueden participar en decenas de millones de oro.',
+    box8_line3: 'El número de videos que se muestran en Fantasi debe ser mayor que el número de fotos que se muestran.',
+    box8_line4:
+      'Los destinatarios de Red Soble no pueden cancelar sus cuentas o eliminar contenido sin la autorización de Fantasi después del evento.',
+    box8_line5: 'Las tareas de intercambio de actividades no se pueden eliminar durante el período de actividad.',
+    box9_title1: 'Beneficio 1',
+    'box9_Cnt1-1':
+      'La plataforma no toma una comisión de los ingresos que los creadores aportan el tráfico natural (sin usar la plataforma para desviar el tráfico), y el creador posee el 100% de todos los ingresos.',
+    box9_title2: 'Beneficio 2',
+    'box9_Cnt2-1':
+      'De los ingresos, fantasmas aporta a los creadores a través de publicidad/drenaje, el 20% de los ingresos pertenecen a la plataforma y al 80% al creador.',
+    box9_title3: 'Beneficio 3',
+    'box9_Cnt3-1':
+      'Los fanáticos traídos por creadores que consumen de otros creadores recibirán una participación ilimitada del 10% en el consumo de contenido en la plataforma (limitado a los usuarios de fanáticos que se han registrado como fantasi a través del "enlace de invitación exclusivo" en la página de usuario del creador)',
+    box10_title1: 'Tres pasos para los fanáticos invitados por los creadores a registrarse:',
+    box10_Cnt1: 'Solo siguiendo las instrucciones puede obtener beneficios tres',
+    box10_line1:
+      'El Creador hace clic en el "enlace de invitación exclusivo" en la esquina superior derecha de la página de inicio personal para publicar en otras transmisiones de guías de plataforma.',
+    box10_line2:
+      'Después de que los fanáticos hacen clic en la URL de enlace exclusivo, deben registrar una cuenta en la página URL del enlace.',
+    box10_line3:
+      'Las cuentas registradas a través del enlace de invitación del Creador se incluirán en los "Beneficios tres" para los fanáticos invitados por el Creador.',
+    box10_title2: 'pista',
+    box10_Cnt2:
+      'Solo los usuarios que se registran haciendo clic en el "enlace de invitación exclusivo del creador" se registrarán en el sistema e incluidos en "Beneficio tres" y recibirán estos ingresos.',
+    term: 'El oficial se reserva el derecho de ajustar, modificar o cancelar el evento en cualquier momento, y el derecho final de interpretación pertenece a Fantasi',
+    joinNow: 'Únete ahora',
+  },
   meta: {
     home: {
-      title: 'Fantasma.One {pipe} Plataforma de video corta para adultos de alta calidad para adultos',
+      title: 'Fantasma{pipe} Plataforma de video corta para adultos de alta calidad para adultos',
       description:
-        'Fantasi.one es la principal plataforma para compartir videos para adultos. Aquí, no solo puedes ver películas de creadores de alta calidad, sino también interactuar con ellas en privado.',
+        'Fantasi es la principal plataforma para compartir videos para adultos. Aquí, no solo puedes ver películas de creadores de alta calidad, sino también interactuar con ellas en privado.',
     },
     search: {
-      title: 'Página de búsqueda {pipe} Descubra el mejor video corto para adultos -fantasi.One',
+      title: 'Página de búsqueda {pipe} Descubra el mejor video corto para adultos -Fantasi',
       description:
-        'Busque en fantasi.One, puede encontrar videos cortos, amarillo neto, actores eróticos, encontrar sus preferencias y explorar videos coloridos para adultos',
+        'Busque en fantasi, puede encontrar videos cortos, amarillo neto, actores eróticos, encontrar sus preferencias y explorar videos de adultos coloridos',
     },
     searchResult: {
-      title: 'Resultados de la búsqueda {pipe} {keyword} -fantasi.One',
+      title: 'Resultados de la búsqueda {pipe} {keyword} -Fantasi',
       description:
-        '{keyword} Resultados de búsqueda. Descubra y explore películas para adultos de alta calidad en fantasi.one',
+        '{keyword} Resultados de búsqueda. Descubra y explore películas para adultos de alta calidad en Fantasi',
     },
     mine: {
-      title: 'Mi centro personal {pipe} fantasi.One',
+      title: 'Mi centro personal {pipe} Fantasi',
       description:
-        'Administre su colección y suscripción personal en Fantasi.one, y cambie con el Departamento de Configuraciones personales de Mandarin, y explore sus videos de adultos favoritos y contenido interactivo en cualquier momento.',
+        'Administre su colección y suscripción personal en Fantasi, y cambie con el Departamento de entornos personales de Mandarin, y explore sus videos de adultos favoritos y contenido interactivo en cualquier momento.',
     },
     creator: {
-      title: '{name} -El creador de la página de inicio {pipe} fantasi.One',
-      description: '{name} es un creador bien conocido en fantasi.one. {bio}',
+      title: '{name} -El creador de la página de inicio {pipe} Fantasi',
+      description: '{name} es un creador bien conocido en Fantasi. {bio}',
     },
     keywords: {
       short: 'Video corto para adultos',
@@ -600,10 +723,12 @@ export default {
       content: 'Contenido para adultos',
       title: 'Fantasía.',
       popular: 'Película para adultos popular',
-      search: 'Fantasi.oone búsqueda',
+      search: 'Búsqueda de fantasi',
       favorite: 'mi colección',
       intl: 'Interruptor multimandarín',
       subscribe: 'mi suscripción',
     },
   },
+  NSPhotoLibraryUsageDescription: 'Esta aplicación necesita acceder a la biblioteca de fotos.',
+  unknownError: 'Error del sistema',
 }

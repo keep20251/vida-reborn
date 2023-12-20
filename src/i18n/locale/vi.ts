@@ -20,6 +20,7 @@ export default {
     agree: 'Đồng ý',
     continue: 'Tiếp tục',
     skip: 'Nhảy',
+    back: 'Mặt sau',
     confirm: 'Xác nhận',
     cancel: 'Hủy bỏ',
     follow: 'Theo',
@@ -123,6 +124,8 @@ export default {
     perPost: 'bài viết',
     perSubscriber: 'Người đăng ký',
     subAmount: 'Số tiền bán hàng (đô la Mỹ)',
+    schedulePublish: 'Phát hành kịp thời',
+    autoPublishAt: 'Sẽ được phát hành tự động tại {0}',
     setLanguageSucceed: 'Đã đặt ngôn ngữ thành công',
     subIn: 'Đăng ký sẽ',
     renew: 'Thay mới',
@@ -207,8 +210,15 @@ export default {
     notReviewed: 'Chưa được đánh giá',
     underReview: 'Đang được xem xét',
     auditFailure: 'Kiểm toán thất bại',
+    pushMsgMost: 'Hầu hết các tin nhắn tin tức',
+    pushMsgLeast: 'Ít nhất 1 trong tin nhắn đẩy',
+    dates: 'bầu trời',
+    hours: 'giờ',
+    minutes: 'Tối thiểu.',
+    seconds: 'Sec.',
   },
   label: {
+    confirm: 'xác nhận',
     login: 'Đăng nhập',
     register: 'Đăng ký',
     password: 'Mật khẩu',
@@ -269,6 +279,14 @@ export default {
     paymentFailed: 'Thanh toán không thành công, vui lòng thử lại sau',
     canSendMessage: 'để gửi tin nhắn',
     newMessage: 'tin nhắn mới',
+    fanSendSet: {
+      para1_1: 'Mới tham gia',
+      para1_2: 'Không bao giờ tiêu thụ',
+      para1_3: 'Người hâm mộ gửi video/hình ảnh và thông tin mua hàng.',
+      para2_1: 'Cài đặt phương tiện và nội dung',
+      para2_2: 'Bạn có thể gửi nhiều nét và gửi ngẫu nhiên',
+    },
+    addPushMsg: 'Tăng nội dung đẩy',
   },
   placeholder: {
     message: 'Nhập tin nhắn...',
@@ -337,11 +355,11 @@ export default {
     takePicture: 'Chụp ảnh',
     personalInfo: 'Hồ sơ',
     loginCountDown: 'Không có hạn chế để xem!',
-    fanSendSet: 'Cài đặt tin nhắn quạt',
+    fanSendSet: 'Đẩy tin nhắn',
     selectMedia: 'Chọn phương tiện truyền thông',
     popularCreator: 'Người sáng tạo nóng',
     followToView: 'Theo dõi một tài khoản nhất định để xem bộ phim mới nhất của nó',
-    popularSetName: '{year}/{month} Danh sách phổ biến',
+    popularSetName: '{year}-{month} Danh sách phổ biến',
   },
   content: {
     logout: 'Bạn có chắc chắn bạn muốn thoát?',
@@ -372,6 +390,8 @@ export default {
       restoreSub: 'Bạn có muốn đăng ký lại không?',
       resubscribe: 'Bạn có muốn gia hạn đăng ký của mình không?',
     },
+    saveCfm: 'Xác nhận lưu trữ',
+    changesSave: 'Sẽ lưu sửa đổi của bạn và lưu',
     publish: {
       createSuccess: 'Xuất bản thành công',
       createFail: 'Xuất bản thất bại',
@@ -521,6 +541,7 @@ export default {
       cardNum: 'Vui lòng nhập số thẻ, ví dụ: 1234********1234.',
     },
     date: { min: 'Ngày không được sớm hơn {min}.', max: 'Ngày không được muộn hơn {max}.' },
+    time: { format: 'Định dạng thời gian là 23:59' },
     array: {
       of: '',
       json: '',
@@ -565,37 +586,141 @@ export default {
     line2:
       'Bạn được mời tham gia vào sự kiện khai trương của "Trạm video ngắn dành cho người lớn lớn nhất châu Á - Fantasi"',
     list1: 'Cung cấp thời gian giới hạn',
-    list1_Cnt1: 'Trong vòng 3 ngày kể từ lần đăng nhập đầu tiên, chỉ $',
+    list1_Cnt1: 'Trong vòng 3 ngày kể từ khi đăng nhập đầu tiên, chỉ $',
     list1Price: '9,99',
     list1_Cnt2:
       'Nếu bạn quan tâm, bạn có thể thưởng thức toàn bộ trang web của chúng tôi các video và hình ảnh người nổi tiếng trên internet trong 30 ngày!',
-    list2: 'Khám phá không giới hạn các video và hình ảnh yêu cầu đăng ký trong giai đoạn này!',
+    list2: 'Khám phá không giới hạn video và hình ảnh yêu cầu đăng ký trong giai đoạn này!',
     btn: 'Theo dõi ngay',
+  },
+  creatorCampaign: {
+    title1: 'Trở thành người sáng tạo Fantasi và giành được hàng triệu giải thưởng',
+    title2: '2023.11.15-2024.2.10',
+    list1: 'Phong bì màu đỏ',
+    list1_Cnt1:
+      'Đăng ký và xuất bản bài viết+Hoàn thành nhiệm vụ được chỉ định, nhận phong bì màu đỏ tiền mặt phong phú',
+    list2: 'Thu nhập kép',
+    list2_Cnt1:
+      'Thu nhập hàng tháng được phát hành 2 lần, bộ sưu tập tiền thưởng là không giới hạn và kiếm được nhiều tiền hơn',
+    getNow: 'Tham gia ngay',
+    box1_line1: 'Tham gia kế hoạch Fantasi Ten Gold và giành được mức lương cao!',
+    box1_line2:
+      'Bạn tạo ra, tôi trả hóa đơn, 30 triệu tiền thưởng khuyến khích và phong bì màu đỏ, "vàng đôi" được đưa ra trong một thời gian giới hạn.',
+    box1_line3:
+      'Chúng tôi chào đón bạn từ các nhóm đa dạng và tình yêu để chia sẻ. Tham gia Liên minh Creator Fantasi để tạo nội dung, phát hành sự quyến rũ của bạn và mở khóa hàng chục triệu tiền thưởng!',
+    box2_title1: 'Giải quyết phong bì màu đỏ',
+    'box2_Cnt1-1': 'Đăng ký để đăng bài + Nhiệm vụ được chỉ định hoàn chỉnh và nhận phong bì màu đỏ hào phóng',
+    box2_title2: 'Doanh thu tăng gấp đôi',
+    'box2_Cnt2-1':
+      'Thu nhập hàng tháng được nhân với 2 lần và không có giới hạn trên cho tiền thưởng. Bạn càng kiếm được nhiều, bạn càng nhận được.',
+    box2_title3: 'cách đăng ký',
+    'box2_Cnt3-1': 'Liên hệ với Telegram',
+    'box2_Cnt3-2': 'hoặc gửi email',
+    box3_line1:
+      'Không có ngưỡng, không có nhiệm vụ, miễn là bạn đăng ký để đăng Fantasi, bất kỳ thu nhập nào được tạo trong sự kiện sẽ được nhân đôi và phân phối vào tài khoản cá nhân của bạn\n               Không có giới hạn trên đối với tiền thưởng trong vòng 30 triệu, bạn càng kiếm được nhiều tiền, bạn càng nhận được nhiều hơn!',
+    box3_line2: 'Ví dụ: Thu nhập $ 300 mỗi tháng x 2 lần = $ 600 kiếm được',
+    box4_title: 'cách tham gia',
+    box4_title1: 'Bước một',
+    'box4_Cnt1-1': 'Bấm vào đây',
+    'box4_Cnt1-2': 'hoặc "',
+    'box4_Cnt1-3':
+      '(Telegram) hoặc gửi email đến\t」（電報）またはにメールを送信します\t”(전보) 또는 이메일을 보내십시오\t”(Telegram) или отправить электронное письмо\t”(Telegram) ou envie um e -mail para\t”(Telegram) atau kirim email ke\t(برقية) أو إرسال بريد إلكتروني إلى',
+    box4_title3: 'Bước 3',
+    'box4_Cnt3-1': 'Trình bày nội dung (không cần số lượng)',
+    box4_title4: 'Bước 4',
+    'box4_Cnt4-1': 'Thanh toán tiền thưởng gấp đôi (nếu doanh thu được tạo ra)',
+    box5_line1:
+      'Sau khi mở tài khoản Fantasi, nếu bạn không tải lên đầu, hình ảnh nền và hồ sơ trong vòng ba ngày, nền tảng sẽ tự động loại bạn khỏi việc tham gia sự kiện và xóa tài khoản của bạn.',
+    box5_line2:
+      'Thu nhập sẽ được tự động giải quyết từ ngày 12 đến thứ 10 hàng tháng và tiền sẽ được rút thành công vào phương thức thanh toán được chỉ định của bạn trước ngày 17.',
+    box5_line3:
+      'Ví dụ: nếu người sáng tạo tham gia sự kiện vào ngày 15/11, thời gian giải quyết doanh thu là 11/15-12/10, nền tảng sẽ hoàn thành việc giải quyết + đăng ký rút tiền vào ngày 12/12 và người tạo sẽ nhận được khoản thanh toán vào ngày 12 /17 lúc mới nhất.',
+    box6_line1:
+      'Cho dù bạn là người sáng tạo mới hay người tạo trưởng thành (vận hành một nền tảng khác ngoài Fantasi), hãy làm theo các hướng dẫn bên dưới để đăng ký Fantasi và hoàn thành các nhiệm vụ trình bày nội dung được chỉ định để nhận phong bì màu đỏ.',
+    table_th1: 'Quạt mạng',
+    table_th2: 'Bài viết miễn phí',
+    table_th3: 'Bài viết đăng ký',
+    table_th4: 'Mở khóa đơn',
+    table_th5: 'Chia sẻ nhiệm vụ',
+    table_th6: 'Gói đỏ (Hoa Kỳ)',
+    'table_td1-1': '<1k',
+    'table_td1-2': '1K-5K',
+    'table_td1-3': '5K-10K',
+    'table_td1-4': '10k-50k',
+    'table_td1-5': '50k-100k',
+    'table_td1-6': '100k+',
+    'table_td5-1':
+      'Khi trình bày nội dung trên Fantasi, mỗi bài đăng phải bao gồm TAG #万 金 金 金 金 金 金 金 金 Creator Trình tạo.',
+    'table_td5-2':
+      'Vào ngày hoàn thành cửa hàng nội dung, hãy chia sẻ liên kết trang chủ Fantasi cá nhân và bản sao DIY vào nền tảng xã hội với khối lượng người hâm mộ cá nhân cao nhất và thêm thẻ\n #Fantasi và #.',
+    'table_td6-6': 'Liên hệ với trợ lý',
+    box7_title: 'Phương pháp thu thập',
+    box7_title1: 'Bước một',
+    'box7_Cnt1-1': 'Bấm vào đây',
+    'box7_Cnt1-2': 'hoặc "',
+    'box7_Cnt1-3':
+      '(Telegram) hoặc gửi email đến\t」（電報）またはにメールを送信します\t”(전보) 또는 이메일을 보내십시오\t”(Telegram) или отправить электронное письмо\t”(Telegram) ou envie um e -mail para\t”(Telegram) atau kirim email ke\t(برقية) أو إرسال بريد إلكتروني إلى',
+    box7_title3: 'Bước 3',
+    'box7_Cnt3-1': 'Thực hiện các tác vụ trình bày nội dung + Nhiệm vụ chia sẻ hoạt động',
+    box7_title4: 'Bước 4',
+    'box7_Cnt4-1': 'Sau khi hoàn thành nhiệm vụ, liên hệ với "Trợ lý hỗ trợ Fantasi" hoặc gửi email để xem xét',
+    box7_title5: 'Bước 5',
+    'box7_Cnt5-1': 'Nhận phong bì màu đỏ',
+    box8_line1:
+      'Sau khi mở tài khoản Fantasi, nếu bạn không tải lên đầu, hình nền và hồ sơ trong vòng ba ngày, nền tảng sẽ tự động xóa bạn khỏi việc tham gia sự kiện và xóa tài khoản của bạn.',
+    box8_line2:
+      'Người sáng tạo cần hoàn thành các nhiệm vụ được giao và vượt qua đánh giá trước khi họ có thể nhận được phong bì màu đỏ, nếu không họ chỉ có thể tham gia vào hàng chục triệu vàng.',
+    box8_line3: 'Số lượng video được hiển thị trên Fantasi phải lớn hơn số lượng ảnh được hiển thị.',
+    box8_line4:
+      'Những người nhận phong bì màu đỏ không được phép hủy tài khoản của họ hoặc xóa nội dung mà không có sự cho phép của Fantasi sau sự kiện.',
+    box8_line5: 'Các nhiệm vụ chia sẻ hoạt động không thể bị xóa trong thời gian hoạt động.',
+    box9_title1: 'Lợi ích 1',
+    'box9_Cnt1-1':
+      'Nền tảng này không lấy hoa hồng từ thu nhập mà người tạo ra thông qua lưu lượng truy cập tự nhiên (mà không sử dụng nền tảng để chuyển hướng lưu lượng) và người sáng tạo nắm giữ 100% tổng thu nhập.',
+    box9_title2: 'Lợi ích 2',
+    'box9_Cnt2-1':
+      'Trong số doanh thu mà Fantasi mang đến cho người sáng tạo thông qua quảng cáo/thoát nước, 20% doanh thu thuộc nền tảng và 80% cho người tạo.',
+    box9_title3: 'Lợi ích 3',
+    'box9_Cnt3-1':
+      'Người hâm mộ được tạo ra bởi những người sáng tạo tiêu thụ từ những người sáng tạo khác sẽ nhận được 10% chia sẻ tiêu thụ nội dung trên nền tảng (giới hạn ở người dùng người dùng đã đăng ký là Fantasi thông qua "liên kết lời mời độc quyền" trên trang người dùng của người tạo)',
+    box10_title1: 'Ba bước cho người hâm mộ được người sáng tạo mời đăng ký:',
+    box10_Cnt1: 'Chỉ bằng cách làm theo các hướng dẫn, bạn mới có thể nhận được ba lợi ích',
+    box10_line1:
+      'Người tạo nhấp vào "Liên kết lời mời độc quyền" ở góc trên bên phải của trang chủ cá nhân để xuất bản sang các luồng hướng dẫn nền tảng khác.',
+    box10_line2:
+      'Sau khi người hâm mộ nhấp vào URL liên kết độc quyền, họ cần đăng ký một tài khoản trên trang URL liên kết.',
+    box10_line3:
+      'Các tài khoản được đăng ký thông qua liên kết lời mời của người tạo sẽ được đưa vào "lợi ích ba" cho người hâm mộ được người tạo mời.',
+    box10_title2: 'gợi ý',
+    box10_Cnt2:
+      'Chỉ người dùng đăng ký bằng cách nhấp vào "Liên kết lời mời độc quyền của người tạo" sẽ được ghi lại trong hệ thống và được đưa vào "Lợi ích ba" và nhận thu nhập này.',
+    term: 'Chính thức có quyền điều chỉnh, sửa đổi hoặc hủy bỏ sự kiện bất cứ lúc nào và quyền giải thích cuối cùng thuộc về Fantasi',
+    joinNow: 'Tham gia ngay',
   },
   meta: {
     home: {
-      title: 'Fantasi.one {pipe} Nền tảng video ngắn dành cho người lớn chất lượng cao',
+      title: 'Fantasi {pipe} Nền tảng video ngắn dành cho người lớn chất lượng cao',
       description:
-        'Fantasi.one là nền tảng chia sẻ video ngắn dành cho người lớn hàng đầu. Ở đây, bạn không chỉ có thể xem phim tạo chất lượng cao, mà còn tương tác với chúng một cách riêng tư.',
+        'Fantasi là nền tảng chia sẻ video ngắn dành cho người lớn hàng đầu. Ở đây, bạn không chỉ có thể xem phim tạo chất lượng cao, mà còn tương tác với chúng một cách riêng tư.',
     },
     search: {
-      title: 'Trang tìm kiếm {pipe} Khám phá video ngắn người lớn tốt nhất -fantasi.one',
+      title: 'Trang tìm kiếm {pipe} Khám phá video ngắn người lớn tốt nhất -Fantasi',
       description:
-        'Tìm kiếm trên fantasi.one, bạn có thể tìm thấy các video ngắn, các diễn viên màu vàng, khiêu dâm, tìm sở thích của bạn và khám phá các video người lớn đầy màu sắc',
+        'Tìm kiếm trên Fantasi, bạn có thể tìm thấy các video ngắn, các diễn viên màu vàng, khiêu dâm, tìm sở thích của bạn và khám phá các video người lớn đầy màu sắc',
     },
     searchResult: {
-      title: 'Kết quả tìm kiếm {pipe} {keyword} -fantasi.one',
+      title: 'Kết quả tìm kiếm {pipe} {keyword} -Fantasi',
       description:
-        '{keyword} Kết quả tìm kiếm. Khám phá và khám phá những bộ phim người lớn chất lượng cao trong Fantasi.one',
+        '{keyword} Kết quả tìm kiếm. Khám phá và khám phá những bộ phim người lớn chất lượng cao trong Fantasi',
     },
     mine: {
-      title: 'Trung tâm cá nhân của tôi {pipe} fantasi.one',
+      title: 'Trung tâm cá nhân của tôi {pipe} Fantasi',
       description:
-        'Quản lý bộ sưu tập và đăng ký cá nhân của bạn trong Fantasi.one, và chuyển đổi với Cục Cài đặt cá nhân Mandarin, và duyệt các video người lớn yêu thích và nội dung tương tác của bạn bất cứ lúc nào.',
+        'Quản lý bộ sưu tập và đăng ký cá nhân của bạn trong Fantasi, và chuyển đổi với Cục Cài đặt cá nhân Mandarin, và duyệt các video người lớn yêu thích của bạn và nội dung tương tác bất cứ lúc nào.',
     },
     creator: {
-      title: '{name} -homepage {pipe} fantasi.one',
-      description: '{name} là một người sáng tạo nổi tiếng trên fantasi.one. {bio}',
+      title: '{name} -homepage {pipe} Fantasi',
+      description: '{name} là một người sáng tạo nổi tiếng trên Fantasi. {bio}',
     },
     keywords: {
       short: 'Video ngắn dành cho người lớn',
@@ -603,12 +728,14 @@ export default {
       video: 'Video người lớn',
       interact: 'Tương tác riêng tư',
       content: 'Nội dung người lớn',
-      title: 'Fantasi.one',
+      title: 'Fantasi',
       popular: 'Phim người lớn phổ biến',
-      search: 'Tìm kiếm fantasi.one',
+      search: 'Tìm kiếm Fantasi',
       favorite: 'bộ sưu tập của tôi',
       intl: 'Chuyển đổi đa -mandarin',
       subscribe: 'Đăng ký của tôi',
     },
   },
+  NSPhotoLibraryUsageDescription: 'Ứng dụng này cần truy cập thư viện ảnh.',
+  unknownError: 'Lỗi hệ thống',
 }

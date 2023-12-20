@@ -20,6 +20,7 @@ export default {
     agree: 'Setuju',
     continue: 'Melanjutkan',
     skip: 'Melewati',
+    back: 'Kembali',
     confirm: 'Mengonfirmasi',
     cancel: 'Membatalkan',
     follow: 'Mengikuti',
@@ -123,6 +124,8 @@ export default {
     perPost: 'Postingan',
     perSubscriber: 'Pelanggan',
     subAmount: 'Jumlah penjualan (dolar AS)',
+    schedulePublish: 'Rilis tepat waktu',
+    autoPublishAt: 'Akan dirilis secara otomatis di {0}',
     setLanguageSucceed: 'Bahasa berhasil disetel',
     subIn: 'Berlangganan akan',
     renew: 'Memperbarui',
@@ -207,8 +210,15 @@ export default {
     notReviewed: 'Tidak Ditinjau',
     underReview: 'Sedang Ditinjau',
     auditFailure: 'Kegagalan audit',
+    pushMsgMost: 'Sebagian besar pesan berita',
+    pushMsgLeast: 'Setidaknya 1 dalam pesan push',
+    dates: 'langit',
+    hours: 'jam',
+    minutes: 'Min.',
+    seconds: 'detik.',
   },
   label: {
+    confirm: 'mengonfirmasi',
     login: 'Gabung',
     register: 'Daftar',
     password: 'Kata sandi',
@@ -269,6 +279,14 @@ export default {
     paymentFailed: 'Pembayaran gagal, coba lagi nanti',
     canSendMessage: 'untuk mengirim pesan',
     newMessage: 'pesan baru',
+    fanSendSet: {
+      para1_1: 'Untuk baru bergabung',
+      para1_2: 'Tidak pernah dikonsumsi',
+      para1_3: 'Penggemar mengirim video/gambar dan membeli informasi.',
+      para2_1: 'Pengaturan Media & Konten',
+      para2_2: 'Anda dapat mengirim banyak pukulan dan mengirimkannya secara acak',
+    },
+    addPushMsg: 'Tingkatkan konten dorong',
   },
   placeholder: {
     message: 'Masukkan pesan...',
@@ -337,11 +355,11 @@ export default {
     takePicture: 'Ambil foto',
     personalInfo: 'Profil',
     loginCountDown: 'Tidak ada batasan untuk ditonton!',
-    fanSendSet: 'Pengaturan Pesan Penggemar',
+    fanSendSet: 'Pesan Pesan',
     selectMedia: 'Pilih media',
     popularCreator: 'Pencipta panas',
     followToView: 'Lacak akun tertentu untuk melihat film terbarunya',
-    popularSetName: 'Daftar Populer {year}/{month}',
+    popularSetName: 'Daftar Populer {year}-{month}',
   },
   content: {
     logout: 'Apakah Anda yakin ingin logout?',
@@ -372,6 +390,8 @@ export default {
       restoreSub: 'Apakah Anda ingin berlangganan kembali?',
       resubscribe: 'Apakah Anda ingin memperbarui langganan Anda?',
     },
+    saveCfm: 'Konfirmasi Penyimpanan',
+    changesSave: 'Akan menyimpan modifikasi Anda dan menyimpan',
     publish: {
       createSuccess: 'Publikasikan sukses',
       createFail: 'Publikasi gagal',
@@ -401,7 +421,7 @@ export default {
     onlyAddImage: 'Hanya terbatas untuk menambahkan gambar',
     uploadFail: 'Pengunggahan gagal',
     processFail: 'Gagal',
-    videoSlicing: 'Format konversi',
+    videoSlicing: 'Konversi Format',
     videoSliceFail: 'Format Kegagalan Konversi',
     chat: {
       canNotChatToSelf: 'Anda tidak dapat mengirim pesan ke diri Anda sendiri',
@@ -523,6 +543,7 @@ export default {
       cardNum: 'Silakan masukkan nomor kartu, misal: 1234********1234.',
     },
     date: { min: 'Tanggalnya tidak boleh lebih awal dari {min}.', max: 'Tanggalnya tidak boleh lebih dari {max}.' },
+    time: { format: 'Format waktu adalah 23:59' },
     array: {
       of: '',
       json: '',
@@ -565,7 +586,7 @@ export default {
     title2: '11/02 - 11/08',
     line1: 'Selamat datang untuk menjadi anggota Fantasi!',
     line2:
-      'Anda diundang untuk berpartisipasi dalam acara pembukaan "Stasiun Video Pendek Dewasa terbesar di Asia - Fantasi"',
+      'Anda diundang untuk berpartisipasi dalam acara pembukaan "stasiun video pendek dewasa terbesar di Asia - Fantasi"',
     list1: 'Penawaran terbatas',
     list1_Cnt1: 'Dalam 3 hari dari login pertama, hanya $',
     list1Price: '9.99',
@@ -574,29 +595,129 @@ export default {
     list2: 'Eksplorasi video dan foto yang tidak terbatas yang memerlukan berlangganan selama periode ini!',
     btn: 'Berlangganan sekarang',
   },
+  creatorCampaign: {
+    title1: 'Menjadi pencipta fantasi dan memenangkan jutaan dalam hadiah',
+    title2: '2023.11.15-2024.2.10',
+    list1: 'amplop merah',
+    list1_Cnt1: 'Daftar dan Publikasikan Posting+Lengkapi tugas yang ditunjuk, terima amplop merah uang yang kaya',
+    list2: 'Penghasilan ganda',
+    list2_Cnt1: 'Penghasilan bulanan dikeluarkan 2 kali, pengumpulan bonus tidak terbatas, dan lebih banyak pendapatan',
+    getNow: 'Bergabung sekarang',
+    box1_line1: 'Bergabunglah dengan Fantasi Ten juta Gold Plan dan menangkan gaji tinggi!',
+    box1_line2:
+      'Anda membuat, saya membayar tagihan, 30 juta bonus insentif dan amplop merah, "emas ganda" diberikan untuk waktu yang terbatas.',
+    box1_line3:
+      'Kami menyambut Anda dari berbagai kelompok dan suka berbagi. Bergabunglah dengan Fantasi Creator Alliance untuk membuat konten, melepaskan pesona Anda, dan membuka kunci puluhan juta bonus!',
+    box2_title1: 'Penyelesaian Amplop Merah',
+    'box2_Cnt1-1': 'Daftarkan ke posting pos + tugas yang ditunjuk lengkap dan menerima amplop merah yang murah hati',
+    box2_title2: 'Pendapatan berlipat ganda',
+    'box2_Cnt2-1':
+      'Penghasilan bulanan dikalikan 2 kali, dan tidak ada batasan atas bonus. Semakin banyak yang Anda hasilkan, semakin banyak yang Anda dapatkan.',
+    box2_title3: 'cara pendaftaran',
+    'box2_Cnt3-1': 'Hubungi Telegram',
+    'box2_Cnt3-2': 'atau kirim email',
+    box3_line1:
+      'Tidak ada ambang batas, tidak ada tugas, selama Anda mendaftar untuk memposting fantasi, penghasilan apa pun yang dihasilkan selama acara akan digandakan dan didistribusikan ke akun pribadi Anda\n               Tidak ada batasan atas bonus dalam 30 juta, semakin banyak yang Anda hasilkan, semakin banyak yang Anda dapatkan!',
+    box3_line2: 'Contoh: Penghasilan $ 300 per bulan x 2 kali = $ 600 diperoleh',
+    box4_title: 'cara partisipasi',
+    box4_title1: 'langkah pertama',
+    'box4_Cnt1-1': 'klik disini',
+    'box4_Cnt1-2': 'atau "',
+    'box4_Cnt1-3':
+      'Befolgen Sie die Anleitung der "Fantasi -Unterstützung", um einen persönlichen Fantasi -Konto zu eröffnen und ein Schöpfer zu werden',
+    box4_title3: 'Langkah 3',
+    'box4_Cnt3-1': 'Presentasi konten (tidak diperlukan kuantitas)',
+    box4_title4: 'Langkah 4',
+    'box4_Cnt4-1': 'Pembayaran bonus ganda (jika pendapatan dihasilkan)',
+    box5_line1:
+      'Setelah membuka akun Fantasi, jika Anda gagal mengunggah headshot, gambar latar belakang, dan profil Anda dalam waktu tiga hari, platform akan secara otomatis mendiskualifikasi Anda dari berpartisipasi dalam acara tersebut dan menghapus akun Anda.',
+    box5_line2:
+      'Penghasilan akan secara otomatis diselesaikan dari tanggal 12 hingga 10 setiap bulan, dan dana akan berhasil ditarik ke metode pembayaran Anda yang ditunjuk sebelum tanggal 17.',
+    box5_line3:
+      'Misalnya: Jika pencipta bergabung dengan acara pada 11/15, periode penyelesaian pendapatan adalah 11/15-12/10, platform akan menyelesaikan penyelesaian + berlaku untuk penarikan pada 12/12, dan pencipta akan menerima pembayaran pada 12 /17 paling lambat.',
+    box6_line1:
+      'Apakah Anda seorang pencipta baru atau pencipta dewasa (mengoperasikan platform selain Fantasi), ikuti instruksi di bawah ini untuk mendaftar untuk Fantasi, dan menyelesaikan tugas presentasi konten yang ditunjuk untuk menerima amplop tunai merah.',
+    table_th1: 'Penggemar jaringan',
+    table_th2: 'Artikel gratis',
+    table_th3: 'Artikel yang berlangganan',
+    table_th4: 'Buka kunci tunggal',
+    table_th5: 'Berbagi tugas',
+    table_th6: 'Paket Merah (AS)',
+    'table_td1-1': '<1k',
+    'table_td1-2': '1K-5K',
+    'table_td1-3': '5K-10K',
+    'table_td1-4': '10k-50k',
+    'table_td1-5': '50k-100k',
+    'table_td1-6': '100K+',
+    'table_td5-1': 'Saat menyajikan konten di Fantasi, setiap posting harus menyertakan tag #万 金 pencipta.',
+    'table_td5-2':
+      'Pada hari penyelesaian toko konten, bagikan tautan beranda pribadi Fantasi dan copywriting DIY ke platform sosial dengan volume penggemar pribadi tertinggi, dan tambahkan tags\n #Fantasi dan #.',
+    'table_td6-6': 'Hubungi Asisten',
+    box7_title: 'Metode pengumpulan',
+    box7_title1: 'langkah pertama',
+    'box7_Cnt1-1': 'klik disini',
+    'box7_Cnt1-2': 'atau "',
+    'box7_Cnt1-3': 'Eröffnen Sie ein persönliches Fantasi -Konto gemäß der Anleitung von "Fantasi Support Assistant"',
+    box7_title3: 'Langkah 3',
+    'box7_Cnt3-1': 'Menjalankan tugas presentasi konten + tugas berbagi aktivitas',
+    box7_title4: 'Langkah 4',
+    'box7_Cnt4-1': 'Setelah menyelesaikan tugas, hubungi "Fantasi Support Assistant" atau kirim email untuk ditinjau',
+    box7_title5: 'Langkah 5',
+    'box7_Cnt5-1': 'Menerima amplop merah',
+    box8_line1:
+      'Setelah membuka akun Fantasi, jika Anda gagal mengunggah headshot, gambar latar belakang, dan profil Anda dalam waktu tiga hari, platform akan secara otomatis menghapus Anda dari berpartisipasi dalam acara tersebut dan menghapus akun Anda.',
+    box8_line2:
+      'Pencipta perlu menyelesaikan tugas yang ditugaskan dan melewati ulasan sebelum mereka dapat menerima amplop merah, jika tidak mereka hanya dapat berpartisipasi dalam puluhan juta emas.',
+    box8_line3: 'Jumlah video yang ditampilkan di Fantasi harus lebih besar dari jumlah foto yang ditampilkan.',
+    box8_line4:
+      'Penerima Amplop Merah tidak diizinkan untuk membatalkan akun mereka atau menghapus konten tanpa otorisasi Fantasi setelah acara.',
+    box8_line5: 'Tugas berbagi aktivitas tidak dapat dihapus selama periode kegiatan.',
+    box9_title1: 'Manfaat 1',
+    'box9_Cnt1-1':
+      'Platform tidak mengambil komisi dari pendapatan yang dibawa oleh pencipta melalui lalu lintas alami (tanpa menggunakan platform untuk mengalihkan lalu lintas), dan pencipta memegang 100% dari semua pendapatan.',
+    box9_title2: 'Manfaat 2',
+    'box9_Cnt2-1':
+      'Dari pendapatan yang Fantasi bawa kepada pencipta melalui iklan/drainase, 20% dari pendapatan milik platform dan 80% untuk pencipta.',
+    box9_title3: 'Manfaat 3',
+    'box9_Cnt3-1':
+      'Fans yang dibawa oleh pembuat yang mengkonsumsi dari pencipta lain akan menerima 10% pangsa konsumsi konten yang tidak terbatas di platform (terbatas pada pengguna penggemar yang telah mendaftar sebagai Fantasi melalui "tautan undangan eksklusif" di halaman pengguna pencipta)',
+    box10_title1: 'Tiga langkah untuk penggemar yang diundang oleh pencipta untuk mendaftar:',
+    box10_Cnt1: 'Hanya dengan mengikuti instruksi Anda bisa mendapatkan manfaat tiga',
+    box10_line1:
+      'Pencipta mengklik "tautan undangan eksklusif" di sudut kanan atas beranda pribadi untuk menerbitkan ke aliran panduan platform lainnya.',
+    box10_line2:
+      'Setelah penggemar mengklik URL tautan eksklusif, mereka perlu mendaftarkan akun di halaman URL tautan.',
+    box10_line3:
+      'Akun yang terdaftar melalui tautan undangan pencipta akan dimasukkan dalam "Manfaat Tiga" untuk penggemar yang diundang oleh Sang Pencipta.',
+    box10_title2: 'petunjuk',
+    box10_Cnt2:
+      'Hanya pengguna yang mendaftar dengan mengklik "Tautan Undangan Eksklusif Pembuat" yang akan dicatat dalam sistem dan termasuk dalam "Manfaat Tiga" dan menerima pendapatan ini.',
+    term: 'Resmi berhak untuk menyesuaikan, mengubah, atau membatalkan acara kapan saja, dan hak interpretasi terakhir adalah milik Fantasi',
+    joinNow: 'Bergabung sekarang',
+  },
   meta: {
     home: {
-      title: 'Fantasi.one {pipe} platform video pendek dewasa berkualitas tinggi',
+      title: 'Fantasi {pipe} platform video pendek dewasa berkualitas tinggi',
       description:
-        'Fantasi.one adalah platform berbagi video pendek terkemuka terkemuka. Di sini, Anda tidak hanya dapat menonton film pencipta berkualitas tinggi, tetapi juga berinteraksi dengannya secara pribadi.',
+        'Fantasi adalah platform berbagi video pendek terkemuka terkemuka. Di sini, Anda tidak hanya dapat menonton film pencipta berkualitas tinggi, tetapi juga berinteraksi dengannya secara pribadi.',
     },
     search: {
-      title: 'Halaman pencarian {pipe} temukan video pendek dewasa terbaik -fantasi.one',
+      title: 'Halaman pencarian {pipe} temukan video pendek dewasa terbaik -Fantasi',
       description:
-        'Jika Anda mencari di Fantasi.one, Anda dapat menemukan video pendek, kuning murni, dan aktor erotis, menemukan preferensi Anda, dan mencari video dewasa yang penuh warna.',
+        'Cari di Fantasi, Anda dapat menemukan video pendek, kuning bersih, aktor erotis, menemukan preferensi Anda dan menjelajahi video dewasa yang penuh warna',
     },
     searchResult: {
-      title: 'Hasil pencarian {pipe} {keyword} -fantasi.one',
-      description: '{keyword} hasil pencarian. Temukan dan jelajahi film dewasa berkualitas tinggi di fantasi.one',
+      title: 'Hasil pencarian {pipe} {keyword} -Fantasi',
+      description: '{keyword} hasil pencarian. Temukan dan jelajahi film dewasa berkualitas tinggi di Fantasi',
     },
     mine: {
-      title: 'Pusat pribadi saya {pipe} fantasi.one',
+      title: 'Pusat pribadi saya {pipe} Fantasi',
       description:
-        'Kelola koleksi pribadi Anda dan berlangganan di Fantasi.one, dan beralih dengan Departemen Pengaturan Pribadi Mandarin, dan telusuri video dewasa favorit Anda dan konten interaktif kapan saja.',
+        'Kelola koleksi dan langganan pribadi Anda di Fantasi, dan beralih dengan Departemen Pengaturan Pribadi Mandarin, dan telusuri video dewasa favorit Anda dan konten interaktif kapan saja.',
     },
     creator: {
-      title: '{name} -The Creator Homepage {pipe} fantasi.one',
-      description: '{name} adalah pencipta yang terkenal di fantasi.one. {bio}',
+      title: '{name} -The Creator Homepage {pipe} Fantasi',
+      description: '{name} adalah pencipta yang terkenal di Fantasi. {bio}',
     },
     keywords: {
       short: 'Video pendek dewasa',
@@ -604,7 +725,7 @@ export default {
       video: 'Video dewasa',
       interact: 'Interaksi pribadi',
       content: 'Konten dewasa',
-      title: 'Fantasi.one',
+      title: 'Fantasi',
       popular: 'Film Dewasa Populer',
       search: 'Fantasi. Suatu pencarian',
       favorite: 'koleksi saya',
@@ -612,4 +733,6 @@ export default {
       subscribe: 'langganan saya',
     },
   },
+  NSPhotoLibraryUsageDescription: 'Aplikasi ini perlu mengakses pustaka foto.',
+  unknownError: 'Sistem bermasalah',
 }
