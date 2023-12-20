@@ -71,7 +71,7 @@ watch(asideHeight, () => {
 })
 
 // 滾動事件是偵測最頂層 html
-let prevScrollTop
+let prevScrollTop = 0
 let lockOnScroll = false
 function onScroll() {
   if (lockOnScroll) {
@@ -80,7 +80,7 @@ function onScroll() {
 
   const scrollTop = document.documentElement.scrollTop
 
-  if (!prevScrollTop) {
+  if (prevScrollTop === 0) {
     prevScrollTop = scrollTop
     return
   }
@@ -117,14 +117,12 @@ onMounted(() => {
   }
 })
 
-// 切換之間要scroll回原本位置
-let deactivatedScrollTop = 0
+// 切換時要 scroll 回原本位置
 onActivated(() => {
-  window.scrollTo(0, deactivatedScrollTop)
+  window.scrollTo(0, prevScrollTop)
   lockOnScroll = false
 })
 onDeactivated(() => {
-  deactivatedScrollTop = document.documentElement.scrollTop
   lockOnScroll = true
 })
 </script>

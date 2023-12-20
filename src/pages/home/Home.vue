@@ -84,9 +84,9 @@ const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
 
 const tab = ref(1)
 const tabOptions = ref([
-  { label: 'Tab1', value: 1 },
-  { label: 'Tab2', value: 2 },
-  { label: 'Tab3', value: 3 },
+  { label: 'common.recommand', value: 1 },
+  { label: 'common.following', value: 2 },
+  { label: 'common.popular', value: 3 },
 ])
 
 function onLoad() {

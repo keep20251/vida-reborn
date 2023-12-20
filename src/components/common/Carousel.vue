@@ -54,7 +54,6 @@ const showSlide = (n) => {
 }
 
 const showNext = () => {
-  console.log(activeSlide.value)
   if (activeSlide.value <= props.items.length - 2) {
     activeSlide.value += 1
   } else if (activeSlide.value + 1 === props.items.length) {
@@ -66,7 +65,6 @@ const showNext = () => {
 }
 
 const showPrev = () => {
-  console.log(activeSlide.value)
   if (activeSlide.value >= 1) {
     activeSlide.value -= 1
   } else if (activeSlide.value === 0) {
