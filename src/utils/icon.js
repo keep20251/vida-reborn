@@ -1,3 +1,12 @@
+import { iconMap } from '@/constant/icon-map'
+
+const modules = Object.freeze(import.meta.glob('../assets/icons/*/*.svg'))
+console.log('icon modules is generated. ', modules)
+
+export function getModuleLoader(name) {
+  return modules[`../assets/icons/${iconMap[name]}.svg`]
+}
+
 export const sizes = {
   1: 'w-1 h-1',
   2: 'w-2 h-2',
