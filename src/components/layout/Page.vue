@@ -117,6 +117,7 @@ onMounted(() => {
   }
 })
 
+// 切換之間要scroll回原本位置
 let deactivatedScrollTop = 0
 onActivated(() => {
   window.scrollTo(0, deactivatedScrollTop)
