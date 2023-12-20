@@ -6,8 +6,7 @@
 <script setup>
 import LoadingIcon from '@/components/skeleton/LoadingIcon.vue'
 import { computed, defineAsyncComponent } from 'vue'
-import { useIconStore } from '@/store/icon'
-import { sizes } from '@/utils/icon-size'
+import { sizes, getModuleLoader } from '@/utils/icon'
 
 const props = defineProps({
   name: {
@@ -30,8 +29,6 @@ const props = defineProps({
 
 const iconSize = computed(() => sizes[props.size])
 const dropShadow = computed(() => (props.shadow ? 'drop-shadow-lg' : ''))
-
-const { getModuleLoader } = useIconStore()
 
 const component = computed(() =>
   defineAsyncComponent({
