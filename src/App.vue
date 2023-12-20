@@ -1,7 +1,11 @@
 <template>
   <div class="flex h-full w-full flex-row justify-center" id="main">
     <Navigator></Navigator>
-    <router-view></router-view>
+    <router-view v-slot="{ Component }">
+      <keep-alive>
+        <component :is="Component"></component>
+      </keep-alive>
+    </router-view>
     <ClientOnly>
       <AuthDialog v-if="authDialog"></AuthDialog>
     </ClientOnly>

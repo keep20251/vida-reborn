@@ -33,7 +33,7 @@
 </template>
 
 <script setup>
-import { ref, computed, watch, onMounted } from 'vue'
+import { ref, computed, watch, onMounted, onActivated, onDeactivated } from 'vue'
 import { useEventListener, useInfiniteScroll, useWindowSize, useElementSize } from '@vueuse/core'
 
 const props = defineProps({
@@ -72,7 +72,12 @@ watch(asideHeight, () => {
 
 // 滾動事件是偵測最頂層 html
 let prevScrollTop
+let lockOnScroll = false
 function onScroll() {
+  if (lockOnScroll) {
+    return
+  }
+
   const scrollTop = document.documentElement.scrollTop
 
   if (!prevScrollTop) {
@@ -110,5 +115,15 @@ onMounted(() => {
   if (props.infinite) {
     useInfiniteScroll(window, () => emits('load'), { distance: props.infiniteDistance })
   }
+})
+
+let deactivatedScrollTop = 0
+onActivated(() => {
+  window.scrollTo(0, deactivatedScrollTop)
+  lockOnScroll = false
+})
+onDeactivated(() => {
+  deactivatedScrollTop = document.documentElement.scrollTop
+  lockOnScroll = true
 })
 </script>
