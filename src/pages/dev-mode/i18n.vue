@@ -25,6 +25,9 @@
   </Page>
 </template>
 <script setup>
-import { setLocale } from '@/i18n'
-const langs = ['en', 'zh_cn', 'zh_tw', 'es', 'fr', 'de', 'th', 'vi', 'ja', 'ko', 'ru', 'pt', 'id', 'ar', 'hi']
+import { locales } from '@/i18n'
+import { useCookieLocale } from '@/compositions/cookie/locale'
+
+const langs = locales.map((locale) => locale.label)
+const { setLocale } = useCookieLocale()
 </script>

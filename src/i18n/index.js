@@ -1,10 +1,5 @@
 import { createI18n } from 'vue-i18n'
-
 import en from './locale/en'
-
-import { useLocalStorage } from '@vueuse/core'
-import { readonly, watch } from 'vue'
-import { LOCAL_STORAGE_KEYS } from '@/constant'
 
 const TW = 'zh-tw'
 const CN = 'zh-cn'
@@ -32,15 +27,9 @@ const i18n = createI18n({
   },
 })
 
-const storageLocale = useLocalStorage(LOCAL_STORAGE_KEYS.LOCALE, initLocale)
-if (!import.meta.env.SSR) {
-  watch(storageLocale, (value) => loadLanguageAsync(value), { immediate: true })
-}
-
-export const locale = readonly(storageLocale)
-
 export async function setLocale(langCode) {
-  storageLocale.value = getLang(langCode)
+  const lang = getLang(langCode)
+  await loadLanguageAsync(lang)
 }
 
 /**
@@ -84,12 +73,15 @@ export function getLang(langTmp) {
 }
 
 function setI18nLanguage(lang) {
-  i18n.global.locale.value = lang
+  if (import.meta.env.SSR) i18n.global.locale = lang
+  else i18n.global.locale.value = lang
   return lang
 }
 
 function loadLanguageAsync(lang) {
-  if (i18n.global.locale.value === lang) {
+  const currentLang = import.meta.env.SSR ? i18n.global.locale : i18n.global.locale.value
+
+  if (currentLang === lang) {
     return Promise.resolve(setI18nLanguage(lang))
   }
 
