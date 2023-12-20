@@ -2,7 +2,7 @@
   <div class="relative cursor-pointer">
     <div ref="dropdown" class="flex items-center justify-between bg-white" :class="[style]" @click="onDropdownClick">
       <div class="text-sm leading-[0.875rem]">
-        {{ options.find((o) => o[optionValue] === modelValue)[optionLabel] }}
+        {{ $t(options.find((o) => o[optionValue] === modelValue)[optionLabel]) }}
       </div>
       <Icon name="dropdown" :size="8" class="transition-transform" :class="{ 'rotate-180': open }"></Icon>
     </div>
@@ -17,7 +17,7 @@
         :key="option[optionValue]"
         @click="onOptionClick(option[optionValue])"
       >
-        {{ option[optionLabel] }}
+        {{ $t(option[optionLabel]) }}
       </div>
     </div>
   </div>
