@@ -12,7 +12,7 @@
                   v-for="(lang, index) in langs"
                   :key="`lang-${index}`"
                   class="cursor-pointer text-center hover:text-green-500"
-                  @click="storageLocale = lang.replace('_', '-')"
+                  @click="setLocale(lang)"
                 >
                   {{ $t(`lang.${lang}`) }}
                 </div>
@@ -25,9 +25,6 @@
   </Page>
 </template>
 <script setup>
-import { initLocale } from '@/i18n'
-import { useLocalStorage } from '@vueuse/core'
-
+import { setLocale } from '@/i18n'
 const langs = ['en', 'zh_cn', 'zh_tw', 'es', 'fr', 'de', 'th', 'vi', 'ja', 'ko', 'ru', 'pt', 'id', 'ar', 'hi']
-const storageLocale = useLocalStorage('__LOCALE', initLocale)
 </script>

@@ -1,23 +1,10 @@
 import { createI18n } from 'vue-i18n'
 
-import zhCn from './locale/zh-cn'
-import zhTw from './locale/zh-tw'
 import en from './locale/en'
-import es from './locale/es'
-import fr from './locale/fr'
-import de from './locale/de'
-import th from './locale/th'
-import vi from './locale/vi'
-import ja from './locale/ja'
-import ko from './locale/ko'
-import ru from './locale/ru'
-import pt from './locale/pt'
-import id from './locale/id'
-import ar from './locale/ar'
-import hi from './locale/hi'
 
 import { useLocalStorage } from '@vueuse/core'
-import { watch } from 'vue'
+import { readonly, watch } from 'vue'
+import { LOCAL_STORAGE_KEYS } from '@/constant'
 
 const TW = 'zh-tw'
 const CN = 'zh-cn'
@@ -35,33 +22,26 @@ const ID = 'id'
 const AR = 'ar'
 const HI = 'hi'
 
-export const storageLocale = useLocalStorage('__LOCALE', initLocale)
+const loadedLanguages = [EN]
 
 const i18n = createI18n({
-  locale: storageLocale.value,
+  locale: EN,
   fallbackLocale: EN,
   messages: {
-    [CN]: zhCn,
-    [TW]: zhTw,
     [EN]: en,
-    [ES]: es,
-    [FR]: fr,
-    [DE]: de,
-    [TH]: th,
-    [VI]: vi,
-    [JA]: ja,
-    [KO]: ko,
-    [RU]: ru,
-    [PT]: pt,
-    [ID]: id,
-    [AR]: ar,
-    [HI]: hi,
   },
 })
 
-watch(storageLocale, (value) => {
-  i18n.global.locale.value = value
-})
+const storageLocale = useLocalStorage(LOCAL_STORAGE_KEYS.LOCALE, initLocale)
+if (!import.meta.env.SSR) {
+  watch(storageLocale, (value) => loadLanguageAsync(value), { immediate: true })
+}
+
+export const locale = readonly(storageLocale)
+
+export async function setLocale(langCode) {
+  storageLocale.value = getLang(langCode)
+}
 
 /**
  * @description 目前可使用的語系
@@ -101,6 +81,28 @@ export function getLang(langTmp) {
     if (lang.includes('zh-hk')) matches = TW
   })
   return matches || EN
+}
+
+function setI18nLanguage(lang) {
+  i18n.global.locale.value = lang
+  return lang
+}
+
+function loadLanguageAsync(lang) {
+  if (i18n.global.locale.value === lang) {
+    return Promise.resolve(setI18nLanguage(lang))
+  }
+
+  if (loadedLanguages.includes(lang)) {
+    return Promise.resolve(setI18nLanguage(lang))
+  }
+
+  return import(`./locale/${lang}.ts`).then((messages) => {
+    console.log(`Lazy load ${lang} language pack...`)
+    i18n.global.setLocaleMessage(lang, messages.default)
+    loadedLanguages.push(lang)
+    return setI18nLanguage(lang)
+  })
 }
 
 export const $t = i18n.global.t

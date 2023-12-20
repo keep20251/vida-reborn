@@ -1,6 +1,7 @@
 export const COOKIE_KEY = {
   AUTH: '__AUTH',
   GUEST_ID: '__GUEST_ID',
+  LOCALE: '__LOCALE',
 }
 
 // 登入與註冊流程的路由設置
@@ -15,6 +16,7 @@ export const AUTH_ROUTES = {
 
 export const LOCAL_STORAGE_KEYS = {
   ACCOUNT_INFO: '__ACCOUNT_INFO',
+  LOCALE: '__LOCALE',
 }
 
 // 角色判斷顯示內容
