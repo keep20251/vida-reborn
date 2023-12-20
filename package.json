@@ -12,7 +12,7 @@
     "build:stag": "APP_ENV=staging vite build --mode staging --ssrManifest --outDir dist-staging/client && APP_ENV=staging vite build --mode staging --ssr src/entry-server.js --outDir dist-staging/server",
     "format": "npx prettier --write ./src",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "parse": "node ./i18n-transformer/csv-to-object.js && npx prettier --write ./src/i18n/locale",
+    "parse": "I18N_ID=1y5SbViL42a3OryBFqRjvYLsemTifDEX7b9YbpVUxx5s node ./i18n-transformer/json-to-ts.js && npx prettier --write ./src/i18n/locale",
     "parse:about": "node ./i18n-transformer/csv-to-json.js && npx prettier --write ./public/about",
     "parse:select": "node ./i18n-transformer/csv-to-json-array.js && npx prettier --write ./public/about/select",
     "pack": "sh pack.sh"

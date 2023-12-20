@@ -36,7 +36,7 @@ const main = () => {
 
 const writeFile = (filename, data) => {
   // const outputPath = `./i18n-transformer/output/js/${filename}.js`
-  const outputPath = `./src/i18n/locale/${filename}.js`
+  const outputPath = `./src/i18n/locale/${filename}.ts`
   fs.writeFile(outputPath, `export default ${JSON.stringify(data)}`, (e) => {
     if (e) console.error('[Export file error]', e)
     else console.log(`[File exported] ${path.resolve(outputPath)}`)
