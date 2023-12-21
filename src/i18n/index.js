@@ -3,49 +3,49 @@ import { useCookieLocale } from '@use/cookie/locale'
 import en from './locale/en'
 import { readonly } from 'vue'
 
+const TW = 'zh-tw'
+const CN = 'zh-cn'
+const EN = 'en'
+const ES = 'es'
+const FR = 'fr'
+const DE = 'de'
+const TH = 'th'
+const VI = 'vi'
+const JA = 'ja'
+const KO = 'ko'
+const RU = 'ru'
+const PT = 'pt'
+const ID = 'id'
+const AR = 'ar'
+const HI = 'hi'
+
+/**
+ * @description 目前可使用的語系
+ * 如果需要新增語系，首先要先到 src/i18n/locales 裡面新增語系檔案
+ * 然後再到這裡新增語系選項
+ * 小心[dash]跟[underline]的差異
+ */
+const locales = Object.freeze([
+  { label: 'en', value: EN },
+  { label: 'zh_cn', value: CN },
+  { label: 'zh_tw', value: TW },
+  { label: 'es', value: ES },
+  { label: 'fr', value: FR },
+  { label: 'de', value: DE },
+  { label: 'th', value: TH },
+  { label: 'vi', value: VI },
+  { label: 'ja', value: JA },
+  { label: 'ko', value: KO },
+  { label: 'ru', value: RU },
+  { label: 'pt', value: PT },
+  { label: 'id', value: ID },
+  { label: 'ar', value: AR },
+  { label: 'hi', value: HI },
+])
+
+const loadedLanguages = [EN]
+
 export function useI18n(ctx = {}) {
-  const TW = 'zh-tw'
-  const CN = 'zh-cn'
-  const EN = 'en'
-  const ES = 'es'
-  const FR = 'fr'
-  const DE = 'de'
-  const TH = 'th'
-  const VI = 'vi'
-  const JA = 'ja'
-  const KO = 'ko'
-  const RU = 'ru'
-  const PT = 'pt'
-  const ID = 'id'
-  const AR = 'ar'
-  const HI = 'hi'
-
-  /**
-   * @description 目前可使用的語系
-   * 如果需要新增語系，首先要先到 src/i18n/locales 裡面新增語系檔案
-   * 然後再到這裡新增語系選項
-   * 小心[dash]跟[underline]的差異
-   */
-  const locales = Object.freeze([
-    { label: 'en', value: EN },
-    { label: 'zh_cn', value: CN },
-    { label: 'zh_tw', value: TW },
-    { label: 'es', value: ES },
-    { label: 'fr', value: FR },
-    { label: 'de', value: DE },
-    { label: 'th', value: TH },
-    { label: 'vi', value: VI },
-    { label: 'ja', value: JA },
-    { label: 'ko', value: KO },
-    { label: 'ru', value: RU },
-    { label: 'pt', value: PT },
-    { label: 'id', value: ID },
-    { label: 'ar', value: AR },
-    { label: 'hi', value: HI },
-  ])
-
-  const loadedLanguages = [EN]
-
   const { locale } = useCookieLocale({ ctx, default: initLocale() })
 
   async function initI18n() {
