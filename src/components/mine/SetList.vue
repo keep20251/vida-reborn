@@ -40,11 +40,17 @@
         <span>成為創作者</span>
       </div>
     </div>
-    <div class="grid gap-y-10 border-b py-10">
-      <div class="flex cursor-pointer items-center gap-x-5">
+    <div class="flex justify-between gap-y-10 border-b py-10">
+      <div class="flex items-center gap-x-5">
         <Icon name="setting" :size="16"></Icon>
         <span>語言設置</span>
       </div>
+      <Dropdown
+        class="w-[120px]"
+        v-model="dropdownLocal"
+        :options="transOptions"
+        @update:modelValue="setLocale"
+      ></Dropdown>
     </div>
     <div class="grid gap-y-10 border-b py-10">
       <div class="flex cursor-pointer items-center gap-x-5">
@@ -60,4 +66,21 @@
     </div>
   </div>
 </template>
-<script setup></script>
+<script setup>
+import { locales } from '@/i18n'
+import { useCookieLocale } from '@/compositions/cookie/locale'
+import { ref, watch } from 'vue'
+import Dropdown from '@comp/form/Dropdown.vue'
+
+const transOptions = locales.map((lang) => ({
+  label: `lang.${lang.label}`,
+  value: lang.value,
+}))
+
+const { setLocale, locale } = useCookieLocale()
+
+const dropdownLocal = ref(locale.value)
+watch(locale, (newLocale) => {
+  dropdownLocal.value = newLocale
+})
+</script>

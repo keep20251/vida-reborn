@@ -32,6 +32,7 @@ export const iconMap = {
   sharePage: 'function/share-page',
   video: 'function/video',
   link: 'function/link',
+  bin: 'function/bin',
   comment: 'interaction/comment',
   likeOutline: 'interaction/like-outline',
   like: 'interaction/like',

@@ -26,8 +26,9 @@
 
         <InputWrap
           v-model="inputValue"
-          :placeholder="'搜索...'"
-          :appendIcon="'search'"
+          :placeholder="`輸入您的連結...`"
+          :prependIcon="'link'"
+          :appendIcon="'bin'"
           class="w-[280px]"
           @click:append="console.log('appendIcon')"
         ></InputWrap>

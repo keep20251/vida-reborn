@@ -9,7 +9,7 @@
         <li
           class="h-10 w-10 cursor-pointer rounded-full bg-gray36 shadow-[0_0_3px_0_rgba(0,0,0,0.25)]"
           v-for="(item, i) in props.items"
-          :class="{ 'bg-[#fffbfb]': getActiveSlide(i) }"
+          :class="{ 'bg-primary': getActiveSlide(i) }"
           @click="showSlide(i)"
           :key="i"
         ></li>
@@ -33,7 +33,7 @@
 </template>
 
 <script setup>
-import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { onBeforeUnmount, onDeactivated, onMounted, ref } from 'vue'
 
 const props = defineProps({
   items: {
@@ -51,10 +51,10 @@ let time
 
 const showSlide = (n) => {
   activeSlide.value = n
+  restartInterval()
 }
 
 const showNext = () => {
-  console.log(activeSlide.value)
   if (activeSlide.value <= props.items.length - 2) {
     activeSlide.value += 1
   } else if (activeSlide.value + 1 === props.items.length) {
@@ -62,11 +62,10 @@ const showNext = () => {
   } else {
     activeSlide.value = props.items.length - 1
   }
-  resetInterval()
+  restartInterval()
 }
 
 const showPrev = () => {
-  console.log(activeSlide.value)
   if (activeSlide.value >= 1) {
     activeSlide.value -= 1
   } else if (activeSlide.value === 0) {
@@ -74,28 +73,29 @@ const showPrev = () => {
   } else {
     activeSlide.value = 0
   }
-  resetInterval()
+  restartInterval()
 }
 
 const getActiveSlide = (i) => i === activeSlide.value
 
 onMounted(() => {
-  startInterval()
+  restartInterval()
 })
 
 onBeforeUnmount(() => {
-  resetInterval()
+  clearInterval(time)
 })
 
-const startInterval = () => {
+onDeactivated(() => {
+  clearInterval(time)
+})
+
+const restartInterval = () => {
+  clearInterval(time)
   if (props.intervalTime) {
     time = setInterval(() => {
       showNext()
-    }, 5000)
+    }, 3000)
   }
-}
-const resetInterval = () => {
-  clearInterval(time)
-  startInterval()
 }
 </script>

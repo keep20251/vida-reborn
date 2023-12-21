@@ -33,7 +33,7 @@
 </template>
 
 <script setup>
-import { ref, computed, watch, onMounted } from 'vue'
+import { ref, computed, watch, onMounted, onActivated, onDeactivated } from 'vue'
 import { useEventListener, useInfiniteScroll, useWindowSize, useElementSize } from '@vueuse/core'
 
 const props = defineProps({
@@ -71,11 +71,16 @@ watch(asideHeight, () => {
 })
 
 // 滾動事件是偵測最頂層 html
-let prevScrollTop
+let prevScrollTop = 0
+let lockOnScroll = false
 function onScroll() {
+  if (lockOnScroll) {
+    return
+  }
+
   const scrollTop = document.documentElement.scrollTop
 
-  if (!prevScrollTop) {
+  if (prevScrollTop === 0) {
     prevScrollTop = scrollTop
     return
   }
@@ -110,5 +115,14 @@ onMounted(() => {
   if (props.infinite) {
     useInfiniteScroll(window, () => emits('load'), { distance: props.infiniteDistance })
   }
+})
+
+// 切換時要 scroll 回原本位置
+onActivated(() => {
+  window.scrollTo(0, prevScrollTop)
+  lockOnScroll = false
+})
+onDeactivated(() => {
+  lockOnScroll = true
 })
 </script>
