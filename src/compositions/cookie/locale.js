@@ -19,9 +19,10 @@ export function useCookieLocale({ ctx: ssrContext = {}, default: defaultValue = 
 
   const cookies = import.meta.env.SSR ? createCookies(ctx.req)() : useCookies()
 
+  const path = '/'
   const locale = computed({
-    get: () => cookies.get(COOKIE_KEY.LOCALE),
-    set: (value) => cookies.set(COOKIE_KEY.LOCALE, value),
+    get: () => cookies.get(COOKIE_KEY.LOCALE, { path }),
+    set: (value) => cookies.set(COOKIE_KEY.LOCALE, value, { path }),
   })
 
   if (!locale.value) locale.value = defaultValue
