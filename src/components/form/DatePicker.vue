@@ -88,7 +88,9 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { padStart } from 'lodash'
-import { $t } from '@/i18n'
+import { useI18n } from '@/i18n'
+
+const { $t } = useI18n()
 
 const props = defineProps({
   modelValue: { type: Date, required: true },
