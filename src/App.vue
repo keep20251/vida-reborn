@@ -19,9 +19,6 @@ import Navigator from '@/components/layout/Navigator.vue'
 import AuthDialog from '@/components/dialog/AuthDialog.vue'
 import { useDialogStore } from '@/store/dialog'
 import { storeToRefs } from 'pinia'
-import { useCookieLocale } from '@use/cookie/locale'
-
-useCookieLocale().initial()
 
 const { authDialog } = storeToRefs(useDialogStore())
 </script>

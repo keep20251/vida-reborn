@@ -1,36 +1,30 @@
-import { readonly, watch } from 'vue'
-import { useCookie } from '../utils/cookie'
-import { setLocale as setI18nLocale, initLocale } from '@/i18n'
+import { createCookies, useCookies } from '@vueuse/integrations/useCookies'
+import { COOKIE_KEY } from '@const'
+import { computed, useSSRContext } from 'vue'
 
-export function useCookieLocale() {
-  const locale = useCookie('__LOCALE', { default: initLocale() })
-
+/**
+ * 這個 composition 用來取得 cookie 中的 locale，並且提供響應式的 locale
+ * @param {Object} ssrContext
+ * @returns { Object: { locale:ComputedRef } }
+ */
+export function useCookieLocale(ssrContext = {}) {
   /**
-   * @description 初始化語系
-   * 如果是 SSR，則直接設定語系
-   * 如果是 CSR，則監聽語系變更
+   * @description SSR 時，如果是entry-server，則直接從參數取得 SSR context，否則從 useSSRContext 取得 SSR context
    */
-  function initial() {
-    if (import.meta.env.SSR) {
-      setI18nLocale(locale.value)
-    }
+  const ctx = ssrContext || useSSRContext()
 
-    if (!import.meta.env.SSR) {
-      watch(locale, (value) => setI18nLocale(value), { immediate: true })
-    }
+  if (import.meta.env.SSR && !ctx) {
+    throw new Error('useCookieLocale: SSR context is required if in SSR mode.')
   }
 
-  /**
-   * 封裝 setLocale 方法，讓cookie/locale.js 作為 i18n/index.js 的 Proxy
-   * @param {string} langCode
-   */
-  function setLocale(langCode) {
-    locale.value = langCode
-  }
+  const cookies = import.meta.env.SSR ? createCookies(ctx.req)() : useCookies()
+
+  const locale = computed({
+    get: () => cookies.get(COOKIE_KEY.LOCALE),
+    set: (value) => cookies.set(COOKIE_KEY.LOCALE, value),
+  })
 
   return {
-    locale: readonly(locale),
-    initial,
-    setLocale,
+    locale,
   }
 }
