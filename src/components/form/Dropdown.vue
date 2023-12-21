@@ -7,7 +7,7 @@
       <Icon name="dropdown" :size="8" class="transition-transform" :class="{ 'rotate-180': open }"></Icon>
     </div>
     <div
-      class="max-h-300 absolute z-10 flex w-full flex-col overflow-auto rounded-[0.9375rem] bg-white shadow-[1px_1px_5px_0px_rgba(0,0,0,0.1)] transition-transform"
+      class="scrollbar absolute z-10 flex max-h-[300px] w-full flex-col overflow-auto rounded-[0.9375rem] bg-white shadow-[1px_1px_5px_0px_rgba(0,0,0,0.1)] transition-transform"
       :class="[{ 'scale-y-0': !open, 'scale-y-100': open }, optionStyle]"
     >
       <div
@@ -75,7 +75,7 @@ function onOptionClick(v) {
 
 onMounted(() => {
   useEventListener('click', ({ target }) => {
-    while (target !== document.body) {
+    while (target !== document.documentElement) {
       if (target === dropdown.value) {
         return
       }
