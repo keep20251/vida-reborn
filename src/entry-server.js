@@ -1,9 +1,13 @@
 import { basename } from 'node:path'
 import { renderToString } from 'vue/server-renderer'
 import { createApp } from './main'
+import { useI18n } from '@/i18n'
 
 export async function render(url, manifest, ctx) {
-  const { app, router, store } = createApp()
+  const { app, router, store } = await createApp()
+
+  const i18n = await useI18n(ctx).initI18n()
+  app.use(i18n)
 
   await router.push(url)
   await router.isReady()

@@ -4,7 +4,7 @@ import { signData } from './util'
 import { ref } from 'vue'
 import { usePopupDialogStore } from '@/store/popup-dialog'
 import { POPUP_DIALOG_TYPE } from '@/constant'
-import { $t } from '@/i18n'
+import { useI18n } from '@/i18n'
 
 export default function uploadImage(file, progress) {
   const { appConfig } = useAppStore()
@@ -33,6 +33,7 @@ export default function uploadImage(file, progress) {
 }
 
 export const upload = async (file) => {
+  const { $t } = useI18n()
   const { $popupDialog, close } = usePopupDialogStore()
   try {
     const progressTmp = ref(0)

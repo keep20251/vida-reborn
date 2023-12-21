@@ -67,17 +67,17 @@
   </div>
 </template>
 <script setup>
-import { locales } from '@/i18n'
-import { useCookieLocale } from '@/compositions/cookie/locale'
+import { useI18n } from '@/i18n'
 import { ref, watch } from 'vue'
 import Dropdown from '@comp/form/Dropdown.vue'
+
+const { locales, locale, useVueI18nInstance } = useI18n()
+const { setLocale } = useVueI18nInstance()
 
 const transOptions = locales.map((lang) => ({
   label: `lang.${lang.label}`,
   value: lang.value,
 }))
-
-const { setLocale, locale } = useCookieLocale()
 
 const dropdownLocal = ref(locale.value)
 watch(locale, (newLocale) => {
