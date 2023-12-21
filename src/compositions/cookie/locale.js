@@ -7,7 +7,7 @@ import { computed, useSSRContext } from 'vue'
  * @param {Object} ssrContext
  * @returns { Object: { locale:ComputedRef } }
  */
-export function useCookieLocale(ssrContext = {}) {
+export function useCookieLocale({ ctx: ssrContext = {}, default: defaultValue = 'en' } = {}) {
   /**
    * @description SSR 時，如果是entry-server，則直接從參數取得 SSR context，否則從 useSSRContext 取得 SSR context
    */
@@ -23,6 +23,8 @@ export function useCookieLocale(ssrContext = {}) {
     get: () => cookies.get(COOKIE_KEY.LOCALE),
     set: (value) => cookies.set(COOKIE_KEY.LOCALE, value),
   })
+
+  if (!locale.value) locale.value = defaultValue
 
   return {
     locale,

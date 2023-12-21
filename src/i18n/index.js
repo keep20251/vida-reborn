@@ -1,6 +1,7 @@
 import { createI18n, useI18n as useVueI18n } from 'vue-i18n'
 import { useCookieLocale } from '@use/cookie/locale'
 import en from './locale/en'
+import { readonly } from 'vue'
 
 export function useI18n(ctx = {}) {
   const TW = 'zh-tw'
@@ -45,7 +46,7 @@ export function useI18n(ctx = {}) {
 
   const loadedLanguages = [EN]
 
-  const { locale } = useCookieLocale(ctx)
+  const { locale } = useCookieLocale({ ctx, default: initLocale() })
 
   async function initI18n() {
     const lang = getLang(locale.value)
@@ -125,11 +126,10 @@ export function useI18n(ctx = {}) {
   }
 
   return {
-    locale,
+    locale: readonly(locale),
     locales,
     initI18n,
     useVueI18nInstance,
-    initLocale,
     getLang,
   }
 }
