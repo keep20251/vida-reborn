@@ -1,4 +1,8 @@
 // import { createGtm } from '@/gtm'
+import { useHead, useSeoMeta } from '@unhead/vue'
+import { storeToRefs } from 'pinia'
+import { useHeadStore } from '@/store/head'
+import { useI18n } from '@/i18n'
 
 export function setupStoreHydrate(store) {
   if (window.__INITIAL_STATE__) {
@@ -8,6 +12,53 @@ export function setupStoreHydrate(store) {
     }
     console.log('[hydrated]Pinia state is hydrated')
   }
+}
+
+export function loadSeoHead() {
+  const { locale } = useI18n()
+  const {
+    title,
+    description,
+    keywords,
+    ogTitle,
+    ogDescription,
+    ogUrl,
+    ogType,
+    ogImage,
+    twitterTitle,
+    twitterDescription,
+    twitterImage,
+    canonical,
+    alternates,
+  } = storeToRefs(useHeadStore())
+
+  useSeoMeta({
+    title,
+    description,
+    keywords,
+    ogTitle,
+    ogDescription,
+    ogUrl,
+    ogType,
+    ogImage,
+    twitterTitle,
+    twitterDescription,
+    twitterImage,
+  })
+  useHead({
+    link: [
+      {
+        rel: 'canonical',
+        href: canonical,
+      },
+      ...alternates.value,
+    ],
+    htmlAttrs: {
+      lang: locale,
+    },
+    // TODO 先預留ld+json的位置，之後再回來補
+    script: [{ textContent: JSON.stringify({}), type: 'application/ld+json' }],
+  })
 }
 
 export function setupGoogleTagManager() {

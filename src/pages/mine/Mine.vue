@@ -28,7 +28,7 @@
               <Icon class="cursor-pointer" name="setting" :size="20"></Icon>
               <Icon class="cursor-pointer" name="moreHorizontal" :size="20"></Icon>
               <button
-                class="bg-gray03 rounded-full border-[1.5px] border-gray66 px-20 py-6 text-[0.875rem] font-normal leading-[0.875rem]"
+                class="rounded-full border-[1.5px] border-gray66 bg-gray03 px-20 py-6 text-[0.875rem] font-normal leading-[0.875rem]"
               >
                 Subscribe
               </button>
@@ -54,7 +54,7 @@
         <div class="my-20 flex">
           <Button>Profile Page</Button>
         </div>
-        <div class="bg-gray03 flex h-36 w-full items-center px-20 text-[0.875rem] font-bold leading-[0.875rem]">
+        <div class="flex h-36 w-full items-center bg-gray03 px-20 text-[0.875rem] font-bold leading-[0.875rem]">
           All Posts 85
         </div>
         <div class="overflow-x-hidden">
@@ -104,7 +104,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { onActivated, onServerPrefetch, ref } from 'vue'
 import InputWrap from '@comp/form/InputWrap.vue'
 import SetList from '@comp/mine/SetList.vue'
 import Carousel from '@comp/common/Carousel.vue'
@@ -112,6 +112,10 @@ import List from '@comp/common/List.vue'
 import Feed from '@comp/main/Feed.vue'
 import Button from '@comp/common/Button.vue'
 import Loading from '@comp/common/Loading.vue'
+import { useHeadStore } from '@/store/head'
+import { storeToRefs } from 'pinia'
+import { useI18n } from '@/i18n'
+import { useRoute } from 'vue-router'
 
 const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
 
@@ -127,4 +131,31 @@ const cats = ref([
 
 const profileBg = ref('https://images.pexels.com/photos/134060/pexels-photo-134060.jpeg')
 const profileAvatar = ref('https://images.pexels.com/photos/129753/pexels-photo-129753.jpeg')
+
+const route = useRoute()
+const { useVueI18nInstance } = useI18n()
+const { $t } = useVueI18nInstance()
+const headStore = useHeadStore()
+const { title, description, keywordArr, ogUrl } = storeToRefs(headStore)
+
+onServerPrefetch(() => {
+  loadHead()
+})
+
+onActivated(() => {
+  loadHead()
+})
+
+function loadHead() {
+  title.value = $t('meta.mine.title', { pipe: '|' })
+  description.value = $t('meta.mine.description')
+  keywordArr.value = [
+    $t('meta.keywords.favorite'),
+    $t('meta.keywords.intl'),
+    $t('meta.keywords.subscribe'),
+    $t('meta.keywords.interact'),
+    $t('meta.keywords.title'),
+  ]
+  ogUrl.value = import.meta.env.VITE_APP_URL + route.path
+}
 </script>

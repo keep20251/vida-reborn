@@ -19,6 +19,8 @@ import Navigator from '@/components/layout/Navigator.vue'
 import AuthDialog from '@/components/dialog/AuthDialog.vue'
 import { useDialogStore } from '@/store/dialog'
 import { storeToRefs } from 'pinia'
+import { loadSeoHead } from '@/utils/init'
 
+loadSeoHead()
 const { authDialog } = storeToRefs(useDialogStore())
 </script>
