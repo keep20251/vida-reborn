@@ -6,7 +6,7 @@ import Login from '@/components/auth/Login.vue'
 import SignUpSuccess from '@/components/auth/SignUpSuccess.vue'
 
 import { defineStore, storeToRefs } from 'pinia'
-import { computed, ref } from 'vue'
+import { computed, ref, readonly } from 'vue'
 import { AUTH_ROUTES } from '@/constant'
 import { useDialogStore } from '@/store/dialog'
 
@@ -44,6 +44,12 @@ export const useAuthRouteStore = defineStore('authRoute', () => {
   function close() {
     now.value = AUTH_ROUTES.MAIN_PAGE
     authDialog.value = false
+    history.value = []
+  }
+
+  function open(curr = AUTH_ROUTES.MAIN_PAGE) {
+    now.value = curr
+    authDialog.value = true
   }
 
   //   function triggerGtm(route) {
@@ -66,5 +72,5 @@ export const useAuthRouteStore = defineStore('authRoute', () => {
   //     }
   //   }
 
-  return { now, authComponent, to, back, close }
+  return { authComponent, history: readonly(history), to, back, close, open }
 })

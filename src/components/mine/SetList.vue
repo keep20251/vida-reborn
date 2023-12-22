@@ -1,11 +1,11 @@
 <template>
   <div class="flex flex-col">
     <div class="grid gap-y-10 border-b py-10">
-      <div class="flex cursor-pointer items-center gap-x-5">
+      <div class="flex cursor-pointer items-center gap-x-5" @click="openAuthDialog(AUTH_ROUTES.SIGN_UP)">
         <Icon name="setting" :size="16"></Icon>
         <span>免費加入</span>
       </div>
-      <div class="flex cursor-pointer items-center gap-x-5">
+      <div class="flex cursor-pointer items-center gap-x-5" @click="openAuthDialog()">
         <Icon name="setting" :size="16"></Icon>
         <span>立即登入</span>
       </div>
@@ -59,7 +59,7 @@
       </div>
     </div>
     <div class="grid gap-y-10 py-10">
-      <div class="flex cursor-pointer items-center gap-x-5">
+      <div class="flex cursor-pointer items-center gap-x-5" @click="logout">
         <Icon name="setting" :size="16"></Icon>
         <span>登出</span>
       </div>
@@ -67,9 +67,12 @@
   </div>
 </template>
 <script setup>
+import Dropdown from '@comp/form/Dropdown.vue'
 import { useI18n } from '@/i18n'
 import { ref } from 'vue'
-import Dropdown from '@comp/form/Dropdown.vue'
+import { useAccountStore } from '@/store/account'
+import { useAuthRouteStore } from '@/store/auth-route'
+import { AUTH_ROUTES } from '@/constant'
 
 const { locales, locale, useVueI18nInstance } = useI18n()
 const { setLocale } = useVueI18nInstance()
@@ -79,4 +82,7 @@ const transOptions = locales.map((lang) => ({
   value: lang.value,
 }))
 const dropdownLocal = ref(locale.value)
+
+const { open: openAuthDialog } = useAuthRouteStore()
+const { logout } = useAccountStore()
 </script>
