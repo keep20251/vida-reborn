@@ -45,7 +45,12 @@
         <Icon name="setting" :size="16"></Icon>
         <span>語言設置</span>
       </div>
-      <Dropdown class="w-[120px]" v-model="locale" :options="transOptions" @update:modelValue="setLocale"></Dropdown>
+      <Dropdown
+        class="w-[120px]"
+        :model-value="locale"
+        :options="transOptions"
+        @update:modelValue="setLocale"
+      ></Dropdown>
     </div>
     <div class="grid gap-y-10 border-b py-10">
       <div class="flex cursor-pointer items-center gap-x-5">
