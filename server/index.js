@@ -3,6 +3,7 @@ import path from 'path'
 import express from 'express'
 import { fileURLToPath } from 'node:url'
 import { createServer as createViteServer } from 'vite'
+import { renderSSRHead } from '@unhead/ssr'
 import cookieParser from 'cookie-parser'
 
 async function createServer(root = process.cwd(), hmrPort = 6173) {
@@ -65,11 +66,17 @@ async function createServer(root = process.cwd(), hmrPort = 6173) {
       }
 
       const ctx = { req, res }
-      const [appHtml, preloadLinks, store] = await render(url, manifest, ctx)
-      const html = template
+      const [appHtml, preloadLinks, store, head] = await render(url, manifest, ctx)
+      const unheadPayload = await renderSSRHead(head)
+
+      let html = template
         .replace('<!--preload-links-->', preloadLinks)
         .replace(`<!--ssr-outlet-->`, appHtml)
         .replace(`<!--pinia-state-->`, store)
+
+      Object.entries(unheadPayload).forEach(([key, value]) => {
+        html = html.replace(`<!--${key}-->`, value)
+      })
 
       res.status(200).set({ 'Content-Type': 'text/html' }).end(html)
     } catch (e) {
