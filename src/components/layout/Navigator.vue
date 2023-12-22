@@ -5,28 +5,36 @@
         <div class="flex items-center justify-center space-x-16 px-12 py-16 hover:bg-gray05 xl:justify-start">
           <Icon v-if="atHome" name="home" :size="24"></Icon>
           <Icon v-else name="homeOutline" :size="24"></Icon>
-          <div class="hidden text-lg xl:block" :class="[atHome ? 'font-bold' : 'font-normal']">主頁</div>
+          <div class="hidden text-lg xl:block" :class="[atHome ? 'font-bold' : 'font-normal']">
+            {{ $t('nav.home') }}
+          </div>
         </div>
       </router-link>
       <router-link to="/search">
         <div class="flex items-center justify-center space-x-16 px-12 py-16 hover:bg-gray05 xl:justify-start">
           <Icon v-if="atSearch" name="explore" :size="24"></Icon>
           <Icon v-else name="exploreOutline" :size="24"></Icon>
-          <div class="hidden text-lg xl:block" :class="[atSearch ? 'font-bold' : 'font-normal']">搜尋</div>
+          <div class="hidden text-lg xl:block" :class="[atSearch ? 'font-bold' : 'font-normal']">
+            {{ $t('nav.search') }}
+          </div>
         </div>
       </router-link>
       <router-link to="/message">
         <div class="flex items-center justify-center space-x-16 px-12 py-16 hover:bg-gray05 xl:justify-start">
           <Icon v-if="atMessage" name="message" :size="24"></Icon>
           <Icon v-else name="messageOutline" :size="24"></Icon>
-          <div class="hidden text-lg xl:block" :class="[atMessage ? 'font-bold' : 'font-normal']">訊息</div>
+          <div class="hidden text-lg xl:block" :class="[atMessage ? 'font-bold' : 'font-normal']">
+            {{ $t('nav.message') }}
+          </div>
         </div>
       </router-link>
       <router-link to="/mine">
         <div class="flex items-center justify-center space-x-16 px-12 py-16 hover:bg-gray05 xl:justify-start">
           <Icon v-if="atMine" name="star" :size="24"></Icon>
           <Icon v-else name="starOutline" :size="24"></Icon>
-          <div class="hidden text-lg xl:block" :class="[atMine ? 'font-bold' : 'font-normal']">我的</div>
+          <div class="hidden text-lg xl:block" :class="[atMine ? 'font-bold' : 'font-normal']">
+            {{ $t('nav.mine') }}
+          </div>
         </div>
       </router-link>
       <div v-if="isDev" class="mt-16 border-spacing-16 border-y border-solid border-gray-500">

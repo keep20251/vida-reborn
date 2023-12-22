@@ -2,7 +2,6 @@
   <Page infinite @load="onLoad">
     <template #default>
       <div class="overflow-x-hidden px-20">
-        <div>{{ $t('common.loading') }}</div>
         <List :items="items" item-key="id">
           <template #default="{ last }">
             <Feed class="py-20"></Feed>
