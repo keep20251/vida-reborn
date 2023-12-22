@@ -5,7 +5,7 @@
         {{ yearSelect }}
       </div>
       <div class="w-1/2 cursor-pointer px-8 pl-22" :class="{ disable: yearSelectOpen }" @click="toggleMonthSelect">
-        {{ monthOptions[monthSelect] }}
+        {{ $t(monthOptions[monthSelect]) }}
       </div>
     </div>
     <div
@@ -26,7 +26,7 @@
       </div>
       <div v-if="monthSelectOpen" class="bg-white">
         <div
-          v-for="(monthText, monthValue) in monthOptions"
+          v-for="(monthKey, monthValue) in monthOptions"
           class="flex cursor-pointer px-10 py-16"
           :class="{ 'bg-primary': monthValue === monthSelect }"
           :key="monthValue"
@@ -35,7 +35,7 @@
           <div class="w-38">
             <Icon v-if="monthValue === monthSelect" :size="16" name="emoji"></Icon>
           </div>
-          <div>{{ monthText }}</div>
+          <div>{{ $t(monthKey) }}</div>
         </div>
       </div>
     </div>
@@ -90,7 +90,7 @@ import { ref, computed } from 'vue'
 import { padStart } from 'lodash'
 import { useI18n } from '@/i18n'
 
-const { $t } = useI18n()
+const { $t } = useI18n().useVueI18nInstance()
 
 const props = defineProps({
   modelValue: { type: Date, required: true },
@@ -115,18 +115,18 @@ function setMonth(month) {
 }
 const yearOptions = ref(genYearOptions())
 const monthOptions = ref([
-  $t('month.Jan'),
-  $t('month.Feb'),
-  $t('month.Mar'),
-  $t('month.Apr'),
-  $t('month.May'),
-  $t('month.Jun'),
-  $t('month.Jul'),
-  $t('month.Aug'),
-  $t('month.Sep'),
-  $t('month.Oct'),
-  $t('month.Nov'),
-  $t('month.Dec'),
+  'month.Jan',
+  'month.Feb',
+  'month.Mar',
+  'month.Apr',
+  'month.May',
+  'month.Jun',
+  'month.Jul',
+  'month.Aug',
+  'month.Sep',
+  'month.Oct',
+  'month.Nov',
+  'month.Dec',
 ])
 const yearSelectOpen = ref(false)
 const monthSelectOpen = ref(false)
