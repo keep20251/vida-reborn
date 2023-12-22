@@ -26,10 +26,8 @@ const router = createRouter({
   routes: import.meta.env.DEV ? [...routes, ...devRoutes] : routes,
 })
 
-if (!import.meta.env.SSR) {
-  beforeGuard.forEach((guard) => router.beforeEach(guard))
-  afterGuard.forEach((guard) => router.afterEach(guard))
-}
+beforeGuard.forEach((guard) => router.beforeEach(guard))
+afterGuard.forEach((guard) => router.afterEach(guard))
 
 router.onError((e) => {
   console.error(e.message)
