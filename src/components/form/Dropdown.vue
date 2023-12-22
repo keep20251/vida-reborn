@@ -75,13 +75,7 @@ function onOptionClick(v) {
 
 onMounted(() => {
   useEventListener('click', ({ target }) => {
-    while (target !== document.documentElement) {
-      if (target === dropdown.value) {
-        return
-      }
-      target = target.parentElement
-    }
-    if (open.value) {
+    if (!dropdown.value.parentNode.contains(target)) {
       open.value = false
     }
   })
