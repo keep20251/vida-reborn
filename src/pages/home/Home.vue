@@ -75,11 +75,12 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { onActivated, onServerPrefetch, ref } from 'vue'
 import Tab from '@comp/navigation/Tab.vue'
 import List from '@comp/common/List.vue'
 import Feed from '@comp/main/Feed.vue'
 import Loading from '@comp/common/Loading.vue'
+import { useHeadStore } from '@/store/head'
 
 const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
 
@@ -93,4 +94,14 @@ const tabOptions = ref([
 function onLoad() {
   console.log('load at', new Date())
 }
+
+const { reset: resetHeadStore } = useHeadStore()
+
+onServerPrefetch(() => {
+  resetHeadStore()
+})
+
+onActivated(() => {
+  resetHeadStore()
+})
 </script>

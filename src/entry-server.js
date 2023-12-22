@@ -4,7 +4,7 @@ import { createApp } from './main'
 import { useI18n } from '@/i18n'
 
 export async function render(url, manifest, ctx) {
-  const { app, router, store } = await createApp()
+  const { app, router, store, head } = await createApp()
 
   const i18n = await useI18n(ctx).initI18n()
   app.use(i18n)
@@ -15,7 +15,7 @@ export async function render(url, manifest, ctx) {
   const html = await renderToString(app, ctx)
 
   const preloadLinks = renderPreloadLinks(ctx.modules, manifest)
-  return [html, preloadLinks, JSON.stringify(store.state.value)]
+  return [html, preloadLinks, JSON.stringify(store.state.value), head]
 }
 
 function renderPreloadLinks(modules, manifest) {

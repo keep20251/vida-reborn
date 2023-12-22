@@ -20,6 +20,7 @@
   "dependencies": {
     "@gtm-support/vue-gtm": "^2.2.0",
     "@rollup/plugin-terser": "^0.4.4",
+    "@unhead/ssr": "^1.8.9",
     "@unhead/vue": "^1.8.8",
     "@vueuse/core": "^10.6.1",
     "@vueuse/integrations": "^10.6.1",

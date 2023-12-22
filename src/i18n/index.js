@@ -45,7 +45,7 @@ const locales = Object.freeze([
 
 const loadedLanguages = [EN]
 
-export function useI18n(ctx = {}) {
+export function useI18n(ctx = null) {
   const { locale } = useCookieLocale({ ctx, default: initLocale() })
 
   async function initI18n() {

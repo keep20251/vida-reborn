@@ -68,7 +68,7 @@
 </template>
 <script setup>
 import { useI18n } from '@/i18n'
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 import Dropdown from '@comp/form/Dropdown.vue'
 
 const { locales, locale, useVueI18nInstance } = useI18n()
@@ -78,9 +78,5 @@ const transOptions = locales.map((lang) => ({
   label: `lang.${lang.label}`,
   value: lang.value,
 }))
-
 const dropdownLocal = ref(locale.value)
-watch(locale, (newLocale) => {
-  dropdownLocal.value = newLocale
-})
 </script>
