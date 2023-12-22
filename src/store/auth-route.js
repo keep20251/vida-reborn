@@ -25,8 +25,8 @@ export const useAuthRouteStore = defineStore('authRoute', () => {
   ]
 
   const now = ref(AUTH_ROUTES.MAIN_PAGE)
-  const authComponent = computed(() => routes.find((route) => route.value === now.value).component)
   const history = ref([])
+  const authComponent = computed(() => routes.find((route) => route.value === now.value).component)
 
   function to(value) {
     // triggerGtm(value)

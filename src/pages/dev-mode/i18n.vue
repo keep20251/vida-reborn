@@ -26,9 +26,10 @@
 </template>
 <script setup>
 import { useI18n } from '@/i18n'
+import { useI18nInstance } from '@use/utils/i18n'
 
-const { locales, useVueI18nInstance } = useI18n()
-const { setLocale } = useVueI18nInstance()
+const { locales } = useI18n()
+const { setLocale } = useI18nInstance()
 
 const langs = locales.map((locale) => locale.label)
 </script>

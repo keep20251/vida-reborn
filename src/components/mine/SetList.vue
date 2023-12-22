@@ -45,12 +45,7 @@
         <Icon name="setting" :size="16"></Icon>
         <span>語言設置</span>
       </div>
-      <Dropdown
-        class="w-[120px]"
-        v-model="dropdownLocal"
-        :options="transOptions"
-        @update:modelValue="setLocale"
-      ></Dropdown>
+      <Dropdown class="w-[120px]" v-model="locale" :options="transOptions" @update:modelValue="setLocale"></Dropdown>
     </div>
     <div class="grid gap-y-10 border-b py-10">
       <div class="flex cursor-pointer items-center gap-x-5">
@@ -68,20 +63,19 @@
 </template>
 <script setup>
 import Dropdown from '@comp/form/Dropdown.vue'
+import { useI18nInstance } from '@use/utils/i18n'
 import { useI18n } from '@/i18n'
-import { ref } from 'vue'
 import { useAccountStore } from '@/store/account'
 import { useAuthRouteStore } from '@/store/auth-route'
 import { AUTH_ROUTES } from '@/constant'
 
-const { locales, locale, useVueI18nInstance } = useI18n()
-const { setLocale } = useVueI18nInstance()
+const { locales } = useI18n()
+const { setLocale, locale } = useI18nInstance()
 
 const transOptions = locales.map((lang) => ({
   label: `lang.${lang.label}`,
   value: lang.value,
 }))
-const dropdownLocal = ref(locale.value)
 
 const { open: openAuthDialog } = useAuthRouteStore()
 const { logout } = useAccountStore()

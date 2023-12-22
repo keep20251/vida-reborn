@@ -21,9 +21,12 @@ import InputWrap from '@/components/form/InputWrap.vue'
 import Button from '@/components/common/Button.vue'
 import { AUTH_ROUTES } from '@/constant'
 import { computed, reactive } from 'vue'
+import { storeToRefs } from 'pinia'
 
-const { to, back, close, history } = useAuthRouteStore()
-const showBack = computed(() => history.length > 0)
+const authRouteStore = useAuthRouteStore()
+const { to, back, close } = authRouteStore
+const { history } = storeToRefs(authRouteStore)
+const showBack = computed(() => history.value.length > 0)
 
 const credential = reactive({
   username: '',

@@ -12,10 +12,16 @@ import { hydrated } from '@/compositions/lifecycle'
 import { setupStoreHydrate } from '@/utils/init'
 import { useAppleSignIn } from '@/utils/apple'
 import { useI18n } from '@/i18n'
+import { useCookies } from '@vueuse/integrations/useCookies'
+import { COOKIE_KEY } from '@const'
 
 createApp()
   .then(async ({ app, router, store }) => {
-    const i18n = await useI18n().initI18n()
+    const cookies = useCookies()
+    const locale = cookies.get(COOKIE_KEY.LOCALE, { path: '/' })
+
+    const { createI18n } = useI18n()
+    const i18n = await createI18n(locale)
     app.use(i18n)
 
     router.isReady().then(async () => {
