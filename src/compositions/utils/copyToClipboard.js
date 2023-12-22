@@ -1,8 +1,8 @@
 import { usePopupMessageStore } from '@/store/popup-message'
-import { useI18n } from '@/i18n'
+import { useI18nInstance } from '@use/utils/i18n'
 
 export function useCopyToClipboard() {
-  const { $t } = useI18n()
+  const { $t } = useI18nInstance()
   const { open: openMessage } = usePopupMessageStore()
 
   function copy(value) {

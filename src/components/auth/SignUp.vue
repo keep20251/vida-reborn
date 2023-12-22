@@ -1,6 +1,6 @@
 <template>
   <div class="flex w-full flex-col justify-center gap-y-30 px-32 pb-16 pt-32 last:mb-16">
-    <DialogHeader title="註冊" @click="back">
+    <DialogHeader title="註冊" :history="history" :show-back="showBack" @back="back" @close="close">
       <template #default>
         <div class="flex flex-col gap-y-32">
           <div class="flex flex-col gap-y-16">
@@ -20,9 +20,13 @@ import DialogHeader from '@/components/dialog/DialogHeader.vue'
 import InputWrap from '@/components/form/InputWrap.vue'
 import Button from '@/components/common/Button.vue'
 import { AUTH_ROUTES } from '@/constant'
-import { reactive } from 'vue'
+import { computed, reactive } from 'vue'
+import { storeToRefs } from 'pinia'
 
-const { to, back } = useAuthRouteStore()
+const authRouteStore = useAuthRouteStore()
+const { to, back, close } = authRouteStore
+const { history } = storeToRefs(authRouteStore)
+const showBack = computed(() => history.value.length > 0)
 
 const credential = reactive({
   username: '',

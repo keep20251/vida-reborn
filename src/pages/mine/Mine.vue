@@ -114,7 +114,7 @@ import Button from '@comp/common/Button.vue'
 import Loading from '@comp/common/Loading.vue'
 import { useHeadStore } from '@/store/head'
 import { storeToRefs } from 'pinia'
-import { useI18n } from '@/i18n'
+import { useI18nInstance } from '@use/utils/i18n'
 import { useRoute } from 'vue-router'
 
 const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
@@ -133,8 +133,7 @@ const profileBg = ref('https://images.pexels.com/photos/134060/pexels-photo-1340
 const profileAvatar = ref('https://images.pexels.com/photos/129753/pexels-photo-129753.jpeg')
 
 const route = useRoute()
-const { useVueI18nInstance } = useI18n()
-const { $t } = useVueI18nInstance()
+const { $t } = useI18nInstance()
 const headStore = useHeadStore()
 const { title, description, keywordArr, ogUrl } = storeToRefs(headStore)
 

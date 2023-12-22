@@ -1,7 +1,5 @@
-import { createI18n, useI18n as useVueI18n } from 'vue-i18n'
-import { useCookieLocale } from '@use/cookie/locale'
+import { createI18n as createVueI18n } from 'vue-i18n'
 import en from './locale/en'
-import { readonly } from 'vue'
 
 const TW = 'zh-tw'
 const CN = 'zh-cn'
@@ -45,18 +43,21 @@ const locales = Object.freeze([
 
 const loadedLanguages = [EN]
 
-export function useI18n(ctx = null) {
-  const { locale } = useCookieLocale({ ctx, default: initLocale() })
-
-  async function initI18n() {
-    const lang = getLang(locale.value)
+export function useI18n() {
+  /**
+   * 初始化 i18n
+   * @param {string} locale Cookie的語系
+   * @returns Object i18n 實體
+   */
+  async function createI18n(locale) {
+    const lang = locale ? getLang(locale) : initLocale()
     loadedLanguages.push(lang)
 
     const messages = { en }
     const defaultLangPack = lang === 'en' ? null : (await import(`./locale/${lang}`)).default
     if (defaultLangPack) messages[lang] = defaultLangPack
 
-    const i18n = createI18n({
+    const i18n = createVueI18n({
       legacy: false,
       locale: lang,
       fallbackLocale: EN,
@@ -81,55 +82,10 @@ export function useI18n(ctx = null) {
     return matches || EN
   }
 
-  /**
-   * 實際使用的 VueI18n 實例，僅能在 Vue 的 setup() 內使用
-   * @returns { i18n, setLocale, $t }
-   */
-  function useVueI18nInstance() {
-    const i18n = useVueI18n()
-
-    async function setLocale(langCode) {
-      const lang = getLang(langCode)
-      await loadLanguageAsync(lang)
-    }
-
-    function setI18nLanguage(lang) {
-      i18n.locale.value = lang
-      locale.value = lang
-      return lang
-    }
-
-    function loadLanguageAsync(lang) {
-      if (i18n.locale.value === lang) {
-        return Promise.resolve(setI18nLanguage(lang))
-      }
-
-      if (loadedLanguages.includes(lang)) {
-        return Promise.resolve(setI18nLanguage(lang))
-      }
-
-      return import(`./locale/${lang}`).then((messages) => {
-        console.log(`Lazy load ${lang} language pack...`)
-        i18n.setLocaleMessage(lang, messages.default)
-        loadedLanguages.push(lang)
-        return setI18nLanguage(lang)
-      })
-    }
-
-    const $t = i18n.t
-
-    return {
-      i18n,
-      setLocale,
-      $t,
-    }
-  }
-
   return {
-    locale: readonly(locale),
     locales,
-    initI18n,
-    useVueI18nInstance,
+    loadedLanguages,
+    createI18n,
     getLang,
   }
 }

@@ -1,7 +1,7 @@
 import * as Yup from 'yup'
-import { useI18n } from '@/i18n'
+import { useI18nInstance } from '@use/utils/i18n'
 
-const { $t } = useI18n()
+const { $t } = useI18nInstance()
 
 export const initial = () => {
   Yup.setLocale({

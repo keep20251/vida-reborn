@@ -80,6 +80,8 @@ export const useAccountStore = defineStore('account-store', () => {
   }
 
   function logout() {
+    tokenCookie.value = ''
+
     accountRef.value.username = null
     accountRef.value.token = null
     accountRef.value.aff = null
