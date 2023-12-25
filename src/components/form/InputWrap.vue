@@ -1,10 +1,10 @@
 <template>
   <div class="flex flex-col gap-y-10">
-    <label v-if="title" class="text-left text-[0.875rem] font-normal not-italic leading-[0.875rem]"
-      >{{ title }}
+    <label v-if="label" class="text-left text-[0.875rem] font-normal not-italic leading-[0.875rem]"
+      >{{ label }}
 
-      <span v-if="subtitle" class="text-[0.75rem] font-normal not-italic leading-[0.75rem] text-gray66">{{
-        subtitle
+      <span v-if="sublabel" class="text-[0.75rem] font-normal not-italic leading-[0.75rem] text-gray66">{{
+        sublabel
       }}</span>
     </label>
 
@@ -70,8 +70,8 @@
 import { computed } from 'vue'
 
 const props = defineProps({
-  title: { type: String },
-  subtitle: { type: String },
+  label: { type: String },
+  sublabel: { type: String },
   modelValue: { type: [String, Number], required: true },
   placeholder: { type: String, default: '输入文字...' },
   password: { type: Boolean, default: false },

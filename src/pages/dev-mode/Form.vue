@@ -8,16 +8,16 @@
         <div>【 Input Text | Password | Number 】</div>
         <InputWrap
           v-model="inputValue"
-          :title="'帳號'"
-          :subtitle="'(必填)'"
+          :label="'帳號'"
+          :sublabel="'(必填)'"
           :errMsg="'帳號不得為空'"
           class="w-[280px]"
         ></InputWrap>
 
         <InputWrap
           v-model="inputValue"
-          :title="'Price'"
-          :subtitle="'单位：美金'"
+          :label="'Price'"
+          :sublabel="'单位：美金'"
           :placeholder="'9.99'"
           :appendText="'最高设置为90元'"
           class="w-[280px]"
@@ -55,8 +55,8 @@
         <div>【 Textarea 】</div>
         <TextareaWrap
           v-model="textareaValue"
-          :title="'标题'"
-          :subtitle="'(副标题)'"
+          :label="'标题'"
+          :sublabel="'(副标题)'"
           :placeholder="'填写内文'"
           :errMsg="'錯誤訊息'"
           class="w-[280px]"
