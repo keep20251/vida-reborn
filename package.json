@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "HMR_SSL=false node server",
     "dev:ssl": "HMR_SSL=true node server",
-    "prod": "NODE_ENV=production node server",
-    "stag": "NODE_ENV=staging node server",
+    "prod": "HMR_SSL=false NODE_ENV=production node server",
+    "prod:ssl": "HMR_SSL=true NODE_ENV=production node server",
+    "stag": "HMR_SSL=false NODE_ENV=staging node server",
+    "stag:ssl": "HMR_SSL=true NODE_ENV=staging node server",
     "build": "APP_ENV=production vite build --ssrManifest --outDir dist/client && APP_ENV=production vite build --ssr src/entry-server.js --outDir dist/server",
     "build:stag": "APP_ENV=staging vite build --mode staging --ssrManifest --outDir dist-staging/client && APP_ENV=staging vite build --mode staging --ssr src/entry-server.js --outDir dist-staging/server",
     "format": "npx prettier --write ./src",

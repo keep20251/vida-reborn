@@ -87,7 +87,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import { padStart } from 'lodash'
+import padStart from 'lodash/padStart'
 import { useI18nInstance } from '@use/utils/i18n'
 
 const { $t } = useI18nInstance()

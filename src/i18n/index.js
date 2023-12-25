@@ -54,7 +54,7 @@ export function useI18n() {
     loadedLanguages.push(lang)
 
     const messages = { en }
-    const defaultLangPack = lang === 'en' ? null : (await import(`./locale/${lang}`)).default
+    const defaultLangPack = lang === 'en' ? null : (await import(`./locale/${lang}.ts`)).default
     if (defaultLangPack) messages[lang] = defaultLangPack
 
     const i18n = createVueI18n({
