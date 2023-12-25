@@ -16,6 +16,19 @@ export default {
       lg: '1108px', // header(72) + main(600) + aside(300) = 972
       xl: '1295px', // header(270) + main(600) + aside(350) = 1220
     },
+    fontSize: {
+      sm: '0.75rem',
+      base: '0.875rem',
+      lg: '1.125rem',
+      xl: '1.5625rem',
+    },
+    fontWeight: {
+      light: '300',
+      normal: '400',
+      medium: '500',
+      semibold: '600',
+      bold: '700',
+    },
     extend: {
       gridTemplateColumns: {
         'auto-fit': 'repeat(auto-fit, minmax(250px, 1fr))',
