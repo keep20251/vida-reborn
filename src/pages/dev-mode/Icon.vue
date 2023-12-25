@@ -8,7 +8,7 @@
         <div class="flex justify-center bg-slate-600 align-middle">
           <div class="my-32 grid grid-cols-6">
             <div v-for="icon in icons" :key="`icon-${icon}`" class="mb-16 flex flex-col">
-              <Icon class="mx-auto" :name="icon" :shadow="true" :size="size" set="vida"></Icon>
+              <Icon class="mx-auto" :name="icon" :shadow="true" size="size" set="vida"></Icon>
               <div class="mx-auto">{{ icon }}</div>
             </div>
           </div>

@@ -20,7 +20,7 @@
           :key="year"
           @click="setYear(year)"
         >
-          <div class="w-38"><Icon v-if="year === yearSelect" :size="16" name="emoji"></Icon></div>
+          <div class="w-38"><Icon v-if="year === yearSelect" size="16" name="emoji"></Icon></div>
           <div>{{ year }}</div>
         </div>
       </div>
@@ -33,7 +33,7 @@
           @click="setMonth(monthValue)"
         >
           <div class="w-38">
-            <Icon v-if="monthValue === monthSelect" :size="16" name="emoji"></Icon>
+            <Icon v-if="monthValue === monthSelect" size="16" name="emoji"></Icon>
           </div>
           <div>{{ $t(monthKey) }}</div>
         </div>
@@ -72,7 +72,7 @@
           @click="onTimeFocus"
           @blur="onTimeBlur"
         />
-        <Icon :size="20" name="calendar"></Icon>
+        <Icon size="20" name="calendar"></Icon>
       </div>
       <div v-if="timeErr" class="text-xs font-normal leading-[120%] text-warning">
         {{ timeErr }}

@@ -4,7 +4,7 @@
       <div class="text-sm leading-[0.875rem]">
         {{ $t(options.find((o) => o[optionValue] === modelValue)[optionLabel]) }}
       </div>
-      <Icon name="dropdown" :size="8" class="transition-transform" :class="{ 'rotate-180': open }"></Icon>
+      <Icon name="dropdown" size="8" class="transition-transform" :class="{ 'rotate-180': open }"></Icon>
     </div>
     <div
       class="scrollbar absolute z-10 flex max-h-[300px] w-full flex-col overflow-auto rounded-[0.9375rem] bg-white shadow-[1px_1px_5px_0px_rgba(0,0,0,0.1)] transition-transform"

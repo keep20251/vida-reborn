@@ -27,14 +27,14 @@
       />
       <Icon
         v-if="!!prependIcon"
-        :size="20"
+        size="20"
         :name="prependIcon"
         class="absolute left-20"
         @click="emits('click:prepend')"
       ></Icon>
       <Icon
         v-if="!!appendIcon"
-        :size="20"
+        size="20"
         :name="appendIcon"
         class="absolute right-20 cursor-pointer"
         @click="emits('click:append')"
@@ -58,7 +58,7 @@
         class="absolute right-5 flex h-30 w-40 cursor-pointer items-center justify-center rounded-[0.9375rem] bg-primary px-[0.375rem] py-[0.625rem] text-center text-[0.875rem] font-bold leading-[0.875rem] text-white shadow-[0_0.125rem_0.25rem_0_rgba(0,0,0,0.25)]"
         @click="emits('click:append')"
       >
-        <Icon :size="20" :name="appendIconBtn" class="text-white"></Icon>
+        <Icon size="20" :name="appendIconBtn" class="text-white"></Icon>
       </div>
     </div>
     <div v-if="errMsg" class="text-left text-[0.875rem] font-normal not-italic leading-[0.875rem] text-warning">

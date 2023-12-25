@@ -2,7 +2,7 @@
   <Page>
     <template #main-top>
       <div class="flex h-full w-full items-center px-20">
-        <div class="flex cursor-pointer"><Icon name="back" :size="24"></Icon> <span>Back</span></div>
+        <div class="flex cursor-pointer"><Icon name="back" size="24"></Icon> <span>Back</span></div>
       </div>
     </template>
     <template #default>
@@ -24,9 +24,9 @@
           <div class="absolute bottom-[-35px] flex h-70 w-full items-end justify-between px-20">
             <div class="h-70 w-70 rounded-full bg-lime-700"></div>
             <div class="flex items-center gap-x-15">
-              <Icon class="cursor-pointer" name="link" :size="20"></Icon>
-              <Icon class="cursor-pointer" name="setting" :size="20"></Icon>
-              <Icon class="cursor-pointer" name="moreHorizontal" :size="20"></Icon>
+              <Icon class="cursor-pointer" name="link" size="20"></Icon>
+              <Icon class="cursor-pointer" name="setting" size="20"></Icon>
+              <Icon class="cursor-pointer" name="moreHorizontal" size="20"></Icon>
               <button
                 class="rounded-full border-[1.5px] border-gray66 bg-gray03 px-20 py-6 text-[0.875rem] font-normal leading-[0.875rem]"
               >
