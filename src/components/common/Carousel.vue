@@ -20,13 +20,13 @@
         class="flex h-25 w-25 cursor-pointer items-center justify-around rounded-full bg-[#ffffffb8] shadow-[0_0_3px_0_rgba(0,0,0,0.3)] outline-none"
         @click="showPrev"
       >
-        <Icon name="back" :size="16"></Icon>
+        <Icon name="back" size="16"></Icon>
       </button>
       <button
         class="flex h-25 w-25 rotate-180 cursor-pointer items-center justify-around rounded-full bg-[#ffffffb8] shadow-[0_0_3px_0_rgba(0,0,0,0.3)] outline-none"
         @click="showNext"
       >
-        <Icon name="back" :size="16"></Icon>
+        <Icon name="back" size="16"></Icon>
       </button>
     </div>
   </div>

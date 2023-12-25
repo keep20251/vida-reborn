@@ -5,7 +5,7 @@
       <div class="mr-5 h-30 w-30 rounded-full bg-lime-700"></div>
       <div class="grow text-sm font-bold leading-none">Angelababy</div>
       <div class="grow text-right text-xs font-medium leading-5 text-gray66">6 minutes</div>
-      <Icon name="moreVertical" :size="20"></Icon>
+      <Icon name="moreVertical" size="20"></Icon>
     </div>
 
     <!-- media -->
@@ -18,23 +18,23 @@
     <!-- feature -->
     <div class="flex h-20 space-x-20">
       <div class="flex grow space-x-10">
-        <Icon name="likeOutline" :size="20"></Icon>
+        <Icon name="likeOutline" size="20"></Icon>
         <div class="text-xs font-medium leading-5">113</div>
       </div>
       <div class="flex grow space-x-10">
-        <Icon name="comment" :size="20"></Icon>
+        <Icon name="comment" size="20"></Icon>
         <div class="text-xs font-medium leading-5">289</div>
       </div>
       <div class="flex grow space-x-10">
-        <Icon name="sharePost" :size="20"></Icon>
+        <Icon name="sharePost" size="20"></Icon>
         <div class="text-xs font-medium leading-5">94</div>
       </div>
       <div class="flex grow space-x-10">
-        <Icon name="play" :size="20"></Icon>
+        <Icon name="play" size="20"></Icon>
         <div class="text-xs font-medium leading-5">23,000</div>
       </div>
       <div class="flex grow space-x-10">
-        <Icon name="collection" :size="20"></Icon>
+        <Icon name="collection" size="20"></Icon>
         <div class="text-xs font-medium leading-5">94</div>
       </div>
     </div>
