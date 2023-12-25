@@ -33,7 +33,7 @@ export function useI18nInstance() {
       return Promise.resolve(setI18nLanguage(lang))
     }
 
-    return import(`../../i18n/locale/${lang}`).then((messages) => {
+    return import(`../../i18n/locale/${lang}.ts`).then((messages) => {
       console.log(`Lazy load ${lang} language pack...`)
       i18n.setLocaleMessage(lang, messages.default)
       loadedLanguages.push(lang)
