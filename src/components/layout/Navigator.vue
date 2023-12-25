@@ -45,7 +45,7 @@
             :to="route.path"
             :key="route.path"
           >
-            {{ route.name }}
+            {{ route.name.replace('devmode-', '') }}
           </router-link>
         </div>
       </div>
