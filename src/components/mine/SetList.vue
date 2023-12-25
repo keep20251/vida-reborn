@@ -45,12 +45,7 @@
         <Icon name="setting" :size="16"></Icon>
         <span>語言設置</span>
       </div>
-      <Dropdown
-        class="w-[120px]"
-        :model-value="locale"
-        :options="transOptions"
-        @update:modelValue="setLocale"
-      ></Dropdown>
+      <Dropdown class="w-[120px]" v-model="locale" :options="transOptions"></Dropdown>
     </div>
     <div class="grid gap-y-10 border-b py-10">
       <div class="flex cursor-pointer items-center gap-x-5">
@@ -75,7 +70,7 @@ import { useAuthRouteStore } from '@/store/auth-route'
 import { AUTH_ROUTES } from '@/constant'
 
 const { locales } = useI18n()
-const { setLocale, locale } = useI18nInstance()
+const { locale } = useI18nInstance()
 
 const transOptions = locales.map((lang) => ({
   label: `lang.${lang.label}`,

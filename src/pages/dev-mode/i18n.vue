@@ -12,7 +12,7 @@
                   v-for="(lang, index) in langs"
                   :key="`lang-${index}`"
                   class="cursor-pointer text-center hover:text-green-500"
-                  @click="setLocale(lang)"
+                  @click="locale = lang"
                 >
                   {{ $t(`lang.${lang}`) }}
                 </div>
@@ -29,7 +29,7 @@ import { useI18n } from '@/i18n'
 import { useI18nInstance } from '@use/utils/i18n'
 
 const { locales } = useI18n()
-const { setLocale } = useI18nInstance()
+const { locale } = useI18nInstance()
 
 const langs = locales.map((locale) => locale.label)
 </script>

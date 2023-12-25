@@ -1,7 +1,7 @@
 import { useI18n as useVueI18n } from 'vue-i18n'
 import { useI18n } from '@/i18n'
 import { useCookie } from '@use/utils/cookie'
-import { readonly } from 'vue'
+import { computed } from 'vue'
 import { COOKIE_KEY } from '@const'
 
 /**
@@ -13,40 +13,48 @@ export function useI18nInstance() {
   const { getLang, loadedLanguages } = useI18n()
   const cookieLocale = useCookie(COOKIE_KEY.LOCALE)
 
-  async function setLocale(langCode) {
+  async function _setLocale(langCode) {
     const lang = getLang(langCode)
-    await loadLanguageAsync(lang)
+    await _loadLanguageAsync(lang)
   }
 
-  function setI18nLanguage(lang) {
+  function _setI18nLanguage(lang) {
     i18n.locale.value = lang
     cookieLocale.value = lang
     return lang
   }
 
-  function loadLanguageAsync(lang) {
+  function _loadLanguageAsync(lang) {
     if (i18n.locale.value === lang) {
-      return Promise.resolve(setI18nLanguage(lang))
+      return Promise.resolve(_setI18nLanguage(lang))
     }
 
     if (loadedLanguages.includes(lang)) {
-      return Promise.resolve(setI18nLanguage(lang))
+      return Promise.resolve(_setI18nLanguage(lang))
     }
 
     return import(`../../i18n/locale/${lang}.ts`).then((messages) => {
       console.log(`Lazy load ${lang} language pack...`)
       i18n.setLocaleMessage(lang, messages.default)
       loadedLanguages.push(lang)
-      return setI18nLanguage(lang)
+      return _setI18nLanguage(lang)
     })
   }
 
   const $t = i18n.t
 
+  /**
+   * 作為 cookieLocale 跟 i18n.locale 的 Proxy 物件
+   * 提供修改跟取得語系的介面
+   */
+  const locale = computed({
+    get: () => cookieLocale.value,
+    set: (val) => _setLocale(val),
+  })
+
   return {
     i18n,
-    locale: readonly(cookieLocale),
-    setLocale,
+    locale,
     $t,
   }
 }
