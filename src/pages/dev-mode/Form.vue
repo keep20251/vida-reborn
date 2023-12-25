@@ -49,6 +49,14 @@
           @click:append="console.log('appendIconBtn')"
         ></InputWrap>
 
+        <InputWrap
+          v-model="inputValue"
+          :label="'密碼'"
+          :placeholder="'輸入您的密碼'"
+          password
+          class="w-[280px]"
+        ></InputWrap>
+
         <p class="text-[0.75rem]">輸入的值：{{ inputValue }}</p>
         <hr />
 

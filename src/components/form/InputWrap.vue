@@ -2,7 +2,6 @@
   <div class="flex flex-col gap-y-10">
     <label v-if="label" class="text-left text-[0.875rem] font-normal not-italic leading-[0.875rem]"
       >{{ label }}
-
       <span v-if="sublabel" class="text-[0.75rem] font-normal not-italic leading-[0.75rem] text-gray66">{{
         sublabel
       }}</span>
@@ -22,6 +21,7 @@
           'pr-[7.25rem]': !!appendText,
           'pr-[3.75rem]': !!appendTextBtn,
           'pr-[3.25rem]': !!appendIconBtn,
+          'pr-48': !!password,
         }"
         class="h-35 w-full shrink-0 divide-solid rounded-[1.125rem] border-gray20 bg-white px-20 pb-[0.6875rem] pt-[0.75rem] text-xs font-normal not-italic leading-[0.75rem] text-gray66 shadow-[0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)inset] outline-none placeholder:text-gray36"
       />
@@ -60,6 +60,13 @@
       >
         <Icon size="20" :name="appendIconBtn" class="text-white"></Icon>
       </div>
+      <Icon
+        v-if="!!password"
+        size="20"
+        :name="pwdHide ? 'star' : 'starOutline'"
+        class="absolute right-20 cursor-pointer select-none"
+        @click="pwdHide = !pwdHide"
+      ></Icon>
     </div>
     <div v-if="errMsg" class="text-left text-[0.875rem] font-normal not-italic leading-[0.875rem] text-warning">
       {{ errMsg }}
@@ -67,7 +74,7 @@
   </div>
 </template>
 <script setup>
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 
 const props = defineProps({
   label: { type: String },
@@ -85,6 +92,7 @@ const props = defineProps({
   prependIcon: { type: String, default: '' },
   maxLength: { type: Number },
   errMsg: { type: String, default: '' },
+  typingAppend: { type: Boolean, default: false },
 })
 
 const emits = defineEmits(['update:modelValue', 'click:prepend', 'click:append'])
@@ -98,5 +106,6 @@ const value = computed({
   },
 })
 
-const type = props.password ? 'password' : props.number ? 'number' : 'text'
+const pwdHide = ref(true)
+const type = computed(() => (props.password && pwdHide.value ? 'password' : props.number ? 'number' : 'text'))
 </script>
