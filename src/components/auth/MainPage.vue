@@ -6,12 +6,12 @@
       </div>
     </div>
     <div class="flex flex-col justify-center gap-y-10 px-20">
-      <InputWrap v-model="email" title="電子郵箱" placeholder="請輸入電子郵箱"></InputWrap>
-      <Button @click="to(AUTH_ROUTES.VERIFY_EMAIL_CODE)">下一步</Button>
+      <InputWrap v-model="email" :label="$t('label.email')" :placeholder="$t('placeholder.email')"></InputWrap>
+      <Button @click="to(AUTH_ROUTES.VERIFY_EMAIL_CODE)">{{ $t('common.next') }}</Button>
     </div>
-    <div class="text-center">登入或快速註冊</div>
+    <div class="text-center">{{ $t('info.loginOrRegister') }}</div>
     <div class="flex flex-col justify-center gap-y-16 px-20">
-      <button class="rounded-md border border-black py-8 text-center">使用 Account 登入</button>
+      <button class="rounded-md border border-black py-8 text-center">{{ $t('info.loginByAccount') }}</button>
       <button
         class="rounded-md border border-black py-8 text-center"
         @click="
@@ -21,13 +21,13 @@
           })
         "
       >
-        使用 Apple 登入或註冊
+        {{ $t('info.loginByApple') }}
       </button>
       <button class="rounded-md border border-black py-8 text-center" @click="googleLogin">
-        使用 Google 登入或註冊
+        {{ $t('info.loginByGoogle') }}
       </button>
       <button class="rounded-md border border-black py-8 text-center" @click="twitterLogin">
-        使用 Twitter 登入或註冊
+        {{ $t('info.loginByTwitter') }}
       </button>
     </div>
   </div>

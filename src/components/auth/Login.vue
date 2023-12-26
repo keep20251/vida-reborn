@@ -1,15 +1,28 @@
 <template>
   <div class="flex w-full flex-col justify-center gap-y-30 px-32 pb-16 pt-32 last:mb-16">
-    <DialogHeader title="Account登入" @back="back">
+    <DialogHeader :title="$t('title.accountLogin')" @back="back">
       <template #default>
         <div class="flex flex-col gap-y-32">
           <div class="flex flex-col gap-y-8">
-            <InputWrap v-model="credential.username" title="用戶名" placeholder="輸入用戶名"></InputWrap>
-            <InputWrap v-model="credential.password" title="密碼" placeholder="輸入密碼"></InputWrap>
-            <Button>登入</Button>
+            <InputWrap
+              v-model="credential.account"
+              :label="$t('label.account')"
+              :placeholder="$t('placeholder.account')"
+            ></InputWrap>
+            <InputWrap
+              v-model="credential.password"
+              :label="$t('label.password')"
+              :placeholder="$t('placeholder.password')"
+            ></InputWrap>
+            <Button>{{ $t('label.login') }}</Button>
           </div>
           <div class="text-center">
-            <span>沒有註冊過嗎？<button class="underline" @click="to(AUTH_ROUTES.SIGN_UP)">點我進入註冊</button></span>
+            <span>
+              {{ $t('info.neverRegister') }}
+              <button class="underline" @click="to(AUTH_ROUTES.SIGN_UP)">
+                {{ $t('info.clickToRegister') }}
+              </button>
+            </span>
           </div>
         </div>
       </template>
@@ -27,7 +40,7 @@ import { reactive } from 'vue'
 const { to, back } = useAuthRouteStore()
 
 const credential = reactive({
-  username: '',
+  account: '',
   password: '',
 })
 </script>
