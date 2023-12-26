@@ -1,20 +1,20 @@
 <template>
   <div class="flex w-full flex-col justify-center gap-y-30 px-32 pb-16 pt-32 last:mb-16">
-    <DialogHeader title="驗證碼登入" @back="back">
+    <DialogHeader :title="$t('title.mailCodeLogin')" @back="back">
       <template #default>
         <div class="flex flex-col gap-y-32">
           <div class="flex flex-col gap-y-8">
-            <div class="px-32 text-center">郵件驗證碼已發送，請輸入剛傳送至example@gmail.com的驗證碼來登入</div>
+            <div class="px-32 text-center">{{ $t('info.mailCodeSent', { mail: 'example@gmail.com' }) }}</div>
             <InputWrap
               v-model="verifyCode"
-              title="郵箱驗證碼"
-              placeholder="輸入驗證碼"
-              append-text-btn="重新發送"
+              :label="$t('label.mailCode')"
+              :placeholder="$t('placeholder.mailCode')"
+              :append-text-btn="$t('append.resend')"
             ></InputWrap>
-            <Button>登入</Button>
+            <Button>{{ $t('label.login') }}</Button>
           </div>
           <div class="text-center">
-            <button @click="to(AUTH_ROUTES.VERIFY_PASSWORD)">使用密碼方式登入</button>
+            <button @click="to(AUTH_ROUTES.VERIFY_PASSWORD)">{{ $t('info.loginByPwd') }}</button>
           </div>
         </div>
       </template>

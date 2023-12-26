@@ -41,17 +41,6 @@ export const useAccountStore = defineStore('account-store', () => {
     }
   })
 
-  // 登入後關閉登入彈窗並跳轉至首頁
-  watch(
-    isLogin,
-    (newValue) => {
-      if (!newValue) return
-      authDialog.value = false
-      router.replace('/home')
-    },
-    { immediate: true },
-  )
-
   function login(data) {
     ;['username', 'token', 'aff', 'uuid', 'chat_token'].forEach((k) => {
       if (!(k in data)) throw new Error(`${k} is required value in data.`)

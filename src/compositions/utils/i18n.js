@@ -11,7 +11,7 @@ import { COOKIE_KEY } from '@const'
 export function useI18nInstance() {
   const i18n = useVueI18n()
   const { getLang, loadedLanguages } = useI18n()
-  const cookieLocale = useCookie(COOKIE_KEY.LOCALE)
+  const cookieLocale = useCookie(COOKIE_KEY.LOCALE, { default: i18n.locale.value })
 
   async function _setLocale(langCode) {
     const lang = getLang(langCode)
