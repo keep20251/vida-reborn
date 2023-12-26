@@ -17,6 +17,8 @@ export default {
     hi: 'हिन्दी',
   },
   common: {
+    getAround: '先逛逛',
+    goNow: '立即前往',
     agree: '同意',
     continue: '繼續',
     skip: '跳過',
@@ -358,6 +360,8 @@ export default {
     resend: '重新發送',
   },
   content: {
+    welcomeToVida: '歡迎你加入VIDA成為我們的一員！趕緊去認證信箱吧！',
+    verifyAccount: '至 [我的 > 帳戶設置] 即可完成認證',
     logout: '是否確定要登出？',
     cancelUpload: '確認後將失去目前上傳進度',
     confirmSendRequest: '請問您是否確認要送出資料呢？',
