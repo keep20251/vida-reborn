@@ -356,9 +356,7 @@ export default {
     followToView: '追蹤某個帳號，以查看其最新影片',
     popularSetName: '{year}-{month} 熱門榜單',
   },
-  append: {
-    resend: '重新發送',
-  },
+  append: { resend: '重新發送' },
   content: {
     welcomeToVida: '歡迎你加入VIDA成為我們的一員！趕緊去認證信箱吧！',
     verifyAccount: '至 [我的 > 帳戶設置] 即可完成認證',
