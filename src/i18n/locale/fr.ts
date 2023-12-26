@@ -17,6 +17,8 @@ export default {
     hi: 'हिन्दी',
   },
   common: {
+    getAround: 'Se promener',
+    goNow: 'Aller maintenant',
     agree: 'Accepter',
     continue: 'Continuer',
     skip: 'Sauter',
@@ -99,6 +101,17 @@ export default {
     cancel: 'Paiement annulé',
   },
   info: {
+    loginByAccount: 'Connectez-vous avec la méthode du compte',
+    loginByPwd: 'Connectez-vous avec un mot de passe',
+    loginByApple: 'Utilisez Apple pour vous connecter ou vous inscrire',
+    loginByGoogle: 'Utilisez Google pour vous connecter ou vous inscrire',
+    loginByTwitter: 'Utilisez Twitter pour vous connecter ou vous inscrire',
+    mailCodeSent:
+      'Le code de vérification par e-mail a été envoyé, veuillez saisir le code de vérification qui vient de transmettre à {mail} pour se connecter',
+    pwdStrength: 'Fiabilité du mot de passe:',
+    loginOrRegister: 'Connectez-vous ou inscrivez-vous rapidement',
+    neverRegister: "Vous n'avez pas inscrit?",
+    clickToRegister: "Cliquez sur moi pour s'inscrire",
     accept: 'Accepter',
     watches: 'Vues',
     fans: 'Ventilateurs',
@@ -222,6 +235,8 @@ export default {
     login: 'Se connecter',
     register: 'Registre',
     password: 'Mot de passe',
+    email: 'e-mail',
+    mailCode: 'Code de vérification par e-mail',
     confirmPassword: 'Confirmez le mot de passe',
     forgotPassword: 'Mot de passe oublié',
     birthDate: 'Date de naissance',
@@ -292,6 +307,8 @@ export default {
     addPushMsg: 'Augmenter le contenu poussoir',
   },
   placeholder: {
+    email: "Veuillez saisir l'e-mail",
+    mailCode: 'Entrez le code de confirmation',
     message: 'Entrez le message...',
     text: 'Entrez du texte',
     detailedReason: 'Entrez la raison détaillée',
@@ -316,6 +333,9 @@ export default {
     date: { year: 'Année', month: 'Mois', day: 'Jour' },
   },
   title: {
+    pwdLogin: 'Connexion du mot de passe',
+    mailCodeLogin: 'Connexion du code de vérification',
+    accountLogin: 'Connexion au compte',
     finished: 'Information complète',
     setPassword: 'Définir le mot de passe',
     socialLink: 'Lien social',
@@ -364,7 +384,11 @@ export default {
     followToView: 'Suivre un certain compte pour voir son dernier film',
     popularSetName: '{year}-{month} Liste populaire',
   },
+  append: { resend: 'Revivre' },
   content: {
+    welcomeToVida:
+      "Bienvenue à rejoindre Vida en tant que membre de notre! Accédez à la boîte aux lettres d'authentification!",
+    verifyAccount: 'À [mon> paramètres de compte] peuvent terminer la certification',
     logout: 'Êtes-vous sûr de vouloir vous déconnecter?',
     cancelUpload: 'La confirmation perdra la progression actuelle du téléchargement',
     confirmSendRequest: 'Êtes-vous sûr de vouloir soumettre les données ?',
