@@ -105,6 +105,10 @@
           <Dropdown class="w-96" v-model="dropdownValue" :options="options"></Dropdown>
           <Dropdown v-model="dropdownValue" :options="options" inset></Dropdown>
         </div>
+        <div>【 Accordion 】</div>
+        <div class="flex flex-col gap-y-5 p-8">
+          <Accordion :accordions="myAccordionData"></Accordion>
+        </div>
       </div>
       <div v-else-if="tab === 4" class="my-10 grid gap-y-20 px-20">
         <div>【 Button 】</div>
@@ -148,6 +152,7 @@ import InputSwitch from '@comp/form/InputSwitch.vue'
 import OptionsPicker from '@comp/form/OptionsPicker.vue'
 import DatePicker from '@comp/form/DatePicker.vue'
 import Dropdown from '@comp/form/Dropdown.vue'
+import Accordion from '@comp/common/Accordion.vue'
 import TextareaWrap from '@comp/form/TextareaWrap.vue'
 import Button from '@comp/common/Button.vue'
 import Tab from '@comp/navigation/Tab.vue'
@@ -182,6 +187,60 @@ const options = ref([
   { label: 'Option9', value: 9 },
   { label: 'Option10', value: 10 },
 ])
+
+const myAccordionData = [
+  {
+    title: '帳號',
+    open: true,
+    content: [
+      {
+        subTitle: '我忘記密碼了',
+        open: false,
+        subContent: '前往登入畫面，並在密碼欄位中點擊‘忘記’。如果您不再記得您的電子郵件地址，請聯繫support@vida',
+      },
+      {
+        subTitle: '如何刪除我的帳號？',
+        open: true,
+        subContent: '請注意，刪除帳號是一個不可逆轉的過程，您的所有資料將根據我們的隱私政策永久刪除。',
+      },
+    ],
+  },
+  {
+    title: '功能',
+    open: false,
+    content: [
+      {
+        subTitle: '為什麼我要訂閱？',
+        open: false,
+        subContent:
+          '作為訂閱者，您將根據您所關注和訂閱的類別和創作者收到高度個性化的內容。您不僅可以訪問創作者的私人內容，還有獨家機會與他們互動、直接傳訊和交談！',
+      },
+      {
+        subTitle: '如何將內容發送給創作者？',
+        open: false,
+        subContent:
+          '訂閱者可以與創作者分享媒體。內容必須符合社群指南。在與創作者進行消息對話時，您只需按下聊天框旁邊的回形針按鈕，然後從您的設備上傳圖片或視頻。',
+      },
+      {
+        subTitle: '內容是否保存在用戶個人資料中以供將來上傳？',
+        open: false,
+        subContent: '不，內容不會保存。每次您希望將內容發送給創作者時，內容都需要從您的設備上傳。',
+      },
+    ],
+  },
+  {
+    title: '聯繫',
+    open: false,
+    content: [
+      {
+        subTitle: '如何聯繫Fantasi客戶支持？',
+        open: false,
+        subContent:
+          '我們很樂意幫助您解答問題。若要直接與我們聯繫，請使用以下鏈接和聯絡信息：一般與網站支持：support@Fantasi、帳單支持：support@Fantasi 或訪問 https: //www.Fantasi （僅限帳單相關）',
+      },
+    ],
+  },
+]
 
 const datePicked = ref(new Date())
 
