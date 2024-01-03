@@ -11,7 +11,9 @@
     </div>
     <div class="text-center">{{ $t('info.loginOrRegister') }}</div>
     <div class="flex flex-col justify-center gap-y-16 px-20">
-      <button class="rounded-md border border-black py-8 text-center">{{ $t('info.loginByAccount') }}</button>
+      <button class="rounded-md border border-black py-8 text-center" @click="to(AUTH_ROUTES.LOGIN)">
+        {{ $t('info.loginByAccount') }}
+      </button>
       <button
         class="rounded-md border border-black py-8 text-center"
         @click="

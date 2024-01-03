@@ -319,7 +319,7 @@ export default {
   },
   title: {
     pwdLogin: 'เข้าสู่ระบบรหัสผ่าน',
-    mailCodeLogin: 'เข้าสู่ระบบการตรวจสอบรหัส',
+    mailCodeLogin: 'การเข้าสู่ระบบการตรวจสอบรหัส',
     accountLogin: 'ลงชื่อเข้าใช้',
     finished: 'ข้อมูลครบถ้วน',
     setPassword: 'ตั้งรหัสผ่าน',
