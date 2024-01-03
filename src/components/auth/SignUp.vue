@@ -154,10 +154,8 @@ async function register() {
       password: credential.password.value,
     })
 
-    if (data.value.status === 1) {
-      setToken(data.value.data.token)
-      to(AUTH_ROUTES.SIGN_UP_SUCCESS)
-    }
+    setToken(data.value.token)
+    to(AUTH_ROUTES.SIGN_UP_SUCCESS)
   } catch (e) {
     console.error(e)
   }
