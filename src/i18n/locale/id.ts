@@ -384,7 +384,7 @@ export default {
   append: { resend: 'Ulang' },
   content: {
     welcomeToVida: 'Selamat datang untuk bergabung dengan Vida sebagai anggota kami! Buka kotak surat otentikasi!',
-    verifyAccount: 'Ke [Pengaturan akun> saya] dapat menyelesaikan sertifikasi',
+    verifyAccount: 'Ke [Pengaturan Akun> Saya] dapat menyelesaikan sertifikasi',
     logout: 'Apakah Anda yakin ingin logout?',
     cancelUpload: 'Konfirmasi akan kehilangan kemajuan unggahan saat ini',
     confirmSendRequest: 'Apakah Anda yakin ingin mengirimkan datanya?',

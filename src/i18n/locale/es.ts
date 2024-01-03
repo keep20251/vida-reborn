@@ -102,7 +102,7 @@ export default {
     loginByGoogle: 'Use Google para iniciar sesión o registrarse',
     loginByTwitter: 'Use Twitter para iniciar sesión o registrarse',
     mailCodeSent:
-      'Se ha enviado el código de verificación por correo electrónico, ingrese el código de verificación que acaba de transmitirse a {correo} para iniciar sesión',
+      'Se ha enviado el código de verificación por correo electrónico, ingrese el código de verificación que acaba de transmitirse a {mail} para iniciar sesión',
     pwdStrength: 'seguridad de la contraseña:',
     loginOrRegister: 'Inicie sesión o regístrese rápidamente',
     neverRegister: '¿No te has registrado?',
@@ -329,7 +329,7 @@ export default {
   },
   title: {
     pwdLogin: 'Contraseña de acceso',
-    mailCodeLogin: 'Iniciar sesión en el código de verificación',
+    mailCodeLogin: 'Inicio de sesión del código de verificación',
     accountLogin: 'Cuenta de Ingreso',
     finished: 'Información completa',
     setPassword: 'Configurar la clave',
@@ -379,7 +379,7 @@ export default {
     followToView: 'Rastrear una determinada cuenta para ver su última película',
     popularSetName: '{year}-{month} Lista popular',
   },
-  append: { resend: 'Revender' },
+  append: { resend: 'Reenviar' },
   content: {
     welcomeToVida: '¡Bienvenido a unirse a Vida como miembro de nuestro! ¡Vaya al buzón de autenticación!',
     verifyAccount: 'A [mi> configuración de cuenta] puede completar la certificación',

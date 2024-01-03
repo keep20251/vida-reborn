@@ -107,7 +107,7 @@ export default {
     loginByGoogle: 'Use Google to log in or register',
     loginByTwitter: 'Use Twitter to log in or register',
     mailCodeSent:
-      'The email verification code has been sent, please enter the verification code that just transmitted to {MAIL} to log in',
+      'The email verification code has been sent, please enter the verification code that just transmitted to {mail} to log in',
     pwdStrength: 'password strength:',
     loginOrRegister: 'Log in or register quickly',
     neverRegister: "Haven't you registered?",

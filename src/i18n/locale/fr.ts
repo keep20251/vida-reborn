@@ -111,7 +111,7 @@ export default {
     pwdStrength: 'Fiabilité du mot de passe:',
     loginOrRegister: 'Connectez-vous ou inscrivez-vous rapidement',
     neverRegister: "Vous n'avez pas inscrit?",
-    clickToRegister: "Cliquez sur moi pour s'inscrire",
+    clickToRegister: 'Cliquez sur moi pour vous inscrire',
     accept: 'Accepter',
     watches: 'Vues',
     fans: 'Ventilateurs',
