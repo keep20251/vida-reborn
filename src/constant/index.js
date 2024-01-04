@@ -70,3 +70,11 @@ export const PERMISSION = {
     logout: true,
   },
 }
+
+export const SEND_EMAIL_PURPOSE = {
+  BIND_PHONE: 1, // 綁定手機
+  UNBIND_PHONE: 2, // 解綁手機
+  GET_ACCOUNT_BACK: 3, // 找回帳號
+  VERIFY_EMAIL: 4, // 驗證信箱
+  FAST_LOGIN: 5, // 快速登入
+}
