@@ -33,7 +33,7 @@
               </div>
             </div>
 
-            <Button @click="submit">{{ $t('label.register') }}</Button>
+            <Button :loading="isLoading" @click="submit">{{ $t('label.register') }}</Button>
           </div>
         </div>
       </template>
@@ -83,24 +83,19 @@ const credential = reactive({
   },
 })
 
-const { data, execute } = useRequest('Account.emailUsed', {})
+const { execute } = useRequest('Account.emailUsed', {})
 
 const checkEmailExist = ref(false)
 async function checkEmail(email) {
   try {
     await execute({ email })
-
-    if (data.value.status === 1) {
-      credential.email.error = ''
-      credential.email.check = true
-      checkEmailExist.value = true
-    } else {
-      credential.email.error = data.value.msg
-      credential.email.check = false
-      checkEmailExist.value = false
-    }
+    credential.email.error = ''
+    credential.email.check = true
+    checkEmailExist.value = true
   } catch (e) {
-    console.error(e)
+    credential.email.error = e.message
+    credential.email.check = false
+    checkEmailExist.value = false
   }
 }
 
@@ -139,13 +134,17 @@ async function submit() {
 
     register()
   } catch (e) {
-    console.warn(e)
+    console.error(e)
   }
 }
 
 const accountStore = useAccountStore()
 const { setToken } = accountStore
+
+const isLoading = ref(false)
+
 async function register() {
+  isLoading.value = true
   const { data, execute } = useRequest('Account.registerByPassword', {})
   try {
     await execute({
@@ -158,6 +157,9 @@ async function register() {
     to(AUTH_ROUTES.SIGN_UP_SUCCESS)
   } catch (e) {
     console.error(e)
+    credential.account.error = e.message
+  } finally {
+    isLoading.value = false
   }
 }
 </script>
