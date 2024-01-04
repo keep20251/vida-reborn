@@ -31,9 +31,9 @@ export function useThirdPartyAuth() {
   async function twitterLogin() {
     try {
       await getRedirectToTwitter()
-      console.log('twitterRedirection', twitterRedirection.value.data)
-      twitterOAuth.value = twitterRedirection.value.data
-      window.location.href = twitterRedirection.value.data.url
+      console.log('twitterRedirection', twitterRedirection.value)
+      twitterOAuth.value = twitterRedirection.value
+      window.location.href = twitterRedirection.value.url
     } catch (err) {
       console.error(err)
     }
@@ -59,10 +59,10 @@ export function useThirdPartyAuth() {
    */
   async function googleLogin() {
     await getGoogleOuathPage()
-    console.log('googleRedirection', googleRedirection.value.data.url)
+    console.log('googleRedirection', googleRedirection.value.url)
 
-    googleOAuth.value = googleRedirection.value.data
-    window.location.href = googleRedirection.value.data.url
+    googleOAuth.value = googleRedirection.value
+    window.location.href = googleRedirection.value.url
   }
 
   return {
