@@ -6,8 +6,13 @@
       </div>
     </div>
     <div class="flex flex-col justify-center gap-y-10 px-20">
-      <InputWrap v-model="email" :label="$t('label.email')" :placeholder="$t('placeholder.email')"></InputWrap>
-      <Button @click="to(AUTH_ROUTES.VERIFY_EMAIL_CODE)">{{ $t('common.next') }}</Button>
+      <InputWrap
+        v-model="email"
+        :err-msg="error"
+        :label="$t('label.email')"
+        :placeholder="$t('placeholder.email')"
+      ></InputWrap>
+      <Button :loading="isLoading" @click="next">{{ $t('common.next') }}</Button>
     </div>
     <div class="text-center">{{ $t('info.loginOrRegister') }}</div>
     <div class="flex flex-col justify-center gap-y-16 px-20">
@@ -43,12 +48,37 @@ import { AUTH_ROUTES } from '@/constant'
 import { useThirdPartyAuth } from '@/compositions/request/third-party-auth'
 import { ref } from 'vue'
 import { useAccountStore } from '@/store/account'
+import { storeToRefs } from 'pinia'
+import { useEmailLoginStore } from '@/store/email-login'
+import { useYup } from '@use/validator/yup.js'
 
 const { twitterLogin, googleLogin, onAppleSignIn, redirect_uri } = useThirdPartyAuth()
 const { to, close } = useAuthRouteStore()
 const { setToken } = useAccountStore()
 
-const email = ref('')
+const { Yup, parseError } = useYup()
+const schema = Yup.string().email().required()
+
+const emailLoginStore = useEmailLoginStore()
+const { sendEmailCode } = emailLoginStore
+const { email } = storeToRefs(emailLoginStore)
+
+const error = ref('')
+const isLoading = ref(false)
+
+async function next() {
+  try {
+    isLoading.value = true
+    await schema.validate(email.value)
+    const response = await sendEmailCode()
+    console.log('sendEmailCode.response', response)
+    to(AUTH_ROUTES.VERIFY_EMAIL_CODE)
+  } catch (e) {
+    error.value = parseError(e)
+  } finally {
+    isLoading.value = false
+  }
+}
 
 /**
  * 蘋果登入成功後向後端請求取得 token
@@ -65,7 +95,7 @@ async function onAppleLoginSuccess(event) {
     },
     onSuccess: (responseData) => {
       console.log('ThirdParty.webLoginByApple.response', responseData)
-      setToken(responseData.data.token)
+      setToken(responseData.token)
     },
     onError: (err) => {
       console.error(err)
