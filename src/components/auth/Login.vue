@@ -42,9 +42,8 @@ import { useAuthRouteStore } from '@/store/auth-route'
 import { reactive, ref } from 'vue'
 import { useYup } from '@use/validator/yup.js'
 import { useAccountStore } from '@/store/account'
-import { useRouter } from 'vue-router'
 
-const { to, back, close } = useAuthRouteStore()
+const { to, back } = useAuthRouteStore()
 
 const { Yup, validate } = useYup()
 const { string } = Yup
@@ -83,8 +82,7 @@ async function validaite() {
 }
 
 const accountStore = useAccountStore()
-const { setToken } = accountStore
-const router = useRouter()
+const { setToken, login: $login } = accountStore
 
 async function login() {
   const { data, execute } = useRequest('Account.loginByPassword', {})
@@ -94,12 +92,22 @@ async function login() {
       password: credential.password.value,
     })
     setToken(data.value.token)
-    close()
-    router.push({ name: 'home' })
+
+    await getUserInfo()
   } catch (e) {
     console.error(e)
   } finally {
     isLoading.value = false
+  }
+}
+
+async function getUserInfo() {
+  const { data, execute } = useRequest('User.info', {})
+  try {
+    await execute()
+    $login(data.value)
+  } catch (e) {
+    console.error(e)
   }
 }
 </script>
