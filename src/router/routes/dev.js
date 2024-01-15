@@ -7,6 +7,7 @@ import Tab from '@/pages/dev-mode/Tab.vue'
 import Form from '@/pages/dev-mode/Form.vue'
 import Dialog from '@/pages/dev-mode/Dialog.vue'
 import Loading from '@/pages/dev-mode/Loading.vue'
+import Cards from '@/pages/dev-mode/Cards.vue'
 
 const prefix = 'devmode'
 export default [
@@ -19,4 +20,5 @@ export default [
   { name: `${prefix}-Form`, path: `/${prefix}/form`, component: Form, meta: {} },
   { name: `${prefix}-Dialog`, path: `/${prefix}/dialog`, component: Dialog, meta: {} },
   { name: `${prefix}-Loading`, path: `/${prefix}/loading`, component: Loading, meta: {} },
+  { name: `${prefix}-Card`, path: `/${prefix}/card`, component: Cards, meta: {} },
 ]
