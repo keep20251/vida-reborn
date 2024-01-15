@@ -40,6 +40,7 @@ export default {
         gray36: 'rgba(0, 0, 0, 0.36)',
         gray30: 'rgba(0, 0, 0, 0.30)',
         gray20: 'rgba(0, 0, 0, 0.20)',
+        gray15: 'rgba(0, 0, 0, 0.15)',
         gray10: 'rgba(0, 0, 0, 0.10)',
         gray05: 'rgba(0, 0, 0, 0.05)',
         gray03: 'rgba(0, 0, 0, 0.03)',
