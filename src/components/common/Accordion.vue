@@ -13,7 +13,7 @@
     >
       <div v-for="(subItem, subIndex) in section.content" :key="subIndex">
         <div class="flex cursor-pointer justify-between py-4" @click="toggleSubItem(section, subIndex)">
-          <div class="text-[0.875rem] font-normal leading-[1.125rem] text-gray-600" :class="{ hidden: !section.open }">
+          <div class="text-base font-normal leading-[1.125rem] text-gray-600" :class="{ hidden: !section.open }">
             {{ subItem.subTitle }}
           </div>
           <Icon
@@ -25,7 +25,7 @@
         </div>
         <div class="px-20 transition-all" :class="[{ 'max-h-[1000px]': subItem.open, 'max-h-0': !subItem.open }]">
           <span
-            class="leading-[0.75rem text-[0.75rem] font-normal text-gray66 transition-all delay-300"
+            class="leading-[0.75rem text-sm font-normal text-gray66 transition-all delay-300"
             :class="{ flex: subItem.open, hidden: !subItem.open || !section.open }"
             >{{ subItem.subContent }}</span
           >
