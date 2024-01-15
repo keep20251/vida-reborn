@@ -64,7 +64,7 @@ function useRequest(
   apiKey,
   { params = {}, immediate = false, shallow = true, initialData = null, onSuccess, onError, onFinish } = {},
 ) {
-  const guestIdCookie = useCookie(COOKIE_KEY.GUEST_ID, { default: uuidv4(), readonly: true })
+  const guestIdCookie = useCookie(COOKIE_KEY.GUEST_ID, { default: uuidv4, readonly: true })
   const tokenCookie = useCookie(COOKIE_KEY.AUTH, { default: '' })
 
   const data = (shallow ? shallowRef : ref)(initialData)
@@ -76,7 +76,7 @@ function useRequest(
   const [moduleName, fnName] = apiKey.split('.')
   const controller = new AbortController()
 
-  async function execute(execParams) {
+  function execute(execParams) {
     cancel()
 
     error.value = null
