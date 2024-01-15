@@ -10,7 +10,7 @@
       :placeholder="placeholder"
       :disabled="disabled"
       :style="{ height }"
-      class="w-full shrink-0 resize-none divide-solid rounded-[1.125rem] border-gray20 bg-white px-20 py-[0.75rem] text-xs font-normal not-italic leading-[0.75rem] text-gray66 shadow-[0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)inset] outline-none placeholder:text-gray36"
+      class="w-full shrink-0 resize-none divide-solid rounded-[1.125rem] border-gray20 bg-white px-20 py-[0.75rem] text-sm font-normal not-italic leading-[0.75rem] text-gray66 shadow-[0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)inset] outline-none placeholder:text-gray36"
     ></textarea>
     <div v-if="errMsg" class="text-left text-[0.875rem] font-normal not-italic leading-[0.875rem] text-warning">
       {{ errMsg }}

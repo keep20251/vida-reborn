@@ -51,7 +51,7 @@
     <div class="grid grid-cols-7">
       <div
         v-for="(date, i) in dateGrid"
-        class="h-40 w-40 cursor-pointer rounded-[1.25rem] p-10 text-center text-sm font-medium leading-[140%]"
+        class="h-40 w-40 cursor-pointer rounded-[1.25rem] p-10 text-center text-base font-medium leading-[140%]"
         :class="{ 'bg-primary': date.selected, 'text-white': date.selected }"
         :key="i"
         @click="pickDate(date)"
@@ -62,7 +62,7 @@
     <div v-if="includeTime">
       <div class="h-1 bg-gray36"></div>
       <div
-        class="gap-row-8 mt-16 flex h-36 grow items-center divide-solid rounded-[1.125rem] border-gray20 bg-white px-20 pb-[0.6875rem] pt-[0.75rem] text-xs font-normal not-italic leading-[0.75rem] text-gray66 shadow-[inset_0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)] placeholder:text-gray36"
+        class="gap-row-8 mt-16 flex h-36 grow items-center divide-solid rounded-[1.125rem] border-gray20 bg-white px-20 pb-[0.6875rem] pt-[0.75rem] text-sm font-normal not-italic leading-[0.75rem] text-gray66 shadow-[inset_0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)] placeholder:text-gray36"
         :class="{ error: !!timeErr }"
       >
         <input
@@ -74,13 +74,13 @@
         />
         <Icon size="20" name="calendar"></Icon>
       </div>
-      <div v-if="timeErr" class="text-xs font-normal leading-[120%] text-warning">
+      <div v-if="timeErr" class="text-sm font-normal leading-[120%] text-warning">
         {{ timeErr }}
       </div>
     </div>
     <div class="flex h-56 justify-end space-x-8 px-8 py-12">
-      <div class="weight-medium cursor-pointer px-10 py-12 text-sm leading-[140%]" @click="cancel">Cancel</div>
-      <div class="weight-medium cursor-pointer px-10 py-12 text-sm leading-[140%]" @click="confirm">OK</div>
+      <div class="weight-medium cursor-pointer px-10 py-12 text-base leading-[140%]" @click="cancel">Cancel</div>
+      <div class="weight-medium cursor-pointer px-10 py-12 text-base leading-[140%]" @click="confirm">OK</div>
     </div>
   </div>
 </template>
