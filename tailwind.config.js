@@ -45,12 +45,22 @@ export default {
         gray05: 'rgba(0, 0, 0, 0.05)',
         gray03: 'rgba(0, 0, 0, 0.03)',
         warning: '#FF1D00',
+        'gray-brown': '#FFDEDE',
+        'gray-purple': '#F4C2EF',
+        'gray-orange': '#FFC8C8',
+        'gray-cyan': '#7FE2D3',
       },
       keyframes: {
         flash: {
           '0%': { opacity: 1 },
           '100%': { opacity: 0 },
         },
+      },
+      borderRadius: {
+        sm: '4.375rem',
+        md: '0.625rem',
+        lg: '0.75rem',
+        xl: '0.9375rem',
       },
     },
     spacing: generateSpacing(),
