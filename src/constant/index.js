@@ -2,6 +2,11 @@ export const COOKIE_KEY = {
   AUTH: '__AUTH',
   GUEST_ID: '__GUEST_ID',
   LOCALE: '__LOCALE',
+  USERNAME: '__USERNAME',
+  AFF: '__AFF',
+  UUID: '__UUID',
+  CHAT_TOKEN: '__CHAT_TOKEN',
+  USER_DATA: '__USER_DATA',
 }
 
 // 登入與註冊流程的路由設置

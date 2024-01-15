@@ -1,9 +1,7 @@
 import { defineStore, storeToRefs } from 'pinia'
-import { computed, watch, ref } from 'vue'
+import { computed, watch } from 'vue'
 import { useRouter } from 'vue-router'
-import { useLocalStorage } from '@vueuse/core'
 import { useDialogStore } from '@/store/dialog'
-import { LOCAL_STORAGE_KEYS } from '@/constant'
 import { useCookie } from '@use/utils/cookie'
 import { COOKIE_KEY } from '@const'
 
@@ -16,23 +14,21 @@ export const useAccountStore = defineStore('account-store', () => {
 
   const { authDialog } = storeToRefs(useDialogStore())
 
-  // 帳號資訊同步至 localStorage
-  const accountRef = useLocalStorage(LOCAL_STORAGE_KEYS.ACCOUNT_INFO, {
-    username: null,
-    token: null,
-    aff: null,
-    uuid: null,
-    chatToken: null,
-  })
   const tokenCookie = useCookie(COOKIE_KEY.AUTH, { default: '' })
-  const userData = ref({})
+  const usernameCookie = useCookie(COOKIE_KEY.USERNAME, { default: '' })
+  const affCookie = useCookie(COOKIE_KEY.AFF, { default: '' })
+  const uuidCookie = useCookie(COOKIE_KEY.UUID, { default: '' })
+  const chatTokenCookie = useCookie(COOKIE_KEY.CHAT_TOKEN, { default: '' })
+
+  const userDataCookie = useCookie(COOKIE_KEY.USER_DATA, { default: '' })
+  const userData = computed(() => JSON.parse(userDataCookie.value))
 
   const isLogin = computed(() => !!tokenCookie.value)
-  const username = computed(() => accountRef.value.username)
-  const token = computed(() => accountRef.value.token)
-  const userId = computed(() => accountRef.value.aff)
-  const userUUID = computed(() => accountRef.value.uuid)
-  const chatToken = computed(() => accountRef.value.chatToken)
+  const username = computed(() => usernameCookie.value)
+  const token = computed(() => tokenCookie.value)
+  const userId = computed(() => affCookie.value)
+  const userUUID = computed(() => uuidCookie.value)
+  const chatToken = computed(() => chatTokenCookie.value)
 
   // dialog 被關掉要復原 tempAction
   watch(authDialog, (isOpen) => {
@@ -42,15 +38,15 @@ export const useAccountStore = defineStore('account-store', () => {
   })
 
   function login(data) {
-    ;['username', 'token', 'aff', 'uuid', 'chat_token'].forEach((k) => {
+    // token, chat_token 不在 data 中，暫時先不檢查
+    ;['username', 'aff', 'uuid'].forEach((k) => {
       if (!(k in data)) throw new Error(`${k} is required value in data.`)
     })
 
     // 帳號資訊同步至 localStorage
-    accountRef.value.username = data.username
-    accountRef.value.token = data.token
-    accountRef.value.aff = data.aff
-    accountRef.value.uuid = data.uuid
+    usernameCookie.value = data.username
+    affCookie.value = data.aff
+    uuidCookie.value = data.uuid
     // chatToken 會在 resetUserData 才被設定
     // 後端說這個token有30天限制，所以要在每次重新回來頁面的時候(/api/member/detail)重設一個
 
@@ -71,11 +67,11 @@ export const useAccountStore = defineStore('account-store', () => {
   function logout() {
     tokenCookie.value = ''
 
-    accountRef.value.username = null
-    accountRef.value.token = null
-    accountRef.value.aff = null
-    accountRef.value.uuid = null
-    accountRef.value.chatToken = null
+    usernameCookie.value = ''
+    tokenCookie.value = ''
+    affCookie.value = ''
+    uuidCookie.value = ''
+    chatTokenCookie.value = ''
     clearUserData()
 
     router.replace('/home')
@@ -110,17 +106,14 @@ export const useAccountStore = defineStore('account-store', () => {
   function setUserData(newData) {
     for (const [k, v] of Object.entries(newData)) {
       if (k === 'chat_token') {
-        accountRef.value.chatToken = v
-      } else {
-        userData.value[k] = v
+        chatTokenCookie.value = v
       }
     }
+    userDataCookie.value = JSON.stringify(newData)
   }
 
   function clearUserData() {
-    for (const k of Object.keys(userData.value)) {
-      if (userData.value[k]) delete userData.value[k]
-    }
+    userDataCookie.value = ''
   }
 
   function setToken(token) {
