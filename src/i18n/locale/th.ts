@@ -17,6 +17,7 @@ export default {
     hi: 'हिन्दी',
   },
   common: {
+    viewSubscribePlan: 'ดูแผนการสมัครสมาชิก',
     getAround: 'เดินเล่นครั้งแรก',
     goNow: 'ไปเดี๋ยวนี้',
     agree: 'เห็นด้วย',
@@ -137,7 +138,7 @@ export default {
     perSubscriber: 'สมาชิก',
     subAmount: 'ยอดขาย(ดอลลาร์สหรัฐ)',
     schedulePublish: 'วางจำหน่ายในเวลาที่เหมาะสม',
-    autoPublishAt: 'จะถูกปล่อยออกมาโดยอัตโนมัติที่ {0}',
+    autoPublishAt: 'จะถูกปล่อยออกมาโดยอัตโนมัติที่ {เวลา}',
     setLanguageSucceed: 'ตั้งค่าภาษาเรียบร้อยแล้ว',
     subIn: 'การสมัครสมาชิกจะ',
     renew: 'ต่ออายุ',
@@ -319,7 +320,7 @@ export default {
   },
   title: {
     pwdLogin: 'เข้าสู่ระบบรหัสผ่าน',
-    mailCodeLogin: 'การเข้าสู่ระบบการตรวจสอบรหัส',
+    mailCodeLogin: 'เข้าสู่ระบบการตรวจสอบรหัส',
     accountLogin: 'ลงชื่อเข้าใช้',
     finished: 'ข้อมูลครบถ้วน',
     setPassword: 'ตั้งรหัสผ่าน',
@@ -734,5 +735,6 @@ export default {
     },
   },
   NSPhotoLibraryUsageDescription: 'แอปพลิเคชันนี้จำเป็นต้องเข้าถึงไลบรารีรูปภาพ',
-  unknownError: 'ระบบผิดพลาด',
+  NSCameraUsageDescription: 'แอพนี้ต้องการการเข้าถึงกล้อง',
+  unknownError: '#ERROR!',
 }

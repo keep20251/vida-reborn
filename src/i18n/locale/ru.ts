@@ -17,6 +17,7 @@ export default {
     hi: 'हिन्दी',
   },
   common: {
+    viewSubscribePlan: 'Просмотреть план подписки',
     getAround: 'Сначала прогулка',
     goNow: 'Иди сейчас',
     agree: 'Соглашаться',
@@ -113,7 +114,7 @@ export default {
     mailCodeSent:
       'Код проверки электронной почты был отправлен, введите код проверки, который только что передается в {mail}, чтобы войти в систему',
     pwdStrength: 'Надежность Пароля:',
-    loginOrRegister: 'Войдите в систему или зарегистрируйтесь быстро',
+    loginOrRegister: 'Войдите или зарегистрируйтесь быстро',
     neverRegister: 'Вы не зарегистрировались?',
     clickToRegister: 'Нажмите меня, чтобы зарегистрироваться',
     accept: 'Принимать',
@@ -142,7 +143,7 @@ export default {
     perSubscriber: 'Подписчики',
     subAmount: 'Сумма продажи (доллары США)',
     schedulePublish: 'Своевременный релиз',
-    autoPublishAt: 'Будет выпущен автоматически при {0}',
+    autoPublishAt: 'Будет выпущен автоматически в {Time}',
     setLanguageSucceed: 'Язык успешно установлен',
     subIn: 'Подписка будет',
     renew: 'Продлить',
@@ -392,7 +393,7 @@ export default {
   content: {
     welcomeToVida:
       'Добро пожаловать, чтобы присоединиться к Виде в качестве члена нашего! Перейдите в почтовый ящик аутентификации!',
-    verifyAccount: 'К [my> settings account] может завершить сертификацию',
+    verifyAccount: 'К [настройки моей> учетной записи] может завершить сертификацию',
     logout: 'Вы действительно хотите выйти?',
     cancelUpload: 'При подтверждении текущий прогресс загрузки будет потерян.',
     confirmSendRequest: 'Вы уверены, что хотите отправить данные?',
@@ -771,5 +772,6 @@ export default {
     },
   },
   NSPhotoLibraryUsageDescription: 'Это приложение должно получить доступ к библиотеке фотографий.',
-  unknownError: 'Системная ошибка',
+  NSCameraUsageDescription: 'Это приложение требует доступа к камере.',
+  unknownError: '#ERROR!',
 }

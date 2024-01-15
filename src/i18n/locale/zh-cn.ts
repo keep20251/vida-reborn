@@ -17,6 +17,7 @@ export default {
     hi: 'हिन्दी',
   },
   common: {
+    viewSubscribePlan: '查看订阅方案',
     getAround: '先逛逛',
     goNow: '立即前往',
     agree: '同意',
@@ -132,7 +133,7 @@ export default {
     perSubscriber: '位订阅者',
     subAmount: '销售金额(美金)',
     schedulePublish: '定时发布',
-    autoPublishAt: '将于 {0} 自动发布',
+    autoPublishAt: '将在{time}自动发布',
     setLanguageSucceed: '语言设置成功',
     subIn: '订阅将于',
     renew: '续订',
@@ -690,5 +691,6 @@ export default {
     },
   },
   NSPhotoLibraryUsageDescription: '此应用程序需要访问照片库。',
-  unknownError: '系统错误',
+  NSCameraUsageDescription: '#ERROR!',
+  unknownError: '#ERROR!',
 }

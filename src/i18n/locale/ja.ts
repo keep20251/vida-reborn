@@ -17,6 +17,7 @@ export default {
     hi: 'हिन्दी',
   },
   common: {
+    viewSubscribePlan: 'サブスクリプションプランを表示します',
     getAround: '最初に散歩',
     goNow: '今行く',
     agree: '同意する',
@@ -137,7 +138,7 @@ export default {
     perSubscriber: '購読者',
     subAmount: '売上金額(米ドル)',
     schedulePublish: 'タイムリーなリリース',
-    autoPublishAt: '{0}で自動的にリリースされます',
+    autoPublishAt: '{time}で自動的にリリースされます',
     setLanguageSucceed: '言語が正常に設定されました',
     subIn: '定期購入は',
     renew: '更新する',
@@ -744,5 +745,6 @@ export default {
     },
   },
   NSPhotoLibraryUsageDescription: 'このアプリケーションは、写真ライブラリにアクセスする必要があります。',
-  unknownError: 'システムエラー',
+  NSCameraUsageDescription: 'このアプリには、カメラにアクセスする必要があります。',
+  unknownError: '#ERROR!',
 }

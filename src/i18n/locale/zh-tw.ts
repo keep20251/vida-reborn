@@ -17,6 +17,7 @@ export default {
     hi: 'हिन्दी',
   },
   common: {
+    viewSubscribePlan: '查看訂閱方案',
     getAround: '先逛逛',
     goNow: '立即前往',
     agree: '同意',
@@ -132,7 +133,7 @@ export default {
     perSubscriber: '位訂閱會員',
     subAmount: '販售金額(美金)',
     schedulePublish: '定時發布',
-    autoPublishAt: '將於 {0} 自動發佈',
+    autoPublishAt: '將在{time}自動發布',
     setLanguageSucceed: '語言設置成功',
     subIn: '訂閱將於',
     renew: '自動續約',
@@ -690,5 +691,6 @@ export default {
     },
   },
   NSPhotoLibraryUsageDescription: '此應用程序需要訪問照片庫。',
-  unknownError: '系統錯誤',
+  NSCameraUsageDescription: '#ERROR!',
+  unknownError: '#ERROR!',
 }

@@ -17,6 +17,7 @@ export default {
     hi: 'हिन्दी',
   },
   common: {
+    viewSubscribePlan: 'View subscription plan',
     getAround: 'First stroll',
     goNow: 'Go now',
     agree: 'Agree',
@@ -138,7 +139,7 @@ export default {
     perSubscriber: 'Subscribers',
     subAmount: 'Sales amount(US dollars)',
     schedulePublish: 'Timely release',
-    autoPublishAt: 'Will be released automatically at {0}',
+    autoPublishAt: 'Will be released automatically at {time}',
     setLanguageSucceed: 'Language set successfully',
     subIn: 'Subscription will',
     renew: 'Renew',
@@ -749,5 +750,6 @@ export default {
     },
   },
   NSPhotoLibraryUsageDescription: 'This application needs to access the photo library.',
+  NSCameraUsageDescription: 'This app requires access to the camera.',
   unknownError: 'System Error',
 }

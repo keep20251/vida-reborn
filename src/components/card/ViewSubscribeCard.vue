@@ -15,7 +15,7 @@
           <div class="w-[14.375rem] text-base font-normal leading-5 text-white">{{ props.content }}</div>
         </div>
         <div class="ml-auto flex items-end">
-          <Button class="!px-35">查看訂閱方案</Button>
+          <Button class="!px-30">{{ $t('common.viewSubscribePlan') }}</Button>
         </div>
       </div>
       <div class="absolute right-20 top-20 cursor-pointer">
