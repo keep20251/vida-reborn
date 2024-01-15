@@ -35,20 +35,29 @@ export function useCookie(key, { default: defaultValue, readonly: isReadonly = f
   // 緩存中沒有 cookieRef
   // 建一個新的，並且將預設值和監聽配置好
   else {
-    cookieRef = ref(defaultValue)
-    cookieRefMap.set(key, cookieRef)
-
     const existCookie = cookies.get(key)
     if (existCookie === undefined) {
-      if (defaultValue !== undefined) {
-        cookies.set(key, defaultValue)
+      switch (typeof defaultValue) {
+        case 'undefined':
+        case 'string':
+          cookieRef = ref(defaultValue)
+          break
+        case 'function':
+          cookieRef = ref(defaultValue())
+          break
+      }
+      const cookie = cookieRef.value
+      if (cookie !== undefined) {
+        cookies.set(key, cookie)
         if (import.meta.env.SSR) {
-          res.cookie(key, defaultValue)
+          res.cookie(key, cookie)
         }
       }
     } else {
-      cookieRef.value = cookies.get(key)
+      cookieRef = ref(existCookie)
     }
+
+    cookieRefMap.set(key, cookieRef)
 
     // Server 端不支援響應性
     if (!import.meta.env.SSR) {
