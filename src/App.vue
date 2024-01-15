@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-full w-full flex-row justify-center" id="main">
-    <Navigator></Navigator>
+    <Navigator v-show="isDesktop"></Navigator>
     <router-view v-slot="{ Component }">
       <keep-alive>
         <component :is="Component"></component>
@@ -10,16 +10,20 @@
       <AuthDialog v-if="authDialog"></AuthDialog>
     </ClientOnly>
   </div>
-  <!-- <NavigatorMobile></NavigatorMobile> -->
+  <NavigatorMobile v-show="isMobile"></NavigatorMobile>
 </template>
 
 <script setup>
-import Navigator from '@/components/layout/Navigator.vue'
-// import NavigatorMobile from '@/components/layout/NavigatorMobile.vue'
-import AuthDialog from '@/components/dialog/AuthDialog.vue'
-import { useDialogStore } from '@/store/dialog'
 import { storeToRefs } from 'pinia'
+import Navigator from '@comp/layout/Navigator.vue'
+import NavigatorMobile from '@comp/layout/NavigatorMobile.vue'
+import AuthDialog from '@comp/dialog/AuthDialog.vue'
+import { useAppStore } from '@/store/app'
+import { useDialogStore } from '@/store/dialog'
 import { loadSeoHead } from '@/utils/init'
+
+const appStore = useAppStore()
+const { isDesktop, isMobile } = storeToRefs(appStore)
 
 loadSeoHead()
 const { authDialog } = storeToRefs(useDialogStore())
