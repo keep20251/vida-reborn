@@ -1,10 +1,8 @@
 <template>
   <div class="flex flex-col gap-y-10">
-    <label v-if="label" class="text-left text-[0.875rem] font-normal not-italic leading-[0.875rem]"
+    <label v-if="label" class="text-left text-base font-normal not-italic leading-[0.875rem]"
       >{{ label }}
-      <span v-if="sublabel" class="text-[0.75rem] font-normal not-italic leading-[0.75rem] text-gray66">{{
-        sublabel
-      }}</span>
+      <span v-if="sublabel" class="text-sm font-normal not-italic leading-[0.75rem] text-gray66">{{ sublabel }}</span>
     </label>
 
     <div class="relative flex items-center">
@@ -23,7 +21,7 @@
           'pr-[3.25rem]': !!appendIconBtn,
           'pr-48': !!password,
         }"
-        class="h-35 w-full shrink-0 divide-solid rounded-[1.125rem] border-gray20 bg-white px-20 pb-[0.6875rem] pt-[0.75rem] text-[0.75rem] font-normal not-italic leading-[0.75rem] text-gray66 shadow-[0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)inset] outline-none placeholder:text-[0.75rem] placeholder:text-gray36"
+        class="h-35 w-full shrink-0 divide-solid rounded-[1.125rem] border-gray20 bg-white px-20 pb-11 pt-12 text-sm font-normal not-italic leading-[0.75rem] text-gray66 shadow-[0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)inset] outline-none placeholder:text-sm placeholder:text-gray36"
       />
       <Icon
         v-if="!!prependIcon"
@@ -41,7 +39,7 @@
       ></Icon>
       <div
         v-if="!!appendText"
-        class="absolute right-20 flex items-center justify-center rounded-[0.9375rem] text-center text-[0.75rem] font-normal leading-[0.75rem] text-gray36"
+        class="absolute right-20 flex items-center justify-center rounded-[0.9375rem] text-center text-sm font-normal leading-[0.75rem] text-gray36"
         @click="emits('click:append')"
       >
         {{ appendText }}
