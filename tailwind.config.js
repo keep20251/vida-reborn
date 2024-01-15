@@ -17,6 +17,7 @@ export default {
       xl: '1295px', // header(270) + main(600) + aside(350) = 1220
     },
     fontSize: {
+      xs: '0.625rem', // 10px
       sm: '0.75rem', // 12px
       base: '0.875rem', // 14px
       lg: '1.125rem', // 18px

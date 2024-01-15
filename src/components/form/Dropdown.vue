@@ -1,7 +1,7 @@
 <template>
   <div class="relative cursor-pointer">
     <div ref="dropdown" class="flex items-center justify-between bg-white" :class="[style]" @click="onDropdownClick">
-      <div class="text-sm leading-[0.875rem]">
+      <div class="text-base leading-[0.875rem]">
         {{ $t(options.find((o) => o[optionValue] === modelValue)[optionLabel]) }}
       </div>
       <Icon name="dropdown" size="8" class="transition-transform" :class="{ 'rotate-180': open }"></Icon>
@@ -12,7 +12,7 @@
     >
       <div
         v-for="option in options"
-        class="py-10 pl-15 text-sm leading-[0.875rem] first:rounded-t-[0.9375rem] last:rounded-b-[0.9375rem] hover:bg-[#F1F1FF]"
+        class="py-10 pl-15 text-base leading-[0.875rem] first:rounded-t-[0.9375rem] last:rounded-b-[0.9375rem] hover:bg-[#F1F1FF]"
         :class="{ 'bg-[#F1F1FF]': option[optionValue] === modelValue }"
         :key="option[optionValue]"
         @click="onOptionClick(option[optionValue])"

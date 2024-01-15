@@ -1,21 +1,22 @@
 <template>
   <div class="relative hidden md:block">
+    <div class="mb-20 text-lg font-bold leading-[1.125rem]">{{ label }}</div>
     <div
-      class="h-[250px] w-full rounded-md bg-cover bg-center bg-no-repeat p-10"
+      class="h-[400px] w-full rounded-md bg-cover bg-center bg-no-repeat p-10"
       :style="{ backgroundImage: `url(${props.items[activeSlide].img})` }"
     ></div>
     <div class="absolute bottom-[10px] left-[50%] translate-x-[-50%] translate-y-[-50%] overflow-hidden">
-      <ul class="flex justify-center gap-x-8">
+      <ul class="flex justify-center gap-x-10">
         <li
-          class="h-10 w-10 cursor-pointer rounded-full bg-gray36 shadow-[0_0_3px_0_rgba(0,0,0,0.25)]"
+          class="h-6 w-6 cursor-pointer rounded-full bg-[#D9D9D9]"
           v-for="(item, i) in props.items"
-          :class="{ 'bg-primary': getActiveSlide(i) }"
+          :class="{ 'bg-black': getActiveSlide(i) }"
           @click="showSlide(i)"
           :key="i"
         ></li>
       </ul>
     </div>
-    <div class="absolute top-[50%] flex w-full justify-between px-10">
+    <div v-if="navigator" class="absolute top-[50%] flex w-full justify-between px-10">
       <button
         class="flex h-25 w-25 cursor-pointer items-center justify-around rounded-full bg-[#ffffffb8] shadow-[0_0_3px_0_rgba(0,0,0,0.3)] outline-none"
         @click="showPrev"
@@ -43,6 +44,14 @@ const props = defineProps({
   intervalTime: {
     type: Boolean,
     default: false,
+  },
+  navigator: {
+    type: Boolean,
+    default: false,
+  },
+  label: {
+    type: String,
+    default: 'VIDA 活動與廣告',
   },
 })
 

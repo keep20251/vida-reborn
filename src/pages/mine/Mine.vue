@@ -92,9 +92,8 @@
       <div class="m-15 grid gap-y-20">
         <SetList />
         <div class="grid gap-y-5">
-          <span>VIDA 活動與廣告</span>
           <Carousel :items="cats" :intervalTime="true"></Carousel>
-          <p class="text-sm font-normal leading-[0.75rem] text-gray-400">
+          <p class="text-xs font-normal leading-[0.75rem] text-gray-400">
             Terms of Service Privacy Policy Cookie Policy Ad info About @ 2023 ViDA corp
           </p>
         </div>
@@ -124,7 +123,7 @@ const inputValue = ref('')
 const cats = ref([
   { img: 'https://images.pexels.com/photos/1056251/pexels-photo-1056251.jpeg' },
   { img: 'https://images.pexels.com/photos/57416/cat-sweet-kitty-animals-57416.jpeg' },
-  { img: 'https://images.pexels.com/photos/2558605/pexels-photo-2558605.jpeg' },
+  { img: 'https://images.pexels.com/photos/3054570/pexels-photo-3054570.jpeg' },
   { img: 'https://images.pexels.com/photos/2071882/pexels-photo-2071882.jpeg' },
   { img: 'https://images.pexels.com/photos/1440403/pexels-photo-1440403.jpeg' },
 ])

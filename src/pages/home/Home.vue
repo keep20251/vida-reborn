@@ -20,8 +20,9 @@
     </template>
     <template #aside>
       <div>
-        <div>第一行home aside</div>
-        <RecCard :items="recCreators"></RecCard>
+        <BulletinCard class="mt-20"></BulletinCard>
+        <RecCard class="mt-30" :items="recCreators"></RecCard>
+        <Carousel class="mt-30" :items="cats" :intervalTime="true"></Carousel>
         <div>home aside</div>
         <div>home aside</div>
         <div>home aside</div>
@@ -73,7 +74,7 @@
       <div class="flex h-full items-center">
         <InputWrap
           class="grow"
-          v-model="inputValue"
+          v-model="searchValue"
           :placeholder="'搜索...'"
           :appendIcon="'search'"
           @click:append="console.log('appendIcon')"
@@ -92,6 +93,8 @@ import Loading from '@comp/common/Loading.vue'
 import { useHeadStore } from '@/store/head'
 import InputWrap from '@comp/form/InputWrap.vue'
 import RecCard from '@comp/card/RecCard.vue'
+import BulletinCard from '@comp/card/BulletinCard.vue'
+import Carousel from '@comp/common/Carousel.vue'
 
 const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
 
@@ -102,10 +105,20 @@ const tabOptions = ref([
   { label: 'common.popular', value: 3 },
 ])
 
+const searchValue = ref('')
+
 const recCreators = ref([
   { creator_name: 'Cursed_ellie', creator_acc: 'cursed_ellie', posts: 134, sub_member: 1938 },
   { creator_name: 'Cursed_ellie', creator_acc: 'cursed_ellie', posts: 134, sub_member: 1938 },
   { creator_name: 'Cursed_ellie', creator_acc: 'cursed_ellie', posts: 134, sub_member: 1938 },
+])
+
+const cats = ref([
+  { img: 'https://images.pexels.com/photos/1056251/pexels-photo-1056251.jpeg' },
+  { img: 'https://images.pexels.com/photos/57416/cat-sweet-kitty-animals-57416.jpeg' },
+  { img: 'https://images.pexels.com/photos/3054570/pexels-photo-3054570.jpeg' },
+  { img: 'https://images.pexels.com/photos/2071882/pexels-photo-2071882.jpeg' },
+  { img: 'https://images.pexels.com/photos/1440403/pexels-photo-1440403.jpeg' },
 ])
 
 function onLoad() {
