@@ -35,7 +35,7 @@ import SetList from '@comp/mine/SetList.vue'
 import Carousel from '@comp/common/Carousel.vue'
 import { useHeadStore } from '@/store/head'
 import { storeToRefs } from 'pinia'
-import { useI18nInstance } from '@use/utils/i18n'
+import { useI18n } from '@use/utils/i18n'
 import { useRoute } from 'vue-router'
 
 const inputValue = ref('')
@@ -50,7 +50,7 @@ const cats = ref([
 ])
 
 const route = useRoute()
-const { $t } = useI18nInstance()
+const { $t } = useI18n()
 const headStore = useHeadStore()
 const { title, description, keywordArr, ogUrl } = storeToRefs(headStore)
 

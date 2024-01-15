@@ -1,11 +1,10 @@
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
-import { useI18n } from '@/i18n'
-import { useI18nInstance } from '@use/utils/i18n'
+import { locales } from '@/i18n'
+import { useI18n } from '@use/utils/i18n'
 
 export const useHeadStore = defineStore('app-head', () => {
-  const { locales } = useI18n()
-  const { $t } = useI18nInstance()
+  const { $t } = useI18n()
 
   const title = ref($t('meta.home.title', { pipe: '|' }))
   const description = ref($t('meta.home.description'))

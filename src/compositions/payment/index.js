@@ -1,4 +1,4 @@
-import { useI18nInstance } from '@use/utils/i18n'
+import { useI18n } from '@use/utils/i18n'
 import { usePopupMessageStore } from '@/store/popup-message'
 import { usePopupDialogStore } from '@/store/popup-dialog'
 import { CONSUME_TYPE } from '@/constant'
@@ -9,7 +9,7 @@ import API from '@/http'
 import { ref } from 'vue'
 
 export function usePayment() {
-  const { $t } = useI18nInstance()
+  const { $t } = useI18n()
   const { open } = usePopupMessageStore()
   const { close } = usePopupDialogStore()
 

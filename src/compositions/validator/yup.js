@@ -1,8 +1,8 @@
 import * as Yup from 'yup'
-import { useI18nInstance } from '@use/utils/i18n'
+import { useI18n } from '@use/utils/i18n'
 
 export function useYup() {
-  const { $t } = useI18nInstance()
+  const { $t } = useI18n()
 
   function parseError(err) {
     return err.message?.key ? $t(err.message.key, err.message.values) : err.message

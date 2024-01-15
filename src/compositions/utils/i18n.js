@@ -1,5 +1,6 @@
+import { createSharedComposable } from '@vueuse/core'
 import { useI18n as useVueI18n } from 'vue-i18n'
-import { useI18n } from '@/i18n'
+import { getLang, loadedLanguages } from '@/i18n'
 import { useCookie } from '@use/utils/cookie'
 import { computed } from 'vue'
 import { COOKIE_KEY } from '@const'
@@ -8,9 +9,8 @@ import { COOKIE_KEY } from '@const'
  * 實際使用的 VueI18n 實例，僅能在 Vue 的 setup() 內使用
  * @returns { i18n, setLocale, $t }
  */
-export function useI18nInstance() {
+function useI18nInstance() {
   const i18n = useVueI18n()
-  const { getLang, loadedLanguages } = useI18n()
   const cookieLocale = useCookie(COOKIE_KEY.LOCALE, { default: i18n.locale.value })
 
   async function _setLocale(langCode) {
@@ -58,3 +58,5 @@ export function useI18nInstance() {
     $t,
   }
 }
+
+export const useI18n = createSharedComposable(useI18nInstance)

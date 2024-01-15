@@ -1,7 +1,7 @@
 import { basename } from 'node:path'
 import { renderToString } from 'vue/server-renderer'
 import { createApp } from './main'
-import { useI18n } from '@/i18n'
+import { createI18n } from '@/i18n'
 import { createCookies } from '@vueuse/integrations/useCookies'
 import { COOKIE_KEY } from '@const'
 
@@ -12,7 +12,6 @@ export async function render(url, manifest, ctx) {
   const locale = cookies.get(COOKIE_KEY.LOCALE, { path: '/' })
   console.log(`server side locale: ${locale}`)
 
-  const { createI18n } = useI18n()
   const i18n = await createI18n(locale)
   app.use(i18n)
 
