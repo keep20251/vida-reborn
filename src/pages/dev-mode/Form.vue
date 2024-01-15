@@ -57,7 +57,7 @@
           class="w-[280px]"
         ></InputWrap>
 
-        <p class="text-[0.75rem]">輸入的值：{{ inputValue }}</p>
+        <p class="text-sm">輸入的值：{{ inputValue }}</p>
         <hr />
 
         <div>【 Textarea 】</div>
@@ -69,7 +69,7 @@
           :errMsg="'錯誤訊息'"
           class="w-[280px]"
         ></TextareaWrap>
-        <p class="text-[0.75rem]">輸入的值：{{ textareaValue }}</p>
+        <p class="text-sm">輸入的值：{{ textareaValue }}</p>
         <hr />
 
         <div>【 Input Radio 】</div>
@@ -83,21 +83,21 @@
         />
         <InputRadio v-model="selectedValue" id="radioOption2" label="Option radio 2" value="radio2" name="radio" />
         <InputRadio v-model="selectedValue" id="radioOption3" label="Option radio 3" value="radio3" name="radio" />
-        <p class="text-[0.75rem]">選擇的值：{{ selectedValue }}</p>
+        <p class="text-sm">選擇的值：{{ selectedValue }}</p>
         <hr />
 
         <div>【 Input Switch 】</div>
         <InputSwitch :label="'選取切換'" v-model="switchValue"></InputSwitch>
-        <p class="text-[0.75rem]">選擇的值：{{ switchValue }}</p>
+        <p class="text-sm">選擇的值：{{ switchValue }}</p>
       </div>
       <div v-else-if="tab === 2" class="my-10 grid gap-y-20 px-20">
         <div>【 Text Style 】</div>
-        <div class="text-[1.5625rem] font-bold leading-[1.5625rem]">Helvetica Neue-25-特重标题</div>
-        <div class="text-[1.125rem] font-bold leading-[1.125rem]">Helvetica Neue-18-大标题</div>
-        <div class="text-[0.875rem] font-normal leading-[1.125rem]">Helvetica Neue-14-正文</div>
-        <div class="text-[0.75rem] font-normal leading-[0.75rem]">＠Helvetica Neue-12-注释</div>
-        <div class="text-[0.875rem] font-bold leading-[0.875rem]">Helvetica Neue-14-按钮</div>
-        <div class="text-[0.875rem] font-normal leading-[0.875rem]">Helvetica Neue-14-按钮未选中</div>
+        <div class="text-xl font-bold leading-[1.5625rem]">Helvetica Neue-25-特重标题</div>
+        <div class="text-lg font-bold leading-[1.125rem]">Helvetica Neue-18-大标题</div>
+        <div class="text-base font-normal leading-[1.125rem]">Helvetica Neue-14-正文</div>
+        <div class="text-sm font-normal leading-[0.75rem]">＠Helvetica Neue-12-注释</div>
+        <div class="text-base font-bold leading-[0.875rem]">Helvetica Neue-14-按钮</div>
+        <div class="text-base font-normal leading-[0.875rem]">Helvetica Neue-14-按钮未选中</div>
       </div>
       <div v-else-if="tab === 3" class="my-10 grid gap-y-20 px-20">
         <div>【 Dropdown 】</div>
@@ -132,13 +132,13 @@
       <div v-else-if="tab === 5" class="my-10 grid gap-y-20 px-20">
         <div>【 OptionsPicker 】</div>
         <OptionsPicker v-model="singlePickedOption" :options="options"></OptionsPicker>
-        <p class="text-[0.75rem]">單選的值：{{ singlePickedOption }}</p>
+        <p class="text-sm">單選的值：{{ singlePickedOption }}</p>
         <OptionsPicker v-model="multiplePickedOptions" :options="options"></OptionsPicker>
-        <p class="text-[0.75rem]">多選的值：{{ multiplePickedOptions }}</p>
+        <p class="text-sm">多選的值：{{ multiplePickedOptions }}</p>
         <hr />
         <div>【 DatePicker 】</div>
         <DatePicker v-model="datePicked" include-time></DatePicker>
-        <p class="text-[0.75rem]">日期的值：{{ datePicked.toLocaleString() }}</p>
+        <p class="text-sm">日期的值：{{ datePicked.toLocaleString() }}</p>
       </div>
     </template>
   </Page>
