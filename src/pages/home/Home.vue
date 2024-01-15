@@ -73,7 +73,7 @@
       <div class="flex h-full items-center">
         <InputWrap
           class="grow"
-          v-model="inputValue"
+          v-model="searchValue"
           :placeholder="'搜索...'"
           :appendIcon="'search'"
           @click:append="console.log('appendIcon')"
@@ -101,6 +101,8 @@ const tabOptions = ref([
   { label: 'common.following', value: 2 },
   { label: 'common.popular', value: 3 },
 ])
+
+const searchValue = ref('')
 
 const recCreators = ref([
   { creator_name: 'Cursed_ellie', creator_acc: 'cursed_ellie', posts: 134, sub_member: 1938 },
