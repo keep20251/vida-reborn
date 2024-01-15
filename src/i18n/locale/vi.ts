@@ -17,6 +17,7 @@ export default {
     hi: 'हिन्दी',
   },
   common: {
+    viewSubscribePlan: 'Xem kế hoạch đăng ký',
     getAround: 'Tản bộ đầu tiên',
     goNow: 'Đi ngay',
     agree: 'Đồng ý',
@@ -137,7 +138,7 @@ export default {
     perSubscriber: 'Người đăng ký',
     subAmount: 'Số tiền bán hàng (đô la Mỹ)',
     schedulePublish: 'Phát hành kịp thời',
-    autoPublishAt: 'Sẽ được phát hành tự động tại {0}',
+    autoPublishAt: 'Sẽ được phát hành tự động tại {thời gian}',
     setLanguageSucceed: 'Đã đặt ngôn ngữ thành công',
     subIn: 'Đăng ký sẽ',
     renew: 'Thay mới',
@@ -759,5 +760,6 @@ export default {
     },
   },
   NSPhotoLibraryUsageDescription: 'Ứng dụng này cần truy cập thư viện ảnh.',
-  unknownError: 'Lỗi hệ thống',
+  NSCameraUsageDescription: 'Ứng dụng này yêu cầu truy cập vào máy ảnh.',
+  unknownError: '#ERROR!',
 }

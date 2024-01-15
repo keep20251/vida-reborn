@@ -17,6 +17,7 @@ export default {
     hi: 'हिन्दी',
   },
   common: {
+    viewSubscribePlan: 'Ver plan de suscripción',
     getAround: 'Primer paseo',
     goNow: 'Ve ahora',
     agree: 'Aceptar',
@@ -133,7 +134,7 @@ export default {
     perSubscriber: 'Suscriptores',
     subAmount: 'Monto de ventas (dólares estadounidenses)',
     schedulePublish: 'Liberación oportuna',
-    autoPublishAt: 'Se lanzará automáticamente en {0}',
+    autoPublishAt: 'Se lanzará automáticamente en {tiempo}',
     setLanguageSucceed: 'Idioma configurado correctamente',
     subIn: 'La suscripción',
     renew: 'Renovar',
@@ -753,5 +754,6 @@ export default {
     },
   },
   NSPhotoLibraryUsageDescription: 'Esta aplicación necesita acceder a la biblioteca de fotos.',
-  unknownError: 'Error del sistema',
+  NSCameraUsageDescription: '#ERROR!',
+  unknownError: '#ERROR!',
 }

@@ -17,6 +17,7 @@ export default {
     hi: 'हिन्दी',
   },
   common: {
+    viewSubscribePlan: '구독 계획을보십시오',
     getAround: '첫 산책',
     goNow: '지금 이동',
     agree: '동의하다',
@@ -132,7 +133,7 @@ export default {
     perSubscriber: '구독자',
     subAmount: '판매금액(US달러)',
     schedulePublish: '적시에 출시',
-    autoPublishAt: '{0}에서 자동으로 릴리스됩니다.',
+    autoPublishAt: '{time}에서 자동으로 릴리스됩니다.',
     setLanguageSucceed: '언어가 설정되었습니다.',
     subIn: '구독은',
     renew: '고쳐 쓰다',
@@ -723,5 +724,6 @@ export default {
     },
   },
   NSPhotoLibraryUsageDescription: '이 응용 프로그램은 사진 라이브러리에 액세스해야합니다.',
-  unknownError: '시스템 오류',
+  NSCameraUsageDescription: '이 앱은 카메라에 액세스해야합니다.',
+  unknownError: '#ERROR!',
 }

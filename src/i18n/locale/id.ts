@@ -17,6 +17,7 @@ export default {
     hi: 'हिन्दी',
   },
   common: {
+    viewSubscribePlan: 'Lihat Paket Berlangganan',
     getAround: 'Berjalan -jalan pertama',
     goNow: 'pergi sekarang',
     agree: 'Setuju',
@@ -138,7 +139,7 @@ export default {
     perSubscriber: 'Pelanggan',
     subAmount: 'Jumlah penjualan (dolar AS)',
     schedulePublish: 'Rilis tepat waktu',
-    autoPublishAt: 'Akan dirilis secara otomatis di {0}',
+    autoPublishAt: 'Akan dirilis secara otomatis di {Time}',
     setLanguageSucceed: 'Bahasa berhasil disetel',
     subIn: 'Berlangganan akan',
     renew: 'Memperbarui',
@@ -384,7 +385,7 @@ export default {
   append: { resend: 'Ulang' },
   content: {
     welcomeToVida: 'Selamat datang untuk bergabung dengan Vida sebagai anggota kami! Buka kotak surat otentikasi!',
-    verifyAccount: 'Ke [Pengaturan Akun> Saya] dapat menyelesaikan sertifikasi',
+    verifyAccount: 'Ke [Pengaturan akun> saya] dapat menyelesaikan sertifikasi',
     logout: 'Apakah Anda yakin ingin logout?',
     cancelUpload: 'Konfirmasi akan kehilangan kemajuan unggahan saat ini',
     confirmSendRequest: 'Apakah Anda yakin ingin mengirimkan datanya?',
@@ -757,5 +758,6 @@ export default {
     },
   },
   NSPhotoLibraryUsageDescription: 'Aplikasi ini perlu mengakses pustaka foto.',
-  unknownError: 'Sistem bermasalah',
+  NSCameraUsageDescription: 'Aplikasi ini membutuhkan akses ke kamera.',
+  unknownError: '#ERROR!',
 }

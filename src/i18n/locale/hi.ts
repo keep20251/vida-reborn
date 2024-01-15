@@ -17,6 +17,7 @@ export default {
     hi: 'हिन्दी',
   },
   common: {
+    viewSubscribePlan: 'सदस्यता योजना देखें',
     getAround: 'पहली टहलने',
     goNow: 'अब जाओ',
     agree: 'सहमत',
@@ -138,7 +139,7 @@ export default {
     perSubscriber: 'ग्राहकों',
     subAmount: 'बिक्री राशि(अमेरिकी डॉलर)',
     schedulePublish: 'समय पर जारी',
-    autoPublishAt: '{0} पर स्वचालित रूप से जारी किया जाएगा',
+    autoPublishAt: '{समय} पर स्वचालित रूप से जारी किया जाएगा',
     setLanguageSucceed: 'भाषा सफलतापूर्वक सेट की गई',
     subIn: 'सदस्यता होगी',
     renew: 'नवीकरण',
@@ -748,5 +749,6 @@ export default {
     },
   },
   NSPhotoLibraryUsageDescription: 'इस एप्लिकेशन को फोटो लाइब्रेरी तक पहुंचने की आवश्यकता है।',
-  unknownError: 'सिस्टम त्रुटि',
+  NSCameraUsageDescription: 'इस ऐप को कैमरे तक पहुंच की आवश्यकता होती है।',
+  unknownError: '#ERROR!',
 }

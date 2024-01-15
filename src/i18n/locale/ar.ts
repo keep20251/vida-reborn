@@ -17,6 +17,7 @@ export default {
     hi: 'हिन्दी',
   },
   common: {
+    viewSubscribePlan: 'عرض خطة الاشتراك',
     getAround: 'أول نزهة',
     goNow: 'اذهب الآن',
     agree: 'يوافق',
@@ -133,7 +134,7 @@ export default {
     perSubscriber: 'مشتركين',
     subAmount: 'مبلغ المبيعات (دولار أمريكي)',
     schedulePublish: 'الإصدار في الوقت المناسب',
-    autoPublishAt: 'سيتم إصداره تلقائيًا في {0}',
+    autoPublishAt: 'سيتم إصداره تلقائيًا في {time}',
     setLanguageSucceed: 'تم ضبط اللغة بنجاح',
     subIn: 'سوف الاشتراك',
     renew: 'تجديد',
@@ -734,5 +735,6 @@ export default {
     },
   },
   NSPhotoLibraryUsageDescription: 'يحتاج هذا التطبيق للوصول إلى مكتبة الصور.',
-  unknownError: 'خطأ في النظام',
+  NSCameraUsageDescription: 'يتطلب هذا التطبيق الوصول إلى الكاميرا.',
+  unknownError: '#ERROR!',
 }
