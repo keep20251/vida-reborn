@@ -17,10 +17,10 @@ export default {
       xl: '1295px', // header(270) + main(600) + aside(350) = 1220
     },
     fontSize: {
-      sm: '0.75rem',
-      base: '0.875rem',
-      lg: '1.125rem',
-      xl: '1.5625rem',
+      sm: '0.75rem', // 12px
+      base: '0.875rem', // 14px
+      lg: '1.125rem', // 18px
+      xl: '1.5625rem', // 25px
     },
     fontWeight: {
       light: '300',
