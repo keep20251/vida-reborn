@@ -46,14 +46,14 @@
       </div>
       <div
         v-if="!!appendTextBtn"
-        class="absolute right-5 flex h-[1.625rem] min-w-[2.9375rem] cursor-pointer items-center justify-center rounded-[0.9375rem] bg-primary px-[0.375rem] py-[0.625rem] text-center text-[0.875rem] font-bold leading-[0.875rem] text-white shadow-[0_0.125rem_0.25rem_0_rgba(0,0,0,0.25)]"
+        class="absolute right-5 flex h-[1.625rem] min-w-[2.9375rem] cursor-pointer items-center justify-center rounded-[0.9375rem] bg-primary px-[0.375rem] py-[0.625rem] text-center text-base font-bold leading-[0.875rem] text-white shadow-[0_0.125rem_0.25rem_0_rgba(0,0,0,0.25)]"
         @click="emits('click:append')"
       >
         {{ appendTextBtn }}
       </div>
       <div
         v-if="!!appendIconBtn"
-        class="absolute right-5 flex h-30 w-40 cursor-pointer items-center justify-center rounded-[0.9375rem] bg-primary px-[0.375rem] py-[0.625rem] text-center text-[0.875rem] font-bold leading-[0.875rem] text-white shadow-[0_0.125rem_0.25rem_0_rgba(0,0,0,0.25)]"
+        class="absolute right-5 flex h-30 w-40 cursor-pointer items-center justify-center rounded-[0.9375rem] bg-primary px-[0.375rem] py-[0.625rem] text-center text-base font-bold leading-[0.875rem] text-white shadow-[0_0.125rem_0.25rem_0_rgba(0,0,0,0.25)]"
         @click="emits('click:append')"
       >
         <Icon size="20" :name="appendIconBtn" class="text-white"></Icon>
@@ -66,7 +66,7 @@
         @click="pwdHide = !pwdHide"
       ></Icon>
     </div>
-    <div v-if="errMsg" class="text-left text-[0.875rem] font-normal not-italic leading-[0.875rem] text-warning">
+    <div v-if="errMsg" class="text-left text-base font-normal not-italic leading-[0.875rem] text-warning">
       {{ errMsg }}
     </div>
   </div>

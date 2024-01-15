@@ -13,6 +13,7 @@ export const iconMap = {
   back: 'function/back',
   calendar: 'function/calendar',
   close: 'function/close',
+  closeWhite: 'function/close-white',
   collection: 'function/collection',
   draft: 'function/draft',
   dropdown: 'function/dropdown',

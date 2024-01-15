@@ -11,13 +11,13 @@
           <div class="absolute left-1/2 top-1/2 w-full translate-x-[-50%] translate-y-[-50%]">
             <div class="flex justify-around">
               <div class="flex w-[175px] flex-col items-center gap-y-5">
-                <p class="text-[1.5625rem] font-bold leading-[1.5625rem] text-white">35K</p>
-                <p class="text-[0.75rem] font-normal leading-[0.75rem] text-white opacity-50">Subscribers</p>
+                <p class="text-xl font-bold leading-[1.5625rem] text-white">35K</p>
+                <p class="text-sm font-normal leading-[0.75rem] text-white opacity-50">Subscribers</p>
               </div>
               <div class="h-25 w-1 bg-[#DCDCDC]"></div>
               <div class="flex w-[175px] flex-col items-center gap-y-5">
-                <p class="text-[1.5625rem] font-bold leading-[1.5625rem] text-white">85</p>
-                <p class="text-[0.75rem] font-normal leading-[0.75rem] text-white opacity-50">Posts</p>
+                <p class="text-xl font-bold leading-[1.5625rem] text-white">85</p>
+                <p class="text-sm font-normal leading-[0.75rem] text-white opacity-50">Posts</p>
               </div>
             </div>
           </div>
@@ -28,7 +28,7 @@
               <Icon class="cursor-pointer" name="setting" size="20"></Icon>
               <Icon class="cursor-pointer" name="moreHorizontal" size="20"></Icon>
               <button
-                class="rounded-full border-[1.5px] border-gray66 bg-gray03 px-20 py-6 text-[0.875rem] font-normal leading-[0.875rem]"
+                class="rounded-full border-[1.5px] border-gray66 bg-gray03 px-20 py-6 text-base font-normal leading-[0.875rem]"
               >
                 Subscribe
               </button>
@@ -37,16 +37,16 @@
         </div>
         <div class="grid gap-y-10 pt-10">
           <div class="flex items-end gap-x-5">
-            <div class="text-[1.125rem] font-bold leading-[1.125rem]">Angelababy</div>
-            <div class="text-[0.75rem] font-normal leading-[0.75rem] text-gray66">＠angelababy</div>
+            <div class="text-lg font-bold leading-[1.125rem]">Angelababy</div>
+            <div class="text-sm font-normal leading-[0.75rem] text-gray66">＠angelababy</div>
           </div>
           <div class="flex items-end gap-x-5">
-            <div class="text-[0.75rem] font-normal leading-[0.75rem]">My Links:</div>
-            <div class="text-[0.75rem] font-normal leading-[0.75rem] text-gray66">WenHsin.com</div>
-            <div class="text-[0.75rem] font-normal leading-[0.75rem] text-gray66">•</div>
-            <div class="text-[0.75rem] font-normal leading-[0.75rem] text-gray66">143.2k viewed</div>
+            <div class="text-sm font-normal leading-[0.75rem]">My Links:</div>
+            <div class="text-sm font-normal leading-[0.75rem] text-gray66">WenHsin.com</div>
+            <div class="text-sm font-normal leading-[0.75rem] text-gray66">•</div>
+            <div class="text-sm font-normal leading-[0.75rem] text-gray66">143.2k viewed</div>
           </div>
-          <p class="text-[0.875rem] font-normal leading-[1.125rem]">
+          <p class="text-base font-normal leading-[1.125rem]">
             🇩🇪/🇺🇸 - 19 years😇 check my link to get to know me &lt; 3, I'm convinced your massive dick will help me get
             to the spread, daddy💦💦
           </p>
@@ -54,7 +54,7 @@
         <div class="my-20 flex">
           <Button>Profile Page</Button>
         </div>
-        <div class="flex h-36 w-full items-center bg-gray03 px-20 text-[0.875rem] font-bold leading-[0.875rem]">
+        <div class="flex h-36 w-full items-center bg-gray03 px-20 text-base font-bold leading-[0.875rem]">
           All Posts 85
         </div>
         <div class="overflow-x-hidden">
@@ -92,9 +92,8 @@
       <div class="m-15 grid gap-y-20">
         <SetList />
         <div class="grid gap-y-5">
-          <span>VIDA 活動與廣告</span>
           <Carousel :items="cats" :intervalTime="true"></Carousel>
-          <p class="text-[0.75rem] font-normal leading-[0.75rem] text-gray-400">
+          <p class="text-xs font-normal leading-[0.75rem] text-gray-400">
             Terms of Service Privacy Policy Cookie Policy Ad info About @ 2023 ViDA corp
           </p>
         </div>
@@ -124,7 +123,7 @@ const inputValue = ref('')
 const cats = ref([
   { img: 'https://images.pexels.com/photos/1056251/pexels-photo-1056251.jpeg' },
   { img: 'https://images.pexels.com/photos/57416/cat-sweet-kitty-animals-57416.jpeg' },
-  { img: 'https://images.pexels.com/photos/2558605/pexels-photo-2558605.jpeg' },
+  { img: 'https://images.pexels.com/photos/3054570/pexels-photo-3054570.jpeg' },
   { img: 'https://images.pexels.com/photos/2071882/pexels-photo-2071882.jpeg' },
   { img: 'https://images.pexels.com/photos/1440403/pexels-photo-1440403.jpeg' },
 ])

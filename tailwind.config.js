@@ -17,10 +17,11 @@ export default {
       xl: '1295px', // header(270) + main(600) + aside(350) = 1220
     },
     fontSize: {
-      sm: '0.75rem',
-      base: '0.875rem',
-      lg: '1.125rem',
-      xl: '1.5625rem',
+      xs: '0.625rem', // 10px
+      sm: '0.75rem', // 12px
+      base: '0.875rem', // 14px
+      lg: '1.125rem', // 18px
+      xl: '1.5625rem', // 25px
     },
     fontWeight: {
       light: '300',
@@ -45,12 +46,22 @@ export default {
         gray05: 'rgba(0, 0, 0, 0.05)',
         gray03: 'rgba(0, 0, 0, 0.03)',
         warning: '#FF1D00',
+        'gray-brown': '#FFDEDE',
+        'gray-purple': '#F4C2EF',
+        'gray-orange': '#FFC8C8',
+        'gray-cyan': '#7FE2D3',
       },
       keyframes: {
         flash: {
           '0%': { opacity: 1 },
           '100%': { opacity: 0 },
         },
+      },
+      borderRadius: {
+        sm: '4.375rem',
+        md: '0.625rem',
+        lg: '0.75rem',
+        xl: '0.9375rem',
       },
     },
     spacing: generateSpacing(),
