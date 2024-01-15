@@ -37,4 +37,10 @@ export const iconMap = {
   likeOutline: 'interaction/like-outline',
   like: 'interaction/like',
   sharePost: 'interaction/share-post',
+  apple: 'login/apple',
+  facebook: 'login/facebook',
+  google: 'login/google',
+  twitter: 'login/twitter',
+  mail: 'login/mail',
+  account: 'login/account',
 }
