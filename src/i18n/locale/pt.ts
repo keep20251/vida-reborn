@@ -41,6 +41,7 @@ export default {
     everyone: 'Todos',
     visitor: 'Visitante',
     subscriber: 'Assinantes',
+    subscribe: '',
     store: 'Loja',
     private: 'Privado',
     profile: 'Página de perfil',
@@ -387,7 +388,7 @@ export default {
   },
   append: { resend: 'Reenviar' },
   content: {
-    welcomeToVida: 'Bem -vindo a se juntar à Vida como membro do nosso! Vá para a caixa de correio de autenticação!',
+    welcomeToVida: 'Bem -vindo ao se juntar à Vida como membro do nosso! Vá para a caixa de correio de autenticação!',
     verifyAccount: 'Para [minhas configurações de conta] pode concluir a certificação',
     logout: 'Tem certeza que deseja sair?',
     cancelUpload: 'A confirmação perderá o progresso atual do upload',
@@ -494,11 +495,10 @@ export default {
       },
       explain: {
         point1:
-          '1. Antes de enviar conteúdo ou ganhar dinheiro como membro afiliado, precisamos verificar sua identidade.',
-        point2: '2. Este processo leva menos de 5 minutos e é totalmente confidencial.',
-        point3: '3. Durante este processo, você será solicitado a tirar fotos suas e do seu documento de identidade.',
-        point4:
-          '4. Certifique-se de que sua webcam ou câmera móvel esteja funcionando e tenha seu documento de identidade por perto.',
+          'Antes de fazer upload de conteúdo ou ganhar dinheiro como membro afiliado, precisamos verificar sua identidade.',
+        point2: 'Esse processo leva menos de 5 minutos e é completamente confidencial.',
+        point3: 'Durante esse processo, você será solicitado a tirar fotos de você e de sua identidade.',
+        point4: 'Verifique se sua webcam ou câmera móvel está funcionando e tenha seu ID por perto.',
       },
       tip: {
         line1:
@@ -768,5 +768,5 @@ export default {
   },
   NSPhotoLibraryUsageDescription: 'Este aplicativo precisa acessar a biblioteca de fotos.',
   NSCameraUsageDescription: 'Este aplicativo requer acesso à câmera.',
-  unknownError: '#ERROR!',
+  unknownError: 'Erro no sistema',
 }

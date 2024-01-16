@@ -41,6 +41,7 @@ export default {
     everyone: 'Setiap orang',
     visitor: 'Pengunjung',
     subscriber: 'Pelanggan',
+    subscribe: '',
     store: 'Toko',
     private: 'Pribadi',
     profile: 'Halaman profil',
@@ -488,10 +489,10 @@ export default {
       },
       explain: {
         point1:
-          '1. Sebelum mengunggah konten atau menghasilkan uang sebagai anggota afiliasi, kami perlu memverifikasi identitas Anda.',
-        point2: '2. Proses ini memakan waktu kurang dari 5 menit dan sepenuhnya rahasia.',
-        point3: '3. Selama proses ini, Anda akan diminta untuk mengambil foto Anda dan ID Anda.',
-        point4: '4. Pastikan webcam atau kamera ponsel Anda berfungsi dan ID Anda ada di dekat Anda.',
+          'Sebelum mengunggah konten atau menghasilkan uang sebagai anggota afiliasi, kami perlu memverifikasi identitas Anda.',
+        point2: 'Proses ini membutuhkan waktu kurang dari 5 menit dan sepenuhnya rahasia.',
+        point3: 'Selama proses ini, Anda akan diminta untuk mengambil foto Anda dan ID Anda.',
+        point4: 'Pastikan webcam atau kamera seluler Anda berfungsi dan memiliki ID Anda di dekatnya.',
       },
       tip: {
         line1:
@@ -759,5 +760,5 @@ export default {
   },
   NSPhotoLibraryUsageDescription: 'Aplikasi ini perlu mengakses pustaka foto.',
   NSCameraUsageDescription: 'Aplikasi ini membutuhkan akses ke kamera.',
-  unknownError: '#ERROR!',
+  unknownError: 'Sistem bermasalah',
 }

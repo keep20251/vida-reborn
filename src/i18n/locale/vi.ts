@@ -41,6 +41,7 @@ export default {
     everyone: 'Mọi người',
     visitor: 'Khách thăm quan',
     subscriber: 'Người đăng ký',
+    subscribe: '',
     store: 'Cửa hàng',
     private: 'Riêng tư',
     profile: 'Trang hồ sơ',
@@ -487,10 +488,10 @@ export default {
       },
       explain: {
         point1:
-          '1. Trước khi tải nội dung lên hoặc kiếm tiền với tư cách thành viên liên kết, chúng tôi cần xác minh danh tính của bạn.',
-        point2: '2. Quá trình này chỉ mất chưa đầy 5 phút và hoàn toàn bí mật.',
-        point3: '3. Trong quá trình này, bạn sẽ được yêu cầu chụp ảnh bạn và giấy tờ tùy thân của bạn.',
-        point4: '4. Đảm bảo webcam hoặc máy ảnh di động của bạn đang hoạt động và có ID của bạn ở gần.',
+          'Trước khi tải lên nội dung hoặc kiếm tiền làm thành viên liên kết, chúng tôi cần xác minh danh tính của bạn.',
+        point2: 'Quá trình này mất ít hơn 5 phút và hoàn toàn bí mật.',
+        point3: 'Trong quá trình này, bạn sẽ được yêu cầu chụp ảnh bạn và ID của bạn.',
+        point4: 'Đảm bảo webcam hoặc máy ảnh di động của bạn đang hoạt động và có ID của bạn gần đó.',
       },
       tip: {
         line1: 'Nếu có vấn đề trong quá trình này, bạn có thể khởi động lại hoặc tiếp tục xác minh từ trang này.',
@@ -761,5 +762,5 @@ export default {
   },
   NSPhotoLibraryUsageDescription: 'Ứng dụng này cần truy cập thư viện ảnh.',
   NSCameraUsageDescription: 'Ứng dụng này yêu cầu truy cập vào máy ảnh.',
-  unknownError: '#ERROR!',
+  unknownError: 'Lỗi hệ thống',
 }

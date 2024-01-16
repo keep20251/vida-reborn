@@ -41,6 +41,7 @@ export default {
     everyone: 'Todos',
     visitor: 'Visitante',
     subscriber: 'Suscriptores',
+    subscribe: '',
     store: 'Almacenar',
     private: 'Privado',
     profile: 'Página de perfil',
@@ -330,7 +331,7 @@ export default {
   },
   title: {
     pwdLogin: 'Contraseña de acceso',
-    mailCodeLogin: 'Inicio de sesión del código de verificación',
+    mailCodeLogin: 'Iniciar sesión en el código de verificación',
     accountLogin: 'Cuenta de Ingreso',
     finished: 'Información completa',
     setPassword: 'Configurar la clave',
@@ -380,7 +381,7 @@ export default {
     followToView: 'Rastrear una determinada cuenta para ver su última película',
     popularSetName: '{year}-{month} Lista popular',
   },
-  append: { resend: 'Reenviar' },
+  append: { resend: 'Revender' },
   content: {
     welcomeToVida: '¡Bienvenido a unirse a Vida como miembro de nuestro! ¡Vaya al buzón de autenticación!',
     verifyAccount: 'A [mi> configuración de cuenta] puede completar la certificación',
@@ -482,10 +483,10 @@ export default {
           'Garantizar la seguridad de la red es un valor fundamental de Fantasi. Los controles de edad e identidad realizados por Fantasi son cruciales para garantizar la seguridad de la comunidad Fantasi.',
       },
       explain: {
-        point1: '1. Antes de cargar contenido o ganar dinero como miembro afiliado, debemos verificar su identidad.',
-        point2: '2. Este proceso toma menos de 5 minutos y es completamente confidencial.',
-        point3: '3. Durante este proceso, se le pedirá que tome fotografías suyas y de su identificación.',
-        point4: '4. Asegúrese de que su cámara web o cámara móvil esté funcionando y tenga su identificación cerca.',
+        point1: 'Antes de cargar contenido o ganar dinero como miembro afiliado, debemos verificar su identidad.',
+        point2: 'Este proceso toma menos de 5 minutos y es completamente confidencial.',
+        point3: 'Durante este proceso, se le pedirá que tome fotos de usted y su identificación.',
+        point4: 'Asegúrese de que su cámara web o cámara móvil esté funcionando y tenga su identificación cerca.',
       },
       tip: {
         line1: 'Si hay problemas durante este proceso, podrá reiniciar o continuar la verificación desde esta página.',
@@ -754,6 +755,6 @@ export default {
     },
   },
   NSPhotoLibraryUsageDescription: 'Esta aplicación necesita acceder a la biblioteca de fotos.',
-  NSCameraUsageDescription: '#ERROR!',
-  unknownError: '#ERROR!',
+  NSCameraUsageDescription: 'Esta aplicación requiere acceso a la cámara.',
+  unknownError: 'Error del sistema',
 }

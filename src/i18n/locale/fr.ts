@@ -41,6 +41,7 @@ export default {
     everyone: 'Tout le monde',
     visitor: 'Visiteur',
     subscriber: 'Les abonnés',
+    subscribe: '',
     store: 'Magasin',
     private: 'Privé',
     profile: 'Page de profil',
@@ -112,7 +113,7 @@ export default {
     pwdStrength: 'Fiabilité du mot de passe:',
     loginOrRegister: 'Connectez-vous ou inscrivez-vous rapidement',
     neverRegister: "Vous n'avez pas inscrit?",
-    clickToRegister: 'Cliquez sur moi pour vous inscrire',
+    clickToRegister: "Cliquez sur moi pour s'inscrire",
     accept: 'Accepter',
     watches: 'Vues',
     fans: 'Ventilateurs',
@@ -389,7 +390,7 @@ export default {
   content: {
     welcomeToVida:
       "Bienvenue à rejoindre Vida en tant que membre de notre! Accédez à la boîte aux lettres d'authentification!",
-    verifyAccount: 'À [mon> paramètres de compte] peuvent terminer la certification',
+    verifyAccount: 'À [mon> paramètres de compte] peuvent compléter la certification',
     logout: 'Êtes-vous sûr de vouloir vous déconnecter?',
     cancelUpload: 'La confirmation perdra la progression actuelle du téléchargement',
     confirmSendRequest: 'Êtes-vous sûr de vouloir soumettre les données ?',
@@ -492,12 +493,11 @@ export default {
       },
       explain: {
         point1:
-          '1. Avant de télécharger du contenu ou de gagner de l’argent en tant que membre affilié, nous devons vérifier votre identité.',
-        point2: '2. Ce processus prend moins de 5 minutes et est totalement confidentiel.',
-        point3:
-          "3. Au cours de ce processus, il vous sera demandé de prendre des photos de vous et de votre pièce d'identité.",
+          "Avant de télécharger du contenu ou de gagner de l'argent en tant que membre affilié, nous devons vérifier votre identité.",
+        point2: 'Ce processus prend moins de 5 minutes et est complètement confidentiel.',
+        point3: 'Au cours de ce processus, il vous sera demandé de prendre des photos de vous et de votre identifiant.',
         point4:
-          "4. Assurez-vous que votre webcam ou votre caméra mobile fonctionne et ayez votre pièce d'identité à proximité.",
+          'Assurez-vous que votre webcam ou votre appareil photo mobile fonctionne et que votre identifiant à proximité.',
       },
       tip: {
         line1:
@@ -769,6 +769,6 @@ export default {
     },
   },
   NSPhotoLibraryUsageDescription: 'Cette application doit accéder à la photo-bibliothèque.',
-  NSCameraUsageDescription: '#ERROR!',
-  unknownError: '#ERROR!',
+  NSCameraUsageDescription: 'Cette application nécessite un accès à la caméra.',
+  unknownError: 'Erreur système',
 }
