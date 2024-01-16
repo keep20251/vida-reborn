@@ -118,6 +118,7 @@ const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
 const inputValue = ref('')
 
 const cats = ref([
+  { img: 'https://i.postimg.cc/3RTHR6kh/4edca499dd436a67fa25e5fbf3cb5582.png' },
   { img: 'https://images.pexels.com/photos/1056251/pexels-photo-1056251.jpeg' },
   { img: 'https://images.pexels.com/photos/57416/cat-sweet-kitty-animals-57416.jpeg' },
   { img: 'https://images.pexels.com/photos/3054570/pexels-photo-3054570.jpeg' },
