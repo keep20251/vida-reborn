@@ -111,10 +111,10 @@
     </div>
     <div v-if="isDev" class="grid gap-y-5 rounded-xl border-b bg-slate-200 px-10 py-10">
       <div class="text-red-600">開發模式用</div>
-      <div class="flex cursor-pointer items-center gap-x-5" @click="push({ name: 'mine-profile-set' })">
+      <router-link :to="{ name: 'mine-profile-set' }" class="flex cursor-pointer items-center gap-x-5">
         <Icon name="setting" size="16"></Icon>
         <span>創作者主頁設置</span>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
