@@ -34,7 +34,7 @@
 </template>
 
 <script setup>
-import { onBeforeUnmount, onDeactivated, onMounted, ref } from 'vue'
+import { onActivated, onBeforeUnmount, onDeactivated, onMounted, ref } from 'vue'
 
 const props = defineProps({
   items: {
@@ -88,6 +88,10 @@ const showPrev = () => {
 const getActiveSlide = (i) => i === activeSlide.value
 
 onMounted(() => {
+  restartInterval()
+})
+
+onActivated(() => {
   restartInterval()
 })
 
