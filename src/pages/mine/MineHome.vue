@@ -22,7 +22,9 @@
       <div class="absolute bottom-[-45px] right-0 flex w-full justify-end pl-20">
         <div class="flex items-center gap-x-10">
           <Icon class="cursor-pointer" name="link" size="20"></Icon>
-          <Icon class="cursor-pointer" name="setting" size="20"></Icon>
+          <router-link :to="{ name: 'mine-profile-set' }" class="flex items-center">
+            <Icon class="cursor-pointer" name="setting" size="20"></Icon>
+          </router-link>
           <Icon class="cursor-pointer" name="moreHorizontal" size="20"></Icon>
         </div>
       </div>
@@ -69,7 +71,6 @@ import List from '@comp/common/List.vue'
 import Feed from '@comp/main/Feed.vue'
 import Button from '@comp/common/Button.vue'
 import Loading from '@comp/common/Loading.vue'
-
 import Avatar from '@comp/multimedia/Avatar.vue'
 import defaultAvatar from '@/assets/images/avatar.jpeg'
 
