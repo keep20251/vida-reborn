@@ -2,7 +2,7 @@
   <div class="flex flex-col gap-y-10">
     <label v-if="label" class="text-left text-base font-normal not-italic leading-[0.875rem]"
       >{{ label }}
-      <span v-if="sublabel" class="text-sm font-normal not-italic leading-[0.75rem] text-gray66">{{ sublabel }}</span>
+      <span v-if="sublabel" class="text-sm font-normal not-italic leading-3 text-gray66">{{ sublabel }}</span>
     </label>
 
     <div class="relative flex items-center">
@@ -21,7 +21,7 @@
           'pr-52': !!appendIconBtn,
           'pr-48': !!password,
         }"
-        class="h-35 w-full shrink-0 divide-solid rounded-[1.125rem] border-gray20 bg-white px-20 py-12 text-sm font-normal not-italic leading-[0.75rem] text-gray66 shadow-[0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)inset] outline-none placeholder:text-sm placeholder:text-gray36"
+        class="rounded-18 h-35 w-full shrink-0 divide-solid border-gray20 bg-white px-20 py-12 text-sm font-normal not-italic leading-3 text-gray66 shadow-[0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)inset] outline-none placeholder:text-sm placeholder:text-gray36"
       />
       <Icon
         v-if="!!prependIcon"
