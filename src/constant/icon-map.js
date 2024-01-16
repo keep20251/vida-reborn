@@ -44,4 +44,10 @@ export const iconMap = {
   twitter: 'login/twitter',
   mail: 'login/mail',
   account: 'login/account',
+  camera: 'function/camera',
+  socialInstagram: 'social/instagram',
+  socialFacebook: 'social/facebook',
+  socialTwitter: 'social/twitter',
+  socialYoutube: 'social/youtube',
+  socialTiktok: 'social/tiktok',
 }
