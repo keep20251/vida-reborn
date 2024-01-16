@@ -1,9 +1,12 @@
 import { useI18n as useVueI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
-import { getLang, loadedLanguages } from '@/i18n'
+import { getLang, loadLanguage } from '@/i18n'
 import { useCookie } from '@use/utils/cookie'
 import { computed } from 'vue'
 import { COOKIE_KEY } from '@const'
+
+let currLoadLang
+let nextLoadLang
 
 /**
  * 實際使用的 VueI18n 實例，僅能在 Vue 的 setup() 內使用
@@ -17,7 +20,27 @@ export function useI18n() {
 
   async function _setLocale(langCode) {
     const lang = getLang(langCode)
-    await _loadLanguageAsync(lang)
+
+    if (currLoadLang) {
+      nextLoadLang = lang
+      return
+    }
+
+    currLoadLang = lang
+
+    if (!loadLanguage[lang]) {
+      await loadLanguage(lang)
+      i18n.setLocaleMessage(lang, loadLanguage[lang])
+    }
+    _setI18nLanguage(lang)
+
+    currLoadLang = undefined
+
+    if (nextLoadLang) {
+      const lang = nextLoadLang
+      nextLoadLang = undefined
+      _setLocale(lang)
+    }
   }
 
   function _setI18nLanguage(lang) {
@@ -27,23 +50,6 @@ export function useI18n() {
     router.replace({ name: router.currentRoute.name, params: { lang } })
 
     return lang
-  }
-
-  function _loadLanguageAsync(lang) {
-    if (i18n.locale.value === lang) {
-      return Promise.resolve(_setI18nLanguage(lang))
-    }
-
-    if (loadedLanguages.includes(lang)) {
-      return Promise.resolve(_setI18nLanguage(lang))
-    }
-
-    return import(`../../i18n/locale/${lang}.ts`).then((messages) => {
-      console.log(`Lazy load ${lang} language pack...`)
-      i18n.setLocaleMessage(lang, messages.default)
-      loadedLanguages.push(lang)
-      return _setI18nLanguage(lang)
-    })
   }
 
   const $t = i18n.t

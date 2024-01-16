@@ -1,5 +1,4 @@
 import { createI18n as createVueI18n } from 'vue-i18n'
-import en from './locale/en'
 
 const TW = 'zh-tw'
 const CN = 'zh-cn'
@@ -41,8 +40,6 @@ export const locales = Object.freeze([
   { label: 'hi', value: HI },
 ])
 
-export const loadedLanguages = [EN]
-
 function initLocale() {
   const defaultLang = import.meta.env.SSR ? 'en' : navigator.language?.toLocaleLowerCase()
   return getLang(defaultLang)
@@ -55,11 +52,9 @@ function initLocale() {
  */
 export async function createI18n(locale) {
   const lang = locale ? getLang(locale) : initLocale()
-  loadedLanguages.push(lang)
 
-  const messages = { en }
-  const defaultLangPack = lang === 'en' ? null : (await import(`./locale/${lang}.ts`)).default
-  if (defaultLangPack) messages[lang] = defaultLangPack
+  await loadLanguage(lang)
+  const messages = { [lang]: loadLanguage[lang] }
 
   const i18n = createVueI18n({
     legacy: false,
@@ -68,6 +63,13 @@ export async function createI18n(locale) {
     messages,
   })
   return i18n
+}
+
+export async function loadLanguage(lang) {
+  if (loadLanguage[lang]) {
+    return
+  }
+  loadLanguage[lang] = (await import(`./locale/${lang}.ts`)).default
 }
 
 export function getLang(langTmp) {
