@@ -109,6 +109,13 @@
         <span>登出</span>
       </div>
     </div>
+    <div v-if="isDev" class="grid gap-y-5 rounded-xl border-b bg-slate-200 px-10 py-10">
+      <div class="text-red-600">開發模式用</div>
+      <div class="flex cursor-pointer items-center gap-x-5" @click="push({ name: 'mine-profile-set' })">
+        <Icon name="setting" size="16"></Icon>
+        <span>創作者主頁設置</span>
+      </div>
+    </div>
   </div>
 </template>
 <script setup>
@@ -118,7 +125,7 @@ import { locales } from '@/i18n'
 import { useAccountStore } from '@/store/account'
 import { useAuthRouteStore } from '@/store/auth-route'
 import { AUTH_ROUTES } from '@/constant'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 const accOpen = ref(false)
@@ -135,4 +142,6 @@ const { open: openAuthDialog } = useAuthRouteStore()
 const { logout } = useAccountStore()
 
 const { push } = useRouter()
+
+const isDev = computed(() => import.meta.env.DEV)
 </script>

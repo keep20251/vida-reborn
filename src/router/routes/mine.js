@@ -1,4 +1,5 @@
 import MineHome from '@/pages/mine/MineHome.vue'
+import MineProfileSet from '@/pages/mine/MineProfileSet.vue'
 import MineEarn from '@/pages/mine/MineEarn.vue'
 import MineBuy from '@/pages/mine/MineBuy.vue'
 import MinePost from '@/pages/mine/MinePost.vue'
@@ -17,6 +18,7 @@ import MineAboutDMCA from '@/pages/mine/MineAboutDMCA.vue'
 const prefix = 'mine'
 export default [
   { name: `${prefix}`, path: `/${prefix}`, component: MineHome, meta: {} },
+  { name: `${prefix}-profile-set`, path: `/${prefix}/profile-set`, component: MineProfileSet, meta: {} },
   { name: `${prefix}-earn`, path: `/${prefix}/earn`, component: MineEarn, meta: {} },
   { name: `${prefix}-buy`, path: `/${prefix}/buy`, component: MineBuy, meta: {} },
   { name: `${prefix}-post`, path: `/${prefix}/post`, component: MinePost, meta: {} },
