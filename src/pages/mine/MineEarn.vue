@@ -1,3 +1,4 @@
 <template>
-  <div>MineEarn</div>
+  <div>{{ $t('title.earn') }}</div>
 </template>
+<script setup></script>
