@@ -14,25 +14,25 @@
         :value="value"
         :maxlength="maxLength"
         :class="{
-          'pl-[45px] ': !!prependIcon,
-          'pr-45': !!appendIcon,
+          'pl-50 ': !!prependIcon,
+          'pr-50': !!appendIcon,
           'pr-[7.25rem]': !!appendText,
-          'pr-[3.75rem]': !!appendTextBtn,
-          'pr-[3.25rem]': !!appendIconBtn,
+          'pr-60': !!appendTextBtn,
+          'pr-52': !!appendIconBtn,
           'pr-48': !!password,
         }"
-        class="h-35 w-full shrink-0 divide-solid rounded-[1.125rem] border-gray20 bg-white px-20 pb-11 pt-12 text-sm font-normal not-italic leading-[0.75rem] text-gray66 shadow-[0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)inset] outline-none placeholder:text-sm placeholder:text-gray36"
+        class="h-35 w-full shrink-0 divide-solid rounded-[1.125rem] border-gray20 bg-white px-20 py-12 text-sm font-normal not-italic leading-[0.75rem] text-gray66 shadow-[0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)inset] outline-none placeholder:text-sm placeholder:text-gray36"
       />
       <Icon
         v-if="!!prependIcon"
-        size="20"
+        size="15"
         :name="prependIcon"
         class="absolute left-20"
         @click="emits('click:prepend')"
       ></Icon>
       <Icon
         v-if="!!appendIcon"
-        size="20"
+        size="15"
         :name="appendIcon"
         class="absolute right-20 cursor-pointer"
         @click="emits('click:append')"
