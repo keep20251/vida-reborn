@@ -1,5 +1,5 @@
 <template>
-  <div class="relative h-[11rem] w-[31.25rem]">
+  <div class="relative h-[11rem]">
     <img class="h-full w-full rounded-xl bg-no-repeat object-cover" :src="props.bgImage" />
     <div class="absolute top-0 h-full w-full flex-shrink-0 rounded-xl opacity-80" :class="colorTheme"></div>
     <div class="absolute top-0 h-full w-full px-20 py-30">

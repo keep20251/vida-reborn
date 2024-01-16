@@ -41,6 +41,7 @@ export default {
     everyone: 'Alle',
     visitor: 'Besucher',
     subscriber: 'Abonnenten',
+    subscribe: '',
     store: 'Speichern',
     private: 'Privat',
     profile: 'Profilseite',
@@ -491,11 +492,11 @@ export default {
       },
       explain: {
         point1:
-          '1. Bevor wir Inhalte hochladen oder als Affiliate-Mitglied Geld verdienen, müssen wir Ihre Identität überprüfen.',
-        point2: '2. Dieser Vorgang dauert weniger als 5 Minuten und ist absolut vertraulich.',
-        point3: '3. Während dieses Vorgangs werden Sie gebeten, Fotos von Ihnen und Ihrem Ausweis zu machen.',
+          'Bevor wir Inhalte hochladen oder als Partnermitglied Geld verdienen, müssen wir Ihre Identität überprüfen.',
+        point2: 'Dieser Vorgang dauert weniger als 5 Minuten und ist völlig vertraulich.',
+        point3: 'Während dieses Prozesses werden Sie gebeten, Fotos von Ihnen und Ihrem Ausweis zu machen.',
         point4:
-          '4. Stellen Sie sicher, dass Ihre Webcam oder mobile Kamera funktioniert und halten Sie Ihren Ausweis bereit.',
+          'Stellen Sie sicher, dass Ihre Webcam oder mobile Kamera funktioniert, und lassen Sie Ihren Ausweis in der Nähe.',
       },
       tip: {
         line1:
@@ -764,6 +765,6 @@ export default {
     },
   },
   NSPhotoLibraryUsageDescription: 'Diese Anwendung muss auf die Fotobibliothek zugreifen.',
-  NSCameraUsageDescription: '#ERROR!',
-  unknownError: '#ERROR!',
+  NSCameraUsageDescription: 'Diese App erfordert Zugriff auf die Kamera.',
+  unknownError: 'Systemfehler',
 }

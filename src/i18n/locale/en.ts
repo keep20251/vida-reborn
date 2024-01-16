@@ -41,6 +41,7 @@ export default {
     everyone: 'Everyone',
     visitor: 'Visitor',
     subscriber: 'Subscribers',
+    subscribe: 'Subscribe',
     store: 'Store',
     private: 'Private',
     profile: 'Profile Page',
@@ -484,10 +485,10 @@ export default {
           'Ensuring network security is a core value of Fantasi. Age and identity checks performed by Fantasi are crucial for ensuring the safety of the Fantasi community.',
       },
       explain: {
-        point1: '1. Before uploading content or earning money as an affiliate member, we need to verify your identity.',
-        point2: '2. This process takes less than 5 minutes and is completely confidential.',
-        point3: '3. During this process, you will be asked to take photos of you and your ID.',
-        point4: '4. Ensure your webcam or mobile camera is working and have your ID nearby.',
+        point1: 'Before uploading content or earning money as an affiliate member, we need to verify your identity.',
+        point2: 'This process takes less than 5 minutes and is completely confidential.',
+        point3: 'During this process, you will be asked to take photos of you and your ID.',
+        point4: 'Ensure your webcam or mobile camera is working and have your ID nearby.',
       },
       tip: {
         line1:

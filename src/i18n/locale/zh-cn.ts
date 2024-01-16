@@ -41,6 +41,7 @@ export default {
     everyone: '所有人',
     visitor: '游客',
     subscriber: '订阅者',
+    subscribe: '订阅',
     store: '商店',
     private: '私密',
     profile: '进入个人主页',
@@ -447,10 +448,10 @@ export default {
         line5: '确保网络安全是Fantasi的核心价值。Fantasi进行的年龄和身份检查对于确保Fantasi社区的安全至关重要。',
       },
       explain: {
-        point1: '1.在您上传内容或作为联盟成员赚钱之前，我们需要验证您的身份。',
-        point2: '2.此过程不到5分钟，并且完全保密。',
-        point3: '3.在此过程中，您将被要求拍摄您和您的身份证件的照片。',
-        point4: '4.确保您的网络摄像头或手机摄像头正常工作并且您的身份证件在附近。',
+        point1: '在上传内容或作为会员成员赚钱之前，我们需要验证您的身份。',
+        point2: '这个过程不到5分钟，完全保密。',
+        point3: '在此过程中，您将被要求为您和您的ID拍照。',
+        point4: '确保您的网络摄像头或移动摄像头正在工作，并在附近拥有ID。',
       },
       tip: {
         line1: '如果在此过程中出现问题，您将能够从此页面重新启动或继续验证。',
@@ -691,6 +692,6 @@ export default {
     },
   },
   NSPhotoLibraryUsageDescription: '此应用程序需要访问照片库。',
-  NSCameraUsageDescription: '#ERROR!',
-  unknownError: '#ERROR!',
+  NSCameraUsageDescription: '此应用需要访问相机。',
+  unknownError: '系统错误',
 }

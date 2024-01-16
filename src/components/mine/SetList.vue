@@ -15,23 +15,23 @@
         <Icon name="setting" size="16"></Icon>
         <span>我的收益</span>
       </div>
-      <div class="flex cursor-pointer items-center gap-x-5">
+      <div class="flex cursor-pointer items-center gap-x-5" @click="push({ name: 'mine-buy' })">
         <Icon name="setting" size="16"></Icon>
         <span>我的購買</span>
       </div>
     </div>
     <div class="grid gap-y-5 border-b py-10">
-      <div class="flex cursor-pointer items-center gap-x-5">
+      <div class="flex cursor-pointer items-center gap-x-5" @click="push({ name: 'mine-post' })">
         <Icon name="setting" size="16"></Icon>
         <span>我的帖子</span>
       </div>
-      <div class="flex cursor-pointer items-center gap-x-5">
+      <div class="flex cursor-pointer items-center gap-x-5" @click="push({ name: 'mine-collect' })">
         <Icon name="setting" size="16"></Icon>
         <span>我的收藏</span>
       </div>
     </div>
     <div class="grid gap-y-5 border-b py-10">
-      <div class="flex cursor-pointer items-center gap-x-5">
+      <div class="flex cursor-pointer items-center gap-x-5" @click="push({ name: 'mine-creator' })">
         <Icon name="setting" size="16"></Icon>
         <span>成為創作者</span>
       </div>
@@ -46,19 +46,19 @@
       </div>
       <div class="transition-all" :class="[{ 'pl-20': accOpen }]">
         <div class="flex w-full flex-col gap-y-5 transition-all delay-1000" :class="{ hidden: !accOpen }">
-          <div class="flex cursor-pointer items-center gap-x-5">
+          <div class="flex cursor-pointer items-center gap-x-5" @click="push({ name: 'mine-account' })">
             <Icon name="setting" size="16"></Icon><span>名稱</span>
           </div>
-          <div class="flex cursor-pointer items-center gap-x-5">
+          <div class="flex cursor-pointer items-center gap-x-5" @click="push({ name: 'mine-password' })">
             <Icon name="setting" size="16"></Icon><span>密碼</span>
           </div>
-          <div class="flex cursor-pointer items-center gap-x-5">
+          <div class="flex cursor-pointer items-center gap-x-5" @click="push({ name: 'mine-preference' })">
             <Icon name="setting" size="16"></Icon><span>偏好顯示</span>
           </div>
-          <div class="flex cursor-pointer items-center gap-x-5">
+          <div class="flex cursor-pointer items-center gap-x-5" @click="push({ name: 'mine-block' })">
             <Icon name="setting" size="16"></Icon><span>封禁名單</span>
           </div>
-          <div class="flex cursor-pointer items-center gap-x-5">
+          <div class="flex cursor-pointer items-center gap-x-5" @click="push({ name: 'mine-delete' })">
             <Icon name="setting" size="16"></Icon><span>刪除帳戶</span>
           </div>
         </div>
@@ -86,21 +86,19 @@
       </div>
       <div class="transition-all" :class="[{ 'pl-20': aboutOpen }]">
         <div class="flex w-full flex-col gap-y-5 transition-all delay-1000" :class="{ hidden: !aboutOpen }">
-          <div class="flex cursor-pointer items-center gap-x-5">
+          <div class="flex cursor-pointer items-center gap-x-5" @click="push({ name: 'mine-tos' })">
             <Icon name="setting" size="16"></Icon><span>服務條款</span>
           </div>
-          <div class="flex cursor-pointer items-center gap-x-5">
+          <div class="flex cursor-pointer items-center gap-x-5" @click="push({ name: 'mine-pp' })">
             <Icon name="setting" size="16"></Icon><span>隱私政策</span>
           </div>
-          <div class="flex cursor-pointer items-center gap-x-5">
+          <div class="flex cursor-pointer items-center gap-x-5" @click="push({ name: 'mine-cp' })">
             <Icon name="setting" size="16"></Icon><span>Cookie 政策</span>
           </div>
-          <div class="flex cursor-pointer items-center gap-x-5">
+          <div class="flex cursor-pointer items-center gap-x-5" @click="push({ name: 'mine-dmca' })">
             <Icon name="setting" size="16"></Icon><span>DMCA</span>
           </div>
-          <div class="flex cursor-pointer items-center gap-x-5">
-            <Icon name="setting" size="16"></Icon><span>V1.0.0</span>
-          </div>
+          <div class="flex items-center gap-x-5"><Icon name="setting" size="16"></Icon><span>V1.0.0</span></div>
         </div>
       </div>
     </div>

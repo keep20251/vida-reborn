@@ -65,7 +65,7 @@ const route = useRoute()
 const atHome = computed(() => route.name === 'home')
 const atSearch = computed(() => route.name === 'search')
 const atMessage = computed(() => route.name === 'message')
-const atMine = computed(() => route.name === 'mine')
+const atMine = computed(() => route.name.includes('mine'))
 
 const isDev = computed(() => import.meta.env.DEV)
 

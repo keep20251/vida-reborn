@@ -1,18 +1,34 @@
 <template>
   <Page infinite @load="onLoad">
     <template #default>
-      <div class="overflow-x-hidden px-20">
-        <List :items="items" item-key="id">
-          <template #default="{ last }">
-            <Feed class="py-20"></Feed>
-            <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
-          </template>
-          <template #bottom>
-            <div class="flex items-center justify-center py-8 text-gray36">
-              <Loading></Loading>{{ $t('common.noMore') }}
-            </div>
-          </template>
-        </List>
+      <div v-if="tab === 1">
+        <div class="overflow-x-hidden px-20">
+          <List :items="items" item-key="id">
+            <template #default="{ last }">
+              <Feed class="py-20"></Feed>
+              <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
+            </template>
+            <template #bottom>
+              <div class="flex items-center justify-center py-8 text-gray36">
+                <Loading></Loading>{{ $t('common.noMore') }}
+              </div>
+            </template>
+          </List>
+        </div>
+      </div>
+      <div v-else-if="tab === 2" class="px-20">
+        <div class="flex justify-between pt-20">
+          <div class="text-base font-bold leading-[0.875rem]">Popular Creator</div>
+          <Icon name="filter" size="20" class="cursor-pointer"></Icon>
+        </div>
+        <div class="pt-10 text-base font-normal leading-[0.875rem]">订阅某个账号，以查看其最新帖子</div>
+        <div class="flex flex-col justify-center gap-y-10 pt-30">
+          <ViewSubscribeCard
+            v-for="index in 3"
+            :key="`creator-card-${index}`"
+            :theme="(index + 2) % 3"
+          ></ViewSubscribeCard>
+        </div>
       </div>
     </template>
     <template #main-top>
@@ -96,14 +112,14 @@ import RecCard from '@comp/card/RecCard.vue'
 import BulletinCard from '@comp/card/BulletinCard.vue'
 import Carousel from '@comp/common/Carousel.vue'
 import defaultAvatar from '@/assets/images/avatar.jpeg'
+import ViewSubscribeCard from '@/components/card/ViewSubscribeCard.vue'
 
 const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
 
 const tab = ref(1)
 const tabOptions = ref([
   { label: 'common.recommand', value: 1 },
-  { label: 'common.following', value: 2 },
-  { label: 'common.popular', value: 3 },
+  { label: 'common.subscribe', value: 2 },
 ])
 
 const searchValue = ref('')
