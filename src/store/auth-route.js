@@ -6,7 +6,7 @@ import Login from '@/components/auth/Login.vue'
 import SignUpSuccess from '@/components/auth/SignUpSuccess.vue'
 
 import { defineStore, storeToRefs } from 'pinia'
-import { computed, ref, readonly } from 'vue'
+import { computed, ref } from 'vue'
 import { AUTH_ROUTES } from '@/constant'
 import { useDialogStore } from '@/store/dialog'
 
@@ -26,6 +26,8 @@ export const useAuthRouteStore = defineStore('authRoute', () => {
 
   const now = ref(AUTH_ROUTES.MAIN_PAGE)
   const history = ref([])
+  const historyProxy = computed(() => history.value)
+
   const authComponent = computed(() => routes.find((route) => route.value === now.value).component)
 
   function to(value) {
@@ -72,5 +74,5 @@ export const useAuthRouteStore = defineStore('authRoute', () => {
   //     }
   //   }
 
-  return { authComponent, history: readonly(history), to, back, close, open }
+  return { authComponent, history: historyProxy, to, back, close, open }
 })
