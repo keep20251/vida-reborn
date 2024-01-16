@@ -14,11 +14,10 @@ import Mine from '@/pages/mine/Mine.vue'
  * @property checkLogin 用於判斷該頁面是否需要驗證登入狀態
  */
 const routes = [
-  { path: '/', redirect: { name: 'home' } },
-  { name: 'home', path: '/home', component: Home, meta: {} },
-  { name: 'search', path: '/search', component: Search, meta: {} },
-  { name: 'message', path: '/message', component: Message, meta: {} },
-  { name: 'mine', path: '/mine', component: Mine, meta: {}, children: mineRoutes },
+  { name: 'home', path: '/:lang/home', component: Home, meta: {} },
+  { name: 'search', path: '/:lang/search', component: Search, meta: {} },
+  { name: 'message', path: '/:lang/message', component: Message, meta: {} },
+  { name: 'mine', path: '/:lang/mine', component: Mine, meta: {}, children: mineRoutes },
   ...errorRoutes,
 ]
 

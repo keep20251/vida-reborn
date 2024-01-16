@@ -1,7 +1,7 @@
 <template>
   <Page>
     <template #default>
-      <div>404 Page</div>
+      <div>401 Page</div>
     </template>
   </Page>
 </template>

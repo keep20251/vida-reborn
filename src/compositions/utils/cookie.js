@@ -48,9 +48,9 @@ export function useCookie(key, { default: defaultValue, readonly: isReadonly = f
       }
       const cookie = cookieRef.value
       if (cookie !== undefined) {
-        cookies.set(key, cookie)
+        cookies.set(key, cookie, { path: '/' })
         if (import.meta.env.SSR) {
-          res.cookie(key, cookie)
+          res.cookie(key, cookie, { path: '/' })
         }
       }
     } else {
@@ -62,7 +62,7 @@ export function useCookie(key, { default: defaultValue, readonly: isReadonly = f
     // Server 端不支援響應性
     if (!import.meta.env.SSR) {
       watch(cookieRef, (newCookie) => {
-        cookies.set(key, newCookie)
+        cookies.set(key, newCookie, { path: '/' })
       })
     }
   }

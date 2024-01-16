@@ -1,5 +1,4 @@
 import { createI18n as createVueI18n } from 'vue-i18n'
-import en from './locale/en'
 
 const TW = 'zh-tw'
 const CN = 'zh-cn'
@@ -23,7 +22,7 @@ const HI = 'hi'
  * 然後再到這裡新增語系選項
  * 小心[dash]跟[underline]的差異
  */
-const locales = Object.freeze([
+export const locales = Object.freeze([
   { label: 'en', value: EN },
   { label: 'zh_cn', value: CN },
   { label: 'zh_tw', value: TW },
@@ -41,51 +40,45 @@ const locales = Object.freeze([
   { label: 'hi', value: HI },
 ])
 
-const loadedLanguages = [EN]
+function initLocale() {
+  const defaultLang = import.meta.env.SSR ? 'en' : navigator.language?.toLocaleLowerCase()
+  return getLang(defaultLang)
+}
 
-export function useI18n() {
-  /**
-   * 初始化 i18n
-   * @param {string} locale Cookie的語系
-   * @returns Object i18n 實體
-   */
-  async function createI18n(locale) {
-    const lang = locale ? getLang(locale) : initLocale()
-    loadedLanguages.push(lang)
+/**
+ * 初始化 i18n
+ * @param {string} locale Cookie的語系
+ * @returns Object i18n 實體
+ */
+export async function createI18n(locale) {
+  const lang = locale ? getLang(locale) : initLocale()
 
-    const messages = { en }
-    const defaultLangPack = lang === 'en' ? null : (await import(`./locale/${lang}.ts`)).default
-    if (defaultLangPack) messages[lang] = defaultLangPack
+  await loadLanguage(lang)
+  const messages = { [lang]: loadLanguage[lang] }
 
-    const i18n = createVueI18n({
-      legacy: false,
-      locale: lang,
-      fallbackLocale: EN,
-      messages,
-    })
-    return i18n
+  const i18n = createVueI18n({
+    legacy: false,
+    locale: lang,
+    fallbackLocale: EN,
+    messages,
+  })
+  return i18n
+}
+
+export async function loadLanguage(lang) {
+  if (loadLanguage[lang]) {
+    return
   }
+  loadLanguage[lang] = (await import(`./locale/${lang}.ts`)).default
+}
 
-  function initLocale() {
-    const defaultLang = import.meta.env.SSR ? 'en' : navigator.language?.toLocaleLowerCase()
-    return getLang(defaultLang)
-  }
-
-  function getLang(langTmp) {
-    const lang = langTmp.replace('_', '-')
-    const localeCodes = locales.map((locale) => locale.value)
-    let matches = null
-    localeCodes.forEach((code) => {
-      if (lang.includes(code)) matches = code
-      if (lang.includes('zh-hk')) matches = TW
-    })
-    return matches || EN
-  }
-
-  return {
-    locales,
-    loadedLanguages,
-    createI18n,
-    getLang,
-  }
+export function getLang(langTmp) {
+  const lang = langTmp.replace('_', '-')
+  const localeCodes = locales.map((locale) => locale.value)
+  let matches = null
+  localeCodes.forEach((code) => {
+    if (lang.includes(code)) matches = code
+    if (lang.includes('zh-hk')) matches = TW
+  })
+  return matches || EN
 }

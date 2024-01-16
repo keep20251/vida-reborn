@@ -25,11 +25,10 @@
   </Page>
 </template>
 <script setup>
-import { useI18n } from '@/i18n'
-import { useI18nInstance } from '@use/utils/i18n'
+import { locales } from '@/i18n'
+import { useI18n } from '@use/utils/i18n'
 
-const { locales } = useI18n()
-const { locale } = useI18nInstance()
+const { locale } = useI18n()
 
 const langs = locales.map((locale) => locale.label)
 </script>

@@ -2,7 +2,7 @@
 import { useHead, useSeoMeta } from '@unhead/vue'
 import { storeToRefs } from 'pinia'
 import { useHeadStore } from '@/store/head'
-import { useI18nInstance } from '@use/utils/i18n'
+import { useI18n } from '@use/utils/i18n'
 
 export function setupStoreHydrate(store) {
   if (window.__INITIAL_STATE__) {
@@ -15,7 +15,7 @@ export function setupStoreHydrate(store) {
 }
 
 export function loadSeoHead() {
-  const { locale } = useI18nInstance()
+  const { locale } = useI18n()
   const {
     title,
     description,
