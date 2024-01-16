@@ -4,9 +4,7 @@
     <div class="absolute top-0 h-full w-full flex-shrink-0 rounded-xl opacity-80" :class="colorTheme"></div>
     <div class="absolute top-0 h-full w-full px-20 py-30">
       <div class="flex flex-row">
-        <div class="mr-10 h-70 w-70 flex-shrink-0">
-          <img :src="props.avatar" alt="" class="h-full w-full rounded-[4.375rem] object-cover" />
-        </div>
+        <Avatar :radius="70" class="mr-10" :src="props.avatar" :alt="props.username"></Avatar>
         <div class="flex flex-col gap-y-10">
           <div>
             <div class="text-lg font-bold leading-5 text-white">{{ props.nickname }}</div>
@@ -29,6 +27,7 @@ import defaultBgImage from '@/assets/images/creator-card.png'
 import defaultAvatar from '@/assets/images/avatar.jpeg'
 import Button from '@/components/common/Button.vue'
 import { computed } from 'vue'
+import Avatar from '@comp/multimedia/Avatar.vue'
 
 const props = defineProps({
   bgImage: {

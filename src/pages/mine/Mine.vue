@@ -1,13 +1,10 @@
 <template>
   <Page>
-    <template #main-top>
-      <div class="flex h-full w-full items-center px-20">
-        <div class="flex cursor-pointer"><Icon name="back" size="24"></Icon> <span>Back</span></div>
-      </div>
-    </template>
     <template #default>
       <div class="px-20">
-        <div class="relative mb-35 flex h-[400px] w-full bg-gray66">
+        <div
+          class="relative mb-35 flex h-[180px] w-full bg-gray66 bg-[url(https://i.postimg.cc/2yKgNXvn/ctrateBg.jpg)] bg-cover bg-center bg-no-repeat"
+        >
           <div class="absolute left-1/2 top-1/2 w-full translate-x-[-50%] translate-y-[-50%]">
             <div class="flex justify-around">
               <div class="flex w-[175px] flex-col items-center gap-y-5">
@@ -21,21 +18,18 @@
               </div>
             </div>
           </div>
-          <div class="absolute bottom-[-35px] flex h-70 w-full items-end justify-between px-20">
-            <div class="h-70 w-70 rounded-full bg-lime-700"></div>
-            <div class="flex items-center gap-x-15">
+          <div class="absolute bottom-[-35px] flex h-70 w-full px-20">
+            <Avatar :radius="70" :src="defaultAvatar"></Avatar>
+          </div>
+          <div class="absolute bottom-[-45px] right-0 flex w-full justify-end pl-20">
+            <div class="flex items-center gap-x-10">
               <Icon class="cursor-pointer" name="link" size="20"></Icon>
               <Icon class="cursor-pointer" name="setting" size="20"></Icon>
               <Icon class="cursor-pointer" name="moreHorizontal" size="20"></Icon>
-              <button
-                class="rounded-full border-[1.5px] border-gray66 bg-gray03 px-20 py-6 text-base font-normal leading-[0.875rem]"
-              >
-                Subscribe
-              </button>
             </div>
           </div>
         </div>
-        <div class="grid gap-y-10 pt-10">
+        <div class="grid gap-y-10 pt-30">
           <div class="flex items-end gap-x-5">
             <div class="text-lg font-bold leading-[1.125rem]">Angelababy</div>
             <div class="text-sm font-normal leading-[0.75rem] text-gray66">＠angelababy</div>
@@ -51,8 +45,9 @@
             to the spread, daddy💦💦
           </p>
         </div>
-        <div class="my-20 flex">
-          <Button>Profile Page</Button>
+        <div class="my-20 flex gap-x-10">
+          <Button class="w-full">订阅设置</Button>
+          <Button contrast class="text-nowrap">预览</Button>
         </div>
         <div class="flex h-36 w-full items-center bg-gray03 px-20 text-base font-bold leading-[0.875rem]">
           All Posts 85
@@ -115,6 +110,8 @@ import { useHeadStore } from '@/store/head'
 import { storeToRefs } from 'pinia'
 import { useI18nInstance } from '@use/utils/i18n'
 import { useRoute } from 'vue-router'
+import Avatar from '@comp/multimedia/Avatar.vue'
+import defaultAvatar from '@/assets/images/avatar.jpeg'
 
 const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
 

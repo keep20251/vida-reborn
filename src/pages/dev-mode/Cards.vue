@@ -2,7 +2,7 @@
   <Page>
     <div class="my-10 px-20">
       <div class="mb-10">【 Creator Recommended Card 】</div>
-      <RecCard :items="items"></RecCard>
+      <RecCard class="py-30" :items="items"></RecCard>
     </div>
     <div class="my-10 px-20">
       <div class="mb-10">【 Creator Card 】</div>
@@ -25,10 +25,32 @@ import { ref } from 'vue'
 import RecCard from '@comp/card/RecCard.vue'
 import ViewSubscribeCard from '@/components/card/ViewSubscribeCard.vue'
 import BulletinCard from '@comp/card/BulletinCard.vue'
+import defaultAvatar from '@/assets/images/avatar.jpeg'
 
 const items = ref([
-  { creator_name: 'Cursed_ellie', creator_acc: 'cursed_ellie', posts: 134, sub_member: 1938, id: 1 },
-  { creator_name: 'Cursed_ellie', creator_acc: 'cursed_ellie', posts: 134, sub_member: 1938, id: 2 },
-  { creator_name: 'Cursed_ellie', creator_acc: 'cursed_ellie', posts: 134, sub_member: 1938, id: 3 },
+  {
+    creator_avatar: defaultAvatar,
+    creator_name: 'Cursed_ellie',
+    creator_acc: 'cursed_ellie',
+    posts: 134,
+    sub_member: 1938,
+    id: 1,
+  },
+  {
+    creator_avatar: defaultAvatar,
+    creator_name: 'Cursed_ellie',
+    creator_acc: 'cursed_ellie',
+    posts: 134,
+    sub_member: 1938,
+    id: 2,
+  },
+  {
+    creator_avatar: defaultAvatar,
+    creator_name: 'Cursed_ellie',
+    creator_acc: 'cursed_ellie',
+    posts: 134,
+    sub_member: 1938,
+    id: 3,
+  },
 ])
 </script>

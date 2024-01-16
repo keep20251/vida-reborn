@@ -6,7 +6,7 @@
       class="border-gray15 flex items-center justify-between border-b pb-20 pt-20 first:pt-0 last:border-0 last:pb-0"
     >
       <div class="flex gap-x-10">
-        <div class="h-30 w-30 rounded-full bg-lime-700"></div>
+        <Avatar :radius="30" :src="item.creator_avatar"></Avatar>
         <div class="flex flex-col gap-y-5">
           <div class="flex gap-x-5">
             <div class="text-base font-bold leading-[0.875rem]">{{ item.creator_name }}</div>
@@ -28,6 +28,8 @@
   </div>
 </template>
 <script setup>
+import Avatar from '@comp/multimedia/Avatar.vue'
+
 defineProps({
   items: { type: Array, require: true },
   itemKey: { type: String },
