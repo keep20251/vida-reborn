@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory, createMemoryHistory } from 'vue-router'
 import devRoutes from './routes/dev'
+import mineRoutes from './routes/mine'
 import errorRoutes from './routes/error'
 import beforeGuard from './guards/before'
 import afterGuard from './guards/after'
@@ -17,7 +18,7 @@ const routes = [
   { name: 'home', path: '/home', component: Home, meta: {} },
   { name: 'search', path: '/search', component: Search, meta: {} },
   { name: 'message', path: '/message', component: Message, meta: {} },
-  { name: 'mine', path: '/mine', component: Mine, meta: {} },
+  { name: 'mine', path: '/mine', component: Mine, meta: {}, children: mineRoutes },
   ...errorRoutes,
 ]
 

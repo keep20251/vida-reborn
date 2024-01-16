@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="grid gap-y-5 border-b py-10">
-      <div class="flex cursor-pointer items-center gap-x-5">
+      <div class="flex cursor-pointer items-center gap-x-5" @click="push({ name: 'mine-earn' })">
         <Icon name="setting" size="16"></Icon>
         <span>我的收益</span>
       </div>
@@ -121,6 +121,7 @@ import { useAccountStore } from '@/store/account'
 import { useAuthRouteStore } from '@/store/auth-route'
 import { AUTH_ROUTES } from '@/constant'
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 const accOpen = ref(false)
 const aboutOpen = ref(false)
@@ -135,4 +136,6 @@ const transOptions = locales.map((lang) => ({
 
 const { open: openAuthDialog } = useAuthRouteStore()
 const { logout } = useAccountStore()
+
+const { push } = useRouter()
 </script>
