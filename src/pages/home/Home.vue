@@ -95,6 +95,7 @@ import InputWrap from '@comp/form/InputWrap.vue'
 import RecCard from '@comp/card/RecCard.vue'
 import BulletinCard from '@comp/card/BulletinCard.vue'
 import Carousel from '@comp/common/Carousel.vue'
+import defaultAvatar from '@/assets/images/avatar.jpeg'
 
 const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
 
@@ -108,9 +109,30 @@ const tabOptions = ref([
 const searchValue = ref('')
 
 const recCreators = ref([
-  { creator_name: 'Cursed_ellie', creator_acc: 'cursed_ellie', posts: 134, sub_member: 1938 },
-  { creator_name: 'Cursed_ellie', creator_acc: 'cursed_ellie', posts: 134, sub_member: 1938 },
-  { creator_name: 'Cursed_ellie', creator_acc: 'cursed_ellie', posts: 134, sub_member: 1938 },
+  {
+    creator_avatar: defaultAvatar,
+    creator_name: 'Cursed_ellie',
+    creator_acc: 'cursed_ellie',
+    posts: 134,
+    sub_member: 1938,
+    id: 1,
+  },
+  {
+    creator_avatar: defaultAvatar,
+    creator_name: 'Cursed_ellie',
+    creator_acc: 'cursed_ellie',
+    posts: 134,
+    sub_member: 1938,
+    id: 2,
+  },
+  {
+    creator_avatar: defaultAvatar,
+    creator_name: 'Cursed_ellie',
+    creator_acc: 'cursed_ellie',
+    posts: 134,
+    sub_member: 1938,
+    id: 3,
+  },
 ])
 
 const cats = ref([

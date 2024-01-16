@@ -2,7 +2,7 @@
   <div class="flex w-full flex-col space-y-10">
     <!-- head -->
     <div class="flex h-30 w-full items-center">
-      <div class="mr-5 h-30 w-30 rounded-full bg-lime-700"></div>
+      <Avatar :radius="30" class="mr-5" :src="defaultAvatar"></Avatar>
       <div class="grow text-base font-bold leading-none">Angelababy</div>
       <div class="grow text-right text-sm font-medium leading-5 text-gray66">6 minutes</div>
       <Icon name="moreVertical" size="20"></Icon>
@@ -58,4 +58,7 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import Avatar from '@comp/multimedia/Avatar.vue'
+import defaultAvatar from '@/assets/images/avatar.jpeg'
+</script>
