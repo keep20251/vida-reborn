@@ -1,5 +1,12 @@
 <template>
   <Page>
+    <template #main-top v-if="route.name !== 'mine-home' && route.name !== 'mine-profile-set'">
+      <div class="flex items-center justify-center border-b py-20">
+        <div class="text-lg font-bold leading-5">
+          {{ mineTitle.includes('.') ? $t(mineTitle) : mineTitle }}
+        </div>
+      </div>
+    </template>
     <template #default>
       <router-view></router-view>
     </template>
@@ -37,6 +44,7 @@ import { useHeadStore } from '@/store/head'
 import { storeToRefs } from 'pinia'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
+import { useMineStore } from '@/store/mine'
 
 const inputValue = ref('')
 
@@ -54,8 +62,13 @@ const { t: $t } = useI18n()
 const headStore = useHeadStore()
 const { title, description, keywordArr, ogUrl } = storeToRefs(headStore)
 
+const mineStore = useMineStore()
+const { updateTitle } = mineStore
+const { title: mineTitle } = storeToRefs(useMineStore())
+
 onServerPrefetch(() => {
   loadHead()
+  updateTitle(route.name)
 })
 
 onActivated(() => {
