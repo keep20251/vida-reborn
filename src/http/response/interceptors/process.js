@@ -1,9 +1,4 @@
 export default function ({ data, status, config, headers, request, statusText }) {
-  // mock
-  if (config.url.includes('mock')) {
-    return Promise.resolve({ data, status, config, headers, request, statusText })
-  }
-
   // 非 API 的回應
   const { url } = config
   if (['/api', 'api'].every((prefix) => !url.startsWith(prefix))) {
