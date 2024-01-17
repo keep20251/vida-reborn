@@ -40,13 +40,13 @@
           </div>
         </div>
       </router-link>
-      <div v-if="isDev" class="mt-16 border-spacing-16 border-y border-solid border-gray-500">
-        <div class="flex flex-col">
+      <div v-if="isDev" class="mt-16 rounded-lg bg-slate-300 px-16 py-16">
+        <div class="flex flex-col gap-y-10">
           <router-link
             v-for="route in devRoutes"
             class="font-bold hover:text-green-700"
-            :to="route.path"
-            :key="route.path"
+            :to="route.path.replace(':lang', locale)"
+            :key="route.path.replace(':lang', locale)"
           >
             {{ route.name.replace('devmode-', '') }}
           </router-link>
