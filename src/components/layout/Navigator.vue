@@ -1,6 +1,6 @@
 <template>
-  <header class="flex shrink-0 grow basis-[60px] justify-end overflow-x-hidden md:basis-[72px] xl:basis-[270px]">
-    <nav class="fixed flex h-full min-h-[600px] w-[60px] flex-col overflow-x-hidden md:w-[72px] xl:w-[270px]">
+  <header class="flex shrink-0 grow basis-[60px] justify-end overflow-x-hidden md:basis-[72px] xl:basis-[150px]">
+    <nav class="fixed flex h-full min-h-[600px] w-[60px] flex-col overflow-x-hidden md:w-[72px] xl:w-[150px]">
       <div class="mt-20 cursor-pointer px-12 pb-20 pt-10 hover:bg-gray05">
         <img class="h-20 w-36 xl:h-40 xl:w-72" src="@/assets/logo.svg?url" alt="vida" />
       </div>
