@@ -98,6 +98,11 @@ export default {
   boundary: { start: '已回到最初的起點', end: '已到盡頭' },
   payment: { pending: '付款處理中', success: '付款成功', failed: '付款失敗', cancel: '付款取消' },
   info: {
+    subscribeSetting: '訂閱設置',
+    publicProfileWillBe: '你的公開個人檔案將會是',
+    clickToUploadBg: '點擊上傳背景圖',
+    socialLink: '社群連結',
+    forExample: '例如',
     loginByAccount: '使用Account方式登入',
     loginByPwd: '使用密碼方式登入',
     loginByApple: '使用 Apple 登入或註冊',

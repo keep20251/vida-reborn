@@ -98,6 +98,11 @@ export default {
   boundary: { start: '출발지로 돌아왔습니다', end: '끝에 도달했습니다' },
   payment: { pending: '결제 처리', success: '결제 성공', failed: '결제 실패', cancel: '결제가 취소되었습니다.' },
   info: {
+    subscribeSetting: '구독 설정',
+    publicProfileWillBe: '열린 개인 파일이 될 것입니다',
+    clickToUploadBg: '배경지도를 업로드하려면 클릭하십시오',
+    socialLink: '소셜 링크',
+    forExample: '예를 들어',
     loginByAccount: '계정 메소드로 로그인하십시오',
     loginByPwd: '비밀번호로 로그인하십시오',
     loginByApple: 'Apple을 사용하여 로그인하거나 등록하십시오',

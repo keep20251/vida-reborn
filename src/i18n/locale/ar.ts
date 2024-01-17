@@ -98,6 +98,11 @@ export default {
   boundary: { start: 'عادت إلى نقطة البداية', end: 'وصلت إلى النهاية' },
   payment: { pending: 'معالجة الدفع', success: 'تم الدفع بنجاح', failed: 'عملية الدفع فشلت', cancel: 'تم إلغاء الدفع' },
   info: {
+    subscribeSetting: 'إعداد الاشتراك',
+    publicProfileWillBe: 'سيكون ملفك الشخصي المفتوح',
+    clickToUploadBg: 'انقر لتحميل خريطة الخلفية',
+    socialLink: 'الرابط الاجتماعي',
+    forExample: 'على سبيل المثال',
     loginByAccount: 'قم بتسجيل الدخول باستخدام طريقة الحساب',
     loginByPwd: 'قم بتسجيل الدخول بكلمة مرور',
     loginByApple: 'استخدم Apple لتسجيل الدخول أو التسجيل',

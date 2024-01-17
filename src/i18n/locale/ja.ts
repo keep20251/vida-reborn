@@ -103,6 +103,11 @@ export default {
     cancel: '支払いがキャンセルされました',
   },
   info: {
+    subscribeSetting: 'サブスクリプション設定',
+    publicProfileWillBe: 'オープンな個人ファイルはなります',
+    clickToUploadBg: 'クリックして背景マップをアップロードします',
+    socialLink: 'ソーシャルリンク',
+    forExample: '例えば',
     loginByAccount: 'アカウント方法でログインします',
     loginByPwd: 'パスワードでログインします',
     loginByApple: 'Appleを使用してログインまたは登録します',

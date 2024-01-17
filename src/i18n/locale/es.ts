@@ -98,6 +98,11 @@ export default {
   boundary: { start: 'Regresó al punto de partida.', end: 'Llegó al final' },
   payment: { pending: 'Procesando pago', success: 'Pago exitoso', failed: 'Pago fallido', cancel: 'Pago cancelado' },
   info: {
+    subscribeSetting: 'Configuración de suscripción',
+    publicProfileWillBe: 'Su archivo personal abierto será',
+    clickToUploadBg: 'Haga clic para cargar el mapa de fondo',
+    socialLink: 'Vínculo social',
+    forExample: 'Por ejemplo',
     loginByAccount: 'Inicie sesión con el método de cuenta',
     loginByPwd: 'Inicie sesión con una contraseña',
     loginByApple: 'Use Apple para iniciar sesión o registrarse',
