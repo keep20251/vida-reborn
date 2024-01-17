@@ -9,7 +9,7 @@
         >
           <slot name="main-top"></slot>
         </div>
-        <div>
+        <div ref="main">
           <slot></slot>
         </div>
       </main>
@@ -44,22 +44,26 @@ const props = defineProps({
 
 const emits = defineEmits(['load'])
 
+const main = ref(null)
+const aside = ref(null)
+const { height: windowHeight } = useWindowSize()
+const { height: mainHeight } = useElementSize(main, undefined, { box: 'border-box' })
+const { height: asideHeight } = useElementSize(aside, undefined, { box: 'border-box' })
+
 // main-top 滾動切換顯示/隱藏
 const mainTopOpen = ref(true)
 
 // 側邊欄滑到底黏在最下方不再繼續往上滑
-const aside = ref(null)
 const asidePosition = ref(null)
 const asideTop = ref(0)
 const asideStyle = computed(() => {
+  const isAsideHeightLtMain = asideHeight.value < mainHeight.value
   const [position, top] = [asidePosition.value, asideTop.value]
-  if (position) {
+  if (isAsideHeightLtMain && position) {
     return { position, [top > 0 ? 'bottom' : 'top']: 0 }
   }
   return {}
 })
-const { height: windowHeight } = useWindowSize()
-const { height: asideHeight } = useElementSize(aside, undefined, { box: 'border-box' })
 watch(asideHeight, () => {
   const diff = asideHeight.value - windowHeight.value
   if (diff <= 0) {

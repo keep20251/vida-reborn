@@ -120,7 +120,7 @@
 </template>
 <script setup>
 import Dropdown from '@comp/form/Dropdown.vue'
-import { useI18n } from '@use/utils/i18n'
+import { useLocale } from '@use/utils/locale'
 import { locales } from '@/i18n'
 import { useAccountStore } from '@/store/account'
 import { useAuthRouteStore } from '@/store/auth-route'
@@ -131,7 +131,7 @@ import { useRouter } from 'vue-router'
 const accOpen = ref(false)
 const aboutOpen = ref(false)
 
-const { locale } = useI18n()
+const locale = useLocale()
 
 const transOptions = locales.map((lang) => ({
   label: `lang.${lang.label}`,
