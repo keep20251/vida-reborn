@@ -11,6 +11,7 @@
     </ClientOnly>
   </div>
   <NavigatorMobile v-show="isMobile"></NavigatorMobile>
+  <Modal></Modal>
 </template>
 
 <script setup>
@@ -18,6 +19,7 @@ import { storeToRefs } from 'pinia'
 import Navigator from '@comp/layout/Navigator.vue'
 import NavigatorMobile from '@comp/layout/NavigatorMobile.vue'
 import AuthDialog from '@comp/dialog/AuthDialog.vue'
+import Modal from '@comp/modal/index.vue'
 import { useAppStore } from '@/store/app'
 import { useDialogStore } from '@/store/dialog'
 import { loadSeoHead } from '@/utils/init'

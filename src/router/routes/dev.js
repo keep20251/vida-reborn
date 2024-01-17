@@ -6,6 +6,7 @@ import OAuth from '@/pages/dev-mode/OAuth.vue'
 import Tab from '@/pages/dev-mode/Tab.vue'
 import Form from '@/pages/dev-mode/Form.vue'
 import Dialog from '@/pages/dev-mode/Dialog.vue'
+import Modal from '@/pages/dev-mode/Modal.vue'
 import Loading from '@/pages/dev-mode/Loading.vue'
 import Cards from '@/pages/dev-mode/Cards.vue'
 
@@ -19,6 +20,7 @@ export default [
   { name: `${prefix}-Tab`, path: `/${prefix}/tab`, component: Tab, meta: {} },
   { name: `${prefix}-Form`, path: `/${prefix}/form`, component: Form, meta: {} },
   { name: `${prefix}-Dialog`, path: `/${prefix}/dialog`, component: Dialog, meta: {} },
+  { name: `${prefix}-Modal`, path: `/${prefix}/modal`, component: Modal, meta: {} },
   { name: `${prefix}-Loading`, path: `/${prefix}/loading`, component: Loading, meta: {} },
   { name: `${prefix}-Card`, path: `/${prefix}/card`, component: Cards, meta: {} },
 ]

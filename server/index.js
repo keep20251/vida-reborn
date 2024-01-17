@@ -52,8 +52,10 @@ async function createServer(root = process.cwd(), hmrPort = 6173) {
   }
 
   app.use('*', async (req, res, next) => {
-    if (redirectToLangPath(req, res)) {
-      return
+    if (!isDev || !req.originalUrl.startsWith('/devmode')) {
+      if (redirectToLangPath(req, res)) {
+        return
+      }
     }
 
     try {
