@@ -2,7 +2,7 @@
   <Page infinite @load="onLoad">
     <template #default>
       <div v-if="tab === 1">
-        <div class="overflow-x-hidden px-20">
+        <div class="overflow-x-hidden">
           <List :items="items" item-key="id">
             <template #default="{ last }">
               <Feed class="py-20"></Feed>
@@ -16,7 +16,7 @@
           </List>
         </div>
       </div>
-      <div v-else-if="tab === 2" class="px-20">
+      <div v-else-if="tab === 2">
         <div class="flex justify-between pt-20">
           <div class="text-base font-bold leading-[0.875rem]">Popular Creator</div>
           <Icon name="filter" size="20" class="cursor-pointer"></Icon>
