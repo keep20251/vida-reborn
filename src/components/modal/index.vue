@@ -1,8 +1,11 @@
 <template>
   <div v-show="isOpen" class="fixed top-0 z-50 h-full w-full overflow-hidden bg-black bg-opacity-70">
     <div class="flex h-full items-center justify-center">
-      <div class="m-100 mx-20 w-full rounded-xl bg-white px-36 py-30" :class="[modalSize]">
-        <div class="mb-20 text-center text-base font-bold leading-[1.125rem]">{{ title }}</div>
+      <div class="relative m-100 mx-20 w-full rounded-xl bg-white px-36 py-30" :class="[modalSize]">
+        <div v-if="showClose" class="absolute right-20 top-20 cursor-pointer" @click="close">
+          <Icon name="close" size="20"></Icon>
+        </div>
+        <div class="mb-20 text-center font-bold leading-[1.125rem]" :class="[titleFontSize]">{{ title }}</div>
         <div class="mb-20">
           <keep-alive :max="5">
             <component :is="component"></component>
@@ -33,15 +36,28 @@ import contentComponent from './content'
 import { MODAL_TYPE } from '@const'
 
 const modalStore = useModalStore()
-const { isOpen, type, size, title, confirmAction, confirmText, cancelAction, cancelText } = storeToRefs(modalStore)
+const { isOpen, type, size, title, confirmAction, confirmText, cancelAction, cancelText, showClose } =
+  storeToRefs(modalStore)
 const { close, setConfirmData } = modalStore
 
+const large = ['lg', 'xl']
+const titleFontSize = computed(() => (large.includes(size.value) ? 'text-lg' : 'text-base'))
+
 const modalSize = computed(() => {
-  if (size.value === 'lg') return 'max-w-lg'
-  if (size.value === 'md') return 'max-w-md'
-  if (size.value === 'sm') return 'max-w-sm'
-  if (size.value === 'xs') return 'max-w-xs'
-  return 'lg'
+  switch (size.value) {
+    case 'xs':
+      return 'max-w-xs' // 320px
+    case 'sm':
+      return 'max-w-sm' // 384px
+    case 'md':
+      return 'max-w-md' // 448px
+    case 'lg':
+      return 'max-w-lg' // 512px
+    case 'xl':
+      return 'max-w-xl' // 576px
+    default:
+      return 'lg'
+  }
 })
 
 const component = computed(() => {
