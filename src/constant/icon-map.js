@@ -50,6 +50,8 @@ export const iconMap = {
   twitter: 'login/twitter',
   mail: 'login/mail',
   account: 'login/account',
+  pwdOpen: 'login/pwd-open',
+  pwdClose: 'login/pwd-close',
 
   socialInstagram: 'social/instagram',
   socialFacebook: 'social/facebook',
