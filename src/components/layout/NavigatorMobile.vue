@@ -8,15 +8,15 @@
     </router-link>
     <router-link class="grow" :to="`/${locale}/search`">
       <div class="flex items-center justify-center space-x-16 px-12 py-16">
-        <Icon v-if="atSearch" name="explore" size="20"></Icon>
-        <Icon v-else name="exploreOutline" size="20"></Icon>
+        <Icon v-if="atSearch" name="search" size="20"></Icon>
+        <Icon v-else name="searchOutline" size="20"></Icon>
       </div>
     </router-link>
-    <router-link class="grow" to="/">
+    <a class="grow cursor-pointer select-none">
       <div class="flex items-center justify-center space-x-16 px-12 py-16">
         <Icon name="publish" size="16"></Icon>
       </div>
-    </router-link>
+    </a>
     <router-link class="grow" :to="`/${locale}/message`">
       <div class="flex items-center justify-center space-x-16 px-12 py-16">
         <Icon v-if="atMessage" name="message" size="20"></Icon>
@@ -25,8 +25,8 @@
     </router-link>
     <router-link class="grow" :to="`/${locale}/mine`">
       <div class="flex items-center justify-center space-x-16 px-12 py-16">
-        <Icon v-if="atMine" name="star" size="20"></Icon>
-        <Icon v-else name="starOutline" size="20"></Icon>
+        <Icon v-if="atMine" name="mine" size="20"></Icon>
+        <Icon v-else name="mineOutline" size="20"></Icon>
       </div>
     </router-link>
   </nav>
@@ -41,7 +41,7 @@ const route = useRoute()
 const atHome = computed(() => route.name === 'home')
 const atSearch = computed(() => route.name === 'search')
 const atMessage = computed(() => route.name === 'message')
-const atMine = computed(() => route.name === 'mine')
+const atMine = computed(() => route.name.includes('mine'))
 
 const locale = useLocale()
 </script>
