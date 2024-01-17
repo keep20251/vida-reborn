@@ -144,7 +144,7 @@ export default {
     perSubscriber: 'สมาชิก',
     subAmount: 'ยอดขาย(ดอลลาร์สหรัฐ)',
     schedulePublish: 'วางจำหน่ายในเวลาที่เหมาะสม',
-    autoPublishAt: 'จะถูกปล่อยออกมาโดยอัตโนมัติที่ {เวลา}',
+    autoPublishAt: 'จะถูกปล่อยออกมาโดยอัตโนมัติที่ {time}',
     setLanguageSucceed: 'ตั้งค่าภาษาเรียบร้อยแล้ว',
     subIn: 'การสมัครสมาชิกจะ',
     renew: 'ต่ออายุ',

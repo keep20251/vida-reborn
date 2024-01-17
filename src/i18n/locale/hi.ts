@@ -145,7 +145,7 @@ export default {
     perSubscriber: 'ग्राहकों',
     subAmount: 'बिक्री राशि(अमेरिकी डॉलर)',
     schedulePublish: 'समय पर जारी',
-    autoPublishAt: '{समय} पर स्वचालित रूप से जारी किया जाएगा',
+    autoPublishAt: '{time} पर स्वचालित रूप से जारी किया जाएगा',
     setLanguageSucceed: 'भाषा सफलतापूर्वक सेट की गई',
     subIn: 'सदस्यता होगी',
     renew: 'नवीकरण',
