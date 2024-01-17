@@ -4,23 +4,23 @@
       <main>
         <div
           v-if="$slots['main-top']"
-          class="sticky top-0 z-10 h-52 w-full max-w-[500px] bg-white transition-transform md:w-[500px]"
+          class="fixed top-0 z-10 h-52 w-full max-w-[500px] overflow-hidden bg-white transition-transform md:w-[500px]"
           :class="{ 'translate-y-[-100%]': !mainTopOpen }"
         >
           <slot name="main-top"></slot>
         </div>
-        <div ref="main">
+        <div ref="main" :class="{ 'pt-52': $slots['main-top'] }">
           <slot></slot>
         </div>
       </main>
     </div>
     <div class="hidden md:block md:w-[300px]">
       <aside>
+        <div v-if="$slots['aside-top']" class="fixed top-0 z-10 h-52 overflow-hidden bg-white md:w-[300px]">
+          <slot name="aside-top"></slot>
+        </div>
         <div ref="aside" class="pb-64 md:w-[300px]" :class="{ 'pt-52': $slots['aside-top'] }" :style="asideStyle">
           <slot name="aside"></slot>
-        </div>
-        <div v-if="$slots['aside-top']" class="fixed top-0 h-52 bg-white md:w-[300px]">
-          <slot name="aside-top"></slot>
         </div>
       </aside>
     </div>
