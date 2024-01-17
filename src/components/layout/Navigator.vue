@@ -48,7 +48,7 @@
           </div>
         </div>
       </a>
-      <div v-if="isDev" class="mt-16 rounded-lg bg-slate-300 px-16 py-16 opacity-0 hover:opacity-100">
+      <div v-if="isDev" class="mr-16 mt-16 rounded-lg bg-slate-300 px-16 py-16 opacity-0 hover:opacity-100">
         <div class="flex flex-col gap-y-10">
           <router-link
             v-for="route in devRoutes"

@@ -103,6 +103,11 @@ export default {
     cancel: 'Pembayaran dibatalkan',
   },
   info: {
+    subscribeSetting: 'Pengaturan Langganan',
+    publicProfileWillBe: 'File pribadi terbuka Anda akan',
+    clickToUploadBg: 'Klik untuk mengunggah peta latar belakang',
+    socialLink: 'Jaringan sosial',
+    forExample: 'Misalnya',
     loginByAccount: 'Masuk dengan metode akun',
     loginByPwd: 'Masuk dengan kata sandi',
     loginByApple: 'Gunakan Apple untuk masuk atau mendaftar',

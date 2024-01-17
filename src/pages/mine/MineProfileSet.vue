@@ -4,25 +4,25 @@
       class="relative mb-35 flex h-[180px] w-full bg-gray66 bg-[url(https://i.postimg.cc/2yKgNXvn/ctrateBg.jpg)] bg-cover bg-center bg-no-repeat"
     >
       <div class="absolute flex h-full w-full items-center justify-center">
-        <div class="text-sm font-normal leading-3 text-white">點擊上傳背景圖</div>
+        <div class="text-sm font-normal leading-3 text-white">{{ $t('info.clickToUploadBg') }}</div>
       </div>
       <div class="absolute bottom-[-35px] flex h-70 w-full px-20">
         <Avatar :radius="70" :src="defaultAvatar" camera-icon></Avatar>
       </div>
     </div>
     <div class="flex flex-col gap-y-20 pl-4">
-      <InputWrap label="Display Name"></InputWrap>
+      <InputWrap :label="$t('label.displayName')"></InputWrap>
       <div class="flex flex-col gap-y-11">
-        <InputWrap label="Username"></InputWrap>
+        <InputWrap :label="$t('label.username')"></InputWrap>
         <p class="text-sm font-normal leading-3 text-slate-600">
-          Your public profile will be <span class="text-black">Vida.pub/username</span>
+          {{ $t('info.publicProfileWillBe') }}<span class="text-black">Vida.pub/username</span>
         </p>
       </div>
-      <InputWrap label="Description"></InputWrap>
+      <InputWrap :label="$t('label.description')"></InputWrap>
       <div class="flex flex-col gap-y-10">
         <div class="flex items-center justify-between pr-4">
-          <p class="text-base font-normal leading-3">Social Media Link</p>
-          <p class="cursor-pointer text-base font-normal leading-3 text-primary">Edit</p>
+          <p class="text-base font-normal leading-3">{{ $t('info.socialLink') }}</p>
+          <p class="cursor-pointer text-base font-normal leading-3 text-primary" @click="openSocialLinkDialog">Edit</p>
         </div>
         <SocialLink
           v-for="link in testSocialLinks"
@@ -33,8 +33,8 @@
       </div>
       <div class="flex flex-col gap-y-10">
         <div class="flex items-center justify-between pr-4">
-          <p class="text-base font-normal leading-3">Social Media Link</p>
-          <p class="cursor-pointer text-base font-normal leading-3 text-primary">訂閱設置</p>
+          <p class="text-base font-normal leading-3">{{ $t('info.subscribeSetting') }}</p>
+          <p class="cursor-pointer text-base font-normal leading-3 text-primary">{{ $t('info.subscribeSetting') }}</p>
         </div>
         <SubscribeSwitch
           v-for="(sub, index) in testSubscriptions"
@@ -54,6 +54,8 @@ import SocialLink from '@/components/form/SocialLink.vue'
 import SubscribeSwitch from '@/components/form/SubscribeSwitch.vue'
 import defaultAvatar from '@/assets/images/avatar.jpeg'
 import { ref } from 'vue'
+import { useModalStore } from '@/store/modal'
+import { MODAL_TYPE } from '@const'
 
 const testSocialLinks = [
   { icon: 'socialInstagram', url: 'https://www.instagram.com/abc123' },
@@ -69,4 +71,19 @@ const testSubscriptions = ref([
   { title: '白金會員', price: 999, isOpen: false },
   { title: '鑽石會員', price: 9999, isOpen: false },
 ])
+
+const modalStore = useModalStore()
+const { open } = modalStore
+
+const openSocialLinkDialog = () => {
+  open(MODAL_TYPE.SOCIAL_LINK, {
+    size: 'lg',
+    title: 'Social links Edit',
+    showClose: true,
+    confirmText: 'Save',
+    confirmAction: () => {
+      console.log('confirm')
+    },
+  })
+}
 </script>

@@ -98,6 +98,11 @@ export default {
   boundary: { start: '返回起点', end: '到达终点' },
   payment: { pending: '支付处理中', success: '支付成功', failed: '支付失败', cancel: '支付取消' },
   info: {
+    subscribeSetting: '订阅设置',
+    publicProfileWillBe: '你的公开个人档案将会是',
+    clickToUploadBg: '点击上传背景图',
+    socialLink: '社群连结',
+    forExample: '例如',
     loginByAccount: '使用Account方式登入',
     loginByPwd: '使用密码方式登入',
     loginByApple: '使用 Apple 登入或注册',

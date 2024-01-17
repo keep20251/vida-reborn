@@ -103,6 +103,11 @@ export default {
     cancel: 'Pagamento cancelado',
   },
   info: {
+    subscribeSetting: 'Configuração de assinatura',
+    publicProfileWillBe: 'Seu arquivo pessoal aberto será',
+    clickToUploadBg: 'Clique para fazer upload do mapa de fundo',
+    socialLink: 'Link social',
+    forExample: 'Por exemplo',
     loginByAccount: 'Faça login com o método da conta',
     loginByPwd: 'Faça login com uma senha',
     loginByApple: 'Use a Apple para fazer login ou registrar',

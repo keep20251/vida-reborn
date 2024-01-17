@@ -107,6 +107,11 @@ export default {
     cancel: 'Платеж отменен',
   },
   info: {
+    subscribeSetting: 'Настройка подписки',
+    publicProfileWillBe: 'Ваш открытый личный файл будет',
+    clickToUploadBg: 'Нажмите, чтобы загрузить фоновую карту',
+    socialLink: 'Социальная связь',
+    forExample: 'Например',
     loginByAccount: 'Войдите в систему с помощью метода учетной записи',
     loginByPwd: 'Войдите в систему с паролем',
     loginByApple: 'Используйте Apple, чтобы войти в систему или зарегистрировать',

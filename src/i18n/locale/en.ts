@@ -103,6 +103,11 @@ export default {
     cancel: 'Payment canceled',
   },
   info: {
+    subscribeSetting: 'Subscription setting',
+    publicProfileWillBe: 'Your open personal file will be',
+    clickToUploadBg: 'Click to upload background map',
+    socialLink: 'Social Link',
+    forExample: 'For example',
     loginByAccount: 'Log in with account method',
     loginByPwd: 'Log in with a password',
     loginByApple: 'Use Apple to log in or register',

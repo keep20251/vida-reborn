@@ -103,6 +103,11 @@ export default {
     cancel: 'Zahlung storniert',
   },
   info: {
+    subscribeSetting: 'Abonnementeinstellung',
+    publicProfileWillBe: 'Ihre offene persönliche Datei wird sein',
+    clickToUploadBg: 'Klicken Sie hier, um die Hintergrundkarte hochzuladen',
+    socialLink: 'Soziale Verbindung',
+    forExample: 'Zum Beispiel',
     loginByAccount: 'Melden Sie sich mit der Kontomethode an',
     loginByPwd: 'Melden Sie sich mit einem Passwort an',
     loginByApple: 'Verwenden Sie Apple, um sich anzumelden oder zu registrieren',

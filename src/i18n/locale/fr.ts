@@ -103,6 +103,11 @@ export default {
     cancel: 'Paiement annulé',
   },
   info: {
+    subscribeSetting: "Paramètre d'abonnement",
+    publicProfileWillBe: 'Votre fichier personnel ouvert sera',
+    clickToUploadBg: "Cliquez pour télécharger la carte d'arrière-plan",
+    socialLink: 'Lien social',
+    forExample: 'Par exemple',
     loginByAccount: 'Connectez-vous avec la méthode du compte',
     loginByPwd: 'Connectez-vous avec un mot de passe',
     loginByApple: 'Utilisez Apple pour vous connecter ou vous inscrire',
