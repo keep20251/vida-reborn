@@ -15,8 +15,8 @@
       </router-link>
       <router-link :to="`/${locale}/search`">
         <div class="flex items-center justify-center space-x-20 px-12 py-10 hover:bg-gray05 xl:justify-start">
-          <Icon v-if="atSearch" name="explore" size="20"></Icon>
-          <Icon v-else name="exploreOutline" size="20"></Icon>
+          <Icon v-if="atSearch" name="search" size="20"></Icon>
+          <Icon v-else name="searchOutline" size="20"></Icon>
           <div class="hidden text-base xl:block" :class="[atSearch ? 'font-bold' : 'font-normal']">
             {{ $t('nav.search') }}
           </div>
@@ -33,14 +33,22 @@
       </router-link>
       <router-link :to="`/${locale}/mine`">
         <div class="flex items-center justify-center space-x-20 px-12 py-10 hover:bg-gray05 xl:justify-start">
-          <Icon v-if="atMine" name="star" size="20"></Icon>
-          <Icon v-else name="starOutline" size="20"></Icon>
+          <Icon v-if="atMine" name="mine" size="20"></Icon>
+          <Icon v-else name="mineOutline" size="20"></Icon>
           <div class="hidden text-base xl:block" :class="[atMine ? 'font-bold' : 'font-normal']">
             {{ $t('nav.mine') }}
           </div>
         </div>
       </router-link>
-      <div v-if="isDev" class="mt-16 rounded-lg bg-slate-300 px-16 py-16">
+      <a class="cursor-pointer select-none">
+        <div class="flex items-center justify-center space-x-20 px-12 py-10 hover:bg-gray05 xl:justify-start">
+          <Icon name="publish2" size="20"></Icon>
+          <div class="hidden text-base font-normal xl:block">
+            {{ $t('nav.publish') }}
+          </div>
+        </div>
+      </a>
+      <div v-if="isDev" class="mt-16 rounded-lg bg-slate-300 px-16 py-16 opacity-0 hover:opacity-100">
         <div class="flex flex-col gap-y-10">
           <router-link
             v-for="route in devRoutes"
