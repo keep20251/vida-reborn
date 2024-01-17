@@ -11,21 +11,21 @@
       </div>
     </div>
     <div class="grid gap-y-5 border-b py-10">
-      <router-link :to="{ name: 'mine-earn' }" class="flex cursor-pointer items-center gap-x-5">
+      <router-link :to="{ name: 'mine-buy' }" class="flex cursor-pointer items-center gap-x-5">
         <Icon name="setting" size="16"></Icon>
         <span>{{ $t('title.buy') }}</span>
       </router-link>
-      <router-link :to="{ name: 'mine-buy' }" class="flex cursor-pointer items-center gap-x-5">
+      <router-link :to="{ name: 'mine-post' }" class="flex cursor-pointer items-center gap-x-5">
         <Icon name="setting" size="16"></Icon>
         <span>{{ $t('title.post') }}</span>
       </router-link>
     </div>
     <div class="grid gap-y-5 border-b py-10">
-      <router-link :to="{ name: 'mine-post' }" class="flex cursor-pointer items-center gap-x-5">
+      <router-link :to="{ name: 'mine-collect' }" class="flex cursor-pointer items-center gap-x-5">
         <Icon name="setting" size="16"></Icon>
         <span>{{ $t('title.collect') }}</span>
       </router-link>
-      <router-link :to="{ name: 'mine-collect' }" class="flex cursor-pointer items-center gap-x-5">
+      <router-link :to="{ name: 'mine-earn' }" class="flex cursor-pointer items-center gap-x-5">
         <Icon name="setting" size="16"></Icon>
         <span>{{ $t('title.earn') }}</span>
       </router-link>

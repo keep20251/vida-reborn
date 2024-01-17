@@ -37,12 +37,7 @@
           <div class="text-lg font-bold leading-[1.125rem]">{{ item.name }}</div>
           <div class="text-sm font-normal leading-[0.75rem] text-gray66">＠{{ item.username }}</div>
         </div>
-        <div
-          v-if="showSubscribePlan"
-          class="cursor-pointer text-sm font-bold leading-[0.75rem] underline underline-offset-[0.125rem]"
-        >
-          {{ $t('common.viewSubscribePlan') }}
-        </div>
+        <slot name="middleButton"></slot>
       </div>
       <div v-if="showPersonalInfo" class="grid gap-y-10">
         <div class="flex items-end gap-x-5">
@@ -56,7 +51,7 @@
         <p class="text-base font-normal leading-[1.125rem]">{{ item.info }}</p>
       </div>
     </div>
-    <div class="my-20 flex gap-x-10">
+    <div v-if="$slots['bottomButton']" class="my-20 flex gap-x-10">
       <slot name="bottomButton"></slot>
     </div>
   </div>
@@ -68,7 +63,6 @@ import defaultAvatar from '@/assets/images/avatar.jpeg'
 defineProps({
   showBgUpload: { type: Boolean, default: false },
   showBgData: { type: Boolean, default: false },
-  showSubscribePlan: { type: Boolean, default: false },
   showPersonalInfo: { type: Boolean, default: false },
   showAllInfo: { type: Boolean, default: true },
   cameraIcon: { type: Boolean, default: false },
