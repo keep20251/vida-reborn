@@ -227,6 +227,7 @@ export default {
     seconds: 'ثانية.',
   },
   label: {
+    edit: 'يحرر',
     confirm: 'يتأكد',
     login: 'تسجيل الدخول',
     register: 'يسجل',

@@ -242,6 +242,7 @@ export default {
     seconds: 'раздел',
   },
   label: {
+    edit: 'редактировать',
     confirm: 'подтверждать',
     login: 'Авторизоваться',
     register: 'регистр',

@@ -237,6 +237,7 @@ export default {
     seconds: 'Sec.',
   },
   label: {
+    edit: 'biên tập',
     confirm: 'xác nhận',
     login: 'Đăng nhập',
     register: 'Đăng ký',

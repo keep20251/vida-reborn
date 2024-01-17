@@ -213,6 +213,7 @@ export default {
     seconds: '秒',
   },
   label: {
+    edit: '编辑',
     confirm: '确定',
     login: '登录',
     register: '注册',

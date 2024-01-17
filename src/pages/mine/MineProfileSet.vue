@@ -11,18 +11,20 @@
       </div>
     </div>
     <div class="flex flex-col gap-y-20 pl-4">
-      <InputWrap :label="$t('label.displayName')"></InputWrap>
+      <InputWrap :label="$t('label.displayName')" :placeholder="$t('placeholder.displayName')"></InputWrap>
       <div class="flex flex-col gap-y-11">
-        <InputWrap :label="$t('label.username')"></InputWrap>
+        <InputWrap :label="$t('label.username')" :placeholder="$t('placeholder.username')"></InputWrap>
         <p class="text-sm font-normal leading-3 text-slate-600">
           {{ $t('info.publicProfileWillBe') }}<span class="text-black">Vida.pub/username</span>
         </p>
       </div>
-      <InputWrap :label="$t('label.description')"></InputWrap>
+      <TextareaWrap :label="$t('label.description')" :placeholder="$t('placeholder.description')"></TextareaWrap>
       <div class="flex flex-col gap-y-10">
         <div class="flex items-center justify-between pr-4">
           <p class="text-base font-normal leading-3">{{ $t('info.socialLink') }}</p>
-          <p class="cursor-pointer text-base font-normal leading-3 text-primary" @click="openSocialLinkDialog">Edit</p>
+          <p class="cursor-pointer text-base font-normal leading-3 text-primary" @click="openSocialLinkDialog">
+            {{ $t('label.edit') }}
+          </p>
         </div>
         <SocialLink
           v-for="link in testSocialLinks"
@@ -34,7 +36,7 @@
       <div class="flex flex-col gap-y-10">
         <div class="flex items-center justify-between pr-4">
           <p class="text-base font-normal leading-3">{{ $t('info.subscribeSetting') }}</p>
-          <p class="cursor-pointer text-base font-normal leading-3 text-primary">{{ $t('info.subscribeSetting') }}</p>
+          <p class="cursor-pointer text-base font-normal leading-3 text-primary">{{ $t('label.edit') }}</p>
         </div>
         <SubscribeSwitch
           v-for="(sub, index) in testSubscriptions"
@@ -50,6 +52,7 @@
 <script setup>
 import Avatar from '@/components/multimedia/Avatar.vue'
 import InputWrap from '@/components/form/InputWrap.vue'
+import TextareaWrap from '@/components/form/TextareaWrap.vue'
 import SocialLink from '@/components/form/SocialLink.vue'
 import SubscribeSwitch from '@/components/form/SubscribeSwitch.vue'
 import defaultAvatar from '@/assets/images/avatar.jpeg'

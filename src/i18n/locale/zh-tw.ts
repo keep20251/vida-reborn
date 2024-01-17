@@ -213,6 +213,7 @@ export default {
     seconds: '秒',
   },
   label: {
+    edit: '編輯',
     confirm: '確認',
     login: '登入',
     register: '註冊',

@@ -232,6 +232,7 @@ export default {
     seconds: 'सेक।',
   },
   label: {
+    edit: 'संपादन करना',
     confirm: 'पुष्टि करना',
     login: 'लॉग इन करें',
     register: 'पंजीकरण करवाना',
