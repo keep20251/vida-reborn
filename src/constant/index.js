@@ -24,6 +24,13 @@ export const LOCAL_STORAGE_KEYS = {
   LOCALE: '__LOCALE',
 }
 
+export const MODAL_TYPE = {
+  ALERT: 1,
+  CONFIRM: 2,
+
+  TEST: 999,
+}
+
 // 角色判斷顯示內容
 export const PERMISSION = {
   VISITOR: {

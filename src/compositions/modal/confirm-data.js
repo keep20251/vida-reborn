@@ -1,6 +1,6 @@
 import { watch, onActivated, onDeactivated } from 'vue'
 import { storeToRefs } from 'pinia'
-import { usePopupDialogStore } from '@/store/popup-dialog'
+import { useModalStore } from '@/store/modal'
 
 /**
  *
@@ -8,13 +8,13 @@ import { usePopupDialogStore } from '@/store/popup-dialog'
  */
 export function useConfirmData(validator) {
   let activated = false
-  const { confirmData } = storeToRefs(usePopupDialogStore())
+  const { confirmData } = storeToRefs(useModalStore())
 
-  watch(confirmData, (newConfirmData) => {
+  watch(confirmData, async (newConfirmData) => {
     if (activated && newConfirmData) {
       let data
       try {
-        data = validator()
+        data = await validator()
       } catch (e) {
         console.warn(e)
         newConfirmData(false)
