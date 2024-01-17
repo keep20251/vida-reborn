@@ -90,3 +90,22 @@ export const SEND_EMAIL_PURPOSE = {
   VERIFY_EMAIL: 4, // 驗證信箱
   FAST_LOGIN: 5, // 快速登入
 }
+
+// 用來 Mapping路由名稱與title
+export const MINE_TITLE = {
+  'mine-home': 'title.mine',
+  'mine-earn': 'title.earn',
+  'mine-buy': 'title.buy',
+  'mine-post': 'title.post',
+  'mine-collect': 'title.collect',
+  'mine-creator': 'title.beCreator',
+  'mine-account': 'title.usnMail',
+  'mine-password': 'title.password',
+  'mine-preference': 'title.prefer',
+  'mine-block': 'title.blockAcc',
+  'mine-delete': 'title.delAcc',
+  'mine-tos': 'title.tos',
+  'mine-pp': 'title.pp',
+  'mine-cp': 'title.cp',
+  'mine-dmca': 'DMCA',
+}

@@ -324,7 +324,7 @@ export default {
     follow: '追蹤中',
     join: '免費加入',
     login: '立即登入',
-    earn: '收益',
+    earn: '我的收益',
     wdrlHist: '提交紀錄',
     wdrlReq: '提款申請',
     buyList: '訂單與訂閱紀錄',
