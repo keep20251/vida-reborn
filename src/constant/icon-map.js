@@ -16,6 +16,7 @@ export const iconMap = {
   closeWhite: 'function/close-white',
   collection: 'function/collection',
   draft: 'function/draft',
+  drop: 'function/drop',
   dropdown: 'function/dropdown',
   emoji: 'function/emoji',
   filter: 'function/filter',
