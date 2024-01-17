@@ -13,21 +13,20 @@
           <Icon class="cursor-pointer" name="setting" size="20"></Icon>
         </router-link>
         <Icon class="cursor-pointer" name="moreHorizontal" size="20"></Icon>
-        <!-- <div>
+        <div>
           <Button class="!h-26 !px-20 !py-6">订阅</Button>
-        </div> -->
+        </div>
       </div>
     </template>
-    <template #bottomButton>
-      <div class="w-9/12">
-        <Button>订阅设置</Button>
+    <template #middleButton>
+      <div class="cursor-pointer text-sm font-bold leading-[0.75rem] underline underline-offset-[0.125rem]">
+        {{ $t('common.viewSubscribePlan') }}
       </div>
-      <router-link :to="{ name: 'mine-profile-prvw' }" class="w-3/12">
-        <Button contrast class="text-nowrap">预览</Button>
-      </router-link>
     </template>
   </SelfIntro>
-  <div class="flex h-36 w-full items-center bg-gray03 px-20 text-base font-bold leading-[0.875rem]">All Posts 85</div>
+  <div class="mt-20 flex h-36 w-full items-center bg-gray03 px-20 text-base font-bold leading-[0.875rem]">
+    All Posts 85
+  </div>
   <div class="overflow-x-hidden">
     <List :items="items" item-key="id">
       <template #default="{ last }">
