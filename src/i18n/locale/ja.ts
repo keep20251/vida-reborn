@@ -231,6 +231,7 @@ export default {
     seconds: '秒',
   },
   label: {
+    edit: '編集',
     confirm: '確認する',
     login: 'ログイン',
     register: '登録する',

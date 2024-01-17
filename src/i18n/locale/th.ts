@@ -226,6 +226,7 @@ export default {
     seconds: 'วินาที',
   },
   label: {
+    edit: 'แก้ไข',
     confirm: 'ยืนยัน',
     login: 'เข้าสู่ระบบ',
     register: 'ลงทะเบียน',

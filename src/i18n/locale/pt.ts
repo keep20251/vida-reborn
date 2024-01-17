@@ -238,6 +238,7 @@ export default {
     seconds: 'Sec.',
   },
   label: {
+    edit: 'editar',
     confirm: 'confirme',
     login: 'Conecte-se',
     register: 'Registro',

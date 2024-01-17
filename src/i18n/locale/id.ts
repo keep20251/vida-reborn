@@ -238,6 +238,7 @@ export default {
     seconds: 'detik.',
   },
   label: {
+    edit: 'edit',
     confirm: 'mengonfirmasi',
     login: 'Gabung',
     register: 'Daftar',

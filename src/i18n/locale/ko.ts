@@ -221,6 +221,7 @@ export default {
     seconds: '비서.',
   },
   label: {
+    edit: '편집하다',
     confirm: '확인하다',
     login: '로그인',
     register: '등록하다',

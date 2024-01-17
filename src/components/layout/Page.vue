@@ -14,7 +14,7 @@
         </div>
       </main>
     </div>
-    <div class="hidden md:block md:w-[300px] xl:w-[350px]">
+    <div class="ml-60 hidden md:block md:w-[300px] xl:w-[350px]">
       <aside>
         <div
           ref="aside"
