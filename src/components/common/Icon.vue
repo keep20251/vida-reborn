@@ -1,5 +1,5 @@
 <template>
-  <div class="inline-block text-center leading-normal" :class="[props.class, iconSize]">
+  <div class="flex items-center justify-center text-center leading-normal" :class="[props.class, iconSize]">
     <component :is="component" :class="{ dropShadow }"></component>
   </div>
 </template>

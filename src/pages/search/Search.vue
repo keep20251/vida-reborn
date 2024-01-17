@@ -6,7 +6,7 @@
           class="grow"
           v-model="inputValue"
           :placeholder="'搜索...'"
-          :appendIcon="'search'"
+          :appendIcon="'search2'"
           @click:append="console.log('appendIcon')"
         ></InputWrap>
       </div>

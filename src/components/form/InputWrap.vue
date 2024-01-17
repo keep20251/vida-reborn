@@ -61,7 +61,7 @@
       <Icon
         v-if="!!password"
         size="20"
-        :name="pwdHide ? 'star' : 'starOutline'"
+        :name="pwdHide ? 'pwdClose' : 'pwdOpen'"
         class="absolute right-20 cursor-pointer select-none"
         @click="pwdHide = !pwdHide"
       ></Icon>
