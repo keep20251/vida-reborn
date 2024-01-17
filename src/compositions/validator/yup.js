@@ -1,8 +1,8 @@
+import { useI18n } from 'vue-i18n'
 import * as Yup from 'yup'
-import { useI18n } from '@use/utils/i18n'
 
 export function useYup() {
-  const { $t } = useI18n()
+  const { t: $t } = useI18n()
 
   function parseError(err) {
     return err.message?.key ? $t(err.message.key, err.message.values) : err.message

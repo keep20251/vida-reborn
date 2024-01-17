@@ -26,9 +26,9 @@
 </template>
 <script setup>
 import { locales } from '@/i18n'
-import { useI18n } from '@use/utils/i18n'
+import { useLocale } from '@use/utils/locale'
 
-const { locale } = useI18n()
+const locale = useLocale()
 
 const langs = locales.map((locale) => locale.label)
 </script>

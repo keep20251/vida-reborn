@@ -35,7 +35,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { useI18n } from '@use/utils/i18n'
+import { useLocale } from '@use/utils/locale'
 
 const route = useRoute()
 const atHome = computed(() => route.name === 'home')
@@ -43,5 +43,5 @@ const atSearch = computed(() => route.name === 'search')
 const atMessage = computed(() => route.name === 'message')
 const atMine = computed(() => route.name === 'mine')
 
-const { locale } = useI18n()
+const locale = useLocale()
 </script>

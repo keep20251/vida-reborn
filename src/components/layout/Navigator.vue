@@ -58,7 +58,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { useI18n } from '@use/utils/i18n'
+import { useLocale } from '@use/utils/locale'
 import devRoutes from '@/router/routes/dev'
 
 const route = useRoute()
@@ -69,5 +69,5 @@ const atMine = computed(() => route.name.includes('mine'))
 
 const isDev = computed(() => import.meta.env.DEV)
 
-const { locale } = useI18n()
+const locale = useLocale()
 </script>
