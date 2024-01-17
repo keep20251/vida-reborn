@@ -149,7 +149,7 @@ export default {
     perSubscriber: 'Подписчики',
     subAmount: 'Сумма продажи (доллары США)',
     schedulePublish: 'Своевременный релиз',
-    autoPublishAt: 'Будет выпущен автоматически в {Time}',
+    autoPublishAt: 'Будет выпущен автоматически в {time}',
     setLanguageSucceed: 'Язык успешно установлен',
     subIn: 'Подписка будет',
     renew: 'Продлить',

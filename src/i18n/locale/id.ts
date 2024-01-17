@@ -145,7 +145,7 @@ export default {
     perSubscriber: 'Pelanggan',
     subAmount: 'Jumlah penjualan (dolar AS)',
     schedulePublish: 'Rilis tepat waktu',
-    autoPublishAt: 'Akan dirilis secara otomatis di {Time}',
+    autoPublishAt: 'Akan dirilis secara otomatis di {time}',
     setLanguageSucceed: 'Bahasa berhasil disetel',
     subIn: 'Berlangganan akan',
     renew: 'Memperbarui',

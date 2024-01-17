@@ -145,7 +145,7 @@ export default {
     perSubscriber: 'Abonnenten',
     subAmount: 'Verkaufsbetrag (US-Dollar)',
     schedulePublish: 'Rechtzeitige Veröffentlichung',
-    autoPublishAt: 'Wird automatisch zur {Zeit} veröffentlicht',
+    autoPublishAt: 'Wird automatisch zur {time} veröffentlicht',
     setLanguageSucceed: 'Sprache erfolgreich eingestellt',
     subIn: 'Abonnement wird',
     renew: 'Erneuern',

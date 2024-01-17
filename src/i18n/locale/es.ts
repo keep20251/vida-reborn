@@ -140,7 +140,7 @@ export default {
     perSubscriber: 'Suscriptores',
     subAmount: 'Monto de ventas (dólares estadounidenses)',
     schedulePublish: 'Liberación oportuna',
-    autoPublishAt: 'Se lanzará automáticamente en {tiempo}',
+    autoPublishAt: 'Se lanzará automáticamente en {time}',
     setLanguageSucceed: 'Idioma configurado correctamente',
     subIn: 'La suscripción',
     renew: 'Renovar',
