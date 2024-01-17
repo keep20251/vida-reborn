@@ -1,10 +1,10 @@
 <template>
-  <div class="flex grow basis-full flex-row justify-start sm:basis-[600px] md:basis-[900px] xl:basis-[950px]">
-    <div class="w-full max-w-[600px] pb-60 sm:pb-0 md:w-[600px]">
+  <div class="flex grow basis-full flex-row justify-start sm:basis-[600px] md:basis-[860px] xl:basis-[880px]">
+    <div class="w-full max-w-[540px] px-20 pb-60 sm:pb-0 md:mr-20 md:w-[540px] xl:mr-40">
       <main>
         <div
           v-if="$slots['main-top']"
-          class="sticky top-0 z-10 h-52 w-full max-w-[600px] bg-white transition-transform md:w-[600px]"
+          class="sticky top-0 z-10 h-52 w-full max-w-[500px] bg-white transition-transform md:w-[500px]"
           :class="{ 'translate-y-[-100%]': !mainTopOpen }"
         >
           <slot name="main-top"></slot>
@@ -14,17 +14,12 @@
         </div>
       </main>
     </div>
-    <div class="ml-60 hidden md:block md:w-[300px] xl:w-[350px]">
+    <div class="hidden md:block md:w-[300px]">
       <aside>
-        <div
-          ref="aside"
-          class="pb-64 md:w-[300px] xl:w-[350px]"
-          :class="{ 'pt-52': $slots['aside-top'] }"
-          :style="asideStyle"
-        >
+        <div ref="aside" class="pb-64 md:w-[300px]" :class="{ 'pt-52': $slots['aside-top'] }" :style="asideStyle">
           <slot name="aside"></slot>
         </div>
-        <div v-if="$slots['aside-top']" class="fixed top-0 h-52 bg-white md:w-[300px] xl:w-[350px]">
+        <div v-if="$slots['aside-top']" class="fixed top-0 h-52 bg-white md:w-[300px]">
           <slot name="aside-top"></slot>
         </div>
       </aside>

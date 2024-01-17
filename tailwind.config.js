@@ -11,10 +11,14 @@ export default {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     screens: {
-      sm: '672px', // header(60) + main(fit) + aside(0)
-      md: '987px', // header(72) + main(600) + aside(300) = 972
-      lg: '1108px', // header(72) + main(600) + aside(300) = 972
-      xl: '1295px', // header(270) + main(600) + aside(350) = 1220
+      // sm: '672px', // header(60) + main(fit) + aside(0)
+      // md: '987px', // header(72) + main(600) + aside(300) = 972
+      // lg: '1108px', // header(72) + main(600) + aside(300) = 972
+      // xl: '1295px', // header(270) + main(600) + aside(350) = 1220
+      sm: '672px', // header(60) + main(fit px(40)) + aside(0)
+      md: '958px', // header(72) + main(540 px(40)) + gap(20) + aside(300) = 952
+      lg: '1108px', // header(72) + main(540 px(40)) + gap(20) + aside(300) = 952
+      xl: '1170px', // header(150) + main(540 px(40)) + gap(40) + aside(300) = 1050
     },
     fontSize: {
       xs: '0.625rem', // 10px

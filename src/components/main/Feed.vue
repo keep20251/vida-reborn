@@ -11,7 +11,7 @@
     <!-- media -->
     <div>
       <div class="w-full rounded-[0.625rem] bg-orange-100">
-        <div class="pt-[64%]"></div>
+        <div class="pt-[60%]"></div>
       </div>
     </div>
 
