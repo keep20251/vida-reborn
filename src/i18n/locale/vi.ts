@@ -139,7 +139,7 @@ export default {
     perSubscriber: 'Người đăng ký',
     subAmount: 'Số tiền bán hàng (đô la Mỹ)',
     schedulePublish: 'Phát hành kịp thời',
-    autoPublishAt: 'Sẽ được phát hành tự động tại {thời gian}',
+    autoPublishAt: 'Sẽ được phát hành tự động tại {0}',
     setLanguageSucceed: 'Đã đặt ngôn ngữ thành công',
     subIn: 'Đăng ký sẽ',
     renew: 'Thay mới',
