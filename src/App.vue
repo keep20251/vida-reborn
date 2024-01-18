@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-full w-full flex-row justify-center" id="main">
-    <Navigator v-show="isDesktop"></Navigator>
+    <Navigator v-if="isDesktop"></Navigator>
     <router-view v-slot="{ Component }">
       <keep-alive>
         <component :is="Component"></component>
@@ -10,7 +10,7 @@
       <AuthDialog v-if="authDialog"></AuthDialog>
     </ClientOnly>
   </div>
-  <NavigatorMobile v-show="isMobile"></NavigatorMobile>
+  <NavigatorMobile v-if="isMobile"></NavigatorMobile>
   <Modal></Modal>
 </template>
 
