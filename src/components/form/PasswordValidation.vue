@@ -1,13 +1,13 @@
 <template>
-  <div class="mb-16 flex flex-col gap-y-8">
+  <div class="mb-16 flex flex-col space-y-8">
     <div class="text-base font-normal">
       {{ $t('info.passwordValidate.title') }}
     </div>
-    <div class="flex gap-x-6 align-middle text-base font-medium">
+    <div class="flex space-x-6 align-middle text-base font-medium">
       <Icon :name="firstSchema ? 'like' : 'likeOutline'"></Icon>
       <span>{{ $t('info.passwordValidate.min') }}</span>
     </div>
-    <div class="flex gap-x-6 align-middle text-base font-medium">
+    <div class="flex space-x-6 align-middle text-base font-medium">
       <Icon :name="secondSchema ? 'like' : 'likeOutline'"></Icon>
       <span>{{ $t('info.passwordValidate.schema') }}</span>
     </div>

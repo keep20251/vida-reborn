@@ -7,7 +7,7 @@
     :showPersonalInfo="true"
   >
     <template #topButton>
-      <div class="flex items-center gap-x-10">
+      <div class="flex items-center space-x-10">
         <Icon class="cursor-pointer" name="link" size="20"></Icon>
         <router-link :to="{ name: 'mine-profile-set' }" class="flex items-center">
           <Icon class="cursor-pointer" name="setting" size="20"></Icon>

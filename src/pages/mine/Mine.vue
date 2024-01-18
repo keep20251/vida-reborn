@@ -22,9 +22,9 @@
       </div>
     </template>
     <template #aside>
-      <div class="m-15 grid gap-y-20">
+      <div class="m-15 grid space-y-20">
         <SetList />
-        <div class="grid gap-y-5">
+        <div class="grid space-y-5">
           <Carousel :items="cats" :intervalTime="true"></Carousel>
           <p class="text-xs font-normal leading-[0.75rem] text-gray-400">
             Terms of Service Privacy Policy Cookie Policy Ad info About @ 2023 ViDA corp

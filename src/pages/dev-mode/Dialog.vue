@@ -10,7 +10,7 @@
               <div class="absolute right-20 top-20 cursor-pointer" @click="showDialog = false">
                 <Icon name="close"></Icon>
               </div>
-              <div class="flex flex-col gap-y-16 p-16 pt-48 text-center last:mb-32">
+              <div class="flex flex-col space-y-16 p-16 pt-48 text-center last:mb-32">
                 <div>This is a Dialog Example</div>
                 <div>This is a Dialog Example</div>
                 <div>This is a Dialog Example</div>

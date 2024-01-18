@@ -8,7 +8,7 @@
         <span>${{ props.price }}</span> / 30 days
       </p>
     </div>
-    <div class="flex flex-row gap-x-20">
+    <div class="flex flex-row space-x-20">
       <p>查看</p>
       <InputSwitch v-model="modelValue"></InputSwitch>
     </div>

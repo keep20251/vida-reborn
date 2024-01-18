@@ -5,7 +5,7 @@
     <div class="absolute top-0 h-full w-full px-20 py-30">
       <div class="flex flex-row">
         <Avatar :radius="70" class="mr-10" :src="props.avatar" :alt="props.username"></Avatar>
-        <div class="flex flex-col gap-y-10">
+        <div class="flex flex-col space-y-10">
           <div>
             <div class="text-lg font-bold leading-5 text-white">{{ props.nickname }}</div>
             <div class="text-sm font-normal leading-3 text-white">{{ props.username }}</div>

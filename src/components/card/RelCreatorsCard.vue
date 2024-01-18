@@ -1,15 +1,15 @@
 <template>
   <div class="pb-20 text-lg font-bold leading-[1.125rem]">相关创作者</div>
-  <div class="grid gap-y-10">
+  <div class="grid space-y-10">
     <div
       v-for="(item, index) in items"
       :key="itemKey ? item[itemKey] : index"
-      class="grid gap-y-10 rounded-[0.625rem] bg-[#7FE2D326] px-20 py-15"
+      class="grid space-y-10 rounded-[0.625rem] bg-[#7FE2D326] px-20 py-15"
     >
       <div class="flex items-center justify-between">
         <div class="flex">
           <Avatar class="mr-10" :radius="50" :src="item.creator_avatar"></Avatar>
-          <div class="flex flex-col gap-y-4">
+          <div class="flex flex-col space-y-4">
             <div class="text-lg font-bold leading-[1.125rem]">{{ item.creator_name }}</div>
             <div class="text-sm font-normal leading-[0.75rem] text-gray66">＠{{ item.creator_username }}</div>
             <div class="flex">
@@ -28,7 +28,7 @@
       </p>
     </div>
   </div>
-  <div class="mt-10 flex cursor-pointer items-center justify-center gap-x-5 text-base font-bold leading-[0.875rem]">
+  <div class="mt-10 flex cursor-pointer items-center justify-center space-x-5 text-base font-bold leading-[0.875rem]">
     显示更多创作者
     <Icon name="drop" size="12"></Icon>
   </div>

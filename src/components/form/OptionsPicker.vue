@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap gap-x-10 gap-y-15">
+  <div class="flex flex-wrap space-x-10 space-y-15">
     <div
       v-for="option in options"
       :key="option[optionValue]"

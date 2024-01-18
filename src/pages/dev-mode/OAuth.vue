@@ -33,7 +33,7 @@
             Apple Sign In
           </button>
         </div>
-        <div class="m-16 flex flex-row gap-x-16 p-16">
+        <div class="m-16 flex flex-row space-x-16 p-16">
           <button class="w-80 bg-blue-500 px-8 py-1 text-white" @click="open()">Login</button>
           <button class="w-80 bg-blue-500 px-8 py-1 text-white" @click="logout()">Logout</button>
         </div>
