@@ -184,7 +184,7 @@ export default {
       tiktok: 'कृपया एक मान्य TikTok URL दर्ज करें।',
       vida: 'कृपया एक मान्य Vida URL दर्ज करें।',
       confirmPassword: 'पासवर्ड मेल नहीं खाते।',
-      withAt: '@ सिम्बल नहीं होना चाहिए।',
+      withAt: " {'@'} सिम्बल नहीं होना चाहिए।",
     },
     number: {
       value: 'कृपया एक संख्या दर्ज करें।',

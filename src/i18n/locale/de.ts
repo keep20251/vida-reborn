@@ -190,7 +190,7 @@ export default {
       tiktok: 'Bitte geben Sie eine gültige TikTok-URL ein.',
       vida: 'Bitte geben Sie eine gültige Vida-URL ein.',
       confirmPassword: 'Die Passwörter stimmen nicht überein.',
-      withAt: 'Darf nicht das "@"-Symbol enthalten.',
+      withAt: "Darf nicht das {'@'}-Symbol enthalten.",
     },
     number: {
       value: 'Bitte geben Sie eine Zahl ein.',

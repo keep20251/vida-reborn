@@ -190,7 +190,7 @@ export default {
       tiktok: 'Vui lòng nhập URL TikTok hợp lệ.',
       vida: 'Vui lòng nhập URL Vida hợp lệ.',
       confirmPassword: 'Mật khẩu không khớp.',
-      withAt: 'Không nên chứa ký hiệu "@"',
+      withAt: "Không nên chứa ký hiệu {'@'}",
     },
     number: {
       value: 'Vui lòng nhập một số.',

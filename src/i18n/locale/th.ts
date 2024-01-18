@@ -184,7 +184,7 @@ export default {
       tiktok: 'โปรดใส่ URL TikTok ที่ถูกต้อง',
       vida: 'โปรดใส่ URL Vida ที่ถูกต้อง',
       confirmPassword: 'รหัสผ่านไม่ตรงกัน',
-      withAt: 'ไม่ควรมีสัญลักษณ์ "@"',
+      withAt: "ไม่ควรมีสัญลักษณ์ {'@'}",
     },
     number: {
       value: 'โปรดใส่ตัวเลข',

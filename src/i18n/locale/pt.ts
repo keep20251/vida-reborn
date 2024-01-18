@@ -194,7 +194,7 @@ export default {
       tiktok: 'Por favor, insira um URL válido do TikTok.',
       vida: 'Por favor, insira um URL válido do Vida.',
       confirmPassword: 'Senhas não correspondem.',
-      withAt: 'Não deve conter o símbolo "@".',
+      withAt: "Não deve conter o símbolo {'@'}.",
     },
     number: {
       value: 'Por favor, insira um número.',

@@ -190,7 +190,7 @@ export default {
       tiktok: '有効なTikTokのURLを入力してください。',
       vida: '有効なVidaのURLを入力してください。',
       confirmPassword: 'パスワードが一致しません。',
-      withAt: '@ 기호를 포함해서는 안 됩니다.',
+      withAt: " {'@'} 기호를 포함해서는 안 됩니다.",
     },
     number: {
       value: '数字を入力してください。',

@@ -188,7 +188,7 @@ export default {
       tiktok: 'Silakan masukkan URL TikTok yang valid.',
       vida: 'Silakan masukkan URL Vida yang valid.',
       confirmPassword: 'Kata sandi tidak cocok.',
-      withAt: 'Tidak boleh mengandung simbol "@"',
+      withAt: "Tidak boleh mengandung simbol {'@'} ",
     },
     number: {
       value: 'Silakan masukkan angka.',

@@ -187,7 +187,7 @@ export default {
       tiktok: '유효한 TikTok URL을 입력하세요.',
       vida: '유효한 Vida URL을 입력하세요.',
       confirmPassword: '비밀번호가 일치하지 않습니다.',
-      withAt: '@ 기호를 포함해서는 안 됩니다.',
+      withAt: " {'@'} 기호를 포함해서는 안 됩니다.",
     },
     number: {
       value: '숫자를 입력하세요.',

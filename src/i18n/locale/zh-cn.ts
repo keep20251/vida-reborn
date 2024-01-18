@@ -178,7 +178,7 @@ export default {
       tiktok: '请输入有效的TikTok网址。',
       vida: '请输入有效的Vida网址。',
       confirmPassword: '密码不一致。',
-      withAt: '不应包含“@”符号。',
+      withAt: '不得包含＠符號。',
     },
     number: {
       value: '请输入一个数字。',

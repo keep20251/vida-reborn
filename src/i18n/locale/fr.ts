@@ -192,7 +192,7 @@ export default {
       tiktok: 'Veuillez entrer une URL TikTok valide.',
       vida: 'Veuillez entrer une URL Vida valide.',
       confirmPassword: 'Les mots de passe ne correspondent pas.',
-      withAt: 'Ne doit pas contenir le symbole "@"',
+      withAt: "Ne doit pas contenir le symbole {'@'} ",
     },
     number: {
       value: 'Veuillez entrer un nombre.',

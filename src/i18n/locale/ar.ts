@@ -184,7 +184,7 @@ export default {
       tiktok: 'الرجاء إدخال عنوان URL صحيح لـ TikTok.',
       vida: 'الرجاء إدخال عنوان URL صحيح لـ Vida.',
       confirmPassword: 'كلمات المرور غير متطابقة.',
-      withAt: 'لا يجب أن يحتوي على رمز "@"',
+      withAt: "لا يجب أن يحتوي على رمز {'@'}",
     },
     number: {
       value: 'الرجاء إدخال عدد.',
