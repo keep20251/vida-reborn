@@ -1,20 +1,25 @@
 <template>
-  <div class="flex w-full flex-col justify-center space-y-30 px-32 pb-16 pt-32 last:mb-16">
-    <DialogHeader :title="$t('title.mailCodeLogin')" @back="back">
+  <div class="mb-[36rem] flex w-full flex-col justify-center px-32 pb-16 pt-32">
+    <DialogHeader :title="$t('title.mailCodeLogin')" @back="back" @close="close">
       <template #default>
         <div class="flex flex-col space-y-32">
-          <div class="flex flex-col space-y-8">
-            <div class="px-32 text-center">{{ $t('info.mailCodeSent', { mail: 'example@gmail.com' }) }}</div>
+          <div class="flex flex-col space-y-30">
+            <div class="px-[6.25rem] text-center text-sm font-normal leading-5">
+              {{ $t('info.mailCodeSent', { mail: 'example@gmail.com' }) }}
+            </div>
             <InputWrap
               v-model="verifyCode"
               :label="$t('label.mailCode')"
               :placeholder="$t('placeholder.mailCode')"
               :append-text-btn="$t('label.resend')"
+              label-center
             ></InputWrap>
             <Button>{{ $t('label.login') }}</Button>
           </div>
           <div class="text-center">
-            <button @click="to(AUTH_ROUTES.VERIFY_PASSWORD)">{{ $t('info.loginByPwd') }}</button>
+            <button class="leading-md text-base font-normal" @click="to(AUTH_ROUTES.VERIFY_PASSWORD)">
+              {{ $t('info.loginByPwd') }}
+            </button>
           </div>
         </div>
       </template>
@@ -29,7 +34,7 @@ import Button from '@/components/common/Button.vue'
 import { AUTH_ROUTES } from '@/constant'
 import { ref } from 'vue'
 
-const { to, back } = useAuthRouteStore()
+const { to, back, close } = useAuthRouteStore()
 
 const verifyCode = ref('')
 </script>

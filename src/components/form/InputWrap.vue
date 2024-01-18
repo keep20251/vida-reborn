@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col space-y-10">
-    <label v-if="label" class="text-base font-normal not-italic leading-[0.875rem]" :class="[labelCenter]"
+    <label v-if="label" class="leading-md text-base font-normal not-italic" :class="[labelCenter]"
       >{{ label }}
       <span v-if="sublabel" class="text-sm font-normal not-italic leading-3 text-gray66">{{ sublabel }}</span>
     </label>
@@ -46,14 +46,14 @@
       </div>
       <div
         v-if="!!appendTextBtn"
-        class="absolute right-5 flex h-[1.625rem] min-w-[2.9375rem] cursor-pointer items-center justify-center rounded-[0.9375rem] bg-primary px-[0.375rem] py-[0.625rem] text-center text-base font-bold leading-[0.875rem] text-white shadow-[0_0.125rem_0.25rem_0_rgba(0,0,0,0.25)]"
+        class="min-w-47 absolute right-5 flex h-26 cursor-pointer items-center justify-center px-6 py-10 text-center text-sm font-normal leading-3 text-black"
         @click="emits('click:append')"
       >
         {{ appendTextBtn }}
       </div>
       <div
         v-if="!!appendIconBtn"
-        class="absolute right-5 flex h-30 w-40 cursor-pointer items-center justify-center rounded-[0.9375rem] bg-primary px-[0.375rem] py-[0.625rem] text-center text-base font-bold leading-[0.875rem] text-white shadow-[0_0.125rem_0.25rem_0_rgba(0,0,0,0.25)]"
+        class="absolute right-5 flex h-30 w-40 cursor-pointer items-center justify-center rounded-[0.9375rem] bg-primary px-6 py-10 text-center text-base font-bold leading-[0.875rem] text-white shadow-[0_0.125rem_0.25rem_0_rgba(0,0,0,0.25)]"
         @click="emits('click:append')"
       >
         <Icon size="20" :name="appendIconBtn" class="text-white"></Icon>

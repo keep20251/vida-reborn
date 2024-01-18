@@ -69,6 +69,9 @@ export default {
         xl: '0.9375rem',
         18: '1.125rem',
       },
+      lineHeight: {
+        md: '0.875rem',
+      },
     },
     spacing: generateSpacing(),
   },

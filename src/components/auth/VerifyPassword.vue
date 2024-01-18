@@ -1,6 +1,6 @@
 <template>
   <div class="flex w-full flex-col justify-center space-y-30 px-32 pb-16 pt-32 last:mb-16">
-    <DialogHeader :title="$t('title.pwdLogin')" @back="back">
+    <DialogHeader :title="$t('title.pwdLogin')" @back="back" @close="close">
       <template #default>
         <div class="flex flex-col space-y-32">
           <div class="flex flex-col space-y-8">
@@ -27,6 +27,6 @@ import Button from '@/components/common/Button.vue'
 import { AUTH_ROUTES } from '@/constant'
 import { ref } from 'vue'
 
-const { to, back } = useAuthRouteStore()
+const { to, back, close } = useAuthRouteStore()
 const password = ref('')
 </script>
