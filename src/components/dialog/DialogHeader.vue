@@ -6,12 +6,12 @@
           <Icon name="back"></Icon>
         </button>
       </div>
-      <div v-else class="absolute right-0 top-0">
+      <div v-if="props.showClose" class="absolute right-0 top-0">
         <button @click="emits('close')">
           <Icon name="close"></Icon>
         </button>
       </div>
-      <div>{{ props.title }}</div>
+      <div class="text-lg font-bold leading-5">{{ props.title }}</div>
     </div>
     <slot></slot>
   </div>
@@ -23,6 +23,10 @@ const props = defineProps({
     default: 'Header',
   },
   showBack: {
+    type: Boolean,
+    default: true,
+  },
+  showClose: {
     type: Boolean,
     default: true,
   },
