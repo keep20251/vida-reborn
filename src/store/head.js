@@ -34,12 +34,12 @@ export const useHeadStore = defineStore('app-head', () => {
     ...locales.map((locale) => ({
       rel: 'alternate',
       hreflang: locale.label,
-      href: import.meta.env.VITE_APP_URL + '/home?lang=' + locale.label,
+      href: import.meta.env.VITE_APP_URL + `/${locale.label}/home`,
     })),
     {
       rel: 'alternate',
       hreflang: 'x-default',
-      href: import.meta.env.VITE_APP_URL + '/home?lang=en',
+      href: import.meta.env.VITE_APP_URL + '/en/home',
     },
   ])
 
