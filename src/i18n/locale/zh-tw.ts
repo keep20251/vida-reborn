@@ -106,6 +106,9 @@ export default {
   content: {
     welcomeToVida: '歡迎你加入Vida成為我們的一員！',
     verifyAccount: '趕緊去認證信箱吧！至【我的>帳戶設置】即可完成認證',
+    termsDeclaration: '繼續操作，即表示您確認您已年滿18歲，並同意Vida的{tos}，且已閱讀VIDA的{pp}',
+    tos: '服務條款',
+    pp: '隱私權政策',
   },
   month: {
     Jan: '一月',
@@ -195,7 +198,7 @@ export default {
       typeError: '請輸入數字。',
     },
     date: { min: '日期不得早於{min}。', max: '日期不得晚於{max}。' },
-    time: { format: '時間格式為 23:59' },
+    time: { format: '時間格式為 23:59。' },
     array: {
       of: '',
       json: '',
@@ -215,8 +218,8 @@ export default {
       noUnknown: '',
       camelCase: '',
       constantCase: '',
-      adult: '您必須年滿18歲。',
     },
     amount: { min: '最低提現金額為$20元' },
   },
+  up: { object: { adult: '您必須年滿18歲。' } },
 }

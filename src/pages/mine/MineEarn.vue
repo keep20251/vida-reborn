@@ -1,55 +1,55 @@
 <template>
   <div class="flex items-end justify-between pt-28">
-    <div class="text-base font-bold leading-[0.875rem]">Your Earnings</div>
-    <div class="cursor-pointer text-base font-normal leading-[0.875rem]">提款记录</div>
+    <div class="leading-md text-base font-bold">Your Earnings</div>
+    <div class="leading-md cursor-pointer text-base font-normal">提款记录</div>
   </div>
   <div class="flex items-end justify-center space-x-5 py-35">
-    <div class="text-base font-bold leading-[0.875rem]">$</div>
+    <div class="leading-md text-base font-bold">$</div>
     <div class="text-xl font-bold leading-[1.5625rem]">5,000,000</div>
   </div>
   <Button>提款申请</Button>
-  <div class="mt-30 text-base font-bold leading-[0.875rem]">数据仪表板</div>
+  <div class="leading-md mt-30 text-base font-bold">数据仪表板</div>
   <Tab v-model="tab" :options="tabOptions" class="mt-10 !h-35"> </Tab>
   <div v-if="tab === 1">
     <div class="grid space-y-40">
       <div class="mt-20 flex items-center justify-center space-x-20 px-20">
         <div
-          class="flex w-full cursor-pointer items-center justify-center rounded-full bg-gray03 py-6 text-base font-normal leading-[0.875rem]"
+          class="leading-md flex w-full cursor-pointer items-center justify-center rounded-full bg-gray03 py-6 text-base font-normal"
         >
           2023-12-31
         </div>
         <div><Icon name="calendar" size="20"></Icon></div>
         <div
-          class="flex w-full cursor-pointer items-center justify-center rounded-full bg-gray03 py-6 text-base font-normal leading-[0.875rem]"
+          class="leading-md flex w-full cursor-pointer items-center justify-center rounded-full bg-gray03 py-6 text-base font-normal"
         >
           2023-12-31
         </div>
       </div>
       <div class="flex space-x-30 px-20">
         <div class="flex w-4/12 flex-col space-y-10">
-          <div class="text-base font-normal leading-[0.875rem]">总进入数量</div>
+          <div class="leading-md text-base font-normal">总进入数量</div>
           <div class="text-lg font-bold leading-[1.125rem]">1000</div>
         </div>
         <div class="flex w-4/12 flex-col space-y-10">
-          <div class="text-base font-normal leading-[0.875rem]">总订阅人数</div>
+          <div class="leading-md text-base font-normal">总订阅人数</div>
           <div class="text-lg font-bold leading-[1.125rem]">29k</div>
         </div>
         <div class="flex w-4/12 flex-col space-y-10">
-          <div class="text-base font-normal leading-[0.875rem]">总观看次数</div>
+          <div class="leading-md text-base font-normal">总观看次数</div>
           <div class="text-lg font-bold leading-[1.125rem]">27.5k</div>
         </div>
       </div>
       <div class="flex space-x-30 px-20">
         <div class="flex w-4/12 flex-col space-y-10">
-          <div class="text-base font-normal leading-[0.875rem]">购买次数</div>
+          <div class="leading-md text-base font-normal">购买次数</div>
           <div class="text-lg font-bold leading-[1.125rem]">2000</div>
         </div>
         <div class="flex w-4/12 flex-col space-y-10">
-          <div class="text-base font-normal leading-[0.875rem]">期间收益</div>
+          <div class="leading-md text-base font-normal">期间收益</div>
           <div class="text-lg font-bold leading-[1.125rem]">$9999</div>
         </div>
         <div class="flex w-4/12 flex-col justify-start space-y-10">
-          <div class="text-base font-normal leading-[0.875rem]">退订人数</div>
+          <div class="leading-md text-base font-normal">退订人数</div>
           <div class="text-lg font-bold leading-[1.125rem]">30</div>
         </div>
       </div>
@@ -58,13 +58,13 @@
   <div v-else-if="tab === 2">
     <div class="mb-10 mt-20 flex items-center justify-center space-x-20 px-20">
       <div
-        class="flex w-full cursor-pointer items-center justify-center rounded-full bg-gray03 py-6 text-base font-normal leading-[0.875rem]"
+        class="leading-md flex w-full cursor-pointer items-center justify-center rounded-full bg-gray03 py-6 text-base font-normal"
       >
         2023-12-31
       </div>
       <div><Icon name="calendar" size="20"></Icon></div>
       <div
-        class="flex w-full cursor-pointer items-center justify-center rounded-full bg-gray03 py-6 text-base font-normal leading-[0.875rem]"
+        class="leading-md flex w-full cursor-pointer items-center justify-center rounded-full bg-gray03 py-6 text-base font-normal"
       >
         2023-12-31
       </div>
@@ -81,21 +81,21 @@
           />
         </div>
         <div class="flex flex-1 flex-col space-y-10">
-          <div class="text-sm font-normal leading-[0.75rem]">New season! Welcome to my channel!</div>
+          <div class="text-sm font-normal leading-3">New season! Welcome to my channel!</div>
           <div class="flex space-x-10">
             <div class="flex w-3/6 items-center space-x-10">
-              <Icon size="20" name="video"></Icon><span class="text-sm font-normal leading-[0.75rem]">23,000</span>
+              <Icon size="20" name="video"></Icon><span class="text-sm font-normal leading-3">23,000</span>
             </div>
             <div class="flex w-3/6 items-center space-x-10">
-              <Icon size="20" name="comment"></Icon><span class="text-sm font-normal leading-[0.75rem]">289</span>
+              <Icon size="20" name="comment"></Icon><span class="text-sm font-normal leading-3">289</span>
             </div>
           </div>
           <div class="flex space-x-10">
             <div class="flex w-3/6 items-center space-x-10">
-              <Icon size="20" name="like"></Icon><span class="text-sm font-normal leading-[0.75rem]">113</span>
+              <Icon size="20" name="like"></Icon><span class="text-sm font-normal leading-3">113</span>
             </div>
             <div class="flex w-3/6 items-center space-x-10">
-              <Icon size="20" name="sharePost"></Icon><span class="text-sm font-normal leading-[0.75rem]">94</span>
+              <Icon size="20" name="sharePost"></Icon><span class="text-sm font-normal leading-3">94</span>
             </div>
           </div>
         </div>
@@ -103,37 +103,37 @@
       <div class="z-0 mt-[-1rem] grid w-full space-y-30 rounded-b-lg bg-gray03 p-30 pt-40">
         <div class="flex space-x-15">
           <div class="grid w-3/12 space-y-10">
-            <div class="text-base font-normal leading-[0.875rem]">观看数量:</div>
+            <div class="leading-md text-base font-normal">观看数量:</div>
             <div class="text-lg font-bold leading-[1.125rem]">29k</div>
           </div>
           <div class="grid w-3/12 space-y-10">
-            <div class="text-base font-normal leading-[0.875rem]">每日观看:</div>
+            <div class="leading-md text-base font-normal">每日观看:</div>
             <div class="text-lg font-bold leading-[1.125rem]">198</div>
           </div>
           <div class="grid w-3/12 space-y-10">
-            <div class="text-base font-normal leading-[0.875rem]">收藏:</div>
+            <div class="leading-md text-base font-normal">收藏:</div>
             <div class="text-lg font-bold leading-[1.125rem]">3029</div>
           </div>
           <div class="grid w-3/12 space-y-10">
-            <div class="text-base font-normal leading-[0.875rem]">评论:</div>
+            <div class="leading-md text-base font-normal">评论:</div>
             <div class="text-lg font-bold leading-[1.125rem]">238</div>
           </div>
         </div>
         <div class="flex space-x-15">
           <div class="grid w-3/12 space-y-10">
-            <div class="text-base font-normal leading-[0.875rem]">观看数量:</div>
+            <div class="leading-md text-base font-normal">观看数量:</div>
             <div class="text-lg font-bold leading-[1.125rem]">29k</div>
           </div>
           <div class="grid w-3/12 space-y-10">
-            <div class="text-base font-normal leading-[0.875rem]">每日观看:</div>
+            <div class="leading-md text-base font-normal">每日观看:</div>
             <div class="text-lg font-bold leading-[1.125rem]">198</div>
           </div>
           <div class="grid w-3/12 space-y-10">
-            <div class="text-base font-normal leading-[0.875rem]">收藏:</div>
+            <div class="leading-md text-base font-normal">收藏:</div>
             <div class="text-lg font-bold leading-[1.125rem]">3029</div>
           </div>
           <div class="grid w-3/12 space-y-10">
-            <div class="text-base font-normal leading-[0.875rem]">评论:</div>
+            <div class="leading-md text-base font-normal">评论:</div>
             <div class="text-lg font-bold leading-[1.125rem]">238</div>
           </div>
         </div>

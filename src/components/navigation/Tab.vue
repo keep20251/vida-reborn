@@ -6,7 +6,7 @@
       :key="option[optionValue]"
       @click="onClick(option[optionValue])"
     >
-      <div class="flex grow items-center text-base font-bold leading-[0.875rem]">{{ $t(option[optionLabel]) }}</div>
+      <div class="leading-md flex grow items-center text-base font-bold">{{ $t(option[optionLabel]) }}</div>
       <div
         class="h-3 w-full rounded-full"
         :class="[option[optionValue] === modelValue ? 'bg-black' : 'bg-gray30']"

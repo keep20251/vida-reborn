@@ -15,12 +15,12 @@
         <div class="flex justify-around">
           <div class="flex w-[175px] flex-col items-center space-y-5">
             <p class="text-xl font-bold leading-[1.5625rem] text-white">{{ item.subscriber }}</p>
-            <p class="text-sm font-normal leading-[0.75rem] text-white opacity-50">{{ $t('info.perSubscriber') }}</p>
+            <p class="text-sm font-normal leading-3 text-white opacity-50">{{ $t('info.perSubscriber') }}</p>
           </div>
           <div class="h-25 w-1 bg-[#DCDCDC]"></div>
           <div class="flex w-[175px] flex-col items-center space-y-5">
             <p class="text-xl font-bold leading-[1.5625rem] text-white">{{ item.posts }}</p>
-            <p class="text-sm font-normal leading-[0.75rem] text-white opacity-50">{{ $t('info.perPost') }}</p>
+            <p class="text-sm font-normal leading-3 text-white opacity-50">{{ $t('info.perPost') }}</p>
           </div>
         </div>
       </div>
@@ -35,18 +35,16 @@
       <div class="flex items-end justify-between">
         <div class="flex items-end space-x-5">
           <div class="text-lg font-bold leading-[1.125rem]">{{ item.name }}</div>
-          <div class="text-sm font-normal leading-[0.75rem] text-gray66">＠{{ item.username }}</div>
+          <div class="text-sm font-normal leading-3 text-gray66">＠{{ item.username }}</div>
         </div>
         <slot name="middleButton"></slot>
       </div>
       <div v-if="showPersonalInfo" class="grid space-y-10">
         <div class="flex items-end space-x-5">
-          <div class="text-sm font-normal leading-[0.75rem]">{{ $t('info.myLink') }}</div>
-          <div class="text-sm font-normal leading-[0.75rem] text-gray66">{{ item.link }}</div>
-          <div class="text-sm font-normal leading-[0.75rem] text-gray66">•</div>
-          <div class="text-sm font-normal leading-[0.75rem] text-gray66">
-            {{ item.watches }} {{ $t('info.watches') }}
-          </div>
+          <div class="text-sm font-normal leading-3">{{ $t('info.myLink') }}</div>
+          <div class="text-sm font-normal leading-3 text-gray66">{{ item.link }}</div>
+          <div class="text-sm font-normal leading-3 text-gray66">•</div>
+          <div class="text-sm font-normal leading-3 text-gray66">{{ item.watches }} {{ $t('info.watches') }}</div>
         </div>
         <p class="text-base font-normal leading-[1.125rem]">{{ item.info }}</p>
       </div>

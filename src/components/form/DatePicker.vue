@@ -62,7 +62,7 @@
     <div v-if="includeTime">
       <div class="h-1 bg-gray36"></div>
       <div
-        class="gap-row-8 mt-16 flex h-36 grow items-center divide-solid rounded-[1.125rem] border-gray20 bg-white px-20 py-12 text-sm font-normal not-italic leading-[0.75rem] text-gray66 shadow-[inset_0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)] placeholder:text-gray36"
+        class="gap-row-8 mt-16 flex h-36 grow items-center divide-solid rounded-[1.125rem] border-gray20 bg-white px-20 py-12 text-sm font-normal not-italic leading-3 text-gray66 shadow-[inset_0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)] placeholder:text-gray36"
         :class="{ error: !!timeErr }"
       >
         <input
