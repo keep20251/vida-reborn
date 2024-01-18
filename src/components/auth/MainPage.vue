@@ -1,42 +1,48 @@
 <template>
-  <div class="flex w-full flex-col justify-center space-y-30 last:mb-30">
-    <div class="relative mb-20 flex h-[2.99999625rem] w-full items-center justify-center">
-      <div class="absolute right-20 top-20 cursor-pointer" @click="close">
-        <Icon name="close"></Icon>
-      </div>
+  <div class="relative flex w-full flex-col items-center justify-center space-y-30 px-50 py-[7.5rem] last:mb-30">
+    <div class="absolute right-20 top-20 cursor-pointer" @click="close">
+      <Icon name="close"></Icon>
     </div>
-    <div class="flex flex-col justify-center space-y-10 px-20">
+    <div class="flex items-center justify-center">
+      <img class="h-[5rem] w-[9rem]" src="@/assets/logo.svg?url" alt="vida" />
+    </div>
+    <div class="text-lg font-bold leading-5">登入或註冊</div>
+    <div class="flex w-full flex-col justify-center space-y-10 px-20">
       <InputWrap
         v-model="email"
         :err-msg="error"
         :label="$t('label.email')"
         :placeholder="$t('placeholder.email')"
+        label-center
       ></InputWrap>
       <Button :loading="isLoading" @click="next">{{ $t('common.next') }}</Button>
     </div>
-    <div class="text-center">{{ $t('info.loginOrRegister') }}</div>
-    <div class="flex flex-col justify-center space-y-16 px-20">
-      <button class="rounded-md border border-black py-8 text-center" @click="to(AUTH_ROUTES.LOGIN)">
-        {{ $t('info.loginByAccount') }}
-      </button>
+    <div class="text-center text-base font-normal leading-3">{{ $t('info.loginOrRegister') }}</div>
+    <div class="flex w-full flex-col justify-center space-y-16 px-90">
       <button
-        class="rounded-md border border-black py-8 text-center"
-        @click="
-          onAppleSignIn({
-            onSuccess: onAppleLoginSuccess,
-            onFailure: (e) => console.error(`Apple SignIn Failed`, e),
-          })
-        "
+        v-for="(option, index) in loginOptions"
+        :key="`login-option-${index}`"
+        class="rounded-full border border-black py-8 text-center"
+        @click="option.onClick"
       >
-        {{ $t('info.loginByApple') }}
-      </button>
-      <button class="rounded-md border border-black py-8 text-center" @click="googleLogin">
-        {{ $t('info.loginByGoogle') }}
-      </button>
-      <button class="rounded-md border border-black py-8 text-center" @click="twitterLogin">
-        {{ $t('info.loginByTwitter') }}
+        <div class="flex flex-row items-center justify-center">
+          <Icon :name="option.icon" size="15" class="mr-10"></Icon>
+          {{ $t(option.label) }}
+        </div>
       </button>
     </div>
+    <i18n-t
+      keypath="content.termsDeclaration"
+      tag="div"
+      class="px-50 text-center text-sm font-normal leading-4 text-gray-600"
+    >
+      <template #tos>
+        <span class="font-bold">{{ $t('content.tos') }}</span>
+      </template>
+      <template #pp>
+        <span class="font-bold">{{ $t('content.pp') }}</span>
+      </template>
+    </i18n-t>
   </div>
 </template>
 <script setup>
@@ -103,4 +109,19 @@ async function onAppleLoginSuccess(event) {
     immediate: true,
   })
 }
+
+const loginOptions = [
+  { label: 'info.loginByAccount', icon: 'account', onClick: () => to(AUTH_ROUTES.LOGIN) },
+  {
+    label: 'info.loginByApple',
+    icon: 'apple',
+    onClick: () =>
+      onAppleSignIn({
+        onSuccess: onAppleLoginSuccess,
+        onFailure: (e) => console.error(`Apple SignIn Failed`, e),
+      }),
+  },
+  { label: 'info.loginByGoogle', icon: 'google', onClick: googleLogin },
+  { label: 'info.loginByTwitter', icon: 'twitter', onClick: twitterLogin },
+]
 </script>
