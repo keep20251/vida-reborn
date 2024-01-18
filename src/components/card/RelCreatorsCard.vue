@@ -11,16 +11,16 @@
           <Avatar class="mr-10" :radius="50" :src="item.creator_avatar"></Avatar>
           <div class="flex flex-col space-y-4">
             <div class="text-lg font-bold leading-[1.125rem]">{{ item.creator_name }}</div>
-            <div class="text-sm font-normal leading-[0.75rem] text-gray66">＠{{ item.creator_username }}</div>
+            <div class="text-sm font-normal leading-3 text-gray66">＠{{ item.creator_username }}</div>
             <div class="flex">
-              <div class="text-sm font-normal leading-[0.75rem] text-gray66">帖子{{ item.posts }}</div>
-              <div class="text-sm font-normal leading-[0.75rem] text-gray66">•</div>
-              <div class="text-sm font-normal leading-[0.75rem] text-gray66">{{ item.viewed }} viewed</div>
+              <div class="text-sm font-normal leading-3 text-gray66">帖子{{ item.posts }}</div>
+              <div class="text-sm font-normal leading-3 text-gray66">•</div>
+              <div class="text-sm font-normal leading-3 text-gray66">{{ item.viewed }} viewed</div>
             </div>
           </div>
         </div>
         <div>
-          <Button class="!h-24 !px-18 !py-6 !text-sm !leading-[0.75rem]">查看</Button>
+          <Button class="!h-24 !px-18 !py-6 !text-sm !leading-3">查看</Button>
         </div>
       </div>
       <p class="max-w-fit overflow-hidden text-ellipsis whitespace-nowrap text-base font-normal leading-[1.125rem]">
@@ -28,7 +28,7 @@
       </p>
     </div>
   </div>
-  <div class="mt-10 flex cursor-pointer items-center justify-center space-x-5 text-base font-bold leading-[0.875rem]">
+  <div class="leading-md mt-10 flex cursor-pointer items-center justify-center space-x-5 text-base font-bold">
     显示更多创作者
     <Icon name="drop" size="12"></Icon>
   </div>

@@ -18,14 +18,12 @@
       </div>
     </template>
     <template #middleButton>
-      <div class="cursor-pointer text-sm font-bold leading-[0.75rem] underline underline-offset-[0.125rem]">
+      <div class="cursor-pointer text-sm font-bold leading-3 underline underline-offset-[0.125rem]">
         {{ $t('common.viewSubscribePlan') }}
       </div>
     </template>
   </SelfIntro>
-  <div class="mt-20 flex h-36 w-full items-center bg-gray03 px-20 text-base font-bold leading-[0.875rem]">
-    All Posts 85
-  </div>
+  <div class="leading-md mt-20 flex h-36 w-full items-center bg-gray03 px-20 text-base font-bold">All Posts 85</div>
   <div class="overflow-x-hidden">
     <List :items="items" item-key="id">
       <template #default="{ last }">

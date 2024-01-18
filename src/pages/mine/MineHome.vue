@@ -24,7 +24,7 @@
       </router-link>
     </template>
   </SelfIntro>
-  <div class="flex h-36 w-full items-center bg-gray03 px-20 text-base font-bold leading-[0.875rem]">All Posts 85</div>
+  <div class="leading-md flex h-36 w-full items-center bg-gray03 px-20 text-base font-bold">All Posts 85</div>
   <div class="overflow-x-hidden">
     <List :items="items" item-key="id">
       <template #default="{ last }">

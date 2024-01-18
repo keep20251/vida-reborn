@@ -1,18 +1,16 @@
 <template>
   <div class="flex flex-col space-y-10">
-    <label v-if="label" class="text-left text-base font-normal not-italic leading-[0.875rem]"
+    <label v-if="label" class="leading-md text-left text-base font-normal not-italic"
       >{{ label }}
-      <span v-if="sublabel" class="text-sm font-normal not-italic leading-[0.75rem] text-gray66">{{
-        sublabel
-      }}</span> </label
+      <span v-if="sublabel" class="text-sm font-normal not-italic leading-3 text-gray66">{{ sublabel }}</span> </label
     ><textarea
       v-model="value"
       :placeholder="placeholder"
       :disabled="disabled"
       :style="{ height }"
-      class="w-full shrink-0 resize-none divide-solid rounded-[1.125rem] border-gray20 bg-white px-20 py-[0.75rem] text-sm font-normal not-italic leading-[0.75rem] text-gray66 shadow-[0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)inset] outline-none placeholder:text-gray36"
+      class="w-full shrink-0 resize-none divide-solid rounded-[1.125rem] border-gray20 bg-white px-20 py-[0.75rem] text-sm font-normal not-italic leading-3 text-gray66 shadow-[0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)inset] outline-none placeholder:text-gray36"
     ></textarea>
-    <div v-if="errMsg" class="text-left text-sm font-normal not-italic leading-[0.875rem] text-warning">
+    <div v-if="errMsg" class="leading-md text-left text-sm font-normal not-italic text-warning">
       {{ errMsg }}
     </div>
   </div>

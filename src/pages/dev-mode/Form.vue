@@ -78,9 +78,9 @@
         <div class="text-xl font-bold leading-[1.5625rem]">Helvetica Neue-25-特重标题</div>
         <div class="text-lg font-bold leading-[1.125rem]">Helvetica Neue-18-大标题</div>
         <div class="text-base font-normal leading-[1.125rem]">Helvetica Neue-14-正文</div>
-        <div class="text-sm font-normal leading-[0.75rem]">＠Helvetica Neue-12-注释</div>
-        <div class="text-base font-bold leading-[0.875rem]">Helvetica Neue-14-按钮</div>
-        <div class="text-base font-normal leading-[0.875rem]">Helvetica Neue-14-按钮未选中</div>
+        <div class="text-sm font-normal leading-3">＠Helvetica Neue-12-注释</div>
+        <div class="leading-md text-base font-bold">Helvetica Neue-14-按钮</div>
+        <div class="leading-md text-base font-normal">Helvetica Neue-14-按钮未选中</div>
       </div>
       <div v-else-if="tab === 3" class="my-10 grid space-y-20 px-20">
         <div>【 Dropdown 】</div>
