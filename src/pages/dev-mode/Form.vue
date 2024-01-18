@@ -6,13 +6,7 @@
     <template #default>
       <div v-if="tab === 1" class="my-10 grid space-y-20 px-20">
         <div>【 Input Text | Password | Number 】</div>
-        <InputWrap
-          v-model="inputValue"
-          :label="'帳號'"
-          :sublabel="'(必填)'"
-          :errMsg="'帳號不得為空'"
-          class="w-[280px]"
-        ></InputWrap>
+        <InputWrap v-model="inputValue" :label="'帳號'" :sublabel="'(必填)'" :errMsg="'帳號不得為空'"></InputWrap>
 
         <InputWrap
           v-model="inputValue"
@@ -20,7 +14,6 @@
           :sublabel="'单位：美金'"
           :placeholder="'9.99'"
           :appendText="'最高设置为90元'"
-          class="w-[280px]"
           :maxLength="5"
         ></InputWrap>
 
@@ -29,7 +22,6 @@
           :placeholder="`輸入您的連結...`"
           :prependIcon="'link'"
           :appendIcon="'bin'"
-          class="w-[280px]"
           @click:append="console.log('appendIcon')"
         ></InputWrap>
 
@@ -37,7 +29,6 @@
           v-model="inputValue"
           :placeholder="'Add new tag...'"
           :appendTextBtn="'Add'"
-          class="w-[280px]"
           @click:append="console.log('appendTextBtn')"
         ></InputWrap>
 
@@ -45,17 +36,10 @@
           v-model="inputValue"
           :placeholder="'Add new tag...'"
           :appendIconBtn="'sendWhite'"
-          class="w-[280px]"
           @click:append="console.log('appendIconBtn')"
         ></InputWrap>
 
-        <InputWrap
-          v-model="inputValue"
-          :label="'密碼'"
-          :placeholder="'輸入您的密碼'"
-          password
-          class="w-[280px]"
-        ></InputWrap>
+        <InputWrap v-model="inputValue" :label="'密碼'" :placeholder="'輸入您的密碼'" password></InputWrap>
 
         <p class="text-sm">輸入的值：{{ inputValue }}</p>
         <hr />
@@ -67,7 +51,6 @@
           :sublabel="'(副标题)'"
           :placeholder="'填写内文'"
           :errMsg="'錯誤訊息'"
-          class="w-[280px]"
         ></TextareaWrap>
         <p class="text-sm">輸入的值：{{ textareaValue }}</p>
         <hr />
