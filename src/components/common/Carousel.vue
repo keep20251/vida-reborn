@@ -6,7 +6,7 @@
       :style="{ backgroundImage: `url(${props.items[activeSlide].img})` }"
     ></div>
     <div class="absolute bottom-[10px] left-[50%] translate-x-[-50%] translate-y-[-50%] overflow-hidden">
-      <ul class="flex justify-center gap-x-10">
+      <ul class="flex justify-center space-x-10">
         <li
           class="h-6 w-6 cursor-pointer rounded-full bg-[#D9D9D9]"
           v-for="(item, i) in props.items"

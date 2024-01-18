@@ -1,14 +1,14 @@
 <template>
   <div v-for="(section, index) in accordions" :key="index" class="select-none">
     <div
-      class="flex cursor-pointer items-center justify-between gap-y-10 rounded-sm bg-slate-200 px-20 py-10"
+      class="flex cursor-pointer items-center justify-between space-y-10 rounded-sm bg-slate-200 px-20 py-10"
       @click="toggleSection(index)"
     >
       <div class="text-gray-700">{{ section.title }}</div>
       <Icon name="dropdown" size="8" class="transition-transform" :class="{ 'rotate-180': section.open }"></Icon>
     </div>
     <div
-      class="grid gap-y-10 bg-slate-100 transition-all"
+      class="grid space-y-10 bg-slate-100 transition-all"
       :class="[{ 'max-h-[1000px] px-20 py-10': section.open, 'max-h-0': !section.open }]"
     >
       <div v-for="(subItem, subIndex) in section.content" :key="subIndex">

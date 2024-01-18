@@ -4,7 +4,7 @@
       <Tab v-model="tab" :options="tabOptions"></Tab>
     </template>
     <template #default>
-      <div v-if="tab === 1" class="my-10 grid gap-y-20 px-20">
+      <div v-if="tab === 1" class="my-10 grid space-y-20 px-20">
         <div>【 Input Text | Password | Number 】</div>
         <InputWrap
           v-model="inputValue"
@@ -90,7 +90,7 @@
         <InputSwitch :label="'選取切換'" v-model="switchValue"></InputSwitch>
         <p class="text-sm">選擇的值：{{ switchValue }}</p>
       </div>
-      <div v-else-if="tab === 2" class="my-10 grid gap-y-20 px-20">
+      <div v-else-if="tab === 2" class="my-10 grid space-y-20 px-20">
         <div>【 Text Style 】</div>
         <div class="text-xl font-bold leading-[1.5625rem]">Helvetica Neue-25-特重标题</div>
         <div class="text-lg font-bold leading-[1.125rem]">Helvetica Neue-18-大标题</div>
@@ -99,18 +99,18 @@
         <div class="text-base font-bold leading-[0.875rem]">Helvetica Neue-14-按钮</div>
         <div class="text-base font-normal leading-[0.875rem]">Helvetica Neue-14-按钮未选中</div>
       </div>
-      <div v-else-if="tab === 3" class="my-10 grid gap-y-20 px-20">
+      <div v-else-if="tab === 3" class="my-10 grid space-y-20 px-20">
         <div>【 Dropdown 】</div>
         <div class="flex flex-col gap-16 p-8">
           <Dropdown class="w-96" v-model="dropdownValue" :options="options"></Dropdown>
           <Dropdown v-model="dropdownValue" :options="options" inset></Dropdown>
         </div>
         <div>【 Accordion 】</div>
-        <div class="flex flex-col gap-y-5 p-8">
+        <div class="flex flex-col space-y-5 p-8">
           <Accordion :accordions="myAccordionData"></Accordion>
         </div>
       </div>
-      <div v-else-if="tab === 4" class="my-10 grid gap-y-20 px-20">
+      <div v-else-if="tab === 4" class="my-10 grid space-y-20 px-20">
         <div>【 Button 】</div>
         <div class="mb-8">
           <Button @click="onBtnClick('primary button')">primary button</Button>
@@ -129,7 +129,7 @@
           <Button loading>loading button</Button>
         </div>
       </div>
-      <div v-else-if="tab === 5" class="my-10 grid gap-y-20 px-20">
+      <div v-else-if="tab === 5" class="my-10 grid space-y-20 px-20">
         <div>【 OptionsPicker 】</div>
         <OptionsPicker v-model="singlePickedOption" :options="options"></OptionsPicker>
         <p class="text-sm">單選的值：{{ singlePickedOption }}</p>

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-y-20">
+  <div class="flex flex-col space-y-20">
     <SelfIntro
       :item="userInfo"
       :cameraIcon="true"
@@ -10,16 +10,16 @@
       :showAllInfo="false"
     >
     </SelfIntro>
-    <div class="flex flex-col gap-y-20 pl-4">
+    <div class="flex flex-col space-y-20 pl-4">
       <InputWrap :label="$t('label.displayName')" :placeholder="$t('placeholder.displayName')"></InputWrap>
-      <div class="flex flex-col gap-y-11">
+      <div class="flex flex-col space-y-11">
         <InputWrap :label="$t('label.username')" :placeholder="$t('placeholder.username')"></InputWrap>
         <p class="text-sm font-normal leading-3 text-slate-600">
           {{ $t('info.publicProfileWillBe') }}<span class="text-black">Vida.pub/username</span>
         </p>
       </div>
       <TextareaWrap :label="$t('label.description')" :placeholder="$t('placeholder.description')"></TextareaWrap>
-      <div class="flex flex-col gap-y-10">
+      <div class="flex flex-col space-y-10">
         <div class="flex items-center justify-between pr-4">
           <p class="text-base font-normal leading-3">{{ $t('info.socialLink') }}</p>
           <p class="cursor-pointer text-base font-normal leading-3 text-primary" @click="openSocialLinkDialog">
@@ -33,7 +33,7 @@
           :url="link.url"
         ></SocialLink>
       </div>
-      <div class="flex flex-col gap-y-10">
+      <div class="flex flex-col space-y-10">
         <div class="flex items-center justify-between pr-4">
           <p class="text-base font-normal leading-3">{{ $t('info.subscribeSetting') }}</p>
           <p class="cursor-pointer text-base font-normal leading-3 text-primary">{{ $t('label.edit') }}</p>

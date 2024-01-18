@@ -1,11 +1,11 @@
 <template>
-  <div class="flex w-full flex-col justify-center gap-y-30 last:mb-30">
+  <div class="flex w-full flex-col justify-center space-y-30 last:mb-30">
     <div class="relative mb-20 flex h-[2.99999625rem] w-full items-center justify-center">
       <div class="absolute right-20 top-20 cursor-pointer" @click="close">
         <Icon name="close"></Icon>
       </div>
     </div>
-    <div class="flex flex-col justify-center gap-y-10 px-20">
+    <div class="flex flex-col justify-center space-y-10 px-20">
       <InputWrap
         v-model="email"
         :err-msg="error"
@@ -15,7 +15,7 @@
       <Button :loading="isLoading" @click="next">{{ $t('common.next') }}</Button>
     </div>
     <div class="text-center">{{ $t('info.loginOrRegister') }}</div>
-    <div class="flex flex-col justify-center gap-y-16 px-20">
+    <div class="flex flex-col justify-center space-y-16 px-20">
       <button class="rounded-md border border-black py-8 text-center" @click="to(AUTH_ROUTES.LOGIN)">
         {{ $t('info.loginByAccount') }}
       </button>

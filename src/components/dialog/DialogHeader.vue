@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-y-32">
+  <div class="flex flex-col space-y-32">
     <div class="relative text-center">
       <div v-if="props.showBack" class="absolute left-0 top-0">
         <button @click="emits('back')">

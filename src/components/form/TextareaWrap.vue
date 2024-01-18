@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-y-10">
+  <div class="flex flex-col space-y-10">
     <label v-if="label" class="text-left text-base font-normal not-italic leading-[0.875rem]"
       >{{ label }}
       <span v-if="sublabel" class="text-sm font-normal not-italic leading-[0.75rem] text-gray66">{{

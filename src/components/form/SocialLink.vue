@@ -1,6 +1,6 @@
 <template>
   <div
-    class="gap-row rounded-18 flex h-35 w-full shrink-0 items-center gap-x-10 divide-solid border-gray20 bg-white px-20 py-12 text-sm font-normal not-italic leading-3 text-gray66 shadow-[0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)inset] outline-none"
+    class="gap-row flex h-35 w-full shrink-0 items-center space-x-10 divide-solid rounded-18 border-gray20 bg-white px-20 py-12 text-sm font-normal not-italic leading-3 text-gray66 shadow-[0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)inset] outline-none"
   >
     <Icon :name="props.icon" size="15"></Icon>
     <p class="text-sm font-normal leading-3">{{ props.url }}</p>

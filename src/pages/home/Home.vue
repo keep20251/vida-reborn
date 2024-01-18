@@ -22,7 +22,7 @@
           <Icon name="filter" size="20" class="cursor-pointer"></Icon>
         </div>
         <div class="pt-10 text-base font-normal leading-[0.875rem]">订阅某个账号，以查看其最新帖子</div>
-        <div class="flex flex-col justify-center gap-y-10 pt-30">
+        <div class="flex flex-col justify-center space-y-10 pt-30">
           <ViewSubscribeCard
             v-for="index in 3"
             :key="`creator-card-${index}`"

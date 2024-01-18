@@ -1,9 +1,9 @@
 <template>
-  <div class="flex w-full flex-col justify-center gap-y-30 px-32 pb-16 pt-32 last:mb-16">
+  <div class="flex w-full flex-col justify-center space-y-30 px-32 pb-16 pt-32 last:mb-16">
     <DialogHeader :title="$t('title.accountLogin')" @back="back">
       <template #default>
-        <div class="flex flex-col gap-y-32">
-          <div class="flex flex-col gap-y-8">
+        <div class="flex flex-col space-y-32">
+          <div class="flex flex-col space-y-8">
             <InputWrap
               v-model="credential.account.value"
               :label="$t('label.account')"
