@@ -1,9 +1,9 @@
 <template>
   <Page>
-    <template #main-top v-if="route.name !== 'mine-home' && route.name !== 'mine-profile-set'">
+    <template #main-top v-if="excludeRoutes.includes(route.name) === false">
       <div class="flex items-center justify-center border-b py-20">
         <div class="text-lg font-bold leading-5">
-          {{ mineTitle.includes('.') ? $t(mineTitle) : mineTitle }}
+          {{ headerTitle.includes('.') ? $t(headerTitle) : headerTitle }}
         </div>
       </div>
     </template>
@@ -36,15 +36,15 @@
 </template>
 
 <script setup>
-import { onActivated, onServerPrefetch, ref } from 'vue'
 import InputWrap from '@comp/form/InputWrap.vue'
 import SetList from '@comp/mine/SetList.vue'
 import Carousel from '@comp/common/Carousel.vue'
 import { useHeadStore } from '@/store/head'
 import { storeToRefs } from 'pinia'
 import { useI18n } from 'vue-i18n'
-import { useRoute } from 'vue-router'
-import { useMineStore } from '@/store/mine'
+import { useRoute, onBeforeRouteUpdate } from 'vue-router'
+import { MINE_TITLE } from '@/constant'
+import { onActivated, onServerPrefetch, ref, onBeforeMount } from 'vue'
 
 const inputValue = ref('')
 
@@ -62,15 +62,6 @@ const { t: $t } = useI18n()
 const headStore = useHeadStore()
 const { title, description, keywordArr, ogUrl } = storeToRefs(headStore)
 
-const mineStore = useMineStore()
-const { updateTitle } = mineStore
-const { title: mineTitle } = storeToRefs(useMineStore())
-
-onServerPrefetch(() => {
-  loadHead()
-  updateTitle(route.name)
-})
-
 onActivated(() => {
   loadHead()
 })
@@ -87,4 +78,19 @@ function loadHead() {
   ]
   ogUrl.value = import.meta.env.VITE_APP_URL + route.path
 }
+
+const headerTitle = ref('title.mine')
+const excludeRoutes = ['mine-home', 'mine-profile-set']
+
+function updateTitle(routeName) {
+  headerTitle.value = MINE_TITLE[routeName]
+}
+
+onBeforeMount(() => updateTitle(route.name))
+onBeforeRouteUpdate((to) => updateTitle(to.name))
+
+onServerPrefetch(() => {
+  loadHead()
+  updateTitle(route.name)
+})
 </script>
