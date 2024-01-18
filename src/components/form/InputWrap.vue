@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col space-y-10">
-    <label v-if="label" class="text-left text-base font-normal not-italic leading-[0.875rem]"
+    <label v-if="label" class="text-base font-normal not-italic leading-[0.875rem]" :class="[labelCenter]"
       >{{ label }}
       <span v-if="sublabel" class="text-sm font-normal not-italic leading-3 text-gray66">{{ sublabel }}</span>
     </label>
@@ -76,6 +76,7 @@ import { computed, ref } from 'vue'
 
 const props = defineProps({
   label: { type: String },
+  labelCenter: { type: Boolean, default: false },
   sublabel: { type: String },
   modelValue: { type: [String, Number], required: true },
   placeholder: { type: String, default: '输入文字...' },
@@ -106,4 +107,5 @@ const value = computed({
 
 const pwdHide = ref(true)
 const type = computed(() => (props.password && pwdHide.value ? 'password' : props.number ? 'number' : 'text'))
+const labelCenter = computed(() => (props.labelCenter ? 'text-center' : 'text-left'))
 </script>

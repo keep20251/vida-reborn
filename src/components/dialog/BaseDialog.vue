@@ -2,7 +2,7 @@
   <teleport to="#main">
     <div class="fixed z-30 h-full w-full overflow-hidden bg-black bg-opacity-50">
       <div class="flex h-full items-center justify-center">
-        <div class="m-100 mx-20 w-full max-w-lg rounded-xl bg-white">
+        <div class="w-full max-w-lg rounded-xl bg-white">
           <slot></slot>
         </div>
       </div>
