@@ -39,6 +39,9 @@ const props = defineProps({
 
 const emits = defineEmits(['load'])
 
+// component onActivated
+let active = true
+
 const main = ref(null)
 const aside = ref(null)
 const { height: windowHeight } = useWindowSize()
@@ -61,6 +64,9 @@ const asideStyle = computed(() => {
 })
 watch(asideHeight, () => {
   const diff = asideHeight.value - windowHeight.value
+  if (!active) {
+    return
+  }
   if (diff <= 0) {
     asidePosition.value = 'fixed'
     asideTop.value = 0
@@ -71,9 +77,8 @@ watch(asideHeight, () => {
 
 // 滾動事件是偵測最頂層 html
 let prevScrollTop = 0
-let lockOnScroll = false
 function onScroll() {
-  if (lockOnScroll) {
+  if (!active) {
     return
   }
 
@@ -119,9 +124,9 @@ onMounted(() => {
 // 切換時要 scroll 回原本位置
 onActivated(() => {
   window.scrollTo(0, prevScrollTop)
-  lockOnScroll = false
+  active = true
 })
 onDeactivated(() => {
-  lockOnScroll = true
+  active = false
 })
 </script>
