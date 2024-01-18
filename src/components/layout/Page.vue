@@ -1,11 +1,15 @@
 <template>
-  <div class="flex grow basis-full flex-row justify-start sm:basis-[600px] md:basis-[860px] xl:basis-[880px]">
-    <div class="w-full max-w-[540px] px-20 pb-60 sm:pb-0 md:mr-20 md:w-[540px] xl:mr-40">
+  <div class="flex grow basis-full flex-row justify-start sm:basis-[540px] md:basis-[860px] xl:basis-[880px]">
+    <div class="max-w-[540px] px-20 pb-60 sm:pb-0 md:mr-20 md:w-[540px] xl:mr-40">
       <main>
         <div
           v-if="$slots['main-top']"
-          class="fixed top-0 z-10 h-52 w-full max-w-[500px] overflow-hidden bg-white transition-transform md:w-[500px]"
-          :class="{ 'translate-y-[-100%]': !mainTopOpen }"
+          class="fixed top-0 z-10 h-52 max-w-[500px] overflow-hidden bg-white transition-transform"
+          :class="{
+            'w-[calc(100%-40px)]': isMobile,
+            'w-[calc(100%-60px-40px)]': !isMobile,
+            'translate-y-[-100%]': !mainTopOpen,
+          }"
         >
           <slot name="main-top"></slot>
         </div>
@@ -29,7 +33,9 @@
 
 <script setup>
 import { ref, computed, watch, onMounted, onActivated, onDeactivated } from 'vue'
+import { storeToRefs } from 'pinia'
 import { useEventListener, useInfiniteScroll, useWindowSize, useElementSize } from '@vueuse/core'
+import { useAppStore } from '@/store/app'
 
 const props = defineProps({
   mainTopToggleDisabled: { type: Boolean, default: false },
@@ -38,6 +44,12 @@ const props = defineProps({
 })
 
 const emits = defineEmits(['load'])
+
+const appStore = useAppStore()
+const { isMobile } = storeToRefs(appStore)
+
+// component onActivated
+let active = true
 
 const main = ref(null)
 const aside = ref(null)
@@ -61,6 +73,9 @@ const asideStyle = computed(() => {
 })
 watch(asideHeight, () => {
   const diff = asideHeight.value - windowHeight.value
+  if (!active) {
+    return
+  }
   if (diff <= 0) {
     asidePosition.value = 'fixed'
     asideTop.value = 0
@@ -71,9 +86,8 @@ watch(asideHeight, () => {
 
 // 滾動事件是偵測最頂層 html
 let prevScrollTop = 0
-let lockOnScroll = false
 function onScroll() {
-  if (lockOnScroll) {
+  if (!active) {
     return
   }
 
@@ -119,9 +133,9 @@ onMounted(() => {
 // 切換時要 scroll 回原本位置
 onActivated(() => {
   window.scrollTo(0, prevScrollTop)
-  lockOnScroll = false
+  active = true
 })
 onDeactivated(() => {
-  lockOnScroll = true
+  active = false
 })
 </script>

@@ -8,14 +8,12 @@ const MOBILE = 'mobile'
 
 export const useAppStore = defineStore('app', () => {
   // RWD 設定
-  const device = ref(null)
+  const device = ref(checkMobile() ? MOBILE : DESKTOP)
   const isDesktop = computed(() => device.value === DESKTOP)
   const isMobile = computed(() => device.value === MOBILE)
-  const checkDevice = () => {
+  useEventListener('resize', () => {
     device.value = checkMobile() ? MOBILE : DESKTOP
-  }
-  useEventListener('resize', checkDevice)
-  checkDevice()
+  })
 
   return {
     isDesktop,

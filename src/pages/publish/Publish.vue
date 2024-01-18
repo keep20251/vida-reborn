@@ -1,7 +1,5 @@
 <template>
-  <ClientOnly>
-    <Page> Hi </Page>
-  </ClientOnly>
+  <Page> Hi </Page>
 </template>
 
 <script setup></script>

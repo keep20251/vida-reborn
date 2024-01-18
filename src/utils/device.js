@@ -1,3 +1,11 @@
+import { useSSRContext } from 'vue'
+
+function getUserAgent() {
+  return import.meta.env.SSR
+    ? useSSRContext().req.get('user-agent')
+    : navigator.userAgent || navigator.vendor || window.opera
+}
+
 export function isMobile() {
   let check = false
 
@@ -12,7 +20,7 @@ export function isMobile() {
         )
       )
         check = true
-    })(navigator?.userAgent || navigator?.vendor || window?.opera)
+    })(getUserAgent())
     return check
   } catch (e) {
     return false
@@ -21,9 +29,7 @@ export function isMobile() {
 
 export function isIOS() {
   try {
-    return /iPhone|iPad|iPod/i.test(
-      navigator?.userAgent || navigator?.vendor || (window?.opera && window?.opera.toString() === `[object Opera]`),
-    )
+    return /iPhone|iPad|iPod/i.test(getUserAgent())
   } catch (e) {
     return false
   }
