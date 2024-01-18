@@ -1,6 +1,7 @@
 import { ref, shallowRef, readonly } from 'vue'
 import { v4 as uuidv4 } from 'uuid'
 import { useCookie } from '@use/utils/cookie'
+import { useLocaleReadonly } from '@use/utils/localeReadonly'
 import { COOKIE_KEY } from '@const'
 import API from '@/http'
 
@@ -100,12 +101,15 @@ function useRequest(
       reqParams.token = tokenCookie.value
     }
 
-    return API[moduleName][fnName](
-      { data: reqParams },
-      {
+    return API[moduleName][fnName]({
+      data: reqParams,
+      config: {
+        headers: {
+          'Accept-Language': useLocaleReadonly().value,
+        },
         signal: controller.signal,
       },
-    )
+    })
       .then((resData) => {
         if (isCanceled.value) return
         data.value = resData.data

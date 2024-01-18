@@ -27,7 +27,11 @@ export const LOCAL_STORAGE_KEYS = {
 export const MODAL_TYPE = {
   ALERT: 1,
   CONFIRM: 2,
+
   SOCIAL_LINK: 10,
+
+  INTERESTED_PICK: 20,
+
   TEST: 999,
 }
 
