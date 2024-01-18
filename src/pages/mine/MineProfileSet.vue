@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col gap-y-20">
     <SelfIntro
-      :items="userInfo"
+      :item="userInfo"
       :cameraIcon="true"
       :showBgData="false"
       :showSubscribePlan="false"
@@ -60,19 +60,17 @@ import { useModalStore } from '@/store/modal'
 import { MODAL_TYPE } from '@const'
 import SelfIntro from '@comp/main/SelfIntro.vue'
 
-const userInfo = ref([
-  {
-    avatar: defaultAvatar,
-    name: 'Angelababy',
-    username: 'angelababy',
-    subscriber: 1938,
-    posts: 134,
-    link: 'WenHsin.com',
-    viewed: 2532,
-    info: `🇩🇪/🇺🇸 - 19 years😇 check my link to get to know me &lt; 3, I'm convinced your massive dick will help me get to
+const userInfo = ref({
+  avatar: defaultAvatar,
+  name: 'Angelababy',
+  username: 'angelababy',
+  subscriber: 1938,
+  posts: 134,
+  link: 'WenHsin.com',
+  viewed: 2532,
+  info: `🇩🇪/🇺🇸 - 19 years😇 check my link to get to know me &lt; 3, I'm convinced your massive dick will help me get to
         the spread, daddy💦💦`,
-  },
-])
+})
 
 const testSocialLinks = [
   { icon: 'socialInstagram', url: 'https://www.instagram.com/abc123' },

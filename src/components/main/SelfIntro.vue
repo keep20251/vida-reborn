@@ -66,6 +66,16 @@ defineProps({
   showPersonalInfo: { type: Boolean, default: false },
   showAllInfo: { type: Boolean, default: true },
   cameraIcon: { type: Boolean, default: false },
-  items: { type: Array, require: false },
+  item: {
+    type: Object,
+    default: () => ({
+      subscriber: '',
+      posts: '',
+      name: '',
+      username: '',
+      link: '',
+      info: '',
+    }),
+  },
 })
 </script>
