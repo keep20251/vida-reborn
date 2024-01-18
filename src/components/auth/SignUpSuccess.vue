@@ -1,6 +1,6 @@
 <template>
   <div class="flex w-full flex-col justify-center gap-y-30 px-32 pb-16 pt-32 last:mb-16">
-    <div class="text-center">{{ $t('message.registerSuccess') }}</div>
+    <div class="text-center">{{ $t('info.registerSuccess') }}</div>
     <div class="px-64 text-center">
       <div>{{ $t('content.welcomeToVida') }}</div>
       <div>{{ $t('content.verifyAccount') }}</div>

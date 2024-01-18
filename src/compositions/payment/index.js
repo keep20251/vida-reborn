@@ -54,7 +54,7 @@ export function usePayment() {
       setTimeout(() => {
         window.close()
         close()
-        open($t('label.paymentFailed') + e)
+        open($t('message.payment.failed') + e)
       }, 1500)
     }
   }
@@ -75,7 +75,7 @@ export function usePayment() {
       if (tick >= timeout) {
         setTimeout(() => {
           close()
-          open($t('payment.failed'))
+          open($t('message.payment.failed'))
           trackEvent({ key: 48, ...gtmData })
         }, 1500)
         return
@@ -85,7 +85,7 @@ export function usePayment() {
 
       if (response.success || import.meta.env.DEV) {
         close()
-        open($t('payment.success'))
+        open($t('message.payment.success'))
         trackEvent({ key: 47, ...gtmData })
 
         if (callback) callback()
@@ -115,9 +115,8 @@ export function usePayment() {
         }, frequency)
       }
 
-      // TODO 丁滿說不會有付款失敗的可能，失敗邏輯先放著。鏡花水月情，玲瓏剔透心，看盡乾坤浮雲眾，輝映藍色水玲瓏，讓我們繼續看下去
       // case PAYMENT_STATUS.FAILED:
-      // open($t('payment.failed'))
+      // open($t('message.payment.failed'))
       // trackEvent({ key: 48, ...gtmData })
     } catch (e) {
       trackEvent({ key: 48, ...gtmData })
@@ -179,7 +178,7 @@ export function usePayment() {
   const cancel = () => {
     isContinue.value = false
     if (window) window.close()
-    open($t('payment.cancel'))
+    open($t('message.payment.cancel'))
   }
 
   return { pay, cancel }
