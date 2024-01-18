@@ -20,7 +20,7 @@ export const useHeadStore = defineStore('app-head', () => {
 
   const ogTitle = computed(() => title.value)
   const ogDescription = computed(() => description.value)
-  const ogUrl = ref(import.meta.env.VITE_APP_URL ?? 'https://fantasi.one')
+  const ogUrl = ref(import.meta.env.VITE_APP_URL ?? 'https://vida.pub')
   const ogType = 'website'
   const ogImage = ref(ogUrl.value + (import.meta.env.VITE_APP_OG_IMAGE ?? '/seo/og-image.jpg'))
 
@@ -28,7 +28,7 @@ export const useHeadStore = defineStore('app-head', () => {
   const twitterDescription = computed(() => description.value)
   const twitterImage = ref(ogUrl.value + (import.meta.env.VITE_APP_TWITTER_IMAGE ?? '/seo/twitter-image.jpg'))
 
-  const canonical = ref(import.meta.env.VITE_APP_URL + '/home' ?? 'https://fantasi.one/home')
+  const canonical = ref(import.meta.env.VITE_APP_URL + '/home' ?? 'https://vida.pub/home')
 
   const alternates = ref([
     ...locales.map((locale) => ({
@@ -53,7 +53,7 @@ export const useHeadStore = defineStore('app-head', () => {
       $t('meta.keywords.content'),
       $t('meta.keywords.title'),
     ]
-    ogUrl.value = import.meta.env.VITE_APP_URL ?? 'https://fantasi.one'
+    ogUrl.value = import.meta.env.VITE_APP_URL ?? 'https://vida.pub'
     ogImage.value = ogUrl.value + (import.meta.env.VITE_APP_OG_IMAGE ?? '/seo/og-image.jpg')
     twitterImage.value = ogUrl.value + (import.meta.env.VITE_APP_TWITTER_IMAGE ?? '/seo/twitter-image.jpg')
   }

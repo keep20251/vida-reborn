@@ -45,7 +45,7 @@
           <div class="text-sm font-normal leading-[0.75rem] text-gray66">{{ item.link }}</div>
           <div class="text-sm font-normal leading-[0.75rem] text-gray66">•</div>
           <div class="text-sm font-normal leading-[0.75rem] text-gray66">
-            {{ item.watches }} {{ $t('info.earnInfo.watches') }}
+            {{ item.watches }} {{ $t('info.watches') }}
           </div>
         </div>
         <p class="text-base font-normal leading-[1.125rem]">{{ item.info }}</p>

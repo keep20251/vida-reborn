@@ -126,7 +126,6 @@ import { useAccountStore } from '@/store/account'
 import { useAuthRouteStore } from '@/store/auth-route'
 import { AUTH_ROUTES } from '@/constant'
 import { computed, ref } from 'vue'
-import { useRouter } from 'vue-router'
 
 const accOpen = ref(false)
 const aboutOpen = ref(false)
@@ -140,8 +139,6 @@ const transOptions = locales.map((lang) => ({
 
 const { open: openAuthDialog } = useAuthRouteStore()
 const { logout } = useAccountStore()
-
-const { push } = useRouter()
 
 const isDev = computed(() => import.meta.env.DEV)
 </script>

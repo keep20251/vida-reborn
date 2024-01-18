@@ -110,13 +110,13 @@ const strengthText = computed(() => {
   const schema = [weakSchema, mediumSchema, strongSchema].filter((item) => item.value !== false)
   switch (schema.length) {
     case 3:
-      return 'strength.strong'
+      return 'info.strength.strong'
     case 2:
-      return 'strength.medium'
+      return 'info.strength.medium'
     case 1:
     case 0:
     default:
-      return 'strength.weak'
+      return 'info.strength.weak'
   }
 })
 

@@ -9,7 +9,7 @@
               v-model="verifyCode"
               :label="$t('label.mailCode')"
               :placeholder="$t('placeholder.mailCode')"
-              :append-text-btn="$t('append.resend')"
+              :append-text-btn="$t('label.resend')"
             ></InputWrap>
             <Button>{{ $t('label.login') }}</Button>
           </div>
