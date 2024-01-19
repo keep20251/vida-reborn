@@ -18,10 +18,10 @@
       </div>
       <div v-else-if="tab === 2">
         <div class="flex justify-between pt-20">
-          <div class="leading-md text-base font-bold">Popular Creator</div>
+          <div class="text-base font-bold leading-md">Popular Creator</div>
           <Icon name="filter" size="20" class="cursor-pointer"></Icon>
         </div>
-        <div class="leading-md pt-10 text-base font-normal">订阅某个账号，以查看其最新帖子</div>
+        <div class="pt-10 text-base font-normal leading-md">订阅某个账号，以查看其最新帖子</div>
         <div class="flex flex-col justify-center space-y-10 pt-30">
           <ViewSubscribeCard
             v-for="index in 3"
@@ -107,7 +107,6 @@ import { onActivated, onServerPrefetch, ref } from 'vue'
 import Tab from '@comp/navigation/Tab.vue'
 import List from '@comp/common/List.vue'
 import Feed from '@comp/main/Feed.vue'
-import Loading from '@comp/common/Loading.vue'
 import { useHeadStore } from '@/store/head'
 import InputWrap from '@comp/form/InputWrap.vue'
 import RecCard from '@comp/card/RecCard.vue'

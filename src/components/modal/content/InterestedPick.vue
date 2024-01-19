@@ -13,7 +13,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import OptionsPicker from '@comp/form/OptionsPicker.vue'
-import Loading from '@comp/common/Loading.vue'
 import useRequest from '@use/request'
 import { useConfirmData } from '@use/modal/confirm-data'
 
