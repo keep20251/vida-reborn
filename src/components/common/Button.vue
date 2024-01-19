@@ -1,6 +1,6 @@
 <template>
   <button
-    class="leading-md flex h-36 w-full items-center justify-center rounded-full px-45 py-10 text-base font-bold text-white"
+    class="flex h-36 w-full items-center justify-center rounded-full px-45 py-10 text-base font-bold leading-md text-white"
     :class="[bg]"
     :disabled="loading"
     @click="$emit('click')"
