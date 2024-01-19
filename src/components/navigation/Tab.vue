@@ -1,16 +1,38 @@
 <template>
-  <div class="flex h-full w-full flex-row">
-    <div
-      v-for="option in options"
-      class="flex grow cursor-pointer flex-col items-center justify-center hover:bg-gray05"
-      :key="option[optionValue]"
-      @click="onClick(option[optionValue])"
-    >
-      <div class="leading-md flex grow items-center text-base font-bold">{{ $t(option[optionLabel]) }}</div>
+  <div class="h-full">
+    <div v-if="!!isBasicTab" class="flex h-full w-full flex-row space-x-2">
       <div
-        class="h-3 w-full rounded-full"
-        :class="[option[optionValue] === modelValue ? 'bg-black' : 'bg-gray30']"
-      ></div>
+        v-for="option in options"
+        class="flex grow cursor-pointer flex-col items-center justify-center hover:bg-gray05"
+        :key="option[optionValue]"
+        @click="onClick(option[optionValue])"
+      >
+        <div
+          class="leading-md flex grow items-center text-base"
+          :class="[option[optionValue] === modelValue ? 'font-bold' : 'font-normal']"
+        >
+          {{ $t(option[optionLabel]) }}
+        </div>
+        <div
+          class="h-2 w-full rounded-full"
+          :class="[option[optionValue] === modelValue ? 'bg-black' : 'bg-gray30']"
+        ></div>
+      </div>
+    </div>
+    <div v-if="!!isBtnTab" class="flex space-x-5">
+      <div
+        v-for="option in options"
+        class="flex cursor-pointer items-center justify-center rounded-full bg-gray03 px-15 py-5 hover:bg-gray05"
+        :key="option[optionValue]"
+        @click="onClick(option[optionValue])"
+      >
+        <div
+          class="leading-md flex items-center text-base"
+          :class="[option[optionValue] === modelValue ? 'font-bold' : 'font-normal']"
+        >
+          {{ $t(option[optionLabel]) }}
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -21,6 +43,8 @@ defineProps({
   options: { type: Array, required: true },
   optionLabel: { type: String, default: 'label' },
   optionValue: { type: String, default: 'value' },
+  isBasicTab: { type: Boolean, default: true },
+  isBtnTab: { type: Boolean, default: false },
 })
 
 const emits = defineEmits(['update:modelValue'])
@@ -29,5 +53,3 @@ function onClick(v) {
   emits('update:modelValue', v)
 }
 </script>
-
-<style lang="scss" scoped></style>
