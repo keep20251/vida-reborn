@@ -52,16 +52,19 @@ VITE_BASE_URL=/
 ## Package.json 命令使用
 
 1. `npm run dev` 使用 `Vida SSR Server` 啟動開發環境
-2. `npm run build` 產生Production環境的SSR打包檔案，會去讀取.env.production的環境變數
-3. `npm run build:stag` 產生Stag環境的SSR打包檔案，會去讀取.env.staging的環境變數
-4. `npm run pord` 根據 `npm run build` 產生的網頁來預覽 `Production` 環境
-5. `npm run stag` 根據 `npm run build:stag` 產生的網頁來預覽 `Production` 環境
-6. `npm run format` 使用 `Prettier` 自動化排版 `/src` 下的檔案
-7. `npm run lint` 使用 `ESlint` 檢查專案內檔案是否有不符 `Elsint Vue Standard` 規範的程式碼
-8. `npm run parse` 可讀取一個絕對位置的`csv`檔案，會自動解析成 `src/i18n/locale/{countryCode}.js`
-9. `npm run parse:about` 可讀取一個絕對位置的`csv`檔案，會自動解析成 `public/about` 下的 `json` 檔案
-10. `npm run parse:select` 可讀取一個絕對位置的`csv`檔案，會自動解析成 `public/about/select` 下的 `json` 檔案
-11. `npm run pack` 執行打包 (SSR模式下可能用不到)
+2. `npm run dev:ssl` 同上，但是搭配 `https` 安全憑證，僅限 `Docker` 使用
+3. `npm run build` 產生`Production`環境的SSR打包檔案，會去讀取`.env.production`的環境變數
+4. `npm run build:stag` 產生`Stag`環境的`SSR`打包檔案，會去讀取`.env.staging`的環境變數
+5. `npm run pord` 根據 `npm run build` 產生的網頁來預覽 `Production` 環境
+6. `npm run pord:ssl` 同上，但是搭配 `https` 安全憑證，僅限 `Docker` 使用
+7. `npm run stag` 根據 `npm run build:stag` 產生的網頁來預覽 `Production` 環境
+8. `npm run stag:ssl` 同上，但是搭配 `https` 安全憑證，僅限 `Docker` 使用
+9. `npm run format` 使用 `Prettier` 自動化排版 `/src` 下的檔案
+10. `npm run lint` 使用 `ESlint` 檢查專案內檔案是否有不符 `Elsint Vue Standard` 規範的程式碼
+11. `npm run parse` 可讀取一個絕對位置的`csv`檔案，會自動解析成 `src/i18n/locale/{countryCode}.js`
+12. `npm run parse:about` 可讀取一個絕對位置的`csv`檔案，會自動解析成 `public/about` 下的 `json` 檔案
+13. `npm run parse:select` 可讀取一個絕對位置的`csv`檔案，會自動解析成 `public/about/select` 下的 `json` 檔案
+14. `npm run pack` 執行打包 (SSR模式下可能用不到)
 
 ## i18n 語系更新方式
 1. 開發時以自己的語系為主，例如簡體中文，則在 `src/i18n/locale/zh-cn.ts` 中編輯
