@@ -1,7 +1,11 @@
 <template>
   <Page>
     <template #default>
-      {{ content }}
+      <p class="mb-20">{{ content }}</p>
+      <div class="flex w-full justify-end">
+        <Tab v-model="tabBtn" :options="tabBtnOptions" isBtnTab :isBasicTab="false"></Tab>
+      </div>
+      <p>{{ tabBtnContent }}</p>
     </template>
     <template #main-top>
       <Tab v-model="tab" :options="tabOptions"></Tab>
@@ -21,4 +25,12 @@ const tabOptions = ref([
 ])
 
 const content = computed(() => `目前在 ${tabOptions.value.find((o) => o.value === tab.value).label}`)
+
+const tabBtn = ref(2)
+const tabBtnOptions = ref([
+  { label: 'Tab1', value: 1 },
+  { label: 'Tab2', value: 2 },
+  { label: 'Tab3', value: 3 },
+])
+const tabBtnContent = computed(() => `目前在 ${tabBtnOptions.value.find((o) => o.value === tabBtn.value).label}`)
 </script>
