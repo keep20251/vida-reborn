@@ -35,56 +35,58 @@
       <Tab v-model="tab" :options="tabOptions"></Tab>
     </template>
     <template #aside>
-      <div>
-        <BulletinCard class="mt-20"></BulletinCard>
-        <RecCard class="mt-30" :items="recCreators"></RecCard>
-        <Carousel class="mt-30" :items="cats" :intervalTime="true"></Carousel>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>home aside</div>
-        <div>最後一行home aside</div>
-      </div>
+      <ClientOnly>
+        <div>
+          <BulletinCard class="mt-20"></BulletinCard>
+          <RecCard class="mt-30" :items="recCreators"></RecCard>
+          <Carousel class="mt-30" :items="cats" :intervalTime="true"></Carousel>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>home aside</div>
+          <div>最後一行home aside</div>
+        </div>
+      </ClientOnly>
     </template>
     <template #aside-top>
       <div class="flex h-full items-center">
@@ -113,6 +115,7 @@ import BulletinCard from '@comp/card/BulletinCard.vue'
 import Carousel from '@comp/common/Carousel.vue'
 import defaultAvatar from '@/assets/images/avatar.jpeg'
 import ViewSubscribeCard from '@/components/card/ViewSubscribeCard.vue'
+import ClientOnly from '@/components/common/ClientOnly'
 
 const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
 

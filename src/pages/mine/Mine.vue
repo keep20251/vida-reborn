@@ -8,29 +8,35 @@
       </div>
     </template>
     <template #default>
-      <router-view></router-view>
+      <ClientOnly>
+        <router-view></router-view>
+      </ClientOnly>
     </template>
     <template #aside-top>
-      <div class="flex h-full items-center">
-        <InputWrap
-          class="grow"
-          v-model="inputValue"
-          :placeholder="'搜索...'"
-          appendIcon="search2"
-          @click:append="console.log('appendIcon')"
-        ></InputWrap>
-      </div>
+      <ClientOnly>
+        <div class="flex h-full items-center">
+          <InputWrap
+            class="grow"
+            v-model="inputValue"
+            :placeholder="'搜索...'"
+            appendIcon="search2"
+            @click:append="console.log('appendIcon')"
+          ></InputWrap>
+        </div>
+      </ClientOnly>
     </template>
     <template #aside>
-      <div class="m-15 grid space-y-20">
-        <SetList />
-        <div class="grid space-y-5">
-          <Carousel :items="cats" :intervalTime="true"></Carousel>
-          <p class="text-xs font-normal leading-3 text-gray-400">
-            Terms of Service Privacy Policy Cookie Policy Ad info About @ 2023 ViDA corp
-          </p>
+      <ClientOnly>
+        <div class="m-15 grid space-y-20">
+          <SetList />
+          <div class="grid space-y-5">
+            <Carousel :items="cats" :intervalTime="true"></Carousel>
+            <p class="text-xs font-normal leading-3 text-gray-400">
+              Terms of Service Privacy Policy Cookie Policy Ad info About @ 2023 ViDA corp
+            </p>
+          </div>
         </div>
-      </div>
+      </ClientOnly>
     </template>
   </Page>
 </template>
@@ -45,6 +51,7 @@ import { useI18n } from 'vue-i18n'
 import { useRoute, onBeforeRouteUpdate } from 'vue-router'
 import { MINE_TITLE } from '@/constant'
 import { onActivated, onServerPrefetch, ref, onBeforeMount } from 'vue'
+import ClientOnly from '@/components/common/ClientOnly'
 
 const inputValue = ref('')
 
@@ -80,7 +87,7 @@ function loadHead() {
 }
 
 const headerTitle = ref('title.mine')
-const excludeRoutes = ['mine-home', 'mine-profile-set']
+const excludeRoutes = ['mine-home', 'mine-profile-set', 'mine-profile-prvw']
 
 function updateTitle(routeName) {
   headerTitle.value = MINE_TITLE[routeName]

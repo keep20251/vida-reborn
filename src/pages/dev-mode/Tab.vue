@@ -1,11 +1,13 @@
 <template>
   <Page>
     <template #default>
-      <p class="mb-20">{{ content }}</p>
-      <div class="flex w-full justify-end">
-        <Tab v-model="tabBtn" :options="tabBtnOptions" isBtnTab :isBasicTab="false"></Tab>
+      <div>
+        <p class="mb-20">{{ content }}</p>
+        <div class="flex w-full justify-end">
+          <Tab v-model="tabBtn" :options="tabBtnOptions" isBtnTab :isBasicTab="false"></Tab>
+        </div>
+        <p>{{ tabBtnContent }}</p>
       </div>
-      <p>{{ tabBtnContent }}</p>
     </template>
     <template #main-top>
       <Tab v-model="tab" :options="tabOptions"></Tab>

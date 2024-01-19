@@ -27,11 +27,13 @@
       </div>
     </template>
     <template #aside>
-      <div>
-        <RelCreatorsCard :items="creators"></RelCreatorsCard>
-        <BulletinCard class="mt-20"></BulletinCard>
-        <Carousel class="mt-30" :items="cats" :intervalTime="true"></Carousel>
-      </div>
+      <ClientOnly>
+        <div>
+          <RelCreatorsCard :items="creators"></RelCreatorsCard>
+          <BulletinCard class="mt-20"></BulletinCard>
+          <Carousel class="mt-30" :items="cats" :intervalTime="true"></Carousel>
+        </div>
+      </ClientOnly>
     </template>
   </Page>
 </template>
@@ -46,6 +48,7 @@ import BulletinCard from '@comp/card/BulletinCard.vue'
 import Carousel from '@comp/common/Carousel.vue'
 import RelCreatorsCard from '@comp/card/RelCreatorsCard.vue'
 import defaultAvatar from '@/assets/images/avatar.jpeg'
+import ClientOnly from '@/components/common/ClientOnly'
 
 const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
 const inputValue = ref('')

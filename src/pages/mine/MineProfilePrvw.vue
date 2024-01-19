@@ -1,5 +1,4 @@
 <template>
-  <div>123</div>
   <SelfIntro
     :item="userInfo"
     :cameraIcon="false"
