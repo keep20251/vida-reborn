@@ -14,6 +14,7 @@
         :label="$t('label.email')"
         :placeholder="$t('placeholder.email')"
         label-center
+        @update:modelValue="() => (error = '')"
       ></InputWrap>
       <Button :loading="isLoading" @click="next">{{ $t('common.next') }}</Button>
     </div>
@@ -57,6 +58,7 @@ import { useAccountStore } from '@/store/account'
 import { storeToRefs } from 'pinia'
 import { useEmailLoginStore } from '@/store/email-login'
 import { useYup } from '@use/validator/yup.js'
+import { useMultiAuth } from '@/compositions/request/multi-auth'
 
 const { twitterLogin, googleLogin, onAppleSignIn, redirect_uri } = useThirdPartyAuth()
 const { to, close } = useAuthRouteStore()
@@ -66,8 +68,8 @@ const { Yup, parseError } = useYup()
 const schema = Yup.string().email().required()
 
 const emailLoginStore = useEmailLoginStore()
-const { sendEmailCode } = emailLoginStore
 const { email } = storeToRefs(emailLoginStore)
+const { sendEmailCode } = useMultiAuth()
 
 const error = ref('')
 const isLoading = ref(false)
@@ -76,7 +78,7 @@ async function next() {
   try {
     isLoading.value = true
     await schema.validate(email.value)
-    const response = await sendEmailCode()
+    const response = await sendEmailCode({ email: email.value })
     console.log('sendEmailCode.response', response)
     to(AUTH_ROUTES.VERIFY_EMAIL_CODE)
   } catch (e) {
@@ -99,9 +101,9 @@ async function onAppleLoginSuccess(event) {
       redirect_uri,
       apple_code: code,
     },
-    onSuccess: (responseData) => {
+    onSuccess: async (responseData) => {
       console.log('ThirdParty.webLoginByApple.response', responseData)
-      setToken(responseData.token)
+      await setToken(responseData.token)
     },
     onError: (err) => {
       console.error(err)

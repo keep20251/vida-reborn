@@ -24,7 +24,7 @@ export default async (to, from, next) => {
     await twitterLogin()
     if (twitterResRef.value?.data?.token) {
       alert(`Twitter 登入成功: ${twitterResRef.value.data.token}`)
-      setToken(twitterResRef.value.data.token)
+      await setToken(twitterResRef.value.data.token)
     }
     return next({ name: 'home', query: {} })
   }
@@ -41,7 +41,7 @@ export default async (to, from, next) => {
 
     if (googleResRef.value?.data?.token) {
       alert(`Google 登入成功: ${googleResRef.value.data.token}`)
-      setToken(googleResRef.value.data.token)
+      await setToken(googleResRef.value.data.token)
     }
     return next({ name: 'home', query: {} })
   }

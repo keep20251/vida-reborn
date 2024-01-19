@@ -82,7 +82,7 @@ async function validaite() {
 }
 
 const accountStore = useAccountStore()
-const { setToken, login: $login } = accountStore
+const { setToken } = accountStore
 
 async function login() {
   const { data, execute } = useRequest('Account.loginByPassword', {})
@@ -91,23 +91,11 @@ async function login() {
       account: credential.account.value,
       password: credential.password.value,
     })
-    setToken(data.value.token)
-
-    await getUserInfo()
+    await setToken(data.value.token)
   } catch (e) {
     console.error(e)
   } finally {
     isLoading.value = false
-  }
-}
-
-async function getUserInfo() {
-  const { data, execute } = useRequest('User.info', {})
-  try {
-    await execute()
-    $login(data.value)
-  } catch (e) {
-    console.error(e)
   }
 }
 </script>
