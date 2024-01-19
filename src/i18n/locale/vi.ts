@@ -42,7 +42,7 @@ export default {
     setting: "Cài Đặt Tài Khoản",
     usnMail: "Tên đăng nhập hoặc Email",
     password: "Mật khẩu",
-    prefer: "Ưu tiên",
+    prefer: "Chủ đề Ưa thích",
     blockAcc: "Khóa tài khoản",
     delAcc: "Xóa tài khoản",
     language: "Ngôn ngữ",
@@ -67,6 +67,7 @@ export default {
     username: "Tên người dùng",
     description: "Mô tả",
     edit: "Chỉnh sửa",
+    submit: "Nộp",
   },
   placeholder: {
     account: "Vui lòng nhập tên người dùng",
@@ -114,9 +115,10 @@ export default {
     welcomeToVida: "Chào mừng bạn đến với Vida, hãy gia nhập chúng tôi!",
     verifyAccount:
       "Hãy nhanh chóng xác minh hộp thư của bạn! Đi đến 【Tài khoản của tôi>Cài đặt tài khoản】 để hoàn thành xác minh",
-    termsDeclaration: "",
-    tos: "",
-    pp: "",
+    termsDeclaration:
+      "Bằng cách tiếp tục, bạn xác nhận rằng bạn đã đủ 18 tuổi trở lên và đồng ý với {tos} của Vida, và đã đọc {pp} của VIDA.",
+    tos: "Điều khoản Dịch vụ",
+    pp: "Chính sách Bảo mật",
   },
   month: {
     Jan: "Tháng Một",
@@ -138,7 +140,11 @@ export default {
       description:
         "Vida là nền tảng chia sẻ video ngắn dành cho người lớn hàng đầu. Tại đây, bạn không chỉ có thể xem video chất lượng cao từ các nhà sáng tạo mà còn có thể tương tác riêng tư với họ.",
     },
-    search: { title: "Trang Tìm kiếm {pipe} Khám phá Video Ngắn Người lớn Tốt nhất - Vida", description: "" },
+    search: {
+      title: "Trang Tìm kiếm {pipe} Khám phá Video Ngắn Người lớn Tốt nhất - Vida",
+      description:
+        "Trên trang tìm kiếm của Vida, bạn có thể tìm thấy video ngắn dành cho người trưởng thành, nội dung mạng màu vàng, diễn viên dâm đãng, khám phá sở thích của bạn và khám phá loạt phim người lớn đa dạng.",
+    },
     searchResult: {
       title: "Kết quả tìm kiếm {pipe} {keyword} - Vida",
       description: "Kết quả tìm kiếm {keyword}. Khám phá và khám phá phim người lớn chất lượng cao trên Vida",

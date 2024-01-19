@@ -42,7 +42,7 @@ export default {
     setting: "账户设置",
     usnMail: "用户名或电子邮件",
     password: "密码",
-    prefer: "偏好",
+    prefer: "感兴趣的主题",
     blockAcc: "封锁帐号",
     delAcc: "删除帐号",
     language: "语言",
@@ -67,6 +67,7 @@ export default {
     username: "用户名",
     description: "个人简介",
     edit: "编辑",
+    submit: "提交",
   },
   placeholder: {
     account: "请输入用户名",
@@ -107,9 +108,9 @@ export default {
   content: {
     welcomeToVida: "欢迎加入Vida，成为我们的一员！",
     verifyAccount: "赶紧去认证邮箱吧！至【我的>账户设置】即可完成认证",
-    termsDeclaration: "",
-    tos: "",
-    pp: "",
+    termsDeclaration: "继续操作，即表示您确认您已年满18岁，并同意Vida的{tos}，并已阅读VIDA的{pp}。",
+    tos: "服务条款",
+    pp: "隐私政策",
   },
   month: {
     Jan: "一月",
@@ -130,7 +131,10 @@ export default {
       title: "Vida {pipe} 高质感成人短视频平台",
       description: "Vida是领先的成人短视频分享平台。在此，您不仅可以观看高质量的创作者影片，还可以与他们私密互动。",
     },
-    search: { title: "搜索页 {pipe} 发掘最佳成人短视频 - Vida", description: "" },
+    search: {
+      title: "搜索页 {pipe} 发掘最佳成人短视频 - Vida",
+      description: "在Vida搜索页面，您可以找到成人短视频、网黄内容、情色演员，发现您的偏好，并探索丰富多彩的成人影片。",
+    },
     searchResult: {
       title: "搜索结果 {pipe} {keyword} - Vida",
       description: "{keyword}的搜索结果。在Vida发现和探索高质感的成人影片",

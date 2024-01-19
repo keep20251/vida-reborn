@@ -43,6 +43,8 @@ export const iconMap = {
   likeOutline: 'interaction/like-outline',
   like: 'interaction/like',
   sharePost: 'interaction/share-post',
+  checkActive: 'interaction/check-active',
+  check: 'interaction/check',
 
   apple: 'login/apple',
   facebook: 'login/facebook',

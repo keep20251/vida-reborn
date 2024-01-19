@@ -42,7 +42,7 @@ export default {
     setting: "Account Settings",
     usnMail: "Username or Email",
     password: "Password",
-    prefer: "Preference",
+    prefer: "Preferred Topics",
     blockAcc: "Block Account",
     delAcc: "Delete Account",
     language: "Language",
@@ -67,6 +67,7 @@ export default {
     username: "Username",
     description: "Description",
     edit: "Edit",
+    submit: "Submit",
   },
   placeholder: {
     account: "Please enter username",
@@ -111,9 +112,10 @@ export default {
   content: {
     welcomeToVida: "Welcome to Vida, join us!",
     verifyAccount: "Hurry to verify your mailbox! Go to 【My>Account Settings】 to complete the verification",
-    termsDeclaration: "",
-    tos: "",
-    pp: "",
+    termsDeclaration:
+      "By continuing, you confirm that you are 18 years old or older, and agree to Vida's {tos}, and have read VIDA's {pp}.",
+    tos: "Terms of Service",
+    pp: "Privacy Policy",
   },
   month: {
     Jan: "January",
@@ -135,7 +137,11 @@ export default {
       description:
         "Vida is the leading adult short video sharing platform. Here, you can not only watch high-quality creator videos but also interact privately with them.",
     },
-    search: { title: "Search Page {pipe} Discover Best Adult Short Videos - Vida", description: "" },
+    search: {
+      title: "Search Page {pipe} Discover Best Adult Short Videos - Vida",
+      description:
+        "On the Vida search page, you can find adult short videos, web yellow content, erotic actors, discover your preferences, and explore a diverse range of adult films.",
+    },
     searchResult: {
       title: "Search Results {pipe} {keyword} - Vida",
       description: "{keyword} search results. Discover and explore high-quality adult films on Vida",

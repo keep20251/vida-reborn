@@ -1,6 +1,6 @@
 <template>
   <div class="relative hidden md:block">
-    <div class="mb-20 text-lg font-bold leading-[1.125rem]">{{ label }}</div>
+    <div class="leading-lg mb-20 text-lg font-bold">{{ label }}</div>
     <div
       class="h-[400px] w-full rounded-md bg-cover bg-center bg-no-repeat p-10"
       :style="{ backgroundImage: `url(${props.items[activeSlide].img})` }"

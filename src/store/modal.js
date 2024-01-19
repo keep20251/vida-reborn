@@ -11,6 +11,8 @@ export const useModalStore = defineStore('modal', () => {
   const confirmText = ref(null)
   const cancelAction = ref(null)
   const cancelText = ref(null)
+  const otherAction = ref(null)
+  const otherText = ref(null)
   const showClose = ref(false)
 
   const confirmData = ref(null)
@@ -29,9 +31,22 @@ export const useModalStore = defineStore('modal', () => {
     confirmText,
     cancelAction = () => {},
     cancelText,
+    otherAction = () => {},
+    otherText,
     showClose = false,
   } = {}) {
-    open(MODAL_TYPE.CONFIRM, { size, title, content, confirmAction, confirmText, cancelAction, cancelText, showClose })
+    open(MODAL_TYPE.CONFIRM, {
+      size,
+      title,
+      content,
+      confirmAction,
+      confirmText,
+      cancelAction,
+      cancelText,
+      otherAction,
+      otherText,
+      showClose,
+    })
   }
 
   function open(t, options) {
@@ -43,6 +58,8 @@ export const useModalStore = defineStore('modal', () => {
     confirmText.value = options.confirmText
     cancelAction.value = options.cancelAction
     cancelText.value = options.cancelText
+    otherAction.value = options.otherAction
+    otherText.value = options.otherText
     showClose.value = options.showClose
   }
 
@@ -55,6 +72,8 @@ export const useModalStore = defineStore('modal', () => {
     confirmText.value = null
     cancelAction.value = null
     cancelText.value = null
+    otherAction.value = null
+    otherText.value = null
     confirmData.value = null
     showClose.value = false
   }
@@ -72,6 +91,8 @@ export const useModalStore = defineStore('modal', () => {
     confirmText,
     cancelAction,
     cancelText,
+    otherAction,
+    otherText,
     confirmData,
 
     isOpen,

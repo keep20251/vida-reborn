@@ -48,16 +48,16 @@
             <div
               v-for="(tag, index) in props.item.tags"
               :key="`tag-${index}`"
-              class="text-base leading-[1.125rem] text-primary"
+              class="leading-lg text-base text-primary"
             >
               #{{ tag }}
             </div>
           </div>
-          <div class="text-base leading-[1.125rem]">
+          <div class="leading-lg text-base">
             {{ props.item.content }}
           </div>
         </div>
-        <div class="text-base leading-[1.125rem] text-gray66">more</div>
+        <div class="leading-lg text-base text-gray66">more</div>
       </div>
     </div>
   </div>

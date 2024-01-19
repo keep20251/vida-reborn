@@ -4,12 +4,12 @@
       {{ $t('info.passwordValidate.title') }}
     </div>
     <div class="flex space-x-6 align-middle text-base font-medium">
-      <Icon :name="firstSchema ? 'like' : 'likeOutline'"></Icon>
-      <span>{{ $t('info.passwordValidate.min') }}</span>
+      <Icon :name="firstSchema ? 'checkActive' : 'check'"></Icon>
+      <span class="text-gray66">{{ $t('info.passwordValidate.min') }}</span>
     </div>
     <div class="flex space-x-6 align-middle text-base font-medium">
-      <Icon :name="secondSchema ? 'like' : 'likeOutline'"></Icon>
-      <span>{{ $t('info.passwordValidate.schema') }}</span>
+      <Icon :name="secondSchema ? 'checkActive' : 'check'"></Icon>
+      <span class="text-gray66">{{ $t('info.passwordValidate.schema') }}</span>
     </div>
   </div>
 </template>

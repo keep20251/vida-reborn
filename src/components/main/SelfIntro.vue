@@ -34,7 +34,7 @@
     <div v-if="showAllInfo" class="grid space-y-10 pt-30">
       <div class="flex items-end justify-between">
         <div class="flex items-end space-x-5">
-          <div class="text-lg font-bold leading-[1.125rem]">{{ item.name }}</div>
+          <div class="leading-lg text-lg font-bold">{{ item.name }}</div>
           <div class="text-sm font-normal leading-3 text-gray66">＠{{ item.username }}</div>
         </div>
         <slot name="middleButton"></slot>
@@ -46,7 +46,7 @@
           <div class="text-sm font-normal leading-3 text-gray66">•</div>
           <div class="text-sm font-normal leading-3 text-gray66">{{ item.watches }} {{ $t('info.watches') }}</div>
         </div>
-        <p class="text-base font-normal leading-[1.125rem]">{{ item.info }}</p>
+        <p class="leading-lg text-base font-normal">{{ item.info }}</p>
       </div>
     </div>
     <div v-if="$slots['bottomButton']" class="my-20 flex space-x-10">

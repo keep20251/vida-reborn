@@ -42,7 +42,7 @@ export default {
     setting: "帳戶設置",
     usnMail: "用戶名或電子郵件",
     password: "密碼",
-    prefer: "偏好",
+    prefer: "感興趣的主題",
     blockAcc: "封鎖帳號",
     delAcc: "刪除帳號",
     language: "語言",
@@ -67,6 +67,7 @@ export default {
     username: "用戶名",
     description: "個人簡介",
     edit: "編輯",
+    submit: "提交",
   },
   placeholder: {
     account: "請輸入用戶名",
@@ -107,7 +108,7 @@ export default {
   content: {
     welcomeToVida: "歡迎你加入Vida成為我們的一員！",
     verifyAccount: "趕緊去認證信箱吧！至【我的>帳戶設置】即可完成認證",
-    termsDeclaration: "繼續操作，即表示您確認您已年滿18歲，並同意Vida的{tos}，且已閱讀VIDA的{pp}",
+    termsDeclaration: "繼續操作，即表示您確認您已年滿18歲，並同意Vida的{tos}，並已閱讀VIDA的{pp}。",
     tos: "服務條款",
     pp: "隱私權政策",
   },
@@ -132,7 +133,7 @@ export default {
     },
     search: {
       title: "搜索頁 {pipe} 發掘最佳成人短視頻 - Vida",
-      description: "在Vida搜索頁面，可以尋找成人短視頻、網黃、情色演員，找到您的喜好並探索豐富多彩的成人影片",
+      description: "在Vida搜索頁面，可以尋找成人短視頻、網黃、情色演員，找到您的喜好並探索豐富多彩的成人影片。",
     },
     searchResult: {
       title: "搜索結果 {pipe} {keyword} - Vida",

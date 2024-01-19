@@ -5,21 +5,24 @@
         <div v-if="showClose" class="absolute right-20 top-20 cursor-pointer" @click="close">
           <Icon name="close" size="20"></Icon>
         </div>
-        <div class="mb-20 text-center font-bold leading-[1.125rem]" :class="[titleFontSize]">{{ title }}</div>
+        <div class="leading-lg mb-20 text-center font-bold" :class="[titleFontSize]">{{ title }}</div>
         <div class="mb-20">
           <keep-alive :max="5">
             <component :is="component"></component>
           </keep-alive>
         </div>
         <div class="flex space-x-8">
-          <Button v-if="cancelAction" @click="cancel" cancel :disabled="confirming">{{
-            cancelText || $t('common.cancel')
-          }}</Button>
-          <Button v-if="confirmAction" @click="checkCustomContentData" :loading="confirming">{{
-            confirmText || $t('common.confirm')
-          }}</Button>
+          <Button v-if="cancelAction" @click="tryExecute(cancelAction)" cancel :disabled="confirming">
+            {{ cancelText || $t('common.cancel') }}
+          </Button>
+          <Button v-if="otherAction" @click="tryExecute(otherAction)" contrast :disabled="confirming">
+            {{ otherText || $t('common.getAround') }}
+          </Button>
+          <Button v-if="confirmAction" @click="checkCustomContentData" :loading="confirming">
+            {{ confirmText || $t('common.confirm') }}
+          </Button>
         </div>
-        <div v-if="confirmFailMsg" class="text-center text-base font-bold leading-[1.125rem] text-warning">
+        <div v-if="confirmFailMsg" class="leading-lg text-center text-base font-bold text-warning">
           {{ confirmFailMsg }}
         </div>
       </div>
@@ -36,8 +39,19 @@ import contentComponent from './content'
 import { MODAL_TYPE } from '@const'
 
 const modalStore = useModalStore()
-const { isOpen, type, size, title, confirmAction, confirmText, cancelAction, cancelText, showClose } =
-  storeToRefs(modalStore)
+const {
+  isOpen,
+  type,
+  size,
+  title,
+  confirmAction,
+  confirmText,
+  cancelAction,
+  cancelText,
+  otherAction,
+  otherText,
+  showClose,
+} = storeToRefs(modalStore)
 const { close, setConfirmData } = modalStore
 
 const large = ['lg', 'xl']
@@ -106,11 +120,10 @@ async function confirm(data) {
   close()
 }
 
-function cancel() {
-  const fn = cancelAction?.value
+function tryExecute(fn) {
   if (fn) {
-    const cancelResult = fn()
-    if (typeof cancelResult === 'boolean' && !cancelResult) {
+    const result = fn()
+    if (typeof result === 'boolean' && !result) {
       return
     }
   }

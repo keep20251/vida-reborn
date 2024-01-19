@@ -1,5 +1,5 @@
 <template>
-  <div class="pb-20 text-lg font-bold leading-[1.125rem]">相关创作者</div>
+  <div class="leading-lg pb-20 text-lg font-bold">相关创作者</div>
   <div class="grid space-y-10">
     <div
       v-for="(item, index) in items"
@@ -10,7 +10,7 @@
         <div class="flex">
           <Avatar class="mr-10" :radius="50" :src="item.creator_avatar"></Avatar>
           <div class="flex flex-col space-y-4">
-            <div class="text-lg font-bold leading-[1.125rem]">{{ item.creator_name }}</div>
+            <div class="leading-lg text-lg font-bold">{{ item.creator_name }}</div>
             <div class="text-sm font-normal leading-3 text-gray66">＠{{ item.creator_username }}</div>
             <div class="flex">
               <div class="text-sm font-normal leading-3 text-gray66">帖子{{ item.posts }}</div>
@@ -23,12 +23,12 @@
           <Button class="!h-24 !px-18 !py-6 !text-sm !leading-3">查看</Button>
         </div>
       </div>
-      <p class="max-w-fit overflow-hidden text-ellipsis whitespace-nowrap text-base font-normal leading-[1.125rem]">
+      <p class="leading-lg max-w-fit overflow-hidden text-ellipsis whitespace-nowrap text-base font-normal">
         {{ item.creator_info }}
       </p>
     </div>
   </div>
-  <div class="leading-md mt-10 flex cursor-pointer items-center justify-center space-x-5 text-base font-bold">
+  <div class="mt-10 flex cursor-pointer items-center justify-center space-x-5 text-base font-bold leading-md">
     <div>显示更多创作者</div>
     <Icon name="drop" size="12"></Icon>
   </div>

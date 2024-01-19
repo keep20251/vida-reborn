@@ -42,7 +42,7 @@ export default {
     setting: "アカウント設定",
     usnMail: "ユーザー名またはメール",
     password: "パスワード",
-    prefer: "好み",
+    prefer: "好みのトピック",
     blockAcc: "アカウントをブロック",
     delAcc: "アカウントを削除",
     language: "言語",
@@ -67,6 +67,7 @@ export default {
     username: "ユーザー名",
     description: "説明",
     edit: "編集",
+    submit: "提出する",
   },
   placeholder: {
     account: "ユーザー名を入力してください",
@@ -114,9 +115,10 @@ export default {
     welcomeToVida: "Vidaへようこそ、私たちと一緒に！",
     verifyAccount:
       "急いでメールボックスを確認してください！【マイアカウント>アカウント設定】に移動して認証を完了してください",
-    termsDeclaration: "",
-    tos: "",
-    pp: "",
+    termsDeclaration:
+      "続行することにより、18歳以上であることを確認し、Vidaの{tos}に同意し、VIDAの{pp}を読んだことを確認します。",
+    tos: "サービス利用規約",
+    pp: "プライバシーポリシー",
   },
   month: {
     Jan: "1月",
@@ -138,7 +140,11 @@ export default {
       description:
         "Vidaは大人向けの短編ビデオ共有プラットフォームのリーダーです。ここでは、高品質なクリエイターのビデオを視聴するだけでなく、彼らとプライベートに交流することもできます。",
     },
-    search: { title: "検索ページ {pipe} 最高のアダルトショートビデオを発見 - Vida", description: "" },
+    search: {
+      title: "検索ページ {pipe} 最高のアダルトショートビデオを発見 - Vida",
+      description:
+        "Vidaの検索ページでは、アダルトショートビデオ、ウェブイエローコンテンツ、エロティックな俳優を見つけ、あなたの好みを発見し、多様なアダルト映画を探索できます。",
+    },
     searchResult: {
       title: "検索結果 {pipe} {keyword} - Vida",
       description: "{keyword}の検索結果。Vidaで高品質のアダルト映画を発見して探索しよう",

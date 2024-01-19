@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col space-y-32">
+  <div class="flex flex-col space-y-32 px-20">
     <div class="relative text-center">
       <div v-if="props.showBack" class="absolute left-0 top-0">
         <button @click="emits('back')">
@@ -13,7 +13,9 @@
       </div>
       <div class="text-lg font-bold leading-5">{{ props.title }}</div>
     </div>
-    <slot></slot>
+    <div class="px-30">
+      <slot></slot>
+    </div>
   </div>
 </template>
 <script setup>

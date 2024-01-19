@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-[36rem] flex w-full flex-col justify-center px-32 pb-16 pt-32">
+  <div class="flex w-full flex-col justify-center pb-16 pt-32">
     <DialogHeader :title="$t('title.mailCodeLogin')" @back="back" @close="close">
       <template #default>
         <div class="flex flex-col space-y-32">
@@ -17,7 +17,7 @@
             <Button>{{ $t('label.login') }}</Button>
           </div>
           <div class="text-center">
-            <button class="leading-md text-base font-normal" @click="to(AUTH_ROUTES.VERIFY_PASSWORD)">
+            <button class="text-base font-normal leading-md" @click="to(AUTH_ROUTES.VERIFY_PASSWORD)">
               {{ $t('info.loginByPwd') }}
             </button>
           </div>
