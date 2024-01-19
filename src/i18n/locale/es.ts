@@ -42,7 +42,7 @@ export default {
     setting: "Configuración de la Cuenta",
     usnMail: "Nombre de usuario o correo",
     password: "Contraseña",
-    prefer: "Preferencia",
+    prefer: "Temas Preferidos",
     blockAcc: "Bloquear cuenta",
     delAcc: "Eliminar cuenta",
     language: "Idioma",
@@ -67,6 +67,7 @@ export default {
     username: "Nombre de usuario",
     description: "Descripción",
     edit: "Editar",
+    submit: "Entregar",
   },
   placeholder: {
     account: "Por favor, ingrese nombre de usuario",
@@ -112,9 +113,10 @@ export default {
     welcomeToVida: "¡Bienvenido a Vida, únete a nosotros!",
     verifyAccount:
       "¡Apresúrate a verificar tu buzón! Ve a 【Mi cuenta>Configuración de la cuenta】 para completar la verificación",
-    termsDeclaration: "",
-    tos: "",
-    pp: "",
+    termsDeclaration:
+      "Al continuar, usted confirma que tiene 18 años o más, y acepta los {tos} de Vida, y ha leído la {pp} de VIDA.",
+    tos: "Términos de servicio",
+    pp: "Política de privacidad",
   },
   month: {
     Jan: "Enero",
@@ -138,7 +140,8 @@ export default {
     },
     search: {
       title: "Página de Búsqueda {pipe} Descubre los Mejores Vídeos Cortos para Adultos - Vida",
-      description: "Error: Unable to translate",
+      description:
+        "En la página de búsqueda de Vida, puedes encontrar videos cortos para adultos, contenido amarillo en la web, actores eróticos, descubrir tus preferencias y explorar una amplia variedad de películas para adultos.",
     },
     searchResult: {
       title: "Resultados de la Búsqueda {pipe} {keyword} - Vida",

@@ -42,7 +42,7 @@ export default {
     setting: "Kontoeinstellungen",
     usnMail: "Benutzername oder E-Mail",
     password: "Passwort",
-    prefer: "Bevorzugung",
+    prefer: "Bevorzugte Themen",
     blockAcc: "Konto sperren",
     delAcc: "Konto löschen",
     language: "Sprache",
@@ -67,6 +67,7 @@ export default {
     username: "Benutzername",
     description: "Beschreibung",
     edit: "Bearbeiten",
+    submit: "Einreichen",
   },
   placeholder: {
     account: "Bitte Benutzername eingeben",
@@ -114,9 +115,10 @@ export default {
     welcomeToVida: "Willkommen bei Vida, treten Sie uns bei!",
     verifyAccount:
       "Überprüfen Sie schnell Ihren Posteingang! Gehen Sie zu 【Mein Konto>Kontoeinstellungen】 um die Verifizierung abzuschließen",
-    termsDeclaration: "",
-    tos: "",
-    pp: "",
+    termsDeclaration:
+      "Durch die Fortsetzung bestätigen Sie, dass Sie 18 Jahre oder älter sind, und stimmen den {tos} von Vida zu, und haben die {pp} von VIDA gelesen.",
+    tos: "Nutzungsbedingungen",
+    pp: "Datenschutzrichtlinien",
   },
   month: {
     Jan: "Januar",
@@ -138,7 +140,11 @@ export default {
       description:
         "Vida ist die führende Plattform für das Teilen von Kurzvideos für Erwachsene. Hier können Sie nicht nur hochwertige Videos von Schöpfern ansehen, sondern auch privat mit ihnen interagieren.",
     },
-    search: { title: "Suchseite {pipe} Entdecken Sie die besten kurzen Erwachsenenvideos - Vida", description: "" },
+    search: {
+      title: "Suchseite {pipe} Entdecken Sie die besten kurzen Erwachsenenvideos - Vida",
+      description:
+        "Auf der Vida-Suchseite finden Sie kurze Erwachsenenvideos, gelben Webinhalt, erotische Schauspieler, entdecken Sie Ihre Vorlieben und erkunden Sie eine vielfältige Auswahl an Erwachsenenfilmen.",
+    },
     searchResult: {
       title: "Suchergebnisse {pipe} {keyword} - Vida",
       description: "Suchergebnisse für {keyword}. Entdecken und erkunden Sie hochwertige Erwachsenenfilme auf Vida",

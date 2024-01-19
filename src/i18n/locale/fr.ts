@@ -42,7 +42,7 @@ export default {
     setting: "Paramètres du Compte",
     usnMail: "Nom d’utilisateur ou e-mail",
     password: "Mot de passe",
-    prefer: "Préférence",
+    prefer: "Sujets Préférés",
     blockAcc: "Bloquer le compte",
     delAcc: "Supprimer le compte",
     language: "Langue",
@@ -67,6 +67,7 @@ export default {
     username: "Nom d’utilisateur",
     description: "Description",
     edit: "Éditer",
+    submit: "Soumettre",
   },
   placeholder: {
     account: "Veuillez entrer le nom d’utilisateur",
@@ -112,9 +113,10 @@ export default {
     welcomeToVida: "Bienvenue chez Vida, rejoignez-nous !",
     verifyAccount:
       "Dépêchez-vous de vérifier votre boîte aux lettres ! Allez à 【Mon compte>Paramètres du compte】 pour compléter la vérification",
-    termsDeclaration: "",
-    tos: "",
-    pp: "",
+    termsDeclaration:
+      "En continuant, vous confirmez que vous avez 18 ans ou plus, et acceptez les {tos} de Vida, et avez lu la {pp} de VIDA.",
+    tos: "Conditions d'utilisation",
+    pp: "Politique de confidentialité",
   },
   month: {
     Jan: "Janvier",
@@ -138,7 +140,8 @@ export default {
     },
     search: {
       title: "Page de Recherche {pipe} Découvrez les Meilleures Vidéos Courtes pour Adultes - Vida",
-      description: "",
+      description:
+        "Sur la page de recherche de Vida, vous pouvez trouver des vidéos courtes pour adultes, du contenu jaune sur le web, des acteurs érotiques, découvrir vos préférences et explorer une gamme diversifiée de films pour adultes.",
     },
     searchResult: {
       title: "Résultats de Recherche {pipe} {keyword} - Vida",

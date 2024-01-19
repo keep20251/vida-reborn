@@ -42,7 +42,7 @@ export default {
     setting: "계정 설정",
     usnMail: "사용자 이름 또는 이메일",
     password: "비밀번호",
-    prefer: "선호",
+    prefer: "선호하는 주제",
     blockAcc: "계정 차단",
     delAcc: "계정 삭제",
     language: "언어",
@@ -67,6 +67,7 @@ export default {
     username: "사용자 이름",
     description: "설명",
     edit: "편집",
+    submit: "제출하다",
   },
   placeholder: {
     account: "사용자 이름을 입력하세요",
@@ -111,9 +112,10 @@ export default {
   content: {
     welcomeToVida: "Vida에 오신 것을 환영합니다, 함께해요!",
     verifyAccount: "메일함을 서둘러 인증하세요! 【내 계정>계정 설정】으로 이동하여 인증을 완료하세요",
-    termsDeclaration: "",
-    tos: "",
-    pp: "",
+    termsDeclaration:
+      "계속 진행하면 18세 이상임을 확인하며 Vida의 {tos}에 동의하고 VIDA의 {pp}를 읽었다는 것을 확인하는 것입니다.",
+    tos: "서비스 이용 약관",
+    pp: "개인 정보 보호 정책",
   },
   month: {
     Jan: "1월",
@@ -135,7 +137,11 @@ export default {
       description:
         "Vida는 성인용 짧은 비디오 공유 플랫폼의 선두 주자입니다. 여기에서는 고품질 창작자 비디오를 시청하는 것뿐만 아니라 그들과 개인적으로 상호 작용할 수 있습니다。",
     },
-    search: { title: "검색 페이지 {pipe} 최고의 성인용 짧은 비디오 발견 - Vida", description: "" },
+    search: {
+      title: "검색 페이지 {pipe} 최고의 성인용 짧은 비디오 발견 - Vida",
+      description:
+        "Vida 검색 페이지에서는 어른용 짧은 비디오, 웹 옐로우 콘텐츠, 에로틱 배우를 찾아 선호도를 발견하고 다양한 성인 영화를 탐색할 수 있습니다.",
+    },
     searchResult: {
       title: "검색 결과 {pipe} {keyword} - Vida",
       description: "{keyword} 검색 결과. Vida에서 고품질의 성인 영화를 발견하고 탐험하세요",

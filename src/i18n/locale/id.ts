@@ -42,7 +42,7 @@ export default {
     setting: "Pengaturan Akun",
     usnMail: "Nama pengguna atau email",
     password: "Kata sandi",
-    prefer: "Preferensi",
+    prefer: "Topik Pilihan",
     blockAcc: "Memblokir akun",
     delAcc: "Menghapus akun",
     language: "Bahasa",
@@ -67,6 +67,7 @@ export default {
     username: "Nama pengguna",
     description: "Deskripsi",
     edit: "Edit",
+    submit: "Kirim",
   },
   placeholder: {
     account: "Silakan masukkan nama pengguna",
@@ -112,9 +113,10 @@ export default {
     welcomeToVida: "Selamat datang di Vida, bergabunglah dengan kami!",
     verifyAccount:
       "Segera verifikasi kotak surat Anda! Pergi ke 【Akun Saya>Pengaturan Akun】 untuk menyelesaikan verifikasi",
-    termsDeclaration: "",
-    tos: "",
-    pp: "",
+    termsDeclaration:
+      "Dengan melanjutkan, Anda mengkonfirmasi bahwa Anda berusia 18 tahun atau lebih, dan setuju dengan {tos} Vida, dan telah membaca {pp} VIDA.",
+    tos: "Syarat Layanan",
+    pp: "Kebijakan Privasi",
   },
   month: {
     Jan: "Januari",
@@ -136,7 +138,11 @@ export default {
       description:
         "Vida adalah platform berbagi video pendek dewasa terkemuka. Di sini, Anda tidak hanya dapat menonton video berkualitas tinggi dari pembuat konten, tetapi juga berinteraksi secara pribadi dengan mereka.",
     },
-    search: { title: "Halaman Pencarian {pipe} Temukan Video Pendek Dewasa Terbaik - Vida", description: "" },
+    search: {
+      title: "Halaman Pencarian {pipe} Temukan Video Pendek Dewasa Terbaik - Vida",
+      description:
+        "Di halaman pencarian Vida, Anda dapat menemukan video pendek untuk dewasa, konten web kuning, aktor erotis, menemukan preferensi Anda, dan menjelajahi beragam film dewasa.",
+    },
     searchResult: {
       title: "Hasil Pencarian {pipe} {keyword} - Vida",
       description: "Hasil pencarian {keyword}. Temukan dan jelajahi film dewasa berkualitas tinggi di Vida",
