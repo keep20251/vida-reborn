@@ -71,6 +71,7 @@ export default {
       },
       lineHeight: {
         md: '0.875rem',
+        lg: '1.125rem',
       },
     },
     spacing: generateSpacing(),

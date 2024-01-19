@@ -5,7 +5,7 @@
         <div v-if="showClose" class="absolute right-20 top-20 cursor-pointer" @click="close">
           <Icon name="close" size="20"></Icon>
         </div>
-        <div class="mb-20 text-center font-bold leading-[1.125rem]" :class="[titleFontSize]">{{ title }}</div>
+        <div class="leading-lg mb-20 text-center font-bold" :class="[titleFontSize]">{{ title }}</div>
         <div class="mb-20">
           <keep-alive :max="5">
             <component :is="component"></component>
@@ -22,7 +22,7 @@
             {{ confirmText || $t('common.confirm') }}
           </Button>
         </div>
-        <div v-if="confirmFailMsg" class="text-center text-base font-bold leading-[1.125rem] text-warning">
+        <div v-if="confirmFailMsg" class="leading-lg text-center text-base font-bold text-warning">
           {{ confirmFailMsg }}
         </div>
       </div>
