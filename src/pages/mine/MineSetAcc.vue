@@ -4,11 +4,11 @@
       <div class="flex justify-between">
         <div class="flex items-center space-x-10">
           <div class="leading-lg text-base font-normal">目前的邮箱</div>
-          <div class="text-sm font-normal leading-[0.75rem] text-warning">尚未验证</div>
+          <div class="text-sm font-normal leading-3 text-warning">尚未验证</div>
         </div>
         <div class="leading-lg cursor-pointer text-base font-normal text-primary">Edit</div>
       </div>
-      <div class="text-sm font-normal leading-[0.75rem] text-gray66">example55688@gmail.com</div>
+      <div class="text-sm font-normal leading-3 text-gray66">example55688@gmail.com</div>
     </div>
     <InputWrap
       v-model="inputValue"
