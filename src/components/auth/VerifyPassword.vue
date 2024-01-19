@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-full flex-col justify-center space-y-30 px-32 pb-16 pt-32 last:mb-16">
+  <div class="flex w-full flex-col justify-center space-y-30 pt-32 last:mb-16">
     <DialogHeader :title="$t('title.pwdLogin')" @back="back" @close="close">
       <template #default>
         <div class="flex flex-col space-y-32">
@@ -8,10 +8,11 @@
               v-model="password"
               :label="$t('label.password')"
               :placeholder="$t('placeholder.password')"
+              password
             ></InputWrap>
             <Button>{{ $t('label.login') }}</Button>
           </div>
-          <div class="text-center">
+          <div class="text-center text-base font-normal leading-md">
             <button @click="to(AUTH_ROUTES.LOGIN)">{{ $t('info.loginByAccount') }}</button>
           </div>
         </div>

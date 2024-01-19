@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-full flex-col justify-center space-y-30 px-32 pb-16 pt-32 last:mb-16">
+  <div class="flex w-full flex-col justify-center space-y-30 pb-16 pt-32 last:mb-16">
     <DialogHeader :title="$t('title.accountLogin')" @back="back">
       <template #default>
         <div class="flex flex-col space-y-32">
@@ -19,7 +19,7 @@
             ></InputWrap>
             <Button :loading="isLoading" @click="validaite">{{ $t('label.login') }}</Button>
           </div>
-          <div class="text-center">
+          <div class="text-center text-base leading-md text-gray66">
             <span>
               {{ $t('info.neverRegister') }}
               <button class="underline" @click="to(AUTH_ROUTES.SIGN_UP)">
