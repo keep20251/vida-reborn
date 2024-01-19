@@ -1,5 +1,5 @@
 <template>
-  <Tab v-model="tab" :options="tabOptions" class="mt-10 !h-35"></Tab>
+  <Tab v-model="tab" :options="tabOptions" class="!h-35"></Tab>
   <div v-if="tab === 1">
     <TransactionList :items="list"></TransactionList>
   </div>

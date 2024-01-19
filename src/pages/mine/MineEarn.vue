@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-end justify-between pt-28">
+  <div class="flex items-end justify-between pt-8">
     <div class="leading-md text-base font-bold">Your Earnings</div>
     <div class="leading-md cursor-pointer text-base font-normal">提款记录</div>
   </div>
@@ -9,7 +9,7 @@
   </div>
   <Button>提款申请</Button>
   <div class="leading-md mt-30 text-base font-bold">数据仪表板</div>
-  <Tab v-model="tab" :options="tabOptions" class="mt-10 !h-35"> </Tab>
+  <Tab v-model="tab" :options="tabOptions" class="!h-35"> </Tab>
   <div v-if="tab === 1">
     <div class="grid space-y-40">
       <div class="mt-20 flex items-center justify-center space-x-20 px-20">
