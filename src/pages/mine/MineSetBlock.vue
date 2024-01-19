@@ -5,9 +5,7 @@
         <Avatar class="mr-10" :radius="50" :src="item.avatar"></Avatar>
         <div>{{ item.name }}</div>
       </div>
-      <div @click="unblock(index)" class="cursor-pointer text-base font-bold leading-[1.125rem] text-gray66">
-        Unblock
-      </div>
+      <div @click="unblock(index)" class="leading-lg cursor-pointer text-base font-bold text-gray66">Unblock</div>
     </div>
   </div>
 </template>

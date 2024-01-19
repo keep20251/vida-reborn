@@ -1,7 +1,7 @@
 <template>
   <Tab v-model="tab" :options="tabOptions" class="mt-10 !h-35"></Tab>
   <div v-if="tab === 1">
-    <div class="pt-20 text-base font-bold leading-[1.125rem]">全部贴文 13</div>
+    <div class="leading-lg pt-20 text-base font-bold">全部贴文 13</div>
     <div class="overflow-x-hidden">
       <List :items="items" item-key="id">
         <template #default="{ last }">
@@ -17,7 +17,7 @@
     </div>
   </div>
   <div v-else-if="tab === 2">
-    <div class="pt-20 text-base font-bold leading-[1.125rem]">全部贴文 13</div>
+    <div class="leading-lg pt-20 text-base font-bold">全部贴文 13</div>
     <div class="overflow-x-hidden">
       <List :items="items" item-key="id">
         <template #default="{ last }">
@@ -33,7 +33,7 @@
     </div>
   </div>
   <div v-else-if="tab === 3">
-    <div class="pt-20 text-base font-bold leading-[1.125rem]">全部贴文 13</div>
+    <div class="leading-lg pt-20 text-base font-bold">全部贴文 13</div>
     <div class="overflow-x-hidden">
       <List :items="items" item-key="id">
         <template #default="{ last }">

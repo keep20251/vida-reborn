@@ -14,12 +14,12 @@
       <div v-if="showBgData" class="absolute left-1/2 top-1/2 w-full translate-x-[-50%] translate-y-[-50%]">
         <div class="flex justify-around">
           <div class="flex w-[175px] flex-col items-center space-y-5">
-            <p class="text-xl font-bold leading-[1.5625rem] text-white">{{ item.subscriber }}</p>
+            <p class="leading-xl text-xl font-bold text-white">{{ item.subscriber }}</p>
             <p class="text-sm font-normal leading-3 text-white opacity-50">{{ $t('info.perSubscriber') }}</p>
           </div>
           <div class="h-25 w-1 bg-[#DCDCDC]"></div>
           <div class="flex w-[175px] flex-col items-center space-y-5">
-            <p class="text-xl font-bold leading-[1.5625rem] text-white">{{ item.posts }}</p>
+            <p class="leading-xl text-xl font-bold text-white">{{ item.posts }}</p>
             <p class="text-sm font-normal leading-3 text-white opacity-50">{{ $t('info.perPost') }}</p>
           </div>
         </div>

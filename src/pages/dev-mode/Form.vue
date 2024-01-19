@@ -75,12 +75,12 @@
       </div>
       <div v-else-if="tab === 2" class="my-10 grid space-y-20 px-20">
         <div>【 Text Style 】</div>
-        <div class="text-xl font-bold leading-[1.5625rem]">Helvetica Neue-25-特重标题</div>
+        <div class="leading-xl text-xl font-bold">Helvetica Neue-25-特重标题</div>
         <div class="leading-lg text-lg font-bold">Helvetica Neue-18-大标题</div>
         <div class="leading-lg text-base font-normal">Helvetica Neue-14-正文</div>
         <div class="text-sm font-normal leading-3">＠Helvetica Neue-12-注释</div>
-        <div class="text-base font-bold leading-md">Helvetica Neue-14-按钮</div>
-        <div class="text-base font-normal leading-md">Helvetica Neue-14-按钮未选中</div>
+        <div class="leading-md text-base font-bold">Helvetica Neue-14-按钮</div>
+        <div class="leading-md text-base font-normal">Helvetica Neue-14-按钮未选中</div>
       </div>
       <div v-else-if="tab === 3" class="my-10 grid space-y-20 px-20">
         <div>【 Dropdown 】</div>
