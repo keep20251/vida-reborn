@@ -6,11 +6,11 @@ import { useLocale } from '@use/utils/locale'
 
 export function setupStoreHydrate(store) {
   if (window.__INITIAL_STATE__) {
-    store.state.value = JSON.parse(window.__INITIAL_STATE__)
+    store.state.value.hydration = JSON.parse(window.__INITIAL_STATE__)
     if (!import.meta.env.DEV) {
-      document.getElementById('ssr-store').remove()
+      document.getElementById('ssr-state').remove()
     }
-    console.log('[hydrated]Pinia state is hydrated')
+    console.log('[hydration] Pinia hydration store is reverted')
   }
 }
 

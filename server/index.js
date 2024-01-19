@@ -71,13 +71,13 @@ async function createServer(root = process.cwd(), hmrPort = 6173) {
       }
 
       const ctx = { req, res }
-      const [appHtml, preloadLinks, store, head] = await render(url, manifest, ctx)
+      const [appHtml, preloadLinks, stateHtml, head] = await render(url, manifest, ctx)
       const unheadPayload = await renderSSRHead(head)
 
       let html = template
         .replace('<!--preload-links-->', preloadLinks)
         .replace(`<!--ssr-outlet-->`, appHtml)
-        .replace(`<!--pinia-state-->`, store)
+        .replace(`<!--initial-state-->`, stateHtml)
 
       Object.entries(unheadPayload).forEach(([key, value]) => {
         html = html.replace(`<!--${key}-->`, value)
