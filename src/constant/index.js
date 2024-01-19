@@ -29,6 +29,7 @@ export const MODAL_TYPE = {
   CONFIRM: 2,
 
   SOCIAL_LINK: 10,
+  SIGN_UP_SUCCESS: 11,
 
   INTERESTED_PICK: 20,
 
