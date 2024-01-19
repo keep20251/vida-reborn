@@ -67,6 +67,7 @@ VITE_BASE_URL=/
 14. `npm run pack` 執行打包 (SSR模式下可能用不到)
 
 ## i18n 語系更新方式
+
 1. 開發時以自己的語系為主，例如簡體中文，則在 `src/i18n/locale/zh-cn.ts` 中編輯
 2. 開發完成後，上到 [Vida i18n Doc](https://docs.google.com/spreadsheets/d/1y5SbViL42a3OryBFqRjvYLsemTifDEX7b9YbpVUxx5s/edit#gid=586357090) 內新增一個 `key` 值，並且將簡體中文的內容複製到該 `key` 值下的 `zh-cn` 欄位，位置請以相鄰的 `key` 值為主，相同類型的 `key` 值請放在一起，例如 `common.confirm` 與 `common.cancel` 就應該放在相鄰的位置
 3. 可以使用 Google Sheet 內置的翻譯工具，將簡體中文的內容翻譯成其他語系，翻譯工具的函式為 `=googletranslate(content, source_lang, target_lang)`，例如： =googletranslate("你好", "zh-cn", "en")，會翻譯成 "Hello"
@@ -150,4 +151,43 @@ export const iconMap = {
   這邊通知上來是讓外面自己有額外的事情要做”
   @feature="“右邊功能按下”"
 ></head>
+```
+
+## 關於頁面需不需要 SSR 的 Page 應用
+
+目前設想需要 SSR 的有:
+
+1. 主頁 /:lang/home
+2. 搜尋頁 /:lang/search
+3. 創作者頁 /:lang/:username
+4. 帖子頁 /:lang/:username/:feedid
+
+其他頁面感覺都不需要，再加上 Page 中的 aside 應該是也不需要。
+
+所以 Page 可能大概會長成⬇
+
+```html
+<!-- 使用方式 -->
+<Page>
+  <template #main-top> </template>
+  <template #default>
+    <!-- /:lang/home | /:lang/search | /:lang/:username | /:lang/:username/:feedid -->
+    <CustomComponent></CustomComponent>
+
+    <!-- 其他頁 -->
+    <ClientOnly>
+      <CustomComponent></CustomComponent>
+    </ClientOnly>
+  </template>
+  <template #aside-top>
+    <ClientOnly>
+      <CustomComponent></CustomComponent>
+    </ClientOnly>
+  </template>
+  <template #aside>
+    <ClientOnly>
+      <CustomComponent></CustomComponent>
+    </ClientOnly>
+  </template>
+</Page>
 ```
