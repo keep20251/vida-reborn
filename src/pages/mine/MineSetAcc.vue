@@ -1,5 +1,5 @@
 <template>
-  <div class="grid space-y-20">
+  <div class="grid space-y-20 border-t pt-20">
     <div class="flex flex-col space-y-10">
       <div class="flex justify-between">
         <div class="flex items-center space-x-10">
@@ -10,15 +10,13 @@
       </div>
       <div class="text-sm font-normal leading-[0.75rem] text-gray66">example55688@gmail.com</div>
     </div>
-    <div class="flex flex-col space-y-10">
-      <InputWrap
-        v-model="inputValue"
-        :label="'邮箱验证码'"
-        :placeholder="'请输入邮箱验证码'"
-        :appendText="'送出验证码'"
-        :maxLength="8"
-      ></InputWrap>
-    </div>
+    <InputWrap
+      v-model="inputValue"
+      :label="'邮箱验证码'"
+      :placeholder="'请输入邮箱验证码'"
+      :appendText="'送出验证码'"
+      :maxLength="8"
+    ></InputWrap>
     <Button @click="onBtnClick('contrast button')" contrast>提交验证</Button>
     <InputWrap v-model="inputValue" :label="'显示名称'" :placeholder="'请输入显示名称'"></InputWrap>
     <InputWrap v-model="inputValue" :label="'用户名'" :sublabel="`@username`" :placeholder="'请输入用户名'"></InputWrap>
