@@ -4,6 +4,7 @@ import { useRouter } from 'vue-router'
 import { useDialogStore } from '@/store/dialog'
 import { useCookie } from '@use/utils/cookie'
 import { COOKIE_KEY } from '@const'
+import useRequest from '@use/request/index.js'
 
 export const useAccountStore = defineStore('account-store', () => {
   // 用來暫存 afterLoginAction 的待執行函式
@@ -115,8 +116,19 @@ export const useAccountStore = defineStore('account-store', () => {
     userData.value = null
   }
 
-  function setToken(token) {
+  async function setToken(token) {
     tokenCookie.value = token
+    await getUserInfo()
+  }
+
+  async function getUserInfo() {
+    const { data, execute } = useRequest('User.info', {})
+    try {
+      await execute()
+      login(data.value)
+    } catch (e) {
+      console.error(e)
+    }
   }
 
   return {

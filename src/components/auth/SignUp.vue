@@ -162,7 +162,7 @@ async function register() {
       password: credential.password.value,
     })
 
-    setToken(data.value.token)
+    await setToken(data.value.token)
     close()
     openModal(MODAL_TYPE.SIGN_UP_SUCCESS, {
       size: 'lg',
