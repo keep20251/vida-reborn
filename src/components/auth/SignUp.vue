@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-full flex-col justify-center space-y-30 px-32 pb-16 pt-32 last:mb-16">
+  <div class="flex w-full flex-col justify-center space-y-30 pb-16 pt-32 last:mb-16">
     <DialogHeader :title="$t('label.register')" :history="history" :show-back="showBack" @back="back" @close="close">
       <template #default>
         <div class="flex flex-col space-y-32">
@@ -24,16 +24,16 @@
               password
             ></InputWrap>
             <div>
+              <div class="text-base font-semibold text-red-600">
+                {{ $t('info.pwdStrength') }}<span>{{ $t(strengthText) }}</span>
+              </div>
               <PasswordValidation
                 :password="credential.password.value"
                 @update:validate="(v) => (passwordValidation = v)"
               ></PasswordValidation>
-              <div class="text-base font-semibold text-red-600">
-                {{ $t('info.pwdStrength') }}<span>{{ $t(strengthText) }}</span>
-              </div>
             </div>
 
-            <Button :loading="isLoading" @click="submit">{{ $t('label.register') }}</Button>
+            <Button :loading="isLoading" @click="submit">{{ $t('label.submit') }}</Button>
           </div>
         </div>
       </template>
@@ -47,15 +47,18 @@ import Button from '@/components/common/Button.vue'
 import PasswordValidation from '@/components/form/PasswordValidation.vue'
 import useRequest from '@use/request/index.js'
 import debounce from 'lodash/debounce'
-import { AUTH_ROUTES } from '@/constant'
+import { MODAL_TYPE } from '@const'
+import { useModalStore } from '@/store/modal'
 import { computed, reactive, ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useYup } from '@use/validator/yup.js'
 import { useAccountStore } from '@/store/account'
 import { useAuthRouteStore } from '@/store/auth-route'
+import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 
 const authRouteStore = useAuthRouteStore()
-const { to, back, close } = authRouteStore
+const { back, close } = authRouteStore
 const { history } = storeToRefs(authRouteStore)
 const showBack = computed(() => history.value.length > 0)
 
@@ -143,6 +146,12 @@ const { setToken } = accountStore
 
 const isLoading = ref(false)
 
+const modalStore = useModalStore()
+const { open: openModal, close: closeModal } = modalStore
+
+const { push } = useRouter()
+const { t: $t } = useI18n()
+
 async function register() {
   isLoading.value = true
   const { data, execute } = useRequest('Account.registerByPassword', {})
@@ -154,7 +163,22 @@ async function register() {
     })
 
     setToken(data.value.token)
-    to(AUTH_ROUTES.SIGN_UP_SUCCESS)
+    close()
+    openModal(MODAL_TYPE.SIGN_UP_SUCCESS, {
+      size: 'lg',
+      title: $t('info.registerSuccess'),
+      showClose: false,
+      confirmText: $t('common.goNow'),
+      confirmAction: () => {
+        closeModal()
+        push({ name: 'mine-account' })
+      },
+      otherText: $t('common.getAround'),
+      otherAction: () => {
+        closeModal()
+        push({ name: 'home' })
+      },
+    })
   } catch (e) {
     console.error(e)
     credential.account.error = e.message
