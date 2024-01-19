@@ -1,4 +1,4 @@
-import { onMounted, onServerPrefetch } from 'vue'
+import { onBeforeMount, onServerPrefetch } from 'vue'
 
 let _isHydration = true
 
@@ -11,27 +11,33 @@ export function hydrated() {
 }
 
 /*
- * SSR 一定會執行
- * 初次到前端開始 CSR 時一開始會進入 hydration 階段，因為 SSR 已經執行過了所以會跳過不執行
- * 若執行的當下已經不是 hydration 階段的話才會執行
+ * 必須在 vue component setup 期間掛載的生命週期
+ *
+ * 若元件在 SSR 期間有被建立起來則 CSR 期間不會再次執行
+ * 若元件並沒有在 SSR 期間被建立的話則 CSR 期間就會被執行
  */
 export function onServerClientOnce(fn) {
   const hook = async () => {
     if (import.meta.env.SSR || !_isHydration) {
-      await fn()
+      await fn(import.meta.env.SSR)
     }
   }
-  onMounted(hook)
+  onBeforeMount(hook)
   onServerPrefetch(hook)
 }
 
 /*
+ * 必須在 vue component setup 期間掛載的生命週期
+ *
  * CSR 的 hydration 階段才會執行
+ * 此階段通常只會允許你將 hydrationStore 中的資料還原至對應位置
+ * 還原過程必須保持同步執行
+ * 任何非同步的行為在此生命週期內發生的話都有可能造成 hydration mismatch 發生
  */
 export function onHydration(fn) {
-  onMounted(async () => {
+  onBeforeMount(() => {
     if (_isHydration) {
-      await fn()
+      fn()
     }
   })
 }

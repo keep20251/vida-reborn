@@ -31,14 +31,8 @@ createApp()
 
       app.mount('#app')
       hydrated()
-      console.log('[hydrated]Client side is mounted')
 
-      //   initGlobalData().then(() => {})
-
-      // ios safari 開啟鍵盤後在任何可滑動元件上快速點擊會讓整個畫面往上移動
-      // 最後只找到這個方式把雙擊事件關掉
-      // 如果整個應用有需要使用雙擊事件可能要深思熟慮一下
-      document.addEventListener('dblclick', (evt) => evt.preventDefault())
+      console.log('[Hydrated] client side is mounted')
     })
   })
   .catch((err) => {

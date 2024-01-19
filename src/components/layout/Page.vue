@@ -7,7 +7,7 @@
           class="fixed top-0 z-10 h-52 max-w-[500px] overflow-hidden bg-white transition-transform"
           :class="{
             'w-[calc(100%-40px)]': isMobile,
-            'w-[calc(100%-60px-40px)]': !isMobile,
+            'w-[calc(100%-60px-40px)]': isDesktop,
             'translate-y-[-100%]': !mainTopOpen,
           }"
         >
@@ -18,7 +18,7 @@
         </div>
       </main>
     </div>
-    <div class="hidden md:block md:w-[300px]">
+    <div v-if="isDesktop" class="hidden md:block md:w-[300px]">
       <aside>
         <div v-if="$slots['aside-top']" class="fixed top-0 z-10 h-52 overflow-hidden bg-white md:w-[300px]">
           <slot name="aside-top"></slot>
@@ -46,7 +46,7 @@ const props = defineProps({
 const emits = defineEmits(['load'])
 
 const appStore = useAppStore()
-const { isMobile } = storeToRefs(appStore)
+const { isDesktop, isMobile } = storeToRefs(appStore)
 
 // component onActivated
 let active = true

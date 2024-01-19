@@ -1,3 +1,4 @@
+import ssr2csrHydration from '@/pages/dev-mode/ssr2csrHydration.vue'
 import i18n from '@/pages/dev-mode/i18n.vue'
 import Pinia from '@/pages/dev-mode/Pinia.vue'
 import Icon from '@/pages/dev-mode/Icon.vue'
@@ -12,9 +13,10 @@ import Cards from '@/pages/dev-mode/Cards.vue'
 
 const prefix = 'devmode'
 export default [
+  { name: `${prefix}-Hydration`, path: `/:lang/${prefix}/hydration`, component: ssr2csrHydration, meta: {} },
   { name: `${prefix}-i18n`, path: `/:lang/${prefix}/i18n`, component: i18n, meta: {} },
   { name: `${prefix}-Pinia`, path: `/:lang/${prefix}/pinia`, component: Pinia, meta: {} },
-  { name: `${prefix}-icon`, path: `/:lang/${prefix}/icon`, component: Icon, meta: {} },
+  { name: `${prefix}-Icon`, path: `/:lang/${prefix}/icon`, component: Icon, meta: {} },
   { name: `${prefix}-ClientOnly`, path: `/:lang/${prefix}/client-only`, component: ClientOnly, meta: {} },
   { name: `${prefix}-OAuth`, path: `/:lang/${prefix}/google`, component: OAuth, meta: {} },
   { name: `${prefix}-Tab`, path: `/:lang/${prefix}/tab`, component: Tab, meta: {} },
