@@ -27,7 +27,7 @@
       <div class="absolute bottom-[-35px] flex h-70 w-full px-20">
         <Avatar :radius="70" :src="defaultAvatar" :cameraIcon="cameraIcon"></Avatar>
       </div>
-      <div class="absolute bottom-[-45px] right-0 flex w-full justify-end pl-20">
+      <div class="absolute bottom-[-50px] right-0 flex w-full justify-end pl-20">
         <slot name="topButton"></slot>
       </div>
     </div>

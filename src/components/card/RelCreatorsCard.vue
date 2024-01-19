@@ -29,7 +29,7 @@
     </div>
   </div>
   <div class="leading-md mt-10 flex cursor-pointer items-center justify-center space-x-5 text-base font-bold">
-    显示更多创作者
+    <div>显示更多创作者</div>
     <Icon name="drop" size="12"></Icon>
   </div>
 </template>
