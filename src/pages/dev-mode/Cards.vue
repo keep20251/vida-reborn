@@ -6,7 +6,7 @@
     </div>
     <div class="my-10 px-20">
       <div class="mb-10">【 Creator Card 】</div>
-      <div class="flex flex-col justify-center space-y-16 px-16 py-16 align-middle">
+      <div class="flex flex-col justify-center space-y-16 py-16 align-middle">
         <ViewSubscribeCard
           v-for="index in 3"
           :key="`creator-card-${index}`"
