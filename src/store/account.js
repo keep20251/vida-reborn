@@ -1,5 +1,5 @@
 import { defineStore, storeToRefs } from 'pinia'
-import { computed, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useDialogStore } from '@/store/dialog'
 import { useCookie } from '@use/utils/cookie'
@@ -20,8 +20,7 @@ export const useAccountStore = defineStore('account-store', () => {
   const uuidCookie = useCookie(COOKIE_KEY.UUID, { default: '' })
   const chatTokenCookie = useCookie(COOKIE_KEY.CHAT_TOKEN, { default: '' })
 
-  const userDataCookie = useCookie(COOKIE_KEY.USER_DATA, { default: '' })
-  const userData = computed(() => JSON.parse(userDataCookie.value))
+  const userData = ref(null)
 
   const isLogin = computed(() => !!tokenCookie.value)
   const username = computed(() => usernameCookie.value)
@@ -109,11 +108,11 @@ export const useAccountStore = defineStore('account-store', () => {
         chatTokenCookie.value = v
       }
     }
-    userDataCookie.value = JSON.stringify(newData)
+    userData.value = newData
   }
 
   function clearUserData() {
-    userDataCookie.value = ''
+    userData.value = null
   }
 
   function setToken(token) {
