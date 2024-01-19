@@ -63,6 +63,12 @@ VITE_BASE_URL=/
 10. `npm run parse:select` 可讀取一個絕對位置的`csv`檔案，會自動解析成 `public/about/select` 下的 `json` 檔案
 11. `npm run pack` 執行打包 (SSR模式下可能用不到)
 
+## i18n 語系更新方式
+1. 開發時以自己的語系為主，例如簡體中文，則在 `src/i18n/locale/zh-cn.ts` 中編輯
+2. 開發完成後，上到 [Vida i18n Doc](https://docs.google.com/spreadsheets/d/1y5SbViL42a3OryBFqRjvYLsemTifDEX7b9YbpVUxx5s/edit#gid=586357090) 內新增一個 `key` 值，並且將簡體中文的內容複製到該 `key` 值下的 `zh-cn` 欄位，位置請以相鄰的 `key` 值為主，相同類型的 `key` 值請放在一起，例如 `common.confirm` 與 `common.cancel` 就應該放在相鄰的位置
+3. 可以使用 Google Sheet 內置的翻譯工具，將簡體中文的內容翻譯成其他語系，翻譯工具的函式為 `=googletranslate(content, source_lang, target_lang)`，例如： =googletranslate("你好", "zh-cn", "en")，會翻譯成 "Hello"
+4. 翻譯完成後，回到專案內，執行 `npm run parse` 來解析 `Google Sheet` 內的語系，會自動產生 `src/i18n/locale/{countryCode}.ts` 檔案，最後再 `commit` 上去即可
+
 ## Docker 使用方式
 
 因為第三方登入需要使用 callback 網址，所以需要有 domain 才能使用，所以在本地端開發時需要使用 `Docker` 來模擬 `Production` 環境，並掛上 `localhost` 的 domain才能通過第三方登入的驗證，以下是設定方式：
