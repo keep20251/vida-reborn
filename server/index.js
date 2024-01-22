@@ -58,7 +58,7 @@ async function createServer(root = process.cwd(), hmrPort = 6173) {
 
     try {
       const url = req.originalUrl
-      console.log(`\x1b[96m [vida:request]${url} \x1b[0m`)
+      console.log(`\x1b[96m [VIDA:request]${url} \x1b[0m`)
 
       let template, render
       if (isDev) {

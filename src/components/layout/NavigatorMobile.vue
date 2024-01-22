@@ -12,11 +12,11 @@
         <Icon v-else name="searchOutline" size="20"></Icon>
       </div>
     </router-link>
-    <a class="grow cursor-pointer select-none">
+    <Link class="grow" :href="`/${locale}/publish`">
       <div class="flex items-center justify-center space-x-16 px-12 py-16">
         <Icon name="publish" size="16"></Icon>
       </div>
-    </a>
+    </Link>
     <router-link class="grow" :to="`/${locale}/message`">
       <div class="flex items-center justify-center space-x-16 px-12 py-16">
         <Icon v-if="atMessage" name="message" size="20"></Icon>
@@ -36,6 +36,7 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useLocale } from '@use/utils/locale'
+import Link from '@comp/common/Link.vue'
 
 const route = useRoute()
 const atHome = computed(() => route.name === 'home')
