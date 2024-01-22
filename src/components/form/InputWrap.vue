@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col space-y-10">
-    <label v-if="label" class="text-base font-normal not-italic leading-md" :class="[labelCenter]"
+    <label v-if="label" class="leading-md text-base font-normal not-italic" :class="[labelCenter]"
       >{{ label }}
       <span v-if="sublabel" class="text-sm font-normal not-italic leading-3 text-gray66">{{ sublabel }}</span>
     </label>
@@ -21,7 +21,7 @@
           'pr-52': !!appendIconBtn,
           'pr-48': !!password,
         }"
-        class="h-35 w-full shrink-0 divide-solid rounded-18 border-gray20 bg-white px-20 py-12 text-sm font-normal not-italic leading-3 text-gray66 shadow-[0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)inset] outline-none placeholder:text-sm placeholder:text-gray36"
+        class="rounded-18 h-35 w-full shrink-0 divide-solid border-gray20 bg-white px-20 py-12 text-sm font-normal not-italic leading-3 text-gray66 shadow-[inset_0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)] outline-none placeholder:text-sm placeholder:text-gray36"
       />
       <Icon
         v-if="!!prependIcon"
@@ -53,7 +53,7 @@
       </div>
       <div
         v-if="!!appendIconBtn"
-        class="absolute right-5 flex h-30 w-40 cursor-pointer items-center justify-center rounded-[0.9375rem] bg-primary px-6 py-10 text-center text-base font-bold leading-md text-white shadow-[0_0.125rem_0.25rem_0_rgba(0,0,0,0.25)]"
+        class="leading-md absolute right-5 flex h-30 w-40 cursor-pointer items-center justify-center rounded-[0.9375rem] bg-primary px-6 py-10 text-center text-base font-bold text-white shadow-[0_0.125rem_0.25rem_0_rgba(0,0,0,0.25)]"
         @click="emits('click:append')"
       >
         <Icon size="20" :name="appendIconBtn" class="text-white"></Icon>
@@ -66,7 +66,7 @@
         @click="pwdHide = !pwdHide"
       ></Icon>
     </div>
-    <div v-if="errMsg" class="text-left text-base font-normal not-italic leading-md text-warning">
+    <div v-if="errMsg" class="leading-md text-left text-base font-normal not-italic text-warning">
       {{ errMsg }}
     </div>
   </div>
