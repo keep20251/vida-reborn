@@ -61,6 +61,7 @@ export default {
     email: "ईमेल",
     register: "रजिस्टर करें",
     mailCode: "मेल सत्यापन कोड",
+    sendMailCode: "सत्यापन कोड भेजें",
     resend: "पुनः भेजें",
     upload: "अपलोड हो रहा है",
     displayName: "प्रदर्शित नाम",

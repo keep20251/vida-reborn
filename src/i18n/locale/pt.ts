@@ -61,6 +61,7 @@ export default {
     email: "Email",
     register: "Registrar-se",
     mailCode: "Código de verificação de e-mail",
+    sendMailCode: "Envie o código de verificação",
     resend: "Reenviar",
     upload: "Carregando",
     displayName: "Nome de exibição",

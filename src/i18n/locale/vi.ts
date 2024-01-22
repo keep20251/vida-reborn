@@ -61,6 +61,7 @@ export default {
     email: "Email",
     register: "Đăng ký",
     mailCode: "Mã xác minh email",
+    sendMailCode: "Gửi mã xác minh",
     resend: "Gửi lại",
     upload: "Đang tải lên",
     displayName: "Tên hiển thị",

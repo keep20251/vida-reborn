@@ -61,6 +61,7 @@ export default {
     email: "البريد الإلكتروني",
     register: "تسجيل",
     mailCode: "رمز التحقق من البريد",
+    sendMailCode: "أرسل رمز التحقق",
     resend: "إعادة إرسال",
     upload: "جارِ التحميل",
     displayName: "اسم العرض",
