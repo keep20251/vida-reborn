@@ -10,7 +10,7 @@
               :placeholder="$t('placeholder.password')"
               password
             ></InputWrap>
-            <Button>{{ $t('label.login') }}</Button>
+            <Button @click="validate">{{ $t('label.login') }}</Button>
           </div>
           <div class="text-center text-base font-normal leading-md">
             <button @click="to(AUTH_ROUTES.LOGIN)">{{ $t('info.loginByAccount') }}</button>
@@ -21,13 +21,53 @@
   </div>
 </template>
 <script setup>
-import { useAuthRouteStore } from '@/store/auth-route'
 import DialogHeader from '@/components/dialog/DialogHeader.vue'
 import InputWrap from '@/components/form/InputWrap.vue'
 import Button from '@/components/common/Button.vue'
+import { useAuthRouteStore } from '@/store/auth-route'
 import { AUTH_ROUTES } from '@/constant'
+import { useEmailLoginStore } from '@/store/email-login'
 import { ref } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useYup } from '@use/validator/yup'
+import { useAccountStore } from '@/store/account'
+import useRequest from '@use/request/index.js'
 
 const { to, back, close } = useAuthRouteStore()
-const password = ref('')
+
+const emailLoginStore = useEmailLoginStore()
+const { email, password } = storeToRefs(emailLoginStore)
+
+const { Yup, parseError } = useYup()
+const pwdSchema = Yup.string().required()
+const passwordError = ref('')
+const serverError = ref('')
+
+async function validate() {
+  try {
+    await pwdSchema.validate(password.value)
+    await loginByPassword()
+  } catch (e) {
+    passwordError.value = parseError(e)
+    console.error(e)
+  }
+}
+
+const accountStore = useAccountStore()
+const { setToken } = accountStore
+
+async function loginByPassword() {
+  const { data, execute } = useRequest('Account.loginByPassword', {})
+  try {
+    await execute({
+      account: email.value,
+      password: password.value,
+    })
+    await setToken(data.value.token)
+    emailLoginStore.$reset()
+  } catch (e) {
+    serverError.value = e.message
+    console.error(e)
+  }
+}
 </script>
