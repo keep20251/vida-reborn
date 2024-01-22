@@ -126,7 +126,16 @@ onMounted(() => {
 
   // 無限滑動通知
   if (props.infinite) {
-    useInfiniteScroll(window, () => emits('load'), { distance: props.infiniteDistance })
+    useInfiniteScroll(
+      window,
+      () => {
+        if (!active) {
+          return
+        }
+        emits('load')
+      },
+      { distance: props.infiniteDistance },
+    )
   }
 })
 
