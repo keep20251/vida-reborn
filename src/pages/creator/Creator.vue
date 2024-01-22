@@ -12,6 +12,7 @@
             .join('\n')
         }}
       </div>
+      <div v-else-if="error">{{ error }}</div>
       <Loading v-else></Loading>
     </template>
   </Page>
@@ -29,28 +30,39 @@ import Head from '@comp/navigation/Head.vue'
 const route = useRoute()
 
 const creatorStore = useCreatorStore()
-const { getCreator, revertCreator } = creatorStore
+const { getCreator: $getCreator, revertCreator } = creatorStore
 
 const creator = ref(null)
+const error = ref('')
+async function getCreator() {
+  creator.value = null
+  try {
+    creator.value = await $getCreator(route.params.username)
+  } catch (e) {
+    error.value = e.message
+  }
+}
 
 onActivated(async () => {
-  const username = route.params.username
-  if (username !== creator.value?.username) {
+  if (route.params.username !== creator.value?.username) {
     creator.value = null
-    creator.value = await getCreator(username)
+    await getCreator()
   }
 })
 
 // hydration
 const hydrationStore = useHydrationStore()
-const { creator: creatorFromStore } = storeToRefs(hydrationStore)
+const { creator: creatorFromStore, creatorError } = storeToRefs(hydrationStore)
 onServerClientOnce(async (isSSR) => {
-  creator.value = await getCreator(route.params.username)
+  await getCreator()
+
   if (isSSR) {
     creatorFromStore.value = creator.value
+    creatorError.value = error.value
   }
 })
 onHydration(() => {
   creator.value = revertCreator(creatorFromStore.value)
+  error.value = creatorError.value
 })
 </script>
