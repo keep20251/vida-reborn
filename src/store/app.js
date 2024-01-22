@@ -12,7 +12,7 @@ export const useAppStore = defineStore('app', () => {
   const isDesktop = computed(() => device.value === DESKTOP)
   const isMobile = computed(() => device.value === MOBILE)
   useEventListener('resize', () => {
-    device.value = checkMobile() ? MOBILE : DESKTOP
+    setTimeout(() => (device.value = checkMobile() ? MOBILE : DESKTOP), 0)
   })
 
   return {
