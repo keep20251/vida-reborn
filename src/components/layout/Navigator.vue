@@ -1,9 +1,14 @@
 <template>
   <header class="flex shrink-0 grow basis-60 justify-end overflow-x-hidden md:basis-72 xl:basis-[150px]">
     <nav class="fixed flex h-full min-h-[600px] w-60 flex-col overflow-x-hidden md:w-72 xl:w-[150px]">
-      <div class="mt-10 cursor-pointer px-12 pb-20 pt-10 hover:bg-gray05">
-        <img class="h-20 w-36 xl:h-40 xl:w-72" src="@/assets/logo.svg?url" alt="vida" />
-      </div>
+      <Link
+        class="mt-10 px-12 pb-20 pt-10 hover:bg-gray05"
+        :href="`/${locale}`"
+        title="VIDA"
+        @click="router.push({ name: 'home' })"
+      >
+        <img class="h-20 w-36 xl:h-40 xl:w-72" src="@/assets/logo.svg?url" alt="VIDA" />
+      </Link>
       <router-link :to="`/${locale}`">
         <div class="flex items-center justify-center space-x-20 px-12 py-10 hover:bg-gray05 xl:justify-start">
           <Icon v-if="atHome" name="home" size="20"></Icon>
@@ -40,14 +45,14 @@
           </div>
         </div>
       </router-link>
-      <a class="cursor-pointer select-none">
+      <Link :href="`/${locale}/publish`">
         <div class="flex items-center justify-center space-x-20 px-12 py-10 hover:bg-gray05 xl:justify-start">
           <Icon name="publish2" size="20"></Icon>
           <div class="hidden text-base font-normal xl:block">
             {{ $t('nav.publish') }}
           </div>
         </div>
-      </a>
+      </Link>
       <div v-if="isDev" class="mr-16 mt-16 rounded-lg bg-slate-300 px-16 py-16 opacity-0 hover:opacity-100">
         <div class="flex flex-col space-y-10">
           <router-link
@@ -65,9 +70,10 @@
 </template>
 <script setup>
 import { computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { useLocale } from '@use/utils/locale'
 import devRoutes from '@/router/routes/dev'
+import Link from '@comp/common/Link.vue'
 
 const route = useRoute()
 const atHome = computed(() => route.name === 'home')
@@ -78,4 +84,6 @@ const atMine = computed(() => route.name.includes('mine'))
 const isDev = computed(() => import.meta.env.DEV)
 
 const locale = useLocale()
+
+const router = useRouter()
 </script>
