@@ -1,6 +1,6 @@
 <template>
   <nav class="fixed bottom-0 flex h-60 w-full bg-white shadow-[0px_-2px_9px_0px_rgba(0,0,0,0.1)]">
-    <router-link class="grow" :to="`/${locale}/home`">
+    <router-link class="grow" :to="`/${locale}`">
       <div class="flex items-center justify-center space-x-16 px-12 py-16">
         <Icon v-if="atHome" name="home" size="20"></Icon>
         <Icon v-else name="homeOutline" size="20"></Icon>

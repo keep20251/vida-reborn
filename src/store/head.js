@@ -28,18 +28,18 @@ export const useHeadStore = defineStore('app-head', () => {
   const twitterDescription = computed(() => description.value)
   const twitterImage = ref(ogUrl.value + (import.meta.env.VITE_APP_TWITTER_IMAGE ?? '/seo/twitter-image.jpg'))
 
-  const canonical = ref(import.meta.env.VITE_APP_URL + '/home' ?? 'https://vida.pub/home')
+  const canonical = ref(import.meta.env.VITE_APP_URL ?? 'https://vida.pub')
 
   const alternates = ref([
     ...locales.map((locale) => ({
       rel: 'alternate',
       hreflang: locale.label,
-      href: import.meta.env.VITE_APP_URL + `/${locale.label}/home`,
+      href: import.meta.env.VITE_APP_URL + `/${locale.label}`,
     })),
     {
       rel: 'alternate',
       hreflang: 'x-default',
-      href: import.meta.env.VITE_APP_URL + '/en/home',
+      href: import.meta.env.VITE_APP_URL + '/en',
     },
   ])
 

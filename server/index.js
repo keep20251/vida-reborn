@@ -104,11 +104,6 @@ function redirectToLangPath(req, res) {
     if (firstPath !== cookieLang) {
       res.cookie('__LOCALE', firstPath, { path: '/' })
     }
-    // 語言之後沒跟任何路徑，重導到 home
-    if (restPath.length === 0) {
-      res.redirect(302, `/${firstPath}/home`)
-      return true
-    }
   }
 
   // 路徑不是語言開頭
@@ -124,8 +119,6 @@ function redirectToLangPath(req, res) {
       if (restPath.length > 0) {
         path += `/${restPath.join('/')}`
       }
-    } else {
-      path += '/home'
     }
 
     res.redirect(302, `${path}`)

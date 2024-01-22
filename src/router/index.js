@@ -17,7 +17,7 @@ import Feed from '@/pages/feed/Feed.vue'
  * @property checkLogin 用於判斷該頁面是否需要驗證登入狀態
  */
 const routes = [
-  { name: 'home', path: '/:lang/home', component: Home, meta: {} },
+  { name: 'home', path: '/:lang', component: Home, meta: {} },
   { name: 'search', path: '/:lang/search', component: Search, meta: {} },
   { name: 'message', path: '/:lang/message', component: Message, meta: {} },
   { name: 'mine', path: '/:lang/mine', component: Mine, meta: {}, children: mineRoutes },
