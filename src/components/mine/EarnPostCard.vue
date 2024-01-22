@@ -28,7 +28,7 @@
       </div>
     </div>
     <div
-      :class="[{ 'max-h-[200px]': isActive, 'max-h-0 px-0 py-0 pt-0': !isActive }]"
+      :class="[{ 'max-h-[200px]': isActive, 'max-h-0 !p-0': !isActive }]"
       class="z-0 mt-[-1rem] grid w-full space-y-30 rounded-b-lg bg-gray03 p-30 pt-40"
     >
       <div :class="[{ flex: isActive, hidden: !isActive }]" class="flex space-x-15">
