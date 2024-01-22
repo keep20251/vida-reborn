@@ -25,7 +25,7 @@
           2023-12-31
         </div>
       </div>
-      <div class="flex space-x-30 px-20">
+      <div class="flex select-none space-x-30 px-20">
         <div class="flex w-4/12 flex-col space-y-10">
           <div class="leading-md text-base font-normal">总进入数量</div>
           <div class="leading-lg text-lg font-bold">1000</div>
@@ -69,75 +69,8 @@
         2023-12-31
       </div>
     </div>
-    <div class="px-20">
-      <div
-        class="relative z-10 flex cursor-pointer space-x-10 rounded-xl bg-white px-20 py-15 shadow-[0_0_3px_0_rgba(0,0,0,0.15)]"
-      >
-        <div class="w-100">
-          <img
-            src="https://i.postimg.cc/tJZ8B7tL/3fa5f2a5d3f7f8ba457f2376adc2b5ba.jpg"
-            class="h-full w-full rounded object-cover"
-            alt=""
-          />
-        </div>
-        <div class="flex flex-1 flex-col space-y-10">
-          <div class="text-sm font-normal leading-3">New season! Welcome to my channel!</div>
-          <div class="flex space-x-10">
-            <div class="flex w-3/6 items-center space-x-10">
-              <Icon size="20" name="video"></Icon><span class="text-sm font-normal leading-3">23,000</span>
-            </div>
-            <div class="flex w-3/6 items-center space-x-10">
-              <Icon size="20" name="comment"></Icon><span class="text-sm font-normal leading-3">289</span>
-            </div>
-          </div>
-          <div class="flex space-x-10">
-            <div class="flex w-3/6 items-center space-x-10">
-              <Icon size="20" name="like"></Icon><span class="text-sm font-normal leading-3">113</span>
-            </div>
-            <div class="flex w-3/6 items-center space-x-10">
-              <Icon size="20" name="sharePost"></Icon><span class="text-sm font-normal leading-3">94</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="z-0 mt-[-1rem] grid w-full space-y-30 rounded-b-lg bg-gray03 p-30 pt-40">
-        <div class="flex space-x-15">
-          <div class="grid w-3/12 space-y-10">
-            <div class="leading-md text-base font-normal">观看数量:</div>
-            <div class="leading-lg text-lg font-bold">29k</div>
-          </div>
-          <div class="grid w-3/12 space-y-10">
-            <div class="leading-md text-base font-normal">每日观看:</div>
-            <div class="leading-lg text-lg font-bold">198</div>
-          </div>
-          <div class="grid w-3/12 space-y-10">
-            <div class="leading-md text-base font-normal">收藏:</div>
-            <div class="leading-lg text-lg font-bold">3029</div>
-          </div>
-          <div class="grid w-3/12 space-y-10">
-            <div class="leading-md text-base font-normal">评论:</div>
-            <div class="leading-lg text-lg font-bold">238</div>
-          </div>
-        </div>
-        <div class="flex space-x-15">
-          <div class="grid w-3/12 space-y-10">
-            <div class="leading-md text-base font-normal">观看数量:</div>
-            <div class="leading-lg text-lg font-bold">29k</div>
-          </div>
-          <div class="grid w-3/12 space-y-10">
-            <div class="leading-md text-base font-normal">每日观看:</div>
-            <div class="leading-lg text-lg font-bold">198</div>
-          </div>
-          <div class="grid w-3/12 space-y-10">
-            <div class="leading-md text-base font-normal">收藏:</div>
-            <div class="leading-lg text-lg font-bold">3029</div>
-          </div>
-          <div class="grid w-3/12 space-y-10">
-            <div class="leading-md text-base font-normal">评论:</div>
-            <div class="leading-lg text-lg font-bold">238</div>
-          </div>
-        </div>
-      </div>
+    <div v-for="(media, index) in medias" :key="`earn-media-info-${index}`">
+      <EarnPostCard :media="media"></EarnPostCard>
     </div>
   </div>
 </template>
@@ -145,10 +78,56 @@
 import { ref } from 'vue'
 import Button from '@comp/common/Button.vue'
 import Tab from '@comp/navigation/Tab.vue'
+import EarnPostCard from '@comp/mine/EarnPostCard.vue'
 
 const tab = ref(1)
 const tabOptions = ref([
   { label: '整體表現', value: 1 },
   { label: '帖子表現', value: 2 },
+])
+
+const medias = ref([
+  {
+    img: 'https://i.postimg.cc/tJZ8B7tL/3fa5f2a5d3f7f8ba457f2376adc2b5ba.jpg',
+    title: 'New season! Welcome to my channel!',
+    play: 23000,
+    comment: 289,
+    like: 113,
+    share: 94,
+    numberViews: 999,
+    watchDaily: 198,
+    collect: 3029,
+    msg: 289,
+    numberPurchases: 1359,
+    earn: 83030,
+  },
+  {
+    img: 'https://i.postimg.cc/tJZ8B7tL/3fa5f2a5d3f7f8ba457f2376adc2b5ba.jpg',
+    title: 'New season! Welcome to my channel!',
+    play: 23000,
+    comment: 289,
+    like: 113,
+    share: 94,
+    numberViews: 999,
+    watchDaily: 198,
+    collect: 3029,
+    msg: 289,
+    numberPurchases: 1359,
+    earn: 83030,
+  },
+  {
+    img: 'https://i.postimg.cc/tJZ8B7tL/3fa5f2a5d3f7f8ba457f2376adc2b5ba.jpg',
+    title: 'New season! Welcome to my channel!',
+    play: 23000,
+    comment: 289,
+    like: 113,
+    share: 94,
+    numberViews: 999,
+    watchDaily: 198,
+    collect: 3029,
+    msg: 289,
+    numberPurchases: 1359,
+    earn: 83030,
+  },
 ])
 </script>
