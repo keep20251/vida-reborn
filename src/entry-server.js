@@ -19,7 +19,9 @@ export async function render(url, manifest, ctx) {
   const preloadLinks = renderPreloadLinks(ctx.modules, manifest)
 
   const stateHtml = store.state.value.hydration
-    ? `<script id="ssr-state">window.__INITIAL_STATE__ = '${JSON.stringify(store.state.value.hydration)}'</script>`
+    ? `<script id="ssr-state">window.__INITIAL_STATE__ = ${JSON.stringify(
+        JSON.stringify(store.state.value.hydration),
+      )}</script>`
     : ''
 
   return [html, preloadLinks, stateHtml, head]
