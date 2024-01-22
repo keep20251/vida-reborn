@@ -145,5 +145,6 @@ export const useAccountStore = defineStore('account-store', () => {
     setUserData,
     resetUserData,
     setToken,
+    getUserInfo,
   }
 })
