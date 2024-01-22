@@ -14,8 +14,6 @@ import { useAppleSignIn } from '@/utils/apple'
 import { createI18n } from '@/i18n'
 import { useCookies } from '@vueuse/integrations/useCookies'
 import { COOKIE_KEY } from '@const'
-import { useAccountStore } from '@/store/account'
-import { storeToRefs } from 'pinia'
 
 createApp()
   .then(async ({ app, router, store }) => {
@@ -30,12 +28,6 @@ createApp()
 
       setupStoreHydrate(store)
       setupAppleInit()
-
-      const accountStore = useAccountStore()
-      const { getUserInfo } = accountStore
-      const { isLogin } = storeToRefs(accountStore)
-
-      if (isLogin.value) await getUserInfo()
 
       app.mount('#app')
       hydrated()
