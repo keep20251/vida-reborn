@@ -22,7 +22,7 @@
       </div>
     </template>
   </SelfIntro>
-  <div class="leading-md mt-20 flex h-36 w-full items-center bg-gray03 px-20 text-base font-bold">All Posts 85</div>
+  <div class="mt-20 flex h-36 w-full items-center bg-gray03 px-20 text-base font-bold leading-md">All Posts 85</div>
   <div class="overflow-x-hidden">
     <List :items="items" item-key="id">
       <template #default="{ last }">
@@ -41,7 +41,6 @@
 import { ref } from 'vue'
 import List from '@comp/common/List.vue'
 import Feed from '@comp/main/Feed.vue'
-import Loading from '@comp/common/Loading.vue'
 import SelfIntro from '@comp/main/SelfIntro.vue'
 import Button from '@comp/common/Button.vue'
 import defaultAvatar from '@/assets/images/avatar.jpeg'

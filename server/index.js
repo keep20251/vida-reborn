@@ -150,3 +150,9 @@ function main() {
 }
 
 main()
+
+// 捕獲執行期間任何未處理的 promise reject
+// 沒捕獲的話伺服器會直接被終止
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('Unhandled Rejection at:', promise, 'reason:', reason)
+})

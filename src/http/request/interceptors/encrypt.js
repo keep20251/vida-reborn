@@ -22,10 +22,11 @@ const seralizeOrdered = function (params, splitStr = '&') {
 }
 
 export default function (request) {
+  console.log(`[request]${request.url}`, request.data)
+
   if (import.meta.env.DEV) return request
 
   if (request.data) {
-    if (import.meta.env.DEV) console.log(`[request]${request.url}`, request.data)
     request.data = seralizeOrdered(
       Encrypt({
         ...request.data,

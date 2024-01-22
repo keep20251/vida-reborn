@@ -31,7 +31,6 @@ import RecCard from '@comp/card/RecCard.vue'
 import defaultAvatar from '@/assets/images/avatar.jpeg'
 import List from '@comp/common/List.vue'
 import Feed from '@comp/main/Feed.vue'
-import Loading from '@comp/common/Loading.vue'
 
 const tab = ref(1)
 const tabOptions = ref([

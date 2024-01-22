@@ -16,6 +16,4 @@
   </Page>
 </template>
 
-<script setup>
-import Loading from '@comp/common/Loading.vue'
-</script>
+<script setup></script>
