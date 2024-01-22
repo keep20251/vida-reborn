@@ -21,7 +21,11 @@ import NavigatorMobile from '@comp/layout/NavigatorMobile.vue'
 import AuthDialog from '@comp/dialog/AuthDialog.vue'
 import Modal from '@comp/modal/index.vue'
 import { useAppStore } from '@/store/app'
+import { useAccountStore } from '@/store/account'
 import { useDialogStore } from '@/store/dialog'
+import { useHydrationStore } from '@/store/hydration'
+import { onServerClientOnce, onHydration } from '@use/lifecycle'
+import useRequest from '@use/request'
 import { loadSeoHead } from '@/utils/init'
 
 const appStore = useAppStore()
@@ -29,4 +33,33 @@ const { isDesktop, isMobile } = storeToRefs(appStore)
 
 loadSeoHead()
 const { authDialog } = storeToRefs(useDialogStore())
+
+const accountStore = useAccountStore()
+const { resetUserData } = accountStore
+const { isLogin } = storeToRefs(accountStore)
+
+const hydrationStore = useHydrationStore()
+const { userData } = storeToRefs(hydrationStore)
+onServerClientOnce(async (isSSR) => {
+  const { data: resUserData, execute } = useRequest('User.info', {})
+
+  if (isLogin.value) {
+    try {
+      await execute()
+      resetUserData(resUserData.value)
+
+      if (isSSR) {
+        userData.value = resUserData.value
+      }
+    } catch (e) {
+      console.error(e)
+    }
+  }
+})
+onHydration(() => {
+  if (isLogin.value) {
+    // 還原 userData
+    resetUserData(userData.value)
+  }
+})
 </script>

@@ -118,10 +118,6 @@ export const useAccountStore = defineStore('account-store', () => {
 
   async function setToken(token) {
     tokenCookie.value = token
-    await getUserInfo()
-  }
-
-  async function getUserInfo() {
     const { data, execute } = useRequest('User.info', {})
     try {
       await execute()
@@ -145,6 +141,5 @@ export const useAccountStore = defineStore('account-store', () => {
     setUserData,
     resetUserData,
     setToken,
-    getUserInfo,
   }
 })
