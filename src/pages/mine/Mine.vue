@@ -32,7 +32,7 @@
           <div class="grid space-y-5">
             <Carousel :items="cats" :intervalTime="true"></Carousel>
             <p class="text-xs font-normal leading-3 text-gray-400">
-              Terms of Service Privacy Policy Cookie Policy Ad info About @ 2023 ViDA corp
+              Terms of Service Privacy Policy Cookie Policy Ad info About @ 2023 VIDA corp
             </p>
           </div>
         </div>
