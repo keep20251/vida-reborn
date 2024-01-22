@@ -114,3 +114,9 @@ export const MINE_TITLE = {
   'mine-cp': 'title.cp',
   'mine-dmca': 'DMCA',
 }
+
+// 信箱驗證與否
+export const EMAIL_VALIDATION = {
+  UNVERIFIED: 0,
+  VERIFIED: 1,
+}
