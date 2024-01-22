@@ -4,23 +4,23 @@
       <div class="flex justify-between">
         <div
           class="flex items-center space-x-10"
-          :class="[{ 'w-full justify-between': userData.email_validation === 1 }]"
+          :class="[{ 'w-full justify-between': userData.email_validation === EMAIL_VALIDATION.VERIFIED }]"
         >
           <div class="leading-lg text-base font-normal">目前的邮箱</div>
           <div
             class="text-sm font-normal leading-3"
             :class="[
               {
-                'text-warning': userData.email_validation === 0,
-                'text-primary': userData.email_validation === 1,
+                'text-warning': userData.email_validation === EMAIL_VALIDATION.UNVERIFIED,
+                'text-primary': userData.email_validation === EMAIL_VALIDATION.VERIFIED,
               },
             ]"
           >
-            {{ userData.email_validation === 0 ? '尚未验证' : '已验证通過' }}
+            {{ userData.email_validation === EMAIL_VALIDATION.UNVERIFIED ? '尚未验证' : '已验证通過' }}
           </div>
         </div>
         <div
-          v-if="userData.email_validation === 0"
+          v-if="userData.email_validation === EMAIL_VALIDATION.UNVERIFIED"
           class="leading-lg cursor-pointer text-base font-normal text-primary"
           @click="() => (edit = !edit)"
         >
@@ -31,7 +31,7 @@
       <div v-if="!edit" class="text-sm font-normal leading-3 text-gray66">{{ email }}</div>
     </div>
     <InputEmailCode
-      v-if="userData.email_validation === 0"
+      v-if="userData.email_validation === EMAIL_VALIDATION.UNVERIFIED"
       v-model="verifyCode"
       :onResend="() => sendEmailCode({ email, type })"
       :err-msg="verifyCodeError"
@@ -40,7 +40,7 @@
       @update:modelValue="verifyCodeError = ''"
       @error="(message) => (serverError = message)"
     ></InputEmailCode>
-    <div class="grid space-y-5" v-if="userData.email_validation === 0">
+    <div class="grid space-y-5" v-if="userData.email_validation === EMAIL_VALIDATION.UNVERIFIED">
       <Button :loading="isLoading" @click="validate" contrast>提交验证</Button>
       <div v-if="!!serverError" class="leading-md text-sm font-normal text-warning">{{ serverError }}</div>
     </div>
@@ -83,7 +83,7 @@ import { useMineStore } from '@/store/mine'
 import { useMultiAuth } from '@/compositions/request/multi-auth'
 import { useYup } from '@use/validator/yup'
 import InputEmailCode from '@/components/form/InputEmailCode.vue'
-import { SEND_EMAIL_PURPOSE } from '@/constant'
+import { SEND_EMAIL_PURPOSE, EMAIL_VALIDATION } from '@/constant'
 import useRequest from '@use/request/index.js'
 import { useAccountStore } from '@/store/account'
 

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="ml-[-20px] mr-[-20px] sm:ml-0 sm:mr-0 xl:ml-0 xl:mr-0">
     <div
       class="relative mb-35 flex h-[180px] w-full bg-gray66 bg-[url(https://i.postimg.cc/2yKgNXvn/ctrateBg.jpg)] bg-cover bg-center bg-no-repeat"
     >
@@ -27,11 +27,11 @@
       <div class="absolute bottom-[-35px] flex h-70 w-full px-20">
         <Avatar :radius="70" :src="defaultAvatar" :cameraIcon="cameraIcon"></Avatar>
       </div>
-      <div class="absolute bottom-[-50px] right-0 flex w-full justify-end pl-20">
+      <div class="absolute bottom-[-50px] right-0 mr-[20px] flex w-full justify-end sm:mr-0 xl:mr-0">
         <slot name="topButton"></slot>
       </div>
     </div>
-    <div v-if="showAllInfo" class="grid space-y-10 pt-30">
+    <div v-if="showAllInfo" class="ml-[20px] mr-[20px] grid space-y-10 pt-30 sm:ml-0 sm:mr-0 xl:ml-0 xl:mr-0">
       <div class="flex items-end justify-between">
         <div class="flex items-end space-x-5">
           <div class="leading-lg text-lg font-bold">{{ item.name }}</div>

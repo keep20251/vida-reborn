@@ -16,15 +16,17 @@
       </div>
     </template>
     <template #bottomButton>
-      <div class="w-9/12">
-        <Button>订阅设置</Button>
+      <div class="ml-[20px] mr-[20px] flex w-full space-x-10 sm:ml-0 sm:mr-0 xl:ml-0 xl:mr-0">
+        <div class="w-9/12">
+          <Button>订阅设置</Button>
+        </div>
+        <router-link :to="{ name: 'mine-profile-prvw' }" class="w-3/12">
+          <Button contrast class="text-nowrap">预览</Button>
+        </router-link>
       </div>
-      <router-link :to="{ name: 'mine-profile-prvw' }" class="w-3/12">
-        <Button contrast class="text-nowrap">预览</Button>
-      </router-link>
     </template>
   </SelfIntro>
-  <div class="flex h-36 w-full items-center bg-gray03 px-20 text-base font-bold leading-md">All Posts 85</div>
+  <div class="leading-md flex h-36 w-full items-center bg-gray03 px-20 text-base font-bold">All Posts 85</div>
   <div class="overflow-x-hidden">
     <List :items="items" item-key="id">
       <template #default="{ last }">
