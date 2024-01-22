@@ -61,6 +61,7 @@ export default {
     email: "Email",
     register: "Daftar",
     mailCode: "Kode verifikasi email",
+    sendMailCode: "Kirim kode verifikasi",
     resend: "Kirim ulang",
     upload: "Mengunggah",
     displayName: "Nama tampilan",

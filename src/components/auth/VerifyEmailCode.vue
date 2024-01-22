@@ -7,17 +7,15 @@
             <div class="px-[6.25rem] text-center text-sm font-normal leading-5">
               {{ $t('info.mailCodeSent', { mail: email }) }}
             </div>
-            <InputWrap
+            <InputEmailCode
               v-model="verifyCode"
-              :label="$t('label.mailCode')"
-              :placeholder="$t('placeholder.mailCode')"
-              :append-text-btn="appendTextBtn"
-              :append-text="appendText"
+              :onResend="() => sendEmailCode({ email })"
               :err-msg="verifyCodeError"
-              label-center
-              @click:append="onResendClick"
+              :first-time="false"
+              :label-center="true"
               @update:modelValue="verifyCodeError = ''"
-            ></InputWrap>
+              @error="(message) => (serverError = message)"
+            ></InputEmailCode>
             <Button :loading="isLoading" @click="validate">{{ $t('label.login') }}</Button>
             <div v-if="!!serverError" class="text-base font-normal leading-md text-warning">{{ serverError }}</div>
           </div>
@@ -33,7 +31,7 @@
 </template>
 <script setup>
 import DialogHeader from '@/components/dialog/DialogHeader.vue'
-import InputWrap from '@/components/form/InputWrap.vue'
+import InputEmailCode from '@/components/form/InputEmailCode.vue'
 import Button from '@/components/common/Button.vue'
 import useRequest from '@use/request/index.js'
 import { useAuthRouteStore } from '@/store/auth-route'
@@ -41,7 +39,7 @@ import { AUTH_ROUTES } from '@/constant'
 import { useEmailLoginStore } from '@/store/email-login'
 import { storeToRefs } from 'pinia'
 import { useYup } from '@use/validator/yup'
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useAccountStore } from '@/store/account'
 import { useMultiAuth } from '@/compositions/request/multi-auth'
@@ -83,30 +81,10 @@ async function loginByEmailCode() {
       code: verifyCode.value,
     })
     await setToken(data.value.token)
-    emailLoginStore.reset()
+    emailLoginStore.$reset()
   } catch (e) {
     serverError.value = e.message
     console.error(e)
   }
 }
-
-const sent = ref(false)
-const tick = ref(60)
-
-function onResendClick() {
-  sendEmailCode({ email: email.value })
-  sent.value = true
-  const countdown = setInterval(() => {
-    if (tick.value === 0) {
-      clearInterval(countdown)
-      sent.value = false
-      tick.value = 60
-    } else {
-      tick.value--
-    }
-  }, 1000)
-}
-
-const appendTextBtn = computed(() => (sent.value ? '' : $t('label.resend')))
-const appendText = computed(() => `${tick.value}s`)
 </script>

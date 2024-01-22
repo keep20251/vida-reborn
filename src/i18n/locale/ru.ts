@@ -61,6 +61,7 @@ export default {
     email: "Эл. почта",
     register: "Регистрация",
     mailCode: "Почтовый код подтверждения",
+    sendMailCode: "Отправить код проверки",
     resend: "Переслать",
     upload: "Загрузка",
     displayName: "Отображаемое имя",

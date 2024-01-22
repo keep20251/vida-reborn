@@ -61,6 +61,7 @@ export default {
     email: "メール",
     register: "登録",
     mailCode: "メール認証コード",
+    sendMailCode: "確認コードを送信します",
     resend: "再送信",
     upload: "アップロード中",
     displayName: "表示名",

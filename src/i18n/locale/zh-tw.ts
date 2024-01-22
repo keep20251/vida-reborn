@@ -61,6 +61,7 @@ export default {
     email: "電子郵件",
     register: "註冊",
     mailCode: "郵件驗證碼",
+    sendMailCode: "送出驗證碼",
     resend: "重新發送",
     upload: "上傳中",
     displayName: "顯示名稱",

@@ -61,6 +61,7 @@ export default {
     email: "电子邮件",
     register: "注册",
     mailCode: "邮件验证码",
+    sendMailCode: "送出验证码",
     resend: "重新发送",
     upload: "上传中",
     displayName: "显示名称",

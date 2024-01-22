@@ -61,6 +61,7 @@ export default {
     email: "이메일",
     register: "등록",
     mailCode: "메일 인증 코드",
+    sendMailCode: "확인 코드를 보냅니다",
     resend: "재전송",
     upload: "업로드 중",
     displayName: "표시 이름",

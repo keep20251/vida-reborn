@@ -61,6 +61,7 @@ export default {
     email: "อีเมล",
     register: "ลงทะเบียน",
     mailCode: "รหัสยืนยันอีเมล",
+    sendMailCode: "ส่งรหัสการยืนยัน",
     resend: "ส่งอีกครั้ง",
     upload: "กำลังอัปโหลด",
     displayName: "ชื่อที่แสดง",
