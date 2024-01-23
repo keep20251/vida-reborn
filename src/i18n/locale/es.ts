@@ -54,7 +54,7 @@ export default {
     accountLogin: "Iniciar sesión en la cuenta",
     mailCodeLogin: "Iniciar sesión con código de correo",
     pwdLogin: "Iniciar sesión con contraseña",
-    socialLink: "Editar enlace social",
+    editSocialLink: "Editar enlace social",
   },
   label: {
     account: "Nombre de usuario",

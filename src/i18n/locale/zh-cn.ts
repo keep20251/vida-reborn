@@ -54,7 +54,7 @@ export default {
     accountLogin: "帐户登录",
     mailCodeLogin: "邮件验证码登录",
     pwdLogin: "密码登录",
-    socialLink: "编辑社交链接",
+    editSocialLink: "编辑社交链接",
   },
   label: {
     account: "用户名",

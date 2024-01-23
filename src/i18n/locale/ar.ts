@@ -54,7 +54,7 @@ export default {
     accountLogin: "تسجيل الدخول إلى الحساب",
     mailCodeLogin: "تسجيل الدخول برمز البريد الإلكتروني",
     pwdLogin: "تسجيل الدخول بكلمة المرور",
-    socialLink: "تحرير الرابط الاجتماعي",
+    editSocialLink: "تحرير الرابط الاجتماعي",
   },
   label: {
     account: "اسم المستخدم",

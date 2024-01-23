@@ -54,7 +54,7 @@ export default {
     accountLogin: "खाता लॉगिन",
     mailCodeLogin: "ईमेल कोड लॉगिन",
     pwdLogin: "पासवर्ड लॉगिन",
-    socialLink: "सामाजिक लिंक संपादित करें",
+    editSocialLink: "सामाजिक लिंक संपादित करें",
   },
   label: {
     account: "उपयोगकर्ता नाम",

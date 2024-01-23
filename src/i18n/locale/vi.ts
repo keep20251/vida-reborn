@@ -54,7 +54,7 @@ export default {
     accountLogin: "Đăng nhập tài khoản",
     mailCodeLogin: "Đăng nhập bằng mã email",
     pwdLogin: "Đăng nhập bằng mật khẩu",
-    socialLink: "Chỉnh sửa liên kết xã hội",
+    editSocialLink: "Chỉnh sửa liên kết xã hội",
   },
   label: {
     account: "Tên người dùng",
