@@ -93,6 +93,9 @@ export default {
   message: { payment: { failed: "Pago fallido", success: "Pago exitoso", cancel: "Pago cancelado" } },
   copy: { link: "Copiar enlace", fail: "Copia fallida" },
   info: {
+    bindThirdPartyLogin: "Bind Iniciar sesión en terceros",
+    bindGoogle: "Bind Google",
+    bindTwitter: "Bind Twitter",
     neverRegister: "¿Aún no registrado?",
     clickToRegister: "Haz clic aquí para registrarte",
     loginOrRegister: "Iniciar sesión o registro rápido",

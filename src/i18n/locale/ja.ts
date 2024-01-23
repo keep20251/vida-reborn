@@ -95,6 +95,9 @@ export default {
   },
   copy: { link: "リンクをコピーする", fail: "コピーに失敗しました" },
   info: {
+    bindThirdPartyLogin: "サードパーティのログインをバインドします",
+    bindGoogle: "Googleをバインドします",
+    bindTwitter: "Twitterをバインドします",
     neverRegister: "まだ登録していませんか？",
     clickToRegister: "ここをクリックして登録してください",
     loginOrRegister: "ログインまたはクイック登録",

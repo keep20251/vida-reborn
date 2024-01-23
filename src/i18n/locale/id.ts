@@ -93,6 +93,9 @@ export default {
   message: { payment: { failed: "Pembayaran gagal", success: "Pembayaran berhasil", cancel: "Pembayaran dibatalkan" } },
   copy: { link: "Salin tautan", fail: "Salinan gagal" },
   info: {
+    bindThirdPartyLogin: "Mengikat login pihak ketiga",
+    bindGoogle: "Bind Google",
+    bindTwitter: "Bind Twitter",
     neverRegister: "Belum terdaftar?",
     clickToRegister: "Klik di sini untuk mendaftar",
     loginOrRegister: "Masuk atau Daftar Cepat",

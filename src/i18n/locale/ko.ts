@@ -93,6 +93,9 @@ export default {
   message: { payment: { failed: "결제 실패", success: "결제 성공", cancel: "결제 취소" } },
   copy: { link: "링크 복사하기", fail: "복사 실패" },
   info: {
+    bindThirdPartyLogin: "제 3 자 로그인 바인드",
+    bindGoogle: "구글 바인드",
+    bindTwitter: "트위터 바인드",
     neverRegister: "아직 등록하지 않았나요?",
     clickToRegister: "여기를 클릭하여 등록하세요",
     loginOrRegister: "로그인 또는 빠른 등록",

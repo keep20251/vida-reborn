@@ -95,6 +95,9 @@ export default {
   },
   copy: { link: "Sao chép liên kết", fail: "Sao chép thất bại" },
   info: {
+    bindThirdPartyLogin: "Liên kết đăng nhập của bên thứ ba",
+    bindGoogle: "Liên kết Google",
+    bindTwitter: "Bind Twitter",
     neverRegister: "Chưa đăng ký à?",
     clickToRegister: "Nhấp vào đây để đăng ký",
     loginOrRegister: "Đăng nhập hoặc đăng ký nhanh",

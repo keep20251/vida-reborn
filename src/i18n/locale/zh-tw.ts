@@ -93,6 +93,9 @@ export default {
   message: { payment: { failed: "付款失敗", success: "付款成功", cancel: "付款取消" } },
   copy: { link: "複製連結", fail: "複製失敗" },
   info: {
+    bindThirdPartyLogin: "綁定第三方登入",
+    bindGoogle: "綁定 Google",
+    bindTwitter: "綁定 Twitter",
     neverRegister: "沒有註冊過嗎？",
     clickToRegister: "點我進入註冊",
     loginOrRegister: "登入或快速註冊",
