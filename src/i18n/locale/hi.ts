@@ -93,6 +93,9 @@ export default {
   message: { payment: { failed: "भुगतान असफल", success: "भुगतान सफल", cancel: "भुगतान रद्द" } },
   copy: { link: "लिंक कॉपी करें", fail: "कॉपी विफल" },
   info: {
+    bindThirdPartyLogin: "तीसरे पक्ष को लॉगिन करें",
+    bindGoogle: "Google को बांधें",
+    bindTwitter: "ट्विटर को बांधें",
     neverRegister: "अभी तक पंजीकृत नहीं?",
     clickToRegister: "यहां क्लिक करके पंजीकरण करें",
     loginOrRegister: "लॉगिन या त्वरित पंजीकरण",

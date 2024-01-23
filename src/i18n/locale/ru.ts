@@ -93,6 +93,9 @@ export default {
   message: { payment: { failed: "Оплата не прошла", success: "Оплата прошла успешно", cancel: "Оплата отменена" } },
   copy: { link: "Скопировать ссылку", fail: "Копирование не удалось" },
   info: {
+    bindThirdPartyLogin: "Свяжите стороннее логин",
+    bindGoogle: "Связывать Google",
+    bindTwitter: "Привязать Twitter",
     neverRegister: "Еще не зарегистрированы?",
     clickToRegister: "Нажмите здесь, чтобы зарегистрироваться",
     loginOrRegister: "Вход или быстрая регистрация",

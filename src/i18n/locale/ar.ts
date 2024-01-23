@@ -93,6 +93,9 @@ export default {
   message: { payment: { failed: "فشل الدفع", success: "الدفع ناجح", cancel: "تم إلغاء الدفع" } },
   copy: { link: "نسخ الرابط", fail: "فشل النسخ" },
   info: {
+    bindThirdPartyLogin: "ربط تسجيل الدخول إلى الطرف الثالث",
+    bindGoogle: "ربط جوجل",
+    bindTwitter: "ربط تويتر",
     neverRegister: "لم تسجل بعد؟",
     clickToRegister: "انقر هنا للتسجيل",
     loginOrRegister: "تسجيل الدخول أو التسجيل السريع",

@@ -6,7 +6,7 @@
           class="flex items-center space-x-10"
           :class="[{ 'w-full justify-between': userData.email_validation === EMAIL_VALIDATION.VERIFIED }]"
         >
-          <div class="leading-lg text-base font-normal">{{ $t('label.nowEmail') }}</div>
+          <div class="text-base font-normal leading-lg">{{ $t('label.nowEmail') }}</div>
           <div
             class="text-sm font-normal leading-3"
             :class="[
@@ -23,7 +23,7 @@
         </div>
         <div
           v-if="userData.email_validation === EMAIL_VALIDATION.UNVERIFIED"
-          class="leading-lg cursor-pointer text-base font-normal text-primary"
+          class="cursor-pointer text-base font-normal leading-lg text-primary"
           @click="() => (edit = !edit)"
         >
           {{ edit ? 'Confirm' : 'Edit' }}
@@ -44,7 +44,7 @@
     ></InputEmailCode>
     <div class="grid space-y-5" v-if="userData.email_validation === EMAIL_VALIDATION.UNVERIFIED">
       <Button :loading="isLoading" @click="validate" contrast>{{ $t('label.submit') }}</Button>
-      <div v-if="!!serverError" class="leading-md text-sm font-normal text-warning">{{ serverError }}</div>
+      <div v-if="!!serverError" class="text-sm font-normal leading-md text-warning">{{ serverError }}</div>
     </div>
     <InputWrap
       v-model="nickname"
@@ -60,22 +60,24 @@
 
     <div>
       <Button @click="saveUserName">{{ $t('common.save') }}</Button>
-      <div v-if="!!nameServerError" class="leading-md text-sm font-normal text-warning">{{ nameServerError }}</div>
+      <div v-if="!!nameServerError" class="text-sm font-normal leading-md text-warning">{{ nameServerError }}</div>
     </div>
 
-    <div class="leading-lg mb-20 pt-10 text-center text-base font-normal">绑定第三方登入</div>
+    <div class="mb-20 pt-10 text-center text-base font-normal leading-lg">{{ $t('info.bindThirdPartyLogin') }}</div>
     <div class="flex w-full flex-col items-center space-y-10">
       <div
         class="flex w-3/6 cursor-pointer items-center justify-center space-x-10 rounded-full border border-gray30 py-10"
+        @click="googleLogin"
       >
         <Icon name="google" size="15"></Icon>
-        <div class="leading-lg text-base font-normal">与 Google 绑定</div>
+        <div class="text-base font-normal leading-lg">{{ $t('info.bindGoogle') }}</div>
       </div>
       <div
         class="flex w-3/6 cursor-pointer items-center justify-center space-x-10 rounded-full border border-gray30 py-10"
+        @click="twitterLogin"
       >
-        <Icon name="facebook" size="15"></Icon>
-        <div class="leading-lg text-base font-normal">与 Facebook 绑定</div>
+        <Icon name="twitter" size="15"></Icon>
+        <div class="text-base font-normal leading-lg">{{ $t('info.bindTwitter') }}</div>
       </div>
     </div>
   </div>
@@ -92,6 +94,9 @@ import InputEmailCode from '@/components/form/InputEmailCode.vue'
 import { SEND_EMAIL_PURPOSE, EMAIL_VALIDATION } from '@/constant'
 import useRequest from '@use/request/index.js'
 import { useAccountStore } from '@/store/account'
+import { useThirdPartyAuth } from '@/compositions/request/third-party-auth'
+
+const { twitterLogin, googleLogin } = useThirdPartyAuth()
 
 const accountStore = useAccountStore()
 const { userData } = accountStore

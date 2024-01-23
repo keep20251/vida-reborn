@@ -95,6 +95,9 @@ export default {
   },
   copy: { link: "Link kopieren", fail: "Kopieren fehlgeschlagen" },
   info: {
+    bindThirdPartyLogin: "Binden Sie Drittanmeldung",
+    bindGoogle: "Binden Sie Google",
+    bindTwitter: "Binden Sie Twitter",
     neverRegister: "Noch nicht registriert?",
     clickToRegister: "Klicken Sie hier, um sich zu registrieren",
     loginOrRegister: "Anmelden oder Schnellregistrierung",

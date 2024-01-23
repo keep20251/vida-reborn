@@ -1,12 +1,14 @@
 import useRequest from '@/compositions/request'
 import { useThirdPartyAuth } from '@/compositions/request/third-party-auth'
 import { useAccountStore } from '@/store/account'
+import { useLocaleReadonly } from '@use/utils/localeReadonly'
 
 export default async (to, from, next) => {
   if (import.meta.env.SSR) next()
 
   const { twitterOAuth, redirect_uri } = useThirdPartyAuth()
   const { setToken } = useAccountStore()
+  const locale = useLocaleReadonly()
 
   if (
     twitterOAuth.value.oauth_token &&
@@ -22,11 +24,9 @@ export default async (to, from, next) => {
       },
     })
     await twitterLogin()
-    if (twitterResRef.value?.data?.token) {
-      alert(`Twitter 登入成功: ${twitterResRef.value.data.token}`)
-      await setToken(twitterResRef.value.data.token)
-    }
-    return next({ name: 'home', query: {} })
+    console.log(twitterResRef.value)
+    if (twitterResRef.value?.token) await setToken(twitterResRef.value.token)
+    return next({ name: 'home', params: { lang: locale.value } })
   }
 
   if (to.query.code) {
@@ -39,11 +39,8 @@ export default async (to, from, next) => {
     })
     await googleLogin()
 
-    if (googleResRef.value?.data?.token) {
-      alert(`Google 登入成功: ${googleResRef.value.data.token}`)
-      await setToken(googleResRef.value.data.token)
-    }
-    return next({ name: 'home', query: {} })
+    if (googleResRef.value?.token) await setToken(googleResRef.value.token)
+    return next({ name: 'home', params: { lang: locale.value } })
   }
 
   next()
