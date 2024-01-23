@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, createMemoryHistory } from 'vue-router'
+import { createRouter as createVueRouter, createWebHistory, createMemoryHistory } from 'vue-router'
 import devRoutes from './routes/dev'
 import mineRoutes from './routes/mine'
 import errorRoutes from './routes/error'
@@ -27,16 +27,18 @@ const routes = [
   ...errorRoutes,
 ]
 
-const router = createRouter({
-  history: import.meta.env.SSR ? createMemoryHistory() : createWebHistory(),
-  routes: import.meta.env.DEV ? [...routes, ...devRoutes] : routes,
-})
+export function createRouter() {
+  const router = createVueRouter({
+    history: import.meta.env.SSR ? createMemoryHistory() : createWebHistory(),
+    routes: import.meta.env.DEV ? [...routes, ...devRoutes] : routes,
+  })
 
-beforeGuard.forEach((guard) => router.beforeEach(guard))
-afterGuard.forEach((guard) => router.afterEach(guard))
+  beforeGuard.forEach((guard) => router.beforeEach(guard))
+  afterGuard.forEach((guard) => router.afterEach(guard))
 
-router.onError((e) => {
-  console.error(e.message)
-})
+  router.onError((e) => {
+    console.error(e.message)
+  })
 
-export default router
+  return router
+}
