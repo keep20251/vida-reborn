@@ -30,6 +30,7 @@ export default {
     loading: "Đang tải",
     noMore: "Không còn nữa",
     save: "Cứu",
+    cookie: "Chấp nhận và don lồng hiển thị lại tin nhắn này",
   },
   title: {
     join: "Tham gia",
@@ -134,6 +135,10 @@ export default {
       "Bằng cách tiếp tục, bạn xác nhận rằng bạn đã đủ 18 tuổi trở lên và đồng ý với {tos} của Vida, và đã đọc {pp} của VIDA.",
     tos: "Điều khoản Dịch vụ",
     pp: "Chính sách Bảo mật",
+    cookie: {
+      line: "Chúng tôi sử dụng cookie thiết yếu để làm cho trang web của chúng tôi hoạt động. Với sự đồng ý của bạn, chúng tôi cũng có thể sử dụng cookie không thiết yếu để cải thiện trải nghiệm người dùng và phân tích lưu lượng truy cập trang web. Bằng cách nhấp vào Chấp nhận, bạn đồng ý sử dụng cookie của trang web của chúng tôi như được mô tả trong {word} của chúng tôi.",
+      word: "Chính sách cookie",
+    },
   },
   month: {
     Jan: "Tháng Một",

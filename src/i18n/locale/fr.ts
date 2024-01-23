@@ -30,6 +30,7 @@ export default {
     loading: "Chargement",
     noMore: "Pas plus",
     save: "Sauvegarder",
+    cookie: "Acceptez et ne montrez plus ce message",
   },
   title: {
     join: "Rejoindre",
@@ -132,6 +133,10 @@ export default {
       "En continuant, vous confirmez que vous avez 18 ans ou plus, et acceptez les {tos} de Vida, et avez lu la {pp} de VIDA.",
     tos: "Conditions d'utilisation",
     pp: "Politique de confidentialité",
+    cookie: {
+      line: "Nous utilisons des cookies essentiels pour faire fonctionner notre site. Avec votre consentement, nous pouvons également utiliser des cookies non essentiels pour améliorer l'expérience des utilisateurs et analyser le trafic du site Web. En cliquant sur Accepter, vous acceptez l'utilisation des cookies de notre site Web comme décrit dans notre {word}.",
+      word: "Politique de cookie",
+    },
   },
   month: {
     Jan: "Janvier",
