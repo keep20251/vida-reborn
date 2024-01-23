@@ -12,7 +12,7 @@
     </SelfIntro>
     <div class="flex flex-col space-y-20 pl-4">
       <InputWrap
-        v-model="profile.displayName"
+        v-model="profile.nickname"
         :label="$t('label.displayName')"
         :placeholder="$t('placeholder.displayName')"
       ></InputWrap>
@@ -69,7 +69,7 @@
           <p class="text-base font-normal leading-3">{{ $t('info.subscribeSetting') }}</p>
           <p class="cursor-pointer text-base font-normal leading-3 text-primary">{{ $t('label.edit') }}</p>
         </div>
-        <div v-if="subscriptions.length > 0">
+        <div v-if="subscriptions.length > 0" class="flex flex-col space-y-10">
           <SubscribeSwitch
             v-for="(sub, index) in subscriptions"
             :key="`sub-${index}`"
@@ -122,7 +122,7 @@ const userInfo = computed(() => ({
 }))
 
 const profile = reactive({
-  displayName: userData.value.nickname,
+  nickname: userData.value.nickname,
   username: userData.value.username,
   description: userData.value.description,
   socialLinks: {
@@ -146,6 +146,12 @@ const profile = reactive({
 
 // TODO 訂閱設定還沒串好
 // TODO 上傳大頭貼跟背景圖還沒串好
+// const subscriptions = ref([
+//   { title: 'General', price: 0.99, isOpen: true },
+//   { title: 'Silver', price: 9.99, isOpen: true },
+//   { title: 'Golden', price: 99.99, isOpen: true },
+// ])
+
 const subscriptions = ref([])
 
 async function fetchSubscriptions() {
@@ -181,10 +187,10 @@ const locale = useLocale()
 const { push } = useRouter()
 
 const onSave = async () => {
-  const { data, execute } = useRequest('User.modifyInfo')
+  const { execute } = useRequest('User.modifyInfo')
 
   const payload = {
-    nickname: profile.displayName,
+    nickname: profile.nickname,
     username: profile.username,
     description: profile.description,
     lang: locale.value,
@@ -197,6 +203,12 @@ const onSave = async () => {
 
   try {
     await execute(payload)
+    Object.entries(profile).forEach(([key, value]) => {
+      if (key === 'socialLinks') {
+        Object.entries(value).forEach(([k, v]) => (userData.value[`${k}_link`] = v.value))
+      }
+      userData.value[key] = value
+    })
     push({ name: 'mine-home' })
   } catch (e) {
     console.error(e)
