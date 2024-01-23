@@ -7,11 +7,12 @@
       </keep-alive>
     </router-view>
     <ClientOnly>
+      <CookieBanner></CookieBanner>
       <AuthDialog v-if="authDialog"></AuthDialog>
+      <Modal></Modal>
     </ClientOnly>
   </div>
   <NavigatorMobile v-if="isMobile"></NavigatorMobile>
-  <Modal></Modal>
 </template>
 
 <script setup>
@@ -20,6 +21,7 @@ import Navigator from '@comp/layout/Navigator.vue'
 import NavigatorMobile from '@comp/layout/NavigatorMobile.vue'
 import AuthDialog from '@comp/dialog/AuthDialog.vue'
 import Modal from '@comp/modal/index.vue'
+import CookieBanner from '@/components/banner/CookieBanner.vue'
 import { useAppStore } from '@/store/app'
 import { useAccountStore } from '@/store/account'
 import { useDialogStore } from '@/store/dialog'
