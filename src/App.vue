@@ -41,15 +41,13 @@ const { isLogin } = storeToRefs(accountStore)
 const hydrationStore = useHydrationStore()
 const { userData } = storeToRefs(hydrationStore)
 onServerClientOnce(async (isSSR) => {
-  const { data: resUserData, execute } = useRequest('User.info', {})
-
   if (isLogin.value) {
     try {
-      await execute()
-      resetUserData(resUserData.value)
+      const resUserData = await useRequest('User.info', { immediate: true })
+      resetUserData(resUserData)
 
       if (isSSR) {
-        userData.value = resUserData.value
+        userData.value = resUserData
       }
     } catch (e) {
       console.error(e)

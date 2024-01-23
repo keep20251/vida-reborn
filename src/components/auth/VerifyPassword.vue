@@ -57,7 +57,7 @@ const accountStore = useAccountStore()
 const { setToken } = accountStore
 
 async function loginByPassword() {
-  const { data, execute } = useRequest('Account.loginByPassword', {})
+  const { data, execute } = useRequest('Account.loginByPassword')
   try {
     await execute({
       account: email.value,

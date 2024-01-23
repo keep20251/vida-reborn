@@ -17,9 +17,6 @@ export function useThirdPartyAuth() {
     params: {
       redirect_uri,
     },
-    onSuccess: (responseData) => {
-      console.log('onSuccess', responseData)
-    },
   })
 
   const twitterOAuth = useLocalStorage('twitterOAuth', {})
@@ -45,9 +42,6 @@ export function useThirdPartyAuth() {
   const { data: googleRedirection, execute: getGoogleOuathPage } = useRequest('ThirdParty.getGoogleOauthPage', {
     params: {
       redirect_uri,
-    },
-    onSuccess: (responseData) => {
-      console.log('onSuccess', responseData)
     },
   })
 

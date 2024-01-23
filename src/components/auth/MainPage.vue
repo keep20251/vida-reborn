@@ -96,20 +96,19 @@ async function onAppleLoginSuccess(event) {
   console.log('onAppleLoginSuccess', event)
 
   const { code } = event
-  useRequest('ThirdParty.webLoginByApple', {
-    params: {
-      redirect_uri,
-      apple_code: code,
-    },
-    onSuccess: async (responseData) => {
-      console.log('ThirdParty.webLoginByApple.response', responseData)
-      await setToken(responseData.token)
-    },
-    onError: (err) => {
-      console.error(err)
-    },
-    immediate: true,
-  })
+  try {
+    const responseData = await useRequest('ThirdParty.webLoginByApple', {
+      params: {
+        redirect_uri,
+        apple_code: code,
+      },
+      immediate: true,
+    })
+    console.log('ThirdParty.webLoginByApple.response', responseData)
+    await setToken(responseData.token)
+  } catch (err) {
+    console.error(err)
+  }
 }
 
 const loginOptions = [

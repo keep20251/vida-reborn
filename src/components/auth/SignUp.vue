@@ -86,7 +86,7 @@ const credential = reactive({
   },
 })
 
-const { execute } = useRequest('Account.emailUsed', {})
+const { execute } = useRequest('Account.emailUsed')
 
 const checkEmailExist = ref(false)
 async function checkEmail(email) {
@@ -154,7 +154,7 @@ const { t: $t } = useI18n()
 
 async function register() {
   isLoading.value = true
-  const { data, execute } = useRequest('Account.registerByPassword', {})
+  const { data, execute } = useRequest('Account.registerByPassword')
   try {
     await execute({
       email: credential.email.value,

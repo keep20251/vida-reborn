@@ -74,7 +74,7 @@ const accountStore = useAccountStore()
 const { setToken } = accountStore
 
 async function loginByEmailCode() {
-  const { data, execute } = useRequest('Account.loginByEmail', {})
+  const { data, execute } = useRequest('Account.loginByEmail')
   try {
     await execute({
       email: email.value,
