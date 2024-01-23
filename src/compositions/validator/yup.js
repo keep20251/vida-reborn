@@ -174,7 +174,7 @@ Yup.addMethod(Yup.string, 'strongPassword', function () {
 })
 
 Yup.addMethod(Yup.string, 'instagram', function () {
-  return this.matches(/^.*www\.instagram\.com\/[._A-Za-z0-9]+$/, { message: { key: 'yup.string.instagram' } })
+  return this.matches(/^.*www\.instagram\.com\/[/._A-Za-z0-9]+$/, { message: { key: 'yup.string.instagram' } })
 })
 
 Yup.addMethod(Yup.string, 'twitter', function () {
@@ -189,4 +189,12 @@ Yup.addMethod(Yup.string, 'vida', function () {
   return this.matches(/^.*vida\.pub\/[_A-Za-z0-9\u4e00-\u9fff]+$/, {
     message: { key: 'yup.string.vida' },
   })
+})
+
+Yup.addMethod(Yup.string, 'youtube', function () {
+  return this.matches(/^.*www\.youtube\.com\/[@_A-Za-z0-9]+$/, { message: { key: 'yup.string.youtube' } })
+})
+
+Yup.addMethod(Yup.string, 'facebook', function () {
+  return this.matches(/^.*www\.facebook\.com\/[/-?._A-Za-z0-9]+$/, { message: { key: 'yup.string.facebook' } })
 })

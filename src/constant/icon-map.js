@@ -45,6 +45,8 @@ export const iconMap = {
   sharePost: 'interaction/share-post',
   checkActive: 'interaction/check-active',
   check: 'interaction/check',
+  circleSuccess: 'interaction/circle-success',
+  circleError: 'interaction/circle-error',
 
   apple: 'login/apple',
   facebook: 'login/facebook',

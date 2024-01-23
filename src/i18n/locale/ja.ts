@@ -54,7 +54,7 @@ export default {
     accountLogin: "アカウントログイン",
     mailCodeLogin: "メールコードでログイン",
     pwdLogin: "パスワードログイン",
-    socialLink: "ソーシャルリンクを編集します",
+    editSocialLink: "ソーシャルリンクを編集します",
   },
   label: {
     account: "ユーザー名",

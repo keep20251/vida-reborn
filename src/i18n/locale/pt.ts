@@ -54,7 +54,7 @@ export default {
     accountLogin: "Login da conta",
     mailCodeLogin: "Login com código de e-mail",
     pwdLogin: "Login com senha",
-    socialLink: "Edite Link Social",
+    editSocialLink: "Edite Link Social",
   },
   label: {
     account: "Nome de usuário",

@@ -54,7 +54,7 @@ export default {
     accountLogin: "Login akun",
     mailCodeLogin: "Login dengan kode email",
     pwdLogin: "Login dengan kata sandi",
-    socialLink: "Edit tautan sosial",
+    editSocialLink: "Edit tautan sosial",
   },
   label: {
     account: "Nama pengguna",

@@ -63,7 +63,7 @@ export default {
         },
       },
       borderRadius: {
-        sm: '4.375rem',
+        sm: '0.4375rem',
         md: '0.625rem',
         lg: '0.75rem',
         xl: '0.9375rem',

@@ -54,7 +54,7 @@ export default {
     accountLogin: "Вход в аккаунт",
     mailCodeLogin: "Вход по коду из email",
     pwdLogin: "Вход по паролю",
-    socialLink: "Редактировать социальную ссылку",
+    editSocialLink: "Редактировать социальную ссылку",
   },
   label: {
     account: "Имя пользователя",

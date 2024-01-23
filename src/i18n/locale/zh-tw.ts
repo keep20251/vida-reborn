@@ -54,7 +54,7 @@ export default {
     accountLogin: "帳戶登入",
     mailCodeLogin: "郵件驗證碼登入",
     pwdLogin: "密碼登入",
-    socialLink: "編輯社群連結",
+    editSocialLink: "編輯社群連結",
   },
   label: {
     account: "用戶名",

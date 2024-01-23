@@ -54,7 +54,7 @@ export default {
     accountLogin: "Account Login",
     mailCodeLogin: "Email Code Login",
     pwdLogin: "Password Login",
-    socialLink: "Edit Social Link",
+    editSocialLink: "Edit Social Link",
   },
   label: {
     account: "Username",
