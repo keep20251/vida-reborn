@@ -1,6 +1,6 @@
 <template>
-  <div class="flex select-none flex-col">
-    <div class="grid space-y-5 border-b py-10">
+  <div class="flex select-none flex-col divide-y">
+    <div v-if="role.registerLogin" class="grid space-y-5 py-10">
       <div class="flex cursor-pointer items-center space-x-5" @click="openAuthDialog(AUTH_ROUTES.SIGN_UP)">
         <Icon name="setting" size="16"></Icon>
         <span>{{ $t('title.join') }}</span>
@@ -10,33 +10,33 @@
         <span>{{ $t('title.login') }}</span>
       </div>
     </div>
-    <div class="grid space-y-5 border-b py-10">
-      <router-link :to="{ name: 'mine-buy' }" class="flex cursor-pointer items-center space-x-5">
-        <Icon name="setting" size="16"></Icon>
-        <span>{{ $t('title.buy') }}</span>
-      </router-link>
+    <div v-if="role.postEarn" class="grid space-y-5 py-10">
       <router-link :to="{ name: 'mine-post' }" class="flex cursor-pointer items-center space-x-5">
         <Icon name="setting" size="16"></Icon>
         <span>{{ $t('title.post') }}</span>
-      </router-link>
-    </div>
-    <div class="grid space-y-5 border-b py-10">
-      <router-link :to="{ name: 'mine-collect' }" class="flex cursor-pointer items-center space-x-5">
-        <Icon name="setting" size="16"></Icon>
-        <span>{{ $t('title.collect') }}</span>
       </router-link>
       <router-link :to="{ name: 'mine-earn' }" class="flex cursor-pointer items-center space-x-5">
         <Icon name="setting" size="16"></Icon>
         <span>{{ $t('title.earn') }}</span>
       </router-link>
     </div>
-    <div class="grid space-y-5 border-b py-10">
+    <div v-if="role.buyCollect" class="grid space-y-5 py-10">
+      <router-link :to="{ name: 'mine-buy' }" class="flex cursor-pointer items-center space-x-5">
+        <Icon name="setting" size="16"></Icon>
+        <span>{{ $t('title.buy') }}</span>
+      </router-link>
+      <router-link :to="{ name: 'mine-collect' }" class="flex cursor-pointer items-center space-x-5">
+        <Icon name="setting" size="16"></Icon>
+        <span>{{ $t('title.collect') }}</span>
+      </router-link>
+    </div>
+    <div v-if="role.beCreator" class="grid space-y-5 py-10">
       <router-link :to="{ name: 'mine-creator' }" class="flex cursor-pointer items-center space-x-5">
         <Icon name="setting" size="16"></Icon>
         <span>{{ $t('title.beCreator') }}</span>
       </router-link>
     </div>
-    <div class="grid space-y-5 border-b py-10">
+    <div v-if="role.settings" class="grid space-y-5 py-10">
       <div class="flex cursor-pointer items-center justify-between pr-15" @click="accOpen = !accOpen">
         <div class="flex items-center space-x-5">
           <Icon name="setting" size="16"></Icon>
@@ -64,14 +64,14 @@
         </div>
       </div>
     </div>
-    <div class="flex justify-between space-y-5 border-b py-10">
+    <div class="flex justify-between space-y-5 py-10">
       <div class="flex items-center space-x-5">
         <Icon name="setting" size="16"></Icon>
         <span>{{ $t('title.language') }}</span>
       </div>
       <Dropdown class="w-[120px]" v-model="locale" :options="transOptions"></Dropdown>
     </div>
-    <div class="grid space-y-5 border-b py-10">
+    <div class="grid space-y-5 py-10">
       <div class="flex cursor-pointer items-center justify-between pr-15" @click="aboutOpen = !aboutOpen">
         <div class="flex items-center space-x-5">
           <Icon name="setting" size="16"></Icon>
@@ -103,13 +103,13 @@
       </div>
     </div>
 
-    <div class="grid space-y-5 py-10">
+    <div v-if="role.logout" class="grid space-y-5 py-10">
       <div class="flex cursor-pointer items-center space-x-5" @click="logout">
         <Icon name="setting" size="16"></Icon>
         <span>{{ $t('title.logout') }}</span>
       </div>
     </div>
-    <div v-if="isDev" class="grid space-y-5 rounded-xl border-b bg-slate-200 px-10 py-10">
+    <div v-if="isDev" class="grid space-y-5 rounded-xl bg-slate-200 px-10 py-10">
       <div class="text-red-600">開發模式用</div>
       <router-link :to="{ name: 'mine-profile-set' }" class="flex cursor-pointer items-center space-x-5">
         <Icon name="setting" size="16"></Icon>
@@ -124,8 +124,38 @@ import { useLocale } from '@use/utils/locale'
 import { locales } from '@/i18n'
 import { useAccountStore } from '@/store/account'
 import { useAuthRouteStore } from '@/store/auth-route'
-import { AUTH_ROUTES } from '@/constant'
-import { computed, ref } from 'vue'
+import { AUTH_ROUTES, PERMISSION } from '@/constant'
+import { computed, ref, watch } from 'vue'
+import { usePermissionStore } from '@/store/permission'
+import { storeToRefs } from 'pinia'
+
+const accountStore = useAccountStore()
+const { userData, isLogin } = storeToRefs(accountStore)
+
+const permissionStore = usePermissionStore()
+const { role } = storeToRefs(permissionStore)
+
+console.log('你登入了嗎？', isLogin.value)
+console.log('是2就是創作者', userData.value?.auth_status)
+console.log('使用者資料', userData.value)
+
+// 角色權限顯示
+watch(
+  isLogin,
+  (isNewLogin) => {
+    if (!isNewLogin) {
+      role.value = PERMISSION.VISITOR
+      console.log('你是遊客')
+    } else if (userData.value?.auth_status === 2) {
+      role.value = PERMISSION.CREATOR
+      console.log('你是創作者')
+    } else {
+      role.value = PERMISSION.REGISTERED
+      console.log('你是一般會員')
+    }
+  },
+  { immediate: true },
+)
 
 const accOpen = ref(false)
 const aboutOpen = ref(false)

@@ -14,6 +14,7 @@ export const usePermissionStore = defineStore('permissionStore', () => {
       return PERMISSION.CREATOR
     }
   })
+
   return {
     role,
     permission,
