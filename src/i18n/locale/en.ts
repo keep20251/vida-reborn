@@ -74,6 +74,9 @@ export default {
     nowPw: "Current password",
     newPw: "New password",
     newPwCfm: "Password Confirmation",
+    nowEmail: "Current mailbox",
+    unverified: "Not verified yet",
+    verified: "Verified",
   },
   placeholder: {
     account: "Please enter username",

@@ -74,6 +74,9 @@ export default {
     nowPw: "目前的密码",
     newPw: "新的密码",
     newPwCfm: "密码确认",
+    nowEmail: "目前的邮箱",
+    unverified: "尚未验证",
+    verified: "已验证通過",
   },
   placeholder: {
     account: "请输入用户名",

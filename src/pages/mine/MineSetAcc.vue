@@ -6,7 +6,7 @@
           class="flex items-center space-x-10"
           :class="[{ 'w-full justify-between': userData.email_validation === EMAIL_VALIDATION.VERIFIED }]"
         >
-          <div class="text-base font-normal leading-lg">目前的邮箱</div>
+          <div class="leading-lg text-base font-normal">{{ $t('label.nowEmail') }}</div>
           <div
             class="text-sm font-normal leading-3"
             :class="[
@@ -16,18 +16,20 @@
               },
             ]"
           >
-            {{ userData.email_validation === EMAIL_VALIDATION.UNVERIFIED ? '尚未验证' : '已验证通過' }}
+            {{
+              userData.email_validation === EMAIL_VALIDATION.UNVERIFIED ? $t('label.unverified') : $t('label.verified')
+            }}
           </div>
         </div>
         <div
           v-if="userData.email_validation === EMAIL_VALIDATION.UNVERIFIED"
-          class="cursor-pointer text-base font-normal leading-lg text-primary"
+          class="leading-lg cursor-pointer text-base font-normal text-primary"
           @click="() => (edit = !edit)"
         >
           {{ edit ? 'Confirm' : 'Edit' }}
         </div>
       </div>
-      <InputWrap v-if="edit" v-model="email" :placeholder="'请输入邮箱'"></InputWrap>
+      <InputWrap v-if="edit" v-model="email" :placeholder="$t('placeholder.email')"></InputWrap>
       <div v-if="!edit" class="text-sm font-normal leading-3 text-gray66">{{ email }}</div>
     </div>
     <InputEmailCode
@@ -41,35 +43,39 @@
       @error="(message) => (serverError = message)"
     ></InputEmailCode>
     <div class="grid space-y-5" v-if="userData.email_validation === EMAIL_VALIDATION.UNVERIFIED">
-      <Button :loading="isLoading" @click="validate" contrast>提交验证</Button>
-      <div v-if="!!serverError" class="text-sm font-normal leading-md text-warning">{{ serverError }}</div>
+      <Button :loading="isLoading" @click="validate" contrast>{{ $t('label.submit') }}</Button>
+      <div v-if="!!serverError" class="leading-md text-sm font-normal text-warning">{{ serverError }}</div>
     </div>
-    <InputWrap v-model="nickname" :label="'显示名称'" :placeholder="'请输入显示名称'"></InputWrap>
+    <InputWrap
+      v-model="nickname"
+      :label="$t('label.displayName')"
+      :placeholder="$t('placeholder.displayName')"
+    ></InputWrap>
     <InputWrap
       v-model="username"
-      :label="'用户名'"
+      :label="$t('label.account')"
       :sublabel="`@${username}`"
-      :placeholder="'请输入用户名'"
+      :placeholder="$t('placeholder.username')"
     ></InputWrap>
 
     <div>
-      <Button @click="saveUserName">保存</Button>
-      <div v-if="!!nameServerError" class="text-sm font-normal leading-md text-warning">{{ nameServerError }}</div>
+      <Button @click="saveUserName">{{ $t('common.save') }}</Button>
+      <div v-if="!!nameServerError" class="leading-md text-sm font-normal text-warning">{{ nameServerError }}</div>
     </div>
 
-    <div class="mb-20 pt-10 text-center text-base font-normal leading-lg">绑定第三方登入</div>
+    <div class="leading-lg mb-20 pt-10 text-center text-base font-normal">绑定第三方登入</div>
     <div class="flex w-full flex-col items-center space-y-10">
       <div
         class="flex w-3/6 cursor-pointer items-center justify-center space-x-10 rounded-full border border-gray30 py-10"
       >
         <Icon name="google" size="15"></Icon>
-        <div class="text-base font-normal leading-lg">与 Google 绑定</div>
+        <div class="leading-lg text-base font-normal">与 Google 绑定</div>
       </div>
       <div
         class="flex w-3/6 cursor-pointer items-center justify-center space-x-10 rounded-full border border-gray30 py-10"
       >
         <Icon name="facebook" size="15"></Icon>
-        <div class="text-base font-normal leading-lg">与 Facebook 绑定</div>
+        <div class="leading-lg text-base font-normal">与 Facebook 绑定</div>
       </div>
     </div>
   </div>
