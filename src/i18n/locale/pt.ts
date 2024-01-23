@@ -74,6 +74,9 @@ export default {
     nowPw: "",
     newPw: "",
     newPwCfm: "",
+    nowEmail: "",
+    unverified: "",
+    verified: "",
   },
   placeholder: {
     account: "Por favor, insira o nome de usuário",
