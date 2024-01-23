@@ -2,6 +2,7 @@ import Text from './Text.vue'
 import Test from './Test.vue'
 import SocialLink from '@/components/modal/content/SocialLink.vue'
 import SignUpSuccess from '@/components/modal/content/SignUpSuccess.vue'
+import ApplyCreatorCert from '@/components/modal/content/ApplyCreatorCert.vue'
 import InterestedPick from '@/components/modal/content/InterestedPick.vue'
 
 import { MODAL_TYPE } from '@/constant'
@@ -14,6 +15,7 @@ export default Object.freeze({
   [MODAL_TYPE.SIGN_UP_SUCCESS]: SignUpSuccess,
 
   [MODAL_TYPE.INTERESTED_PICK]: InterestedPick,
+  [MODAL_TYPE.APPLY_CREATOR_CERT]: ApplyCreatorCert,
 
   [MODAL_TYPE.TEST]: Test,
 })

@@ -32,6 +32,7 @@ export const MODAL_TYPE = {
   SIGN_UP_SUCCESS: 11,
 
   INTERESTED_PICK: 20,
+  APPLY_CREATOR_CERT: 21,
 
   TEST: 999,
 }
