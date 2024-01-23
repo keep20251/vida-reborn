@@ -95,11 +95,11 @@ const socialLinks = reactive({
 })
 
 function setLinksValue(currentContent) {
-  socialLinks.instagram.value = currentContent?.instagram?.value ?? 'https://www.instagram.com/hongkong_doll/'
-  socialLinks.twitter.value = currentContent?.twitter?.value ?? 'https://twitter.com/HongKong_Doll'
-  socialLinks.tiktok.value = currentContent?.tiktok?.value ?? 'https://www.tiktok.com/@hongkong_doll'
-  socialLinks.youtube.value = currentContent?.youtube?.value ?? 'https://www.youtube.com/@baogerneal'
-  socialLinks.facebook.value = currentContent?.facebook?.value ?? 'https://www.facebook.com/froggychiu/?locale=zh_TW'
+  socialLinks.instagram.value = currentContent?.instagram?.value ?? ''
+  socialLinks.twitter.value = currentContent?.twitter?.value ?? ''
+  socialLinks.tiktok.value = currentContent?.tiktok?.value ?? ''
+  socialLinks.youtube.value = currentContent?.youtube?.value ?? ''
+  socialLinks.facebook.value = currentContent?.facebook?.value ?? ''
 }
 
 onMounted(() => setLinksValue(content.value))
