@@ -74,6 +74,9 @@ export default {
         lg: '1.125rem',
         xl: '1.5625rem',
       },
+      translate: {
+        'n-full': '-100%',
+      },
     },
     spacing: generateSpacing(),
   },

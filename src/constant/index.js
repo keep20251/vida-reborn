@@ -22,6 +22,7 @@ export const AUTH_ROUTES = {
 export const LOCAL_STORAGE_KEYS = {
   ACCOUNT_INFO: '__ACCOUNT_INFO',
   LOCALE: '__LOCALE',
+  COOKIE_AGREEMENT: '__COOKIE_AGREEMENT',
 }
 
 export const MODAL_TYPE = {

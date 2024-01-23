@@ -30,6 +30,7 @@ export default {
     loading: "Carregando",
     noMore: "Não há mais",
     save: "Salvar",
+    cookie: "Aceite e não mostre esta mensagem novamente",
   },
   title: {
     join: "Junte-se",
@@ -134,6 +135,10 @@ export default {
       "Ao continuar, você confirma que tem 18 anos ou mais, e concorda com os {tos} da Vida, e leu a {pp} da VIDA.",
     tos: "Termos de Serviço",
     pp: "Política de Privacidade",
+    cookie: {
+      line: "Usamos cookies essenciais para fazer nosso site funcionar. Com seu consentimento, também podemos usar cookies não essenciais para melhorar a experiência do usuário e analisar o tráfego do site. Ao clicar em Aceitar, você concorda com o uso de cookies do nosso site, conforme descrito em nosso {word}.",
+      word: "Política de biscoitos",
+    },
   },
   month: {
     Jan: "Janeiro",

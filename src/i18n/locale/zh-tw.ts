@@ -30,6 +30,7 @@ export default {
     loading: "載入中",
     noMore: "沒有更多了",
     save: "儲存",
+    cookie: "接受，不要再顯示此消息",
   },
   title: {
     join: "註冊",
@@ -126,6 +127,10 @@ export default {
     termsDeclaration: "繼續操作，即表示您確認您已年滿18歲，並同意Vida的{tos}，並已閱讀VIDA的{pp}。",
     tos: "服務條款",
     pp: "隱私權政策",
+    cookie: {
+      line: "我們使用必需的cookie來使我們的網站工作。在您的同意下，我們還可以使用非必需的cookie來改善用戶體驗並分析網站流量。通過單擊接受，您同意我們的網站的cookie使用，如我們的{word}中所述。",
+      word: "Cookie政策",
+    },
   },
   month: {
     Jan: "一月",
