@@ -3,8 +3,10 @@ import { useThirdPartyAuth } from '@/compositions/request/third-party-auth'
 import { useAccountStore } from '@/store/account'
 import { useLocaleReadonly } from '@use/utils/localeReadonly'
 
-export default async (to, from, next) => {
-  if (import.meta.env.SSR) next()
+export default async (to, from) => {
+  if (import.meta.env.SSR) {
+    return
+  }
 
   const { twitterOAuth, redirect_uri } = useThirdPartyAuth()
   const { setToken } = useAccountStore()
@@ -26,7 +28,7 @@ export default async (to, from, next) => {
     await twitterLogin()
     console.log(twitterResRef.value)
     if (twitterResRef.value?.token) await setToken(twitterResRef.value.token)
-    return next({ name: 'home', params: { lang: locale.value } })
+    return { name: 'home', params: { lang: locale.value } }
   }
 
   if (to.query.code) {
@@ -40,8 +42,6 @@ export default async (to, from, next) => {
     await googleLogin()
 
     if (googleResRef.value?.token) await setToken(googleResRef.value.token)
-    return next({ name: 'home', params: { lang: locale.value } })
+    return { name: 'home', params: { lang: locale.value } }
   }
-
-  next()
 }

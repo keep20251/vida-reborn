@@ -1,6 +1,6 @@
 import './style.scss'
 import App from './App.vue'
-import router from '@/router'
+import { createRouter } from '@/router'
 import Page from '@comp/layout/Page.vue'
 import Icon from '@comp/common/Icon.vue'
 import Loading from '@comp/common/Loading.vue'
@@ -13,6 +13,7 @@ export async function createApp() {
   const app = createSSRApp(App)
   const store = createStore()
   const head = createHead()
+  const router = createRouter()
 
   app.use(router)
   app.use(store)
