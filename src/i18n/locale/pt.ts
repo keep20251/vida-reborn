@@ -29,6 +29,7 @@ export default {
     confirm: "Confirmar",
     loading: "Carregando",
     noMore: "Não há mais",
+    save: "Salvar",
   },
   title: {
     join: "Junte-se",
@@ -53,6 +54,7 @@ export default {
     accountLogin: "Login da conta",
     mailCodeLogin: "Login com código de e-mail",
     pwdLogin: "Login com senha",
+    socialLink: "Edite Link Social",
   },
   label: {
     account: "Nome de usuário",
@@ -69,6 +71,9 @@ export default {
     description: "Descrição",
     edit: "Editar",
     submit: "Enviar",
+    nowPw: "",
+    newPw: "",
+    newPwCfm: "",
   },
   placeholder: {
     account: "Por favor, insira o nome de usuário",
@@ -78,6 +83,9 @@ export default {
     displayName: "Por favor, insira o nome de exibição",
     username: "Por favor, insira o nome de usuário",
     description: "Por favor, insira uma descrição pessoal",
+    nowPw: "",
+    newPw: "",
+    newPwCfm: "",
   },
   message: {
     payment: { failed: "Pagamento falhou", success: "Pagamento bem-sucedido", cancel: "Pagamento cancelado" },
@@ -198,6 +206,8 @@ export default {
       twitter: "Por favor, insira um URL válido do Twitter.",
       tiktok: "Por favor, insira um URL válido do TikTok.",
       vida: "Por favor, insira um URL válido do Vida.",
+      youtube: "Por favor, insira o URL correto do YouTube",
+      facebook: "Por favor, insira o site correto do Facebook",
       confirmPassword: "Senhas não correspondem.",
       withAt: "Não inclua símbolos {'@'}",
     },

@@ -29,6 +29,7 @@ export default {
     confirm: "Xác nhận",
     loading: "Đang tải",
     noMore: "Không còn nữa",
+    save: "Cứu",
   },
   title: {
     join: "Tham gia",
@@ -53,6 +54,7 @@ export default {
     accountLogin: "Đăng nhập tài khoản",
     mailCodeLogin: "Đăng nhập bằng mã email",
     pwdLogin: "Đăng nhập bằng mật khẩu",
+    socialLink: "Chỉnh sửa liên kết xã hội",
   },
   label: {
     account: "Tên người dùng",
@@ -69,6 +71,9 @@ export default {
     description: "Mô tả",
     edit: "Chỉnh sửa",
     submit: "Nộp",
+    nowPw: "",
+    newPw: "",
+    newPwCfm: "",
   },
   placeholder: {
     account: "Vui lòng nhập tên người dùng",
@@ -78,6 +83,9 @@ export default {
     displayName: "Vui lòng nhập tên hiển thị",
     username: "Vui lòng nhập tên người dùng",
     description: "Vui lòng nhập mô tả cá nhân",
+    nowPw: "",
+    newPw: "",
+    newPwCfm: "",
   },
   message: {
     payment: { failed: "Thanh toán thất bại", success: "Thanh toán thành công", cancel: "Thanh toán đã hủy" },
@@ -197,6 +205,8 @@ export default {
       twitter: "Vui lòng nhập URL Twitter hợp lệ.",
       tiktok: "Vui lòng nhập URL TikTok hợp lệ.",
       vida: "Vui lòng nhập URL Vida hợp lệ.",
+      youtube: "Vui lòng nhập URL YouTube chính xác",
+      facebook: "Vui lòng nhập đúng trang web Facebook",
       confirmPassword: "Mật khẩu không khớp.",
       withAt: "Không bao gồm các ký hiệu {'@'}",
     },

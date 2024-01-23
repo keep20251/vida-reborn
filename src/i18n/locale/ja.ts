@@ -29,6 +29,7 @@ export default {
     confirm: "確認",
     loading: "読み込み中",
     noMore: "もうありません",
+    save: "保存",
   },
   title: {
     join: "参加する",
@@ -53,6 +54,7 @@ export default {
     accountLogin: "アカウントログイン",
     mailCodeLogin: "メールコードでログイン",
     pwdLogin: "パスワードログイン",
+    socialLink: "ソーシャルリンクを編集します",
   },
   label: {
     account: "ユーザー名",
@@ -69,6 +71,9 @@ export default {
     description: "説明",
     edit: "編集",
     submit: "提出する",
+    nowPw: "",
+    newPw: "",
+    newPwCfm: "",
   },
   placeholder: {
     account: "ユーザー名を入力してください",
@@ -78,6 +83,9 @@ export default {
     displayName: "表示名を入力してください",
     username: "ユーザー名を入力してください",
     description: "個人的な説明を入力してください",
+    nowPw: "",
+    newPw: "",
+    newPwCfm: "",
   },
   message: {
     payment: { failed: "支払いに失敗しました", success: "支払い成功", cancel: "支払いがキャンセルされました" },
@@ -197,6 +205,8 @@ export default {
       twitter: "有効なTwitterのURLを入力してください。",
       tiktok: "有効なTikTokのURLを入力してください。",
       vida: "有効なVidaのURLを入力してください。",
+      youtube: "正しいYouTube URLを入力してください",
+      facebook: "正しいFacebook Webサイトを入力してください",
       confirmPassword: "パスワードが一致しません。",
       withAt: "{'@'}シンボルを含めないでください",
     },
