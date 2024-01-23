@@ -3,16 +3,16 @@
     <InputWrap
       v-model="credential.nowPw.value"
       :err-msg="credential.nowPw.error"
-      :label="'目前的密码'"
-      :placeholder="'请输入当前密码'"
+      :label="$t('label.nowPw')"
+      :placeholder="$t('placeholder.nowPw')"
       password
     ></InputWrap>
     <div class="grid space-y-10">
       <InputWrap
         v-model="credential.newPw.value"
         :err-msg="credential.newPw.error"
-        :label="'新的密码'"
-        :placeholder="'请输入新密码'"
+        :label="$t('label.newPw')"
+        :placeholder="$t('placeholder.newPw')"
         password
       ></InputWrap>
       <div class="grid space-y-10">
@@ -28,12 +28,13 @@
     <InputWrap
       v-model="credential.newPwCfm.value"
       :err-msg="credential.newPwCfm.error"
-      :label="'密码确认'"
-      :placeholder="'请再输入一次新密码'"
+      :label="$t('label.newPwCfm')"
+      :placeholder="$t('placeholder.newPwCfm')"
       password
     ></InputWrap>
 
-    <Button @click="submit">保存</Button>
+    <Button :loading="isLoading" @click="submit">{{ $t('common.confirm') }}</Button>
+    <div v-if="!!serverError" class="leading-md text-sm font-normal text-warning">{{ serverError }}</div>
   </div>
 </template>
 <script setup>
@@ -42,6 +43,7 @@ import InputWrap from '@comp/form/InputWrap.vue'
 import Button from '@comp/common/Button.vue'
 import { useYup } from '@use/validator/yup.js'
 import PasswordValidation from '@/components/form/PasswordValidation.vue'
+import useRequest from '@use/request/index.js'
 
 const { Yup, validate } = useYup()
 const { string } = Yup
@@ -50,19 +52,19 @@ const credential = reactive({
     value: '',
     error: '',
     check: false,
-    schema: Yup.string().required(),
+    schema: string().required(),
   },
   newPw: {
     value: '',
     error: '',
     check: false,
-    schema: Yup.string().required(),
+    schema: string().required(),
   },
   newPwCfm: {
     value: '',
     error: '',
     check: false,
-    schema: Yup.string().required(),
+    schema: string().required(),
   },
 })
 
@@ -85,20 +87,45 @@ const strengthText = computed(() => {
   }
 })
 
+const isLoading = ref(false)
+
 async function submit() {
   try {
+    isLoading.value = true
     await Promise.all([
       validate(credential.nowPw.schema, credential.nowPw),
       validate(credential.newPw.schema, credential.newPw),
       validate(credential.newPwCfm.schema, credential.newPwCfm),
     ])
 
-    if (Object.values(credential).some((item) => item.check === false)) return
     if (passwordValidation.value === false) return
-    if (credential.newPw.value === credential.newPwCfm.value) return
-    console.log('驗證都通過了，可以送出惹')
+    if (credential.newPw.value === credential.newPwCfm.value) {
+      console.log(credential.newPw.value === credential.newPwCfm.value, '確認一樣你們有沒有長的一樣樣')
+    } else {
+      console.log('我們不一樣')
+    }
+    changePw()
   } catch (e) {
-    console.log(e)
+    console.error(e)
+  } finally {
+    isLoading.value = false
+  }
+}
+
+const serverError = ref('')
+async function changePw() {
+  const { execute } = useRequest('User.changePassword', {})
+  try {
+    await execute({
+      old_password: credential.nowPw.value,
+      new_password: credential.newPw.value,
+      new_password_confirm: credential.newPwCfm.value,
+    })
+    serverError.value = ''
+    console.log('成功囉！')
+  } catch (e) {
+    serverError.value = e.message
+    console.error(e)
   }
 }
 </script>

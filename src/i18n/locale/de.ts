@@ -29,6 +29,7 @@ export default {
     confirm: "Bestätigen",
     loading: "Laden",
     noMore: "Nicht mehr",
+    save: "Speichern",
   },
   title: {
     join: "Beitreten",
@@ -53,6 +54,7 @@ export default {
     accountLogin: "Konto-Login",
     mailCodeLogin: "Login per E-Mail-Code",
     pwdLogin: "Anmeldung mit Passwort",
+    socialLink: "Social Link bearbeiten",
   },
   label: {
     account: "Benutzername",
@@ -69,6 +71,9 @@ export default {
     description: "Beschreibung",
     edit: "Bearbeiten",
     submit: "Einreichen",
+    nowPw: "",
+    newPw: "",
+    newPwCfm: "",
   },
   placeholder: {
     account: "Bitte Benutzername eingeben",
@@ -78,6 +83,9 @@ export default {
     displayName: "Bitte geben Sie den Anzeigenamen ein",
     username: "Bitte Benutzername eingeben",
     description: "Bitte geben Sie eine persönliche Beschreibung ein",
+    nowPw: "",
+    newPw: "",
+    newPwCfm: "",
   },
   message: {
     payment: { failed: "Zahlung fehlgeschlagen", success: "Zahlung erfolgreich", cancel: "Zahlung abgebrochen" },
@@ -197,6 +205,8 @@ export default {
       twitter: "Bitte geben Sie eine gültige Twitter-URL ein.",
       tiktok: "Bitte geben Sie eine gültige TikTok-URL ein.",
       vida: "Bitte geben Sie eine gültige Vida-URL ein.",
+      youtube: "Bitte geben Sie die richtige YouTube -URL ein",
+      facebook: "Bitte geben Sie die richtige Facebook -Website ein",
       confirmPassword: "Die Passwörter stimmen nicht überein.",
       withAt: "Fügen Sie nicht {'@'} Symbole ein",
     },
