@@ -118,10 +118,9 @@ export const useAccountStore = defineStore('account-store', () => {
 
   async function setToken(token) {
     tokenCookie.value = token
-    const { data, execute } = useRequest('User.info', {})
     try {
-      await execute()
-      login(data.value)
+      const data = await useRequest('User.info', { immediate: true })
+      login(data)
     } catch (e) {
       console.error(e)
     }

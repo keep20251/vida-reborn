@@ -6,7 +6,7 @@
           class="flex items-center space-x-10"
           :class="[{ 'w-full justify-between': userData.email_validation === EMAIL_VALIDATION.VERIFIED }]"
         >
-          <div class="leading-lg text-base font-normal">目前的邮箱</div>
+          <div class="text-base font-normal leading-lg">目前的邮箱</div>
           <div
             class="text-sm font-normal leading-3"
             :class="[
@@ -21,7 +21,7 @@
         </div>
         <div
           v-if="userData.email_validation === EMAIL_VALIDATION.UNVERIFIED"
-          class="leading-lg cursor-pointer text-base font-normal text-primary"
+          class="cursor-pointer text-base font-normal leading-lg text-primary"
           @click="() => (edit = !edit)"
         >
           {{ edit ? 'Confirm' : 'Edit' }}
@@ -42,7 +42,7 @@
     ></InputEmailCode>
     <div class="grid space-y-5" v-if="userData.email_validation === EMAIL_VALIDATION.UNVERIFIED">
       <Button :loading="isLoading" @click="validate" contrast>提交验证</Button>
-      <div v-if="!!serverError" class="leading-md text-sm font-normal text-warning">{{ serverError }}</div>
+      <div v-if="!!serverError" class="text-sm font-normal leading-md text-warning">{{ serverError }}</div>
     </div>
     <InputWrap v-model="nickname" :label="'显示名称'" :placeholder="'请输入显示名称'"></InputWrap>
     <InputWrap
@@ -54,22 +54,22 @@
 
     <div>
       <Button @click="saveUserName">保存</Button>
-      <div v-if="!!nameServerError" class="leading-md text-sm font-normal text-warning">{{ nameServerError }}</div>
+      <div v-if="!!nameServerError" class="text-sm font-normal leading-md text-warning">{{ nameServerError }}</div>
     </div>
 
-    <div class="leading-lg mb-20 pt-10 text-center text-base font-normal">绑定第三方登入</div>
+    <div class="mb-20 pt-10 text-center text-base font-normal leading-lg">绑定第三方登入</div>
     <div class="flex w-full flex-col items-center space-y-10">
       <div
         class="flex w-3/6 cursor-pointer items-center justify-center space-x-10 rounded-full border border-gray30 py-10"
       >
         <Icon name="google" size="15"></Icon>
-        <div class="leading-lg text-base font-normal">与 Google 绑定</div>
+        <div class="text-base font-normal leading-lg">与 Google 绑定</div>
       </div>
       <div
         class="flex w-3/6 cursor-pointer items-center justify-center space-x-10 rounded-full border border-gray30 py-10"
       >
         <Icon name="facebook" size="15"></Icon>
-        <div class="leading-lg text-base font-normal">与 Facebook 绑定</div>
+        <div class="text-base font-normal leading-lg">与 Facebook 绑定</div>
       </div>
     </div>
   </div>
@@ -129,7 +129,7 @@ async function validate() {
 
 const serverError = ref('')
 async function accountValidationEmail() {
-  const { execute } = useRequest('Account.validationEmail', {})
+  const { execute } = useRequest('Account.validationEmail')
   try {
     await execute({
       email: email.value,
@@ -157,7 +157,7 @@ watch(username, (newUsernameValue) => {
 
 const nameServerError = ref('')
 async function saveUserName() {
-  const { execute } = useRequest('User.modifyInfo', {})
+  const { execute } = useRequest('User.modifyInfo')
   try {
     await execute({
       nickname: nickname.value,
