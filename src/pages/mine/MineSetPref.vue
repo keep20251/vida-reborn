@@ -9,8 +9,8 @@
 
 <script setup>
 import { ref } from 'vue'
-import OptionsPicker from '@comp/form/OptionsPicker.vue'
 import Button from '@comp/common/Button.vue'
+import OptionsPicker from '@comp/form/OptionsPicker.vue'
 
 const multiplePickedOptions = ref([1])
 const options = ref([

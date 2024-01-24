@@ -6,5 +6,6 @@
 </template>
 <script setup>
 import { useConfirmData } from '@use/modal/confirm-data'
+
 useConfirmData(() => true)
 </script>

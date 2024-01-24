@@ -25,11 +25,11 @@
 </template>
 <script setup>
 import { ref } from 'vue'
-import Tab from '@comp/navigation/Tab.vue'
-import TransactionList from '@comp/mine/TransactionList.vue'
 import RecCard from '@comp/card/RecCard.vue'
 import List from '@comp/common/List.vue'
 import Feed from '@comp/main/Feed.vue'
+import TransactionList from '@comp/mine/TransactionList.vue'
+import Tab from '@comp/navigation/Tab.vue'
 
 const tab = ref(1)
 const tabOptions = ref([

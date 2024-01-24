@@ -1,11 +1,11 @@
 import axios from 'axios'
-import config from './config'
-import globalRequestInterceptors from './request/interceptors/index.global'
-import globalResponseInterceptors from './response/interceptors/index.global'
-import globalRequestErrorHandlers from './request/error-handlers/index.global'
-import globalResponseErrorHandlers from './response/error-handlers/index.global'
-import apis from './apis'
 import mapValues from 'lodash/mapValues'
+import apis from './apis'
+import config from './config'
+import globalRequestErrorHandlers from './request/error-handlers/index.global'
+import globalRequestInterceptors from './request/interceptors/index.global'
+import globalResponseErrorHandlers from './response/error-handlers/index.global'
+import globalResponseInterceptors from './response/interceptors/index.global'
 
 const instance = axios.create(config)
 

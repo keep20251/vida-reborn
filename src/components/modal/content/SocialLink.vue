@@ -39,14 +39,14 @@
   </div>
 </template>
 <script setup>
+import debounce from 'lodash/debounce'
+import { computed, onMounted, reactive, watch } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useModalStore } from '@/store/modal'
 import InputWrap from '@comp/form/InputWrap.vue'
 import { useConfirmData } from '@use/modal/confirm-data'
-import { cleanLink } from '@/utils/string-helper'
 import { useYup } from '@use/validator/yup.js'
-import { useModalStore } from '@/store/modal'
-import { storeToRefs } from 'pinia'
-import debounce from 'lodash/debounce'
-import { computed, reactive, watch, onMounted } from 'vue'
+import { cleanLink } from '@/utils/string-helper'
 
 const { content } = storeToRefs(useModalStore())
 console.log(`content`, content.value)

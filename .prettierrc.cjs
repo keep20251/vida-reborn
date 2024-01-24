@@ -6,5 +6,19 @@
   printWidth: 120,
   trailingComma: 'all',
   arrowParens: 'always',
-  plugins:['prettier-plugin-tailwindcss']
+  plugins: ['prettier-plugin-tailwindcss', '@trivago/prettier-plugin-sort-imports'],
+  importOrder: [
+    '^vue(.*)$',
+    '^@vueuse/(.*)$',
+    '^pinia$',
+    '^@/pages/(.*)$',
+    '^@/store/(.*)$',
+    '^@comp/(.*)$',
+    '^@use/(.*)$',
+    '^@const(/.*)?$',
+    '^@/utils/(.*)$',
+    '^@/(.*)$',
+    '^[./]',
+  ],
+  importOrderSortSpecifiers: true,
 }

@@ -1,8 +1,7 @@
 /* eslint-disable */
-
 import CryptoJS from 'crypto-js'
-import sha256 from 'sha256'
 import md5 from 'md5'
+import sha256 from 'sha256'
 
 const appkey =
   '84_54_109_122_56_114_84_70_48_87_88_118_106_78_68_103_115_104_122_83_75_116_101_75_89_112_71_112_97_69_50_86'

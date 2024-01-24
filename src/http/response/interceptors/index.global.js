@@ -1,5 +1,5 @@
-import process from './process.js'
 import decrypt from './decrypt.js'
+import process from './process.js'
 
 /**
  * 全域 Response 攔截器

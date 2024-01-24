@@ -1,4 +1,4 @@
-import { watch, onActivated, onDeactivated } from 'vue'
+import { onActivated, onDeactivated, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useModalStore } from '@/store/modal'
 

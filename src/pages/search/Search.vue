@@ -39,14 +39,14 @@
 </template>
 
 <script setup>
-import InputWrap from '@comp/form/InputWrap.vue'
 import { ref } from 'vue'
-import List from '@comp/common/List.vue'
-import Feed from '@comp/main/Feed.vue'
 import BulletinCard from '@comp/card/BulletinCard.vue'
-import Carousel from '@comp/common/Carousel.vue'
 import RelCreatorsCard from '@comp/card/RelCreatorsCard.vue'
+import Carousel from '@comp/common/Carousel.vue'
 import ClientOnly from '@comp/common/ClientOnly'
+import List from '@comp/common/List.vue'
+import InputWrap from '@comp/form/InputWrap.vue'
+import Feed from '@comp/main/Feed.vue'
 
 const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
 const inputValue = ref('')

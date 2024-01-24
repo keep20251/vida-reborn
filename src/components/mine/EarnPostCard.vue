@@ -69,6 +69,7 @@
 </template>
 <script setup>
 import { ref } from 'vue'
+
 defineProps({
   media: { type: Object, required: true },
 })

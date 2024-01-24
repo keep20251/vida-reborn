@@ -8,7 +8,7 @@
 import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useHydrationStore } from '@/store/hydration'
-import { onServerClientOnce, onHydration } from '@use/lifecycle'
+import { onHydration, onServerClientOnce } from '@use/lifecycle'
 
 // 任何可能隨機變動的資料
 const devTest = ref(null)

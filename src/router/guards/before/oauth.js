@@ -1,6 +1,6 @@
+import { useAccountStore } from '@/store/account'
 import useRequest from '@use/request'
 import { useThirdPartyAuth } from '@use/request/third-party-auth'
-import { useAccountStore } from '@/store/account'
 import { useLocaleReadonly } from '@use/utils/localeReadonly'
 
 export default async (to, from) => {

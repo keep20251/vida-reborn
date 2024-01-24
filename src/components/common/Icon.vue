@@ -4,9 +4,9 @@
   </div>
 </template>
 <script setup>
-import LoadingIcon from '@comp/skeleton/LoadingIcon.vue'
 import { computed, defineAsyncComponent } from 'vue'
-import { sizes, getModuleLoader } from '@/utils/icon'
+import LoadingIcon from '@comp/skeleton/LoadingIcon.vue'
+import { getModuleLoader, sizes } from '@/utils/icon'
 
 const props = defineProps({
   name: {

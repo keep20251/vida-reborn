@@ -1,5 +1,5 @@
-import { defineStore } from 'pinia'
 import { ref, watch } from 'vue'
+import { defineStore } from 'pinia'
 
 // 測試用的 Store，之後可以刪掉
 export const useCounterStore = defineStore('counter-store', () => {

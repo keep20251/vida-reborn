@@ -12,9 +12,9 @@
   </div>
 </template>
 <script setup>
-import Button from '@comp/common/Button.vue'
-import { useAuthRouteStore } from '@/store/auth-route'
 import { useRouter } from 'vue-router'
+import { useAuthRouteStore } from '@/store/auth-route'
+import Button from '@comp/common/Button.vue'
 
 const { close } = useAuthRouteStore()
 const router = useRouter()

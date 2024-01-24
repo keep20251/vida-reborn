@@ -32,9 +32,9 @@
 </template>
 
 <script setup>
-import { ref, computed, watch, onMounted, onActivated, onDeactivated } from 'vue'
+import { computed, onActivated, onDeactivated, onMounted, ref, watch } from 'vue'
+import { useElementSize, useEventListener, useInfiniteScroll, useWindowSize } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
-import { useEventListener, useInfiniteScroll, useWindowSize, useElementSize } from '@vueuse/core'
 import { useAppStore } from '@/store/app'
 
 const props = defineProps({

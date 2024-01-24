@@ -119,15 +119,15 @@
   </div>
 </template>
 <script setup>
-import Dropdown from '@comp/form/Dropdown.vue'
-import { useLocale } from '@use/utils/locale'
-import { locales } from '@/i18n'
+import { computed, ref, watch } from 'vue'
+import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAuthRouteStore } from '@/store/auth-route'
-import { AUTH_ROUTES, PERMISSION } from '@const'
-import { computed, ref, watch } from 'vue'
 import { usePermissionStore } from '@/store/permission'
-import { storeToRefs } from 'pinia'
+import Dropdown from '@comp/form/Dropdown.vue'
+import { useLocale } from '@use/utils/locale'
+import { AUTH_ROUTES, PERMISSION } from '@const'
+import { locales } from '@/i18n'
 
 const accountStore = useAccountStore()
 const { userData, isLogin } = storeToRefs(accountStore)

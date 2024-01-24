@@ -27,9 +27,9 @@
   </Page>
 </template>
 <script setup>
-import BaseDialog from '@comp/dialog/BaseDialog.vue'
-import Button from '@comp/common/Button.vue'
 import { ref } from 'vue'
+import Button from '@comp/common/Button.vue'
+import BaseDialog from '@comp/dialog/BaseDialog.vue'
 
 const showDialog = ref(false)
 </script>

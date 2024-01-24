@@ -1,6 +1,6 @@
-import { ref, computed } from 'vue'
-import { defineStore } from 'pinia'
+import { computed, ref } from 'vue'
 import { useEventListener } from '@vueuse/core'
+import { defineStore } from 'pinia'
 import { isMobile as checkMobile } from '@/utils/device'
 
 const DESKTOP = 'desktop'

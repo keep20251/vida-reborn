@@ -1,5 +1,5 @@
-import { useI18n } from 'vue-i18n'
 import * as Yup from 'yup'
+import { useI18n } from 'vue-i18n'
 
 export function useYup() {
   const { t: $t } = useI18n()

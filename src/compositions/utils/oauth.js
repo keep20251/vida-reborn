@@ -1,6 +1,6 @@
-import { ref, readonly } from 'vue'
-import { useLocalStorage } from '@vueuse/core'
 import { v4 as uuidv4 } from 'uuid'
+import { readonly, ref } from 'vue'
+import { useLocalStorage } from '@vueuse/core'
 
 const OAUTH_ID_KEY = '__OAUTH_ID'
 

@@ -1,13 +1,13 @@
-import './style.scss'
-import App from './App.vue'
-import { createRouter } from '@/router'
-import Page from '@comp/layout/Page.vue'
+import { createHead } from '@unhead/vue'
+import { createSSRApp } from 'vue'
+import ClientOnly from '@comp/common/ClientOnly'
 import Icon from '@comp/common/Icon.vue'
 import Loading from '@comp/common/Loading.vue'
-import ClientOnly from '@comp/common/ClientOnly'
+import Page from '@comp/layout/Page.vue'
+import { createRouter } from '@/router'
 import { createStore } from '@/store'
-import { createSSRApp } from 'vue'
-import { createHead } from '@unhead/vue'
+import App from './App.vue'
+import './style.scss'
 
 export async function createApp() {
   const app = createSSRApp(App)

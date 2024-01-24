@@ -13,8 +13,8 @@
 </template>
 <script setup>
 import { ref } from 'vue'
-import InputWrap from '@comp/form/InputWrap.vue'
 import Button from '@comp/common/Button.vue'
+import InputWrap from '@comp/form/InputWrap.vue'
 
 const inputValue = ref('')
 </script>

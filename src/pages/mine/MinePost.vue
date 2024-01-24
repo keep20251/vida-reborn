@@ -71,11 +71,11 @@
 </template>
 <script setup>
 import { ref } from 'vue'
-import Tab from '@comp/navigation/Tab.vue'
-import List from '@comp/common/List.vue'
-import Feed from '@comp/main/Feed.vue'
-import Loading from '@comp/common/Loading.vue'
 import { useI18n } from 'vue-i18n'
+import List from '@comp/common/List.vue'
+import Loading from '@comp/common/Loading.vue'
+import Feed from '@comp/main/Feed.vue'
+import Tab from '@comp/navigation/Tab.vue'
 
 const { t: $t } = useI18n()
 

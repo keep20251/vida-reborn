@@ -8,9 +8,9 @@
   </BaseDialog>
 </template>
 <script setup>
-import BaseDialog from '@comp/dialog/BaseDialog.vue'
-import { useAuthRouteStore } from '@/store/auth-route'
 import { storeToRefs } from 'pinia'
+import { useAuthRouteStore } from '@/store/auth-route'
+import BaseDialog from '@comp/dialog/BaseDialog.vue'
 
 const authRoute = useAuthRouteStore()
 const { authComponent } = storeToRefs(authRoute)

@@ -1,12 +1,12 @@
+import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { usePopupMessageStore } from '@/store/popup-message'
 import { usePopupDialogStore } from '@/store/popup-dialog'
+import { usePopupMessageStore } from '@/store/popup-message'
 import { CONSUME_TYPE } from '@const'
-import { notifySub, notifyBuy, notifyCampaign } from '@/utils/state-broadcast'
-import { sendDonateMessage } from '@/ws'
+import { notifyBuy, notifyCampaign, notifySub } from '@/utils/state-broadcast'
 import { trackEvent } from '@/gtm'
 import API from '@/http'
-import { ref } from 'vue'
+import { sendDonateMessage } from '@/ws'
 
 export function usePayment() {
   const { t: $t } = useI18n()

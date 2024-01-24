@@ -39,10 +39,10 @@
 </template>
 <script setup>
 import { ref } from 'vue'
+import Button from '@comp/common/Button.vue'
 import List from '@comp/common/List.vue'
 import Feed from '@comp/main/Feed.vue'
 import SelfIntro from '@comp/main/SelfIntro.vue'
-import Button from '@comp/common/Button.vue'
 import defaultAvatar from '@/assets/images/avatar.jpeg'
 
 const userInfo = ref({

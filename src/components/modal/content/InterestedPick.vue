@@ -11,10 +11,10 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import OptionsPicker from '@comp/form/OptionsPicker.vue'
-import useRequest from '@use/request'
 import { useConfirmData } from '@use/modal/confirm-data'
+import useRequest from '@use/request'
 
 useConfirmData(validator)
 

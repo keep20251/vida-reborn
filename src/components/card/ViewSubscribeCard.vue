@@ -23,11 +23,11 @@
   </div>
 </template>
 <script setup>
-import defaultBgImage from '@/assets/images/creator-card.png'
-import defaultAvatar from '@/assets/images/avatar.jpeg'
-import Button from '@comp/common/Button.vue'
 import { computed } from 'vue'
+import Button from '@comp/common/Button.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
+import defaultAvatar from '@/assets/images/avatar.jpeg'
+import defaultBgImage from '@/assets/images/creator-card.png'
 
 const props = defineProps({
   bgImage: {

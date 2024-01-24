@@ -33,15 +33,15 @@
   </div>
 </template>
 <script setup>
+import { reactive, ref } from 'vue'
+import { useAccountStore } from '@/store/account'
+import { useAuthRouteStore } from '@/store/auth-route'
+import Button from '@comp/common/Button.vue'
 import DialogHeader from '@comp/dialog/DialogHeader.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
-import Button from '@comp/common/Button.vue'
 import useRequest from '@use/request/index.js'
-import { AUTH_ROUTES } from '@const'
-import { useAuthRouteStore } from '@/store/auth-route'
-import { reactive, ref } from 'vue'
 import { useYup } from '@use/validator/yup.js'
-import { useAccountStore } from '@/store/account'
+import { AUTH_ROUTES } from '@const'
 
 const { to, back } = useAuthRouteStore()
 

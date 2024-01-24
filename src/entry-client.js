@@ -1,19 +1,11 @@
-import '@/style.scss'
-// import API from '@/http'
-// import { storeToRefs } from 'pinia'
-// import { useAppStore } from '@/store/app'
-// import { useAccountStore } from '@/store/account'
-// import { useCreditCardStore } from '@/store/credit-card'
-// import { init } from '@/ws'
-// import { nextTick } from 'vue'
-
-import { createApp } from './main'
-import { hydrated } from '@use/lifecycle'
-import { setupStoreHydrate } from '@/utils/init'
-import { useAppleSignIn } from '@/utils/apple'
-import { createI18n } from '@/i18n'
 import { useCookies } from '@vueuse/integrations/useCookies'
+import { hydrated } from '@use/lifecycle'
 import { COOKIE_KEY } from '@const'
+import { useAppleSignIn } from '@/utils/apple'
+import { setupStoreHydrate } from '@/utils/init'
+import { createI18n } from '@/i18n'
+import '@/style.scss'
+import { createApp } from './main'
 
 createApp()
   .then(async ({ app, router, store }) => {

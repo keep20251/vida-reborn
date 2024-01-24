@@ -21,17 +21,17 @@
   </div>
 </template>
 <script setup>
-import DialogHeader from '@comp/dialog/DialogHeader.vue'
-import InputWrap from '@comp/form/InputWrap.vue'
-import Button from '@comp/common/Button.vue'
-import { useAuthRouteStore } from '@/store/auth-route'
-import { AUTH_ROUTES } from '@const'
-import { useEmailLoginStore } from '@/store/email-login'
 import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
-import { useYup } from '@use/validator/yup'
 import { useAccountStore } from '@/store/account'
+import { useAuthRouteStore } from '@/store/auth-route'
+import { useEmailLoginStore } from '@/store/email-login'
+import Button from '@comp/common/Button.vue'
+import DialogHeader from '@comp/dialog/DialogHeader.vue'
+import InputWrap from '@comp/form/InputWrap.vue'
 import useRequest from '@use/request/index.js'
+import { useYup } from '@use/validator/yup'
+import { AUTH_ROUTES } from '@const'
 
 const { to, back, close } = useAuthRouteStore()
 

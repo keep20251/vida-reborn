@@ -15,8 +15,8 @@
   </div>
 </template>
 <script setup>
-import InputSwitch from '@comp/form/InputSwitch.vue'
 import { computed } from 'vue'
+import InputSwitch from '@comp/form/InputSwitch.vue'
 
 const props = defineProps({
   modelValue: { type: Boolean, default: false },

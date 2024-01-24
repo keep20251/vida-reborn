@@ -15,7 +15,8 @@
 </template>
 
 <script setup>
-import { ref, defineProps, defineEmits } from 'vue'
+import { defineEmits, defineProps, ref } from 'vue'
+
 const props = defineProps({
   id: { type: String, required: true },
   label: { type: String, required: true },

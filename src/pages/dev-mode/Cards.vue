@@ -26,10 +26,10 @@
 </template>
 <script setup>
 import { ref } from 'vue'
-import RecCard from '@comp/card/RecCard.vue'
-import ViewSubscribeCard from '@comp/card/ViewSubscribeCard.vue'
 import BulletinCard from '@comp/card/BulletinCard.vue'
+import RecCard from '@comp/card/RecCard.vue'
 import RelCreatorsCard from '@comp/card/RelCreatorsCard.vue'
+import ViewSubscribeCard from '@comp/card/ViewSubscribeCard.vue'
 import defaultAvatar from '@/assets/images/avatar.jpeg'
 
 const items = ref([
