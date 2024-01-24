@@ -192,7 +192,8 @@ export default {
     nsfwMale: "NSFW (male-oriented)",
     nsfwFemale: "NSFW (female-oriented)",
     unblock: "Unblock",
-    delAccContent: "",
+    delAccContent:
+      "Deleting your account will permanently remove all of your information and media from our database. It also revokes all active media consents.If you encounter any issues please contact",
     unableRecover: "It can’t be restored!",
     delAcc: "Delete account",
   },
