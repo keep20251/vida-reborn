@@ -11,7 +11,8 @@
         <div class="text-sm font-normal leading-3">{{ media.title }}</div>
         <div class="flex space-x-10">
           <div class="flex w-3/6 items-center space-x-10">
-            <Icon size="20" name="play"></Icon><span class="text-sm font-normal leading-3">{{ media.play }}</span>
+            <Icon size="20" name="play"></Icon
+            ><span class="text-sm font-normal leading-3">{{ media.numberViews }}</span>
           </div>
           <div class="flex w-3/6 items-center space-x-10">
             <Icon size="20" name="comment"></Icon><span class="text-sm font-normal leading-3">{{ media.comment }}</span>
@@ -22,7 +23,8 @@
             <Icon size="20" name="like"></Icon><span class="text-sm font-normal leading-3">{{ media.like }}</span>
           </div>
           <div class="flex w-3/6 items-center space-x-10">
-            <Icon size="20" name="sharePost"></Icon><span class="text-sm font-normal leading-3">{{ media.share }}</span>
+            <Icon size="20" name="sharePost"></Icon
+            ><span class="text-sm font-normal leading-3">{{ media.numberPurchases }}</span>
           </div>
         </div>
       </div>
@@ -33,34 +35,34 @@
     >
       <div :class="[{ flex: isActive, hidden: !isActive }]" class="flex space-x-15">
         <div class="grid w-3/12 space-y-10">
-          <div class="text-base font-normal leading-md">观看数量:</div>
-          <div class="text-lg font-bold leading-lg">{{ media.numberViews }}</div>
+          <div class="leading-md text-base font-normal">{{ $t('content.numberViews') }}:</div>
+          <div class="leading-lg text-lg font-bold">{{ media.numberViews }}</div>
         </div>
         <div class="grid w-3/12 space-y-10">
-          <div class="text-base font-normal leading-md">每日观看:</div>
-          <div class="text-lg font-bold leading-lg">{{ media.watchDaily }}</div>
+          <div class="leading-md text-base font-normal">{{ $t('content.watchDaily') }}:</div>
+          <div class="leading-lg text-lg font-bold">{{ media.watchDaily }}</div>
         </div>
         <div class="grid w-3/12 space-y-10">
-          <div class="text-base font-normal leading-md">收藏:</div>
-          <div class="text-lg font-bold leading-lg">{{ media.collect }}</div>
+          <div class="leading-md text-base font-normal">{{ $t('content.collect') }}:</div>
+          <div class="leading-lg text-lg font-bold">{{ media.collect }}</div>
         </div>
         <div class="grid w-3/12 space-y-10">
-          <div class="text-base font-normal leading-md">评论:</div>
-          <div class="text-lg font-bold leading-lg">{{ media.msg }}</div>
+          <div class="leading-md text-base font-normal">{{ $t('content.comment') }}:</div>
+          <div class="leading-lg text-lg font-bold">{{ media.comment }}</div>
         </div>
       </div>
       <div :class="[{ flex: isActive, hidden: !isActive }]" class="flex space-x-15">
         <div class="grid w-3/12 space-y-10">
-          <div class="text-base font-normal leading-md">分享次数:</div>
-          <div class="text-lg font-bold leading-lg">{{ media.share }}</div>
+          <div class="leading-md text-base font-normal">{{ $t('content.numberShare') }}:</div>
+          <div class="leading-lg text-lg font-bold">{{ media.share }}</div>
         </div>
         <div class="grid w-3/12 space-y-10">
-          <div class="text-base font-normal leading-md">购买次数:</div>
-          <div class="text-lg font-bold leading-lg">{{ media.numberPurchases }}</div>
+          <div class="leading-md text-base font-normal">{{ $t('content.purchases') }}:</div>
+          <div class="leading-lg text-lg font-bold">{{ media.numberPurchases }}</div>
         </div>
         <div class="grid w-3/12 space-y-10">
-          <div class="text-base font-normal leading-md">期间收益:</div>
-          <div class="text-lg font-bold leading-lg">${{ media.earn }}</div>
+          <div class="leading-md text-base font-normal">{{ $t('content.periodIncome') }}:</div>
+          <div class="leading-lg text-lg font-bold">${{ media.periodIncome }}</div>
         </div>
         <div class="grid w-3/12 space-y-10"></div>
       </div>

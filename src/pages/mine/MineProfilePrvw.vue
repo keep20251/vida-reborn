@@ -12,7 +12,7 @@
         <Icon class="cursor-pointer" name="setting" size="20"></Icon>
         <Icon class="cursor-pointer" name="moreHorizontal" size="20"></Icon>
         <div>
-          <Button class="!h-26 !px-20 !py-6">订阅</Button>
+          <Button class="!h-26 !px-20 !py-6">{{ $t('common.subscribe') }}</Button>
         </div>
       </div>
     </template>
@@ -22,7 +22,9 @@
       </div>
     </template>
   </SelfIntro>
-  <div class="mt-20 flex h-36 w-full items-center bg-gray03 px-20 text-base font-bold leading-md">All Posts 85</div>
+  <div class="leading-md mt-20 flex h-36 w-full items-center bg-gray03 px-20 text-base font-bold">
+    {{ $t('content.allPosts') }} 85
+  </div>
   <div class="overflow-x-hidden">
     <List :items="items" item-key="id">
       <template #default="{ last }">

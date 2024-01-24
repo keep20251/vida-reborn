@@ -14,13 +14,15 @@
       <div v-if="showBgData" class="absolute left-1/2 top-1/2 w-full translate-x-[-50%] translate-y-[-50%]">
         <div class="flex justify-around">
           <div class="flex w-[175px] flex-col items-center space-y-5">
-            <p class="text-xl font-bold leading-xl text-white">{{ item.subscriber }}</p>
+            <p class="leading-xl text-xl font-bold text-white">{{ item.subscriber }}</p>
             <p class="text-sm font-normal leading-3 text-white opacity-50">{{ $t('info.perSubscriber') }}</p>
           </div>
           <div class="h-25 w-1 bg-[#DCDCDC]"></div>
           <div class="flex w-[175px] flex-col items-center space-y-5">
-            <p class="text-xl font-bold leading-xl text-white">{{ item.posts }}</p>
+            <p class="leading-xl text-xl font-bold text-white">{{ item.posts }}</p>
             <p class="text-sm font-normal leading-3 text-white opacity-50">{{ $t('info.perPost') }}</p>
+            <p class="leading-xl text-xl font-bold text-white">{{ item.posts }}</p>
+            <p class="text-sm font-normal leading-3 text-white opacity-50">{{ $t('content.posts') }}</p>
           </div>
         </div>
       </div>
@@ -34,7 +36,7 @@
     <div v-if="showAllInfo" class="ml-[20px] mr-[20px] grid space-y-10 pt-30 sm:ml-0 sm:mr-0 xl:ml-0 xl:mr-0">
       <div class="flex items-end justify-between">
         <div class="flex items-end space-x-5">
-          <div class="text-lg font-bold leading-lg">{{ item.name }}</div>
+          <div class="leading-lg text-lg font-bold">{{ item.name }}</div>
           <div class="text-sm font-normal leading-3 text-gray66">＠{{ item.username }}</div>
         </div>
         <slot name="middleButton"></slot>
@@ -44,9 +46,9 @@
           <div class="text-sm font-normal leading-3">{{ $t('info.myLink') }}</div>
           <div class="text-sm font-normal leading-3 text-gray66">{{ item.link }}</div>
           <div class="text-sm font-normal leading-3 text-gray66">•</div>
-          <div class="text-sm font-normal leading-3 text-gray66">{{ item.watches }} {{ $t('info.watches') }}</div>
+          <div class="text-sm font-normal leading-3 text-gray66">{{ item.viewed }} {{ $t('content.view') }}</div>
         </div>
-        <p class="text-base font-normal leading-lg">{{ item.info }}</p>
+        <p class="leading-lg text-base font-normal">{{ item.info }}</p>
       </div>
     </div>
     <div v-if="$slots['bottomButton']" class="my-20 flex space-x-10">
@@ -72,6 +74,7 @@ defineProps({
       name: '',
       username: '',
       link: '',
+      viewed: '',
       info: '',
     }),
   },

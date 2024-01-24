@@ -28,7 +28,10 @@
           </div>
         </template>
       </SelfIntro>
-      <div class="flex h-36 w-full items-center bg-gray03 px-20 text-base font-bold leading-md">All Posts 85</div>
+
+      <div class="leading-md flex h-36 w-full items-center bg-gray03 px-20 text-base font-bold">
+        {{ $t('content.allPosts') }} 85
+      </div>
       <div class="overflow-x-hidden">
         <List :items="items" item-key="id">
           <template #default="{ last }">
@@ -47,7 +50,7 @@
       <div class="flex items-center justify-center py-20">
         <div class="text-lg font-bold leading-5">{{ $t('info.loginOrRegister') }}</div>
       </div>
-      <div class="mb-10 text-base font-normal leading-md">{{ $t('content.notLoggedYet') }}</div>
+      <div class="leading-md mb-10 text-base font-normal">{{ $t('content.notLoggedYet') }}</div>
       <img
         class="rounded-md object-cover"
         src="https://i.postimg.cc/G2b2HYJ1/415980634-122147312060020771-8911205471669409308-n.jpg"
@@ -57,7 +60,7 @@
         <Button @click="openAuthDialog(AUTH_ROUTES.SIGN_UP)" contrast>{{ $t('title.join') }}</Button>
         <Button @click="openAuthDialog()">{{ $t('title.login') }}</Button>
       </div>
-      <div class="text-center text-base font-normal leading-lg text-gray66">
+      <div class="leading-lg text-center text-base font-normal text-gray66">
         <p>{{ $t('content.joinVida') }}</p>
         <p>
           {{ $t('content.useObey')
@@ -78,8 +81,11 @@ import Button from '@comp/common/Button.vue'
 import List from '@comp/common/List.vue'
 import Feed from '@comp/main/Feed.vue'
 import SelfIntro from '@comp/main/SelfIntro.vue'
-import { AUTH_ROUTES } from '@const'
 import defaultAvatar from '@/assets/images/avatar.jpeg'
+import { AUTH_ROUTES } from '@/constant'
+import { useI18n } from 'vue-i18n'
+
+const { t: $t } = useI18n()
 
 const accountStore = useAccountStore()
 const { isLogin } = storeToRefs(accountStore)

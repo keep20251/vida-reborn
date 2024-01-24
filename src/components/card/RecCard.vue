@@ -7,13 +7,17 @@
             <Avatar :radius="30" :src="item.creator_avatar"></Avatar>
             <div class="flex grow flex-col space-y-5">
               <div class="flex space-x-5">
-                <div class="text-base font-bold leading-md">{{ item.creator_name }}</div>
+                <div class="leading-md text-base font-bold">{{ item.creator_name }}</div>
                 <div class="text-sm font-normal leading-3">@{{ item.creator_acc }}</div>
               </div>
               <div class="flex items-end space-x-5">
-                <div class="text-sm font-normal leading-3 text-gray66">{{ item.posts }} posts</div>
+                <div class="text-sm font-normal leading-3 text-gray66">
+                  {{ item.posts }} {{ $t('content.subscribers') }}
+                </div>
                 <div class="text-sm font-normal leading-3 text-gray66">•</div>
-                <div class="text-sm font-normal leading-3 text-gray66">{{ item.sub_member }}位订阅会员</div>
+                <div class="text-sm font-normal leading-3 text-gray66">
+                  {{ item.sub_member }} {{ $t('content.view') }}
+                </div>
               </div>
             </div>
             <button
@@ -34,7 +38,7 @@ import Avatar from '@comp/multimedia/Avatar.vue'
 import defaultAvatar from '@/assets/images/avatar.jpeg'
 
 defineProps({
-  buttonText: { type: String, default: '查看' },
+  buttonText: { type: String, required: true },
 })
 
 const recCreators = ref([
