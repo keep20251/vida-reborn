@@ -53,7 +53,7 @@ export const PERMISSION = {
   },
   REGISTERED: {
     avatar: true,
-    subscribers: true,
+    subscribers: false,
     profile: false,
     registerLogin: false,
     postEarn: false,
