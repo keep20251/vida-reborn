@@ -1,56 +1,56 @@
 <template>
   <div class="flex items-end justify-between pt-8">
-    <div class="leading-md text-base font-bold">Your Earnings</div>
-    <div class="leading-md cursor-pointer text-base font-normal">提款记录</div>
+    <div class="text-base font-bold leading-md">Your Earnings</div>
+    <div class="cursor-pointer text-base font-normal leading-md">提款记录</div>
   </div>
   <div class="flex items-end justify-center space-x-5 py-35">
-    <div class="leading-md text-base font-bold">$</div>
-    <div class="leading-xl text-xl font-bold">5,000,000</div>
+    <div class="text-base font-bold leading-md">$</div>
+    <div class="text-xl font-bold leading-xl">5,000,000</div>
   </div>
   <Button>提款申请</Button>
-  <div class="leading-md mt-30 text-base font-bold">数据仪表板</div>
+  <div class="mt-30 text-base font-bold leading-md">数据仪表板</div>
   <Tab v-model="tab" :options="tabOptions" class="!h-35"> </Tab>
   <div v-if="tab === 1">
     <div class="grid space-y-40">
       <div class="mt-20 flex items-center justify-center space-x-20 px-20">
         <div
-          class="leading-md flex w-full cursor-pointer items-center justify-center rounded-full bg-gray03 py-6 text-base font-normal"
+          class="flex w-full cursor-pointer items-center justify-center rounded-full bg-gray03 py-6 text-base font-normal leading-md"
         >
           2023-12-31
         </div>
         <div><Icon name="calendar" size="20"></Icon></div>
         <div
-          class="leading-md flex w-full cursor-pointer items-center justify-center rounded-full bg-gray03 py-6 text-base font-normal"
+          class="flex w-full cursor-pointer items-center justify-center rounded-full bg-gray03 py-6 text-base font-normal leading-md"
         >
           2023-12-31
         </div>
       </div>
       <div class="flex select-none space-x-30 px-20">
         <div class="flex w-4/12 flex-col space-y-10">
-          <div class="leading-md text-base font-normal">总进入数量</div>
-          <div class="leading-lg text-lg font-bold">1000</div>
+          <div class="text-base font-normal leading-md">总进入数量</div>
+          <div class="text-lg font-bold leading-lg">1000</div>
         </div>
         <div class="flex w-4/12 flex-col space-y-10">
-          <div class="leading-md text-base font-normal">总订阅人数</div>
-          <div class="leading-lg text-lg font-bold">29k</div>
+          <div class="text-base font-normal leading-md">总订阅人数</div>
+          <div class="text-lg font-bold leading-lg">29k</div>
         </div>
         <div class="flex w-4/12 flex-col space-y-10">
-          <div class="leading-md text-base font-normal">总观看次数</div>
-          <div class="leading-lg text-lg font-bold">27.5k</div>
+          <div class="text-base font-normal leading-md">总观看次数</div>
+          <div class="text-lg font-bold leading-lg">27.5k</div>
         </div>
       </div>
       <div class="flex space-x-30 px-20">
         <div class="flex w-4/12 flex-col space-y-10">
-          <div class="leading-md text-base font-normal">购买次数</div>
-          <div class="leading-lg text-lg font-bold">2000</div>
+          <div class="text-base font-normal leading-md">购买次数</div>
+          <div class="text-lg font-bold leading-lg">2000</div>
         </div>
         <div class="flex w-4/12 flex-col space-y-10">
-          <div class="leading-md text-base font-normal">期间收益</div>
-          <div class="leading-lg text-lg font-bold">$9999</div>
+          <div class="text-base font-normal leading-md">期间收益</div>
+          <div class="text-lg font-bold leading-lg">$9999</div>
         </div>
         <div class="flex w-4/12 flex-col justify-start space-y-10">
-          <div class="leading-md text-base font-normal">退订人数</div>
-          <div class="leading-lg text-lg font-bold">30</div>
+          <div class="text-base font-normal leading-md">退订人数</div>
+          <div class="text-lg font-bold leading-lg">30</div>
         </div>
       </div>
     </div>
@@ -58,13 +58,13 @@
   <div v-else-if="tab === 2">
     <div class="mb-10 mt-20 flex items-center justify-center space-x-20 px-20">
       <div
-        class="leading-md flex w-full cursor-pointer items-center justify-center rounded-full bg-gray03 py-6 text-base font-normal"
+        class="flex w-full cursor-pointer items-center justify-center rounded-full bg-gray03 py-6 text-base font-normal leading-md"
       >
         2023-12-31
       </div>
       <div><Icon name="calendar" size="20"></Icon></div>
       <div
-        class="leading-md flex w-full cursor-pointer items-center justify-center rounded-full bg-gray03 py-6 text-base font-normal"
+        class="flex w-full cursor-pointer items-center justify-center rounded-full bg-gray03 py-6 text-base font-normal leading-md"
       >
         2023-12-31
       </div>

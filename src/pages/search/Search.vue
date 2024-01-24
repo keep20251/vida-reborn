@@ -46,7 +46,7 @@ import Feed from '@comp/main/Feed.vue'
 import BulletinCard from '@comp/card/BulletinCard.vue'
 import Carousel from '@comp/common/Carousel.vue'
 import RelCreatorsCard from '@comp/card/RelCreatorsCard.vue'
-import ClientOnly from '@/components/common/ClientOnly'
+import ClientOnly from '@comp/common/ClientOnly'
 
 const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
 const inputValue = ref('')

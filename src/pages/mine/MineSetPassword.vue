@@ -34,7 +34,7 @@
     ></InputWrap>
 
     <Button :loading="isLoading" @click="submit">{{ $t('common.confirm') }}</Button>
-    <div v-if="!!serverError" class="leading-md text-sm font-normal text-warning">{{ serverError }}</div>
+    <div v-if="!!serverError" class="text-sm font-normal leading-md text-warning">{{ serverError }}</div>
   </div>
 </template>
 <script setup>
@@ -42,7 +42,7 @@ import { ref, reactive, computed } from 'vue'
 import InputWrap from '@comp/form/InputWrap.vue'
 import Button from '@comp/common/Button.vue'
 import { useYup } from '@use/validator/yup.js'
-import PasswordValidation from '@/components/form/PasswordValidation.vue'
+import PasswordValidation from '@comp/form/PasswordValidation.vue'
 import useRequest from '@use/request/index.js'
 
 const { Yup, validate } = useYup()

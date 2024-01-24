@@ -41,10 +41,10 @@
   </div>
 </template>
 <script setup>
-import DialogHeader from '@/components/dialog/DialogHeader.vue'
-import InputWrap from '@/components/form/InputWrap.vue'
-import Button from '@/components/common/Button.vue'
-import PasswordValidation from '@/components/form/PasswordValidation.vue'
+import DialogHeader from '@comp/dialog/DialogHeader.vue'
+import InputWrap from '@comp/form/InputWrap.vue'
+import Button from '@comp/common/Button.vue'
+import PasswordValidation from '@comp/form/PasswordValidation.vue'
 import useRequest from '@use/request/index.js'
 import debounce from 'lodash/debounce'
 import { MODAL_TYPE } from '@const'

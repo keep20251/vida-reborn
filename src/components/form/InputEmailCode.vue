@@ -11,7 +11,7 @@
   ></InputWrap>
 </template>
 <script setup>
-import InputWrap from '@/components/form/InputWrap.vue'
+import InputWrap from '@comp/form/InputWrap.vue'
 import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 

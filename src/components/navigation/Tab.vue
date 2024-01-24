@@ -8,7 +8,7 @@
         @click="onClick(option[optionValue])"
       >
         <div
-          class="leading-md flex grow items-center text-base"
+          class="flex grow items-center text-base leading-md"
           :class="[option[optionValue] === modelValue ? 'font-bold' : 'font-normal']"
         >
           {{ $t(option[optionLabel]) }}
@@ -27,7 +27,7 @@
         @click="onClick(option[optionValue])"
       >
         <div
-          class="leading-md flex items-center text-base"
+          class="flex items-center text-base leading-md"
           :class="[option[optionValue] === modelValue ? 'font-bold' : 'font-normal']"
         >
           {{ $t(option[optionLabel]) }}

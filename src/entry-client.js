@@ -8,7 +8,7 @@ import '@/style.scss'
 // import { nextTick } from 'vue'
 
 import { createApp } from './main'
-import { hydrated } from '@/compositions/lifecycle'
+import { hydrated } from '@use/lifecycle'
 import { setupStoreHydrate } from '@/utils/init'
 import { useAppleSignIn } from '@/utils/apple'
 import { createI18n } from '@/i18n'

@@ -25,7 +25,7 @@
 <script setup>
 import defaultBgImage from '@/assets/images/creator-card.png'
 import defaultAvatar from '@/assets/images/avatar.jpeg'
-import Button from '@/components/common/Button.vue'
+import Button from '@comp/common/Button.vue'
 import { computed } from 'vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
 

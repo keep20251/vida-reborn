@@ -88,13 +88,13 @@ import InputWrap from '@comp/form/InputWrap.vue'
 import Button from '@comp/common/Button.vue'
 import { storeToRefs } from 'pinia'
 import { useMineStore } from '@/store/mine'
-import { useMultiAuth } from '@/compositions/request/multi-auth'
+import { useMultiAuth } from '@use/request/multi-auth'
 import { useYup } from '@use/validator/yup'
-import InputEmailCode from '@/components/form/InputEmailCode.vue'
-import { SEND_EMAIL_PURPOSE, EMAIL_VALIDATION } from '@/constant'
+import InputEmailCode from '@comp/form/InputEmailCode.vue'
+import { SEND_EMAIL_PURPOSE, EMAIL_VALIDATION } from '@const'
 import useRequest from '@use/request/index.js'
 import { useAccountStore } from '@/store/account'
-import { useThirdPartyAuth } from '@/compositions/request/third-party-auth'
+import { useThirdPartyAuth } from '@use/request/third-party-auth'
 
 const { twitterLogin, googleLogin } = useThirdPartyAuth()
 

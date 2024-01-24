@@ -1,4 +1,4 @@
-import useRequest from '@/compositions/request'
+import useRequest from '@use/request'
 import { useLocalStorage } from '@vueuse/core'
 import { useAppleSignIn } from '@/utils/apple.js'
 

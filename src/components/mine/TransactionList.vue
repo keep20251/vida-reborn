@@ -6,21 +6,21 @@
   >
     <div class="flex items-center space-x-5">
       <div class="text-base font-bold leading-md">购买项目:</div>
-      <div class="leading-lg text-base font-normal text-gray66">{{ item.title }} 订阅</div>
+      <div class="text-base font-normal leading-lg text-gray66">{{ item.title }} 订阅</div>
     </div>
     <div class="flex justify-between">
       <div class="flex items-center space-x-5">
         <div class="text-base font-bold leading-md">订单编号:</div>
-        <div class="leading-lg text-base font-normal text-gray66">{{ item.order }}</div>
+        <div class="text-base font-normal leading-lg text-gray66">{{ item.order }}</div>
       </div>
       <div class="text-base font-bold leading-md">$ {{ item.price }}</div>
     </div>
     <div class="flex justify-between">
       <div class="flex items-center space-x-5">
         <div class="text-base font-bold leading-md">卡号:</div>
-        <div class="leading-lg text-base font-normal text-gray66">{{ item.card }}</div>
+        <div class="text-base font-normal leading-lg text-gray66">{{ item.card }}</div>
       </div>
-      <div class="leading-lg text-base font-normal text-gray66">{{ item.date }}</div>
+      <div class="text-base font-normal leading-lg text-gray66">{{ item.date }}</div>
     </div>
   </div>
 </template>

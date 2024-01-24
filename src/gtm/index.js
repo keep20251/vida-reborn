@@ -1,5 +1,5 @@
 import { createGtm as createSupportGtm, useGtm as useSupportGtm } from '@gtm-support/vue-gtm'
-import { EVENTS } from '@/constant/gtm'
+import { EVENTS } from '@const/gtm'
 
 const gtm_id = import.meta.env.VITE_GTM_ID || undefined
 const gtm_defer = import.meta.env.VITE_GTM_DEFER || false

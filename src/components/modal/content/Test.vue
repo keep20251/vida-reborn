@@ -8,7 +8,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { useConfirmData } from '@/compositions/modal/confirm-data'
+import { useConfirmData } from '@use/modal/confirm-data'
 
 const v = ref('')
 const errMsg = ref('')

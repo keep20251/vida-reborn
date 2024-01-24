@@ -1,4 +1,4 @@
-import { iconMap } from '@/constant/icon-map'
+import { iconMap } from '@const/icon-map'
 
 const modules = Object.freeze(import.meta.glob('../assets/icons/*/*.svg'))
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap items-end justify-center space-x-10 space-y-15">
+  <div class="flex flex-wrap items-end space-x-10 space-y-15" :class="{ 'justify-center': center }">
     <div
       v-for="option in options"
       :key="option[optionValue]"
@@ -22,6 +22,7 @@ const props = defineProps({
   options: { type: Array, required: true },
   optionLabel: { type: String, default: 'label' },
   optionValue: { type: String, default: 'value' },
+  center: { type: Boolean, default: false },
 })
 
 const emits = defineEmits(['update:modelValue'])

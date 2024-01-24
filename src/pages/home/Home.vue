@@ -67,8 +67,7 @@ import InputWrap from '@comp/form/InputWrap.vue'
 import RecCard from '@comp/card/RecCard.vue'
 import BulletinCard from '@comp/card/BulletinCard.vue'
 import Carousel from '@comp/common/Carousel.vue'
-import ViewSubscribeCard from '@/components/card/ViewSubscribeCard.vue'
-import ClientOnly from '@/components/common/ClientOnly'
+import ViewSubscribeCard from '@comp/card/ViewSubscribeCard.vue'
 
 const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
 

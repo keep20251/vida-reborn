@@ -1,7 +1,7 @@
 <template>
   <div class="border-t pt-20">
     <div class="space-y-20">
-      <div class="leading-lg mb-10 text-base font-normal text-gray66">
+      <div class="mb-10 text-base font-normal leading-lg text-gray66">
         Deleting your account will permanently remove all of your information and media from our database. It also
         revokes all active media consents.If you encounter any issues please contact example@mail.com
       </div>

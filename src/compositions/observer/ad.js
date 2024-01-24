@@ -2,8 +2,8 @@ import { storeToRefs } from 'pinia'
 import { watch } from 'vue'
 import { trackEvent } from '@/gtm'
 import { useAccountStore } from '@/store/account'
-import { useAdultChecked } from '@/compositions/utils/adultChecked'
-import { USER_ROLE, POPUP_AD_DIALOG } from '@/constant'
+import { useAdultChecked } from '@use/utils/adultChecked'
+import { USER_ROLE, POPUP_AD_DIALOG } from '@const'
 import { useAdDialogStore } from '@/store/ad-dialog'
 
 export const useAdObserver = () => {

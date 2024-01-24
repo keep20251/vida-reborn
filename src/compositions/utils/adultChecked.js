@@ -1,5 +1,5 @@
 import { useLocalStorage } from '@vueuse/core'
-import { LOCAL_STORAGE_KEYS } from '@/constant'
+import { LOCAL_STORAGE_KEYS } from '@const'
 
 const BOT_LIST = ['googlebot', 'baiduspider', 'bingbot', 'yahoo! slurp', 'yandexbot']
 const isBot = () => {

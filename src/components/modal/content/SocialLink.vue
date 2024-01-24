@@ -39,8 +39,8 @@
   </div>
 </template>
 <script setup>
-import InputWrap from '@/components/form/InputWrap.vue'
-import { useConfirmData } from '@/compositions/modal/confirm-data'
+import InputWrap from '@comp/form/InputWrap.vue'
+import { useConfirmData } from '@use/modal/confirm-data'
 import { cleanLink } from '@/utils/string-helper'
 import { useYup } from '@use/validator/yup.js'
 import { useModalStore } from '@/store/modal'

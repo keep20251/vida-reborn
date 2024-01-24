@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div class="leading-lg mb-20 text-center text-base font-bold">帖子主題：</div>
+    <div class="mb-20 text-center text-base font-bold leading-lg">帖子主題：</div>
     <Loading v-if="isLoading"></Loading>
-    <OptionsPicker v-else v-model="interested" :options="interestedOptions"></OptionsPicker>
+    <OptionsPicker v-else v-model="interested" :options="interestedOptions" center></OptionsPicker>
     <div class="mt-30 text-center">
-      <div class="leading-lg text-base font-bold">至少選擇三個主題</div>
-      <div class="leading-lg text-base font-bold">太棒了！</div>
+      <div class="text-base font-bold leading-lg">至少選擇三個主題</div>
+      <div class="text-base font-bold leading-lg">太棒了！</div>
     </div>
   </div>
 </template>
