@@ -1,18 +1,18 @@
 <template>
   <div class="relative cursor-pointer">
     <div ref="dropdown" class="flex items-center justify-between bg-white" :class="[style]" @click="onDropdownClick">
-      <div class="leading-md text-base">
+      <div class="text-base leading-md">
         {{ $t(options.find((o) => o[optionValue] === modelValue)[optionLabel]) }}
       </div>
       <Icon name="dropdown" size="8" class="transition-transform" :class="{ 'rotate-180': open }"></Icon>
     </div>
     <div
-      class="scrollbar absolute z-10 flex max-h-[300px] w-full flex-col overflow-auto rounded-[0.9375rem] bg-white shadow-[1px_1px_5px_0px_rgba(0,0,0,0.1)] transition-transform"
+      class="scrollbar absolute z-10 flex max-h-[300px] w-full flex-col overflow-auto rounded-xl bg-white shadow-[1px_1px_5px_0px_rgba(0,0,0,0.1)] transition-transform"
       :class="[{ 'scale-y-0': !open, 'scale-y-100': open }, optionStyle]"
     >
       <div
         v-for="option in options"
-        class="leading-md py-10 pl-15 text-base first:rounded-t-[0.9375rem] last:rounded-b-[0.9375rem] hover:bg-[#F1F1FF]"
+        class="py-10 pl-15 text-base leading-md first:rounded-t-xl last:rounded-b-xl hover:bg-[#F1F1FF]"
         :class="{ 'bg-[#F1F1FF]': option[optionValue] === modelValue }"
         :key="option[optionValue]"
         @click="onOptionClick(option[optionValue])"
@@ -39,9 +39,9 @@ const emits = defineEmits(['update:modelValue'])
 
 const style = computed(() => {
   if (props.inset) {
-    return 'h-36 px-20 py-12 rounded-[1.125rem] border-gray20 shadow-[inset_0_-1px_8px_0_rgba(0,0,0,0.1)]'
+    return 'h-36 px-20 py-12 rounded-2xl border-gray20 shadow-[inset_0_-1px_8px_0_rgba(0,0,0,0.1)]'
   }
-  return `rounded-[0.9375rem] px-15 py-5 shadow-[0_0_3px_0_rgba(0,0,0,0.1)]`
+  return `px-15 py-5 rounded-xl shadow-[0_0_3px_0_rgba(0,0,0,0.1)]`
 })
 
 const dropdown = ref(null)
