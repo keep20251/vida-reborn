@@ -1,5 +1,5 @@
-import fs from 'fs'
 import csv from 'csv-parser'
+import fs from 'fs'
 import path from 'path'
 import readline from 'readline'
 
@@ -45,17 +45,6 @@ const writeFile = (filename, data) => {
     if (e) console.error('[Export file error]', e)
     else console.log(`[File exported] ${path.resolve(outputPath)}`)
   })
-}
-
-const reduce = (keys, value, curr) => {
-  keys.reduce((obj, key, index) => {
-    if (index === keys.length - 1) {
-      obj[key] = value
-    } else {
-      obj[key] = obj[key] || {}
-    }
-    return obj[key]
-  }, curr)
 }
 
 readLine.question('請輸入要解析的CSV檔案絕對或相對路徑: ', (path) => {

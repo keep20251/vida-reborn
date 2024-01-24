@@ -206,8 +206,8 @@ export const MODAL_TYPE = {
 3. 在 `@comp/modal/content/index.js` 中新增 2. 的 `key` 對應的 `component` ，範例：
 
 ```javascript
-import Text from './Text.vue'
 import { MODAL_TYPE } from '@const'
+import Text from './Text.vue'
 
 export default Object.freeze({
   [MODAL_TYPE.TEST]: Test,
