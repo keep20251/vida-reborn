@@ -78,6 +78,9 @@ export default {
     nowEmail: "",
     unverified: "",
     verified: "",
+    multiple: "",
+    sale: "",
+    scheduledRelease: "",
   },
   placeholder: {
     account: "ユーザー名を入力してください",
@@ -126,6 +129,12 @@ export default {
     watches: "腕時計",
     publicProfileWillBe: "公開プロフィールは次のように表示されます",
     subscribeSetting: "サブスクリプション設定",
+    prvw: "",
+    video: "",
+    img: "",
+    underReview: "",
+    auditFailure: "",
+    scheduledRelease: "",
   },
   content: {
     welcomeToVida: "Vidaへようこそ、私たちと一緒に！",
@@ -139,6 +148,10 @@ export default {
       line: "必須のCookieを使用して、サイトを機能させます。同意を得て、非必須Cookieを使用してユーザーエクスペリエンスを向上させ、ウェブサイトのトラフィックを分析することもできます。 [Accept]をクリックすると、{word}に記載されているように、当社のWebサイトのCookie使用に同意します。",
       word: "クッキーポリシー",
     },
+    notLoggedYet: "",
+    joinVida: "",
+    useObey: "",
+    allPosts: "",
   },
   month: {
     Jan: "1月",

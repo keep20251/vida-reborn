@@ -78,6 +78,9 @@ export default {
     nowEmail: "",
     unverified: "",
     verified: "",
+    multiple: "",
+    sale: "",
+    scheduledRelease: "",
   },
   placeholder: {
     account: "Veuillez entrer le nom d’utilisateur",
@@ -124,6 +127,12 @@ export default {
     watches: "Montres",
     publicProfileWillBe: "Le profil public sera affiché comme",
     subscribeSetting: "Paramètres d’abonnement",
+    prvw: "",
+    video: "",
+    img: "",
+    underReview: "",
+    auditFailure: "",
+    scheduledRelease: "",
   },
   content: {
     welcomeToVida: "Bienvenue chez Vida, rejoignez-nous !",
@@ -137,6 +146,10 @@ export default {
       line: "Nous utilisons des cookies essentiels pour faire fonctionner notre site. Avec votre consentement, nous pouvons également utiliser des cookies non essentiels pour améliorer l'expérience des utilisateurs et analyser le trafic du site Web. En cliquant sur Accepter, vous acceptez l'utilisation des cookies de notre site Web comme décrit dans notre {word}.",
       word: "Politique de cookie",
     },
+    notLoggedYet: "",
+    joinVida: "",
+    useObey: "",
+    allPosts: "",
   },
   month: {
     Jan: "Janvier",

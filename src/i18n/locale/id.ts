@@ -78,6 +78,9 @@ export default {
     nowEmail: "",
     unverified: "",
     verified: "",
+    multiple: "",
+    sale: "",
+    scheduledRelease: "",
   },
   placeholder: {
     account: "Silakan masukkan nama pengguna",
@@ -124,6 +127,12 @@ export default {
     watches: "Jam tangan",
     publicProfileWillBe: "Profil publik akan ditampilkan sebagai",
     subscribeSetting: "Pengaturan langganan",
+    prvw: "",
+    video: "",
+    img: "",
+    underReview: "",
+    auditFailure: "",
+    scheduledRelease: "",
   },
   content: {
     welcomeToVida: "Selamat datang di Vida, bergabunglah dengan kami!",
@@ -137,6 +146,10 @@ export default {
       line: "Kami menggunakan cookie penting untuk membuat situs kami berfungsi. Dengan persetujuan Anda, kami juga dapat menggunakan cookie yang tidak penting untuk meningkatkan pengalaman pengguna dan menganalisis lalu lintas situs web. Dengan mengklik penerimaan, Anda menyetujui penggunaan cookie situs web kami seperti yang dijelaskan dalam {word} kami.",
       word: "Kebijakan Cookie",
     },
+    notLoggedYet: "",
+    joinVida: "",
+    useObey: "",
+    allPosts: "",
   },
   month: {
     Jan: "Januari",

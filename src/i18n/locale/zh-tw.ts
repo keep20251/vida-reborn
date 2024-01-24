@@ -78,6 +78,9 @@ export default {
     nowEmail: "目前的信箱",
     unverified: "尚未驗證",
     verified: "已驗證通過",
+    multiple: "允許多選",
+    sale: "販售",
+    scheduledRelease: "定時發布",
   },
   placeholder: {
     account: "請輸入用戶名",
@@ -120,6 +123,12 @@ export default {
     watches: "觀看次數",
     publicProfileWillBe: "公開個人資料將會顯示為",
     subscribeSetting: "訂閱設定",
+    prvw: "預覽",
+    video: "影片",
+    img: "圖片",
+    underReview: "審核中",
+    auditFailure: "審核失敗",
+    scheduledRelease: "已排入定時發布",
   },
   content: {
     welcomeToVida: "歡迎你加入Vida成為我們的一員！",
@@ -131,6 +140,10 @@ export default {
       line: "我們使用必需的cookie來使我們的網站工作。在您的同意下，我們還可以使用非必需的cookie來改善用戶體驗並分析網站流量。通過單擊接受，您同意我們的網站的cookie使用，如我們的{word}中所述。",
       word: "Cookie政策",
     },
+    notLoggedYet: "您還尚未登入，趕快加入我們吧！",
+    joinVida: "趕快加入VIDA吧！更多奇幻的特色內容正在等著你！",
+    useObey: "所有使用過程中須遵守",
+    allPosts: "全部貼文",
   },
   month: {
     Jan: "一月",

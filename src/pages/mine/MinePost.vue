@@ -2,7 +2,7 @@
   <Tab v-model="tab" :options="tabOptions" class="!h-35"></Tab>
   <div v-if="tab === 1">
     <div class="flex justify-between pt-20">
-      <div class="leading-md text-base font-bold">全部贴文 13</div>
+      <div class="leading-md text-base font-bold">{{ $t('content.allPosts') }}{{ allPosts }}</div>
       <Tab v-model="tabBtn" :options="tabBtnOptions" isBtnTab :isBasicTab="false"></Tab>
     </div>
     <div v-if="tabBtn === 1">
@@ -20,11 +20,11 @@
         </List>
       </div>
     </div>
-    <div v-if="tabBtn === 2">影片</div>
+    <div v-if="tabBtn === 2">{{ $t('info.video') }}</div>
   </div>
   <div v-else-if="tab === 2">
     <div class="flex justify-between pt-20">
-      <div class="leading-md text-base font-bold">全部贴文 13</div>
+      <div class="leading-md text-base font-bold">{{ $t('content.allPosts') }}{{ allPosts }}</div>
       <Tab v-model="tabBtn" :options="tabBtnOptions" isBtnTab :isBasicTab="false"></Tab>
     </div>
     <div v-if="tabBtn === 1">
@@ -42,12 +42,13 @@
         </List>
       </div>
     </div>
-    <div v-if="tabBtn === 2">影片</div>
+    <div v-if="tabBtn === 2">{{}}</div>
   </div>
   <div v-else-if="tab === 3">
     <div class="flex justify-between pt-20">
-      <!-- 審核通過會放入『# 已排入定時發佈』-->
-      <div class="leading-md text-base font-bold"># 审核中</div>
+      <!-- 審核通過會放入『# 已排入定時發佈』 $t('info.scheduledRelease')-->
+      <!-- 審核失敗會放處 『# 審核失敗』 $t('info.auditFailure') -->
+      <div class="leading-md text-base font-bold">#{{ $t('info.underReview') }}</div>
       <Tab v-model="tabBtn" :options="tabBtnOptions" isBtnTab :isBasicTab="false"></Tab>
     </div>
     <div v-if="tabBtn === 1">
@@ -65,7 +66,7 @@
         </List>
       </div>
     </div>
-    <div v-if="tabBtn === 2">影片</div>
+    <div v-if="tabBtn === 2">{{}}</div>
   </div>
 </template>
 <script setup>
@@ -74,18 +75,23 @@ import Tab from '@comp/navigation/Tab.vue'
 import List from '@comp/common/List.vue'
 import Feed from '@comp/main/Feed.vue'
 import Loading from '@comp/common/Loading.vue'
+import { useI18n } from 'vue-i18n'
+
+const { t: $t } = useI18n()
 
 const tab = ref(1)
 const tabOptions = ref([
-  { label: '订阅', value: 1 },
-  { label: '贩售', value: 2 },
-  { label: '定时发布', value: 3 },
+  { label: $t('common.subscribe'), value: 1 },
+  { label: $t('label.sale'), value: 2 },
+  { label: $t('label.scheduledRelease'), value: 3 },
 ])
 
 const tabBtn = ref(1)
 const tabBtnOptions = ref([
-  { label: '图片', value: 1 },
-  { label: '视频', value: 2 },
+  { label: $t('info.img'), value: 1 },
+  { label: $t('info.video'), value: 2 },
 ])
 const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
+
+const allPosts = ref(123)
 </script>

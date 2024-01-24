@@ -78,6 +78,9 @@ export default {
     nowEmail: "",
     unverified: "",
     verified: "",
+    multiple: "",
+    sale: "",
+    scheduledRelease: "",
   },
   placeholder: {
     account: "사용자 이름을 입력하세요",
@@ -124,6 +127,12 @@ export default {
     watches: "시계",
     publicProfileWillBe: "공개 프로필은 다음과 같이 표시됩니다",
     subscribeSetting: "구독 설정",
+    prvw: "",
+    video: "",
+    img: "",
+    underReview: "",
+    auditFailure: "",
+    scheduledRelease: "",
   },
   content: {
     welcomeToVida: "Vida에 오신 것을 환영합니다, 함께해요!",
@@ -136,6 +145,10 @@ export default {
       line: "우리는 필수 쿠키를 사용하여 사이트를 작동시킵니다. 귀하의 동의에 따라, 당사는 필수 쿠키를 사용하여 사용자 경험을 향상시키고 웹 사이트 트래픽을 분석 할 수도 있습니다. 수락을 클릭하면 귀하는 {word}에 설명 된대로 웹 사이트의 쿠키 사용에 동의합니다.",
       word: "쿠키 정책",
     },
+    notLoggedYet: "",
+    joinVida: "",
+    useObey: "",
+    allPosts: "",
   },
   month: {
     Jan: "1월",

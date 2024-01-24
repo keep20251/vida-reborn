@@ -6,7 +6,7 @@
     <div class="flex items-center justify-center">
       <img class="h-[5rem] w-[9rem]" src="@/assets/logo.svg?url" alt="VIDA" />
     </div>
-    <div class="text-lg font-bold leading-5">登入或註冊</div>
+    <div class="text-lg font-bold leading-5">{{ $t('info.loginOrRegister') }}</div>
     <div class="flex w-full flex-col justify-center space-y-10 px-20">
       <InputWrap
         v-model="email"

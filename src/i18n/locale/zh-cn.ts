@@ -78,6 +78,9 @@ export default {
     nowEmail: "目前的邮箱",
     unverified: "尚未验证",
     verified: "已验证通過",
+    multiple: "允许多选",
+    sale: "贩售",
+    scheduledRelease: "定时发布",
   },
   placeholder: {
     account: "请输入用户名",
@@ -120,6 +123,12 @@ export default {
     watches: "观看次数",
     publicProfileWillBe: "公开个人资料将会显示为",
     subscribeSetting: "订阅设置",
+    prvw: "预览",
+    video: "视频",
+    img: "图片",
+    underReview: "审核中",
+    auditFailure: "审核失败",
+    scheduledRelease: "已排入定时发布",
   },
   content: {
     welcomeToVida: "欢迎加入Vida，成为我们的一员！",
@@ -131,6 +140,10 @@ export default {
       line: "我们使用必需的cookie来使我们的网站工作。在您的同意下，我们还可以使用非必需的cookie来改善用户体验并分析网站流量。通过单击接受，您同意我们的网站的cookie使用，如我们的{word}中所述。",
       word: "Cookie政策",
     },
+    notLoggedYet: "您还尚未登入，赶快加入我们吧！",
+    joinVida: "赶快加入VIDA吧！更多奇幻的特色内容正在等着你！",
+    useObey: "所有使用过程中须遵守",
+    allPosts: "全部贴文",
   },
   month: {
     Jan: "一月",
