@@ -5,7 +5,16 @@
     </template>
     <template #default>
       <div class="flex flex-col space-y-20">
+        <!-- 選擇主題 -->
+        <div>
+          <label class="text-left text-base font-normal not-italic leading-md">選擇主題</label>
+          <Dropdown v-model="category" :options="options" inset></Dropdown>
+        </div>
+
+        <!-- 標題 -->
         <InputWrap v-model="title" :label="'標題'" :errMsg="'標題不得為空'"></InputWrap>
+
+        <!-- 內文 -->
         <TextareaWrap
           v-model="content"
           :label="'內文'"
@@ -13,6 +22,8 @@
           :line="6"
           :errMsg="'錯誤訊息'"
         ></TextareaWrap>
+
+        <!-- Tag -->
         <div class="flex flex-col space-y-10">
           <label class="text-left text-base font-normal not-italic leading-md">Tag</label>
           <OptionsPicker v-model="tag" :options="tagOptions"></OptionsPicker>
@@ -23,6 +34,8 @@
             @click:append="addTag"
           ></InputWrap>
         </div>
+
+        <!-- 誰可以看到 -->
         <div class="flex flex-col space-y-10">
           <label class="text-left text-base font-normal not-italic leading-md">
             誰可以看到
@@ -30,10 +43,14 @@
           </label>
           <OptionsPicker v-model="perm" :options="permOptions"></OptionsPicker>
         </div>
+
+        <!-- 指定訂閱組 -->
         <div class="flex flex-col space-y-10">
           <label class="text-left text-base font-normal not-italic leading-md">指定訂閱組</label>
           <OptionsPicker v-model="sub" :options="subOptions"></OptionsPicker>
         </div>
+
+        <!-- Price -->
         <InputWrap
           v-model="price"
           :label="'Price'"
@@ -42,17 +59,46 @@
           :appendText="'最高設置為90元'"
           :maxLength="5"
         ></InputWrap>
+
+        <!-- 排定發布 -->
+        <div class="flex flex-col space-y-10">
+          <div class="flex justify-between">
+            <label class="text-left text-base font-normal not-italic leading-md">排定發布</label>
+            <InputSwitch v-model="schedule"></InputSwitch>
+          </div>
+          <InputWrap v-if="schedule" v-model="scheduleDateModel" appendIcon="calendar" disabled></InputWrap>
+        </div>
+
+        <Button>發布</Button>
       </div>
     </template>
   </Page>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+import Button from '@comp/common/Button.vue'
+import Dropdown from '@comp/form/Dropdown.vue'
+import InputSwitch from '@comp/form/InputSwitch.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
 import OptionsPicker from '@comp/form/OptionsPicker.vue'
 import TextareaWrap from '@comp/form/TextareaWrap.vue'
 import Head from '@comp/navigation/Head.vue'
+import { toDateTimeString } from '@/utils/string-helper'
+
+const category = ref(1)
+const options = ref([
+  { label: 'Option1', value: 1 },
+  { label: 'Option2', value: 2 },
+  { label: 'Option3', value: 3 },
+  { label: 'Option4', value: 4 },
+  { label: 'Option5', value: 5 },
+  { label: 'Option6', value: 6 },
+  { label: 'Option7', value: 7 },
+  { label: 'Option8', value: 8 },
+  { label: 'Option9', value: 9 },
+  { label: 'Option10', value: 10 },
+])
 
 const title = ref('')
 const content = ref('')
@@ -95,4 +141,15 @@ const subOptions = ref([
 ])
 
 const price = ref('')
+
+const schedule = ref(false)
+const scheduleDate = ref(new Date())
+const scheduleDateModel = computed({
+  get() {
+    return toDateTimeString(scheduleDate.value).substring(0, 16)
+  },
+  set(v) {
+    scheduleDate.value = v
+  },
+})
 </script>
