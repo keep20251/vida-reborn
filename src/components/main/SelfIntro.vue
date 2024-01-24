@@ -21,8 +21,6 @@
           <div class="flex w-[175px] flex-col items-center space-y-5">
             <p class="leading-xl text-xl font-bold text-white">{{ item.posts }}</p>
             <p class="text-sm font-normal leading-3 text-white opacity-50">{{ $t('info.perPost') }}</p>
-            <p class="leading-xl text-xl font-bold text-white">{{ item.posts }}</p>
-            <p class="text-sm font-normal leading-3 text-white opacity-50">{{ $t('content.posts') }}</p>
           </div>
         </div>
       </div>
