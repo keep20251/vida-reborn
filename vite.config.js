@@ -1,13 +1,13 @@
-import vue from '@vitejs/plugin-vue'
-import legacyPlugin from '@vitejs/plugin-legacy'
-import eslintPlugin from 'vite-plugin-eslint'
 import vueI18n from '@intlify/unplugin-vue-i18n/vite'
-import svgLoader from 'vite-svg-loader'
-import unHeadVite from '@unhead/addons/vite'
-import { defineConfig } from 'vite'
 import terser from '@rollup/plugin-terser'
+import unHeadVite from '@unhead/addons/vite'
+import legacyPlugin from '@vitejs/plugin-legacy'
+import vue from '@vitejs/plugin-vue'
 import { dirname, resolve } from 'path'
 import { fileURLToPath } from 'url'
+import { defineConfig } from 'vite'
+import eslintPlugin from 'vite-plugin-eslint'
+import svgLoader from 'vite-svg-loader'
 
 const hmrSSL = process.env.HMR_SSL === 'true' ?? false
 const hmrPort = hmrSSL ? 443 : 6173

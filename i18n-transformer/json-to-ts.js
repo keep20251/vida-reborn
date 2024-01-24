@@ -1,5 +1,6 @@
 import axios from 'axios'
 import fs from 'fs'
+
 async function main() {
   const id = process.env.I18N_ID
   const response = await axios.get(

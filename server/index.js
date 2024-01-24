@@ -1,10 +1,10 @@
-import fs from 'fs'
-import path from 'path'
-import express from 'express'
-import { fileURLToPath } from 'node:url'
-import { createServer as createViteServer } from 'vite'
 import { renderSSRHead } from '@unhead/ssr'
 import cookieParser from 'cookie-parser'
+import express from 'express'
+import fs from 'fs'
+import { fileURLToPath } from 'node:url'
+import path from 'path'
+import { createServer as createViteServer } from 'vite'
 import { containsLang } from './locale.js'
 
 async function createServer(root = process.cwd(), hmrPort = 6173) {
