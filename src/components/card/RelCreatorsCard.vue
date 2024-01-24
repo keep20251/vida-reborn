@@ -1,44 +1,77 @@
 <template>
-  <div class="leading-lg pb-20 text-lg font-bold">相关创作者</div>
+  <div class="pb-20 text-lg font-bold leading-lg">相关创作者</div>
   <div class="grid space-y-10">
-    <div
-      v-for="(item, index) in items"
-      :key="itemKey ? item[itemKey] : index"
-      class="grid space-y-10 rounded-[0.625rem] bg-[#7FE2D326] px-20 py-15"
-    >
-      <div class="flex items-center justify-between">
-        <div class="flex">
-          <Avatar class="mr-10" :radius="50" :src="item.creator_avatar"></Avatar>
-          <div class="flex flex-col space-y-4">
-            <div class="leading-lg text-lg font-bold">{{ item.creator_name }}</div>
-            <div class="text-sm font-normal leading-3 text-gray66">＠{{ item.creator_username }}</div>
+    <List :items="creators" item-key="id">
+      <template #default="{ item }">
+        <div class="mb-10 grid space-y-10 rounded-[0.625rem] bg-[#7FE2D326] px-20 py-15">
+          <div class="flex items-center justify-between">
             <div class="flex">
-              <div class="text-sm font-normal leading-3 text-gray66">帖子{{ item.posts }}</div>
-              <div class="text-sm font-normal leading-3 text-gray66">•</div>
-              <div class="text-sm font-normal leading-3 text-gray66">{{ item.viewed }} viewed</div>
+              <Avatar class="mr-10" :radius="50" :src="item.avatar"></Avatar>
+              <div class="flex flex-col space-y-4">
+                <div class="text-lg font-bold leading-lg">{{ item.name }}</div>
+                <div class="text-sm font-normal leading-3 text-gray66">＠{{ item.username }}</div>
+                <div class="flex">
+                  <div class="text-sm font-normal leading-3 text-gray66">帖子{{ item.posts }}</div>
+                  <div class="text-sm font-normal leading-3 text-gray66">•</div>
+                  <div class="text-sm font-normal leading-3 text-gray66">{{ item.viewed }} viewed</div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <Button class="!h-24 !px-18 !py-6 !text-sm !leading-3">查看</Button>
             </div>
           </div>
+          <p class="max-w-fit overflow-hidden text-ellipsis whitespace-nowrap text-base font-normal leading-lg">
+            {{ item.info }}
+          </p>
         </div>
-        <div>
-          <Button class="!h-24 !px-18 !py-6 !text-sm !leading-3">查看</Button>
+      </template>
+      <template #bottom>
+        <div class="flex cursor-pointer items-center justify-center space-x-5 text-base font-bold leading-md">
+          <div>显示更多创作者</div>
+          <Icon name="drop" size="12"></Icon>
         </div>
-      </div>
-      <p class="leading-lg max-w-fit overflow-hidden text-ellipsis whitespace-nowrap text-base font-normal">
-        {{ item.creator_info }}
-      </p>
-    </div>
-  </div>
-  <div class="mt-10 flex cursor-pointer items-center justify-center space-x-5 text-base font-bold leading-md">
-    <div>显示更多创作者</div>
-    <Icon name="drop" size="12"></Icon>
+      </template>
+    </List>
   </div>
 </template>
 <script setup>
+import { ref } from 'vue'
+import List from '@comp/common/List.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
 import Button from '@comp/common/Button.vue'
+import defaultAvatar from '@/assets/images/avatar.jpeg'
 
-defineProps({
-  items: { type: Array, require: true },
-  itemKey: { type: String },
-})
+const creators = ref([
+  {
+    avatar: defaultAvatar,
+    name: 'Angelababy',
+    username: 'angelababy',
+    posts: 134,
+    viewed: 1938,
+    info: `🇩🇪/🇺🇸 - 19 years😇 check my link to get to know me &lt; 3, I'm convinced your massive dick will help me get to
+        the spread, daddy💦💦`,
+    id: 1,
+  },
+  {
+    avatar: defaultAvatar,
+    name: 'Angelababy',
+    username: 'angelababy',
+    posts: 134,
+    viewed: 1938,
+    info: `🇩🇪/🇺🇸 - 19 years😇 check my link to get to know me &lt; 3, I'm convinced your massive dick will help me get to
+        the spread, daddy💦💦`,
+    id: 2,
+  },
+  {
+    avatar: defaultAvatar,
+    name: 'Angelababy',
+    username: 'angelababy',
+    posts: 134,
+    viewed: 1938,
+    info: `🇩🇪/🇺🇸 - 19 years😇 check my link to get to know me &lt; 3, I'm convinced your massive dick will help me get to
+        the spread, daddy💦💦`,
+    id: 3,
+  },
+])
 </script>

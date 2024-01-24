@@ -4,10 +4,10 @@
     <TransactionList :items="list"></TransactionList>
   </div>
   <div v-else-if="tab === 2">
-    <RecCard class="mt-30" :items="recCreators" @click="cancelBlock" :button-text="'取消订阅'"></RecCard>
+    <RecCard class="mt-30" :button-text="'取消订阅'"></RecCard>
   </div>
   <div v-else-if="tab === 3">
-    <div class="leading-lg pt-20 text-base font-bold">全部贴文 13</div>
+    <div class="pt-20 text-base font-bold leading-lg">全部贴文 13</div>
     <div class="overflow-x-hidden">
       <List :items="items" item-key="id">
         <template #default="{ last }">
@@ -28,7 +28,6 @@ import { ref } from 'vue'
 import Tab from '@comp/navigation/Tab.vue'
 import TransactionList from '@comp/mine/TransactionList.vue'
 import RecCard from '@comp/card/RecCard.vue'
-import defaultAvatar from '@/assets/images/avatar.jpeg'
 import List from '@comp/common/List.vue'
 import Feed from '@comp/main/Feed.vue'
 
@@ -62,37 +61,6 @@ const list = ref([
     date: '2024-01-04',
   },
 ])
-
-const recCreators = ref([
-  {
-    creator_avatar: defaultAvatar,
-    creator_name: 'Cursed_ellie',
-    creator_acc: 'cursed_ellie',
-    posts: 134,
-    sub_member: 1938,
-    id: 1,
-  },
-  {
-    creator_avatar: defaultAvatar,
-    creator_name: 'Cursed_ellie',
-    creator_acc: 'cursed_ellie',
-    posts: 134,
-    sub_member: 1938,
-    id: 2,
-  },
-  {
-    creator_avatar: defaultAvatar,
-    creator_name: 'Cursed_ellie',
-    creator_acc: 'cursed_ellie',
-    posts: 134,
-    sub_member: 1938,
-    id: 3,
-  },
-])
-
-const cancelBlock = (e) => {
-  console.log(e)
-}
 
 const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
 </script>
