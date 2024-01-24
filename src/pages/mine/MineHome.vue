@@ -73,7 +73,7 @@
   </div>
 </template>
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAuthRouteStore } from '@/store/auth-route'
@@ -88,19 +88,18 @@ import { useI18n } from 'vue-i18n'
 const { t: $t } = useI18n()
 
 const accountStore = useAccountStore()
-const { isLogin } = storeToRefs(accountStore)
+const { isLogin, userData } = storeToRefs(accountStore)
 
-const userInfo = ref({
+const userInfo = computed(() => ({
   avatar: defaultAvatar,
-  name: 'Angelababy',
-  username: 'angelababy',
-  subscriber: 364,
-  posts: 85,
+  name: userData.value.nickname,
+  username: userData.value.username,
+  subscriber: userData.value.subscriber_count,
+  posts: userData.value.post_num,
   link: 'WenHsin.com',
-  viewed: 2532,
-  info: `🇩🇪/🇺🇸 - 19 years😇 check my link to get to know me &lt; 3, I'm convinced your massive dick will help me get to
-        the spread, daddy💦💦`,
-})
+  viewed: userData.value.view_count,
+  info: userData.value.descriptions,
+}))
 
 const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
 

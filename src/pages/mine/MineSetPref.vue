@@ -4,15 +4,15 @@
     <OptionsPicker v-model="interested" :options="options" class="!justify-start"></OptionsPicker>
     <div class="py-20 text-sm font-normal leading-3 text-gray66">{{ $t('label.multiple') }}</div>
     <Button @click="savePref">{{ $t('common.save') }}</Button>
-      <div v-if="!!serverError" class="text-sm font-normal leading-md text-warning">{{ serverError }}</div>
+    <div v-if="!!serverError" class="text-sm font-normal leading-md text-warning">{{ serverError }}</div>
   </div>
 </template>
 
 <script setup>
 import { onMounted, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
-import { useI18n } from 'vue-i18n'
 import { useMineStore } from '@/store/mine'
 import Button from '@comp/common/Button.vue'
 import OptionsPicker from '@comp/form/OptionsPicker.vue'
@@ -26,10 +26,9 @@ const { userData } = accountStore
 const mineStore = useMineStore()
 const { interested } = storeToRefs(mineStore)
 
-onMounted(()=>{
-  interested.value = userData.interested.split(',').map(Number);
+onMounted(() => {
+  interested.value = userData.interested.split(',').map(Number)
 })
-
 
 const options = ref([
   { label: $t('content.foodieRecipe'), value: 1 },
@@ -48,15 +47,14 @@ const options = ref([
 const serverError = ref('')
 async function savePref() {
   const { execute } = useRequest('User.modifyInfo')
-  try{
+  try {
     await execute({
-      interested: interested.value.join(',')
+      interested: interested.value.join(','),
     })
     console.log('成功囉！')
-  } catch(e){
+  } catch (e) {
     serverError.value = e.message
     console.error(e)
   }
 }
-
 </script>
