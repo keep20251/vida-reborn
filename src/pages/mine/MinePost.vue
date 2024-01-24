@@ -2,7 +2,7 @@
   <Tab v-model="tab" :options="tabOptions" class="!h-35"></Tab>
   <div v-if="tab === 1">
     <div class="flex justify-between pt-20">
-      <div class="leading-md text-base font-bold">{{ $t('content.allPosts') }}{{ allPosts }}</div>
+      <div class="text-base font-bold leading-md">{{ $t('content.allPosts') }}{{ allPosts }}</div>
       <Tab v-model="tabBtn" :options="tabBtnOptions" isBtnTab :isBasicTab="false"></Tab>
     </div>
     <div v-if="tabBtn === 1">
@@ -24,7 +24,7 @@
   </div>
   <div v-else-if="tab === 2">
     <div class="flex justify-between pt-20">
-      <div class="leading-md text-base font-bold">{{ $t('content.allPosts') }}{{ allPosts }}</div>
+      <div class="text-base font-bold leading-md">{{ $t('content.allPosts') }}{{ allPosts }}</div>
       <Tab v-model="tabBtn" :options="tabBtnOptions" isBtnTab :isBasicTab="false"></Tab>
     </div>
     <div v-if="tabBtn === 1">
@@ -48,7 +48,7 @@
     <div class="flex justify-between pt-20">
       <!-- 審核通過會放入『# 已排入定時發佈』 $t('info.scheduledRelease')-->
       <!-- 審核失敗會放處 『# 審核失敗』 $t('info.auditFailure') -->
-      <div class="leading-md text-base font-bold">#{{ $t('info.underReview') }}</div>
+      <div class="text-base font-bold leading-md">#{{ $t('info.underReview') }}</div>
       <Tab v-model="tabBtn" :options="tabBtnOptions" isBtnTab :isBasicTab="false"></Tab>
     </div>
     <div v-if="tabBtn === 1">

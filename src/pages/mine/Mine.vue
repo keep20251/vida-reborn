@@ -49,9 +49,9 @@ import { useHeadStore } from '@/store/head'
 import { storeToRefs } from 'pinia'
 import { useI18n } from 'vue-i18n'
 import { useRoute, onBeforeRouteUpdate } from 'vue-router'
-import { MINE_TITLE } from '@/constant'
+import { MINE_TITLE } from '@const'
 import { onActivated, onServerPrefetch, ref, onBeforeMount } from 'vue'
-import ClientOnly from '@/components/common/ClientOnly'
+import ClientOnly from '@comp/common/ClientOnly'
 
 const inputValue = ref('')
 

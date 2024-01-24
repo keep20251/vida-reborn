@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import ClientOnly from '@/components/common/ClientOnly'
+import ClientOnly from '@comp/common/ClientOnly'
 </script>
 
 <style lang="scss" scoped></style>

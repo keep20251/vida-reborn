@@ -3,7 +3,7 @@ import { useAppStore } from '@/store/app'
 import { signData } from './util'
 import { ref } from 'vue'
 import { usePopupDialogStore } from '@/store/popup-dialog'
-import { POPUP_DIALOG_TYPE } from '@/constant'
+import { POPUP_DIALOG_TYPE } from '@const'
 import { useI18n } from 'vue-i18n'
 
 export default function uploadImage(file, progress) {

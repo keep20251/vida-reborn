@@ -27,7 +27,7 @@
 <script setup>
 import { ref } from 'vue'
 import RecCard from '@comp/card/RecCard.vue'
-import ViewSubscribeCard from '@/components/card/ViewSubscribeCard.vue'
+import ViewSubscribeCard from '@comp/card/ViewSubscribeCard.vue'
 import BulletinCard from '@comp/card/BulletinCard.vue'
 import RelCreatorsCard from '@comp/card/RelCreatorsCard.vue'
 import defaultAvatar from '@/assets/images/avatar.jpeg'

@@ -49,16 +49,16 @@
 <script setup>
 import InputWrap from '@comp/form/InputWrap.vue'
 import Button from '@comp/common/Button.vue'
-import useRequest from '@/compositions/request'
+import useRequest from '@use/request'
 import { useAuthRouteStore } from '@/store/auth-route'
-import { AUTH_ROUTES } from '@/constant'
-import { useThirdPartyAuth } from '@/compositions/request/third-party-auth'
+import { AUTH_ROUTES } from '@const'
+import { useThirdPartyAuth } from '@use/request/third-party-auth'
 import { ref } from 'vue'
 import { useAccountStore } from '@/store/account'
 import { storeToRefs } from 'pinia'
 import { useEmailLoginStore } from '@/store/email-login'
 import { useYup } from '@use/validator/yup.js'
-import { useMultiAuth } from '@/compositions/request/multi-auth'
+import { useMultiAuth } from '@use/request/multi-auth'
 
 const { twitterLogin, googleLogin, onAppleSignIn, redirect_uri } = useThirdPartyAuth()
 const { to, close } = useAuthRouteStore()

@@ -22,7 +22,7 @@
 </template>
 <script setup>
 import { ref } from 'vue'
-import { iconMap } from '@/constant/icon-map'
+import { iconMap } from '@const/icon-map'
 
 const icons = Object.entries(iconMap).reduce((acc, [key, value]) => {
   const [category] = value.split('/')

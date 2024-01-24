@@ -12,7 +12,7 @@
   </div>
 </template>
 <script setup>
-import Button from '@/components/common/Button.vue'
+import Button from '@comp/common/Button.vue'
 import { useAuthRouteStore } from '@/store/auth-route'
 import { useRouter } from 'vue-router'
 

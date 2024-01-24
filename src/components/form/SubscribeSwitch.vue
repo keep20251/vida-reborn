@@ -15,7 +15,7 @@
   </div>
 </template>
 <script setup>
-import InputSwitch from '@/components/form/InputSwitch.vue'
+import InputSwitch from '@comp/form/InputSwitch.vue'
 import { computed } from 'vue'
 
 const props = defineProps({

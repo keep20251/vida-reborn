@@ -8,7 +8,7 @@ import sortBy from 'lodash/fp/sortBy'
 import flow from 'lodash/fp/flow'
 import reverse from 'lodash/fp/reverse'
 
-import { MEDIA_SHAPE, COLUMN_SHAPE } from '@/constant'
+import { MEDIA_SHAPE, COLUMN_SHAPE } from '@const'
 
 const MAX_COLUMNS = 12
 

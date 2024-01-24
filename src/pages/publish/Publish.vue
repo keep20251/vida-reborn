@@ -14,7 +14,7 @@
           :errMsg="'錯誤訊息'"
         ></TextareaWrap>
         <div class="flex flex-col space-y-10">
-          <label class="leading-md text-left text-base font-normal not-italic">Tag</label>
+          <label class="text-left text-base font-normal not-italic leading-md">Tag</label>
           <OptionsPicker v-model="tag" :options="tagOptions"></OptionsPicker>
           <InputWrap
             v-model="tagInput"
@@ -24,14 +24,14 @@
           ></InputWrap>
         </div>
         <div class="flex flex-col space-y-10">
-          <label class="leading-md text-left text-base font-normal not-italic">
+          <label class="text-left text-base font-normal not-italic leading-md">
             誰可以看到
             <span class="text-sm font-normal not-italic leading-3 text-gray66">允許特定訂閱方案查看</span>
           </label>
           <OptionsPicker v-model="perm" :options="permOptions"></OptionsPicker>
         </div>
         <div class="flex flex-col space-y-10">
-          <label class="leading-md text-left text-base font-normal not-italic">指定訂閱組</label>
+          <label class="text-left text-base font-normal not-italic leading-md">指定訂閱組</label>
           <OptionsPicker v-model="sub" :options="subOptions"></OptionsPicker>
         </div>
         <InputWrap

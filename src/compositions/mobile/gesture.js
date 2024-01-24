@@ -2,7 +2,7 @@ import { ref, readonly } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useSwipe, useEventListener } from '@vueuse/core'
 import { useAppStore } from '@/store/app'
-import { useDbClick } from '@/compositions/mobile/dbClick'
+import { useDbClick } from '@use/mobile/dbClick'
 import { isIOS } from '@/utils/device'
 
 export function useGesture(

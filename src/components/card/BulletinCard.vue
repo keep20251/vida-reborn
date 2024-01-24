@@ -1,8 +1,8 @@
 <template>
   <div class="grid space-y-20 rounded-[0.625rem] bg-gray03 px-20 py-30">
     <div class="flex flex-col space-y-10">
-      <div class="leading-lg text-lg font-bold">VIDA 公告区</div>
-      <div class="leading-lg text-lg font-bold">Subscribe to Premium</div>
+      <div class="text-lg font-bold leading-lg">VIDA 公告区</div>
+      <div class="text-lg font-bold leading-lg">Subscribe to Premium</div>
       <div class="text-base font-normal leading-md">
         Subscribe to unlock new features and if eligible, receive a share of ads revenue.
       </div>

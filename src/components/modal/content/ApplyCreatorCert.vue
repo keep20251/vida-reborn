@@ -4,24 +4,24 @@
       <div class="mb-10">Select country/region</div>
       <Dropdown v-model="dropdownValue" :options="options" inset> </Dropdown>
     </div>
-    <div class="leading-md text-center text-base font-normal text-gray66">Choose a document and start verification</div>
+    <div class="text-center text-base font-normal leading-md text-gray66">Choose a document and start verification</div>
     <div class="space-y-10">
       <div class="flex cursor-pointer items-center justify-center space-x-10 rounded-md bg-gray03 py-5">
         <Icon name="passport" size="50"></Icon>
-        <div class="leading-md font-base font-normal">Passport</div>
+        <div class="font-base font-normal leading-md">Passport</div>
       </div>
       <div class="flex cursor-pointer items-center justify-center space-x-10 rounded-md bg-gray03 py-5">
         <Icon name="identityCard" size="50"></Icon>
-        <div class="leading-md font-base font-normal">Identity Card</div>
+        <div class="font-base font-normal leading-md">Identity Card</div>
       </div>
       <div class="flex cursor-pointer items-center justify-center space-x-10 rounded-md bg-gray03 py-5">
         <Icon name="driverLicense" size="50"></Icon>
-        <div class="leading-md font-base font-normal">Driver License</div>
+        <div class="font-base font-normal leading-md">Driver License</div>
       </div>
     </div>
   </div>
 
-  <div class="leading-lg mb-20 text-center text-sm font-normal text-gray66">{{ content }}</div>
+  <div class="mb-20 text-center text-sm font-normal leading-lg text-gray66">{{ content }}</div>
 </template>
 
 <script setup>

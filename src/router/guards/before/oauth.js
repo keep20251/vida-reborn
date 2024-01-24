@@ -1,5 +1,5 @@
-import useRequest from '@/compositions/request'
-import { useThirdPartyAuth } from '@/compositions/request/third-party-auth'
+import useRequest from '@use/request'
+import { useThirdPartyAuth } from '@use/request/third-party-auth'
 import { useAccountStore } from '@/store/account'
 import { useLocaleReadonly } from '@use/utils/localeReadonly'
 

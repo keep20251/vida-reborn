@@ -33,11 +33,11 @@
   </div>
 </template>
 <script setup>
-import DialogHeader from '@/components/dialog/DialogHeader.vue'
-import InputWrap from '@/components/form/InputWrap.vue'
-import Button from '@/components/common/Button.vue'
+import DialogHeader from '@comp/dialog/DialogHeader.vue'
+import InputWrap from '@comp/form/InputWrap.vue'
+import Button from '@comp/common/Button.vue'
 import useRequest from '@use/request/index.js'
-import { AUTH_ROUTES } from '@/constant'
+import { AUTH_ROUTES } from '@const'
 import { useAuthRouteStore } from '@/store/auth-route'
 import { reactive, ref } from 'vue'
 import { useYup } from '@use/validator/yup.js'

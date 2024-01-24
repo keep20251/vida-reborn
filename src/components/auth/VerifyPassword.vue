@@ -21,11 +21,11 @@
   </div>
 </template>
 <script setup>
-import DialogHeader from '@/components/dialog/DialogHeader.vue'
-import InputWrap from '@/components/form/InputWrap.vue'
-import Button from '@/components/common/Button.vue'
+import DialogHeader from '@comp/dialog/DialogHeader.vue'
+import InputWrap from '@comp/form/InputWrap.vue'
+import Button from '@comp/common/Button.vue'
 import { useAuthRouteStore } from '@/store/auth-route'
-import { AUTH_ROUTES } from '@/constant'
+import { AUTH_ROUTES } from '@const'
 import { useEmailLoginStore } from '@/store/email-login'
 import { ref } from 'vue'
 import { storeToRefs } from 'pinia'

@@ -87,10 +87,10 @@
   </div>
 </template>
 <script setup>
-import InputWrap from '@/components/form/InputWrap.vue'
-import TextareaWrap from '@/components/form/TextareaWrap.vue'
-import SocialLink from '@/components/form/SocialLink.vue'
-import SubscribeSwitch from '@/components/form/SubscribeSwitch.vue'
+import InputWrap from '@comp/form/InputWrap.vue'
+import TextareaWrap from '@comp/form/TextareaWrap.vue'
+import SocialLink from '@comp/form/SocialLink.vue'
+import SubscribeSwitch from '@comp/form/SubscribeSwitch.vue'
 import SelfIntro from '@comp/main/SelfIntro.vue'
 import defaultAvatar from '@/assets/images/avatar.jpeg'
 import useRequest from '@use/request/index.js'

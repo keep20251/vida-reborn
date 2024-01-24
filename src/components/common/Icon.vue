@@ -4,7 +4,7 @@
   </div>
 </template>
 <script setup>
-import LoadingIcon from '@/components/skeleton/LoadingIcon.vue'
+import LoadingIcon from '@comp/skeleton/LoadingIcon.vue'
 import { computed, defineAsyncComponent } from 'vue'
 import { sizes, getModuleLoader } from '@/utils/icon'
 

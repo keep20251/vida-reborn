@@ -1,6 +1,6 @@
 <template>
   <div class="border-t pt-20">
-    <label class="leading-md text-base font-normal not-italic">{{ $t('title.prefer') }}： </label>
+    <label class="text-base font-normal not-italic leading-md">{{ $t('title.prefer') }}： </label>
     <OptionsPicker v-model="multiplePickedOptions" :options="options" class="!justify-start"></OptionsPicker>
     <div class="py-20 text-sm font-normal leading-3 text-gray66">{{ $t('label.multiple') }}</div>
     <Button @click="onBtnClick">{{ $t('common.save') }}</Button>

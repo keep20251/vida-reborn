@@ -15,7 +15,7 @@
 <script setup>
 import { storeToRefs } from 'pinia'
 import { useCounterStore } from '@/store/counter'
-import { onServerClientOnce, onHydration } from '@/compositions/lifecycle'
+import { onServerClientOnce, onHydration } from '@use/lifecycle'
 
 const counterStore = useCounterStore()
 const { counter } = storeToRefs(counterStore)

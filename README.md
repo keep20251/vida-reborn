@@ -207,7 +207,7 @@ export const MODAL_TYPE = {
 
 ```javascript
 import Text from './Text.vue'
-import { MODAL_TYPE } from '@/constant'
+import { MODAL_TYPE } from '@const'
 
 export default Object.freeze({
   [MODAL_TYPE.TEST]: Test,

@@ -8,7 +8,7 @@
   </BaseDialog>
 </template>
 <script setup>
-import BaseDialog from '@/components/dialog/BaseDialog.vue'
+import BaseDialog from '@comp/dialog/BaseDialog.vue'
 import { useAuthRouteStore } from '@/store/auth-route'
 import { storeToRefs } from 'pinia'
 
