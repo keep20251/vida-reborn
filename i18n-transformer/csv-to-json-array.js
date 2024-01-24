@@ -47,17 +47,6 @@ const writeFile = (filename, data) => {
   })
 }
 
-const reduce = (keys, value, curr) => {
-  keys.reduce((obj, key, index) => {
-    if (index === keys.length - 1) {
-      obj[key] = value
-    } else {
-      obj[key] = obj[key] || {}
-    }
-    return obj[key]
-  }, curr)
-}
-
 readLine.question('請輸入要解析的CSV檔案絕對或相對路徑: ', (path) => {
   filePath = path.replace(/^'|'$/g, '')
   readLine.close()
