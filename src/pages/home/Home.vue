@@ -38,53 +38,8 @@
       <ClientOnly>
         <div>
           <BulletinCard class="mt-20"></BulletinCard>
-          <RecCard class="mt-30" :items="recCreators"></RecCard>
-          <Carousel class="mt-30" :items="cats" :intervalTime="true"></Carousel>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>home aside</div>
-          <div>最後一行home aside</div>
+          <RecCard class="mt-10"></RecCard>
+          <Carousel class="mt-20" interval-time></Carousel>
         </div>
       </ClientOnly>
     </template>
@@ -112,7 +67,6 @@ import InputWrap from '@comp/form/InputWrap.vue'
 import RecCard from '@comp/card/RecCard.vue'
 import BulletinCard from '@comp/card/BulletinCard.vue'
 import Carousel from '@comp/common/Carousel.vue'
-import defaultAvatar from '@/assets/images/avatar.jpeg'
 import ViewSubscribeCard from '@/components/card/ViewSubscribeCard.vue'
 import ClientOnly from '@/components/common/ClientOnly'
 
@@ -125,42 +79,6 @@ const tabOptions = ref([
 ])
 
 const searchValue = ref('')
-
-const recCreators = ref([
-  {
-    creator_avatar: defaultAvatar,
-    creator_name: 'Cursed_ellie',
-    creator_acc: 'cursed_ellie',
-    posts: 134,
-    sub_member: 1938,
-    id: 1,
-  },
-  {
-    creator_avatar: defaultAvatar,
-    creator_name: 'Cursed_ellie',
-    creator_acc: 'cursed_ellie',
-    posts: 134,
-    sub_member: 1938,
-    id: 2,
-  },
-  {
-    creator_avatar: defaultAvatar,
-    creator_name: 'Cursed_ellie',
-    creator_acc: 'cursed_ellie',
-    posts: 134,
-    sub_member: 1938,
-    id: 3,
-  },
-])
-
-const cats = ref([
-  { img: 'https://i.postimg.cc/3RTHR6kh/4edca499dd436a67fa25e5fbf3cb5582.png' },
-  { img: 'https://images.pexels.com/photos/1056251/pexels-photo-1056251.jpeg' },
-  { img: 'https://images.pexels.com/photos/57416/cat-sweet-kitty-animals-57416.jpeg' },
-  { img: 'https://images.pexels.com/photos/3054570/pexels-photo-3054570.jpeg' },
-  { img: 'https://images.pexels.com/photos/2071882/pexels-photo-2071882.jpeg' },
-  { img: 'https://images.pexels.com/photos/1440403/pexels-photo-1440403.jpeg' },
-])
 
 function onLoad() {
   console.log('load at', new Date())

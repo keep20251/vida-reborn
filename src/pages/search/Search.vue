@@ -28,10 +28,10 @@
     </template>
     <template #aside>
       <ClientOnly>
-        <div>
-          <RelCreatorsCard :items="creators"></RelCreatorsCard>
+        <div class="mt-20">
+          <RelCreatorsCard></RelCreatorsCard>
           <BulletinCard class="mt-20"></BulletinCard>
-          <Carousel class="mt-30" :items="cats" :intervalTime="true"></Carousel>
+          <Carousel class="mt-30" interval-time></Carousel>
         </div>
       </ClientOnly>
     </template>
@@ -46,50 +46,8 @@ import Feed from '@comp/main/Feed.vue'
 import BulletinCard from '@comp/card/BulletinCard.vue'
 import Carousel from '@comp/common/Carousel.vue'
 import RelCreatorsCard from '@comp/card/RelCreatorsCard.vue'
-import defaultAvatar from '@/assets/images/avatar.jpeg'
 import ClientOnly from '@/components/common/ClientOnly'
 
 const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
 const inputValue = ref('')
-const cats = ref([
-  { img: 'https://i.postimg.cc/3RTHR6kh/4edca499dd436a67fa25e5fbf3cb5582.png' },
-  { img: 'https://images.pexels.com/photos/1056251/pexels-photo-1056251.jpeg' },
-  { img: 'https://images.pexels.com/photos/57416/cat-sweet-kitty-animals-57416.jpeg' },
-  { img: 'https://images.pexels.com/photos/3054570/pexels-photo-3054570.jpeg' },
-  { img: 'https://images.pexels.com/photos/2071882/pexels-photo-2071882.jpeg' },
-  { img: 'https://images.pexels.com/photos/1440403/pexels-photo-1440403.jpeg' },
-])
-
-const creators = ref([
-  {
-    creator_avatar: defaultAvatar,
-    creator_name: 'Angelababy',
-    creator_username: '＠angelababy',
-    creator_posts: 134,
-    creator_viewed: 1938,
-    creator_info: `🇩🇪/🇺🇸 - 19 years😇 check my link to get to know me &lt; 3, I'm convinced your massive dick will help me get to
-        the spread, daddy💦💦`,
-    id: 1,
-  },
-  {
-    creator_avatar: defaultAvatar,
-    creator_name: 'Angelababy',
-    creator_username: '＠angelababy',
-    creator_posts: 134,
-    creator_viewed: 1938,
-    creator_info: `🇩🇪/🇺🇸 - 19 years😇 check my link to get to know me &lt; 3, I'm convinced your massive dick will help me get to
-        the spread, daddy💦💦`,
-    id: 2,
-  },
-  {
-    creator_avatar: defaultAvatar,
-    creator_name: 'Angelababy',
-    creator_username: '＠angelababy',
-    creator_posts: 134,
-    creator_viewed: 1938,
-    creator_info: `🇩🇪/🇺🇸 - 19 years😇 check my link to get to know me &lt; 3, I'm convinced your massive dick will help me get to
-        the spread, daddy💦💦`,
-    id: 3,
-  },
-])
 </script>
