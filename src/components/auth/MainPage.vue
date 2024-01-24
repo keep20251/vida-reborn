@@ -62,7 +62,7 @@ import { useMultiAuth } from '@/compositions/request/multi-auth'
 
 const { twitterLogin, googleLogin, onAppleSignIn, redirect_uri } = useThirdPartyAuth()
 const { to, close } = useAuthRouteStore()
-const { setToken } = useAccountStore()
+const { login } = useAccountStore()
 
 const { Yup, parseError } = useYup()
 const schema = Yup.string().email().required()
@@ -105,7 +105,7 @@ async function onAppleLoginSuccess(event) {
       immediate: true,
     })
     console.log('ThirdParty.webLoginByApple.response', responseData)
-    await setToken(responseData.token)
+    await login(responseData.token)
   } catch (err) {
     console.error(err)
   }

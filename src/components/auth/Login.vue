@@ -82,7 +82,7 @@ async function validaite() {
 }
 
 const accountStore = useAccountStore()
-const { setToken } = accountStore
+const { login: loginAccount } = accountStore
 
 async function login() {
   const { data, execute } = useRequest('Account.loginByPassword')
@@ -91,7 +91,7 @@ async function login() {
       account: credential.account.value,
       password: credential.password.value,
     })
-    await setToken(data.value.token)
+    await loginAccount(data.value.token)
   } catch (e) {
     console.error(e)
   } finally {

@@ -54,7 +54,7 @@ async function validate() {
 }
 
 const accountStore = useAccountStore()
-const { setToken } = accountStore
+const { login } = accountStore
 
 async function loginByPassword() {
   const { data, execute } = useRequest('Account.loginByPassword')
@@ -63,7 +63,7 @@ async function loginByPassword() {
       account: email.value,
       password: password.value,
     })
-    await setToken(data.value.token)
+    await login(data.value.token)
     emailLoginStore.$reset()
   } catch (e) {
     serverError.value = e.message
