@@ -187,7 +187,8 @@ export default {
     nsfwMale: "NSFW( 男性向)",
     nsfwFemale: "NSFW( 女性向)",
     unblock: "解除封鎖",
-    delAccContent: "",
+    delAccContent:
+      "删除您的帐户将从我们的数据库中永久删除您的所有信息和媒体。 且會撤销所有的有效媒体同意。如果您遇到任何问题，请联系",
     unableRecover: "無法復原！",
     delAcc: "刪除帳號",
   },

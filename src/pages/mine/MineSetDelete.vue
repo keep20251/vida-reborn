@@ -1,7 +1,7 @@
 <template>
   <div class="border-t pt-20">
     <div class="space-y-20">
-      <div class="leading-lg mb-10 text-base font-normal text-gray66">{{ $t('content.delAccCnt') }}</div>
+      <div class="leading-lg mb-10 text-base font-normal text-gray66">{{ $t('content.delAccContent') }} example@mail.com</div>
       <InputWrap
         v-model="inputValue"
         :label="$t('label.nowPw')"
