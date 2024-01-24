@@ -1,14 +1,14 @@
 <template>
   <div
-    class="flex h-screen py-20 grow basis-full flex-row justify-start sm:basis-[540px] md:basis-[860px] xl:basis-[880px]"
+    class="flex h-screen grow basis-full flex-row justify-start py-20 sm:basis-[540px] md:basis-[860px] xl:basis-[880px]"
   >
-    <div class="w-[384px] h-full px-20 mx-8 py-20 border-l border-l-gray10 scrollbar-md overflow-auto">
+    <div class="scrollbar-md mx-8 h-full w-[384px] overflow-auto border-l border-l-gray10 px-20 py-20">
       <div class="flex flex-col space-y-20">
         <div class="text-lg font-bold leading-lg">Messages</div>
         <List :items="users" item-key="id">
           <template #default="{ item, last }">
-            <div class="flex space-x-15 p-10 cursor-pointer hover:bg-gray03" :class="{ 'border-b': !last }">
-              <div class="w-60 h-60 shrink-0 rounded-full bg-orange-200"></div>
+            <div class="flex cursor-pointer space-x-15 p-10 hover:bg-gray03" :class="{ 'border-b': !last }">
+              <div class="h-60 w-60 shrink-0 rounded-full bg-orange-200"></div>
               <div class="grow">
                 <div>
                   <span class="text-base font-bold">{{ item.nickname }}</span>
@@ -16,11 +16,11 @@
                 </div>
                 <div class="text-base leading-lg">{{ item.message }}</div>
               </div>
-              <div class="flex flex-col justify-between items-end">
+              <div class="flex flex-col items-end justify-between">
                 <div class="text-sm text-primary">{{ item.time }}</div>
                 <div
                   v-if="item.unread > 0"
-                  class="w-20 bg-primary text-white flex justify-center items-center text-sm rounded-full"
+                  class="flex w-20 items-center justify-center rounded-full bg-primary text-sm text-white"
                 >
                   {{ item.unread }}
                 </div>
@@ -30,7 +30,7 @@
         </List>
       </div>
     </div>
-    <div class="w-[600px] px-50 py-30 border border-gfay10 rounded-md"></div>
+    <div class="border-gfay10 w-[600px] rounded-md border px-50 py-30"></div>
   </div>
 </template>
 
