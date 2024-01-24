@@ -4,10 +4,10 @@
     <TransactionList :items="list"></TransactionList>
   </div>
   <div v-else-if="tab === 2">
-    <RecCard class="mt-30" :button-text="'取消订阅'"></RecCard>
+    <RecCard class="mt-30" :button-text="$t('common.unsubscribe')"></RecCard>
   </div>
   <div v-else-if="tab === 3">
-    <div class="pt-20 text-base font-bold leading-lg">全部贴文 13</div>
+    <div class="leading-lg pt-20 text-base font-bold">{{ $t('content.allPosts') }} 13</div>
     <div class="overflow-x-hidden">
       <List :items="items" item-key="id">
         <template #default="{ last }">
@@ -25,17 +25,20 @@
 </template>
 <script setup>
 import { ref } from 'vue'
+import Tab from '@comp/navigation/Tab.vue'
+import TransactionList from '@comp/mine/TransactionList.vue'
 import RecCard from '@comp/card/RecCard.vue'
 import List from '@comp/common/List.vue'
 import Feed from '@comp/main/Feed.vue'
-import TransactionList from '@comp/mine/TransactionList.vue'
-import Tab from '@comp/navigation/Tab.vue'
+import { useI18n } from 'vue-i18n'
+
+const { t: $t } = useI18n()
 
 const tab = ref(1)
 const tabOptions = ref([
-  { label: 'Transactions', value: 1 },
-  { label: 'Subscriptions', value: 2 },
-  { label: '已购买帖子', value: 3 },
+  { label: $t('label.texn'), value: 1 },
+  { label: $t('label.subs'), value: 2 },
+  { label: $t('label.artPur'), value: 3 },
 ])
 
 const list = ref([
