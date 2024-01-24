@@ -6,11 +6,13 @@ export const useMineStore = defineStore('mine-store', () => {
   const verifyCode = ref('')
   const nickname = ref('')
   const username = ref('')
+  const interested = ref([])
 
   return {
     email,
     verifyCode,
     nickname,
     username,
+    interested,
   }
 })
