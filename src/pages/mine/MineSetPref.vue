@@ -2,8 +2,8 @@
   <div class="border-t pt-20">
     <label class="leading-md text-base font-normal not-italic">{{ $t('title.prefer') }}： </label>
     <OptionsPicker v-model="multiplePickedOptions" :options="options" class="!justify-start"></OptionsPicker>
-    <div class="pb-20 pt-10 text-sm font-normal leading-3 text-gray66">允許多選</div>
-    <Button @click="onBtnClick">保存</Button>
+    <div class="py-20 text-sm font-normal leading-3 text-gray66">{{ $t('label.multiple') }}</div>
+    <Button @click="onBtnClick">{{ $t('common.save') }}</Button>
   </div>
 </template>
 

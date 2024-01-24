@@ -78,6 +78,9 @@ export default {
     nowEmail: "",
     unverified: "",
     verified: "",
+    multiple: "",
+    sale: "",
+    scheduledRelease: "",
   },
   placeholder: {
     account: "Vui lòng nhập tên người dùng",
@@ -126,6 +129,12 @@ export default {
     watches: "Đồng hồ",
     publicProfileWillBe: "Hồ sơ công khai sẽ được hiển thị như",
     subscribeSetting: "Cài đặt đăng ký",
+    prvw: "",
+    video: "",
+    img: "",
+    underReview: "",
+    auditFailure: "",
+    scheduledRelease: "",
   },
   content: {
     welcomeToVida: "Chào mừng bạn đến với Vida, hãy gia nhập chúng tôi!",
@@ -139,6 +148,10 @@ export default {
       line: "Chúng tôi sử dụng cookie thiết yếu để làm cho trang web của chúng tôi hoạt động. Với sự đồng ý của bạn, chúng tôi cũng có thể sử dụng cookie không thiết yếu để cải thiện trải nghiệm người dùng và phân tích lưu lượng truy cập trang web. Bằng cách nhấp vào Chấp nhận, bạn đồng ý sử dụng cookie của trang web của chúng tôi như được mô tả trong {word} của chúng tôi.",
       word: "Chính sách cookie",
     },
+    notLoggedYet: "",
+    joinVida: "",
+    useObey: "",
+    allPosts: "",
   },
   month: {
     Jan: "Tháng Một",

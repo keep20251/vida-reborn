@@ -78,6 +78,9 @@ export default {
     nowEmail: "",
     unverified: "",
     verified: "",
+    multiple: "",
+    sale: "",
+    scheduledRelease: "",
   },
   placeholder: {
     account: "Пожалуйста, введите имя пользователя",
@@ -124,6 +127,12 @@ export default {
     watches: "Часы",
     publicProfileWillBe: "Публичный профиль будет отображаться как",
     subscribeSetting: "Настройки подписки",
+    prvw: "",
+    video: "",
+    img: "",
+    underReview: "",
+    auditFailure: "",
+    scheduledRelease: "",
   },
   content: {
     welcomeToVida: "Добро пожаловать в Vida, присоединяйтесь к нам!",
@@ -137,6 +146,10 @@ export default {
       line: "Мы используем необходимые файлы cookie, чтобы заставить наш сайт работать. С вашего согласия мы также можем использовать несущественные файлы cookie для улучшения пользовательского опыта и анализа трафика веб-сайта. Нажав принять, вы соглашаетесь с использованием файлов cookie нашего веб -сайта, как описано в нашем {word}.",
       word: "Политика cookie",
     },
+    notLoggedYet: "",
+    joinVida: "",
+    useObey: "",
+    allPosts: "",
   },
   month: {
     Jan: "Январь",

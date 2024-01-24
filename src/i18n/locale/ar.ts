@@ -78,6 +78,9 @@ export default {
     nowEmail: "",
     unverified: "",
     verified: "",
+    multiple: "",
+    sale: "",
+    scheduledRelease: "",
   },
   placeholder: {
     account: "الرجاء إدخال اسم المستخدم",
@@ -124,6 +127,12 @@ export default {
     watches: "ساعات",
     publicProfileWillBe: "الملف الشخصي العام سيتم عرضه كـ",
     subscribeSetting: "إعدادات الاشتراك",
+    prvw: "",
+    video: "",
+    img: "",
+    underReview: "",
+    auditFailure: "",
+    scheduledRelease: "",
   },
   content: {
     welcomeToVida: "مرحبًا بك في Vida، انضم إلينا!",
@@ -135,6 +144,10 @@ export default {
       line: "نستخدم ملفات تعريف الارتباط الأساسية لجعل موقعنا يعمل. بموافقتك ، قد نستخدم أيضًا ملفات تعريف الارتباط غير الأساسية لتحسين تجربة المستخدم وتحليل حركة مرور الموقع. من خلال النقر على قبول ، فإنك توافق على استخدام ملف تعريف الارتباط لموقع الويب الخاص بنا كما هو موضح في {word}.",
       word: "سياسة ملفات الارتباط",
     },
+    notLoggedYet: "",
+    joinVida: "",
+    useObey: "",
+    allPosts: "",
   },
   month: {
     Jan: "يناير",

@@ -20,10 +20,10 @@
         <template #bottomButton>
           <div class="ml-[20px] mr-[20px] flex w-full space-x-10 sm:ml-0 sm:mr-0 xl:ml-0 xl:mr-0">
             <div class="w-9/12">
-              <Button>订阅设置</Button>
+              <Button>{{ $t('info.subscribeSetting') }}</Button>
             </div>
             <router-link :to="{ name: 'mine-profile-prvw' }" class="w-3/12">
-              <Button contrast class="text-nowrap">预览</Button>
+              <Button contrast class="text-nowrap">{{ $t('info.prvw') }}</Button>
             </router-link>
           </div>
         </template>
@@ -45,22 +45,25 @@
     </div>
     <div v-else>
       <div class="flex items-center justify-center py-20">
-        <div class="text-lg font-bold leading-5">註冊/登入</div>
+        <div class="text-lg font-bold leading-5">{{ $t('info.loginOrRegister') }}</div>
       </div>
-      <div class="leading-md mb-10 text-base font-normal">您还尚未登入，赶快加入我们吧！</div>
+      <div class="leading-md mb-10 text-base font-normal">{{ $t('content.notLoggedYet') }}</div>
       <img
         class="rounded-md object-cover"
         src="https://i.postimg.cc/G2b2HYJ1/415980634-122147312060020771-8911205471669409308-n.jpg"
         alt=""
       />
       <div class="my-30 flex space-x-10">
-        <Button @click="openAuthDialog(AUTH_ROUTES.SIGN_UP)" contrast>註冊</Button>
-        <Button @click="openAuthDialog()">登入</Button>
+        <Button @click="openAuthDialog(AUTH_ROUTES.SIGN_UP)" contrast>{{ $t('title.join') }}</Button>
+        <Button @click="openAuthDialog()">{{ $t('title.login') }}</Button>
       </div>
       <div class="leading-lg text-center text-base font-normal text-gray66">
-        <p>趕快加入VIDA吧！更多奇幻的特色內容正在等著你！</p>
+        <p>{{ $t('content.joinVida') }}</p>
         <p>
-          所有使用過程中須遵守<a href="#"><b>使用者條款</b></a>
+          {{ $t('content.useObey')
+          }}<a href="#"
+            ><b class="pl-3">{{ $t('content.tos') }}</b></a
+          >
         </p>
       </div>
     </div>

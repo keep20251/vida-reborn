@@ -78,6 +78,9 @@ export default {
     nowEmail: "",
     unverified: "",
     verified: "",
+    multiple: "",
+    sale: "",
+    scheduledRelease: "",
   },
   placeholder: {
     account: "กรุณาใส่ชื่อผู้ใช้",
@@ -124,6 +127,12 @@ export default {
     watches: "นาฬิกา",
     publicProfileWillBe: "โปรไฟล์สาธารณะจะแสดงเป็น",
     subscribeSetting: "การตั้งค่าการสมัครสมาชิก",
+    prvw: "",
+    video: "",
+    img: "",
+    underReview: "",
+    auditFailure: "",
+    scheduledRelease: "",
   },
   content: {
     welcomeToVida: "ยินดีต้อนรับสู่ Vida, เข้าร่วมกับเรา!",
@@ -136,6 +145,10 @@ export default {
       line: "เราใช้คุกกี้ที่จำเป็นเพื่อทำให้ไซต์ของเราทำงานได้ ด้วยความยินยอมของคุณเราอาจใช้คุกกี้ที่ไม่จำเป็นเพื่อปรับปรุงประสบการณ์ผู้ใช้และวิเคราะห์ปริมาณการใช้งานเว็บไซต์ โดยการคลิกยอมรับคุณเห็นด้วยกับการใช้คุกกี้ของเว็บไซต์ของเราตามที่อธิบายไว้ใน {word} ของเรา",
       word: "นโยบายคุกกี้",
     },
+    notLoggedYet: "",
+    joinVida: "",
+    useObey: "",
+    allPosts: "",
   },
   month: {
     Jan: "มกราคม",

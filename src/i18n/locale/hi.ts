@@ -78,6 +78,9 @@ export default {
     nowEmail: "",
     unverified: "",
     verified: "",
+    multiple: "",
+    sale: "",
+    scheduledRelease: "",
   },
   placeholder: {
     account: "कृपया उपयोगकर्ता नाम दर्ज करें",
@@ -124,6 +127,12 @@ export default {
     watches: "घड़ियाँ",
     publicProfileWillBe: "सार्वजनिक प्रोफ़ाइल इस रूप में प्रदर्शित की जाएगी",
     subscribeSetting: "सदस्यता सेटिंग्स",
+    prvw: "",
+    video: "",
+    img: "",
+    underReview: "",
+    auditFailure: "",
+    scheduledRelease: "",
   },
   content: {
     welcomeToVida: "Vida में आपका स्वागत है, हमसे जुड़ें!",
@@ -136,6 +145,10 @@ export default {
       line: "हम अपनी साइट को काम करने के लिए आवश्यक कुकीज़ का उपयोग करते हैं। आपकी सहमति से, हम उपयोगकर्ता अनुभव में सुधार करने और वेबसाइट ट्रैफ़िक का विश्लेषण करने के लिए गैर-आवश्यक कुकीज़ का उपयोग भी कर सकते हैं। स्वीकार पर क्लिक करके, आप हमारी वेबसाइट के कुकी उपयोग से सहमत हैं जैसा कि हमारे {word} में वर्णित है।",
       word: "कूकी नीति",
     },
+    notLoggedYet: "",
+    joinVida: "",
+    useObey: "",
+    allPosts: "",
   },
   month: {
     Jan: "जनवरी",
