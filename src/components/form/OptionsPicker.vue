@@ -3,7 +3,7 @@
     <div
       v-for="option in options"
       :key="option[optionValue]"
-      class="cursor-pointer rounded-[0.9375rem] px-18 py-6 text-sm leading-3"
+      class="cursor-pointer rounded-xl px-18 py-6 text-sm leading-3"
       :class="[
         (Array.isArray(modelValue) ? modelValue.includes(option[optionValue]) : modelValue === option[optionValue])
           ? 'bg-primary text-white'

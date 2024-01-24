@@ -37,18 +37,24 @@ export const useAccountStore = defineStore('account-store', () => {
     }
   })
 
-  function login(data) {
-    // token, chat_token 不在 data 中，暫時先不檢查
-    ;['username', 'aff', 'uuid'].forEach((k) => {
-      if (!(k in data)) throw new Error(`${k} is required value in data.`)
-    })
+  async function login(token) {
+    tokenCookie.value = token
 
-    // 帳號資訊同步至 localStorage
+    let data
+    try {
+      data = await useRequest('User.info', { immediate: true })
+      ;['username', 'aff', 'uuid'].forEach((k) => {
+        if (!(k in data)) throw new Error(`${k} is required value in data.`)
+      })
+    } catch (e) {
+      tokenCookie.value = ''
+      throw e
+    }
+
+    // 使用者唯一辨識塞進 cookie
     usernameCookie.value = data.username
     affCookie.value = data.aff
     uuidCookie.value = data.uuid
-    // chatToken 會在 resetUserData 才被設定
-    // 後端說這個token有30天限制，所以要在每次重新回來頁面的時候(/api/member/detail)重設一個
 
     // 同步使用者其他資料
     resetUserData(data)
@@ -116,16 +122,6 @@ export const useAccountStore = defineStore('account-store', () => {
     userData.value = null
   }
 
-  async function setToken(token) {
-    tokenCookie.value = token
-    try {
-      const data = await useRequest('User.info', { immediate: true })
-      login(data)
-    } catch (e) {
-      console.error(e)
-    }
-  }
-
   return {
     isLogin,
     username,
@@ -139,6 +135,5 @@ export const useAccountStore = defineStore('account-store', () => {
     afterLoginAction,
     setUserData,
     resetUserData,
-    setToken,
   }
 })

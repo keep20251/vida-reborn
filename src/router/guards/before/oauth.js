@@ -9,7 +9,7 @@ export default async (to, from) => {
   }
 
   const { twitterOAuth, redirect_uri } = useThirdPartyAuth()
-  const { setToken } = useAccountStore()
+  const { login } = useAccountStore()
   const locale = useLocaleReadonly()
 
   if (
@@ -27,7 +27,7 @@ export default async (to, from) => {
     })
     await twitterLogin()
     console.log(twitterResRef.value)
-    if (twitterResRef.value?.token) await setToken(twitterResRef.value.token)
+    if (twitterResRef.value?.token) await login(twitterResRef.value.token)
     return { name: 'home', params: { lang: locale.value } }
   }
 
@@ -41,7 +41,7 @@ export default async (to, from) => {
     })
     await googleLogin()
 
-    if (googleResRef.value?.token) await setToken(googleResRef.value.token)
+    if (googleResRef.value?.token) await login(googleResRef.value.token)
     return { name: 'home', params: { lang: locale.value } }
   }
 }

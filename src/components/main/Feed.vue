@@ -10,7 +10,7 @@
 
     <!-- media -->
     <div>
-      <div class="w-full rounded-[0.625rem] bg-orange-100">
+      <div class="w-full rounded-md bg-orange-100">
         <div class="pt-[60%]"></div>
       </div>
     </div>
@@ -48,16 +48,16 @@
             <div
               v-for="(tag, index) in props.item.tags"
               :key="`tag-${index}`"
-              class="leading-lg text-base text-primary"
+              class="text-base leading-lg text-primary"
             >
               #{{ tag }}
             </div>
           </div>
-          <div class="leading-lg text-base">
+          <div class="text-base leading-lg">
             {{ props.item.content }}
           </div>
         </div>
-        <div class="leading-lg text-base text-gray66">more</div>
+        <div class="text-base leading-lg text-gray66">more</div>
       </div>
     </div>
   </div>

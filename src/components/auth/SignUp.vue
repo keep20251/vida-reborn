@@ -142,7 +142,7 @@ async function submit() {
 }
 
 const accountStore = useAccountStore()
-const { setToken } = accountStore
+const { login } = accountStore
 
 const isLoading = ref(false)
 
@@ -162,7 +162,7 @@ async function register() {
       password: credential.password.value,
     })
 
-    await setToken(data.value.token)
+    await login(data.value.token)
     close()
     openModal(MODAL_TYPE.SIGN_UP_SUCCESS, {
       size: 'lg',

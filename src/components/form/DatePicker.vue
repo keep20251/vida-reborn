@@ -40,18 +40,18 @@
       </div>
     </div>
     <div class="grid grid-cols-7">
-      <div class="h-40 w-40 p-10 text-center font-normal leading-[140%]">S</div>
-      <div class="h-40 w-40 p-10 text-center font-normal leading-[140%]">M</div>
-      <div class="h-40 w-40 p-10 text-center font-normal leading-[140%]">T</div>
-      <div class="h-40 w-40 p-10 text-center font-normal leading-[140%]">W</div>
-      <div class="h-40 w-40 p-10 text-center font-normal leading-[140%]">T</div>
-      <div class="h-40 w-40 p-10 text-center font-normal leading-[140%]">F</div>
-      <div class="h-40 w-40 p-10 text-center font-normal leading-[140%]">S</div>
+      <div class="h-40 w-40 p-10 text-center text-base font-normal">S</div>
+      <div class="h-40 w-40 p-10 text-center text-base font-normal">M</div>
+      <div class="h-40 w-40 p-10 text-center text-base font-normal">T</div>
+      <div class="h-40 w-40 p-10 text-center text-base font-normal">W</div>
+      <div class="h-40 w-40 p-10 text-center text-base font-normal">T</div>
+      <div class="h-40 w-40 p-10 text-center text-base font-normal">F</div>
+      <div class="h-40 w-40 p-10 text-center text-base font-normal">S</div>
     </div>
     <div class="grid grid-cols-7">
       <div
         v-for="(date, i) in dateGrid"
-        class="h-40 w-40 cursor-pointer rounded-[1.25rem] p-10 text-center text-base font-medium leading-[140%]"
+        class="h-40 w-40 cursor-pointer rounded-full p-10 text-center text-base font-medium"
         :class="{ 'bg-primary': date.selected, 'text-white': date.selected }"
         :key="i"
         @click="pickDate(date)"
@@ -62,7 +62,7 @@
     <div v-if="includeTime">
       <div class="h-1 bg-gray36"></div>
       <div
-        class="gap-row-8 mt-16 flex h-36 grow items-center divide-solid rounded-[1.125rem] border-gray20 bg-white px-20 py-12 text-sm font-normal not-italic leading-3 text-gray66 shadow-[inset_0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)] placeholder:text-gray36"
+        class="gap-row-8 mt-16 flex h-36 grow items-center divide-solid rounded-2xl border-gray20 bg-white px-20 py-12 text-sm font-normal not-italic leading-3 text-gray66 shadow-[inset_0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)] placeholder:text-gray36"
         :class="{ error: !!timeErr }"
       >
         <input
@@ -74,13 +74,13 @@
         />
         <Icon size="20" name="calendar"></Icon>
       </div>
-      <div v-if="timeErr" class="text-sm font-normal leading-[120%] text-warning">
+      <div v-if="timeErr" class="text-sm font-normal text-warning">
         {{ timeErr }}
       </div>
     </div>
     <div class="flex h-56 justify-end space-x-8 px-8 py-12">
-      <div class="weight-medium cursor-pointer px-10 py-12 text-base leading-[140%]" @click="cancel">Cancel</div>
-      <div class="weight-medium cursor-pointer px-10 py-12 text-base leading-[140%]" @click="confirm">OK</div>
+      <div class="weight-medium cursor-pointer px-10 py-12 text-base" @click="cancel">Cancel</div>
+      <div class="weight-medium cursor-pointer px-10 py-12 text-base" @click="confirm">OK</div>
     </div>
   </div>
 </template>
