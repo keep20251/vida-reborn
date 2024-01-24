@@ -2,7 +2,7 @@
   <div class="w-full">
     <div class="mb-10">Consent</div>
     <div
-      class="mb-30 h-[530px] min-h-[250px] space-y-2 overflow-y-scroll rounded-md bg-gray05 p-20 text-base font-normal leading-lg text-gray66"
+      class="mb-30 h-[530px] min-h-[250px] space-y-2 overflow-y-scroll rounded-md bg-gray05 p-20 text-base font-normal leading-lg text-gray66 scrollbar-md"
     >
       <p>IMPORTANT INFORMATION – PLEASE READ</p>
       <p>Verifying And Authenticating Your Age and Identity – Using Face Match Identification</p>
