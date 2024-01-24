@@ -1,14 +1,14 @@
 <template>
   <transition
-    enter-active-class="transition duration-700 ease-out"
+    enter-active-class="transition duration-300 ease-out"
     enter-from-class="transform translate-y-n-full"
     enter-to-class="transform translate-y-0"
-    leave-active-class="transition duration-700 ease-in"
+    leave-active-class="transition duration-300 ease-out"
     leave-from-class="transform translate-y-0"
     leave-to-class="transform translate-y-n-full"
   >
     <div
-      v-show="show"
+      v-if="show"
       class="fixed left-0 top-0 z-50 flex w-full items-center justify-center bg-black bg-opacity-80 py-30"
     >
       <div class="flex flex-col space-y-20 px-[15%]">
