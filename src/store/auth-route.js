@@ -1,14 +1,13 @@
+import { computed, ref } from 'vue'
+import { defineStore, storeToRefs } from 'pinia'
+import { useDialogStore } from '@/store/dialog'
+import Login from '@comp/auth/Login.vue'
 import MainPage from '@comp/auth/MainPage.vue'
 import SignUp from '@comp/auth/SignUp.vue'
+import SignUpSuccess from '@comp/auth/SignUpSuccess.vue'
 import VerifyEmailCode from '@comp/auth/VerifyEmailCode.vue'
 import VerifyPassword from '@comp/auth/VerifyPassword.vue'
-import Login from '@comp/auth/Login.vue'
-import SignUpSuccess from '@comp/auth/SignUpSuccess.vue'
-
-import { defineStore, storeToRefs } from 'pinia'
-import { computed, ref } from 'vue'
 import { AUTH_ROUTES } from '@const'
-import { useDialogStore } from '@/store/dialog'
 
 // import { trackEvent } from '@/gtm'
 

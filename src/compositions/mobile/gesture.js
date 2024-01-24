@@ -1,6 +1,6 @@
-import { ref, readonly } from 'vue'
+import { readonly, ref } from 'vue'
+import { useEventListener, useSwipe } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
-import { useSwipe, useEventListener } from '@vueuse/core'
 import { useAppStore } from '@/store/app'
 import { useDbClick } from '@use/mobile/dbClick'
 import { isIOS } from '@/utils/device'

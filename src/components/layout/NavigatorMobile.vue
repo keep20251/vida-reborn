@@ -35,8 +35,8 @@
 <script setup>
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { useLocale } from '@use/utils/locale'
 import Link from '@comp/common/Link.vue'
+import { useLocale } from '@use/utils/locale'
 
 const route = useRoute()
 const atHome = computed(() => route.name === 'home')

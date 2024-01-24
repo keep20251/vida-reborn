@@ -71,15 +71,15 @@
 </template>
 <script setup>
 import { ref } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useAccountStore } from '@/store/account'
+import { useAuthRouteStore } from '@/store/auth-route'
+import Button from '@comp/common/Button.vue'
 import List from '@comp/common/List.vue'
 import Feed from '@comp/main/Feed.vue'
 import SelfIntro from '@comp/main/SelfIntro.vue'
-import Button from '@comp/common/Button.vue'
-import defaultAvatar from '@/assets/images/avatar.jpeg'
-import { useAccountStore } from '@/store/account'
-import { storeToRefs } from 'pinia'
-import { useAuthRouteStore } from '@/store/auth-route'
 import { AUTH_ROUTES } from '@const'
+import defaultAvatar from '@/assets/images/avatar.jpeg'
 
 const accountStore = useAccountStore()
 const { isLogin } = storeToRefs(accountStore)

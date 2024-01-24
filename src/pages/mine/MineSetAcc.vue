@@ -84,17 +84,17 @@
 </template>
 <script setup>
 import { onMounted, ref, watch } from 'vue'
-import InputWrap from '@comp/form/InputWrap.vue'
-import Button from '@comp/common/Button.vue'
 import { storeToRefs } from 'pinia'
-import { useMineStore } from '@/store/mine'
-import { useMultiAuth } from '@use/request/multi-auth'
-import { useYup } from '@use/validator/yup'
-import InputEmailCode from '@comp/form/InputEmailCode.vue'
-import { SEND_EMAIL_PURPOSE, EMAIL_VALIDATION } from '@const'
-import useRequest from '@use/request/index.js'
 import { useAccountStore } from '@/store/account'
+import { useMineStore } from '@/store/mine'
+import Button from '@comp/common/Button.vue'
+import InputEmailCode from '@comp/form/InputEmailCode.vue'
+import InputWrap from '@comp/form/InputWrap.vue'
+import useRequest from '@use/request/index.js'
+import { useMultiAuth } from '@use/request/multi-auth'
 import { useThirdPartyAuth } from '@use/request/third-party-auth'
+import { useYup } from '@use/validator/yup'
+import { EMAIL_VALIDATION, SEND_EMAIL_PURPOSE } from '@const'
 
 const { twitterLogin, googleLogin } = useThirdPartyAuth()
 

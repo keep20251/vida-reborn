@@ -38,12 +38,12 @@
   </div>
 </template>
 <script setup>
-import { ref, reactive, computed } from 'vue'
-import InputWrap from '@comp/form/InputWrap.vue'
+import { computed, reactive, ref } from 'vue'
 import Button from '@comp/common/Button.vue'
-import { useYup } from '@use/validator/yup.js'
+import InputWrap from '@comp/form/InputWrap.vue'
 import PasswordValidation from '@comp/form/PasswordValidation.vue'
 import useRequest from '@use/request/index.js'
+import { useYup } from '@use/validator/yup.js'
 
 const { Yup, validate } = useYup()
 const { string } = Yup

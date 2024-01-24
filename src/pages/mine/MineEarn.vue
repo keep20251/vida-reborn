@@ -77,8 +77,8 @@
 <script setup>
 import { ref } from 'vue'
 import Button from '@comp/common/Button.vue'
-import Tab from '@comp/navigation/Tab.vue'
 import EarnPostCard from '@comp/mine/EarnPostCard.vue'
+import Tab from '@comp/navigation/Tab.vue'
 
 const tab = ref(1)
 const tabOptions = ref([

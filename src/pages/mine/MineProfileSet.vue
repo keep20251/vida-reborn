@@ -87,22 +87,22 @@
   </div>
 </template>
 <script setup>
+import { computed, onMounted, reactive, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useRouter } from 'vue-router'
+import { storeToRefs } from 'pinia'
+import { useAccountStore } from '@/store/account'
+import { useModalStore } from '@/store/modal'
+import Button from '@comp/common/Button.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
-import TextareaWrap from '@comp/form/TextareaWrap.vue'
 import SocialLink from '@comp/form/SocialLink.vue'
 import SubscribeSwitch from '@comp/form/SubscribeSwitch.vue'
+import TextareaWrap from '@comp/form/TextareaWrap.vue'
 import SelfIntro from '@comp/main/SelfIntro.vue'
-import defaultAvatar from '@/assets/images/avatar.jpeg'
 import useRequest from '@use/request/index.js'
-import Button from '@comp/common/Button.vue'
-import { computed, onMounted, reactive, ref } from 'vue'
-import { useModalStore } from '@/store/modal'
-import { MODAL_TYPE } from '@const'
-import { useAccountStore } from '@/store/account'
-import { storeToRefs } from 'pinia'
-import { useI18n } from 'vue-i18n'
 import { useLocale } from '@use/utils/locale'
-import { useRouter } from 'vue-router'
+import { MODAL_TYPE } from '@const'
+import defaultAvatar from '@/assets/images/avatar.jpeg'
 
 const serverError = ref('')
 const { t: $t } = useI18n()

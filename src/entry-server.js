@@ -1,7 +1,7 @@
 import { basename } from 'node:path'
 import { renderToString } from 'vue/server-renderer'
-import { createApp } from './main'
 import { createI18n } from '@/i18n'
+import { createApp } from './main'
 
 export async function render(url, manifest, ctx) {
   const { app, router, store, head } = await createApp()

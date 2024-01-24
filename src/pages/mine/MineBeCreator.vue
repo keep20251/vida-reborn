@@ -110,8 +110,8 @@
 </template>
 
 <script setup>
-import Button from '@comp/common/Button.vue'
 import { useModalStore } from '@/store/modal'
+import Button from '@comp/common/Button.vue'
 import { MODAL_TYPE } from '@const'
 
 const modalStore = useModalStore()

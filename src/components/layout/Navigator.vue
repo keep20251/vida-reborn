@@ -71,9 +71,9 @@
 <script setup>
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import Link from '@comp/common/Link.vue'
 import { useLocale } from '@use/utils/locale'
 import devRoutes from '@/router/routes/dev'
-import Link from '@comp/common/Link.vue'
 
 const route = useRoute()
 const atHome = computed(() => route.name === 'home')

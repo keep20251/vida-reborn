@@ -1,5 +1,5 @@
-import useRequest from './index'
 import { SEND_EMAIL_PURPOSE } from '@const'
+import useRequest from './index'
 
 /**
  * 因目前Vida的登入方式有很多種，

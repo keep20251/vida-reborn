@@ -42,16 +42,16 @@
 </template>
 
 <script setup>
+import { onActivated, onBeforeMount, onServerPrefetch, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { onBeforeRouteUpdate, useRoute } from 'vue-router'
+import { storeToRefs } from 'pinia'
+import { useHeadStore } from '@/store/head'
+import Carousel from '@comp/common/Carousel.vue'
+import ClientOnly from '@comp/common/ClientOnly'
 import InputWrap from '@comp/form/InputWrap.vue'
 import SetList from '@comp/mine/SetList.vue'
-import Carousel from '@comp/common/Carousel.vue'
-import { useHeadStore } from '@/store/head'
-import { storeToRefs } from 'pinia'
-import { useI18n } from 'vue-i18n'
-import { useRoute, onBeforeRouteUpdate } from 'vue-router'
 import { MINE_TITLE } from '@const'
-import { onActivated, onServerPrefetch, ref, onBeforeMount } from 'vue'
-import ClientOnly from '@comp/common/ClientOnly'
 
 const inputValue = ref('')
 

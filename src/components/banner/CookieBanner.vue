@@ -27,9 +27,9 @@
   </transition>
 </template>
 <script setup>
+import { computed } from 'vue'
 import { useLocalStorage } from '@vueuse/core'
 import { LOCAL_STORAGE_KEYS } from '@const'
-import { computed } from 'vue'
 
 const cookieAgreement = useLocalStorage(LOCAL_STORAGE_KEYS.COOKIE_AGREEMENT, false)
 const show = computed(() => !cookieAgreement.value)

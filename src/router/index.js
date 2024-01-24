@@ -1,17 +1,16 @@
-import { createRouter as createVueRouter, createWebHistory, createMemoryHistory } from 'vue-router'
-import devRoutes from './routes/dev'
-import mineRoutes from './routes/mine'
-import errorRoutes from './routes/error'
-import beforeGuard from './guards/before'
-import afterGuard from './guards/after'
-
+import { createMemoryHistory, createRouter as createVueRouter, createWebHistory } from 'vue-router'
+import Creator from '@/pages/creator/Creator.vue'
+import Feed from '@/pages/feed/Feed.vue'
 import Home from '@/pages/home/Home.vue'
-import Search from '@/pages/search/Search.vue'
 import Message from '@/pages/message/Message.vue'
 import Mine from '@/pages/mine/Mine.vue'
 import Publish from '@/pages/publish/Publish.vue'
-import Creator from '@/pages/creator/Creator.vue'
-import Feed from '@/pages/feed/Feed.vue'
+import Search from '@/pages/search/Search.vue'
+import afterGuard from './guards/after'
+import beforeGuard from './guards/before'
+import devRoutes from './routes/dev'
+import errorRoutes from './routes/error'
+import mineRoutes from './routes/mine'
 
 /**
  * @property checkLogin 用於判斷該頁面是否需要驗證登入狀態

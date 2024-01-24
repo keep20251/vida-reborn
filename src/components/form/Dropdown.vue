@@ -24,8 +24,8 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
-import { useWindowSize, useEventListener } from '@vueuse/core'
+import { computed, onMounted, ref } from 'vue'
+import { useEventListener, useWindowSize } from '@vueuse/core'
 
 const props = defineProps({
   modelValue: { required: true },

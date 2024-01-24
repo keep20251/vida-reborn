@@ -43,9 +43,9 @@
 </template>
 <script setup>
 import { onMounted, onUnmounted } from 'vue'
-import { useThirdPartyAuth } from '@use/request/third-party-auth'
 import { useAccountStore } from '@/store/account'
 import { useAuthRouteStore } from '@/store/auth-route'
+import { useThirdPartyAuth } from '@use/request/third-party-auth'
 
 const { open } = useAuthRouteStore()
 const { logout } = useAccountStore()

@@ -19,13 +19,13 @@
 </template>
 
 <script setup>
-import { ref, onActivated } from 'vue'
-import { storeToRefs } from 'pinia'
+import { onActivated, ref } from 'vue'
 import { useRoute } from 'vue-router'
+import { storeToRefs } from 'pinia'
 import { useCreatorStore } from '@/store/creator'
 import { useHydrationStore } from '@/store/hydration'
-import { onServerClientOnce, onHydration } from '@use/lifecycle'
 import Head from '@comp/navigation/Head.vue'
+import { onHydration, onServerClientOnce } from '@use/lifecycle'
 
 const route = useRoute()
 

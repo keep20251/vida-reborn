@@ -1,10 +1,10 @@
 import axios from 'axios'
-import { useAppStore } from '@/store/app'
-import { signData } from './util'
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useAppStore } from '@/store/app'
 import { usePopupDialogStore } from '@/store/popup-dialog'
 import { POPUP_DIALOG_TYPE } from '@const'
-import { useI18n } from 'vue-i18n'
+import { signData } from './util'
 
 export default function uploadImage(file, progress) {
   const { appConfig } = useAppStore()

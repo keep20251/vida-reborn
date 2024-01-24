@@ -1,5 +1,5 @@
-import { ref, shallowRef, readonly } from 'vue'
 import { v4 as uuidv4 } from 'uuid'
+import { readonly, ref, shallowRef } from 'vue'
 import { useCookie } from '@use/utils/cookie'
 import { useLocaleReadonly } from '@use/utils/localeReadonly'
 import { COOKIE_KEY } from '@const'

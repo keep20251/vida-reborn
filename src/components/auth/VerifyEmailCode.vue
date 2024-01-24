@@ -30,19 +30,19 @@
   </div>
 </template>
 <script setup>
-import DialogHeader from '@comp/dialog/DialogHeader.vue'
-import InputEmailCode from '@comp/form/InputEmailCode.vue'
-import Button from '@comp/common/Button.vue'
-import useRequest from '@use/request/index.js'
-import { useAuthRouteStore } from '@/store/auth-route'
-import { AUTH_ROUTES } from '@const'
-import { useEmailLoginStore } from '@/store/email-login'
-import { storeToRefs } from 'pinia'
-import { useYup } from '@use/validator/yup'
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
+import { useAuthRouteStore } from '@/store/auth-route'
+import { useEmailLoginStore } from '@/store/email-login'
+import Button from '@comp/common/Button.vue'
+import DialogHeader from '@comp/dialog/DialogHeader.vue'
+import InputEmailCode from '@comp/form/InputEmailCode.vue'
+import useRequest from '@use/request/index.js'
 import { useMultiAuth } from '@use/request/multi-auth'
+import { useYup } from '@use/validator/yup'
+import { AUTH_ROUTES } from '@const'
 
 const { t: $t } = useI18n()
 const { to, back, close } = useAuthRouteStore()

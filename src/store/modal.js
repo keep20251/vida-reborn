@@ -1,5 +1,5 @@
+import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
 import { MODAL_TYPE } from '@const'
 
 export const useModalStore = defineStore('modal', () => {

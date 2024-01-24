@@ -1,14 +1,13 @@
-import sumBy from 'lodash/sumBy'
-import remove from 'lodash/remove'
-import reject from 'lodash/reject'
-import isEmpty from 'lodash/isEmpty'
 import flatten from 'lodash/flatten'
-import map from 'lodash/fp/map'
-import sortBy from 'lodash/fp/sortBy'
 import flow from 'lodash/fp/flow'
+import map from 'lodash/fp/map'
 import reverse from 'lodash/fp/reverse'
-
-import { MEDIA_SHAPE, COLUMN_SHAPE } from '@const'
+import sortBy from 'lodash/fp/sortBy'
+import isEmpty from 'lodash/isEmpty'
+import reject from 'lodash/reject'
+import remove from 'lodash/remove'
+import sumBy from 'lodash/sumBy'
+import { COLUMN_SHAPE, MEDIA_SHAPE } from '@const'
 
 const MAX_COLUMNS = 12
 

@@ -49,10 +49,10 @@
 
 <script setup>
 import { ref } from 'vue'
-import Head from '@comp/navigation/Head.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
-import TextareaWrap from '@comp/form/TextareaWrap.vue'
 import OptionsPicker from '@comp/form/OptionsPicker.vue'
+import TextareaWrap from '@comp/form/TextareaWrap.vue'
+import Head from '@comp/navigation/Head.vue'
 
 const title = ref('')
 const content = ref('')

@@ -25,8 +25,8 @@
   </Page>
 </template>
 <script setup>
-import { locales } from '@/i18n'
 import { useLocale } from '@use/utils/locale'
+import { locales } from '@/i18n'
 
 const locale = useLocale()
 

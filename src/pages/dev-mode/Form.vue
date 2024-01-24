@@ -129,15 +129,15 @@
 
 <script setup>
 import { ref } from 'vue'
-import InputWrap from '@comp/form/InputWrap.vue'
-import InputRadio from '@comp/form/InputRadio.vue'
-import InputSwitch from '@comp/form/InputSwitch.vue'
-import OptionsPicker from '@comp/form/OptionsPicker.vue'
+import Accordion from '@comp/common/Accordion.vue'
+import Button from '@comp/common/Button.vue'
 import DatePicker from '@comp/form/DatePicker.vue'
 import Dropdown from '@comp/form/Dropdown.vue'
-import Accordion from '@comp/common/Accordion.vue'
+import InputRadio from '@comp/form/InputRadio.vue'
+import InputSwitch from '@comp/form/InputSwitch.vue'
+import InputWrap from '@comp/form/InputWrap.vue'
+import OptionsPicker from '@comp/form/OptionsPicker.vue'
 import TextareaWrap from '@comp/form/TextareaWrap.vue'
-import Button from '@comp/common/Button.vue'
 import Tab from '@comp/navigation/Tab.vue'
 
 const tab = ref(1)

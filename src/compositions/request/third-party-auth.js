@@ -1,5 +1,5 @@
-import useRequest from '@use/request'
 import { useLocalStorage } from '@vueuse/core'
+import useRequest from '@use/request'
 import { useAppleSignIn } from '@/utils/apple.js'
 
 export function useThirdPartyAuth() {

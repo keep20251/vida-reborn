@@ -1,9 +1,9 @@
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
-import { getLang, loadLanguage } from '@/i18n'
 import { useCookie } from '@use/utils/cookie'
-import { computed } from 'vue'
 import { COOKIE_KEY } from '@const'
+import { getLang, loadLanguage } from '@/i18n'
 
 let currLoadLang
 let nextLoadLang

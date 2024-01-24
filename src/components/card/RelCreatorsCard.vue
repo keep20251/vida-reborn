@@ -37,9 +37,9 @@
 </template>
 <script setup>
 import { ref } from 'vue'
+import Button from '@comp/common/Button.vue'
 import List from '@comp/common/List.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
-import Button from '@comp/common/Button.vue'
 import defaultAvatar from '@/assets/images/avatar.jpeg'
 
 const creators = ref([

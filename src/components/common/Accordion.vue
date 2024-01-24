@@ -36,7 +36,7 @@
 </template>
 
 <script setup>
-import { ref, defineProps } from 'vue'
+import { defineProps, ref } from 'vue'
 
 const props = defineProps({
   accordions: { type: Array, required: true },

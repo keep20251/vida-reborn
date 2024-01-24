@@ -11,8 +11,8 @@
 </template>
 <script setup>
 import { ref } from 'vue'
-import defaultAvatar from '@/assets/images/avatar.jpeg'
 import Avatar from '@comp/multimedia/Avatar.vue'
+import defaultAvatar from '@/assets/images/avatar.jpeg'
 
 const items = ref([
   { avatar: defaultAvatar, name: 'Cursed_ellie' },

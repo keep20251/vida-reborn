@@ -1,11 +1,10 @@
-import Text from './Text.vue'
-import Test from './Test.vue'
-import SocialLink from '@comp/modal/content/SocialLink.vue'
-import SignUpSuccess from '@comp/modal/content/SignUpSuccess.vue'
 import ApplyCreatorCert from '@comp/modal/content/ApplyCreatorCert.vue'
 import InterestedPick from '@comp/modal/content/InterestedPick.vue'
-
+import SignUpSuccess from '@comp/modal/content/SignUpSuccess.vue'
+import SocialLink from '@comp/modal/content/SocialLink.vue'
 import { MODAL_TYPE } from '@const'
+import Test from './Test.vue'
+import Text from './Text.vue'
 
 export default Object.freeze({
   [MODAL_TYPE.ALERT]: Text,

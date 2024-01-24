@@ -31,12 +31,12 @@
 </template>
 
 <script setup>
-import { ref, computed, watch, onMounted } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useModalStore } from '@/store/modal'
 import Button from '@comp/common/Button.vue'
-import contentComponent from './content'
 import { MODAL_TYPE } from '@const'
+import contentComponent from './content'
 
 const modalStore = useModalStore()
 const {

@@ -1,7 +1,7 @@
-import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
-import { locales } from '@/i18n'
 import { useI18n } from 'vue-i18n'
+import { defineStore } from 'pinia'
+import { locales } from '@/i18n'
 
 export const useHeadStore = defineStore('app-head', () => {
   const { t: $t } = useI18n()

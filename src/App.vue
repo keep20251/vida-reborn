@@ -17,16 +17,16 @@
 
 <script setup>
 import { storeToRefs } from 'pinia'
-import Navigator from '@comp/layout/Navigator.vue'
-import NavigatorMobile from '@comp/layout/NavigatorMobile.vue'
-import AuthDialog from '@comp/dialog/AuthDialog.vue'
-import Modal from '@comp/modal/index.vue'
-import CookieBanner from '@comp/banner/CookieBanner.vue'
-import { useAppStore } from '@/store/app'
 import { useAccountStore } from '@/store/account'
+import { useAppStore } from '@/store/app'
 import { useDialogStore } from '@/store/dialog'
 import { useHydrationStore } from '@/store/hydration'
-import { onServerClientOnce, onHydration } from '@use/lifecycle'
+import CookieBanner from '@comp/banner/CookieBanner.vue'
+import AuthDialog from '@comp/dialog/AuthDialog.vue'
+import Navigator from '@comp/layout/Navigator.vue'
+import NavigatorMobile from '@comp/layout/NavigatorMobile.vue'
+import Modal from '@comp/modal/index.vue'
+import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import useRequest from '@use/request'
 import { loadSeoHead } from '@/utils/init'
 

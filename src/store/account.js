@@ -1,10 +1,10 @@
-import { defineStore, storeToRefs } from 'pinia'
 import { computed, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
+import { defineStore, storeToRefs } from 'pinia'
 import { useDialogStore } from '@/store/dialog'
+import useRequest from '@use/request/index.js'
 import { useCookie } from '@use/utils/cookie'
 import { COOKIE_KEY } from '@const'
-import useRequest from '@use/request/index.js'
 
 export const useAccountStore = defineStore('account-store', () => {
   // 用來暫存 afterLoginAction 的待執行函式

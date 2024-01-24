@@ -41,21 +41,21 @@
   </div>
 </template>
 <script setup>
-import DialogHeader from '@comp/dialog/DialogHeader.vue'
-import InputWrap from '@comp/form/InputWrap.vue'
-import Button from '@comp/common/Button.vue'
-import PasswordValidation from '@comp/form/PasswordValidation.vue'
-import useRequest from '@use/request/index.js'
 import debounce from 'lodash/debounce'
-import { MODAL_TYPE } from '@const'
-import { useModalStore } from '@/store/modal'
 import { computed, reactive, ref, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
-import { useYup } from '@use/validator/yup.js'
 import { useAccountStore } from '@/store/account'
 import { useAuthRouteStore } from '@/store/auth-route'
-import { useRouter } from 'vue-router'
-import { useI18n } from 'vue-i18n'
+import { useModalStore } from '@/store/modal'
+import Button from '@comp/common/Button.vue'
+import DialogHeader from '@comp/dialog/DialogHeader.vue'
+import InputWrap from '@comp/form/InputWrap.vue'
+import PasswordValidation from '@comp/form/PasswordValidation.vue'
+import useRequest from '@use/request/index.js'
+import { useYup } from '@use/validator/yup.js'
+import { MODAL_TYPE } from '@const'
 
 const authRouteStore = useAuthRouteStore()
 const { back, close } = authRouteStore
