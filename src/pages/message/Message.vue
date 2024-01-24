@@ -1,8 +1,7 @@
 <template>
-  <Page>
-    <template #default>Message</template>
-    <template #aside>message aside</template>
-  </Page>
+  <PageMessage></PageMessage>
 </template>
 
-<script setup></script>
+<script setup>
+import PageMessage from '@comp/layout/PageMessage.vue'
+</script>
