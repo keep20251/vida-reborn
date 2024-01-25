@@ -1,6 +1,9 @@
 <template>
   <Page>
-    <template #main-top>
+    <template #mobile-top>
+      <MobileTopBar></MobileTopBar>
+    </template>
+    <template v-if="isDesktop" #main-top>
       <div class="flex h-full items-center">
         <InputWrap
           class="grow"
@@ -40,6 +43,8 @@
 
 <script setup>
 import { ref } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useAppStore } from '@/store/app'
 import BulletinCard from '@comp/card/BulletinCard.vue'
 import RelCreatorsCard from '@comp/card/RelCreatorsCard.vue'
 import Carousel from '@comp/common/Carousel.vue'
@@ -47,6 +52,10 @@ import ClientOnly from '@comp/common/ClientOnly'
 import List from '@comp/common/List.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
 import Feed from '@comp/main/Feed.vue'
+import MobileTopBar from '@comp/navigation/MobileTopBar.vue'
+
+const appStore = useAppStore()
+const { isDesktop } = storeToRefs(appStore)
 
 const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
 const inputValue = ref('')
