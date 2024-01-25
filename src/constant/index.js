@@ -35,6 +35,7 @@ export const MODAL_TYPE = {
   INTERESTED_PICK: 20,
   APPLY_CREATOR_CERT: 21,
 
+  COOKIE_POLICY: 99,
   TEST: 999,
 }
 
