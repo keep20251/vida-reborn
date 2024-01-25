@@ -10,26 +10,40 @@
       <CookieBanner></CookieBanner>
       <AuthDialog v-if="authDialog"></AuthDialog>
       <Modal></Modal>
-    </ClientOnly>
+      <MinePrvwBanner
+        v-if="route.name === 'mine-profile-prvw'"
+        :modelValue="selectedIdentity"
+        @update:modelValue="
+          (value) => {
+            selectedIdentity.value = value
+          }
+        "
+      ></MinePrvwBanner
+    ></ClientOnly>
   </div>
   <NavigatorMobile v-if="isMobile"></NavigatorMobile>
 </template>
 
 <script setup>
+import { ref } from 'vue'
+import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
 import { useDialogStore } from '@/store/dialog'
 import { useHydrationStore } from '@/store/hydration'
 import CookieBanner from '@comp/banner/CookieBanner.vue'
+import MinePrvwBanner from '@comp/banner/MinePrvwBanner.vue'
 import AuthDialog from '@comp/dialog/AuthDialog.vue'
 import Navigator from '@comp/layout/Navigator.vue'
 import NavigatorMobile from '@comp/layout/NavigatorMobile.vue'
 import Modal from '@comp/modal/index.vue'
 import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import useRequest from '@use/request'
+import { IDENTITY } from '@const'
 import { loadSeoHead } from '@/utils/init'
 
+const route = useRoute()
 const appStore = useAppStore()
 const { isDesktop, isMobile } = storeToRefs(appStore)
 
@@ -62,4 +76,7 @@ onHydration(() => {
     resetUserData(userData.value)
   }
 })
+
+// 新增狀態，控制 MineProfilePrvw.vue 的顯示
+const selectedIdentity = ref(IDENTITY.VISITOR)
 </script>
