@@ -77,6 +77,9 @@ export default {
       translate: {
         'n-full': '-100%',
       },
+      listStyleType: {
+        'lower-alpha': 'lower-alpha',
+      },
     },
     spacing: generateSpacing(),
   },
