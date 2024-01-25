@@ -73,7 +73,8 @@
   </div>
 </template>
 <script setup>
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAuthRouteStore } from '@/store/auth-route'
@@ -83,22 +84,19 @@ import Feed from '@comp/main/Feed.vue'
 import SelfIntro from '@comp/main/SelfIntro.vue'
 import defaultAvatar from '@/assets/images/avatar.jpeg'
 import { AUTH_ROUTES } from '@/constant'
-import { useI18n } from 'vue-i18n'
 
 const { t: $t } = useI18n()
-
-const accountStore = useAccountStore()
-const { isLogin, userData } = storeToRefs(accountStore)
+const { isLogin, userData } = storeToRefs(useAccountStore())
 
 const userInfo = computed(() => ({
   avatar: defaultAvatar,
-  name: userData.value.nickname,
-  username: userData.value.username,
-  subscriber: userData.value.subscriber_count,
-  posts: userData.value.post_num,
+  name: userData.value?.nickname,
+  username: userData.value?.username,
+  subscriber: userData.value?.subscriber_count,
+  posts: userData.value?.post_num,
   link: 'WenHsin.com',
-  viewed: userData.value.view_count,
-  info: userData.value.descriptions,
+  viewed: userData.value?.view_count,
+  info: userData.value?.descriptions,
 }))
 
 const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
