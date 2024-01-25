@@ -4,15 +4,152 @@
       <Head></Head>
     </template>
     <template #default>
-      <div class="flex flex-col space-y-20">
+      <div class="flex flex-col space-y-20 pb-30">
         <!-- 選擇主題 -->
-        <div>
-          <label class="text-left text-base font-normal not-italic leading-md">選擇主題</label>
+        <div class="flex flex-col space-y-10">
+          <label class="text-left text-base leading-md">選擇主題</label>
           <Dropdown v-model="category" :options="options" inset></Dropdown>
         </div>
 
+        <!-- 上傳視頻 -->
+        <div class="flex flex-col space-y-10">
+          <div class="flex">
+            <div class="flex grow flex-col space-y-10">
+              <label class="text-left text-base leading-md">上傳視頻</label>
+              <span class="text-left text-sm text-gray66">支持mp4/mov格式，不超過 100 MB</span>
+            </div>
+            <Button class="self-end" size="md">重新選擇</Button>
+          </div>
+          <div class="rounded-md bg-orange-200 pb-[64%]"></div>
+        </div>
+
+        <!-- 上傳圖片 -->
+        <div class="flex flex-col space-y-10">
+          <div class="flex">
+            <div class="flex grow flex-col space-y-10">
+              <label class="text-left text-base leading-md"
+                >上傳圖片 <span class="text-left text-sm text-gray66">10/10</span></label
+              >
+              <span class="text-left text-sm text-gray66">支持JPG/PNG格式，每张不超過1MB</span>
+            </div>
+            <Button class="self-end" size="md">添加</Button>
+          </div>
+          <div class="grid grid-cols-3 gap-10">
+            <div class="relative overflow-hidden rounded-sm pb-[64%]">
+              <div class="absolute top-0 h-full w-full bg-orange-100"></div>
+              <div
+                class="absolute top-0 h-full w-full origin-right scale-x-0 bg-white opacity-60 will-change-transform"
+              ></div>
+              <div
+                class="absolute right-10 top-10 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-white"
+              >
+                <Icon name="close" size="10"></Icon>
+              </div>
+            </div>
+            <div class="relative overflow-hidden rounded-sm pb-[64%]">
+              <div class="absolute top-0 h-full w-full bg-orange-100"></div>
+              <div
+                class="absolute top-0 h-full w-full origin-right scale-x-0 bg-white opacity-60 will-change-transform"
+              ></div>
+              <div
+                class="absolute right-10 top-10 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-white"
+              >
+                <Icon name="close" size="10"></Icon>
+              </div>
+            </div>
+            <div class="relative overflow-hidden rounded-sm pb-[64%]">
+              <div class="absolute top-0 h-full w-full bg-orange-100"></div>
+              <div
+                class="absolute top-0 h-full w-full origin-right scale-x-0 bg-white opacity-60 will-change-transform"
+              ></div>
+              <div
+                class="absolute right-10 top-10 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-white"
+              >
+                <Icon name="close" size="10"></Icon>
+              </div>
+            </div>
+            <div class="relative overflow-hidden rounded-sm pb-[64%]">
+              <div class="absolute top-0 h-full w-full bg-orange-100"></div>
+              <div
+                class="absolute top-0 h-full w-full origin-right scale-x-0 bg-white opacity-60 will-change-transform"
+              ></div>
+              <div
+                class="absolute right-10 top-10 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-white"
+              >
+                <Icon name="close" size="10"></Icon>
+              </div>
+            </div>
+            <div class="relative overflow-hidden rounded-sm pb-[64%]">
+              <div class="absolute top-0 h-full w-full bg-orange-100"></div>
+              <div
+                class="absolute top-0 h-full w-full origin-right scale-x-0 bg-white opacity-60 will-change-transform"
+              ></div>
+              <div
+                class="absolute right-10 top-10 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-white"
+              >
+                <Icon name="close" size="10"></Icon>
+              </div>
+            </div>
+            <div class="relative overflow-hidden rounded-sm pb-[64%]">
+              <div class="absolute top-0 h-full w-full bg-orange-100"></div>
+              <div
+                class="absolute top-0 h-full w-full origin-right scale-x-0 bg-white opacity-60 will-change-transform"
+              ></div>
+              <div
+                class="absolute right-10 top-10 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-white"
+              >
+                <Icon name="close" size="10"></Icon>
+              </div>
+            </div>
+            <div class="relative overflow-hidden rounded-sm pb-[64%]">
+              <div class="absolute top-0 h-full w-full bg-orange-100"></div>
+              <div
+                class="absolute top-0 h-full w-full origin-right scale-x-100 bg-white opacity-60 will-change-transform"
+              ></div>
+              <div
+                class="absolute right-10 top-10 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-white"
+              >
+                <Icon name="close" size="10"></Icon>
+              </div>
+            </div>
+            <div class="relative overflow-hidden rounded-sm pb-[64%]">
+              <div class="absolute top-0 h-full w-full bg-orange-100"></div>
+              <div
+                class="absolute top-0 h-full w-full origin-right scale-x-75 bg-white opacity-60 will-change-transform"
+              ></div>
+              <div
+                class="absolute right-10 top-10 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-white"
+              >
+                <Icon name="close" size="10"></Icon>
+              </div>
+            </div>
+            <div class="relative overflow-hidden rounded-sm pb-[64%]">
+              <div class="absolute top-0 h-full w-full bg-orange-100"></div>
+              <div
+                class="absolute top-0 h-full w-full origin-right scale-x-50 bg-white opacity-60 will-change-transform"
+              ></div>
+              <div
+                class="absolute right-10 top-10 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-white"
+              >
+                <Icon name="close" size="10"></Icon>
+              </div>
+            </div>
+            <div class="relative overflow-hidden rounded-sm pb-[64%]">
+              <div class="absolute top-0 h-full w-full bg-orange-100"></div>
+              <div
+                class="absolute top-0 h-full w-full origin-right scale-x-75 bg-white opacity-60 will-change-transform"
+              ></div>
+              <div
+                class="absolute right-10 top-10 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-white"
+              >
+                <Icon name="close" size="10"></Icon>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- 標題 -->
-        <InputWrap v-model="title" :label="'標題'" :errMsg="'標題不得為空'"></InputWrap>
+        <InputWrap v-model="title" :label="'標題'" :err-msg="'標題不得為空'"></InputWrap>
 
         <!-- 內文 -->
         <TextareaWrap
@@ -20,33 +157,34 @@
           :label="'內文'"
           :placeholder="'填寫内文'"
           :line="6"
-          :errMsg="'錯誤訊息'"
+          :err-msg="'錯誤訊息'"
         ></TextareaWrap>
 
         <!-- Tag -->
-        <div class="flex flex-col space-y-10">
-          <label class="text-left text-base font-normal not-italic leading-md">Tag</label>
+        <div class="flex flex-col">
+          <label class="-mb-5 text-left text-base leading-md">Tag</label>
           <OptionsPicker v-model="tag" :options="tagOptions"></OptionsPicker>
           <InputWrap
+            class="mt-10"
             v-model="tagInput"
             :placeholder="'Add new tag...'"
-            :appendTextBtn="'Add'"
+            :append-text-btn="'Add'"
             @click:append="addTag"
           ></InputWrap>
         </div>
 
         <!-- 誰可以看到 -->
-        <div class="flex flex-col space-y-10">
-          <label class="text-left text-base font-normal not-italic leading-md">
+        <div class="flex flex-col">
+          <label class="-mb-5 text-left text-base leading-md">
             誰可以看到
-            <span class="text-sm font-normal not-italic leading-3 text-gray66">允許特定訂閱方案查看</span>
+            <span class="text-sm leading-3 text-gray66">允許特定訂閱方案查看</span>
           </label>
           <OptionsPicker v-model="perm" :options="permOptions"></OptionsPicker>
         </div>
 
         <!-- 指定訂閱組 -->
-        <div class="flex flex-col space-y-10">
-          <label class="text-left text-base font-normal not-italic leading-md">指定訂閱組</label>
+        <div class="flex flex-col">
+          <label class="-mb-5 text-left text-base leading-md">指定訂閱組</label>
           <OptionsPicker v-model="sub" :options="subOptions"></OptionsPicker>
         </div>
 
@@ -56,17 +194,17 @@
           :label="'Price'"
           :sublabel="'單位：美金'"
           :placeholder="'9.99'"
-          :appendText="'最高設置為90元'"
-          :maxLength="5"
+          :append-text="'最高設置為90元'"
+          :max-length="5"
         ></InputWrap>
 
         <!-- 排定發布 -->
         <div class="flex flex-col space-y-10">
           <div class="flex justify-between">
-            <label class="text-left text-base font-normal not-italic leading-md">排定發布</label>
+            <label class="text-left text-base leading-md">排定發布</label>
             <InputSwitch v-model="schedule"></InputSwitch>
           </div>
-          <InputWrap v-if="schedule" v-model="scheduleDateModel" appendIcon="calendar" disabled></InputWrap>
+          <InputWrap v-show="schedule" v-model="scheduleDateModel" append-icon="calendar" disabled></InputWrap>
         </div>
 
         <Button>發布</Button>
