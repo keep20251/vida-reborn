@@ -10,22 +10,13 @@
       <CookieBanner></CookieBanner>
       <AuthDialog v-if="authDialog"></AuthDialog>
       <Modal></Modal>
-      <MinePrvwBanner
-        v-if="route.name === 'mine-profile-prvw'"
-        :modelValue="selectedIdentity"
-        @update:modelValue="
-          (value) => {
-            selectedIdentity.value = value
-          }
-        "
-      ></MinePrvwBanner
+      <MinePrvwBanner v-if="route.name === 'mine-profile-prvw'"></MinePrvwBanner
     ></ClientOnly>
   </div>
   <NavigatorMobile v-if="isMobile"></NavigatorMobile>
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
@@ -40,7 +31,6 @@ import NavigatorMobile from '@comp/layout/NavigatorMobile.vue'
 import Modal from '@comp/modal/index.vue'
 import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import useRequest from '@use/request'
-import { IDENTITY } from '@const'
 import { loadSeoHead } from '@/utils/init'
 
 const route = useRoute()
@@ -76,7 +66,4 @@ onHydration(() => {
     resetUserData(userData.value)
   }
 })
-
-// 新增狀態，控制 MineProfilePrvw.vue 的顯示
-const selectedIdentity = ref(IDENTITY.VISITOR)
 </script>
