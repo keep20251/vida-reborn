@@ -156,12 +156,14 @@ async function accountValidationEmail() {
 watch(nickname, (newNicknameValue) => {
   if (newNicknameValue) {
     nickname.value = newNicknameValue
+    userData.nickname = nickname.value
     console.log('nickname', nickname.value)
   }
 })
 watch(username, (newUsernameValue) => {
   if (newUsernameValue) {
     username.value = newUsernameValue
+    userData.username = username.value
     console.log('username', username.value)
   }
 })
