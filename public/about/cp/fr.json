@@ -1,0 +1,74 @@
+{
+  "cp": {
+    "info": {
+      "title": "Politique en matière de cookies",
+      "content": "Cette politique ne traite pas de la manière dont nous traitons vos informations personnelles. Pour en savoir plus sur la manière dont nous collectons et traitons vos informations personnelles, veuillez consulter notre Politique de confidentialité. Cette politique explique plus en détail la façon dont nous utilisons les cookies et vos choix associés. En utilisant le Service, vous consentez expressément aux pratiques de traitement des informations, au stockage et à l'accès aux cookies tels que décrits dans la présente Politique."
+    },
+    "definitions": {
+      "title": "Définitions",
+      "table": {
+        "title": {
+          "a": "Terme",
+          "b": "La politique\"",
+          "c": "VIDA\", \"nous\" ou \"nous\"",
+          "d": "Le service\"",
+          "e": "\"Biscuits\""
+        },
+        "content": {
+          "a": "Définition",
+          "b": "La politique en matière de cookies telle que décrite dans ce document.",
+          "c": "VIDA, opérant sous le nom de VIDA.",
+          "d": "Le site Web VIDA, situé à l'adresse VIDA, et tous les autres sites Web, applications ou services fournis, détenus ou exploités par nous qui sont liés à cette politique.",
+          "e": "Un petit élément de données stocké sur votre appareil pour aider les sites Web et les applications mobiles à mémoriser des informations vous concernant. D'autres technologies, notamment le stockage Web et les identifiants associés à votre appareil, peuvent être utilisées à des fins similaires."
+        }
+      }
+    },
+    "modifications": {
+      "title": "Modifications",
+      "content": "Nous nous réservons le droit de modifier ces Conditions à tout moment. Si nous apportons des modifications, nous vous en informerons en révisant la date au bas des Conditions et, dans certains cas, nous vous fournirons un avis supplémentaire (par exemple, en ajoutant une déclaration à notre page d'accueil ou en vous envoyant une notification par e-mail). Afin de nous conformer au règlement (UE) 2019/1150 (le « Règlement Platform to Business » ou « P2BR »), nous fournirons un préavis d'au moins 15 jours de toute modification apportée aux présentes Conditions sur un « support durable » (tel que défini dans le P2BR), autres que les modifications énoncées à l'article 3 (4) du P2BR. Les modifications apportées à ces Conditions entrent en vigueur au moment de leur publication. Votre utilisation continue du Service après la date d'entrée en vigueur des Conditions révisées constitue votre acceptation des Conditions. Licence d'utilisation du Service Sous réserve de ces Conditions, VIDA vous accorde une licence personnelle, mondiale, libre de redevances, incessible et non exclusive. , révocable et ne pouvant faire l'objet d'une sous-licence pour accéder et utiliser le Service. Cette licence a pour seul but de vous permettre d'utiliser et de profiter des avantages du Service comme prévu par VIDA et autorisé par les présentes Conditions."
+    },
+    "useCookie": {
+      "title": "Comment nous utilisons les cookies",
+      "content1": "VIDA utilise des cookies, y compris des cookies tiers, pour un certain nombre de raisons, comme protéger vos données et votre compte VIDA, nous aider à voir quelles fonctionnalités sont les plus populaires, compter les visiteurs d'une page, améliorer l'expérience de nos utilisateurs, garder nos services sont sécurisés, fournissent des publicités pertinentes et vous offrent une expérience meilleure, plus intuitive et satisfaisante. Les cookies que nous utilisons appartiennent généralement à l'une des catégories suivantes.",
+      "content2": "Nous pouvons également utiliser des technologies similaires telles que des balises pixel, des GIF invisibles et des balises Web en conjonction avec des cookies pour suivre l'activité sur notre Service. Sauf si vous désactivez les cookies, lorsque vous visitez une page Web, ces technologies peuvent nous indiquer que vous avez visité. Ces technologies peuvent également nous permettre de savoir si vous avez reçu nos e-mails.",
+      "table": {
+        "title": {
+          "a": "Catégorie",
+          "b": "Nécessaire",
+          "c": "Préférences",
+          "d": "Performance",
+          "e": "Commercialisation"
+        },
+        "content": {
+          "a": "Pourquoi utilisons-nous ces cookies",
+          "b": "Nous utilisons ces cookies pour exécuter nos services, ainsi que pour identifier et prévenir les risques de sécurité. Par exemple, nous pouvons utiliser ces cookies pour stocker les informations de votre session.",
+          "c": "Nous utilisons ces cookies pour mémoriser vos paramètres et préférences et pour améliorer votre expérience sur nos services. Par exemple, nous pouvons utiliser ces cookies pour mémoriser vos préférences linguistiques.",
+          "d": "Nous utilisons ces cookies pour collecter des informations sur la façon dont vous utilisez nos services, ainsi que pour surveiller et améliorer les performances de nos services.",
+          "e": "Nous utilisons ces cookies pour diffuser des publicités, les rendre plus pertinentes et plus significatives pour les consommateurs, et pour suivre l'efficacité de nos campagnes publicitaires."
+        }
+      }
+    },
+    "analyticsAd": {
+      "title": "Fournisseurs d'analyses et de publicité",
+      "content": "VIDA peut permettre à d'autres sociétés d'utiliser des cookies sur notre service. Ces sociétés peuvent collecter des informations sur la façon dont vous utilisez notre Service au fil du temps et les combiner avec des informations similaires provenant d'autres services et sociétés. Ces informations peuvent être utilisées, entre autres, pour analyser et suivre des données, déterminer la popularité de certains contenus et mieux comprendre votre activité en ligne. Nous pouvons collecter des informations sur votre activité sur des services tiers qui utilisent les cookies que nous fournissons. Nous utilisons ces informations pour améliorer nos services publicitaires, notamment en mesurant les performances des publicités et en vous montrant des publicités plus pertinentes."
+    },
+    "choices": {
+      "title": "Vos choix",
+      "content": "Votre navigateur peut vous offrir la possibilité de refuser tout ou partie des cookies du navigateur. Vous pourrez peut-être également supprimer les cookies de votre navigateur. Pour plus d'informations sur la façon de gérer ou de désactiver les cookies, veuillez suivre les instructions fournies par votre navigateur ou consulter www.allaboutcookies.org/manage-cookies Certaines fonctionnalités du Service peuvent ne pas fonctionner comme prévu si vous désactivez les cookies."
+    },
+    "contact": {
+      "title": "Contact",
+      "content": "Les questions ou préoccupations concernant ces conditions peuvent être adressées à support@VIDA. Veuillez noter que les communications par courrier électronique ne seront pas nécessairement sécurisées ; par conséquent, vous ne devez pas inclure d'informations de carte de crédit ou d'autres informations sensibles dans votre correspondance électronique avec nous. Les demandes de facturation doivent être adressées à billing@VIDA"
+    },
+    "miscellaneous": {
+      "title": "Divers",
+      "content": "Ces conditions ne créent pas et ne doivent pas être interprétées comme créant une relation de partenariat, de coentreprise, d'employeur-employé, d'agence ou de franchiseur-franchisé entre vous et VIDA. Si une disposition des présentes Conditions s’avère illégale, nulle ou inapplicable pour quelque raison que ce soit, cette disposition sera considérée comme séparable des présentes Conditions et n’affectera pas la validité et le caractère exécutoire des dispositions restantes. Vous ne pouvez pas céder, transférer ou concéder en sous-licence tout ou partie de vos droits ou obligations en vertu des présentes Conditions sans notre consentement écrit préalable exprès. Nous pouvons céder, transférer ou concéder en sous-licence tout ou partie de nos droits ou obligations en vertu des présentes Conditions sans restriction. Aucune renonciation par l'une ou l'autre des parties à tout manquement ou défaut aux termes des présentes ne sera considérée comme une renonciation à tout manquement ou défaut antérieur ou ultérieur. Tout titre, légende ou titre de section contenu dans le présent document est inséré uniquement pour des raisons de commodité et ne définit ou n'explique en aucun cas une section ou une disposition des présentes. Ceci, ainsi que toutes les politiques mentionnées dans les présentes, constituent l'intégralité de l'accord entre vous et VIDA concernant l'objet des présentes et remplace tout accord ou accord écrit ou oral antérieur ou contemporain entre vous et VIDA concernant ce sujet. matière. Les notifications peuvent vous être adressées par publication sur le Service, par e-mail ou par courrier ordinaire, à la discrétion de VIDA. Le Service peut également fournir des notifications de modifications de ces Conditions ou d'autres questions en affichant ces notifications ou en fournissant des liens vers ces notifications. Sans limitation, vous acceptez qu'une version imprimée des présentes Conditions et de tout avis donné sous forme électronique soit admissible dans le cadre de procédures judiciaires ou administratives basées sur ou liées aux présentes Conditions dans la même mesure et sous les mêmes conditions que d'autres documents commerciaux et documents initialement générés et conservés sous forme imprimée. VIDA ne sera pas responsable des manquements à ses obligations dus à des causes indépendantes de sa volonté."
+    },
+    "language": {
+      "title": "Langue",
+      "content": "Ces conditions ont été initialement rédigées en anglais. Dans la mesure où une version traduite de ces Conditions entre en conflit avec la version anglaise, la version anglaise prévaut. Dernière modification : juillet 2023© 2023 VIDA, sauf indication contraire. Tous droits réservés."
+    },
+    "final": "Dernière modification : juillet 2023",
+    "VIDA": "© 2023 VIDA One Sauf indication contraire. Tous droits réservés."
+  }
+}

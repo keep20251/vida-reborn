@@ -1,0 +1,75 @@
+{
+  "faq": {
+    "account": {
+      "title": "Compte",
+      "a": {
+        "subtitle": "j'ai oublié mon mot de passe",
+        "content": "Accédez à l'écran de connexion et cliquez sur « oublié » dans le champ du mot de passe. Si vous ne vous souvenez plus de votre adresse e-mail, contactez support@VIDA"
+      },
+      "b": {
+        "subtitle": "Comment puis-je supprimer mon compte ?",
+        "content": "Veuillez noter que la suppression de votre compte est un processus irréversible et que toutes vos données seront supprimées définitivement conformément à notre politique de confidentialité."
+      }
+    },
+    "features": {
+      "title": "Caractéristiques",
+      "a": {
+        "subtitle": "Pourquoi devrais-je m'abonner ?",
+        "content": "En tant qu'abonné, vous recevez un contenu hautement personnalisé sur votre compte en fonction des catégories et des créateurs que vous avez suivis et auxquels vous êtes abonné sur VIDA. Non seulement vous avez accès au contenu privé d’un créateur, mais vous avez également la possibilité exclusive de vous connecter, d’envoyer des messages directs et d’avoir une conversation avec lui !"
+      },
+      "b": {
+        "subtitle": "Comment envoyer du contenu à un créateur ?",
+        "content": "Les abonnés peuvent partager des médias avec les créateurs. Le contenu doit respecter les directives de la communauté. Lorsque vous envoyez un message à un créateur, tout ce que vous avez à faire est d'appuyer sur le bouton du trombone à côté de la boîte de discussion et de télécharger votre photo ou vidéo depuis votre appareil."
+      },
+      "c": {
+        "subtitle": "Le contenu est-il enregistré sur le profil de l’utilisateur pour de futurs téléchargements ?",
+        "content": "Non, le contenu ne sera pas enregistré. Le contenu devra être téléchargé depuis votre appareil chaque fois que vous souhaitez l'envoyer à un créateur."
+      },
+      "d": {
+        "subtitle": "Le contenu peut-il être supprimé d'un fil de discussion par l'utilisateur ou le créateur ?",
+        "content": "Aucun contenu ne peut être supprimé du fil de discussion pour le moment."
+      },
+      "e": {
+        "subtitle": "Que faire si le contenu est de nature offensante ?",
+        "content": "Les créateurs peuvent signaler tout contenu qui leur est envoyé et nous prendrons les mesures appropriées."
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "a": {
+        "subtitle": "Comment contacter le support VIDA ?",
+        "content": "Nous sommes toujours heureux de répondre à vos questions. Pour nous contacter directement, veuillez utiliser les liens et les coordonnées ci-dessous : Assistance générale et site Web : support@VIDA Assistance de facturation : support@VIDA ou visitez https : //www.VIDA (facturation uniquement)"
+      }
+    },
+    "about": {
+      "title": "À propos de VIDA",
+      "a": {
+        "subtitle": "Qu'est-ce que VIDA ?",
+        "content": "VIDA est une plateforme en ligne qui permet aux créateurs et influenceurs du monde entier d'interagir avec leurs clients dans un environnement sûr et sécurisé pour toutes les parties impliquées."
+      },
+      "b": {
+        "subtitle": "Comment partager des commentaires ?",
+        "content": "VIDA n'existerait pas sans vous et votre avis nous tient à cœur. Nous sommes toujours impatients de connaître vos réflexions, suggestions ou préoccupations. Le moyen le plus simple d'envoyer des commentaires est d'envoyer un e-mail à support@VIDA"
+      }
+    },
+    "menu": {
+      "title": "Fonctionnalité du menu de la boutique",
+      "a": {
+        "subtitle": "Qu'est-ce qui est disponible dans la nouvelle boutique ?",
+        "content": "Les créateurs peuvent offrir l'une des options suivantes, veuillez vérifier les services supplémentaires de construction téléchargés : Évaluation de la photo de Dick Vidéo personnalisée - contenu, durée et prix convenus avec le créateur Nom sur le corps - photo ou vidéo Cosplay / Costume - photo ou vidéo Instructions de branlette (JOI) - vidéo Vidéos de vacances - anniversaire, Saint Valentin, Noël, enterrement de vie de garçon ou fille - vidéo Offrez-moi - l'utilisateur envoie de l'argent au créateur pour une friandise, par ex. pédicure et le créateur renvoie une photo"
+      },
+      "b": {
+        "subtitle": "Que se passe-t-il si je ne reçois pas le contenu pour lequel j'ai payé ?",
+        "content": "Toutes les demandes doivent être satisfaites dans les 72 heures et les créateurs doivent confirmer la livraison des articles commandés. Si la livraison n'est pas complète, nous procéderons à un remboursement."
+      },
+      "c": {
+        "subtitle": "Les clients peuvent-ils annuler une demande ?",
+        "content": "Non, une demande d'un client ne peut pas être annulée, mais les créateurs peuvent choisir de refuser une demande."
+      },
+      "d": {
+        "subtitle": "Que faire si je dois signaler le contenu que j'ai reçu ?",
+        "content": "Il existe une option de rapport sur tout le contenu reçu. Le contenu doit respecter les directives de la communauté. Par conséquent, si vous pensez qu'un média enfreint ces règles, vous pouvez utiliser la fonction de rapport. Les directives relatives au contenu incluent, sans toutefois s'y limiter : Tout média montrant des signes de discrimination, de violence, d'activités forcées ou non consensuelles. Tout média contenant éventuellement des mineurs de moins de 18 ans. Contenu volé/droit d'auteur. La personne principale dans les médias ne correspond pas au profil. Instruction de suicide ou de meurtre. Terrorisme."
+      }
+    }
+  }
+}

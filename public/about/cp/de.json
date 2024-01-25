@@ -1,0 +1,68 @@
+{
+  "cp": {
+    "info": {
+      "title": "Cookie-Richtlinie",
+      "content": "Diese Richtlinie befasst sich nicht mit der Art und Weise, wie wir mit Ihren personenbezogenen Daten umgehen. Weitere Informationen darüber, wie wir Ihre personenbezogenen Daten erfassen und verarbeiten, finden Sie in unserer Datenschutzerklärung. In dieser Richtlinie erfahren Sie mehr darüber, wie wir Cookies verwenden und welche Wahlmöglichkeiten Sie haben. Durch die Nutzung des Dienstes stimmen Sie ausdrücklich den in dieser Richtlinie beschriebenen Praktiken zum Umgang mit Informationen sowie der Speicherung und dem Zugriff auf Cookies zu"
+    },
+    "definitions": {
+      "title": "Definitionen",
+      "table": {
+        "title": {
+          "a": "Begriff",
+          "b": "Die Richtlinie\"",
+          "c": "VIDA“, „wir“ oder „uns“",
+          "d": "Der Service\"",
+          "e": "\"Kekse\""
+        },
+        "content": {
+          "a": "Definition",
+          "b": "Die in diesem Dokument beschriebene Cookie-Richtlinie.",
+          "c": "VIDA, firmierend unter dem Namen VIDA.",
+          "d": "Die VIDA-Website unter VIDA und alle anderen Websites, Anwendungen oder Dienste, die von uns bereitgestellt werden, uns gehören oder von uns betrieben werden und auf diese Richtlinie verweisen.",
+          "e": "Eine kleine Datenmenge, die auf Ihrem Gerät gespeichert wird, damit Websites und mobile Apps sich an Dinge über Sie erinnern können. Andere Technologien, einschließlich Webspeicher und mit Ihrem Gerät verknüpfte Identifikatoren, können für ähnliche Zwecke verwendet werden."
+        }
+      }
+    },
+    "modifications": {
+      "title": "Änderungen",
+      "content": "Wir behalten uns das Recht vor, diese Bedingungen jederzeit zu ändern. Wenn wir Änderungen vornehmen, benachrichtigen wir Sie, indem wir das Datum am Ende der Bedingungen ändern, und in einigen Fällen werden wir Sie zusätzlich benachrichtigen (z. B. indem wir eine Erklärung auf unserer Homepage hinzufügen oder Ihnen eine E-Mail-Benachrichtigung senden). Um die Verordnung (EU) 2019/1150 (die „Platform-to-Business-Verordnung“ oder „P2BR“) einzuhalten, werden wir alle Änderungen dieser Bedingungen mindestens 15 Tage im Voraus auf einem „dauerhaften Datenträger“ (wie definiert) bekannt geben im P2BR), mit Ausnahme der in Artikel 3 Absatz 4 des P2BR genannten Änderungen. Änderungen dieser Bedingungen treten zum Zeitpunkt ihrer Veröffentlichung in Kraft. Durch Ihre fortgesetzte Nutzung des Dienstes nach dem Inkrafttreten der überarbeiteten Bedingungen erklären Sie sich mit den Bedingungen einverstanden. Lizenz zur Nutzung des Dienstes Vorbehaltlich dieser Bedingungen gewährt Ihnen VIDA eine persönliche, weltweite, gebührenfreie, nicht abtretbare und nicht exklusive Lizenz , widerrufliche und nicht unterlizenzierbare Lizenz für den Zugriff und die Nutzung des Dienstes. Diese Lizenz dient ausschließlich dem Zweck, Ihnen die Nutzung und den Genuss der Vorteile des Dienstes zu ermöglichen, wie von VIDA vorgesehen und durch diese Bedingungen gestattet."
+    },
+    "useCookie": {
+      "title": "Wie wir Cookies verwenden",
+      "content1": "VIDA verwendet Cookies, einschließlich Cookies von Drittanbietern, aus verschiedenen Gründen, z. B. zum Schutz Ihrer Daten und Ihres Kontos bei VIDA, um zu erkennen, welche Funktionen am beliebtesten sind, um die Besucher einer Seite zu zählen, um die Erfahrung unserer Benutzer zu verbessern und um die Nutzung von Cookies zu gewährleisten Unsere Dienste sind sicher, bieten relevante Werbung und bieten Ihnen ein besseres, intuitiveres und zufriedenstellenderes Erlebnis. Die von uns verwendeten Cookies fallen im Allgemeinen in eine der folgenden Kategorien.",
+      "content2": "Wir können auch ähnliche Technologien wie Pixel-Tags, Clear GIFS und Web-Beacons in Verbindung mit Cookies verwenden, um Aktivitäten auf unserem Dienst zu verfolgen. Sofern Sie Cookies nicht deaktivieren, können uns diese Technologien beim Besuch einer Webseite mitteilen, dass Sie diese besucht haben. Diese Technologien können uns auch darüber informieren, ob Sie unsere E-Mails erhalten haben.",
+      "table": {
+        "title": { "a": "Kategorie", "b": "Notwendig", "c": "Präferenzen", "d": "Leistung", "e": "Marketing" },
+        "content": {
+          "a": "Warum wir diese Cookies verwenden",
+          "b": "Wir verwenden diese Cookies, um unsere Dienste auszuführen und um Sicherheitsrisiken zu erkennen und zu verhindern. Beispielsweise können wir diese Cookies verwenden, um Ihre Sitzungsinformationen zu speichern.",
+          "c": "Wir verwenden diese Cookies, um Ihre Einstellungen und Präferenzen zu speichern und Ihre Erfahrung mit unseren Diensten zu verbessern. Beispielsweise können wir diese Cookies verwenden, um Ihre Spracheinstellungen zu speichern.",
+          "d": "Wir verwenden diese Cookies, um Informationen darüber zu sammeln, wie Sie unsere Dienste nutzen, und um die Leistung unserer Dienste zu überwachen und zu verbessern.",
+          "e": "Wir verwenden diese Cookies, um Werbung zu liefern, sie für Verbraucher relevanter und aussagekräftiger zu machen und um die Effizienz unserer Werbekampagnen zu verfolgen."
+        }
+      }
+    },
+    "analyticsAd": {
+      "title": "Analyse- und Werbeanbieter",
+      "content": "VIDA kann anderen Unternehmen erlauben, Cookies auf unserem Service zu verwenden. Diese Unternehmen können im Laufe der Zeit Informationen darüber sammeln, wie Sie unseren Dienst nutzen, und diese mit ähnlichen Informationen von anderen Diensten und Unternehmen kombinieren. Diese Informationen können unter anderem dazu verwendet werden, Daten zu analysieren und zu verfolgen, die Beliebtheit bestimmter Inhalte zu bestimmen und Ihre Online-Aktivitäten besser zu verstehen. Wir können Informationen über Ihre Aktivitäten bei Drittanbieterdiensten sammeln, die von uns bereitgestellte Cookies verwenden. Wir verwenden diese Informationen, um unsere Werbedienste zu verbessern, einschließlich der Messung der Leistung von Anzeigen und der Anzeige relevanterer Anzeigen."
+    },
+    "choices": {
+      "title": "Deine Entscheidungen",
+      "content": "Ihr Browser bietet Ihnen möglicherweise die Möglichkeit, einige oder alle Browser-Cookies abzulehnen. Möglicherweise können Sie Cookies auch aus Ihrem Browser entfernen. Weitere Informationen zum Verwalten oder Deaktivieren von Cookies finden Sie in den Anweisungen Ihres Browsers oder unter www.allaboutcookies.org/manage-cookies. Einige Funktionen des Dienstes funktionieren möglicherweise nicht wie vorgesehen, wenn Sie Cookies deaktivieren."
+    },
+    "contact": {
+      "title": "Kontakt",
+      "content": "Fragen oder Bedenken zu diesen Bedingungen können an support@VIDA gerichtet werden. Bitte beachten Sie, dass E-Mail-Kommunikation nicht unbedingt sicher ist. Dementsprechend sollten Sie in Ihrer E-Mail-Korrespondenz mit uns keine Kreditkarteninformationen oder andere sensible Informationen angeben. Rechnungsanfragen sollten an billing@VIDA gerichtet werden"
+    },
+    "miscellaneous": {
+      "title": "Verschiedenes",
+      "content": "Diese Bedingungen begründen keine Partnerschaft, kein Joint Venture, kein Arbeitgeber-Arbeitnehmer-Verhältnis, keine Agenturbeziehung oder kein Franchisegeber-Franchisenehmer-Verhältnis zwischen Ihnen und VIDA und dürfen auch nicht so ausgelegt werden. Sollte sich herausstellen, dass eine Bestimmung dieser Bedingungen rechtswidrig, nichtig oder aus irgendeinem Grund nicht durchsetzbar ist, gilt diese Bestimmung als von diesen Bedingungen trennbar und hat keinen Einfluss auf die Gültigkeit und Durchsetzbarkeit der übrigen Bestimmungen. Ohne unsere ausdrückliche vorherige schriftliche Zustimmung dürfen Sie Ihre Rechte oder Pflichten aus diesen Bedingungen nicht ganz oder teilweise abtreten, übertragen oder unterlizenzieren. Wir können einige oder alle unserer Rechte und Pflichten aus diesen Bedingungen ohne Einschränkung abtreten, übertragen oder unterlizenzieren. Kein Verzicht einer der Parteien im Hinblick auf eine Verletzung oder Nichterfüllung dieser Vereinbarung gilt als Verzichtserklärung für eine frühere oder nachfolgende Verletzung oder Nichterfüllung. Alle hierin enthaltenen Überschriften, Bildunterschriften oder Abschnittstitel werden nur aus Gründen der Bequemlichkeit eingefügt und definieren oder erklären in keiner Weise einen Abschnitt oder eine Bestimmung hierin. Dies stellt zusammen mit allen hier genannten Richtlinien die gesamte Vereinbarung zwischen Ihnen und VIDA in Bezug auf den hierin genannten Gegenstand dar und ersetzt alle vorherigen oder gleichzeitigen schriftlichen oder mündlichen Vereinbarungen oder Absprachen zwischen Ihnen und VIDA in Bezug auf diesen Gegenstand Gegenstand. Mitteilungen an Sie können nach Ermessen von VIDA durch Veröffentlichung im Dienst, per E-Mail oder per Post erfolgen. Der Dienst kann auch Mitteilungen über Änderungen dieser Bedingungen oder anderer Angelegenheiten bereitstellen, indem er solche Mitteilungen anzeigt oder Links zu solchen Mitteilungen bereitstellt. Ohne Einschränkung erklären Sie sich damit einverstanden, dass eine gedruckte Version dieser Bedingungen und aller in elektronischer Form übermittelten Mitteilungen in Gerichts- oder Verwaltungsverfahren, die auf diesen Bedingungen basieren oder sich darauf beziehen, im gleichen Umfang und unter den gleichen Bedingungen zulässig sind wie andere Geschäftsdokumente und Aufzeichnungen, die ursprünglich in gedruckter Form erstellt und verwaltet wurden. VIDA haftet nicht für die Nichterfüllung von Verpflichtungen aufgrund von Ursachen, die außerhalb seiner Kontrolle liegen."
+    },
+    "language": {
+      "title": "Sprache",
+      "content": "Diese Bedingungen wurden ursprünglich in Englisch verfasst. Soweit eine übersetzte Version dieser Bedingungen im Widerspruch zur englischen Version steht, gilt die englische Version. Letzte Änderung: Juli 2023© 2023 VIDA, sofern nicht anders angegeben. Alle Rechte vorbehalten."
+    },
+    "final": "Letzte Änderung: Juli 2023",
+    "VIDA": "© 2023 VIDA One Sofern nicht anders angegeben. Alle Rechte vorbehalten."
+  }
+}

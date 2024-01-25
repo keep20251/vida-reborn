@@ -1,0 +1,75 @@
+{
+  "faq": {
+    "account": {
+      "title": "Account",
+      "a": {
+        "subtitle": "I forgot my password",
+        "content": "Go to the login screen and click 'forgot' in the password field. If you no longer remember your email address, contact support@VIDA"
+      },
+      "b": {
+        "subtitle": "How can I delete my account?",
+        "content": "Please be aware that deleting your account is an irreversible process, and all your data will be deleted permanently in accordance with our Privacy Policy."
+      }
+    },
+    "features": {
+      "title": "Features",
+      "a": {
+        "subtitle": "Why should I subscribe?",
+        "content": "As a subscriber, you receive highly personalized content to your account based on the categories and Creators you have followed and subscribed to on VIDA. Not only do you get access to a Creator’s private content but you also have the exclusive opportunity to connect, direct message, and have a conversation with them!"
+      },
+      "b": {
+        "subtitle": "How do I send content to a creator?",
+        "content": "Subscribers are able to share media with creators. The content must adhere to the community guidelines. When messaging a creator all you need to do is press the paperclip button next to the chat box and upload your picture or video from your device."
+      },
+      "c": {
+        "subtitle": "Is the content saved on the user’s profile for future uploads?",
+        "content": "No, the content will not be saved. The content will need to be uploaded from your device each time you wish to send it to a creator."
+      },
+      "d": {
+        "subtitle": "Can content be deleted from a message thread by the user or creator?",
+        "content": "No content can be deleted from the thread at this time."
+      },
+      "e": {
+        "subtitle": "What if the content is offensive in nature?",
+        "content": "Creators can report any content that is sent to them and we will take appropriate action."
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "a": {
+        "subtitle": "How do I contact VIDA support?",
+        "content": "We are always happy to help with your queries. To get in touch with us directly, please use the links and contact information below:General & Website Support: support@VIDABilling Support: support@VIDA or visit https: //www.VIDA (billing only)"
+      }
+    },
+    "about": {
+      "title": "About VIDA",
+      "a": {
+        "subtitle": "What is VIDA?",
+        "content": "VIDA is an online platform that enables Creators and influencers around the world to interact with their customers in a safe and secure environment for all parties involved."
+      },
+      "b": {
+        "subtitle": "How do I share feedback?",
+        "content": "VIDA wouldn't exist without you, and your opinion is important to us. We are always looking forward to hearing about your thoughts, suggestions, or concerns. The easiest way to send feedback is by sending an email to support@VIDA"
+      }
+    },
+    "menu": {
+      "title": "Shop menu feature",
+      "a": {
+        "subtitle": "What is available in the new shop?",
+        "content": "Creator’s can offer any of the following options please check the uploaded build additional services: Dick pic rating Custom video - content, length and price agreed with creator Name on body - picture or video Cosplay / Costume - picture or video Jerk off instructions (JOI) - video Holiday videos - birthday, valentines day, christmas, stag Boy girl or girl girl - video Treat me - user sends creator money for a treat e.g. pedicure and creator sends photo back"
+      },
+      "b": {
+        "subtitle": "What if I don’t receive the content I paid for?",
+        "content": "All requests must be fulfilled within 72 hours and creators must confirm delivery of the items ordered. If delivery is not complete we will process a refund."
+      },
+      "c": {
+        "subtitle": "Can customers cancel a request?",
+        "content": "No, a request by a customer cannot be canceled, however creators can choose to decline a request."
+      },
+      "d": {
+        "subtitle": "What if I need to report content I have received?",
+        "content": "There is a report option on all content received. Content needs to adhere to the community guidelines, therefore should you believe any media breaks these rules, you can use the report function. The content guidelines include but are not limited to: Any media showing signs of any discrimination, violence, forced or non - consensual activities Any media possibly containing minors under 18 Stolen content/copyright Main person in media does not match profile Instruction for suicide or murderTerrorism"
+      }
+    }
+  }
+}

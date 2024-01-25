@@ -1,0 +1,783 @@
+[
+  { "code": "cp.cp.info.title", "name": "Política de cookies" },
+  {
+    "code": "cp.cp.info.content",
+    "name": "Esta Política no aborda cómo tratamos su información personal. Para obtener más información sobre cómo recopilamos y procesamos su información personal, consulte nuestra Política de privacidad. Esta Política explica más sobre cómo utilizamos las cookies y sus opciones relacionadas. Al utilizar el Servicio, usted acepta expresamente las prácticas de manejo de información y el almacenamiento y acceso de Cookies como se describe en esta Política."
+  },
+  { "code": "cp.cp.definitions.title", "name": "Definiciones" },
+  { "code": "cp.cp.definitions.table.title.a", "name": "Término" },
+  { "code": "cp.cp.definitions.table.title.b", "name": "La política\"" },
+  { "code": "cp.cp.definitions.table.title.c", "name": "VIDA”, “nosotros” o “nos”" },
+  { "code": "cp.cp.definitions.table.title.d", "name": "El servicio\"" },
+  { "code": "cp.cp.definitions.table.title.e", "name": "\"Galletas\"" },
+  { "code": "cp.cp.definitions.table.content.a", "name": "Definición" },
+  {
+    "code": "cp.cp.definitions.table.content.b",
+    "name": "La política de cookies tal y como se describe en este documento."
+  },
+  { "code": "cp.cp.definitions.table.content.c", "name": "VIDA, que cotiza bajo el nombre VIDA." },
+  {
+    "code": "cp.cp.definitions.table.content.d",
+    "name": "El sitio web VIDA, ubicado en VIDA, y cualquier otro sitio web, aplicación o servicio proporcionado, de nuestra propiedad o operado por nosotros que se vincule a esta Política."
+  },
+  {
+    "code": "cp.cp.definitions.table.content.e",
+    "name": "Un pequeño dato que se almacena en su dispositivo para ayudar a los sitios web y aplicaciones móviles a recordar cosas sobre usted. Se pueden utilizar otras tecnologías, incluido el almacenamiento web y los identificadores asociados con su dispositivo, para fines similares."
+  },
+  { "code": "cp.cp.modifications.title", "name": "Modificaciones" },
+  {
+    "code": "cp.cp.modifications.content",
+    "name": "Nos reservamos el derecho de cambiar estos Términos en cualquier momento. Si realizamos cambios, se lo notificaremos revisando la fecha en la parte inferior de los Términos y, en algunos casos, le proporcionaremos un aviso adicional (como agregar una declaración a nuestra página de inicio o enviarle una notificación por correo electrónico). Para cumplir con el Reglamento (UE) 2019/1150 (el 'Reglamento de plataforma a empresa' o 'P2BR'), avisaremos con al menos 15 días de antelación cualquier cambio en estos Términos en un 'soporte duradero' (como se define en el P2BR), distintos de los cambios establecidos en el artículo 3 (4) del P2BR. Los cambios a estos Términos entran en vigencia en el momento de su publicación. Su uso continuado del Servicio después de la fecha de entrada en vigor de los Términos revisados ​​constituye su aceptación de los Términos. Licencia para utilizar el Servicio Sujeto a estos Términos, VIDA le otorga una licencia personal, mundial, libre de regalías, no transferible y no exclusiva. Licencia exclusiva, revocable y no sublicenciable para acceder y utilizar el Servicio. Esta licencia tiene el único propósito de permitirle usar y disfrutar de los beneficios del Servicio según lo previsto por VIDA y lo permitido por estos Términos."
+  },
+  { "code": "cp.cp.useCookie.title", "name": "Cómo utilizamos las cookies" },
+  {
+    "code": "cp.cp.useCookie.content1",
+    "name": "VIDA utiliza Cookies, incluidas Cookies de terceros, por varios motivos, como proteger sus datos y su cuenta de VIDA, ayudarnos a ver qué funciones son más populares, contar los visitantes de una página, mejorar la experiencia de nuestros usuarios, mantener Nuestros servicios son seguros, brindan publicidad relevante y le brindan una experiencia mejor, más intuitiva y satisfactoria. Las cookies que utilizamos generalmente se clasifican en una de las siguientes categorías."
+  },
+  {
+    "code": "cp.cp.useCookie.content2",
+    "name": "También podemos utilizar tecnologías similares, como etiquetas de píxeles, GIF transparentes y balizas web junto con cookies para rastrear la actividad en nuestro Servicio. A menos que desactive las Cookies, cuando visita una página web, estas tecnologías pueden indicarnos que la ha visitado. Estas tecnologías también pueden permitirnos saber si ha recibido nuestros correos electrónicos."
+  },
+  { "code": "cp.cp.useCookie.table.title.a", "name": "Categoría" },
+  { "code": "cp.cp.useCookie.table.title.b", "name": "Necesario" },
+  { "code": "cp.cp.useCookie.table.title.c", "name": "Preferencias" },
+  { "code": "cp.cp.useCookie.table.title.d", "name": "Actuación" },
+  { "code": "cp.cp.useCookie.table.title.e", "name": "Marketing" },
+  { "code": "cp.cp.useCookie.table.content.a", "name": "Por qué utilizamos estas cookies" },
+  {
+    "code": "cp.cp.useCookie.table.content.b",
+    "name": "Utilizamos estas Cookies para ejecutar nuestros Servicios y para identificar y prevenir riesgos de seguridad. Por ejemplo, podemos utilizar estas Cookies para almacenar la información de su sesión."
+  },
+  {
+    "code": "cp.cp.useCookie.table.content.c",
+    "name": "Utilizamos estas Cookies para recordar su configuración y preferencias, y para mejorar su experiencia en nuestros Servicios. Por ejemplo, podemos utilizar estas Cookies para recordar sus preferencias de idioma."
+  },
+  {
+    "code": "cp.cp.useCookie.table.content.d",
+    "name": "Utilizamos estas Cookies para recopilar información sobre cómo utiliza nuestros Servicios y monitorear y mejorar el rendimiento de nuestros Servicios."
+  },
+  {
+    "code": "cp.cp.useCookie.table.content.e",
+    "name": "Utilizamos estas Cookies para entregar anuncios, hacerlos más relevantes y significativos para los consumidores y para realizar un seguimiento de la eficiencia de nuestras campañas publicitarias."
+  },
+  { "code": "cp.cp.analyticsAd.title", "name": "Proveedores de análisis y publicidad" },
+  {
+    "code": "cp.cp.analyticsAd.content",
+    "name": "VIDA puede permitir que otras empresas utilicen cookies en nuestro servicio. Estas empresas pueden recopilar información sobre cómo utiliza nuestro Servicio a lo largo del tiempo y combinarla con información similar de otros servicios y empresas. Esta información puede usarse, entre otras cosas, para analizar y rastrear datos, determinar la popularidad de cierto contenido y comprender mejor su actividad en línea. Podemos recopilar información sobre su actividad en servicios de terceros que utilizan cookies proporcionadas por nosotros. Utilizamos esta información para mejorar nuestros servicios publicitarios, incluida la medición del rendimiento de los anuncios y mostrarle anuncios más relevantes."
+  },
+  { "code": "cp.cp.choices.title", "name": "Tus opciones" },
+  {
+    "code": "cp.cp.choices.content",
+    "name": "Su navegador puede brindarle la opción de rechazar algunas o todas las cookies del navegador. También podrá eliminar las cookies de su navegador. Para obtener más información sobre cómo administrar o desactivar las Cookies, siga las instrucciones proporcionadas por su navegador o visite www.allaboutcookies.org/manage-cookies. Es posible que algunas funciones del Servicio no funcionen según lo previsto si desactiva las Cookies."
+  },
+  { "code": "cp.cp.contact.title", "name": "Contacto" },
+  {
+    "code": "cp.cp.contact.content",
+    "name": "Las preguntas o inquietudes relacionadas con estos Términos pueden dirigirse a support@VIDA. Tenga en cuenta que las comunicaciones por correo electrónico no necesariamente serán seguras; en consecuencia, no debe incluir información de tarjeta de crédito u otra información confidencial en su correspondencia por correo electrónico con nosotros. Las consultas sobre facturación deben dirigirse a billing@VIDA"
+  },
+  { "code": "cp.cp.miscellaneous.title", "name": "Misceláneas" },
+  {
+    "code": "cp.cp.miscellaneous.content",
+    "name": "Estos Términos no crean, ni se interpretarán como que crean, ninguna relación de asociación, empresa conjunta, empleador-empleado, agencia o franquiciador-franquiciado entre usted y VIDA. Si se determina que alguna disposición de estos Términos es ilegal, nula o inaplicable por cualquier motivo, esa disposición se considerará separable de estos Términos y no afectará la validez y aplicabilidad de cualquier disposición restante. No puede ceder, transferir ni sublicenciar ninguno o todos sus derechos u obligaciones en virtud de estos Términos sin nuestro consentimiento previo expreso por escrito. Podemos asignar, transferir o sublicenciar cualquiera o todos nuestros derechos u obligaciones bajo estos Términos sin restricción. Ninguna renuncia por cualquiera de las partes a cualquier incumplimiento o incumplimiento en virtud del presente se considerará una renuncia a cualquier incumplimiento o incumplimiento anterior o posterior. Cualquier encabezado, subtítulo o título de sección contenido en este documento se inserta solo por una cuestión de conveniencia y de ninguna manera define ni explica ninguna sección o disposición del mismo. Esto, junto con todas las políticas mencionadas en este documento, es el acuerdo completo entre usted y VIDA en relación con el tema aquí tratado y reemplaza todos y cada uno de los acuerdos o entendimientos escritos u orales anteriores o contemporáneos entre usted y VIDA en relación con dicho tema. asunto. Las notificaciones pueden realizarse mediante publicación en el Servicio, por correo electrónico o por correo postal, a discreción de VIDA. El Servicio también puede proporcionar avisos de cambios a estos Términos u otros asuntos mostrando dichos avisos o proporcionando enlaces a dichos avisos. Sin limitación, usted acepta que una versión impresa de estos Términos y de cualquier notificación dada en formato electrónico será admisible en procedimientos judiciales o administrativos basados ​​en estos Términos o relacionados con ellos en la misma medida y sujeto a las mismas condiciones que otros documentos comerciales y registros originalmente generados y mantenidos en forma impresa. VIDA no será responsable del incumplimiento de cualquier obligación debido a causas fuera de su control."
+  },
+  { "code": "cp.cp.language.title", "name": "Idioma" },
+  {
+    "code": "cp.cp.language.content",
+    "name": "Estos Términos fueron escritos originalmente en inglés. En la medida en que cualquier versión traducida de estos Términos entre en conflicto con la versión en inglés, prevalecerá la versión en inglés. Última modificación: julio de 2023 © 2023 VIDA a menos que se indique lo contrario. Reservados todos los derechos."
+  },
+  { "code": "cp.cp.final", "name": "Última modificación: julio de 2023" },
+  {
+    "code": "cp.cp.VIDA",
+    "name": "© 2023 VIDA One A menos que se indique lo contrario. Reservados todos los derechos."
+  },
+  { "code": "creator.creator.become.title", "name": "Convertirse" },
+  { "code": "creator.creator.become.a.subtitle", "name": "¿Cómo me convierto en un Creador?" },
+  {
+    "code": "creator.creator.become.a.content",
+    "name": "VIDA es uno de los sitios web para adultos más grandes y reconocidos de Internet. Nos enorgullecemos de crear una plataforma que facilita a los suscriptores expresar su agradecimiento e interactuar con nuestra comunidad. A medida que continuamos creciendo en todo el mundo, siempre estamos buscando nuevos Creadores para unirse a nuestra plataforma. Si deseas convertirte en un Creador, ¡has venido al lugar correcto! Esta es su oportunidad de formar parte de una plataforma exclusiva, ampliamente promocionada y admirada a nivel mundial. Solo para darle una idea de nuestro mantra centrado en el Creador, presentamos pagos superiores a los estándar de la industria en los que recibe el 80% de todo el gasto en su página. Hay millones de visitantes únicos por día solo en nuestro feed principal, una audiencia ansiosa lo espera para interactuar con usted y recompensarlo por su esfuerzo. Como principal destino de entretenimiento para adultos del mundo, en VIDA nos preocupamos por la calidad y la experiencia más placentera para el usuario y el creador. Así que solo buscamos lo mejor, si crees que esto es así, ¡únete a nosotros! Simplemente vaya a la página de inicio y presione Conviértase en creador."
+  },
+  {
+    "code": "creator.creator.become.b.subtitle",
+    "name": "¿Cuánto contenido necesito antes de poder activar mi cuenta?"
+  },
+  {
+    "code": "creator.creator.become.b.content",
+    "name": "Una vez que haya completado el proceso de verificación de identidad, todo lo que necesita es un contenido para comenzar en VIDA. Cada contenido se evalúa por su calidad y para garantizar que no viole ningún término de servicio. No olvides que si publicarás contenido como creador sin rostro, es decir, nunca mostrarás tu rostro donde solo tu cuerpo es visible, deberás: Subir una foto desnuda en la que todo tu cuerpo, incluido el rostro, sea claramente visible (juntos) y seleccionar imagen de verificación. No se hará público, sino que se utilizará únicamente con fines de seguridad. Es importante tener un perfil animado con actualizaciones frecuentes de contenido que agradezca las oportunidades de interacción de los suscriptores. Si ha subido poco contenido o carece de actualizaciones frecuentes, le resultará difícil ganar suscriptores o correrá el riesgo de perder suscriptores e incurrir en devoluciones de cargo. Usted está a cargo de su propio potencial, especialmente cuando se trata de maximizar sus ingresos alcanzables. Recomendamos encarecidamente crear vídeos teaser (de hasta 1 minuto, verticales) para incluirlos en el feed principal. Para ser incluido en el feed principal, su contenido debe tener un título o título y tener al menos 3 etiquetas."
+  },
+  { "code": "creator.creator.become.c.subtitle", "name": "¿Cómo funciona la alimentación?" },
+  {
+    "code": "creator.creator.become.c.content",
+    "name": "Formato corto El feed de nuestra plataforma está ordenado por los vídeos más populares. La popularidad se mide por la proporción de vistas y me gusta. Los videos recién subidos se agregan al feed cada 10 veces hasta que alcanzan una calificación estadísticamente significativa, después de lo cual reciben su lugar permanente en el ranking. Como resultado de nuestro orden de feeds, cada nuevo video subido tiene exposición a millones de espectadores potenciales y tiene las mismas posibilidades de ser clasificado. Dado que nuestro tráfico supera significativamente la cantidad de videos recién subidos, su video obtendrá exposición inmediata y se clasificará rápidamente. Si desea aparecer en nuestro feed, deberá asegurarse de que su contenido tenga un título y al menos 3 etiquetas, lo que también ayudará a que su contenido se encuentre en las búsquedas de nuestros usuarios. Feed público (usuarios no verificados) Cuando un usuario visita el sitio sin iniciar sesión, recibirá el feed global o específico de un país. Su feed mostrará: Los mejores videos globales o regionales del día (5 a 10 videos) Nuevos videos subidos en la última hora (aleatorizados, 2 videos) Repetir Esta experiencia de usuario revela primero el contenido principal. Después de algunos desplazamientos, se agregará contenido nuevo al feed. Esta aleatorización de los nuevos vídeos subidos en la última hora garantiza que las vistas de los usuarios se distribuyan equitativamente entre todos los creadores. Feed privado (usuarios verificados) Cuando se verifica a un usuario, el feed dará prioridad a la visualización de contenido nuevo de los creadores a los que está suscrito. El feed también excluirá los vídeos vistos anteriormente para garantizar que los usuarios vean primero el nuevo contenido de sus creadores favoritos, antes de ingresar a los feeds globales o regionales. Entonces... ¿Cómo optimizo esto para obtener más vistas? Recomendamos encarecidamente la carga diaria de contenido, incluido al menos 1 video nuevo y 2 imágenes, para garantizar que su perfil se incluya en el contenido nuevo aleatorio de nuestro feed. Por último, para cumplir con las cargas diarias, recomendamos seguir un estricto cronograma de carga de contenido para mantener el rumbo. Recuerda, tú eres el dueño de tu propio potencial. Una vez que atraigas la atención de los suscriptores en nuestro sitio, ¡tus fans querrán verte regularmente con contenido subido de calidad! ¿Cómo se determina el contenido principal? El contenido principal se determina observando múltiples métricas utilizando un algoritmo de clasificación ponderado, generalmente a través de: Videos de feeds vistos más del 80% (30-60s en vertical) (50%) Número de me gusta (20%) Número de comentarios (20%) Externo intercambio de enlaces (tráfico legítimo proveniente de motores que no son de búsqueda) (10%) *Tenga en cuenta: a cambio de apoyo de marketing, algunos creadores pueden tener más contenido en el feed con mayor visibilidad."
+  },
+  { "code": "creator.creator.become.d.subtitle", "name": "¡Necesito ayuda o encontré un error!" },
+  {
+    "code": "creator.creator.become.d.content",
+    "name": "Si necesita ayuda, puede chatear con nosotros directamente o enviarnos un correo electrónico. Cuando informe un error, incluya una captura de pantalla y una descripción detallada del problema que está experimentando."
+  },
+  { "code": "creator.creator.registrant.title", "name": "Proceso de registro" },
+  {
+    "code": "creator.creator.registrant.a.subtitle",
+    "name": "¿Pueden las agencias o estudios de producción crear cuentas en VIDA?"
+  },
+  {
+    "code": "creator.creator.registrant.a.content",
+    "name": "En este momento nos centramos en cuentas de usuario individuales solo para creadores de contenido. Los creadores representados por agencias pueden crear cuentas verificadas, pero el creador del contenido debe administrarlas individualmente."
+  },
+  { "code": "creator.creator.registrant.b.subtitle", "name": "¿Puedo convertirme en Creador de cualquier país?" },
+  {
+    "code": "creator.creator.registrant.b.content",
+    "name": "En VIDA, nos encanta representar a un grupo diverso de Creadores. Sin embargo, debido a limitaciones bancarias, no podemos aceptar creadores (o usuarios) de los siguientes países. Siempre estamos trabajando para brindar nuestros servicios en tantos territorios como sea posible, por lo que revisaremos continuamente esta lista de acuerdo con las regulaciones bancarias: - Bosnia y Herzegovina - Birmania / Myanmar - Región de Crimea - República Democrática del Congo - Irak - Liberia - Líbano - Montenegro - Corea del Norte - Serbia - Sierra Leona - Sudán - Siria - Zimbabwe"
+  },
+  { "code": "creator.creator.registrant.c.subtitle", "name": "Sin verificación facial" },
+  {
+    "code": "creator.creator.registrant.c.content",
+    "name": "Entendemos que algunos creadores deseen crear contenido que no represente su rostro. VIDA está obligado a obtener y mantener registrado el consentimiento por escrito de todas las personas representadas en cualquier contenido subido al sitio, y a haber verificado la edad y la identidad de todas las personas representadas en cada contenido subido. Cuando el rostro de los creadores no sea claramente visible en el contenido (incluido el uso de máscaras, rostros con filtro, rostros borrosos, emoticones como rostros, esencialmente cualquier cosa que oscurezca su rostro y oculte su identidad), una imagen adicional de verificación de rostro completamente desnuda y completamente visible. será requerido. Es necesario que confirmemos que las personas representadas en el contenido subido coinciden. Cargando su foto de verificación: - La foto debe ser una tomada recientemente y de buena calidad - Cargue su foto en el sitio (el desnudo frontal completo, la cara y el cuerpo, incluidos los genitales, son claramente visibles) - Seleccione Imagen de verificación como la opción - *Esta foto es sólo por motivos de seguridad y nunca se hará público"
+  },
+  { "code": "creator.creator.payout.title", "name": "Pagos y ganancias" },
+  { "code": "creator.creator.payout.a.subtitle", "name": "Comisiones bancarias de pago" },
+  {
+    "code": "creator.creator.payout.a.content",
+    "name": "Tarifas de procesamiento de pagos Las tarifas de procesamiento de pagos cubren el costo de procesar los pagos de sus suscriptores, incluida la facturación recurrente, la recuperación de pagos rechazados y la lucha contra el fraude. Para mantener una tasa de pago de plataforma del 80 % para los Creadores, cubrimos las tarifas de procesamiento de pagos. También pagamos y remitimos el IVA y los impuestos sobre las ventas en nombre del Creador, ya que estamos registrados ante las autoridades tributarias pertinentes como plataforma. Si necesita información para sus propios registros contables, contáctenos en creadores@VIDA. Tarifas de pago Las tarifas de pago son el cargo por transferir fondos de su saldo de Creador a su método de pago preferido, banco o Paxum. Los bancos y proveedores P2P lo deducen del monto que recibe cuando solicita un pago. Sus tarifas de pago no reflejan márgenes y se pagan con un cargo 1:1. P2P tiene las tarifas de transacción de pago más bajas y las transferencias bancarias tienen las tarifas de transacción de pago más altas. Nos enorgullecemos de ser una plataforma centrada en los creadores, por lo que buscamos continuamente las mejores opciones y tarifas para nuestras tarifas de creadores y, por lo tanto, todas las tarifas están sujetas a cambios. Estamos aquí para ayudarlo. Si hay opciones de pago específicas que le interesa que exploremos, ¡contáctenos! Nos encantaría saber de usted en creadores@VIDA."
+  },
+  { "code": "creator.creator.payout.b.subtitle", "name": "¿Cómo puedo ganar dinero en VIDA?" },
+  {
+    "code": "creator.creator.payout.b.content",
+    "name": "Puede ganar dinero con suscripciones, pagos por contenido bloqueado (contenido de su tienda) y propinas. Para maximizar el gasto en su página, le sugerimos que consiga un gran número de seguidores manteniendo su página actualizada y atractiva. También puedes colocar un enlace a tu página VIDA en tus cuentas de redes sociales, como Twitter o Instagram. ¡Los seguidores finalmente se convierten en suscriptores!"
+  },
+  { "code": "creator.creator.payout.c.subtitle", "name": "Poner precio a su contenido y servicios" },
+  {
+    "code": "creator.creator.payout.c.content",
+    "name": "Para establecer un precio de suscripción para su contenido: Vaya a su perfil - Editar perfil - Configurar suscripción Como creador, puede elegir cuánto cobra por sus servicios. Su precio influirá en gran medida en la cantidad de compras. En general, vemos que los precios más baratos generan mejores conversiones, pero depende de usted encontrar su punto óptimo. Cuando aumente el precio de su suscripción, a todos los nuevos suscriptores se les facturará la nueva tarifa. Tenga en cuenta que a sus suscriptores actuales se les seguirá facturando la tarifa original que acordaron pagar al suscribirse a su perfil."
+  },
+  { "code": "creator.creator.payout.d.subtitle", "name": "Política de pago" },
+  {
+    "code": "creator.creator.payout.d.content",
+    "name": "¿Cuál es el porcentaje de pago? 80% de todo el gasto en tu página ¿Cuál es el monto mínimo de pago? El monto mínimo de pago requerido es $200. Su pago solo podrá retirarse si ha alcanzado el monto mínimo de pago. ¿Con qué frecuencia me pagan? Los creadores pueden activar el retiro de pagos de sus cuentas siempre que el monto retirado supere el monto mínimo de pago de $200. Los pagos se procesan cada dos viernes. ¿Qué métodos de pago ofrece VIDA? Actualmente podemos aceptar los siguientes métodos de pago: Transferencias bancarias Cuentas Paxum (P2P) Todas ellas están disponibles en USD, EUR y GBP, aparte de las restricciones mencionadas anteriormente. Si hay una moneda que un Creador necesita particularmente, envíe un mensaje a support@VIDA y le informaremos si es posible. Pagos programados Hemos simplificado la recepción de sus fondos. ¡VIDA ahora procesa los pagos a su cuenta cada dos viernes! La opción de automatizar tus pagos también está disponible. ¡Hemos pensado en todo! Recuerde solicitar su pago a más tardar a la medianoche UTC de los jueves. La recepción de fondos variará en el momento debido a las regulaciones de su banco/cuenta.* Puede ver una lista de todos sus pagos pendientes y pagados en su página de ganancias. NOTA: asegúrese de consultar la lista de países bloqueados por todos los bancos y servicios de pago que admitimos. Además, los bancos y proveedores de servicios de pago se reservan el derecho de negarse a atender a cualquier cliente individual, en cuyo caso intentaremos resolver el problema."
+  },
+  { "code": "creator.creator.payout.e.subtitle", "name": "¿Cómo inicio un pago?" },
+  {
+    "code": "creator.creator.payout.e.content",
+    "name": "Para iniciar un pago, vaya a su Menú de usuario y haga clic en Ganancias. Debe tener un mínimo de $200 en su cuenta antes de poder retirar sus ganancias. INFORMACIÓN DEL BENEFICIARIO Los pagos solo se realizarán al mismo nombre de beneficiario proporcionado durante el proceso de incorporación de KYC. Si necesita cambiar este nombre (por ejemplo, ha cambiado su nombre, el nombre asignado a su documento de identificación es diferente del nombre del beneficiario de su banco en su país, o le gustaría que le paguen a una entidad legal), por favor contacte a support@VIDA. Deberá proporcionar prueba del motivo por el que se requiere el cambio, es posible que necesitemos información adicional suya como parte del proceso de diligencia debida y nos reservamos el derecho absoluto de rechazar su solicitud. Si solicita el pago a una entidad legal, la información proporcionada durante la verificación KYC debe ser un UBO (Ultimate Beneficial Owner) de la entidad, de acuerdo con EU 2015/849, según enmendada, independientemente de que la entidad esté sujeta a la legislación de la UE. No se realizarán pagos a terceros bajo ninguna circunstancia, incluidos, entre otros, cónyuges, familiares, servicios de custodia, socios comerciales, tutores designados por el tribunal o síndicos de cualquier tipo. Nos hemos esforzado continuamente por brindar servicios en tantas regiones como sea posible, por lo tanto, continuaremos revisando esta lista según los requisitos regulatorios bancarios: Bosnia y Herzegovina Myanmar Costa de Marfil Región de Crimea República Democrática del Congo Irak Liberia Líbano Montenegro Norte Corea Serbia Sierra Leona Sudán Siria Zimbabwe Nuestros servicios bancarios están bloqueados en los países enumerados, pero estamos comprometidos a expandir nuestros servicios a tantas regiones como sea posible. Nos reservamos el derecho de cambiar y revisar las políticas cada tres a seis meses para asegurarnos de que esté informado de cualquier cambio, así que vuelva a consultarlas periódicamente."
+  },
+  { "code": "creator.creator.payout.f.subtitle", "name": "Protección de devolución de carga" },
+  {
+    "code": "creator.creator.payout.f.content",
+    "name": "Tenga en cuenta que VIDA se reserva el derecho de deducir créditos de sus ganancias si infringe nuestra página de Términos de servicio. Dependiendo de la gravedad de la infracción, esto podría incluir la suspensión o eliminación indefinida de su cuenta. Si un Cliente inicia un Reembolso o Contracargo en su contra, estos montos se deducirán de su saldo de Créditos."
+  },
+  { "code": "creator.creator.privacy.title", "name": "Privacidad y verificación de identidad" },
+  { "code": "creator.creator.privacy.a.subtitle", "name": "¿Por qué tengo que verificar mi identificación?" },
+  {
+    "code": "creator.creator.privacy.a.content",
+    "name": "Solicitamos a todos los creadores de contenido que se verifiquen su identidad para evitar el robo de contenido y proteger su derecho a monetizar su propio contenido."
+  },
+  { "code": "creator.creator.privacy.b.subtitle", "name": "¿Cómo verifico mi identificación?" },
+  {
+    "code": "creator.creator.privacy.b.content",
+    "name": "La verificación de identidad es el primer paso para registrarse como Creador en VIDA. Para verificar su cuenta, se le pedirá que se tome una fotografía y la de su identificación. Todo el proceso de verificación de identidad está completamente automatizado y tarda menos de 1 minuto. SOPORTE DE NAVEGACIÓN: Vaya a su Menú de usuario y haga clic en Conviértase en creador. Aparecerá un proceso de verificación indicándole sus próximos pasos. Tenga en cuenta que todo el contenido solo puede contener adultos (mayores de 18 años); por lo tanto, incluso si pasa la verificación, si creemos que algún medio lo muestra por debajo de esta edad, podemos solicitar más aclaraciones y reservarnos el derecho de eliminar el contenido."
+  },
+  { "code": "creator.creator.privacy.c.subtitle", "name": "¿Cómo se protege mi contenido?" },
+  {
+    "code": "creator.creator.privacy.c.content",
+    "name": "Todos los medios tienen marcas de agua aplicadas para evitar el uso no autorizado. También brindamos protección de descarga y los usuarios del sitio solo pueden acceder al contenido del sitio. Los usuarios no pueden descargar ningún medio del sitio."
+  },
+  { "code": "creator.creator.privacy.d.subtitle", "name": "¿VIDA es anónimo para los creadores?" },
+  {
+    "code": "creator.creator.privacy.d.content",
+    "name": "Cuando se registra en VIDA, utilizamos un proveedor externo certificado para confirmar los datos personales, incluido su nombre real, fecha de nacimiento, país de residencia y una identificación emitida por el gobierno. Necesitamos que esto siga siendo legalmente compatible como plataforma de servicios. Además, es posible que le solicitemos su información de pago para que podamos procesar sus pagos. LOS USUARIOS NUNCA TIENEN ACCESO A NINGUNO DE SUS DATOS PERSONALES. Los usuarios sólo verán su nombre de usuario y otra información que haya decidido compartir en su perfil público o durante sus conversaciones privadas. Consulte nuestra Política de privacidad para obtener un resumen detallado de cómo recopilamos, utilizamos y protegemos sus datos personales."
+  },
+  { "code": "creator.creator.feature.title", "name": "características" },
+  { "code": "creator.creator.feature.a.subtitle", "name": "Subir fotos y vídeos" },
+  {
+    "code": "creator.creator.feature.a.content",
+    "name": "¡Subir tu contenido a VIDA es simple! Una vez verificado, seleccione una de las dos opciones siguientes: 1. Haga clic en 'Mis medios', presione el botón Agregar y cargue contenido. 2. Haga clic en el botón Agregar en la barra de navegación superior y siga las instrucciones de carga; si está utilizando un teléfono móvil, la barra de navegación aparecerá en la parte inferior. Si desea que su contenido aparezca en nuestro feed público, no dude en darle un título a su contenido y agregar 3 etiquetas. Recuerde que el título y las etiquetas deben ser relevantes para la foto/video que subió. Todas las demás personas deben ser etiquetadas y verificadas en la plataforma. Finalmente, decide quién puede ver el contenido: - Todos: significa que cualquiera puede ver el contenido de tu perfil. - Suscriptores: significa que sólo tus suscriptores pueden ver el contenido. - Bóveda: significa que sólo es visible para ti. Puedes cambiar el tipo en cualquier momento después de cargar el contenido; El contenido privado también es bueno para enviar dentro de los mensajes directos para obtener posibles sugerencias o almacenar contenido personalizado para enviar. - Tienda: cualquier persona puede comprar este contenido y puede establecer precios individuales para cada elemento multimedia. El contenido subido se enviará al equipo de moderación. Si se aprueba su contenido, aparecerá en su perfil en breve. De lo contrario, recibirá un correo electrónico de contenido rechazado indicando el motivo. Tenga en cuenta que todo el contenido solo puede contener adultos (mayores de 18 años). Por lo tanto, incluso si pasa la verificación, si pensamos que algún medio lo muestra como menor de esta edad, podemos solicitar más aclaraciones y reservarnos el derecho de eliminar el contenido."
+  },
+  { "code": "creator.creator.feature.b.subtitle", "name": "Eliminar y editar contenido" },
+  {
+    "code": "creator.creator.feature.b.content",
+    "name": "Puedes editar o eliminar tu contenido en cualquier momento. Para hacerlo, vaya al menú Usuario: 1. Seleccione 'Mis medios' 2. Seleccione un elemento que desee eliminar 3. Seleccione 'Eliminar' en la parte superior derecha."
+  },
+  { "code": "creator.creator.feature.c.subtitle", "name": "Mensajería de creador a creador" },
+  {
+    "code": "creator.creator.feature.c.content",
+    "name": "Nos encanta que los creadores se apoyen entre sí, pero solo para que sepas que solo puedes enviar mensajes a otros creadores a los que estés suscrito."
+  },
+  { "code": "creator.creator.feature.d.subtitle", "name": "¿Cómo envío contenido a un creador?" },
+  {
+    "code": "creator.creator.feature.d.content",
+    "name": "Los suscriptores pueden compartir medios con los creadores. El contenido debe cumplir con las pautas de la comunidad. Al enviar mensajes a un creador, todo lo que necesita hacer es presionar el botón del clip al lado del cuadro de chat y cargar su foto o video desde su dispositivo."
+  },
+  {
+    "code": "creator.creator.feature.e.subtitle",
+    "name": "¿El contenido se guarda en el perfil del usuario para futuras cargas?"
+  },
+  {
+    "code": "creator.creator.feature.e.content",
+    "name": "No, el contenido no se guardará. El contenido deberá cargarse desde su dispositivo cada vez que desee enviárselo a un creador."
+  },
+  {
+    "code": "creator.creator.feature.f.subtitle",
+    "name": "¿El usuario o el creador pueden eliminar el contenido de un hilo de mensajes?"
+  },
+  {
+    "code": "creator.creator.feature.f.content",
+    "name": "No se puede eliminar ningún contenido del hilo en este momento."
+  },
+  { "code": "creator.creator.feature.g.subtitle", "name": "Como creador, ¿qué pasa si no quiero verlo?" },
+  {
+    "code": "creator.creator.feature.g.content",
+    "name": "Los creadores recibirán el contenido difuminado, para evitar spam no solicitado. El creador puede optar por cambiar esta configuración en cualquier momento."
+  },
+  { "code": "creator.creator.feature.h.subtitle", "name": "¿Qué pasa si el contenido es de naturaleza ofensiva?" },
+  {
+    "code": "creator.creator.feature.h.content",
+    "name": "Los creadores pueden denunciar cualquier contenido que se les envíe y tomaremos las medidas adecuadas."
+  },
+  { "code": "creator.creator.guideline.title", "name": "Pautas de contenido" },
+  { "code": "creator.creator.guideline.a.subtitle", "name": "Directrices para avatar y fotos de portada." },
+  {
+    "code": "creator.creator.guideline.a.content",
+    "name": "Tu avatar y tus fotos de portada son muy importantes ya que son tu primera impresión para los clientes potenciales. Las fotografías de alta calidad hacen que sea más probable que los clientes revisen su perfil. Además, la calidad de sus fotos afecta indirectamente la calidad de nuestra plataforma. Es por eso que solicitamos a todos los Creadores que sigan estas pautas al publicar fotos de perfil. - Fotografías de alta calidad: Generalmente, esto significa fotografías de alta resolución, nítidas y bien iluminadas. - Sólo tú en la foto: Tu perfil es sobre ti y sólo tú. Utilice únicamente fotografías en las que no haya otra persona (reconocible) excepto usted en la foto. - Sé el centro de atención: Te recomendamos que estés completamente visible en la foto. No permitimos fotografías de objetos o animales sin usted en la foto. - Sin marcas de agua ni texto/emojis superpuestos: tus seguidores prefieren la autenticidad, las marcas de agua o la superposición de texto/emojis en tus fotos le quitan eso. Por supuesto, usted es libre de poner marcas de agua en las fotos que envía directamente a los clientes a través de mensajes privados. - No permitimos armas: solo fotos de su propiedad: nos tomamos muy en serio los derechos de autor. Si no posee los derechos de una foto o video, por favor"
+  },
+  { "code": "creator.creator.guideline.b.subtitle", "name": "Contenido aceptado" },
+  {
+    "code": "creator.creator.guideline.b.content",
+    "name": "Nuestro equipo de moderación revisa todo el contenido, si su contenido es rechazado puede ser por varias razones que incluyen, entre otras: - Imágenes o videos con personas que no tienen cuentas verificadas en VIDA - Publicaciones que muestren signos de discriminación o violencia. , actividades forzadas o no consensuadas - Publicaciones que posiblemente contengan menores de 18 años - Publicaciones que contengan escenas de zoofilia o incesto - Publicaciones que contengan excremento o sangre - Dibujos y hentai - Contenido de baja calidad - Contenido robado - Las marcas de agua son demasiado grandes - Las marcas de agua cubren áreas principales de contenido o bloquear momentos de contenido cruciales - Censura que cubre el área principal de contenido y bloquea momentos de contenido cruciales - El título/las etiquetas de la publicación no coinciden con el contenido - No se permiten datos personales ni información privada (números de teléfono, información de GPS, nombres legales completos, direcciones de correo electrónico, información financiera o identificación) deben ser compartidos. - Medios de tamaño inadecuado: las resoluciones recomendadas son 480 x 800, 640 x 1136, 720 x 1280, 750 x 1334, 1080 x 1920 y 1440 x 2560. Todo el contenido debe ajustarse a esto y estar en pantalla completa."
+  },
+  {
+    "code": "creator.creator.guideline.c.subtitle",
+    "name": "¿Qué tipo de vídeos debo publicar en mi sección gratuita?"
+  },
+  {
+    "code": "creator.creator.guideline.c.content",
+    "name": "Queremos que tengas el control de tu contenido, pero te recomendamos que incluyas videos gratuitos para ayudar a aumentar tus seguidores. Incluya contenido que atraiga a los usuarios a suscribirse a su contenido premium. Preferimos que estos vídeos duren hasta 60 segundos y terminen antes de la \"mejor\" parte. Piensa en vídeos teaser, avances e incluso contenido softcore/vestimentado."
+  },
+  { "code": "creator.creator.guideline.d.subtitle", "name": "Publicar contenido con otras personas" },
+  {
+    "code": "creator.creator.guideline.d.content",
+    "name": "Todas las personas que aparecen en el contenido deben tener cuentas verificadas de VIDA. Debes etiquetar su cuenta en el video o la imagen para que luego puedan aprobarlo en su propio perfil. No contamos con una cuenta para parejas, por lo tanto, incluso si son una pareja, cada individuo requiere una cuenta verificada. Tenga en cuenta que si el otro Creador no está en VIDA, deberá ser verificado creando su propio perfil y pasando la verificación de identificación. Este perfil NO necesita estar activado ni disponible para visualización pública. Cualquier video/foto con personas que no estén etiquetadas y verificadas será rechazado automáticamente. También rechazaremos contenido sin etiquetar con: - Personas en el vídeo de fondo (en la televisión, por ejemplo) - Fotos de fondo con rostros reconocibles."
+  },
+  { "code": "creator.creator.guideline.e.subtitle", "name": "Vincular a otros sitios web o aplicaciones" },
+  {
+    "code": "creator.creator.guideline.e.content",
+    "name": "No menciones ni promociones sitios web de la competencia (cualquier sitio que maneje tu Creador se puede encontrar donde tú, como Creador, ganas dinero con tu contenido) en la plataforma. No se le permite desviar a los usuarios a otros sitios, ni se le permite tener visibles sus accesorios. Permitimos los siguientes enlaces solo en marcas de agua: - onlyfans - chaturbate - pornhub - youporn - xhamster - manyvids - fancentro - patreon - camsoda - linktree - sex panther - bodyshots tv - twitter - instagram - reddit - tiktok - snapchat - facebook - linkedin No permitido: - No permitimos logotipos de otros sitios en marcas de agua - No permitimos logotipos de otros sitios en ninguna parte del contenido Si tiene dudas sobre si puede o no vincular a un determinado sitio web o aplicación, no dude en enviarnos un correo electrónico a support@VIDA Tenga en cuenta que el incumplimiento de estas condiciones puede resultar en la suspensión temporal o permanente de la plataforma. Para obtener más información, visite nuestra página de Términos de servicio. Nos reservamos el derecho de cambiar y revisar nuestras políticas cada tres y seis meses para asegurarnos de que esté al tanto de todos los cambios; vuelva a consultarlas con frecuencia. Ya no permitimos la mención de otros sitios en su biografía para continuar protegiendo la integridad de la plataforma; sin embargo, no dudes en compartir tu enlace .sexy en tu biografía, lo que permitirá a los usuarios encontrarte donde quieras."
+  },
+  { "code": "creator.creator.guideline.f.subtitle", "name": "Prohibición permanente" },
+  {
+    "code": "creator.creator.guideline.f.content",
+    "name": "Estamos comprometidos a moderar nuestra plataforma y crear un entorno seguro y agradable tanto para el Creador como para los usuarios. Contamos con un sistema de tres infracciones, mientras que el Creador o usuario recibirá una advertencia por las dos primeras infracciones y se le notificará en la tercera infracción que su cuenta en la plataforma ha sido prohibida permanentemente. Esta es nuestra acción de cumplimiento de infracción más grave. Prohibir permanentemente una cuenta la eliminará de la vista y el creador o usuario no podrá crear cuentas nuevas. Cuando prohibimos permanentemente una cuenta, notificamos al creador o usuario que ha sido baneado debido a dos infracciones anteriores y le explicamos qué política o políticas han violado y el contenido específico que infringió. La violación de la cuenta puede ocurrir cuando un Creador o usuario no cumple con nuestras pautas comunitarias. Se recomienda encarecidamente que, para garantizar el cumplimiento de nuestras pautas, tanto los creadores como los usuarios lean nuestras pautas que se encuentran aquí: https://www.VIDA/support. Si tiene alguna pregunta, comuníquese con support@VIDA."
+  },
+  { "code": "creator.creator.contact.title", "name": "Contacto" },
+  { "code": "creator.creator.contact.a.subtitle", "name": "¿Cómo me comunico con el soporte para creadores?" },
+  {
+    "code": "creator.creator.contact.a.content",
+    "name": "Si tiene alguna pregunta o necesita ayuda para ser un Creador en el sitio, puede contactarnos a través de: Soporte para creadores: Chatea con nosotros Enviándonos un correo electrónico"
+  },
+  { "code": "creator.creator.delAccount.title", "name": "Eliminar su cuenta" },
+  { "code": "creator.creator.delAccount.a.subtitle", "name": "Eliminar su cuenta" },
+  {
+    "code": "creator.creator.delAccount.a.content",
+    "name": "Elimina tu cuenta yendo a configuración – eliminar cuenta. Tenga en cuenta que eliminar su cuenta es un proceso irreversible y todos sus datos se eliminarán permanentemente de acuerdo con nuestra Política de Privacidad. El proceso puede tardar hasta 36 horas en completarse."
+  },
+  { "code": "creator.creator.delAccount.b.subtitle", "name": "¿Qué pasa con sus ganancias?" },
+  {
+    "code": "creator.creator.delAccount.b.content",
+    "name": "Cuando elimina su cuenta y sus ganancias superan el monto mínimo de pago, organice un pago a través del método designado antes de cerrar su cuenta. Si le deben menos de $50: No podemos completar una transferencia bancaria debido a las restricciones impuestas por nuestras contrapartes bancarias. Podemos transferir sus fondos a través de Paxum, menos la tarifa de transferencia. Tenga en cuenta que la identidad conectada a su correo electrónico de Paxum debe coincidir con su información de registro KYC."
+  },
+  { "code": "creator.creator.menu.title", "name": "Función de menú de tienda" },
+  { "code": "creator.creator.menu.a.subtitle", "name": "¿Cuál es la nueva característica de la tienda?" },
+  {
+    "code": "creator.creator.menu.a.content",
+    "name": "Esta nueva e interesante característica permite a los creadores tener artículos de tienda personalizados para que los usuarios los compren. Estarán disponibles para que los usuarios los compren directamente desde el feed principal o la tienda del creador. Los elementos del menú disponibles para la tienda son: Calificación de imagen de pene Video personalizado: contenido, duración y precio acordados con el creador Nombre en el cuerpo: imagen o video Cosplay/disfraz: imagen o video Instrucciones para masturbarse (JOI): video Videos de vacaciones: cumpleaños, Día de San Valentín, Navidad, despedida de soltero. Invítame: el usuario envía dinero al creador a cambio de un regalo, p. pedicura y creador devuelve la foto"
+  },
+  { "code": "creator.creator.menu.b.subtitle", "name": "¿Cómo configuro esto?" },
+  {
+    "code": "creator.creator.menu.b.content",
+    "name": "Esto se puede hacer fácilmente a través de su perfil. Para crear un artículo, simplemente vaya a su tienda y seleccione la plantilla correspondiente. Una vez que se haya ingresado la información (por ejemplo, descripción, precio, imagen) y revisada, se agregará a su tienda y al feed principal. Los artículos se pueden actualizar en cualquier momento seleccionando la opción editar artículo de la tienda."
+  },
+  { "code": "creator.creator.menu.c.subtitle", "name": "¿Cómo sé que un usuario ha comprado un artículo?" },
+  {
+    "code": "creator.creator.menu.c.content",
+    "name": "Los creadores recibirán un mensaje directo informándoles que un usuario ha comprado el artículo."
+  },
+  { "code": "creator.creator.menu.d.subtitle", "name": "¿Puedo utilizar cualquier medio para cumplir con el pedido?" },
+  {
+    "code": "creator.creator.menu.d.content",
+    "name": "Puede enviar fotos, videos, mensajes de texto de chat para cumplir con los requisitos, solo recuerde \"marcar como entregado\" una vez completado."
+  },
+  { "code": "creator.creator.menu.e.subtitle", "name": "Si es necesario, ¿qué medios me puede enviar un usuario?" },
+  { "code": "creator.creator.menu.e.content", "name": "Un usuario puede enviarte videos o fotos." },
+  { "code": "creator.creator.menu.f.subtitle", "name": "¿Qué pasa si no quiero cumplir con la solicitud?" },
+  {
+    "code": "creator.creator.menu.f.content",
+    "name": "Si no responde y entrega la solicitud dentro de las 72 horas, el pedido se cancelará y el usuario recibirá un reembolso."
+  },
+  { "code": "creator.creator.menu.g.subtitle", "name": "¿Puedo retirar artículos de la tienda?" },
+  {
+    "code": "creator.creator.menu.g.content",
+    "name": "Sí, puedes desactivar artículos de tu tienda en cualquier momento."
+  },
+  { "code": "dmca.dmca.info.title", "name": "Cómo denunciar una infracción de derechos de autor" },
+  {
+    "code": "dmca.dmca.info.content",
+    "name": "VIDA (el “Sitio”) respeta los derechos de propiedad intelectual de otros y espera que sus usuarios hagan lo mismo. VIDA ha implementado una política para deshabilitar y/o cancelar las cuentas de los usuarios que infrinjan repetidamente o sean acusados ​​repetidamente de infringir los derechos de autor u otros derechos de propiedad intelectual de otros. Copias de nuestra Política de infractores reincidentes están disponibles para los suscriptores previa solicitud por escrito. Aunque nuestra empresa tiene su sede fuera de los Estados Unidos y no se rige por las leyes de los Estados Unidos, respetamos los derechos de los propietarios de derechos de autor y, por lo tanto, hemos implementado ciertas políticas en un esfuerzo. cumplir voluntariamente con leyes como la Ley de Derechos de Autor del Milenio Digital. No obstante, nuestra Compañía se reserva todos los derechos y objeciones a la aplicación formal de las leyes de los Estados Unidos a sus operaciones. De acuerdo con la Ley de Derechos de Autor del Milenio Digital de 1998, VIDA responderá rápidamente a los reclamos de infracción de derechos de autor cometidos por terceros. utilizando el Sitio que se informan al agente DMCA designado de VIDA (“Agente designado”), identificado a continuación. Si usted es propietario de derechos de autor o está autorizado a actuar en nombre de uno, informe las supuestas infracciones de derechos de autor que tienen lugar en o a través de el Sitio completando un aviso DMCA de presunta infracción y entregándolo al Agente Designado de VIDA. Al recibir el aviso como se describe a continuación, VIDA tomará cualquier acción, a su entera discreción, que considere apropiada, incluida la eliminación del material cuestionado del Sitio. Si desea eliminar contenido relacionado con cuestiones no relacionadas con derechos de autor, como como privacidad, abuso, acoso, contenido inapropiado o ilegal, etc., utilice este formulario. Puede presentar una solicitud DMCA completando el formulario DMCA."
+  },
+  { "code": "dmca.dmca.notice.title", "name": "Aviso de infracción reclamada" },
+  {
+    "code": "dmca.dmca.notice.content",
+    "name": "Si cree que su trabajo ha sido copiado de una manera que constituye una infracción de derechos de autor, proporcione a nuestro Agente designado (identificado a continuación) la siguiente información: Una firma electrónica o física de la persona autorizada para actuar en nombre del propietario de los derechos de autor. u otro interés de propiedad intelectual; Una descripción del trabajo protegido por derechos de autor u otra propiedad intelectual que usted afirma que se ha infringido; Una descripción de dónde se encuentra en el Sitio el material que usted afirma que está infringiendo (preferiblemente incluyendo URL específicas asociadas con el material); Su dirección, número de teléfono y dirección de correo electrónico; Una declaración suya de que cree de buena fe que el uso en disputa no está autorizado por el propietario de los derechos de autor, su agente o la ley; y Una declaración suya, hecha bajo pena de perjurio, de que la información anterior en su notificación es precisa y que usted es el propietario de los derechos de autor o de la propiedad intelectual o está autorizado a actuar en nombre del propietario de los derechos de autor o de la propiedad intelectual. Puede enviar su Aviso de Infracción reclamada (“Aviso”) a nuestro agente designado de DMCA: Lawrence G. Walters, Esq.Walters Law Group195 W. Pine Ave.Longwood, FL 32750-4104 Fax: (407)-774-6151 Correo electrónico: copyright@VIDA Por favor no envíe otras consultas o información a nuestro Agente Designado. Sin permiso expreso previo, nuestro Agente Designado no está autorizado a aceptar o renunciar al servicio de un proceso legal formal, y se rechaza expresamente cualquier relación de agencia más allá de la requerida para aceptar Avisos DMCA válidos. Su aviso e información se enviarán a los usuarios relacionados. ). Si no desea que se reenvíe su información, utilice nuestro formulario de eliminación de privacidad."
+  },
+  { "code": "dmca.dmca.contact.title", "name": "Contáctenos" },
+  {
+    "code": "dmca.dmca.contact.content",
+    "name": "Para cualquier otra consulta, comuníquese con nosotros a support@VIDA. Puede encontrar más información sobre los requisitos de notificación y eliminación en la DMCA, aquí. Notificación de abuso: Abusar de los procedimientos de notificación de la DMCA establecidos anteriormente o tergiversar hechos en una Notificación de la DMCA o Contranotificación, puede resultar en responsabilidad legal por daños, costos judiciales y honorarios de abogados según la ley federal. Véase 17 U.S.C. § 512(f). Estos procedimientos de notificación y eliminación solo se aplican a reclamos de infracción de derechos de autor por parte de los titulares de derechos de autor y sus agentes, no a ningún otro tipo de abuso, infracción o reclamo legal. Investigaremos y tomaremos medidas contra cualquier persona que abuse del procedimiento de notificación o contranotificación de la DMCA. Asegúrese de cumplir con todos los requisitos legales antes de enviar un aviso DMCA a nuestro agente designado."
+  },
+  { "code": "dmca.dmca.procedure.title", "name": "Procedimiento de retirada" },
+  {
+    "code": "dmca.dmca.procedure.content",
+    "name": "Este Sitio implementa el siguiente procedimiento de \"notificación y eliminación\" al recibir cualquier notificación de presunta infracción de derechos de autor. El Sitio se reserva el derecho en cualquier momento de deshabilitar el acceso o eliminar cualquier material o actividad accesible en el Sitio que se afirme que infringe o del cual se desprende una actividad infractora en función de hechos o circunstancias. Es política firme del Sitio cancelar la cuenta de los infractores reincidentes de derechos de autor, cuando corresponda, y el Sitio actuará rápidamente para eliminar el acceso a todo el material que infrinja los derechos de autor de otra persona, de acuerdo con el procedimiento establecido en 17 U.S. C. § 512 de la DMCA. Los Procedimientos de notificación de la DMCA del Sitio se establecen en los párrafos anteriores. Si el Aviso no cumple con el artículo 512 de la DMCA pero sí cumple con tres requisitos para identificar sitios que infringen el artículo 512 de la DMCA, el Sitio intentará contactar o tomar otras medidas razonables para contactar a la parte reclamante para ayudar. esa parte cumpla con los requisitos de notificación. Cuando el Agente Designado reciba una Notificación válida, el Sitio eliminará y/o deshabilitará rápidamente el acceso al material infractor y notificará al usuario afectado. Luego, el usuario afectado puede enviar una contranotificación al Agente Designado que contenga una declaración hecha bajo pena de perjurio de que el usuario cree de buena fe que el material fue eliminado debido a una identificación errónea del material. Después de que el Agente Designado reciba la contranotificación, reemplazará el material en cuestión dentro de diez a catorce (10-14) días después de recibir la contranotificación, a menos que el Agente Designado reciba notificación de que el demandante ha presentado una acción judicial. parte que solicita una orden judicial contra la actividad infractora."
+  },
+  { "code": "dmca.dmca.counterNotification.title", "name": "Procedimiento de contranotificación DMCA" },
+  {
+    "code": "dmca.dmca.counterNotification.content",
+    "name": "Si el Destinatario de una Notificación de Infracción Reclamada cree que la Notificación es errónea o falsa, y/o que el material supuestamente infractor ha sido eliminado incorrectamente de acuerdo con los procedimientos descritos anteriormente, el Destinatario puede presentar una contranotificación de conformidad con § 512(g)(2)-(3) de la DMCA. Una contranotificación es el método adecuado para que el Destinatario impugne la eliminación o desactivación de material de conformidad con un Aviso. La información que un Destinatario proporciona en una contranotificación debe ser precisa y veraz, y el Destinatario será responsable de cualquier tergiversación que pueda causar que se presenten reclamos contra el Sitio en relación con las acciones tomadas en respuesta a la contranotificación. Para enviar una contranotificación, proporcione a nuestro Agente designado la siguiente información: Una descripción específica del material que se eliminó o deshabilitó de conformidad con el Aviso; Una descripción de dónde se encontraba el material dentro del Sitio o el contenido (como se define en Acuerdo de Términos de Uso del Sitio) antes de que dicho material fuera eliminado y/o deshabilitado (preferiblemente incluyendo URL específicas asociadas con el material); Una declaración que refleje la creencia del Destinatario de que la eliminación o deshabilitación del material se realizó de manera errónea. Para mayor comodidad, se puede utilizar el siguiente formato: “Juro, bajo pena de perjurio, que creo de buena fe que el proveedor de servicios eliminó o deshabilitó el material al que se hace referencia como resultado de un error o una identificación errónea del material que se va a publicar. eliminado o deshabilitado”.; La dirección física, el número de teléfono y la dirección de correo electrónico del destinatario; y Una declaración de que el Destinatario acepta la jurisdicción del tribunal del Distrito Federal en y para el distrito judicial donde se encuentra el Destinatario, o si el Destinatario está fuera de los Estados Unidos, para cualquier distrito judicial en el que se pueda encontrar el proveedor de servicios, y que el Destinatario aceptará la notificación del proceso por parte de la persona que proporcionó el Aviso, o el agente de esa persona. La notificación por escrito que contenga la información anterior debe firmarse y enviarse a: Lawrence G. Walters, Esq. Walters Law Group 195 W. Pine Ave. Longwood, FL 32750-4104Fax: (407)-774-6151Correo electrónico: copyright@VIDANo envíe otras consultas o información a nuestro agente designado. Sin permiso expreso previo, nuestro Agente Designado no está autorizado a aceptar o renunciar al servicio de un proceso legal formal, y se rechaza expresamente cualquier relación de agencia más allá de la requerida para aceptar Avisos DMCA válidos. Todos los avisos y contranotificaciones de DMCA deben estar escritos en inglés. idioma. Cualquier intento de notificación escrita en idiomas extranjeros o que utilice caracteres extranjeros se considerará no conforme y no se tendrá en cuenta. Después de recibir una queja o contranotificación de la DMCA, nuestro Agente designado la enviará al Sitio, y el Sitio luego proporcionará la contranotificación. notificación al reclamante que envió por primera vez el Aviso original identificando el contenido supuestamente infractor. Posteriormente, dentro de los diez a catorce (10 a 14) días posteriores a la recepción por parte del Sitio de una contranotificación, el Sitio reemplazará o dejará de deshabilitar el acceso al material en disputa. siempre que el Sitio o nuestro Agente Designado no hayan recibido notificación de que el reclamante original ha presentado una acción buscando una orden judicial para impedir que el Destinatario participe en actividades infractoras relacionadas con el material en el sistema o red del Sitio."
+  },
+  { "code": "dmca.dmca.infringer.title", "name": "Política de infractores reincidentes de la DMCA" },
+  { "code": "dmca.dmca.infringer.content", "name": "Puedes ver la política aquí." },
+  { "code": "dmca.dmca.modifications.title", "name": "Modificaciones" },
+  {
+    "code": "dmca.dmca.modifications.content",
+    "name": "El Sitio se reserva el derecho de modificar, alterar o agregar a esta política, y todas las personas afectadas deben consultarla periódicamente para mantenerse al día sobre dichos cambios."
+  },
+  { "code": "dmca.dmca.requests.title", "name": "Solicitudes de servicio al cliente" },
+  {
+    "code": "dmca.dmca.requests.content",
+    "name": "Tenga en cuenta que el Agente designado no está asociado con el Sitio en ninguna otra capacidad, sino que es un abogado de una firma de abogados privada. Las consultas de servicio al cliente, preguntas sobre pagos y solicitudes de cancelación no recibirán respuesta. Todas estas comunicaciones deben dirigirse al departamento de atención al cliente del Sitio."
+  },
+  { "code": "dmca.dmca.language.title", "name": "Idioma" },
+  {
+    "code": "dmca.dmca.language.content",
+    "name": "Esta política fue escrita originalmente en inglés. En la medida en que cualquier versión traducida de esta política entre en conflicto con la versión en inglés, prevalecerá la versión en inglés."
+  },
+  { "code": "dmca.dmca.final", "name": "Última modificación: julio de 2023" },
+  {
+    "code": "dmca.dmca.VIDA",
+    "name": "© 2023 VIDA One A menos que se indique lo contrario. Reservados todos los derechos."
+  },
+  { "code": "pp.pp.info.title", "name": "política de privacidad" },
+  {
+    "code": "pp.pp.info.content",
+    "name": "Esta política de privacidad describe cómo recopilamos, utilizamos y protegemos sus datos personales. Al utilizar el Servicio, usted acepta las prácticas descritas en esta Política, en la medida permitida por la ley."
+  },
+  { "code": "pp.pp.definitions.title", "name": "Definiciones" },
+  { "code": "pp.pp.definitions.table.title.a", "name": "Término" },
+  { "code": "pp.pp.definitions.table.title.b", "name": "La política\"" },
+  { "code": "pp.pp.definitions.table.title.c", "name": "VIDA”, “nosotros” o “nos”" },
+  { "code": "pp.pp.definitions.table.title.d", "name": "El servicio\"" },
+  { "code": "pp.pp.definitions.table.title.e", "name": "\"Usuarios\"" },
+  { "code": "pp.pp.definitions.table.title.f", "name": "“Cumplir con una Obligación Legal”" },
+  { "code": "pp.pp.definitions.table.title.g", "name": "\"EEE\"" },
+  { "code": "pp.pp.definitions.table.title.h", "name": "\"Intereses legítimos\"" },
+  { "code": "pp.pp.definitions.table.title.i", "name": "\"Ejecución de un contrato\"" },
+  { "code": "pp.pp.definitions.table.content.a", "name": "Definición" },
+  {
+    "code": "pp.pp.definitions.table.content.b",
+    "name": "La política de privacidad tal como se describe en este documento."
+  },
+  { "code": "pp.pp.definitions.table.content.c", "name": "Digital VIDA, que cotiza bajo el nombre VIDA." },
+  {
+    "code": "pp.pp.definitions.table.content.d",
+    "name": "El sitio web VIDA, ubicado en VIDA, y cualquier otro sitio web, aplicación o servicio proporcionado, de nuestra propiedad o operado por nosotros que se vincule a esta Política."
+  },
+  {
+    "code": "pp.pp.definitions.table.content.e",
+    "name": "Todos y cada uno de los visitantes, usuarios y otras personas que accedan o utilicen el Servicio."
+  },
+  {
+    "code": "pp.pp.definitions.table.content.f",
+    "name": "Procesar sus datos personales cuando sea necesario para el cumplimiento de una obligación legal a la que estemos sujetos."
+  },
+  {
+    "code": "pp.pp.definitions.table.content.g",
+    "name": "El Espacio Económico Europeo, siendo los estados miembros de la Unión Europea junto con Noruega, Islandia y Liechtenstein."
+  },
+  {
+    "code": "pp.pp.definitions.table.content.h",
+    "name": "Los intereses de nuestro negocio en la realización y gestión de nuestro negocio para permitirnos brindarle la mejor y más segura experiencia al utilizar el Servicio y la funcionalidad relacionada, o los intereses de un tercero. Nos aseguramos de considerar y equilibrar cualquier impacto potencial sobre usted (tanto positivo como negativo) y sus derechos antes de procesar sus datos personales para nuestros intereses legítimos o los de un tercero. No utilizamos sus datos personales para actividades en las que nuestros intereses (o los de terceros relevantes) sean anulados por el impacto en usted (a menos que tengamos su consentimiento o que la ley lo exija o permita lo contrario). Puede obtener más información sobre cómo evaluamos nuestros intereses legítimos y los de cualquier tercero relevante frente a cualquier posible impacto en usted con respecto a actividades específicas comunicándose con nosotros."
+  },
+  {
+    "code": "pp.pp.definitions.table.content.i",
+    "name": "Procesar sus datos cuando sea necesario para la ejecución de un contrato en el que usted es parte o para tomar medidas a petición suya antes de celebrar dicho contrato."
+  },
+  { "code": "pp.pp.termsService.title", "name": "Términos de servicio" },
+  {
+    "code": "pp.pp.termsService.content",
+    "name": "Esta Política forma parte de nuestros Términos de servicio, que describen los términos bajo los cuales brindamos el Servicio."
+  },
+  { "code": "pp.pp.modifications.title", "name": "Modificaciones" },
+  {
+    "code": "pp.pp.modifications.content",
+    "name": "Nos reservamos el derecho de cambiar esta Política en cualquier momento. Si realizamos cambios, se lo notificaremos revisando la fecha en la parte inferior de la Política y, en algunos casos, podremos brindarle un aviso adicional (como agregar una declaración a nuestra página de inicio o enviarle una notificación por correo electrónico). Los cambios a esta Política entran en vigencia en el momento en que se publican. Su uso continuado del Servicio después de la fecha de vigencia de la Política revisada constituye su aceptación de las políticas."
+  },
+  { "code": "pp.pp.collectYou.title", "name": "Información personal que recopilamos sobre usted" },
+  {
+    "code": "pp.pp.collectYou.content",
+    "name": "Obtenemos información sobre usted a través de los medios que se describen a continuación cuando brindamos el Servicio. Tenga en cuenta que necesitamos ciertos tipos de información para poder brindarle el Servicio. Si no nos proporciona dicha información, o si nos solicita que la eliminemos, es posible que ya no pueda acceder o utilizar el Servicio o determinadas funciones. Información que usted proporciona a URecopilamos información: (1) usted nos proporciona directamente , como su imagen (en cualquier contenido que cargue), nombre de usuario y dirección de correo electrónico cuando se registra en el Servicio (y para los Creadores, otra información determinada, que incluye, entre otros, nombre, fecha de nacimiento y (cuando corresponda) fotografía emitida por el gobierno. identificación y fotografía); (2) cuando carga, compra, ve o descarga cierto contenido o productos del Servicio; o (3) cuando utiliza las características y funcionalidades del Servicio. Información que recopilamos automáticamente. Utilizamos diversas tecnologías para recopilar información, y esto puede incluir cookies y balizas web. Las cookies son pequeños archivos de datos almacenados en su disco duro o en la memoria de su dispositivo. Las balizas web (también conocidas como “píxeles de seguimiento”) son imágenes electrónicas no visibles. Para obtener información sobre qué son las cookies, cómo funcionan, cómo las usa VIDA y cómo eliminarlas, consulte nuestra Política de cookies. Ejemplos de dicha información que recopilamos automáticamente incluyen el tipo de dispositivo que utiliza, los tiempos de acceso y la ubicación general. información de su proveedor de servicios de Internet en función de su dirección IP, información sobre su uso del Servicio y la página que visitó antes de navegar a nuestro Servicio. Estas tecnologías se utilizan con fines analíticos y de mejora del producto, como ver qué áreas y características del Los servicios son populares y determinan si un correo electrónico se ha abierto y se ha actuado en consecuencia. Información de otra fuente Podemos obtener información adicional, como información demográfica y estadística, de terceros y fuentes distintas al Servicio, como anunciantes o redes sociales (como Twitter) para que ha aprobado nuestro acceso. Cuando accede al Servicio a través de redes sociales o cuando conecta el Servicio a redes sociales, autoriza a VIDA a recopilar, almacenar y utilizar dicha información y contenido adicional de acuerdo con esta Política. Si combinamos o asociamos información de otras fuentes con información que recopilamos a través del Servicio, trataremos la información combinada de acuerdo con esta Política"
+  },
+  { "code": "pp.pp.usePersonalInfo.title", "name": "Cómo utilizamos la información personal" },
+  {
+    "code": "pp.pp.usePersonalInfo.content",
+    "name": "Podemos utilizar información sobre usted para diversos fines, pero sólo cuando la ley nos lo permita. Por lo general, utilizaremos sus datos personales en las siguientes circunstancias: (1) cuando lo necesitemos para la ejecución de un contrato; (2) cuando sea necesario para nuestros Intereses Legítimos (o los de un tercero) y sus intereses y derechos fundamentales no prevalezcan sobre esos intereses; (3) cuando necesitemos Cumplir con una Obligación Legal. Generalmente, no nos basamos en el consentimiento como base legal para procesar sus datos personales, aunque obtendremos su consentimiento antes de enviarle comunicaciones de marketing directo de terceros por correo electrónico o mensaje de texto. Tiene derecho a retirar su consentimiento para el marketing en cualquier momento comunicándose con nosotros. VIDA utiliza dicha información para: (1) operar, mantener, mejorar, proporcionar, crear y desarrollar todas las características, funcionalidades y servicios (nuevos o existente) que se encuentra en el Servicio; (2) proporcionar seguridad para nuestros sitios web, productos, software o aplicaciones; (3) gestionar las relaciones con los titulares de cuentas de VIDA (por ejemplo, socios, afiliados), incluido realizar o recibir pagos; (4) mejorar la experiencia de los Usuarios con VIDA proporcionando recomendaciones de contenido y entregando contenido que esperamos que los Usuarios encuentren relevante e interesante, incluidos mensajes publicitarios y de marketing; (5) prevenir el fraude y el abuso; y (6) comprender las tendencias de uso de nuestros Usuarios. Usamos su dirección de correo electrónico para comunicarnos con usted, incluso para notificarle sobre actualizaciones importantes del Servicio, con fines de servicio al cliente o para contactarlo con respecto a cualquier contenido que haya publicado o descargado. del Servicio. VIDA puede enviarle periódicamente notificaciones promocionales relacionadas con el Servicio si se ha registrado con nosotros o nos ha solicitado información y no ha optado por no recibir ese marketing. Puede optar por no recibir nuestras comunicaciones promocionales en la configuración de su cuenta una vez que haya iniciado sesión en el Servicio o seguir las instrucciones para cancelar la suscripción que se encuentran en la parte inferior de cualquier correo electrónico o mensaje de texto nuestro. Si opta por no participar, es posible que aún le enviemos comunicaciones no promocionales, como aquellas sobre su cuenta. Obtendremos su consentimiento antes de compartir sus datos personales con terceros con fines de marketing. En ciertos casos, tenemos la obligación legal de recopilar y procesar su información personal (como nuestra obligación de compartir datos con las autoridades fiscales). También podemos solicitar su consentimiento para procesar su información personal para un propósito específico que le comunicamos. Cuando usted acepta que procesemos su información personal para un propósito específico, puede retirar su consentimiento en cualquier momento y dejaremos de procesar sus datos para ese propósito. VIDA se basará en fundamentos legales para procesar su información personal en la medida en que permitido por la ley aplicable, que puede incluir, entre otros: cumplir compromisos contractuales, tomar medidas antes de celebrar un contrato, cumplir obligaciones legales, su consentimiento y el interés legítimo de VIDA."
+  },
+  { "code": "pp.pp.changePurpose.title", "name": "Cambio de Propósito" },
+  {
+    "code": "pp.pp.changePurpose.content",
+    "name": "Solo usaremos sus datos personales para los fines para los que los recopilamos, a menos que consideremos razonablemente que necesitamos usarlos por otro motivo y ese motivo sea compatible con el propósito original. Si desea una explicación sobre cómo el procesamiento para el nuevo propósito es compatible con el propósito original, comuníquese con nosotros. Si necesitamos utilizar su información personal para un propósito no relacionado, se lo notificaremos y le explicaremos la base legal. lo que nos permite hacerlo. Tenga en cuenta que podemos procesar sus datos personales sin su conocimiento o consentimiento, de conformidad con las reglas anteriores, cuando sea para cumplir con una obligación legal."
+  },
+  { "code": "pp.pp.disclose.title", "name": "Cuando divulgamos información personal" },
+  {
+    "code": "pp.pp.disclose.content",
+    "name": "Es posible que deba registrar una cuenta para acceder a ciertas funciones del Servicio. Usted acepta mantener la confidencialidad de su contraseña y será responsable de todo uso, actividad y compras realizadas en el Servicio a través de su cuenta. Nos reservamos el derecho de eliminar, reclamar o cambiar el nombre de usuario que seleccione si determinamos, a nuestro exclusivo criterio, que dicho nombre de usuario es inapropiado, obsceno o de otro modo objetable. A menos que VIDA lo permita expresamente por escrito, no podrá vender , alquilar, arrendar, compartir o proporcionar acceso a su cuenta a cualquier otra persona. VIDA se reserva todos los derechos y recursos legales disponibles para evitar el uso no autorizado del Servicio, incluidos, entre otros, barreras tecnológicas, mapeo de IP y, en casos graves, comunicarse directamente con su proveedor de servicios de Internet (ISP) con respecto a dicho uso no autorizado. En la medida en que usted cree voluntariamente un perfil de Usuario para participar en ciertos servicios selectos que ofrecemos, otros Usuarios registrados a través del Servicio podrán buscar su perfil (y su contenido). Del mismo modo, es posible que los motores de búsqueda disponibles públicamente puedan buscar en su perfil (y su contenido)."
+  },
+  { "code": "pp.pp.usersIn.title", "name": "Usuarios en el Reino Unido, el EEE o Suiza" },
+  {
+    "code": "pp.pp.usersIn.content",
+    "name": "Si se encuentra en el Reino Unido, el EEE o Suiza, debe saber que VIDA es el controlador de su información personal. Solicitudes de interesados ​​En determinadas circunstancias, como interesado, tiene derecho a solicitar acceso a los datos personales que tenemos sobre usted y solicitar que sus datos personales sean corregidos, eliminados o transferidos. También puede tener derecho a objetar o solicitar que restrinjamos cierto procesamiento. Si desea ejercer cualquiera de estos derechos, puede comunicarse con nosotros como se indica a continuación. Su derecho a solicitar acceso le da derecho a solicitar una copia de los datos personales que tenemos sobre usted y verificar que los estamos procesando legalmente. Su derecho solicitar la corrección de sus datos personales que tenemos le permite corregir datos incompletos o inexactos, aunque es posible que necesitemos verificar la exactitud de los nuevos datos que nos proporciona. El derecho a solicitar la eliminación de sus datos personales le da derecho a solicitar que eliminemos o eliminemos datos personales cuando no exista una buena razón para que sigamos procesándolos. También tiene derecho a solicitarnos que eliminemos o eliminemos sus datos personales cuando haya ejercido con éxito su derecho a oponerse al procesamiento (ver más abajo) , donde es posible que hayamos procesado su información ilegalmente o donde se nos solicite borrar sus datos personales para cumplir con la ley local. Sin embargo, tenga en cuenta que es posible que no siempre podamos cumplir con su solicitud de eliminación por razones legales específicas que se le notificarán, si corresponde, en el momento de su solicitud. Puede oponerse al procesamiento de sus datos personales en la medida en que ya que basamos el procesamiento de sus datos personales en intereses legítimos y hay algo en su situación particular que le hace querer oponerse al procesamiento por este motivo, ya que considera que afecta sus derechos y libertades fundamentales. Si desea hacerlo, le rogamos que nos explique los motivos de la objeción. Si su objeción está justificada, interrumpiremos o adaptaremos el procesamiento de datos o le explicaremos por qué tenemos motivos legítimos imperiosos para continuar procesando sus datos personales a pesar de su objeción. Por supuesto, puede oponerse al procesamiento de sus datos personales con fines publicitarios y de datos. fines de análisis en cualquier momento. Usted podrá solicitar la restricción del procesamiento de sus datos personales. Esto le da derecho a solicitarnos que suspendamos el procesamiento de sus datos personales en los siguientes escenarios: si desea que establezcamos la exactitud de los datos; cuando nuestro uso de los datos sea ilegal pero no desee que los borremos; cuando necesite conservar los datos incluso si ya no los necesitamos, ya que usted los necesita para establecer, ejercer o defender reclamos legales; usted se ha opuesto a nuestro uso de sus datos, pero debemos verificar si tenemos motivos legítimos imperiosos para usarlos. podrá solicitar la transferencia de sus datos personales a usted o a un tercero. En este caso, le proporcionaremos a usted, o a un tercero que usted haya elegido, sus datos personales en un formato estructurado, de uso común y legible por máquina. Tenga en cuenta que este derecho solo se aplica a la información automatizada para la cual usted inicialmente nos dio su consentimiento para usar o donde usamos la información para ejecutar un contrato con usted. Como se mencionó anteriormente, generalmente no confiamos en el consentimiento para procesar sus datos personales. Si lo hacemos, podrá retirar su consentimiento en cualquier momento (aunque esto no afectará la legalidad de cualquier procesamiento realizado antes de que retirara su consentimiento). Si retira su consentimiento, es posible que no podamos brindarle ciertos servicios. Le informaremos si este es el caso en el momento en que retire su consentimiento. No tendrá que pagar ninguna tarifa para ejercer cualquiera de los derechos anteriores. Sin embargo, podemos cobrar una tarifa razonable si su solicitud es claramente infundada, repetitiva o excesiva. Alternativamente, podríamos negarnos a cumplir con su solicitud en estas circunstancias. Es posible que necesitemos solicitarle información específica para ayudarnos a confirmar su identidad a fin de responder a cualquier ejercicio de los derechos anteriores. Esta es una medida de seguridad para garantizar que los datos personales no sean revelados a ninguna persona que no tenga derecho a recibirlos. También podemos comunicarnos con usted para pedirle más información en relación con su solicitud para acelerar nuestra respuesta. Intentamos responder a todas las solicitudes legítimas dentro de un mes. En ocasiones, podría llevarnos más de un mes si su solicitud es particularmente compleja o si ha realizado varias solicitudes. En este caso, le notificaremos y le mantendremos informado. Transferencias internacionales de datos Podemos recopilar su información personal, transferirla, almacenarla y procesarla en otros países fuera de donde usted vive. Si proporcionamos información sobre usted a dichas entidades, tomaremos las medidas adecuadas para garantizar que dichas empresas protejan su información de acuerdo con esta Política y la ley aplicable. Si se encuentra en el Reino Unido o el EEE y transferimos sus datos personales fuera del EEE, nos aseguramos de que se aplique un grado similar de protección implementando al menos una de las siguientes salvaguardas: Solo transferiremos sus datos personales a países que tengan La Comisión Europea ha considerado que proporciona un nivel adecuado de protección de datos personales. Cuando utilizamos ciertos proveedores de servicios, podemos utilizar contratos específicos aprobados por la Comisión Europea que brindan a los datos personales la misma protección que en Europa. Por favor contáctenos si desea obtener más información sobre el mecanismo específico utilizado al transferir sus datos fuera del EEE. Quejas Si reside en la UE y en otras jurisdicciones, tiene la opción de presentar una queja contra el procesamiento de sus datos personales ante el autoridad de control competente. Sin embargo, apreciaríamos la oportunidad de abordar sus inquietudes antes de que se acerque a la autoridad supervisora, así que contáctenos en primera instancia. Sus opciones Puede negarse a compartir cierta información con VIDA, en cuyo caso VIDA no podrá hacerlo. proporcionarle algunas de las características y funcionalidades que se encuentran en el Servicio. Si ha creado una cuenta VIDA, es posible que pueda actualizar la información de su perfil y sus preferencias o solicitar desactivar su cuenta. Para solicitudes para revisar, actualizar, eliminar o limitar de otro modo el uso que hace VIDA de la información que usted ha proporcionado directamente a VIDA, puede comunicarse con support@VIDA. En su solicitud, incluya su dirección de correo electrónico y su nombre de usuario y especifique todos los antecedentes relevantes. Para proteger su privacidad y seguridad, podemos tomar medidas para verificar su identidad antes de otorgarle acceso o realizar correcciones a su información. Usted es responsable de mantener en secreto su contraseña única y la información de su cuenta en todo momento."
+  },
+  { "code": "pp.pp.accountDeletion.title", "name": "Eliminación de cuenta" },
+  {
+    "code": "pp.pp.accountDeletion.content",
+    "name": "Si desea eliminar su cuenta, puede indicarnos que lo hagamos contactándonos en support@VIDA. Si elimina su cuenta, VIDA puede retener cierta información sobre usted para las actividades descritas en esta Política, o según lo permita o requiera la ley aplicable."
+  },
+  { "code": "pp.pp.thirdParty.title", "name": "Servicios y sitios web de terceros" },
+  {
+    "code": "pp.pp.thirdParty.content",
+    "name": "Si se conecta a un servicio de terceros (como Twitter u otro tercero) a través del Servicio o vincula de otro modo su cuenta VIDA con un servicio de terceros, nos solicita y nos autoriza a compartir o otorgar acceso a la información. en su nombre (como su nombre de usuario, el hecho de que su conexión se originó desde el Servicio y otra información relevante de uso y diagnóstico) con dicho tercero. El Servicio puede incluir enlaces a sitios web, complementos y aplicaciones de terceros. Hacer clic en esos enlaces o habilitar esas conexiones puede permitir que terceros recopilen o compartan datos sobre usted. No controlamos estos sitios web de terceros y no somos responsables de sus declaraciones de privacidad. Cuando abandone el Servicio, le recomendamos que lea la política de privacidad de cada sitio web que visite."
+  },
+  { "code": "pp.pp.retention.title", "name": "Retención de su información" },
+  {
+    "code": "pp.pp.retention.content",
+    "name": "VIDA solo conservará sus datos personales durante el tiempo necesario para cumplir con los fines relevantes descritos en esta Política, según lo exija (o permita) la ley (por ejemplo, con fines regulatorios, impositivos, contables y de presentación de informes), o como comunicado de otro modo a usted. Podemos conservar sus datos personales durante un período más largo en caso de una queja o si creemos razonablemente que existe una posibilidad de litigio con respecto a nuestra relación con usted. Para determinar el período de retención apropiado para los datos personales, consideramos la cantidad, naturaleza y sensibilidad de los datos personales, el riesgo potencial de daño por el uso o divulgación no autorizados de sus datos personales, los fines para los cuales procesamos sus datos personales y si podemos lograr estos fines a través de otros medios, y las leyes y regulaciones aplicables. , fiscales, contables u otros requisitos. Por ley, a efectos fiscales, tenemos que conservar información básica sobre nuestros clientes (incluidos datos de contacto, de identidad, financieros y de transacciones) durante seis años después de que dejen de ser clientes. En algunas circunstancias, puede solicitar que eliminemos sus datos (consulte las secciones Eliminación de cuenta y Solicitudes de interesados, más arriba). Una vez que nos haya solicitado que eliminemos su cuenta, eliminaremos toda la información que la ley no nos exige ni nos permite conservar. En algunas circunstancias, anonimizaremos sus datos personales (para que ya no puedan asociarse con usted) para investigaciones. o fines estadísticos, en cuyo caso podremos utilizar esta información indefinidamente sin previo aviso."
+  },
+  { "code": "pp.pp.mergerSale.title", "name": "Fusión o Venta" },
+  {
+    "code": "pp.pp.mergerSale.content",
+    "name": "Nos reservamos el derecho de transferir o asignar la información que hemos recopilado de los Usuarios en relación con cualquier transacción de cambio de propiedad contemplada, incluida, entre otras, cualquier fusión, adquisición, venta de acciones o activos relacionados con el Servicio, reorganización corporativa o otro evento de cambio de control, incluso en el curso de la diligencia, siempre que el cesionario o cesionario estará obligado a tratar la información transferida o asignada de acuerdo con esta Política."
+  },
+  { "code": "pp.pp.minors.title", "name": "Menores" },
+  {
+    "code": "pp.pp.minors.content",
+    "name": "VIDA no recopila, utiliza ni divulga intencionalmente información de Usuarios que no tengan al menos 18 años o la mayoría de edad legal en su jurisdicción de residencia, lo que sea mayor. Nuestro Servicio está destinado únicamente a adultos y no está dirigido a menores. Si cree que hemos recopilado información personal de un menor, contáctenos en support@VIDA."
+  },
+  { "code": "pp.pp.track.title", "name": "No rastrear" },
+  {
+    "code": "pp.pp.track.content",
+    "name": "El Servicio no está diseñado para responder a señales de \"no seguimiento\" enviadas por algunos navegadores."
+  },
+  { "code": "pp.pp.contact.title", "name": "Contacto" },
+  {
+    "code": "pp.pp.contact.content",
+    "name": "Las preguntas o inquietudes relacionadas con estos Términos pueden dirigirse a support@VIDA. Tenga en cuenta que las comunicaciones por correo electrónico no necesariamente serán seguras; en consecuencia, no debe incluir información de tarjeta de crédito u otra información confidencial en su correspondencia por correo electrónico con nosotros. Las consultas sobre facturación deben dirigirse a billing@VIDA"
+  },
+  { "code": "pp.pp.miscellaneous.title", "name": "Misceláneas" },
+  {
+    "code": "pp.pp.miscellaneous.content",
+    "name": "Estos Términos no crean, ni se interpretarán como que crean, ninguna relación de asociación, empresa conjunta, empleador-empleado, agencia o franquiciador-franquiciado entre usted y VIDA. Si se determina que alguna disposición de estos Términos es ilegal, nula o inaplicable por cualquier motivo, esa disposición se considerará separable de estos Términos y no afectará la validez y aplicabilidad de cualquier disposición restante. No puede ceder, transferir ni sublicenciar ninguno o todos sus derechos u obligaciones en virtud de estos Términos sin nuestro consentimiento previo expreso por escrito. Podemos asignar, transferir o sublicenciar cualquiera o todos nuestros derechos u obligaciones bajo estos Términos sin restricción. Ninguna renuncia por cualquiera de las partes a cualquier incumplimiento o incumplimiento en virtud del presente se considerará una renuncia a cualquier incumplimiento o incumplimiento anterior o posterior. Cualquier encabezado, subtítulo o título de sección contenido en este documento se inserta solo por una cuestión de conveniencia y de ninguna manera define ni explica ninguna sección o disposición del mismo. Esto, junto con todas las políticas mencionadas en este documento, es el acuerdo completo entre usted y VIDA en relación con el tema aquí tratado y reemplaza todos y cada uno de los acuerdos o entendimientos escritos u orales anteriores o contemporáneos entre usted y VIDA en relación con dicho tema. asunto. Las notificaciones pueden realizarse mediante publicación en el Servicio, por correo electrónico o por correo postal, a discreción de VIDA. El Servicio también puede proporcionar avisos de cambios a estos Términos u otros asuntos mostrando dichos avisos o proporcionando enlaces a dichos avisos. Sin limitación, usted acepta que una versión impresa de estos Términos y de cualquier notificación dada en formato electrónico será admisible en procedimientos judiciales o administrativos basados ​​en estos Términos o relacionados con ellos en la misma medida y sujeto a las mismas condiciones que otros documentos comerciales y registros originalmente generados y mantenidos en forma impresa. VIDA no será responsable del incumplimiento de cualquier obligación debido a causas fuera de su control."
+  },
+  { "code": "pp.pp.language.title", "name": "Idioma" },
+  {
+    "code": "pp.pp.language.content",
+    "name": "Estos Términos fueron escritos originalmente en inglés. En la medida en que cualquier versión traducida de estos Términos entre en conflicto con la versión en inglés, prevalecerá la versión en inglés. Última modificación: julio de 2023 © 2023 VIDA a menos que se indique lo contrario. Reservados todos los derechos."
+  },
+  { "code": "pp.pp.final", "name": "Última modificación: julio de 2023" },
+  {
+    "code": "pp.pp.VIDA",
+    "name": "© 2023 VIDA One A menos que se indique lo contrario. Reservados todos los derechos."
+  },
+  { "code": "support.faq.account.title", "name": "Cuenta" },
+  { "code": "support.faq.account.a.subtitle", "name": "Olvidé mi contraseña" },
+  {
+    "code": "support.faq.account.a.content",
+    "name": "Vaya a la pantalla de inicio de sesión y haga clic en \"olvidé\" en el campo de contraseña. Si ya no recuerda su dirección de correo electrónico, comuníquese con support@VIDA"
+  },
+  { "code": "support.faq.account.b.subtitle", "name": "¿Cómo puedo eliminar mi cuenta?" },
+  {
+    "code": "support.faq.account.b.content",
+    "name": "Tenga en cuenta que eliminar su cuenta es un proceso irreversible y todos sus datos se eliminarán permanentemente de acuerdo con nuestra Política de Privacidad."
+  },
+  { "code": "support.faq.features.title", "name": "Características" },
+  { "code": "support.faq.features.a.subtitle", "name": "¿Por qué debería suscribirme?" },
+  {
+    "code": "support.faq.features.a.content",
+    "name": "Como suscriptor, recibe contenido altamente personalizado en su cuenta según las categorías y los creadores que ha seguido y a los que se ha suscrito en VIDA. ¡No solo obtienes acceso al contenido privado de un Creador, sino que también tienes la oportunidad exclusiva de conectarte, enviar mensajes directos y tener una conversación con ellos!"
+  },
+  { "code": "support.faq.features.b.subtitle", "name": "¿Cómo envío contenido a un creador?" },
+  {
+    "code": "support.faq.features.b.content",
+    "name": "Los suscriptores pueden compartir medios con los creadores. El contenido debe cumplir con las pautas de la comunidad. Cuando envíes un mensaje a un creador, todo lo que necesitas hacer es presionar el botón del clip al lado del cuadro de chat y cargar tu foto o video desde tu dispositivo."
+  },
+  {
+    "code": "support.faq.features.c.subtitle",
+    "name": "¿Se guarda el contenido en el perfil del usuario para futuras cargas?"
+  },
+  {
+    "code": "support.faq.features.c.content",
+    "name": "No, el contenido no se guardará. El contenido deberá cargarse desde su dispositivo cada vez que desee enviárselo a un creador."
+  },
+  {
+    "code": "support.faq.features.d.subtitle",
+    "name": "¿El usuario o el creador pueden eliminar el contenido de un hilo de mensajes?"
+  },
+  {
+    "code": "support.faq.features.d.content",
+    "name": "No se puede eliminar ningún contenido del hilo en este momento."
+  },
+  { "code": "support.faq.features.e.subtitle", "name": "¿Qué pasa si el contenido es de naturaleza ofensiva?" },
+  {
+    "code": "support.faq.features.e.content",
+    "name": "Los creadores pueden denunciar cualquier contenido que se les envíe y tomaremos las medidas adecuadas."
+  },
+  { "code": "support.faq.contact.title", "name": "Contacto" },
+  { "code": "support.faq.contact.a.subtitle", "name": "¿Cómo me comunico con el soporte técnico de VIDA?" },
+  {
+    "code": "support.faq.contact.a.content",
+    "name": "Siempre estaremos encantados de ayudarle con sus consultas. Para ponerse en contacto con nosotros directamente, utilice los enlaces y la información de contacto a continuación: Soporte general y de sitio web: support@VIDA Soporte de facturación: support@VIDA o visite https: //www.VIDA (solo facturación)"
+  },
+  { "code": "support.faq.about.title", "name": "Acerca de VIDA" },
+  { "code": "support.faq.about.a.subtitle", "name": "¿Qué es VIDA?" },
+  {
+    "code": "support.faq.about.a.content",
+    "name": "VIDA es una plataforma en línea que permite a creadores e influencers de todo el mundo interactuar con sus clientes en un entorno seguro para todas las partes involucradas."
+  },
+  { "code": "support.faq.about.b.subtitle", "name": "¿Cómo comparto comentarios?" },
+  {
+    "code": "support.faq.about.b.content",
+    "name": "VIDA no existiría sin ti, y tu opinión es importante para nosotros. Siempre estamos deseando escuchar sus pensamientos, sugerencias o inquietudes. La forma más sencilla de enviar comentarios es enviando un correo electrónico a support@VIDA"
+  },
+  { "code": "support.faq.menu.title", "name": "Función de menú de tienda" },
+  { "code": "support.faq.menu.a.subtitle", "name": "¿Qué hay disponible en la nueva tienda?" },
+  {
+    "code": "support.faq.menu.a.content",
+    "name": "Los creadores pueden ofrecer cualquiera de las siguientes opciones, verifique los servicios adicionales de la compilación cargada: Calificación de la imagen del pene Video personalizado: contenido, duración y precio acordados con el creador Nombre en el cuerpo: imagen o video Cosplay/disfraz: imagen o video Instrucciones para masturbarse (JOI) - vídeo Vídeos de vacaciones: cumpleaños, día de San Valentín, Navidad, despedida de soltero/a Chico chica o chica chica - vídeo Trátame: el usuario envía dinero al creador a cambio de un regalo, p. pedicura y creador devuelve la foto"
+  },
+  { "code": "support.faq.menu.b.subtitle", "name": "¿Qué pasa si no recibo el contenido por el que pagué?" },
+  {
+    "code": "support.faq.menu.b.content",
+    "name": "Todas las solicitudes deben cumplirse dentro de las 72 horas y los creadores deben confirmar la entrega de los artículos solicitados. Si la entrega no se completa, procesaremos un reembolso."
+  },
+  { "code": "support.faq.menu.c.subtitle", "name": "¿Pueden los clientes cancelar una solicitud?" },
+  {
+    "code": "support.faq.menu.c.content",
+    "name": "No, la solicitud de un cliente no se puede cancelar; sin embargo, los creadores pueden optar por rechazarla."
+  },
+  { "code": "support.faq.menu.d.subtitle", "name": "¿Qué pasa si necesito denunciar el contenido que he recibido?" },
+  {
+    "code": "support.faq.menu.d.content",
+    "name": "Hay una opción de informe sobre todo el contenido recibido. El contenido debe cumplir con las pautas de la comunidad; por lo tanto, si cree que algún medio infringe estas reglas, puede utilizar la función de informe. Las pautas de contenido incluyen, entre otras: Cualquier medio que muestre signos de discriminación, violencia, actividades forzadas o no consensuadas. Cualquier medio que posiblemente contenga menores de 18 años. Contenido robado/derechos de autor. La persona principal en el medio no coincide con el perfil. Instrucción para suicidio o asesinato. Terrorismo."
+  },
+  { "code": "tos.tos.info.title", "name": "Condiciones de uso" },
+  {
+    "code": "tos.tos.info.content1",
+    "name": "Lea atentamente estos Términos de servicio. Este es un contrato vinculante. Se relaciona con estos servicios. Estos términos se aplican a todos los usuarios. Usted acepta que al registrarse, descargar, acceder o utilizar el servicio, establece un acuerdo legalmente vinculante con VIDA con respecto a su uso del Servicio."
+  },
+  {
+    "code": "tos.tos.info.content2",
+    "name": "Al utilizar los Servicios, cumplirá con la Política de privacidad de VIDA, la Política de cookies de VIDA y otras políticas publicadas o puestas a su disposición en los Servicios, o aplicables a los servicios y funciones específicos que se le revelan. pautas o reglas. Relativos a dichos servicios. Estos términos se aplican a todos los usuarios."
+  },
+  {
+    "code": "tos.tos.info.content3",
+    "name": "Estos términos se aplican a todos los usuarios. Usted acepta que al registrarse, descargar, acceder o utilizar el servicio, usted y VIDA forman un acuerdo legalmente vinculante con respecto a su uso del servicio. Usted reconoce que ha leído, comprendido y aceptado regirse por estos Términos. Si no está de acuerdo con estos Términos, no acceda ni utilice ningún Servicio."
+  },
+  { "code": "tos.tos.definitions.title", "name": "Definiciones" },
+  { "code": "tos.tos.definitions.table.title.a", "name": "Término" },
+  { "code": "tos.tos.definitions.table.title.b", "name": "Los términos\"" },
+  { "code": "tos.tos.definitions.table.title.c", "name": "VIDA”, “nosotros” o “nos”" },
+  { "code": "tos.tos.definitions.table.title.d", "name": "El servicio\"" },
+  { "code": "tos.tos.definitions.table.title.e", "name": "\"Clientes)\"" },
+  { "code": "tos.tos.definitions.table.title.f", "name": "\"Usuario(s)\"" },
+  { "code": "tos.tos.definitions.table.title.g", "name": "\"Creador(es)\"" },
+  { "code": "tos.tos.definitions.table.title.h", "name": "\"Contenido\"" },
+  { "code": "tos.tos.definitions.table.title.i", "name": "\"Créditos\"" },
+  { "code": "tos.tos.definitions.table.content.a", "name": "Definición" },
+  {
+    "code": "tos.tos.definitions.table.content.b",
+    "name": "Estos Términos de servicio como se describen en este documento”."
+  },
+  {
+    "code": "tos.tos.definitions.table.content.c",
+    "name": "VIDA (o VIDA en relación con la facturación) opera bajo el nombre VIDA."
+  },
+  {
+    "code": "tos.tos.definitions.table.content.d",
+    "name": "El sitio web VIDA, ubicado en VIDA, y cualquier otro sitio web, aplicación o servicio proporcionado, de nuestra propiedad o operado por nosotros que se vincule a estos Términos."
+  },
+  {
+    "code": "tos.tos.definitions.table.content.e",
+    "name": "Todos y cada uno de los Usuarios que compran, desbloquean o acceden de otro modo al Contenido puesto a disposición a través del Servicio por los Creadores."
+  },
+  {
+    "code": "tos.tos.definitions.table.content.f",
+    "name": "Todos y cada uno de los visitantes, usuarios y otras personas que accedan o utilicen el Servicio."
+  },
+  {
+    "code": "tos.tos.definitions.table.content.g",
+    "name": "Todos y cada uno de los Usuarios que venden o proporcionan Contenido a través del Servicio a los Clientes."
+  },
+  {
+    "code": "tos.tos.definitions.table.content.h",
+    "name": "Vídeos, imágenes, mensajes, textos, sonidos, aplicaciones, códigos u otros datos o materiales que los Usuarios puedan crear, publicar, transmitir, realizar, almacenar o poner a disposición en el Servicio o a través de él."
+  },
+  {
+    "code": "tos.tos.definitions.table.content.i",
+    "name": "Una moneda virtual utilizada para comprar, desbloquear o acceder de otro modo al Contenido."
+  },
+  { "code": "tos.tos.aboutService.title", "name": "Acerca del servicio" },
+  {
+    "code": "tos.tos.aboutService.content",
+    "name": "VIDA proporciona una plataforma de servicios digitales que permite a los Creadores monetizar su Contenido con sus Clientes. Al acceder al Servicio, usted reconoce que comprende que el Servicio es solo para fines de entretenimiento. Nos reservamos el derecho, en cualquier momento y de vez en cuando, temporal o permanentemente, en su totalidad o en parte, de: modificar o discontinuar el Servicio, con o sin previo aviso; cobrar tarifas en relación con el uso del Servicio; modificar y/o renunciar a cualquier tarifa cobrada en relación con el Servicio; y/u ofrecer oportunidades a algunos o todos los Usuarios del Servicio. Usted acepta que no seremos responsables ante usted ni ante ningún tercero por cualquier modificación, suspensión o interrupción del Servicio, total o parcial, o cualquier contenido, característica o producto ofrecido a través del Servicio. Su uso continuado del Servicio después de dichos cambios constituye su aceptación de los cambios."
+  },
+  { "code": "tos.tos.jurisdictional.title", "name": "Cuestiones jurisdiccionales" },
+  {
+    "code": "tos.tos.jurisdictional.content",
+    "name": "El Servicio es controlado y operado por VIDA desde su país de constitución y no pretende someter a VIDA a las leyes o jurisdicción de ningún otro estado, provincia, país o territorio. Aunque VIDA intenta garantizar que el Servicio cumpla con ciertas leyes de otras jurisdicciones en un esfuerzo por cumplir con las mejores prácticas de la industria (por ejemplo, la Ley de Derechos de Autor del Milenio Digital de los Estados Unidos y 18 U.S.C. §2257), dichos intentos no serán Se considera que somete a VIDA a las leyes de esas jurisdicciones. VIDA no representa ni garantiza que el Servicio o cualquier parte del mismo sea apropiado o esté disponible para su uso en una jurisdicción particular. Al elegir acceder al Servicio, lo hace por su propia iniciativa y bajo su propio riesgo, y es responsable de cumplir con todas las leyes, normas y regulaciones locales. Podemos limitar la disponibilidad del Servicio, total o parcialmente, a cualquier persona, área geográfica o jurisdicción que elijamos, en cualquier momento y a nuestro exclusivo criterio. No todos los productos o servicios descritos en el Servicio están disponibles en todas las jurisdicciones."
+  },
+  { "code": "tos.tos.minors.title", "name": "Menores" },
+  {
+    "code": "tos.tos.minors.content",
+    "name": "Debe tener al menos 18 años o la mayoría de edad legal en su jurisdicción de residencia, lo que sea mayor, para tener nuestro permiso para utilizar nuestro Servicio. Tenemos tolerancia cero para los menores que utilizan el Servicio. Además, tenemos tolerancia cero con cualquier Contenido que haga referencia a un menor por cualquier motivo, incluido pretender ser un menor como adulto o Contenido que presente simulaciones de menores. Si cree que un menor está utilizando el Servicio, solicitamos y animamos a los Usuarios a que lo denuncien. Nos reservamos el derecho de reportar a todos y cada uno de los menores sospechosos a todas y cada una de las agencias policiales que consideremos apropiadas, y lo hacemos. AL VISITAR, DESCARGAR O UTILIZAR EL SERVICIO DE OTRA MANERA, USTED DECLARA QUE: (A) TIENE AL MENOS 18 AÑOS DE EDAD O LA MAYORÍA DE EDAD EN SU JURISDICCIÓN DE RESIDENCIA (SI ES MAYOR DE 18 AÑOS DE EDAD); Y (B) LA JURISDICCIÓN DESDE LA QUE ACCEDE AL SERVICIO NO PROHÍBE LA RECIBICIÓN, DESCARGA, VISUALIZACIÓN O DISTRIBUCIÓN DE CONTENIDO SEXUALMENTE EXPLÍCITO O PARA ADULTOS. Hay protecciones de control parental (como hardware, software o servicios de filtrado) disponibles comercialmente que pueden ayudar limitar el acceso a material que sea perjudicial para menores. Puede encontrar orientación sobre el uso de dichas protecciones en el sitio web de la Comisión Federal de Comercio de EE. UU. aquí. Tenga en cuenta que VIDA no respalda ninguno de los productos o servicios enumerados en dicho sitio."
+  },
+  { "code": "tos.tos.privacyPolicy.title", "name": "política de privacidad" },
+  {
+    "code": "tos.tos.privacyPolicy.content",
+    "name": "Su privacidad es importante para nosotros. Consulte nuestra Política de privacidad para obtener información relacionada con cómo recopilamos, utilizamos y divulgamos su información personal."
+  },
+  { "code": "tos.tos.userRegistration.title", "name": "registro de usuario" },
+  {
+    "code": "tos.tos.userRegistration.content",
+    "name": "Es posible que deba registrar una cuenta para acceder a ciertas funciones del Servicio. Usted acepta mantener la confidencialidad de su contraseña y será responsable de todo uso, actividad y compras realizadas en el Servicio a través de su cuenta. Nos reservamos el derecho de eliminar, reclamar o cambiar el nombre de usuario que seleccione si determinamos, a nuestro exclusivo criterio, que dicho nombre de usuario es inapropiado, obsceno o de otro modo objetable. A menos que VIDA lo permita expresamente por escrito, no podrá vender , alquilar, arrendar, compartir o proporcionar acceso a su cuenta a cualquier otra persona. VIDA se reserva todos los derechos y recursos legales disponibles para evitar el uso no autorizado del Servicio, incluidos, entre otros, barreras tecnológicas, mapeo de IP y, en casos graves, comunicarse directamente con su proveedor de servicios de Internet (ISP) con respecto a dicho uso no autorizado. En la medida en que usted cree voluntariamente un perfil de Usuario para participar en ciertos servicios selectos que ofrecemos, otros Usuarios registrados a través del Servicio podrán buscar su perfil (y su contenido). Del mismo modo, es posible que los motores de búsqueda disponibles públicamente puedan buscar en su perfil (y su contenido)."
+  },
+  { "code": "tos.tos.devicesServices.title", "name": "Uso de dispositivos y servicios" },
+  {
+    "code": "tos.tos.devicesServices.content",
+    "name": "El acceso al Servicio puede requerir el uso de su computadora personal o dispositivo móvil, así como comunicaciones o uso de espacio en dichos dispositivos. Usted es responsable de cualquier conexión a Internet o tarifas y cargos móviles en los que incurra al acceder al Servicio."
+  },
+  { "code": "tos.tos.modifications.title", "name": "Modificaciones" },
+  {
+    "code": "tos.tos.modifications.content",
+    "name": "Nos reservamos el derecho de cambiar estos Términos en cualquier momento. Si realizamos cambios, se lo notificaremos revisando la fecha en la parte inferior de los Términos y, en algunos casos, le proporcionaremos un aviso adicional (como agregar una declaración a nuestra página de inicio o enviarle una notificación por correo electrónico). Para cumplir con el Reglamento (UE) 2019/1150 (el 'Reglamento de plataforma a empresa' o 'P2BR'), avisaremos con al menos 15 días de antelación cualquier cambio en estos Términos en un 'soporte duradero' (como se define en el P2BR), distintos de los cambios establecidos en el artículo 3 (4) del P2BR. Los cambios a estos Términos entran en vigencia en el momento de su publicación. Su uso continuado del Servicio después de la fecha de entrada en vigor de los Términos revisados ​​constituye su aceptación de los Términos. Licencia para utilizar el Servicio Sujeto a estos Términos, VIDA le otorga una licencia personal, mundial, libre de regalías, no transferible y no exclusiva. Licencia exclusiva, revocable y no sublicenciable para acceder y utilizar el Servicio. Esta licencia tiene el único propósito de permitirle usar y disfrutar de los beneficios del Servicio según lo previsto por VIDA y lo permitido por estos Términos."
+  },
+  { "code": "tos.tos.content.title", "name": "Contenido" },
+  {
+    "code": "tos.tos.content.content",
+    "name": "Sujeto a lo permitido por la ley aplicable (incluidas, entre otras, las leyes de derechos de autor), usted es libre de elegir el tipo de Contenido que produce y publica. Usted será el único responsable de su propio Contenido y de las consecuencias de publicar dicho Contenido. En relación con el Contenido, usted afirma, representa y/o garantiza que: (i) posee o tiene las licencias, derechos, consentimientos y permisos necesarios para usar y autorizarnos a usar todas las patentes, marcas comerciales, secretos comerciales, derechos de autor, derecho a la privacidad, derecho a la publicidad u otros derechos comerciales o personales de propiedad sobre todo su Contenido para permitir la inclusión y el uso del Contenido de la manera contemplada por el Servicio y estos Términos, y (ii) usted tiene el consentimiento por escrito , liberación y/o permiso de todas y cada una de las personas identificables en su Contenido para usar el nombre o la imagen de cada individuo para su uso en su Contenido de la manera contemplada por el Servicio y estos Términos. No somos responsables de ningún Contenido que viole las normas o costumbres de una comunidad. Esperamos y exigimos que cumpla con todas las leyes federales, estatales, provinciales y locales al utilizar el Servicio y al enviar o publicar Contenido en el Servicio. Si no está seguro de si el Contenido violará una ley, le recomendamos que se comunique con un profesional legal antes de publicar el Contenido. No podemos hacer cumplir las leyes de todas las jurisdicciones para todo el Contenido que se publica en el Servicio. Como tal, no somos responsables del Contenido del Servicio. Usted debe evaluar y asumir todos los riesgos asociados con el uso de cualquier Contenido, incluida cualquier confianza en la exactitud, integridad, utilidad o legalidad de dicho Contenido. En este sentido, usted reconoce que no puede confiar en ningún Contenido creado por nosotros o Contenido transmitido al Servicio. Usted es responsable de todo el Contenido que se carga, publica, envía por correo electrónico, transmite o pone a disposición de otro modo a través del Servicio. Si tenemos motivos para sospechar que su Contenido viola algún derecho de terceros, incluidos, entre otros, cualquier derecho de autor, marca registrada o derecho de propiedad, podemos exigirle que nos proporcione evidencia escrita de su propiedad o derecho de uso del material en cuestión. Si requerimos dicha evidencia escrita, usted acepta proporcionárnosla dentro de los cinco días hábiles siguientes a la fecha de nuestra solicitud. Si no nos proporciona la evidencia escrita requerida dentro de ese plazo, puede dar lugar a la cancelación inmediata de su cuenta, exigirle una compensación por los costos y daños acumulados relacionados con dicho Contenido y la suspensión inmediata de todos y cada uno de los pagos pendientes de nuestra parte. para usted. Tenga en cuenta que no puede permitir que ninguna otra persona use su cuenta y que debe informarnos de inmediato sobre cualquier violación aparente de la seguridad, como la pérdida o el robo de su contraseña. Si bien haremos los esfuerzos que creamos que son razonables para salvaguardar el Contenido y hacer que el Contenido esté disponible en caso de pérdida o eliminación, no tenemos ninguna responsabilidad por la eliminación o la falta de almacenamiento o la seguridad de cualquier Contenido. Nos reservamos el derecho de marcar o tratar el Contenido como \"inactivo\" y archivarlo, según lo determinemos nosotros. Nos reservamos el derecho de cambiar nuestras prácticas y reglas de almacenamiento en cualquier momento a nuestro exclusivo criterio, con o sin previo aviso. Usted comprende y acepta que podemos monitorear, censurar o eliminar todo el Contenido, en su totalidad o en parte, que en nuestro exclusivo criterio viola estos Términos o puede dañar la reputación del Servicio. Sin embargo, no tenemos ninguna obligación de mostrar o revisar el Contenido y no podemos garantizar la eliminación inmediata del Contenido objetable después de su publicación. En consecuencia, no asumimos ninguna responsabilidad por cualquier acción o inacción con respecto a las transmisiones, comunicaciones o Contenido proporcionado por cualquier Usuario o tercero. No tenemos ninguna responsabilidad ante nadie por el desempeño o incumplimiento de las actividades descritas en esta sección."
+  },
+  { "code": "tos.tos.license.title", "name": "Licencia para el contenido" },
+  {
+    "code": "tos.tos.license.content",
+    "name": "Para mayor claridad, usted conserva todos los derechos de propiedad que pueda tener sobre el Contenido, sujeto a los términos y condiciones de este Acuerdo. Para todo el Contenido que usted pone a disposición a través del Servicio o en conexión con él, por la presente nos otorga una licencia mundial, libre de regalías, totalmente pagada, no exclusiva, perpetua, irrevocable, transferible y totalmente sublicenciable (a través de múltiples niveles) licencia, sin consideración adicional para usted o cualquier tercero, para reproducir, distribuir, ejecutar y mostrar (públicamente o de otro modo), adaptar, modificar y utilizar y explotar dicho Contenido, en cualquier formato o medio ahora conocido o desarrollado en el futuro, y para cualquier propósito relacionado con el Servicio (incluidos fines promocionales)."
+  },
+  { "code": "tos.tos.userInteractions.title", "name": "Interacciones del usuario" },
+  {
+    "code": "tos.tos.userInteractions.content",
+    "name": "VIDA no es responsable de la conducta de ningún Usuario en el Servicio. Acepta tener precaución en todas las interacciones con otros Usuarios. Usted acepta que no proporcionará su información financiera (por ejemplo, la información de su tarjeta de crédito o cuenta bancaria), ni transferirá ni enviará dinero de otro modo a otros Usuarios. USTED ES EL ÚNICO RESPONSABLE DE SUS INTERACCIONES CON OTROS USUARIOS. USTED ENTIENDE QUE VIDA NO REALIZA VERIFICACIONES DE ANTECEDENTES PENALES DE SUS USUARIOS NI INVESTIGA DE OTRA MANERA LOS ANTECEDENTES DE SUS USUARIOS. VIDA NO HACE DECLARACIONES NI GARANTÍAS EN CUANTO A LA CONDUCTA DE LOS USUARIOS."
+  },
+  { "code": "tos.tos.prohibitedConduct.title", "name": "Conducta prohibida" },
+  {
+    "code": "tos.tos.prohibitedConduct.content",
+    "name": "Usted acepta que solo utilizará el Servicio para los fines legales expresamente permitidos y contemplados en estos Términos. El Servicio no se puede utilizar en relación con ningún esfuerzo comercial, excepto aquellos que aprobamos expresamente por escrito. Usted acepta que verá el Servicio y su Contenido inalterados y sin modificaciones. Usted reconoce y comprende que tiene prohibido modificar el Servicio o eliminar cualquier Contenido del Servicio, incluidos los anuncios. Al utilizar el Servicio, usted acepta expresamente aceptar la publicidad publicada en y a través del Servicio y abstenerse de utilizar software de bloqueo de anuncios o desactivar el software de bloqueo de anuncios antes de visitar el Servicio. Acepta que no utilizará ni intentará utilizar ningún método, dispositivo o software. o rutina para dañar a otros o interferir con el funcionamiento del Servicio o usar y/o monitorear cualquier información en o relacionada con el Servicio para cualquier propósito no autorizado. Su uso del Servicio está condicionado a su cumplimiento de las reglas de conducta establecidas en esta sección; su incumplimiento de dichas reglas puede resultar en la terminación de su acceso al Servicio de conformidad con la sección \"Terminación\" a continuación. AL UTILIZAR EL SERVICIO, USTED ACEPTA NO: comportarse de una manera que afecte negativamente la capacidad de otros Usuarios para usar o disfrutar el Servicio, incluido, entre otros, participar en conductas abusivas, dañinas, acosadoras, provocadoras, intimidantes, invasivas de la privacidad de otra persona, acechar, amenazar, ser violento o fomentar la violencia hacia personas o animales, o ser racial, étnicamente u ofensivo u objetable de otro modo; participar en cualquier forma de acoso, prostitución, tráfico sexual, solicitación u otro comportamiento ilegal u ofensivo hacia los Creadores; intentar obtener u obtener información de contacto personal de cualquier Creador en el Servicio; intentar coordinar una reunión en persona con cualquiera de los Creadores en el Servicio; publicar cualquier Contenido que represente pornografía infantil, violación, tabaco, tortura, muerte, violencia , bestialidad, incesto, insultos raciales o incitación al odio (ya sea de forma oral o escrita); publicar cualquier Contenido que sea ilegal, obsceno, difamatorio, calumnioso, calumnioso, acosador, odioso, ofensivo desde el punto de vista racial o étnico, o que fomente conductas que serían se considera un delito penal, da lugar a responsabilidad civil, viola cualquier ley o es de otro modo inapropiado; publicar cualquier Contenido que represente a cualquier persona menor de 18 años (o mayor según lo requiera cualquier jurisdicción en la que la mayoría de edad sea mayor a 18 años). );publicar cualquier Contenido simulado que violaría cualquiera de estos Términos si dicho Contenido no fuera simulado;publicar cualquier Contenido que contenga tergiversaciones o falsedades que podrían dañar la reputación del Servicio o de cualquier tercero;violar cualquier ley o regulación (incluyendo, sin limitación, cualquier ley relacionada con agravios, contratos, derechos de autor, patentes, marcas registradas, secretos comerciales, difamación, obscenidad, pornografía, derechos de publicidad u otros derechos) o alentar, solicitar o instruir a un tercero a hacerlo; publicar cualquier Contenido que contenga o promueva concursos, sorteos, loterías o de otro modo relacionados con juegos de azar; publicar cualquier Contenido que contenga publicidad no solicitada, materiales promocionales, spam, correo basura, esquemas piramidales, cartas en cadena o cualquier otra forma de solicitud no autorizada; publicar cualquier Contenido en en el que otra persona se hace pasar o que tergiversa su afiliación o conexión con una persona; publicar cualquier Contenido que contenga materiales sujetos a derechos de propiedad intelectual (incluidos los derechos de autor) u otros derechos de terceros que usted tiene derecho a publicar en el Servicio; transmitir o utilizar software u otro código diseñado para interrumpir, destruir, limitar o interferir de otro modo con la funcionalidad de cualquier software o hardware o equipo de telecomunicaciones, incluido, entre otros, participar en cualquier ataque de denegación de servicio, ataque distribuido de denegación de servicio o conducta similar; exceder su acceso autorizado a cualquier parte del Servicio; obtener o intentar obtener acceso a cualquier Contenido o información a través de cualquier medio no proporcionado intencionalmente a través del Servicio; explotar errores en el diseño, características no documentadas o errores para obtener acceso que no estará disponible de otra manera. eliminar, modificar, eludir o eludir cualquier tecnología de gestión de derechos digitales (\"DRM\"), cifrado o medidas de seguridad; recopilar, almacenar o procesar datos personales de cualquier persona; modificar cualquier parte del Servicio o su publicidad, excepto lo expresamente permitido en el presente; hacer cualquier cosa que pueda sobrecargar, deshabilitar, dañar o perjudicar cualquier aspecto del Servicio; usar cualquier robot, araña, aplicación de búsqueda/recuperación de sitios u otro dispositivo manual o automático para recuperar, indexar, extraer datos ' o de cualquier manera recopilar contenido del Servicio o reproducir o eludir la estructura de navegación o presentación del Servicio sin nuestro consentimiento previo expreso por escrito. Sin perjuicio de lo anterior, otorgamos permiso a los operadores de motores de búsqueda públicos para utilizar arañas para copiar materiales del Servicio con el único propósito y únicamente en la medida necesaria para crear índices de búsqueda de los materiales disponibles públicamente, pero no cachés o archivos de dichos. materiales. VIDA se reserva el derecho de revocar estas excepciones en general o en casos específicos; crear una base de datos descargando y almacenando sistemáticamente el contenido del Servicio; usar cualquier proceso manual para monitorear o reproducir cualquier material en el Servicio; usar cualquier información obtenida del Servicio para interferir con cualquier publicidad en el Servicio, incluida, entre otras, su visualización en su navegador web; transmitir virus, caballos de Troya, gusanos, bombas lógicas, bombas de tiempo, cancelbots, archivos corruptos o cualquier otro software o código similar que sea malicioso o perjudicial o que pueda dañar la propiedad de otra parte o el Servicio; intentar obtener acceso no autorizado, interferir, dañar o interrumpir cualquier parte del Servicio, el servidor en el que se almacena el Servicio o cualquier servidor, computadora o base de datos conectada a el Servicio; eliminar cualquier aviso de derechos de autor u otros avisos de propiedad de nuestro Servicio o cualquiera de los materiales contenidos en el mismo; reproducir, duplicar, copiar, vender, revender o explotar de otro modo para fines comerciales, cualquier parte, uso o acceso al Servicio ;modificar, adaptar, traducir, realizar ingeniería inversa, descompilar o desensamblar cualquier parte del Servicio;enmarcar o reflejar cualquier parte del Servicio sin nuestro consentimiento previo expreso por escrito."
+  },
+  { "code": "tos.tos.customerSupport.title", "name": "Atención al cliente" },
+  {
+    "code": "tos.tos.customerSupport.content",
+    "name": "Al comunicarse con nuestro servicio de atención al cliente, usted acepta ser respetuoso y amable. Si consideramos que su comportamiento hacia cualquiera de nuestro personal de atención al cliente u otros empleados es en algún momento amenazante u ofensivo, nos reservamos el derecho de cancelar su cuenta de inmediato."
+  },
+  { "code": "tos.tos.advertising.title", "name": "Publicidad" },
+  {
+    "code": "tos.tos.advertising.content",
+    "name": "En contraprestación por que VIDA le permita utilizar el Servicio, usted acepta que nosotros, nuestros afiliados y nuestros socios externos podemos colocar publicidad en el Servicio."
+  },
+  { "code": "tos.tos.creditsPurchases.title", "name": "Créditos y Compras" },
+  {
+    "code": "tos.tos.creditsPurchases.content",
+    "name": "Puede comprar acceso al Contenido del Servicio utilizando su tarjeta de crédito o Créditos. Puede comprar Créditos únicamente para usarlos en el Servicio. Aparte de una licencia limitada, personal, revocable, intransferible y no sublicenciable para usar los Créditos como parte del Servicio, usted no tiene ningún derecho o título sobre dichos Créditos que aparecen o se originan en el Servicio, o cualquier otro atributo. asociados con el uso del Servicio o almacenados dentro del Servicio. Tenemos el derecho absoluto de administrar, regular, controlar, modificar y/o discontinuar la disponibilidad o el uso de Créditos en el Servicio a nuestra entera discreción, y no seremos responsables ante usted ni ante nadie por el ejercicio de dichos derechos. Las transferencias de Créditos están estrictamente prohibidas, excepto cuando se autoricen explícitamente dentro del Servicio. Salvo que se establezca expresamente en estos Términos, no podrá vender ningún Crédito por dinero del “mundo real” ni cambiar dichos artículos por valor de otro modo. Cualquier intento de intercambiar Créditos por moneda real, que no sea siguiendo el proceso establecido por VIDA, constituye una violación de estos Términos y puede resultar en una prohibición de por vida del Servicio y posibles acciones legales. A menos que la ley disponga lo contrario, los Créditos no son reembolsables y usted no tiene derecho a un reembolso por los Créditos no utilizados. Una vez que compre acceso al Contenido o canjee un Crédito para acceder al Contenido, no podrá devolver, cambiar ni recibir un reembolso por ese Contenido. Sin perjuicio de lo anterior, nos reservamos el derecho de emitir reembolsos por compras o Créditos a nuestro exclusivo criterio. Si emitimos un reembolso por una compra o crédito, no tenemos ninguna obligación de emitir el mismo reembolso o un reembolso similar en el futuro. Las compras con crédito se pueden realizar con tarjetas de crédito y, cuando estén disponibles, con tarjetas de débito, y se procesarán a través de un procesador de pagos de terceros. Las compras se pagan por adelantado. Podemos ofrecer diferentes paquetes entre los que puede elegir. Nos reservamos el derecho de cambiar los precios del Crédito en cualquier momento, a nuestro exclusivo criterio y sin responsabilidad hacia usted. Cualquier Crédito no estará disponible en su cuenta en caso de que usted elimine su cuenta o la cancele de otro modo de acuerdo con estos Términos, o si dejamos de brindar el Servicio. Usted acepta pagar todas las tarifas e impuestos aplicables incurridos por usted o cualquier persona que utilice una cuenta VIDA registrada a su nombre. VIDA puede revisar los precios de los bienes y servicios ofrecidos a través del Servicio en cualquier momento. Los nombres que aparecen en el extracto asociado con su método de pago (por ejemplo, tarjeta de crédito, cuenta bancaria, etc.) para cualquier cargo aplicable pueden incluir VIDA. .one, SXWEB u otras entidades de facturación según su ubicación. VIDA o la entidad de facturación correspondiente pueden incluir otra información en su estado de cuenta según lo requieran sus acuerdos con bancos, otros terceros o las leyes o regulaciones aplicables. Si utiliza una cuenta bancaria para realizar una compra a través del Servicio, se cargará un débito a esa cuenta. Usted acepta que no utilizará un proxy de IP u otros métodos similares para disfrazar el lugar donde se encuentra, ya sea para eludir la ubicación geográfica. restricciones sobre el Contenido y obtener acceso al Servicio cuando de otro modo no estaría disponible para usted, o para realizar Compras a un precio (incluida la aplicación de impuestos sobre las ventas, impuestos especiales, impuestos al valor agregado o IVA) no aplicable a su ubicación, o para cualquier otro fin. Si hace esto, nos reservamos el derecho de cancelar su acceso al Servicio. Si no inicia sesión en su cuenta durante más de doce (12) meses, nos reservamos el derecho, a nuestro exclusivo criterio, de cancelar su derecho a utilizar el Servicio. Servicio. En tal caso, por la presente usted acepta, acepta y reconoce expresamente que perderá los Créditos no utilizados, que no podrá recuperar posteriormente."
+  },
+  { "code": "tos.tos.cardPaymentProcessing.title", "name": "Procesamiento de pago con tarjeta" },
+  {
+    "code": "tos.tos.cardPaymentProcessing.content",
+    "name": "VIDA es responsable del procesamiento de pagos con tarjeta. Procesadores de pagos Todas las transacciones financieras realizadas en relación con el Servicio serán procesadas por un procesador de pagos externo. En ningún caso VIDA será responsable de las acciones o inacciones de cualquier procesador de pagos externo. Si cree que ha habido un error de facturación, puede buscar asistencia en sxweb.com o enviándonos un correo electrónico a la dirección de correo electrónico de asistencia de facturación proporcionada en la sección \"Contacto\" a continuación."
+  },
+  { "code": "tos.tos.refundPolicy.title", "name": "Politica de reembolso" },
+  {
+    "code": "tos.tos.refundPolicy.content",
+    "name": "TODAS LAS VENTAS SON FINALES Y NO REEMBOLSABLES. Nos reservamos el derecho (pero no la obligación) de reembolsar el monto comprado si hay problemas técnicos con el Servicio, o cuando haya tenido una experiencia demostrablemente insatisfactoria; esto lo determinaremos nosotros a nuestro exclusivo criterio. Si recibimos una devolución de cargo o una disputa de pago de una compañía de tarjetas de crédito o un banco, nos reservamos el derecho de, sin previo aviso y a nuestro exclusivo criterio, rescindir su licencia para usar el Servicio. y bloquear o impedir su acceso futuro y uso del Servicio según lo estipulado en estos Términos."
+  },
+  { "code": "tos.tos.becomingCreator.title", "name": "Convertirse en un creador" },
+  {
+    "code": "tos.tos.becomingCreator.content",
+    "name": "Si desea convertirse en Creador y vender acceso al Contenido a través del Servicio, primero debe proporcionarnos información personal verdadera y correcta. Si la información que proporciona no es verdadera y correcta, se enfrenta a la cancelación inmediata de su cuenta y puede estar sujeto a sanciones legales. Ciertos cambios en su información personal, como el país de residencia o la fecha de nacimiento, solo pueden ser realizados por nuestro personal. Por lo tanto, si su información parece incorrecta o necesita ser modificada, es posible que deba comunicarse con nuestro personal para hacerlo. Podemos, a nuestro exclusivo criterio, revocar su derecho a vender el acceso al Contenido a través del Servicio por cualquier motivo. Se le solicita que proporcione una dirección de correo electrónico válida para fines de verificación, y usted acepta que podemos enviarle correos electrónicos, tanto de naturaleza transaccional como también con fines comerciales y promocionales. Tendrá la posibilidad de optar por no recibir correos electrónicos comerciales y promocionales, como se describe con más detalle en la Política de Privacidad. Elegirá su propio nombre para mostrar, que debe ser exclusivo para usted, no ofensivo para otros y no violar los derechos de autor o la marca registrada de otra persona. . También elegirá su contraseña, que podrá cambiar más tarde. Se le solicitará que verifique su identidad y edad a través de un socio de verificación de identidad externo. Para hacerlo, debe enviarnos los siguientes documentos: Una identificación con foto , es decir, una identificación emitida por el gobierno que contiene su fecha de nacimiento, fecha de vencimiento, su fotografía y su nombre legal completo. Esto podría ser, por ejemplo, su licencia de conducir (en países donde no es obligatorio un documento de identidad nacional), pasaporte internacional, tarjeta de ciudadanía, documento de identidad estatal, pasaporte nacional o su documento de identidad nacional. Una fotografía suya sosteniendo la fotografía mencionada anteriormente. ID. Usted reconoce que es el único responsable de la actividad que ocurre en su cuenta y debe notificarnos de inmediato si cree que ha habido la más mínima violación de seguridad o uso no autorizado de su cuenta. Usted será responsable de cualquier pérdida incurrida. por nosotros debido al uso no autorizado de su cuenta. No somos responsables de sus pérdidas causadas por cualquier uso no autorizado de su cuenta y usted renuncia específicamente a dicho reclamo y acepta defendernos e indemnizarnos contra cualquier reclamo hecho contra nosotros por terceros."
+  },
+  { "code": "tos.tos.commission.title", "name": "Comisión de creadores" },
+  {
+    "code": "tos.tos.commission.content",
+    "name": "Los pagos solo se realizarán al mismo nombre de beneficiario proporcionado durante el proceso de incorporación de KYC. Si necesita cambiar este nombre (por ejemplo, ha cambiado su nombre, el nombre asignado a su documento de identificación es diferente al nombre del beneficiario de su banco en su país, o le gustaría que le paguen a una entidad legal), por favor póngase en contacto con support@VIDA. Deberá proporcionar prueba del motivo por el que se requiere el cambio, es posible que necesitemos información adicional suya como parte del proceso de diligencia debida y nos reservamos el derecho absoluto de rechazar su solicitud. Si solicita el pago a una entidad legal, la información proporcionada durante la verificación KYC debe ser un UBO (Ultimate Beneficial Owner) de la entidad, de acuerdo con EU 2015/849, según enmendada, independientemente de que la entidad esté sujeta a la legislación de la UE. No se realizarán pagos a terceros bajo ninguna circunstancia, incluidos, entre otros, cónyuges, familiares, servicios de depósito en garantía, socios comerciales, tutores designados por el tribunal o síndicos de cualquier tipo. Deduciremos y retendremos de cualquier monto pagadero a usted, según estos Términos, los montos que se nos indique deducir y retener o que estemos obligados a deducir y retener con respecto a dicho pago según lo dispuesto por las leyes aplicables (incluidos impuestos sobre las ventas, impuestos especiales, impuestos al valor agregado o IVA) y remitir dichos montos. monto de deducción y retención a la entidad gubernamental correspondiente. Le proporcionaremos un estado de cuenta de las transacciones en su cuenta, incluidos los detalles de sus ganancias y pagos, al que podrá acceder en el Servicio. Puede solicitar un pago sobre sus ganancias netas en cualquier momento, siempre que excedan el pago mínimo de $200. Es posible que se le cobre una tarifa por pago electrónico por esto, dependiendo de los métodos de pago disponibles en el país en el que se encuentre. Las solicitudes de pago inferiores a este monto no están permitidas, excepto en relación con una solicitud para terminar su relación con nosotros como Creador. Todas las ganancias están sujetas a un período de retención de 7 días, para tener en cuenta posibles disputas por parte de los compradores. Las ganancias en el período de retención aparecerán en su cuenta tan pronto como se haya completado la transacción correspondiente, pero no estarán disponibles para ser pagadas hasta el final del período de retención. Aunque iniciaremos el pago inmediatamente después de su solicitud de conformidad con este párrafo, no podemos garantizar que recibirá los fondos correspondientes en una fecha determinada. Si nos proporciona detalles de pago incorrectos, cualquier tarifa por devoluciones de cargo resultantes de dichos detalles de pago incorrectos se compensará con cualquier monto que de otro modo se le pagará a usted. En caso de que viole cualquier parte de estos Términos, violará cualquier derecho de terceros, incluido sin limitación, ningún derecho de autor, propiedad intelectual o derecho de privacidad, o cuando un tercero afirme que todo o parte de su Contenido le causó daño, podremos, a nuestro exclusivo criterio, retenerle los pagos indefinidamente. Le recordamos que es su deber y obligación de cumplir con todas las obligaciones fiscales con respecto a sus actividades para nosotros, por ejemplo, obligaciones de registro, declaración y pago relacionadas con impuestos sobre la renta, impuestos sobre las ventas e IVA. Si lo ayudamos con estas obligaciones, no lo libera de sus obligaciones. Es su deber informarnos de manera oportuna sobre los cambios en sus datos personales, como un cambio de dirección o un nuevo correo electrónico. Si tiene una cuenta de Creador con un saldo positivo sin transacciones durante un período consecutivo de 12 meses, lo haremos. Intentaremos comunicarnos con usted para solicitarle que retire el saldo de su cuenta. Si no podemos comunicarnos con usted, le cobraremos una tarifa por inactividad del 8.33 % de dicho saldo por mes desde el primer aniversario de la fecha de la última actividad de la cuenta hasta lo que ocurra primero entre (1) la fecha de la siguiente actividad de la cuenta o (2) la fecha en que su saldo llegue a cero, es decir, después de otros 12 meses de inactividad. Si le estamos cobrando a su cuenta la tarifa de inactividad, pero desea reactivarla, comuníquese con atención al cliente en support@VIDA."
+  },
+  { "code": "tos.tos.thirdParty.title", "name": "Servicios y sitios web de terceros" },
+  {
+    "code": "tos.tos.thirdParty.content",
+    "name": "El Servicio puede contener anuncios y promociones ofrecidas por terceros y enlaces a otros sitios web o recursos. VIDA no es responsable de la disponibilidad (o falta de disponibilidad) de dichos sitios web o recursos externos. Si elige interactuar con terceros disponibles a través de nuestro Servicio, los términos de dichos terceros regirán su relación con usted. VIDA no es responsable de los términos o acciones de dichos terceros. Ideas y comentarios A menos que acordemos expresamente lo contrario por escrito, si nos proporciona alguna idea, propuesta, sugerencia o material (\"Aporte\"), ya sea relacionado con el Servicios o de otro modo, por la presente usted reconoce y acepta que (a) su provisión de cualquier Entrada es gratuita, no solicitada y sin restricciones y no coloca a VIDA bajo ninguna obligación fiduciaria o de otro tipo; (b) cualquier Entrada no es confidencial y VIDA no tiene obligaciones de confidencialidad con respecto a dicha Entrada; y (c) en la medida permitida por la ley aplicable, cualquier Entrada pasará a ser de nuestra propiedad exclusiva. Sin limitar lo anterior, por la presente usted nos otorga una licencia mundial, libre de regalías, totalmente pagada, exclusiva, perpetua, irrevocable, transferible y totalmente sublicenciable (a través de múltiples niveles), sin consideración adicional para usted o cualquier tercero. , para: (i) reproducir, distribuir, realizar y mostrar (públicamente o de otro modo), adaptar, modificar y utilizar y explotar de otro modo dicha Entrada, en cualquier formato o medio actualmente conocido o desarrollado en el futuro, y por la presente declara y garantiza que tiene todos los derechos necesarios para otorgar la licencia anterior. Podemos utilizar Entrada para cualquier propósito sin compensación para usted o cualquier otra persona. Usted es y seguirá siendo responsable del contenido de cualquier Entrada."
+  },
+  { "code": "tos.tos.termination.title", "name": "Terminación" },
+  {
+    "code": "tos.tos.termination.content",
+    "name": "Estos Términos son efectivos hasta su terminación. VIDA, a su entera discreción, puede suspender o cancelar su acceso o uso del Servicio, en cualquier momento y por cualquier motivo, incluso si VIDA cree que usted ha violado o actuado de manera inconsistente con la letra o el espíritu de estos Términos. Tras dicha terminación, su derecho a utilizar el Servicio cesará inmediatamente. Usted acepta que cualquier terminación de su acceso o uso del Servicio puede realizarse sin previo aviso, y que VIDA puede desactivar o eliminar inmediatamente su contraseña y nombre de usuario, y toda la información relacionada y los archivos asociados con él, y/o prohibir cualquier acceso posterior a dicha información o archivos. Para las cuentas de Creador, para cumplir con el P2BR, a menos que el motivo de la Terminación sea cualquiera de los motivos establecidos en el Artículo 4 (4) del P2BR, le proporcionaremos al menos 30 días de aviso de los motivos de la terminación en un 'medio duradero' (como se define en el P2BR). Usted acepta que VIDA no será responsable ante usted ni ante ningún tercero por la terminación de su acceso al Servicio. o a dicha información o archivos, y no estará obligado a poner dicha información o archivos a su disposición después de dicha terminación. Nos reservamos el derecho de hacer uso de cualquier medio personal, tecnológico, legal u otro medio disponible para hacer cumplir los Términos, en cualquier momento sin responsabilidad y sin la obligación de avisarle previamente, incluido, entre otros, impedirle el acceso. los Servicios. Si usted o VIDA cancelan su cuenta por cualquier motivo, estos Términos continúan y siguen siendo aplicables entre usted y VIDA, y no tendrá derecho a ningún reembolso por las compras realizadas. Su información se mantendrá y eliminará de acuerdo con nuestra Política de Privacidad. NO SE PROPORCIONAN DECLARACIONES O GARANTÍAS DEL SERVICIO, INCLUYENDO TODAS LAS IMÁGENES, ARCHIVOS DE AUDIO Y OTRO CONTENIDO DEL MISMO, Y CUALQUIER OTRA INFORMACIÓN, PROPIEDAD Y DERECHO OTORGADOS O PROPORCIONADOS POR VIDA. A USTED “TAL CUAL”. VIDA Y SUS PROVEEDORES NO HACEN DECLARACIONES NI GARANTÍAS DE NINGÚN TIPO CON RESPECTO AL SERVICIO, YA SEA EXPRESA, IMPLÍCITA O LEGAL, Y TODAS DICHAS DECLARACIONES Y GARANTÍAS, INCLUYENDO GARANTÍAS DE COMERCIABILIDAD, IDONEIDAD PARA UN PROPÓSITO PARTICULAR O NO INFRACCIÓN, SON EXPRESAMENTE RECHAZADO. SIN LIMITAR LA GENERALIDAD DE LO ANTERIOR, VIDA NO HACE NINGUNA DECLARACIÓN NI GARANTÍA DE NINGÚN TIPO RELACIONADA CON LA EXACTITUD, DISPONIBILIDAD DEL SERVICIO, INTEGRIDAD, CONTENIDO INFORMATIVO, OPERACIÓN LIBRE DE ERRORES, RESULTADOS QUE SE OBTENGAN DEL USO O NO INFRACCIÓN. EL ACCESO Y USO DEL SERVICIO PUEDE NO ESTAR DISPONIBLE DURANTE PERIODOS DE MÁXIMA DEMANDA, ACTUALIZACIONES DEL SISTEMA, MAL FUNCIONAMIENTO O MANTENIMIENTO PROGRAMADO O NO PROGRAMADO O POR OTRAS RAZONES. ALGUNAS JURISDICCIONES NO PERMITEN LA EXCLUSIÓN DE GARANTÍAS IMPLÍCITAS, POR LO QUE LA EXCLUSIÓN ANTERIOR PUEDE NO APLICARSE EN SU CASO."
+  },
+  { "code": "tos.tos.limitationLiability.title", "name": "LIMITACIÓN DE RESPONSABILIDAD" },
+  {
+    "code": "tos.tos.limitationLiability.content",
+    "name": "EN LA MEDIDA MÁXIMA PERMITIDA POR LA LEY APLICABLE, EN NINGÚN CASO VIDA, SUS AFILIADOS, EMPLEADOS, LICENCIANTES O PROVEEDORES DE SERVICIOS SERÁN RESPONSABLES DE CUALQUIER DAÑO INDIRECTO, CONSECUENTE, EJEMPLAR, INCIDENTAL, ESPECIAL O PUNITIVO, INCLUYENDO, SIN LIMITACIÓN, LA PÉRDIDA DE GANANCIAS, YA SEA INCURRIDAS DIRECTA O INDIRECTAMENTE, O CUALQUIER PÉRDIDA DE DATOS, USO, BUENA VOLUNTAD U OTRAS PÉRDIDAS INTANGIBLES, QUE RESULTEN DE: (I) SU ACCESO O USO O INCAPACIDAD DE ACCEDER O UTILIZAR EL SERVICIO, (II) LA CONDUCTA O CONTENIDO DE OTROS USUARIOS O TERCEROS EN, A TRAVÉS O DESPUÉS DEL USO DEL SERVICIO; O (III) ACCESO, USO O ALTERACIÓN NO AUTORIZADOS DE SU CONTENIDO, INCLUSO SI VIDA HA SIDO INFORMADO DE LA POSIBILIDAD DE TALES DAÑOS. EN NINGÚN CASO LA RESPONSABILIDAD TOTAL DE VIDA HACIA USTED POR TODAS LAS RECLAMACIONES RELACIONADAS CON EL SERVICIO EXCEDERÁ LA CANTIDAD PAGADA, SI LA HAY, POR USTED A VIDA POR EL SERVICIO MIENTRAS TIENE UNA CUENTA. ALGUNAS JURISDICCIONES NO PERMITEN LA EXCLUSIÓN O LIMITACIÓN DE CIERTOS DAÑOS, POR LO QUE ALGUNAS O TODAS LAS EXCLUSIONES Y LIMITACIONES DE ESTA SECCIÓN PUEDEN NO APLICARSE A USTED. Si bien intentamos mantener la integridad y seguridad del Servicio y los servidores desde los cuales se opera el Servicio, no garantizamos que el El Servicio será o permanecerá seguro, completo o correcto, o el acceso al Servicio será ininterrumpido. El Servicio puede incluir inexactitudes, errores y materiales que violen o entren en conflicto con estos Términos. Además, terceros pueden realizar modificaciones no autorizadas al Servicio. Si tiene conocimiento de alguna alteración no autorizada del Servicio por parte de un tercero, contáctenos en support@VIDA con una descripción del material en cuestión y la URL o ubicación en el Servicio donde aparecen dichos materiales."
+  },
+  { "code": "tos.tos.indemnification.title", "name": "Indemnización" },
+  {
+    "code": "tos.tos.indemnification.content",
+    "name": "Usted acepta, en la medida permitida por la ley aplicable, indemnizar, defender y eximir de responsabilidad a VIDA, nuestros afiliados y sus respectivos funcionarios, directores, agentes y empleados de y contra todas y cada una de las quejas, demandas, reclamos, daños, pérdidas, costos, responsabilidades y gastos, incluidos los honorarios de abogados, debidos a, que surjan de o estén relacionados de alguna manera con su acceso o uso del Servicio, su Contenido o su incumplimiento de estos Términos."
+  },
+  { "code": "tos.tos.copyright.title", "name": "Reclamaciones por infracción de derechos de autor." },
+  {
+    "code": "tos.tos.copyright.content",
+    "name": "La Ley de Derechos de Autor del Milenio Digital de 1998 (la “DMCA”) brinda recursos para los propietarios de derechos de autor que creen que el material que aparece en Internet infringe sus derechos según la ley de derechos de autor de los EE. UU. Puede encontrar nuestra política DMCA aquí."
+  },
+  { "code": "tos.tos.intellectualProperty.title", "name": "Propiedad intelectual" },
+  {
+    "code": "tos.tos.intellectualProperty.content",
+    "name": "La información y los materiales disponibles a través del Servicio son y seguirán siendo propiedad de VIDA y sus licenciantes y proveedores, y están protegidos por derechos de autor, marcas registradas, patentes y/u otros derechos y leyes de propiedad. Sujeto a su cumplimiento de estos Términos, y únicamente mientras VIDA le permita acceder y utilizar el Servicio, puede ver una (1) copia de cualquier contenido del Servicio al que le brindamos acceso a continuación en cualquier computadora o dispositivo móvil únicamente para su uso personal y no comercial, siempre que mantenga intactos todos los avisos de derechos de autor y otros avisos de propiedad. Excepto que VIDA lo autorice expresamente por adelantado y por escrito, usted acepta no reproducir, modificar, alquilar, arrendar, prestar, vender, distribuir o crear trabajos derivados basados ​​(ya sea en su totalidad o en parte) en, todo o cualquier parte. del Servicio o cualquier material disponible a través del Servicio. Los nombres comerciales, marcas comerciales y marcas de servicio de VIDA incluyen, entre otros, VIDA y cualquier logotipo asociado. Todas las marcas comerciales y marcas de servicio del Servicio que no son propiedad de VIDA son propiedad de sus respectivos dueños. Los nombres comerciales, marcas comerciales y marcas de servicio propiedad de VIDA, ya sean registrados o no, no pueden usarse en relación con ningún producto o servicio que no sea nuestro, de ninguna manera que pueda causar confusión. Nada de lo contenido en el Servicio debe interpretarse como una concesión, por implicación, impedimento o de otro modo, de cualquier licencia o derecho a utilizar cualquiera de los nombres comerciales, marcas comerciales o marcas de servicio de VIDA sin nuestro consentimiento previo expreso por escrito. La referencia en el Servicio a cualquier producto, servicio, proceso u otra información, por nombre comercial, marca registrada, fabricante, proveedor o de otro modo, no constituye ni implica respaldo, patrocinio o recomendación del mismo por nuestra parte o cualquier otra afiliación."
+  },
+  { "code": "tos.tos.informationSecurity.title", "name": "Seguridad de información" },
+  {
+    "code": "tos.tos.informationSecurity.content",
+    "name": "VIDA utiliza medidas organizativas, técnicas, administrativas y físicas razonables y apropiadas para proteger la integridad y seguridad de su información. Estas medidas pueden variar según la sensibilidad de su información. Limitamos el acceso a sus datos personales a aquellos empleados, agentes, contratistas y otros terceros que tengan una necesidad comercial de acceder a ellos y solo procesarán sus datos personales siguiendo nuestras instrucciones y están sujetos a un deber de confidencialidad."
+  },
+  { "code": "tos.tos.governingLaw.title", "name": "Ley aplicable: disputas" },
+  {
+    "code": "tos.tos.governingLaw.content",
+    "name": "Estos Términos se interpretarán y regirán de conformidad con las leyes de Chipre, sin referencia a normas relativas a conflictos de leyes que provocarían la aplicación de las leyes de cualquier otra jurisdicción a los derechos y deberes de las partes. Todas las disputas que surjan de estos Términos o estén relacionadas con ellos se resolverán mediante arbitraje vinculante realizado ante un único árbitro en Ámsterdam, Países Bajos, en idioma inglés, administrado por el Centro Internacional para la Resolución de Disputas según sus Reglas de Arbitraje Internacional. Cualquier laudo emitido como resultado de dicho arbitraje será vinculante y ejecutable en los tribunales de la jurisdicción aplicable. Sin perjuicio de lo anterior, usted acepta que VIDA puede solicitar medidas cautelares (o un tipo equivalente de reparación legal urgente) en los tribunales de cualquier jurisdicción."
+  },
+  { "code": "tos.tos.contact.title", "name": "Contacto" },
+  {
+    "code": "tos.tos.contact.content",
+    "name": "Las preguntas o inquietudes relacionadas con estos Términos pueden dirigirse a support@VIDA. Tenga en cuenta que las comunicaciones por correo electrónico no necesariamente serán seguras; en consecuencia, no debe incluir información de tarjeta de crédito u otra información confidencial en su correspondencia por correo electrónico con nosotros. Las consultas sobre facturación deben dirigirse a billing@VIDA"
+  },
+  { "code": "tos.tos.miscellaneous.title", "name": "Misceláneas" },
+  {
+    "code": "tos.tos.miscellaneous.content",
+    "name": "Estos Términos no crean, ni se interpretarán como que crean, ninguna relación de asociación, empresa conjunta, empleador-empleado, agencia o franquiciador-franquiciado entre usted y VIDA. Si se determina que alguna disposición de estos Términos es ilegal, nula o inaplicable por cualquier motivo, esa disposición se considerará separable de estos Términos y no afectará la validez y aplicabilidad de cualquier disposición restante. No puede ceder, transferir ni sublicenciar ninguno o todos sus derechos u obligaciones en virtud de estos Términos sin nuestro consentimiento previo expreso por escrito. Podemos asignar, transferir o sublicenciar cualquiera o todos nuestros derechos u obligaciones bajo estos Términos sin restricción. Ninguna renuncia por cualquiera de las partes a cualquier incumplimiento o incumplimiento en virtud del presente se considerará una renuncia a cualquier incumplimiento o incumplimiento anterior o posterior. Cualquier encabezado, subtítulo o título de sección contenido en este documento se inserta solo por una cuestión de conveniencia y de ninguna manera define ni explica ninguna sección o disposición del mismo. Esto, junto con todas las políticas mencionadas en este documento, es el acuerdo completo entre usted y VIDA en relación con el tema aquí tratado y reemplaza todos y cada uno de los acuerdos o entendimientos escritos u orales anteriores o contemporáneos entre usted y VIDA en relación con dicho tema. asunto. Las notificaciones pueden realizarse mediante publicación en el Servicio, por correo electrónico o por correo postal, a discreción de VIDA. El Servicio también puede proporcionar avisos de cambios a estos Términos u otros asuntos mostrando dichos avisos o proporcionando enlaces a dichos avisos. Sin limitación, usted acepta que una versión impresa de estos Términos y de cualquier notificación dada en formato electrónico será admisible en procedimientos judiciales o administrativos basados ​​en estos Términos o relacionados con ellos en la misma medida y sujeto a las mismas condiciones que otros documentos comerciales y registros originalmente generados y mantenidos en forma impresa. VIDA no será responsable del incumplimiento de cualquier obligación debido a causas fuera de su control."
+  },
+  { "code": "tos.tos.language.title", "name": "Idioma" },
+  {
+    "code": "tos.tos.language.content",
+    "name": "Estos Términos fueron escritos originalmente en inglés. En la medida en que cualquier versión traducida de estos Términos entre en conflicto con la versión en inglés, prevalecerá la versión en inglés. Última modificación: julio de 2023 © 2023 VIDA a menos que se indique lo contrario. Reservados todos los derechos."
+  },
+  { "code": "tos.tos.final", "name": "Última modificación: julio de 2023" },
+  {
+    "code": "tos.tos.VIDA",
+    "name": "© 2023 VIDA One A menos que se indique lo contrario. Reservados todos los derechos."
+  }
+]
