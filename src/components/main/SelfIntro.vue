@@ -62,7 +62,7 @@ defineProps({
   showBgUpload: { type: Boolean, default: false },
   showBgData: { type: Boolean, default: false },
   showPersonalInfo: { type: Boolean, default: false },
-  showAllInfo: { type: Boolean, default: true },
+  showAllInfo: { type: Boolean, default: false },
   cameraIcon: { type: Boolean, default: false },
   item: {
     type: Object,

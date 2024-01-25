@@ -1,11 +1,5 @@
 <template>
-  <SelfIntro
-    :item="userInfo"
-    :cameraIcon="false"
-    :showBgData="true"
-    :showSubscribePlan="false"
-    :showPersonalInfo="true"
-  >
+  <SelfIntro :item="userInfo" show-bg-data show-personal-Info show-all-info>
     <template #topButton>
       <div class="flex items-center space-x-10">
         <Icon class="cursor-pointer" name="link" size="20"></Icon>
@@ -17,7 +11,7 @@
       </div>
     </template>
     <template #middleButton>
-      <div class="cursor-pointer text-sm font-bold leading-3 underline underline-offset-[0.125rem]">
+      <div class="cursor-pointer text-sm font-bold leading-3 underline underline-offset-2">
         {{ $t('common.viewSubscribePlan') }}
       </div>
     </template>
@@ -40,24 +34,27 @@
   </div>
 </template>
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useAccountStore } from '@/store/account'
 import Button from '@comp/common/Button.vue'
 import List from '@comp/common/List.vue'
 import Feed from '@comp/main/Feed.vue'
 import SelfIntro from '@comp/main/SelfIntro.vue'
 import defaultAvatar from '@/assets/images/avatar.jpeg'
 
-const userInfo = ref({
+const { userData } = storeToRefs(useAccountStore())
+
+const userInfo = computed(() => ({
   avatar: defaultAvatar,
-  name: 'Angelababy',
-  username: 'angelababy',
-  subscriber: 364,
-  posts: 85,
+  name: userData.value?.nickname,
+  username: userData.value?.username,
+  subscriber: userData.value?.subscriber_count,
+  posts: userData.value?.post_num,
   link: 'WenHsin.com',
-  viewed: 2532,
-  info: `🇩🇪/🇺🇸 - 19 years😇 check my link to get to know me &lt; 3, I'm convinced your massive dick will help me get to
-        the spread, daddy💦💦`,
-})
+  viewed: userData.value?.view_count,
+  info: userData.value?.description,
+}))
 
 const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
 </script>

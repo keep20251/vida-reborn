@@ -1,15 +1,6 @@
 <template>
   <div class="flex flex-col space-y-20">
-    <SelfIntro
-      :item="userInfo"
-      :cameraIcon="true"
-      :showBgData="false"
-      :showSubscribePlan="false"
-      :showPersonalInfo="false"
-      :showBgUpload="true"
-      :showAllInfo="false"
-    >
-    </SelfIntro>
+    <SelfIntro :item="userInfo" camera-icon show-bg-upload></SelfIntro>
     <div class="flex flex-col space-y-20 pl-4">
       <InputWrap
         v-model="profile.nickname"

@@ -44,7 +44,7 @@
         </div>
         <Icon name="dropdown" size="8" class="transition-transform" :class="{ 'rotate-180': accOpen === true }"></Icon>
       </div>
-      <div class="transition-all pl-20" :class="{'hidden':!accOpen}">
+      <div class="transition-all pl-20" :class="{ hidden: !accOpen }">
         <div class="flex w-full flex-col space-y-10 transition-all delay-1000" :class="{ hidden: !accOpen }">
           <router-link :to="{ name: 'mine-account' }" class="flex cursor-pointer items-center space-x-18">
             <Icon name="setting" size="20"></Icon><span>{{ $t('title.usnMail') }}</span>
@@ -84,7 +84,7 @@
           :class="{ 'rotate-180': aboutOpen === true }"
         ></Icon>
       </div>
-      <div class="transition-all pl-20" :class="{'hidden':!aboutOpen}">
+      <div class="transition-all pl-20" :class="{ hidden: !aboutOpen }">
         <div class="flex w-full flex-col space-y-10 transition-all delay-1000" :class="{ hidden: !aboutOpen }">
           <router-link :to="{ name: 'mine-tos' }" class="flex cursor-pointer items-center space-x-18">
             <Icon name="setting" size="20"></Icon><span>{{ $t('title.tos') }}</span>
@@ -108,13 +108,6 @@
         <Icon name="setting" size="20"></Icon>
         <span>{{ $t('title.logout') }}</span>
       </div>
-    </div>
-    <div v-if="isDev" class="grid space-y-5 rounded-xl bg-slate-200 px-10 py-10">
-      <div class="text-red-600">開發模式用</div>
-      <router-link :to="{ name: 'mine-profile-set' }" class="flex cursor-pointer items-center space-x-18">
-        <Icon name="setting" size="20"></Icon>
-        <span>創作者主頁設置</span>
-      </router-link>
     </div>
   </div>
 </template>
@@ -169,6 +162,4 @@ const transOptions = locales.map((lang) => ({
 
 const { open: openAuthDialog } = useAuthRouteStore()
 const { logout } = useAccountStore()
-
-const isDev = computed(() => import.meta.env.DEV)
 </script>
