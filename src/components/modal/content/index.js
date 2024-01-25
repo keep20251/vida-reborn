@@ -1,8 +1,9 @@
-import ApplyCreatorCert from '@comp/modal/content/ApplyCreatorCert.vue'
-import InterestedPick from '@comp/modal/content/InterestedPick.vue'
-import SignUpSuccess from '@comp/modal/content/SignUpSuccess.vue'
-import SocialLink from '@comp/modal/content/SocialLink.vue'
 import { MODAL_TYPE } from '@const'
+import ApplyCreatorCert from './ApplyCreatorCert.vue'
+import CookiePolicy from './CookiePolicy.vue'
+import InterestedPick from './InterestedPick.vue'
+import SignUpSuccess from './SignUpSuccess.vue'
+import SocialLink from './SocialLink.vue'
 import Test from './Test.vue'
 import Text from './Text.vue'
 
@@ -15,6 +16,8 @@ export default Object.freeze({
 
   [MODAL_TYPE.INTERESTED_PICK]: InterestedPick,
   [MODAL_TYPE.APPLY_CREATOR_CERT]: ApplyCreatorCert,
+
+  [MODAL_TYPE.COOKIE_POLICY]: CookiePolicy,
 
   [MODAL_TYPE.TEST]: Test,
 })

@@ -1,0 +1,75 @@
+{
+  "faq": {
+    "account": {
+      "title": "Conta",
+      "a": {
+        "subtitle": "Esqueci a minha senha",
+        "content": "Vá para a tela de login e clique em ‘esqueci’ no campo de senha. Se você não se lembra mais do seu endereço de e-mail, entre em contato com support@VIDA"
+      },
+      "b": {
+        "subtitle": "Como posso excluir minha conta?",
+        "content": "Esteja ciente de que excluir sua conta é um processo irreversível e todos os seus dados serão excluídos permanentemente de acordo com nossa Política de Privacidade."
+      }
+    },
+    "features": {
+      "title": "Características",
+      "a": {
+        "subtitle": "Por que devo me inscrever?",
+        "content": "Como assinante, você recebe conteúdo altamente personalizado em sua conta com base nas categorias e criadores que você seguiu e assinou no VIDA. Você não apenas obtém acesso ao conteúdo privado de um criador, mas também tem a oportunidade exclusiva de se conectar, enviar mensagens diretas e conversar com ele!"
+      },
+      "b": {
+        "subtitle": "Como envio conteúdo para um criador?",
+        "content": "Os assinantes podem compartilhar mídia com os criadores. O conteúdo deve seguir as diretrizes da comunidade. Ao enviar mensagens para um criador, tudo o que você precisa fazer é pressionar o botão do clipe de papel próximo à caixa de bate-papo e enviar sua foto ou vídeo do seu dispositivo."
+      },
+      "c": {
+        "subtitle": "O conteúdo é salvo no perfil do usuário para uploads futuros?",
+        "content": "Não, o conteúdo não será salvo. O conteúdo precisará ser carregado do seu dispositivo sempre que você desejar enviá-lo a um criador."
+      },
+      "d": {
+        "subtitle": "O conteúdo pode ser excluído de um tópico de mensagens pelo usuário ou criador?",
+        "content": "Nenhum conteúdo pode ser excluído do tópico neste momento."
+      },
+      "e": {
+        "subtitle": "E se o conteúdo for de natureza ofensiva?",
+        "content": "Os criadores podem denunciar qualquer conteúdo que lhes seja enviado e tomaremos as medidas adequadas."
+      }
+    },
+    "contact": {
+      "title": "Contato",
+      "a": {
+        "subtitle": "Como entro em contato com o suporte do VIDA?",
+        "content": "Estamos sempre felizes em ajudar com suas dúvidas. Para entrar em contato conosco diretamente, use os links e informações de contato abaixo:Suporte geral e do site: support@VIDASuporte de cobrança: support@VIDA ou visite https: //www.VIDA (somente cobrança)"
+      }
+    },
+    "about": {
+      "title": "Sobre VIDAa.one",
+      "a": {
+        "subtitle": "O que é VIDAa.one?",
+        "content": "VIDA é uma plataforma online que permite que criadores e influenciadores de todo o mundo interajam com seus clientes em um ambiente seguro para todas as partes envolvidas."
+      },
+      "b": {
+        "subtitle": "Como compartilho feedback?",
+        "content": "VIDA não existiria sem você, e sua opinião é importante para nós. Estamos sempre ansiosos para ouvir suas idéias, sugestões ou preocupações. A maneira mais fácil de enviar feedback é enviando um email para support@VIDA"
+      }
+    },
+    "menu": {
+      "title": "Recurso de menu da loja",
+      "a": {
+        "subtitle": "O que está disponível na nova loja?",
+        "content": "Os criadores podem oferecer qualquer uma das seguintes opções, verifique os serviços adicionais da compilação enviada: Classificação da foto de Dick Vídeo personalizado - conteúdo, duração e preço acordados com o criador Nome no corpo - foto ou vídeo Cosplay / VIDAa - foto ou vídeo Instruções para masturbação (JOI) - vídeo Vídeos de férias - aniversário, dia dos namorados, natal, despedida de solteiro Garoto ou garota - vídeo Trate-me - o usuário envia dinheiro ao criador para uma guloseima, por exemplo. pedicure e criadora envia foto de volta"
+      },
+      "b": {
+        "subtitle": "E se eu não receber o conteúdo pelo qual paguei?",
+        "content": "Todas as solicitações deverão ser atendidas em até 72 horas e os criadores deverão confirmar a entrega dos itens encomendados. Se a entrega não for concluída, processaremos um reembolso."
+      },
+      "c": {
+        "subtitle": "Os clientes podem cancelar uma solicitação?",
+        "content": "Não, uma solicitação de um cliente não pode ser cancelada, mas os criadores podem optar por recusar uma solicitação."
+      },
+      "d": {
+        "subtitle": "E se eu precisar denunciar conteúdo que recebi?",
+        "content": "Existe uma opção de relatório sobre todo o conteúdo recebido. O conteúdo precisa seguir as diretrizes da comunidade; portanto, se você acreditar que alguma mídia viola essas regras, poderá usar a função de denúncia. As diretrizes de conteúdo incluem, mas não estão limitadas a: Qualquer mídia que mostre sinais de discriminação, violência, atividades forçadas ou não consensuais Qualquer mídia que possa conter menores de 18 anos Conteúdo roubado/direitos autorais A pessoa principal na mídia não corresponde ao perfil Instruções para suicídio ou assassinatoTerrorismo"
+      }
+    }
+  }
+}

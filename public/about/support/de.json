@@ -1,0 +1,75 @@
+{
+  "faq": {
+    "account": {
+      "title": "Konto",
+      "a": {
+        "subtitle": "Ich habe mein Passwort vergessen",
+        "content": "Gehen Sie zum Anmeldebildschirm und klicken Sie im Passwortfeld auf „Vergessen“. Wenn Sie sich nicht mehr an Ihre E-Mail-Adresse erinnern, wenden Sie sich an support@VIDA"
+      },
+      "b": {
+        "subtitle": "Wie kann ich mein Konto löschen?",
+        "content": "Bitte beachten Sie, dass das Löschen Ihres Kontos ein unumkehrbarer Vorgang ist und alle Ihre Daten gemäß unserer Datenschutzrichtlinie dauerhaft gelöscht werden."
+      }
+    },
+    "features": {
+      "title": "Merkmale",
+      "a": {
+        "subtitle": "Warum sollte ich mich anmelden?",
+        "content": "Als Abonnent erhalten Sie hochgradig personalisierte Inhalte auf Ihrem Konto, basierend auf den Kategorien und Erstellern, denen Sie auf VIDA gefolgt sind und die Sie abonniert haben. Sie erhalten nicht nur Zugriff auf die privaten Inhalte eines Erstellers, sondern haben auch die exklusive Möglichkeit, sich mit ihm zu vernetzen, ihm Direktnachrichten zu senden und ein Gespräch zu führen!"
+      },
+      "b": {
+        "subtitle": "Wie sende ich Inhalte an einen Ersteller?",
+        "content": "Abonnenten haben die Möglichkeit, Medien mit den Erstellern zu teilen. Der Inhalt muss den Community-Richtlinien entsprechen. Wenn Sie einem Ersteller eine Nachricht senden, müssen Sie lediglich auf die Büroklammer-Taste neben dem Chat-Feld klicken und Ihr Bild oder Video von Ihrem Gerät hochladen."
+      },
+      "c": {
+        "subtitle": "Wird der Inhalt im Profil des Benutzers für zukünftige Uploads gespeichert?",
+        "content": "Nein, der Inhalt wird nicht gespeichert. Der Inhalt muss jedes Mal von Ihrem Gerät hochgeladen werden, wenn Sie ihn an einen Ersteller senden möchten."
+      },
+      "d": {
+        "subtitle": "Kann der Benutzer oder Ersteller Inhalte aus einem Nachrichtenthread löschen?",
+        "content": "Derzeit kann kein Inhalt aus dem Thread gelöscht werden."
+      },
+      "e": {
+        "subtitle": "Was passiert, wenn der Inhalt beleidigender Natur ist?",
+        "content": "Ersteller können alle an sie gesendeten Inhalte melden und wir werden entsprechende Maßnahmen ergreifen."
+      }
+    },
+    "contact": {
+      "title": "Kontakt",
+      "a": {
+        "subtitle": "Wie kontaktiere ich den VIDA-Support?",
+        "content": "Wir helfen Ihnen jederzeit gerne bei Ihren Fragen weiter. Um direkt mit uns in Kontakt zu treten, verwenden Sie bitte die folgenden Links und Kontaktinformationen: Allgemeiner und Website-Support: support@VIDAAbrechnungssupport: support@VIDA oder besuchen Sie https://www.VIDA (nur Abrechnung)."
+      }
+    },
+    "about": {
+      "title": "Über VIDA",
+      "a": {
+        "subtitle": "Was ist VIDA?",
+        "content": "VIDA ist eine Online-Plattform, die es Kreativen und Influencern auf der ganzen Welt ermöglicht, mit ihren Kunden in einer für alle Beteiligten sicheren Umgebung zu interagieren."
+      },
+      "b": {
+        "subtitle": "Wie teile ich Feedback?",
+        "content": "Ohne Sie gäbe es VIDA nicht und Ihre Meinung ist uns wichtig. Wir freuen uns immer über Ihre Gedanken, Anregungen oder Anliegen. Der einfachste Weg, Feedback zu senden, ist eine E-Mail an support@VIDA"
+      }
+    },
+    "menu": {
+      "title": "Shop-Menüfunktion",
+      "a": {
+        "subtitle": "Was gibt es im neuen Shop?",
+        "content": "Der Ersteller kann eine der folgenden Optionen anbieten. Bitte überprüfen Sie die hochgeladenen Build-Zusatzdienste: Schwanzbildbewertung Benutzerdefiniertes Video – Inhalt, Länge und Preis mit dem Ersteller vereinbart Name auf dem Körper – Bild oder Video Cosplay/Kostüm – Bild oder Video Wichsanweisungen (JOI) - Video Feiertagsvideos - Geburtstag, Valentinstag, Weihnachten, Junggeselle Junge Mädchen oder Mädchen Mädchen - Video Behandle mich – Benutzer sendet dem Ersteller Geld für eine Belohnung, z. B. Pediküre und Ersteller sendet Foto zurück"
+      },
+      "b": {
+        "subtitle": "Was passiert, wenn ich die Inhalte, für die ich bezahlt habe, nicht erhalte?",
+        "content": "Alle Anfragen müssen innerhalb von 72 Stunden bearbeitet werden und die Ersteller müssen die Lieferung der bestellten Artikel bestätigen. Wenn die Lieferung nicht vollständig ist, veranlassen wir eine Rückerstattung."
+      },
+      "c": {
+        "subtitle": "Können Kunden eine Anfrage stornieren?",
+        "content": "Nein, eine Anfrage eines Kunden kann nicht storniert werden. Ersteller haben jedoch die Möglichkeit, eine Anfrage abzulehnen."
+      },
+      "d": {
+        "subtitle": "Was passiert, wenn ich erhaltene Inhalte melden muss?",
+        "content": "Für alle empfangenen Inhalte gibt es eine Berichtsmöglichkeit. Der Inhalt muss den Community-Richtlinien entsprechen. Sollten Sie daher der Meinung sein, dass Medien gegen diese Regeln verstoßen, können Sie die Meldefunktion nutzen. Zu den Inhaltsrichtlinien gehören unter anderem: Alle Medien, die Anzeichen von Diskriminierung, Gewalt, erzwungenen oder nicht einvernehmlichen Aktivitäten aufweisen. Alle Medien, die möglicherweise Minderjährige unter 18 Jahren enthalten. Gestohlene Inhalte/Urheberrechte. Die Hauptperson in den Medien stimmt nicht mit dem Profil überein. Anweisungen für Selbstmord oder Mord, Terrorismus"
+      }
+    }
+  }
+}

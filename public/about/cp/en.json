@@ -1,0 +1,68 @@
+{
+  "cp": {
+    "info": {
+      "title": "Cookie Policy",
+      "content": "This Policy does not address how we deal with your personal information. To learn more about how we collect and process your personal information, please see our Privacy Policy . This Policy explains more about how we use Cookies and your related choices. By using the Service, you expressly consent to information handling practices and storage and access of Cookies as described in this Policy"
+    },
+    "definitions": {
+      "title": "Definitions",
+      "table": {
+        "title": {
+          "a": "Term",
+          "b": "The ”Policy”",
+          "c": "VIDA”, ”we”, or ”us”",
+          "d": "The ”Service”",
+          "e": "”Cookies”"
+        },
+        "content": {
+          "a": "Definition",
+          "b": "The cookie policy as outlined in this document.",
+          "c": "VIDA, trading under the name VIDA.",
+          "d": "The VIDA website, located at VIDA, and any other websites, applications, or services provided, owned or operated by us that link to this Policy.",
+          "e": "A small piece of data that is stored on your device to help websites and mobile apps remember things about you. Other technologies, including Web storage and identifiers associated with your device, may be used for similar purposes."
+        }
+      }
+    },
+    "modifications": {
+      "title": "Modifications",
+      "content": "We reserve the right to change these Terms at any time. If we make changes, we will notify you by revising the date at the bottom of the Terms and, in some cases, we will provide you with additional notice (such as adding a statement to our homepage or sending you an email notification). In order to comply with Regulation (EU) 2019/1150 (the 'Platform to Business Regulation' or 'P2BR') we will provide no less than 15 days' notice of any changes to these Terms on a 'durable medium' (as defined in the P2BR), other than those changes set out in Article 3 (4) of the P2BR. Changes to these Terms are effective at the time they are published. Your continued use of the Service after the effective date of the revised Terms constitutes your acceptance of the Terms.License to Use the Service Subject to these Terms, VIDA grants you a personal, worldwide, royalty-free, non-assignable, nonexclusive, revocable, and non-sublicensable license to access and use the Service. This license is for the sole purpose of letting you use and enjoy the Service’s benefits as intended by VIDA and permitted by these Terms."
+    },
+    "useCookie": {
+      "title": "How We Use Cookies",
+      "content1": "VIDA uses Cookies, including third-party Cookies, for a number of reasons, like protecting your VIDA data and account, helping us see which features are most popular, counting visitors to a page, improving our users’ experience, keeping our services secure, providing relevant advertising, and providing you with a better, more intuitive, and satisfying experience. The Cookies we use generally fall into one of the following categories.",
+      "content2": "We may also use similar technologies such as pixel tags, clear GIFS and web beacons in conjunction with Cookies to track activity on our Service. Unless you disable Cookies, when you visit a web page, these technologies may tell us that you’ve visited. These technologies may also let us know whether you’ve received our emails.",
+      "table": {
+        "title": { "a": "Category", "b": "Necessary", "c": "Preferences", "d": "Performance", "e": "Marketing" },
+        "content": {
+          "a": "Why we use these Cookies",
+          "b": "We use these Cookies to run our Services, and to identify and prevent security risks. For example, we may use these Cookies to store your session information.",
+          "c": "We use these Cookies to remember your settings and preferences, and to improve your experience on our Services. For example, we may use these Cookies to remember your language preferences.",
+          "d": "We use these Cookies to collect information about how you use our Services, and monitor and improve our Services performance.",
+          "e": "We use these Cookies to deliver advertisements, to make them more relevant and meaningful to consumers, and to track the efficiency of our advertising campaigns."
+        }
+      }
+    },
+    "analyticsAd": {
+      "title": "Analytics and Advertising Providers",
+      "content": "VIDA may let other companies use Cookies on our Service. These companies may collect information about how you use our Service over time and combine it with similar information from other services and companies. This information may be used to, among other things, analyze and track data, determine the popularity of certain content, and better understand your online activity.We may collect information about your activity on third-party services that use Cookies provided by us. We use this information to improve our advertising services, including measuring the performance of ads and showing you more relevant ads."
+    },
+    "choices": {
+      "title": "Your Choices",
+      "content": "Your browser may provide you with the option to refuse some or all browser Cookies. You may also be able to remove Cookies from your browser. For more information about how to manage or disable Cookies, please follow the instructions provided by your browser or see www.allaboutcookies.org/manage-cookies Some features of the Service may not work as intended if you disable Cookies."
+    },
+    "contact": {
+      "title": "Contact",
+      "content": "Questions or concerns regarding these Terms can be addressed to support@VIDA. Please note that e-mail communications will not necessarily be secure; accordingly you should not include credit card information or other sensitive information in your e-mail correspondence with us. Billing queries should be directed to billing@VIDA"
+    },
+    "miscellaneous": {
+      "title": "Miscellaneous",
+      "content": "These Terms do not, and shall not be construed to, create any partnership, joint venture, employer-employee, agency or franchisor-franchisee relationship between you and VIDA. If any provision of these Terms is found to be unlawful, void or for any reason unenforceable, that provision will be deemed severable from these Terms and will not affect the validity and enforceability of any remaining provision. You may not assign, transfer or sublicense any or all of your rights or obligations under these Terms without our express prior written consent. We may assign, transfer or sublicense any or all of our rights or obligations under these Terms without restriction. No waiver by either party of any breach or default hereunder will be deemed to be a waiver of any preceding or subsequent breach or default. Any heading, caption or section title contained herein is inserted only as a matter of convenience, and in no way defines or explains any section or provision hereof. This, together with all policies referred to herein, is the entire agreement between you and VIDA relating to the subject matter herein and supersedes any and all prior or contemporaneous written or oral agreements or understandings between you and VIDA relating to such subject matter. Notices to you may be made via posting to the Service, by e-mail, or by regular mail, in VIDA’s discretion. The Service may also provide notices of changes to these Terms or other matters by displaying such notices or by providing links to such notices. Without limitation, you agree that a printed version of these Terms and of any notice given in electronic form shall be admissible in judicial or administrative proceedings based upon or relating to these Terms to the same extent and subject to the same conditions as other business documents and records originally generated and maintained in printed form. VIDA will not be responsible for failures to fulfill any obligations due to causes beyond its control."
+    },
+    "language": {
+      "title": "Language",
+      "content": "These Terms were originally written in English. To the extent any translated version of these Terms conflicts with the English version, the English version controls.Last modified: July 2023© 2023 VIDA unless otherwise noted. All rights reserved."
+    },
+    "final": "Last modified: July 2023",
+    "VIDA": "© 2023 VIDA One Unless otherwise stated. All rights reserved."
+  }
+}

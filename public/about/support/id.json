@@ -1,0 +1,75 @@
+{
+  "faq": {
+    "account": {
+      "title": "Akun",
+      "a": {
+        "subtitle": "Saya lupa kata sandi saya",
+        "content": "Buka layar login dan klik 'lupa' di kolom kata sandi. Jika Anda tidak ingat lagi alamat email Anda, hubungi support@VIDA"
+      },
+      "b": {
+        "subtitle": "Bagaimana cara menghapus akun saya?",
+        "content": "Perlu diketahui bahwa menghapus akun Anda adalah proses yang tidak dapat diubah, dan semua data Anda akan dihapus secara permanen sesuai dengan Kebijakan Privasi kami."
+      }
+    },
+    "features": {
+      "title": "Fitur",
+      "a": {
+        "subtitle": "Mengapa saya harus berlangganan?",
+        "content": "Sebagai pelanggan, Anda menerima konten yang sangat dipersonalisasi ke akun Anda berdasarkan kategori dan Kreator yang Anda ikuti dan berlangganan di VIDA. Anda tidak hanya mendapatkan akses ke konten pribadi Kreator tetapi Anda juga memiliki kesempatan eksklusif untuk terhubung, mengirim pesan langsung, dan mengobrol dengan mereka!"
+      },
+      "b": {
+        "subtitle": "Bagaimana cara mengirim konten ke pembuat konten?",
+        "content": "Pelanggan dapat berbagi media dengan pembuat konten. Konten harus mematuhi pedoman komunitas. Saat mengirim pesan kepada pembuat konten, yang perlu Anda lakukan hanyalah menekan tombol penjepit kertas di sebelah kotak obrolan dan mengunggah gambar atau video dari perangkat Anda."
+      },
+      "c": {
+        "subtitle": "Apakah konten disimpan di profil pengguna untuk diupload di masa mendatang?",
+        "content": "Tidak, kontennya tidak akan disimpan. Konten harus diunggah dari perangkat Anda setiap kali Anda ingin mengirimkannya ke pembuatnya."
+      },
+      "d": {
+        "subtitle": "Bisakah konten dihapus dari rangkaian pesan oleh pengguna atau pembuatnya?",
+        "content": "Tidak ada konten yang dapat dihapus dari thread saat ini."
+      },
+      "e": {
+        "subtitle": "Bagaimana jika kontennya bersifat menyinggung?",
+        "content": "Kreator dapat melaporkan konten apa pun yang dikirimkan kepada mereka dan kami akan mengambil tindakan yang sesuai."
+      }
+    },
+    "contact": {
+      "title": "Kontak",
+      "a": {
+        "subtitle": "Bagaimana cara menghubungi dukungan VIDA?",
+        "content": "Kami selalu dengan senang hati membantu pertanyaan Anda. Untuk menghubungi kami secara langsung, silakan gunakan tautan dan informasi kontak di bawah ini:Dukungan Umum & Situs Web: support@VIDADukungan Penagihan: support@VIDA atau kunjungi https: //www.VIDA (hanya penagihan)"
+      }
+    },
+    "about": {
+      "title": "Tentang VIDA.satu",
+      "a": {
+        "subtitle": "Apa itu VIDA.satu?",
+        "content": "VIDA adalah platform online yang memungkinkan Kreator dan influencer di seluruh dunia berinteraksi dengan pelanggan mereka dalam lingkungan yang aman dan terjamin bagi semua pihak yang terlibat."
+      },
+      "b": {
+        "subtitle": "Bagaimana cara berbagi masukan?",
+        "content": "VIDA.seseorang tidak akan ada tanpa Anda, dan pendapat Anda penting bagi kami. Kami selalu menantikan pendapat, saran, atau kekhawatiran Anda. Cara termudah untuk mengirimkan masukan adalah dengan mengirimkan email ke support@VIDA"
+      }
+    },
+    "menu": {
+      "title": "Fitur menu toko",
+      "a": {
+        "subtitle": "Apa saja yang tersedia di toko baru?",
+        "content": "Kreator dapat menawarkan salah satu opsi berikut, silakan periksa layanan tambahan build yang diunggah: Peringkat gambar kontol Video khusus - konten, durasi, dan harga disepakati dengan pembuat Nama di badan - gambar atau video Cosplay / Kostum - gambar atau video Instruksi Jerk off (JOI) - video Video liburan - ulang tahun, hari kasih sayang, natal, bujang Laki-laki perempuan atau perempuan perempuan - video Perlakukan saya - pengguna mengirimkan uang kepada pencipta untuk hadiah, misalnya. pedikur dan pencipta mengirimkan foto kembali"
+      },
+      "b": {
+        "subtitle": "Bagaimana jika saya tidak menerima konten yang saya bayar?",
+        "content": "Semua permintaan harus dipenuhi dalam waktu 72 jam dan pembuat harus mengonfirmasi pengiriman barang yang dipesan. Jika pengiriman tidak selesai kami akan memproses pengembalian dana."
+      },
+      "c": {
+        "subtitle": "Bisakah pelanggan membatalkan permintaan?",
+        "content": "Tidak, permintaan dari pelanggan tidak dapat dibatalkan, namun pembuat konten dapat memilih untuk menolak permintaan."
+      },
+      "d": {
+        "subtitle": "Bagaimana jika saya perlu melaporkan konten yang saya terima?",
+        "content": "Ada opsi laporan pada semua konten yang diterima. Konten harus mematuhi pedoman komunitas, oleh karena itu jika Anda yakin ada media yang melanggar aturan ini, Anda dapat menggunakan fungsi laporan. Pedoman konten mencakup namun tidak terbatas pada: Media apa pun yang menunjukkan tanda-tanda diskriminasi, kekerasan, aktivitas paksaan atau non-konsensual Media apa pun yang mungkin berisi anak di bawah umur 18 tahun Konten yang dicuri/hak cipta Orang utama di media tidak sesuai dengan profil Instruksi untuk bunuh diri atau pembunuhanTerorisme"
+      }
+    }
+  }
+}

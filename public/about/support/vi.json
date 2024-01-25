@@ -1,0 +1,75 @@
+{
+  "faq": {
+    "account": {
+      "title": "Tài khoản",
+      "a": {
+        "subtitle": "Tôi quên mật khẩu của tôi",
+        "content": "Chuyển đến màn hình đăng nhập và nhấp vào 'quên' trong trường mật khẩu. Nếu bạn không còn nhớ địa chỉ email của mình, hãy liên hệ với support@VIDA"
+      },
+      "b": {
+        "subtitle": "Làm cách nào để xóa tài khoản của tôi?",
+        "content": "Xin lưu ý rằng việc xóa tài khoản của bạn là một quá trình không thể đảo ngược và tất cả dữ liệu của bạn sẽ bị xóa vĩnh viễn theo Chính sách quyền riêng tư của chúng tôi."
+      }
+    },
+    "features": {
+      "title": "Đặc trưng",
+      "a": {
+        "subtitle": "Tại sao tôi nên đăng ký?",
+        "content": "Với tư cách là người đăng ký, bạn sẽ nhận được nội dung được cá nhân hóa cao cho tài khoản của mình dựa trên các danh mục và Người sáng tạo mà bạn đã theo dõi và đăng ký trên VIDA. Bạn không chỉ có quyền truy cập vào nội dung riêng tư của Người sáng tạo mà còn có cơ hội độc quyền để kết nối, nhắn tin trực tiếp và trò chuyện với họ!"
+      },
+      "b": {
+        "subtitle": "Làm cách nào để gửi nội dung cho người sáng tạo?",
+        "content": "Người đăng ký có thể chia sẻ phương tiện với người sáng tạo. Nội dung phải tuân thủ các nguyên tắc cộng đồng. Khi nhắn tin cho người sáng tạo, tất cả những gì bạn cần làm là nhấn nút kẹp giấy bên cạnh hộp trò chuyện và tải ảnh hoặc video lên từ thiết bị của mình."
+      },
+      "c": {
+        "subtitle": "Nội dung có được lưu trên hồ sơ của người dùng để tải lên trong tương lai không?",
+        "content": "Không, nội dung sẽ không được lưu. Nội dung sẽ cần được tải lên từ thiết bị của bạn mỗi lần bạn muốn gửi nội dung đó cho người sáng tạo."
+      },
+      "d": {
+        "subtitle": "Người dùng hoặc người tạo có thể xóa nội dung khỏi chuỗi tin nhắn không?",
+        "content": "Không có nội dung nào có thể bị xóa khỏi chủ đề vào lúc này."
+      },
+      "e": {
+        "subtitle": "Điều gì sẽ xảy ra nếu nội dung đó có tính chất xúc phạm?",
+        "content": "Người sáng tạo có thể báo cáo bất kỳ nội dung nào được gửi cho họ và chúng tôi sẽ có hành động thích hợp."
+      }
+    },
+    "contact": {
+      "title": "Liên hệ",
+      "a": {
+        "subtitle": "Làm cách nào để liên hệ với bộ phận hỗ trợ của VIDA?",
+        "content": "Chúng tôi luôn sẵn lòng trợ giúp với các thắc mắc của bạn. Để liên hệ trực tiếp với chúng tôi, vui lòng sử dụng các liên kết và thông tin liên hệ bên dưới: Hỗ trợ chung & trang web: support@VIDA Hỗ trợ thanh toán: support@VIDA hoặc truy cập https: //www.VIDA (chỉ thanh toán)"
+      }
+    },
+    "about": {
+      "title": "Về VIDA",
+      "a": {
+        "subtitle": "VIDA là gì?",
+        "content": "VIDA là một nền tảng trực tuyến cho phép Người sáng tạo và những người có ảnh hưởng trên toàn thế giới tương tác với khách hàng của họ trong một môi trường an toàn và bảo mật cho tất cả các bên liên quan."
+      },
+      "b": {
+        "subtitle": "Làm cách nào để chia sẻ phản hồi?",
+        "content": "VIDA sẽ không tồn tại nếu không có bạn và ý kiến ​​của bạn rất quan trọng đối với chúng tôi. Chúng tôi luôn mong muốn được nghe về những suy nghĩ, đề xuất hoặc mối quan tâm của bạn. Cách dễ nhất để gửi phản hồi là gửi email đến support@VIDA"
+      }
+    },
+    "menu": {
+      "title": "Tính năng menu cửa hàng",
+      "a": {
+        "subtitle": "Cửa hàng mới có những gì?",
+        "content": "Người sáng tạo có thể cung cấp bất kỳ tùy chọn nào sau đây, vui lòng kiểm tra các dịch vụ bổ sung của bản dựng đã tải lên: Xếp hạng hình ảnh Dick Video tùy chỉnh - nội dung, độ dài và giá cả đã thỏa thuận với người sáng tạo Tên trên cơ thể - hình ảnh hoặc video Cosplay / Trang phục - hình ảnh hoặc video Hướng dẫn giật gân (JOI) - video Video ngày lễ - sinh nhật, ngày lễ tình nhân, giáng sinh, hươu Con trai hay con gái - video Hãy chiêu đãi tôi - người dùng gửi tiền cho người sáng tạo để chiêu đãi, ví dụ: móng chân và người sáng tạo gửi ảnh lại"
+      },
+      "b": {
+        "subtitle": "Nếu tôi không nhận được nội dung mà tôi đã thanh toán thì sao?",
+        "content": "Tất cả các yêu cầu phải được thực hiện trong vòng 72 giờ và người sáng tạo phải xác nhận việc giao các mặt hàng đã đặt. Nếu việc giao hàng không hoàn tất, chúng tôi sẽ xử lý hoàn lại tiền."
+      },
+      "c": {
+        "subtitle": "Khách hàng có thể hủy yêu cầu không?",
+        "content": "Không, yêu cầu của khách hàng không thể bị hủy, tuy nhiên người sáng tạo có thể chọn từ chối yêu cầu."
+      },
+      "d": {
+        "subtitle": "Nếu tôi cần báo cáo nội dung tôi đã nhận được thì sao?",
+        "content": "Có một tùy chọn báo cáo về tất cả nội dung nhận được. Nội dung cần tuân thủ các nguyên tắc cộng đồng, do đó, nếu bạn cho rằng bất kỳ phương tiện truyền thông nào vi phạm các quy tắc này, bạn có thể sử dụng chức năng báo cáo. Nguyên tắc nội dung bao gồm nhưng không giới hạn ở: Bất kỳ phương tiện truyền thông nào có dấu hiệu phân biệt đối xử, bạo lực, hoạt động cưỡng bức hoặc không có sự đồng thuận Bất kỳ phương tiện truyền thông nào có thể chứa trẻ vị thành niên dưới 18 tuổi Nội dung/bản quyền bị đánh cắp Nhân vật chính trong phương tiện truyền thông không khớp với hồ sơ Hướng dẫn tự tử hoặc giết người Khủng bố"
+      }
+    }
+  }
+}

@@ -14,7 +14,7 @@
       <div class="flex flex-col space-y-20 px-[15%]">
         <i18n-t keypath="content.cookie.line" tag="div" class="text-center text-sm font-normal leading-4 text-white">
           <template #word>
-            <span class="cursor-pointer underline">{{ $t('content.cookie.word') }}</span>
+            <span class="cursor-pointer underline" @click="openCookiePolicy">{{ $t('content.cookie.word') }}</span>
           </template>
         </i18n-t>
         <div class="flex w-full justify-center">
@@ -28,9 +28,23 @@
 </template>
 <script setup>
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useLocalStorage } from '@vueuse/core'
-import { LOCAL_STORAGE_KEYS } from '@const'
+import { useModalStore } from '@/store/modal'
+import { LOCAL_STORAGE_KEYS, MODAL_TYPE } from '@const'
+
+const { t: $t } = useI18n()
 
 const cookieAgreement = useLocalStorage(LOCAL_STORAGE_KEYS.COOKIE_AGREEMENT, false)
 const show = computed(() => !cookieAgreement.value)
+
+const { open } = useModalStore()
+const openCookiePolicy = () => {
+  open(MODAL_TYPE.COOKIE_POLICY, {
+    title: $t('title.cp'),
+    size: 'lg',
+    confirmText: $t('common.confirm'),
+    confirmAction: () => {},
+  })
+}
 </script>
