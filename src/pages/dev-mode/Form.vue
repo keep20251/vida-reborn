@@ -81,6 +81,12 @@
         <div class="text-sm font-normal leading-3">＠Helvetica Neue-12-注释</div>
         <div class="text-base font-bold leading-md">Helvetica Neue-14-按钮</div>
         <div class="text-base font-normal leading-md">Helvetica Neue-14-按钮未选中</div>
+        <div>【 Badge 】</div>
+        <Badge>0</Badge>
+        <Badge>1</Badge>
+        <Badge>10</Badge>
+        <Badge>999</Badge>
+        <Badge><Icon name="setting" size="10"></Icon></Badge>
       </div>
       <div v-else-if="tab === 3" class="my-10 grid space-y-20 px-20">
         <div>【 Dropdown 】</div>
@@ -144,6 +150,7 @@
 <script setup>
 import { ref } from 'vue'
 import Accordion from '@comp/common/Accordion.vue'
+import Badge from '@comp/common/Badge.vue'
 import Button from '@comp/common/Button.vue'
 import DatePicker from '@comp/form/DatePicker.vue'
 import Dropdown from '@comp/form/Dropdown.vue'
