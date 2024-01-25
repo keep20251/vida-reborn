@@ -1,6 +1,6 @@
 <template>
   <Page>
-    <template #main-top v-if="excludeRoutes.includes(route.name) === false">
+    <template #main-top v-if="excludeRoutes.includes(route.name) === false && headerTitle">
       <div class="flex items-center justify-center border-b py-20">
         <div class="text-lg font-bold leading-5">
           {{ headerTitle.includes('.') ? $t(headerTitle) : headerTitle }}

@@ -26,9 +26,11 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useModalStore } from '@/store/modal'
 import Dropdown from '@comp/form/Dropdown.vue'
+import { useConfirmData } from '@use/modal/confirm-data'
 
 const modalStore = useModalStore()
 const { content } = storeToRefs(modalStore)
@@ -46,4 +48,13 @@ const options = ref([
   { label: '哈爾濱', value: 9 },
   { label: '法國', value: 10 },
 ])
+
+useConfirmData(onValidate)
+
+const router = useRouter()
+function onValidate() {
+  console.log('onValidate')
+  router.push({ name: 'mine-creator-identity-agreement' })
+  return true
+}
 </script>
