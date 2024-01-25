@@ -111,6 +111,20 @@
         <div class="flex space-x-8">
           <Button loading>loading button</Button>
         </div>
+        <div class="flex space-x-8">
+          <Button size="md">size md</Button>
+          <Button size="md" cancel>size md</Button>
+          <Button size="md" contrast>size md</Button>
+          <Button size="md" gradient>size md</Button>
+          <Button size="md" loading>size md</Button>
+        </div>
+        <div class="flex space-x-8">
+          <Button size="sm">size sm</Button>
+          <Button size="sm" cancel>size sm</Button>
+          <Button size="sm" contrast>size sm</Button>
+          <Button size="sm" gradient>size sm</Button>
+          <Button size="sm" loading>size sm</Button>
+        </div>
       </div>
       <div v-else-if="tab === 5" class="my-10 grid space-y-20 px-20">
         <div>【 OptionsPicker 】</div>
