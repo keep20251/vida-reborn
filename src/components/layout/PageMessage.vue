@@ -18,12 +18,7 @@
               </div>
               <div class="flex flex-col items-end justify-between">
                 <div class="text-sm text-primary">{{ item.time }}</div>
-                <div
-                  v-if="item.unread > 0"
-                  class="flex w-20 items-center justify-center rounded-full bg-primary text-sm text-white"
-                >
-                  {{ item.unread }}
-                </div>
+                <Badge v-if="item.unread > 0">{{ item.unread }}</Badge>
               </div>
             </div>
           </template>
@@ -36,6 +31,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import Badge from '@comp/common/Badge.vue'
 import List from '@comp/common/List.vue'
 
 const users = ref([
@@ -61,7 +57,7 @@ const users = ref([
     username: 'tommy',
     time: '13:01',
     message: '[Photo]',
-    unread: 5,
+    unread: 999,
   },
   {
     id: 4,

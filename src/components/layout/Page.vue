@@ -2,27 +2,52 @@
   <div class="flex grow basis-full flex-row justify-start sm:basis-[540px] md:basis-[860px] xl:basis-[880px]">
     <div class="w-full max-w-[540px] px-20 pb-60 sm:pb-0 md:mr-20 md:w-[540px] xl:mr-40">
       <main>
+        <!-- main top -->
         <div
           v-if="$slots['main-top']"
-          class="fixed top-0 z-10 h-52 max-w-[500px] overflow-hidden bg-white transition-transform"
+          class="fixed z-10 -ml-20 max-w-[540px] overflow-hidden bg-white px-20 transition-transform"
           :class="{
-            'w-[calc(100%-40px)]': isMobile,
-            'w-[calc(100%-60px-40px)]': isDesktop,
+            'w-full': isMobile,
+            'w-[calc(100%-60px)]': isDesktop,
+            'h-44': isMobile,
+            'h-52': isDesktop,
+            'top-0': isDesktop || !$slots['mobile-top'],
+            'top-52': isMobile && $slots['mobile-top'],
             'translate-y-[-100%]': !mainTopOpen,
           }"
         >
           <slot name="main-top"></slot>
         </div>
-        <div ref="main" :class="{ 'pt-52': $slots['main-top'] }">
+
+        <!-- mobile-top -->
+        <div
+          v-if="isMobile && $slots['mobile-top']"
+          class="fixed top-0 z-10 -ml-20 h-52 w-full max-w-[500px] bg-white px-20 py-9"
+        >
+          <slot name="mobile-top"></slot>
+        </div>
+
+        <!-- main -->
+        <div
+          ref="main"
+          :class="{
+            'pt-44': isMobile && $slots['main-top'] && !$slots['mobile-top'],
+            'pt-52': (isDesktop && $slots['main-top']) || (!$slots['main-top'] && $slots['mobile-top']),
+            'pt-96': isMobile && $slots['mobile-top'] && $slots['main-top'],
+          }"
+        >
           <slot></slot>
         </div>
       </main>
     </div>
     <div v-if="isDesktop" class="hidden md:block md:w-[300px]">
       <aside>
+        <!-- aside top -->
         <div v-if="$slots['aside-top']" class="fixed top-0 z-10 h-52 overflow-hidden bg-white md:w-[300px]">
           <slot name="aside-top"></slot>
         </div>
+
+        <!-- aside -->
         <div ref="aside" class="pb-64 md:w-[300px]" :class="{ 'pt-52': $slots['aside-top'] }" :style="asideStyle">
           <slot name="aside"></slot>
         </div>
