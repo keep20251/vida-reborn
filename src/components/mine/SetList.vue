@@ -31,7 +31,7 @@
       </router-link>
     </div>
     <div v-if="role.beCreator" class="grid space-y-10 py-10">
-      <router-link :to="{ name: 'mine-creator' }" class="flex cursor-pointer items-center space-x-18">
+      <router-link :to="`/${locale}/mine/creator`" class="flex cursor-pointer items-center space-x-18">
         <Icon name="setting" size="20"></Icon>
         <span>{{ $t('title.beCreator') }}</span>
       </router-link>
@@ -44,7 +44,7 @@
         </div>
         <Icon name="dropdown" size="8" class="transition-transform" :class="{ 'rotate-180': accOpen === true }"></Icon>
       </div>
-      <div class="transition-all pl-20" :class="{ hidden: !accOpen }">
+      <div class="pl-20 transition-all" :class="{ hidden: !accOpen }">
         <div class="flex w-full flex-col space-y-10 transition-all delay-1000" :class="{ hidden: !accOpen }">
           <router-link :to="{ name: 'mine-account' }" class="flex cursor-pointer items-center space-x-18">
             <Icon name="setting" size="20"></Icon><span>{{ $t('title.usnMail') }}</span>
@@ -84,7 +84,7 @@
           :class="{ 'rotate-180': aboutOpen === true }"
         ></Icon>
       </div>
-      <div class="transition-all pl-20" :class="{ hidden: !aboutOpen }">
+      <div class="pl-20 transition-all" :class="{ hidden: !aboutOpen }">
         <div class="flex w-full flex-col space-y-10 transition-all delay-1000" :class="{ hidden: !aboutOpen }">
           <router-link :to="{ name: 'mine-tos' }" class="flex cursor-pointer items-center space-x-18">
             <Icon name="setting" size="20"></Icon><span>{{ $t('title.tos') }}</span>
@@ -112,7 +112,7 @@
   </div>
 </template>
 <script setup>
-import { computed, ref, watch } from 'vue'
+import { ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAuthRouteStore } from '@/store/auth-route'
