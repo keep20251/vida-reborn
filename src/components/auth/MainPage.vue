@@ -38,27 +38,29 @@
       class="px-50 text-center text-sm font-normal leading-4 text-gray-600"
     >
       <template #tos>
-        <span class="font-bold">{{ $t('content.tos') }}</span>
+        <span class="cursor-pointer font-bold" @click="openTermsOfService">{{ $t('content.tos') }}</span>
       </template>
       <template #pp>
-        <span class="font-bold">{{ $t('content.pp') }}</span>
+        <span class="cursor-pointer font-bold" @click="openPrivacyPolicy">{{ $t('content.pp') }}</span>
       </template>
     </i18n-t>
   </div>
 </template>
 <script setup>
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAuthRouteStore } from '@/store/auth-route'
 import { useEmailLoginStore } from '@/store/email-login'
+import { useModalStore } from '@/store/modal'
 import Button from '@comp/common/Button.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
 import useRequest from '@use/request'
 import { useMultiAuth } from '@use/request/multi-auth'
 import { useThirdPartyAuth } from '@use/request/third-party-auth'
 import { useYup } from '@use/validator/yup.js'
-import { AUTH_ROUTES } from '@const'
+import { AUTH_ROUTES, MODAL_TYPE } from '@const'
 
 const { twitterLogin, googleLogin, onAppleSignIn, redirect_uri } = useThirdPartyAuth()
 const { to, close } = useAuthRouteStore()
@@ -125,4 +127,25 @@ const loginOptions = [
   { label: 'info.loginByGoogle', icon: 'google', onClick: googleLogin },
   { label: 'info.loginByTwitter', icon: 'twitter', onClick: twitterLogin },
 ]
+
+const { open } = useModalStore()
+const { t: $t } = useI18n()
+
+function openTermsOfService() {
+  open(MODAL_TYPE.TERMS_OF_SERVICE, {
+    title: $t('title.tos'),
+    size: 'lg',
+    confirmText: $t('common.confirm'),
+    confirmAction: () => {},
+  })
+}
+
+function openPrivacyPolicy() {
+  open(MODAL_TYPE.PRIVACY_POLICY, {
+    title: $t('title.pp'),
+    size: 'lg',
+    confirmText: $t('common.confirm'),
+    confirmAction: () => {},
+  })
+}
 </script>
