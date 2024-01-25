@@ -1,13 +1,7 @@
 <template>
   <div>
     <div v-if="isLogin">
-      <SelfIntro
-        :item="userInfo"
-        :cameraIcon="false"
-        :showBgData="true"
-        :showSubscribePlan="false"
-        :showPersonalInfo="true"
-      >
+      <SelfIntro :item="userInfo" show-bg-data show-personal-info show-all-info>
         <template #topButton>
           <div class="flex items-center space-x-10">
             <Icon class="cursor-pointer" name="link" size="20"></Icon>
@@ -28,7 +22,6 @@
           </div>
         </template>
       </SelfIntro>
-
       <div class="leading-md flex h-36 w-full items-center bg-gray03 px-20 text-base font-bold">
         {{ $t('content.allPosts') }} 85
       </div>
@@ -96,7 +89,7 @@ const userInfo = computed(() => ({
   posts: userData.value?.post_num,
   link: 'WenHsin.com',
   viewed: userData.value?.view_count,
-  info: userData.value?.descriptions,
+  info: userData.value?.description,
 }))
 
 const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
