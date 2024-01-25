@@ -36,6 +36,7 @@ import { loadSeoHead } from '@/utils/init'
 const route = useRoute()
 const appStore = useAppStore()
 const { isDesktop, isMobile } = storeToRefs(appStore)
+const { initAppConfig, setAppConfig } = appStore
 
 loadSeoHead()
 const { authDialog } = storeToRefs(useDialogStore())
@@ -45,15 +46,33 @@ const { resetUserData } = accountStore
 const { isLogin } = storeToRefs(accountStore)
 
 const hydrationStore = useHydrationStore()
-const { userData } = storeToRefs(hydrationStore)
+const { appConfig, userData } = storeToRefs(hydrationStore)
 onServerClientOnce(async (isSSR) => {
+  // 有登入初始資料
   if (isLogin.value) {
     try {
-      const resUserData = await useRequest('User.info', { immediate: true })
+      const [resAppConfig, resUserData] = await Promise.all([
+        initAppConfig(),
+        useRequest('User.info', { immediate: true }),
+      ])
       resetUserData(resUserData)
 
       if (isSSR) {
+        appConfig.value = resAppConfig
         userData.value = resUserData
+      }
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
+  // 未登入初始資料
+  else {
+    try {
+      const [resAppConfig] = await Promise.all([initAppConfig()])
+
+      if (isSSR) {
+        appConfig.value = resAppConfig
       }
     } catch (e) {
       console.error(e)
@@ -61,9 +80,15 @@ onServerClientOnce(async (isSSR) => {
   }
 })
 onHydration(() => {
+  // 有登入資料還原
   if (isLogin.value) {
-    // 還原 userData
+    setAppConfig(appConfig.value)
     resetUserData(userData.value)
+  }
+
+  // 未登入資料還原
+  else {
+    setAppConfig(appConfig.value)
   }
 })
 </script>
