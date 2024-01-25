@@ -38,7 +38,6 @@
       :onResend="() => sendEmailCode({ email, type })"
       :err-msg="verifyCodeError"
       :first-time="false"
-      :label-center="false"
       @update:modelValue="verifyCodeError = ''"
       @error="(message) => (serverError = message)"
     ></InputEmailCode>
