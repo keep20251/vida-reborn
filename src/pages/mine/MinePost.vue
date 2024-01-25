@@ -42,7 +42,7 @@
         </List>
       </div>
     </div>
-    <div v-if="tabBtn === 2">{{}}</div>
+    <div v-if="tabBtn === 2">{{ $t('info.video') }}</div>
   </div>
   <div v-else-if="tab === 3">
     <div class="flex justify-between pt-20">
@@ -66,7 +66,7 @@
         </List>
       </div>
     </div>
-    <div v-if="tabBtn === 2">{{}}</div>
+    <div v-if="tabBtn === 2">{{ $t('info.video') }}</div>
   </div>
 </template>
 <script setup>

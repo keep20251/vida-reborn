@@ -46,7 +46,7 @@
         </div>
         <div
           v-if="!!appendTextBtn"
-          class="min-w-47 absolute right-5 flex h-26 cursor-pointer items-center justify-center px-6 py-10 text-center text-sm font-normal leading-3 text-black"
+          class="min-w-47 absolute right-0 flex h-26 cursor-pointer items-center justify-center px-20 py-10 text-center text-sm font-normal leading-3 text-black"
           @click="emits('click:append')"
         >
           {{ appendTextBtn }}
