@@ -7,6 +7,7 @@ export const useMineStore = defineStore('mine-store', () => {
   const nickname = ref('')
   const username = ref('')
   const interested = ref([])
+  const isPrvwActive = ref('isVisitor')
 
   return {
     email,
@@ -14,5 +15,6 @@ export const useMineStore = defineStore('mine-store', () => {
     nickname,
     username,
     interested,
+    isPrvwActive,
   }
 })
