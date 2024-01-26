@@ -13,7 +13,7 @@
       <div class="relative inline-block w-full rounded-md">
         <div class="mt-[60%]"></div>
         <div class="rounded-inherit absolute left-0 top-0 h-full w-full">
-          <EncryptImage :border-radius="10"></EncryptImage>
+          <EncryptImage :src="url" :border-radius="10"></EncryptImage>
         </div>
       </div>
     </div>
@@ -87,4 +87,11 @@ const props = defineProps({
     }),
   },
 })
+
+const url = (function () {
+  const v = Math.floor(Math.random() * 3)
+  if (v === 0) return 'https://new.xiaoshanzhi1.cn/upload/ads/20240126/2024012618055722099.jpeg'
+  if (v === 1) return 'https://new.xiaoshanzhi1.cn/upload/ads/20240126/2024012618055738666.jpeg'
+  if (v === 2) return 'https://new.xiaoshanzhi1.cn/upload/ads/20240126/2024012618055836737.png'
+})()
 </script>

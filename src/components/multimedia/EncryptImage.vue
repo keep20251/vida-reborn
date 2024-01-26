@@ -78,9 +78,21 @@ onMounted(() => {
 onBeforeUnmount(() => {
   lazyloader.unobserve(encryptImage.value)
 })
-watch(() => props.src, loadImage)
+watch(
+  () => props.src,
+  () => {
+    loading.value = false
+    fail.value = false
+    decryptedBlob.value = null
+    loadImage()
+  },
+)
 
 async function loadImage() {
+  if (decryptedBlob.value !== null) {
+    return
+  }
+
   if (props.src === undefined) {
     loading.value = false
     fail.value = false
@@ -98,7 +110,6 @@ async function loadImage() {
   loading.value = true
   try {
     decryptedBlob.value = await getDecryptDataBlob(props.src)
-    console.log('...', decryptedBlob.value)
   } catch (e) {
     console.error('EncryptImage.vue decrypt image error:', e)
     fail.value = true
