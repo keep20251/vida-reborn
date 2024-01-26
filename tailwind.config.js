@@ -48,9 +48,10 @@ export default {
         'gray-e5': '#E5E5E5',
         'gray-f6': '#F6F6F6',
         'light-gray': '#D9D9D9',
-        'gray-brown': '#FFDEDE',
         'gray-purple': '#F4C2EF',
         'gray-orange': '#FFC8C8',
+        'gray-pink': '#FFC6D4',
+        'gray-brown': '#FFF2DE',
         'gray-cyan': '#7FE2D3',
       },
       keyframes: {

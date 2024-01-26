@@ -61,7 +61,7 @@ const colorTheme = computed(() => {
     case 2:
       return 'bg-gradient-to-b from-gray-brown from-[6.82%] to-gray-cyan to-[98.84%]'
     case 1:
-      return 'bg-gray-brown'
+      return 'bg-gradient-to-b from-gray-pink from-[0%] to-gray-brown to-[100%]'
     case 0:
     default:
       return 'bg-gradient-to-b from-gray-purple from-[6.82%] to-gray-orange to-[98.84%]'
