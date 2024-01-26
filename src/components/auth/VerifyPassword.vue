@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-full flex-col justify-center space-y-30 pt-32 last:mb-16">
+  <div class="flex h-full w-full flex-col justify-center space-y-30">
     <DialogHeader :title="$t('title.pwdLogin')" @back="back" @close="close">
       <template #default>
         <div class="flex flex-col space-y-32">

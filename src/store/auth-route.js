@@ -1,6 +1,7 @@
 import { computed, ref } from 'vue'
 import { defineStore, storeToRefs } from 'pinia'
 import { useDialogStore } from '@/store/dialog'
+import { useEmailLoginStore } from '@/store/email-login'
 import Login from '@comp/auth/Login.vue'
 import MainPage from '@comp/auth/MainPage.vue'
 import SignUp from '@comp/auth/SignUp.vue'
@@ -42,10 +43,13 @@ export const useAuthRouteStore = defineStore('authRoute', () => {
     now.value = history.value.pop()
   }
 
+  const emailLoginStore = useEmailLoginStore()
+
   function close() {
     now.value = AUTH_ROUTES.MAIN_PAGE
     authDialog.value = false
     history.value = []
+    emailLoginStore.$reset()
   }
 
   function open(curr = AUTH_ROUTES.MAIN_PAGE) {
