@@ -1,14 +1,17 @@
 <template>
   <div class="flex items-end justify-between pt-8">
-    <div class="text-base font-bold leading-md">{{ $t('content.earn') }}</div>
-    <div class="cursor-pointer text-base font-normal leading-md">{{ $t('content.withdrawalHistory') }}</div>
+    <div class="text-base font-bold leading-md">{{ $t('content.currentEarn') }}</div>
+    <router-link :to="{ name: 'mine-earn-wdrl-hist' }">
+      <div class="text-base font-normal leading-md">{{ $t('content.withdrawalHistory') }}</div>
+    </router-link>
   </div>
   <div class="flex items-end justify-center space-x-5 py-35">
     <div class="text-base font-bold leading-md">$</div>
     <div class="text-xl font-bold leading-xl">5,000,000</div>
   </div>
-
-  <Button>{{ $t('content.withdrawalApply') }}</Button>
+  <router-link :to="{ name: 'mine-earn-wdrl-req' }">
+    <Button>{{ $t('content.withdrawalApply') }}</Button>
+  </router-link>
   <div class="mt-30 text-base font-bold leading-md">{{ $t('content.dataDashboard') }}</div>
 
   <Tab v-model="tab" :options="tabOptions" class="!h-35"> </Tab>

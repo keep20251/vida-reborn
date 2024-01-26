@@ -6,6 +6,8 @@ import MineBeCreator from '@/pages/mine/MineBeCreator.vue'
 import MineBuy from '@/pages/mine/MineBuy.vue'
 import MineCollect from '@/pages/mine/MineCollect.vue'
 import MineEarn from '@/pages/mine/MineEarn.vue'
+import MineEarnWdrlReq from '@/pages/mine/MineEarnWdrlReq.vue'
+import MineEarnWdrlHist from '@/pages/mine/MineEarnWdrlHist.vue'
 import MineHome from '@/pages/mine/MineHome.vue'
 import MinePost from '@/pages/mine/MinePost.vue'
 import MineProfilePrvw from '@/pages/mine/MineProfilePrvw.vue'
@@ -25,6 +27,8 @@ export default [
   { name: `${prefix}-profile-set`, path: `profile-set`, component: MineProfileSet, meta: {} },
   { name: `${prefix}-profile-prvw`, path: `profile-prvw`, component: MineProfilePrvw, meta: {} },
   { name: `${prefix}-earn`, path: `earn`, component: MineEarn, meta: {} },
+  { name: `${prefix}-earn-wdrl-req`, path: `earn-withdrawal-request`, component: MineEarnWdrlReq, meta: {} },
+  { name: `${prefix}-earn-wdrl-hist`, path: `earn-withdrawal-history`, component: MineEarnWdrlHist, meta: {} },
   { name: `${prefix}-buy`, path: `buy`, component: MineBuy, meta: {} },
   { name: `${prefix}-post`, path: `post`, component: MinePost, meta: {} },
   { name: `${prefix}-collect`, path: `collect`, component: MineCollect, meta: {} },

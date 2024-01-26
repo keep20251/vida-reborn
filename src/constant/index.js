@@ -90,6 +90,8 @@ export const SEND_EMAIL_PURPOSE = {
 export const MINE_TITLE = {
   'mine-home': 'title.mine',
   'mine-earn': 'title.earn',
+  'mine-earn-wdrl-req': 'title.earnWdrlReq',
+  'mine-earn-wdrl-hist': 'title.earnWdrlHist',
   'mine-buy': 'title.buy',
   'mine-post': 'title.post',
   'mine-collect': 'title.collect',
