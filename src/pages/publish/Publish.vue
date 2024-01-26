@@ -31,22 +31,33 @@
               <label class="text-left text-base leading-md"
                 >上傳圖片
                 <span class="text-gray-57 text-left text-sm">{{
-                  `${uploadFiles.filter((f) => f.status === UPLOAD_STATUS.DONE).length}/${uploadFiles.length}`
+                  `${uploadFiles.filter((f) => f.status === UPLOAD_STATUS.DONE).length}/${IMAGE_LIMIT_COUNT}`
                 }}</span></label
               >
               <span class="text-gray-57 text-left text-sm">支持JPG/PNG格式，每张不超過1MB</span>
             </div>
-            <Button class="self-end" size="md">添加</Button>
+            <Button class="self-end" size="md" @click="() => inputImage.click()">添加</Button>
+            <input
+              type="file"
+              class="hidden"
+              accept="video/mp4, video/quicktime, video/x-quicktime, video/mov, video/x-mov, video/avi, image/jpg, image/jpeg, image/png, image/gif"
+              multiple
+              ref="inputImage"
+              @change="onImageFile"
+            />
           </div>
           <div class="grid grid-cols-3 gap-10">
             <div v-for="file in uploadFiles" class="relative overflow-hidden rounded-sm pb-[64%]" :key="file.id">
-              <div class="absolute top-0 h-full w-full bg-orange-100"></div>
+              <div class="absolute top-0 h-full w-full">
+                <img :src="file.result" class="h-full w-full rounded-sm object-cover" />
+              </div>
               <div
                 class="absolute top-0 h-full w-full origin-right bg-white opacity-60 will-change-transform"
                 :style="{ transform: `scaleX(${1 - file.progress})` }"
               ></div>
               <div
                 class="absolute right-10 top-10 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-white"
+                @click="removeUploadFile(file.id)"
               >
                 <Icon name="close" size="10"></Icon>
               </div>
@@ -55,15 +66,14 @@
         </div>
 
         <!-- 標題 -->
-        <InputWrap v-model="title" :label="'標題'" :err-msg="'標題不得為空'"></InputWrap>
+        <InputWrap v-model="publishParams.title" :label="'標題'"></InputWrap>
 
         <!-- 內文 -->
         <TextareaWrap
-          v-model="content"
+          v-model="publishParams.content"
           :label="'內文'"
           :placeholder="'填寫内文'"
           :line="6"
-          :err-msg="'錯誤訊息'"
         ></TextareaWrap>
 
         <!-- Tag -->
@@ -85,18 +95,19 @@
             誰可以看到
             <span class="text-gray-57 text-sm leading-3">允許特定訂閱方案查看</span>
           </label>
-          <OptionsPicker v-model="perm" :options="permOptions"></OptionsPicker>
+          <OptionsPicker v-model="publishParams.perm" :options="permOptions"></OptionsPicker>
         </div>
 
         <!-- 指定訂閱組 -->
-        <div class="flex flex-col">
+        <div v-if="publishParams.perm === FEED_PERM.SUB" class="flex flex-col">
           <label class="-mb-5 text-left text-base leading-md">指定訂閱組</label>
-          <OptionsPicker v-model="sub" :options="subOptions"></OptionsPicker>
+          <OptionsPicker v-model="publishParams.sub" :options="subOptions"></OptionsPicker>
         </div>
 
         <!-- Price -->
         <InputWrap
-          v-model="price"
+          v-if="publishParams.perm === FEED_PERM.BUY"
+          v-model="publishParams.price"
           :label="'Price'"
           :sublabel="'單位：美金'"
           :placeholder="'9.99'"
@@ -108,9 +119,9 @@
         <div class="flex flex-col space-y-10">
           <div class="flex justify-between">
             <label class="text-left text-base leading-md">排定發布</label>
-            <InputSwitch v-model="schedule"></InputSwitch>
+            <InputSwitch v-model="publishTimeOpen"></InputSwitch>
           </div>
-          <InputWrap v-show="schedule" v-model="scheduleDateModel" append-icon="calendar" disabled></InputWrap>
+          <InputWrap v-show="publishTimeOpen" v-model="postTimeModel" append-icon="calendar" disabled></InputWrap>
         </div>
 
         <Button>發布</Button>
@@ -132,13 +143,15 @@ import OptionsPicker from '@comp/form/OptionsPicker.vue'
 import TextareaWrap from '@comp/form/TextareaWrap.vue'
 import Head from '@comp/navigation/Head.vue'
 import { toDateTimeString } from '@/utils/string-helper'
-import { FEED_PERM, MEDIA_TYPE, UPLOAD_STATUS } from '@/constant/publish'
+import { FEED_PERM, IMAGE_LIMIT_COUNT, UPLOAD_STATUS } from '@/constant/publish'
 
 const publishStore = usePublishStore()
-const { publishParams, uploadFiles, isVideo, isImage, isEditing } = storeToRefs(publishStore)
-const { startUpload, clear } = publishStore
+const { publishParams, uploadFiles, publishTimeOpen, isVideo, isImage, isEditing } = storeToRefs(publishStore)
+const { startUpload, clear, addImageFile, removeUploadFile } = publishStore
 
 const router = useRouter()
+
+const inputImage = ref(null)
 
 const video = ref(null)
 watch(
@@ -170,9 +183,6 @@ const options = ref([
   { label: 'Option10', value: 10 },
 ])
 
-const title = ref('')
-const content = ref('')
-
 const tagInput = ref('')
 const tag = ref([1, 3, 5])
 const tagOptions = ref([
@@ -195,13 +205,11 @@ function addTag() {
   }
 }
 
-const perm = ref(1)
 const permOptions = ref([
   { label: '訂閱者', value: FEED_PERM.SUB },
   { label: '商店販售', value: FEED_PERM.BUY },
 ])
 
-const sub = ref(1)
 const subOptions = ref([
   { label: '全部', value: 1 },
   { label: '鑽石訂閱', value: 2 },
@@ -209,18 +217,19 @@ const subOptions = ref([
   { label: '白金訂閱', value: 4 },
 ])
 
-const price = ref('')
-
-const schedule = ref(false)
-const scheduleDate = ref(new Date())
-const scheduleDateModel = computed({
-  get() {
-    return toDateTimeString(scheduleDate.value).substring(0, 16)
-  },
-  set(v) {
-    scheduleDate.value = v
-  },
+const postTimeModel = computed(() => {
+  if (publishTimeOpen.value) {
+    return toDateTimeString(publishParams.value.postTime).substring(0, 16)
+  }
+  return ''
 })
+
+function onImageFile(evt) {
+  const files = evt.target.files
+  if (files.length > 0) {
+    addImageFile(files)
+  }
+}
 
 function onClose() {
   clear()

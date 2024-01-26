@@ -2,7 +2,7 @@ import imageCompression from 'browser-image-compression'
 import { computed, reactive, readonly, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { defineStore } from 'pinia'
-import { FEED_PERM, MEDIA_TYPE, UPLOAD_STATUS } from '@/constant/publish'
+import { FEED_PERM, IMAGE_LIMIT_COUNT, MEDIA_TYPE, UPLOAD_STATUS } from '@/constant/publish'
 import uploadImage from '@/http/upload/uploadImage'
 import uploadVideo from '@/http/upload/uploadVideo'
 
@@ -129,6 +129,9 @@ export const usePublishStore = defineStore('publish', () => {
   }
 
   function pushUploadFile(file) {
+    if (uploadFiles.value.length === IMAGE_LIMIT_COUNT) {
+      return
+    }
     uploadFiles.value.push({
       id: idMaker.next().value,
       file,
