@@ -12,7 +12,7 @@
       </template>
     </SelfIntro>
 
-    <Tab v-model="tab" :options="tabOptions" class="!h-35 mt-20"></Tab>
+    <Tab v-model="tab" :options="tabOptions" class="mt-20 !h-35"></Tab>
     <div v-if="tab === 1">
       <div class="overflow-x-hidden">
         <List :items="items" item-key="id">
@@ -21,7 +21,7 @@
             <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
           </template>
           <template #bottom>
-            <div class="flex items-center justify-center py-8 text-gray36">
+            <div class="text-gray-a3 flex items-center justify-center py-8">
               <Loading></Loading> {{ $t('common.loading') }}
             </div>
           </template>

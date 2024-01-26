@@ -6,7 +6,7 @@
         <Avatar class="mr-10" :radius="30" :src="item.avatar"></Avatar>
         <div class="leading-md text-base font-bold">{{ item.name }}</div>
       </div>
-      <div @click="unblock(index)" class="leading-lg cursor-pointer text-base font-bold text-gray66">
+      <div @click="unblock(index)" class="leading-lg cursor-pointer text-base font-bold text-gray-57">
         {{ $t('content.unblock') }}
       </div>
     </div> -->
@@ -26,7 +26,7 @@
         <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
       </template>
       <template #bottom>
-        <div class="flex items-center justify-center py-8 text-gray36">
+        <div class="flex items-center justify-center py-8 text-gray-a3">
           <Loading></Loading>{{ $t('common.noMore') }}
         </div>
       </template>

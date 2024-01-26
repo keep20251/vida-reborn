@@ -5,18 +5,18 @@
         <div class="flex items-center justify-between py-10">
           <div class="flex items-center">
             <Avatar class="mr-10" :radius="30" :src="item.thumb || defaultAvatar"></Avatar>
-            <div class="leading-md text-base font-bold">{{ item.nickname }}</div>
+            <div class="text-base font-bold leading-md">{{ item.nickname }}</div>
           </div>
           <div
             @click="unblock(item.aff_blocked, index)"
-            class="leading-lg cursor-pointer text-base font-bold text-gray66"
+            class="text-gray-57 cursor-pointer text-base font-bold leading-lg"
           >
             {{ $t('content.unblock') }}
           </div>
         </div>
       </template>
       <template #bottom>
-        <div class="flex items-center justify-center py-8 text-gray36">
+        <div class="text-gray-a3 flex items-center justify-center py-8">
           <Loading></Loading>{{ $t('common.noMore') }}
         </div>
       </template>

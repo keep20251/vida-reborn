@@ -2,7 +2,7 @@
   <div class="flex w-full flex-col space-y-20">
     <div class="flex w-full flex-col space-y-10">
       <div class="text-base font-normal leading-md">{{ props.title }}</div>
-      <div class="flex min-h-[12.5rem] items-center justify-center rounded-md bg-gray03">{{ props.pictureInfo }}</div>
+      <div class="bg-gray-f6 flex min-h-[12.5rem] items-center justify-center rounded-md">{{ props.pictureInfo }}</div>
     </div>
     <Button contrast>{{ props.buttonText }}</Button>
   </div>

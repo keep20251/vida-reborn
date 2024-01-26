@@ -21,7 +21,7 @@
         </div>
       </template>
     </SelfIntro>
-    <div class="leading-md flex h-36 w-full items-center bg-gray03 px-20 text-base font-bold">
+    <div class="bg-gray-f6 flex h-36 w-full items-center px-20 text-base font-bold leading-md">
       {{ $t('content.allPosts') }} 85
     </div>
     <div class="overflow-x-hidden">
@@ -31,7 +31,7 @@
           <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
         </template>
         <template #bottom>
-          <div class="flex items-center justify-center py-8 text-gray36">
+          <div class="text-gray-a3 flex items-center justify-center py-8">
             <Loading></Loading> {{ $t('common.loading') }}
           </div>
         </template>
