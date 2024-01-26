@@ -1,750 +1,251 @@
 [
-  { "code": "cp.cp.info.title", "name": "Cookie Policy" },
-  {
-    "code": "cp.cp.info.content",
-    "name": "This Policy does not address how we deal with your personal information. To learn more about how we collect and process your personal information, please see our Privacy Policy . This Policy explains more about how we use Cookies and your related choices. By using the Service, you expressly consent to information handling practices and storage and access of Cookies as described in this Policy"
-  },
-  { "code": "cp.cp.definitions.title", "name": "Definitions" },
-  { "code": "cp.cp.definitions.table.title.a", "name": "Term" },
-  { "code": "cp.cp.definitions.table.title.b", "name": "The ”Policy”" },
-  { "code": "cp.cp.definitions.table.title.c", "name": "VIDA”, ”we”, or ”us”" },
-  { "code": "cp.cp.definitions.table.title.d", "name": "The ”Service”" },
-  { "code": "cp.cp.definitions.table.title.e", "name": "”Cookies”" },
-  { "code": "cp.cp.definitions.table.content.a", "name": "Definition" },
-  { "code": "cp.cp.definitions.table.content.b", "name": "The cookie policy as outlined in this document." },
-  { "code": "cp.cp.definitions.table.content.c", "name": "VIDA, trading under the name VIDA." },
-  {
-    "code": "cp.cp.definitions.table.content.d",
-    "name": "The VIDA website, located at VIDA, and any other websites, applications, or services provided, owned or operated by us that link to this Policy."
-  },
-  {
-    "code": "cp.cp.definitions.table.content.e",
-    "name": "A small piece of data that is stored on your device to help websites and mobile apps remember things about you. Other technologies, including Web storage and identifiers associated with your device, may be used for similar purposes."
-  },
-  { "code": "cp.cp.modifications.title", "name": "Modifications" },
-  {
-    "code": "cp.cp.modifications.content",
-    "name": "We reserve the right to change these Terms at any time. If we make changes, we will notify you by revising the date at the bottom of the Terms and, in some cases, we will provide you with additional notice (such as adding a statement to our homepage or sending you an email notification). In order to comply with Regulation (EU) 2019/1150 (the 'Platform to Business Regulation' or 'P2BR') we will provide no less than 15 days' notice of any changes to these Terms on a 'durable medium' (as defined in the P2BR), other than those changes set out in Article 3 (4) of the P2BR. Changes to these Terms are effective at the time they are published. Your continued use of the Service after the effective date of the revised Terms constitutes your acceptance of the Terms.License to Use the Service Subject to these Terms, VIDA grants you a personal, worldwide, royalty-free, non-assignable, nonexclusive, revocable, and non-sublicensable license to access and use the Service. This license is for the sole purpose of letting you use and enjoy the Service’s benefits as intended by VIDA and permitted by these Terms."
-  },
-  { "code": "cp.cp.useCookie.title", "name": "How We Use Cookies" },
-  {
-    "code": "cp.cp.useCookie.content1",
-    "name": "VIDA uses Cookies, including third-party Cookies, for a number of reasons, like protecting your VIDA data and account, helping us see which features are most popular, counting visitors to a page, improving our users’ experience, keeping our services secure, providing relevant advertising, and providing you with a better, more intuitive, and satisfying experience. The Cookies we use generally fall into one of the following categories."
-  },
-  {
-    "code": "cp.cp.useCookie.content2",
-    "name": "We may also use similar technologies such as pixel tags, clear GIFS and web beacons in conjunction with Cookies to track activity on our Service. Unless you disable Cookies, when you visit a web page, these technologies may tell us that you’ve visited. These technologies may also let us know whether you’ve received our emails."
-  },
-  { "code": "cp.cp.useCookie.table.title.a", "name": "Category" },
-  { "code": "cp.cp.useCookie.table.title.b", "name": "Necessary" },
-  { "code": "cp.cp.useCookie.table.title.c", "name": "Preferences" },
-  { "code": "cp.cp.useCookie.table.title.d", "name": "Performance" },
-  { "code": "cp.cp.useCookie.table.title.e", "name": "Marketing" },
-  { "code": "cp.cp.useCookie.table.content.a", "name": "Why we use these Cookies" },
-  {
-    "code": "cp.cp.useCookie.table.content.b",
-    "name": "We use these Cookies to run our Services, and to identify and prevent security risks. For example, we may use these Cookies to store your session information."
-  },
-  {
-    "code": "cp.cp.useCookie.table.content.c",
-    "name": "We use these Cookies to remember your settings and preferences, and to improve your experience on our Services. For example, we may use these Cookies to remember your language preferences."
-  },
-  {
-    "code": "cp.cp.useCookie.table.content.d",
-    "name": "We use these Cookies to collect information about how you use our Services, and monitor and improve our Services performance."
-  },
-  {
-    "code": "cp.cp.useCookie.table.content.e",
-    "name": "We use these Cookies to deliver advertisements, to make them more relevant and meaningful to consumers, and to track the efficiency of our advertising campaigns."
-  },
-  { "code": "cp.cp.analyticsAd.title", "name": "Analytics and Advertising Providers" },
-  {
-    "code": "cp.cp.analyticsAd.content",
-    "name": "VIDA may let other companies use Cookies on our Service. These companies may collect information about how you use our Service over time and combine it with similar information from other services and companies. This information may be used to, among other things, analyze and track data, determine the popularity of certain content, and better understand your online activity.We may collect information about your activity on third-party services that use Cookies provided by us. We use this information to improve our advertising services, including measuring the performance of ads and showing you more relevant ads."
-  },
-  { "code": "cp.cp.choices.title", "name": "Your Choices" },
-  {
-    "code": "cp.cp.choices.content",
-    "name": "Your browser may provide you with the option to refuse some or all browser Cookies. You may also be able to remove Cookies from your browser. For more information about how to manage or disable Cookies, please follow the instructions provided by your browser or see www.allaboutcookies.org/manage-cookies Some features of the Service may not work as intended if you disable Cookies."
-  },
-  { "code": "cp.cp.contact.title", "name": "Contact" },
-  {
-    "code": "cp.cp.contact.content",
-    "name": "Questions or concerns regarding these Terms can be addressed to support@VIDA. Please note that e-mail communications will not necessarily be secure; accordingly you should not include credit card information or other sensitive information in your e-mail correspondence with us. Billing queries should be directed to billing@VIDA"
-  },
-  { "code": "cp.cp.miscellaneous.title", "name": "Miscellaneous" },
-  {
-    "code": "cp.cp.miscellaneous.content",
-    "name": "These Terms do not, and shall not be construed to, create any partnership, joint venture, employer-employee, agency or franchisor-franchisee relationship between you and VIDA. If any provision of these Terms is found to be unlawful, void or for any reason unenforceable, that provision will be deemed severable from these Terms and will not affect the validity and enforceability of any remaining provision. You may not assign, transfer or sublicense any or all of your rights or obligations under these Terms without our express prior written consent. We may assign, transfer or sublicense any or all of our rights or obligations under these Terms without restriction. No waiver by either party of any breach or default hereunder will be deemed to be a waiver of any preceding or subsequent breach or default. Any heading, caption or section title contained herein is inserted only as a matter of convenience, and in no way defines or explains any section or provision hereof. This, together with all policies referred to herein, is the entire agreement between you and VIDA relating to the subject matter herein and supersedes any and all prior or contemporaneous written or oral agreements or understandings between you and VIDA relating to such subject matter. Notices to you may be made via posting to the Service, by e-mail, or by regular mail, in VIDA’s discretion. The Service may also provide notices of changes to these Terms or other matters by displaying such notices or by providing links to such notices. Without limitation, you agree that a printed version of these Terms and of any notice given in electronic form shall be admissible in judicial or administrative proceedings based upon or relating to these Terms to the same extent and subject to the same conditions as other business documents and records originally generated and maintained in printed form. VIDA will not be responsible for failures to fulfill any obligations due to causes beyond its control."
-  },
-  { "code": "cp.cp.language.title", "name": "Language" },
-  {
-    "code": "cp.cp.language.content",
-    "name": "These Terms were originally written in English. To the extent any translated version of these Terms conflicts with the English version, the English version controls.Last modified: July 2023© 2023 VIDA unless otherwise noted. All rights reserved."
-  },
-  { "code": "cp.cp.final", "name": "Last modified: July 2023" },
-  { "code": "cp.cp.VIDA", "name": "© 2023 VIDA One Unless otherwise stated. All rights reserved." },
-  { "code": "creator.creator.become.title", "name": "Become" },
-  { "code": "creator.creator.become.a.subtitle", "name": "How do I become a Creator?" },
-  {
-    "code": "creator.creator.become.a.content",
-    "name": "VIDA is one of the biggest and most renowned adult websites on the Internet. We pride ourselves on creating a platform that makes it easy for subscribers to express their appreciation and interact with our community. As we continue to grow worldwide, we are always looking for new Creators to join our platform. If you wish to become a Creator you've come to the right place! This is your opportunity to become part of an exclusive, widely promoted and globally-admired platform. Just to give you an idea of our Creator centric mantra, we feature above industry standard payouts where you receive 80% of all spending on your page. There are millions of unique visitors per day on our main feed alone, an eager audience awaits you to engage with you and reward you for your hustle. As the world's premiere adult entertainment destination, at VIDA we're all about quality and the most pleasurable user and Creator experience. So we are only looking for the very best, if you think this is you join us! Just go to the Home Page and press Become a Creator."
-  },
-  {
-    "code": "creator.creator.become.b.subtitle",
-    "name": "How much content do I need before I can activate my account?"
-  },
-  {
-    "code": "creator.creator.become.b.content",
-    "name": "Once you have completed the identity verification process, all you need is one piece of content to get started on VIDA. Each piece of content is assessed for quality and to ensure it doesn't violate any terms of service. Don't forget if you will be posting content as a no face creator i.e. never showing your face where only your body is visible you will be required to: Upload a nude photo that has your full body including face clearly visible (together) and select verification picture. It will not go public but be used for security purposes only. It is important to have a lively profile with frequent content updates that welcomes opportunities for subscriber interaction. If you have uploaded little content or lack frequent updates, you will find it difficult to gain subscribers or risk losing subscribers and incurring chargebacks. You are in charge of your own potential, especially when it comes to maximizing your achievable income. We strongly recommend creating teaser videos (of up to 1 min, vertical) to be included on the main feed. To be included on the main feed your content must have a caption or title and have at least 3 tags!"
-  },
-  { "code": "creator.creator.become.c.subtitle", "name": "How does the feed work?" },
-  {
-    "code": "creator.creator.become.c.content",
-    "name": "Short Form Our platform's feed is ordered by most popular videos. Popularity is measured by the views-to-likes ratio. Newly uploaded videos are added into the feed every 10th swipe until they reach a statistically significant rating, after which they receive their permanent spot in the ranking. As a result of our feed ordering, every new uploaded video has exposure to millions of potential viewers and has an equal chance of becoming ranked. Since our traffic significantly outweighs the amount of newly uploaded videos, your video will get immediate exposure and will get ranked quickly. If you would like to be featured on our feed you will need to ensure your content has a caption and at least 3 tags, which will also help with your content being found on searches from our users. Public Feed (Non-Verified Users) When a user visits the site without a log-in, they will receive the global or a country-specific feed. Their feed will display: Top global or regional videos of the day (5 up to 10 videos) New videos uploaded in the last hour (randomized, 2 videos) Repeat This user experience reveals top content first. After a few scrolls, new content will be added to the feed. This randomization of new videos uploaded in the past hour ensures that user views are distributed equally across all Creators. Private Feed (Verified Users) When a user is verified, the feed will prioritize displaying new content by Creators that they are subscribed to. The feed will also exclude previously viewed videos to ensure that users see the new content of their favorite Creators first, before entering the global or regional feeds. So... How do I optimize this to get more views? We strongly recommend daily content uploads, including at least 1 new video and 2 pictures, to ensure that your profile gets included in the randomized new content on our feed. Lastly, to deliver on daily uploads, we recommend following a strict content uploading schedule to keep you on track. Remember, you are the master of your own potential. Once you attract the attention of subscribers on our site, your fans will want to see you regularly with quality uploaded content! How is top content determined? Top content is determined by looking at multiple metrics using a weighted ranking algorithm, typically through: Feed videos watched over 80%+ (30-60s vertical) (50%) Number of likes (20%) Number of comments (20%) External link sharing (legitimate traffic coming from non-search-engines) (10%) *Please note: In exchange for marketing support, some Creators may have more content in the feed with higher visibility."
-  },
-  { "code": "creator.creator.become.d.subtitle", "name": "I need support or found a bug!" },
-  {
-    "code": "creator.creator.become.d.content",
-    "name": "If you need any assistance, you can Chat with us direct or send us an E-Mail. When reporting a bug please include a screenshot and detailed description of the issue you're experiencing."
-  },
-  { "code": "creator.creator.registrant.title", "name": "Registration Process" },
-  {
-    "code": "creator.creator.registrant.a.subtitle",
-    "name": "Can agencies or production studios create accounts on VIDA?"
-  },
-  {
-    "code": "creator.creator.registrant.a.content",
-    "name": "At this time we are focusing on individual user accounts for content Creators only. Agency-represented Creators are allowed to create verified accounts, but they must be managed by the content Creator individually."
-  },
-  { "code": "creator.creator.registrant.b.subtitle", "name": "Can I become a Creator from any country?" },
-  {
-    "code": "creator.creator.registrant.b.content",
-    "name": "At VIDA, we love representing a diverse group of Creators. However, due to banking limitations, we cannot accept Creators (or users) from the following countries. We are always working to provide our services in as many territories as we can, so will continually review this list in line with banking regulations: - Bosnia and Herzegovina - Burma / Myanmar - Crimea Region - Democratic Republic of Congo - Iraq - Liberia - Lebanon - Montenegro - North Korea - Serbia - Sierra Leone - Sudan - Syria - Zimbabwe"
-  },
-  { "code": "creator.creator.registrant.c.subtitle", "name": "No Face Verification" },
-  {
-    "code": "creator.creator.registrant.c.content",
-    "name": "We understand that some creators wish to create content that does not depict their face. VIDA is mandatorily required to obtain and keep on record written consent from all persons depicted in any content uploaded to the site, and to have verified the age and identity of all persons depicted in every piece of uploaded content. Where the creators' face is not otherwise clearly visible in the content (including wearing masks, filter faces, blurred face, emoticons as faces, essentially anything that obscures your face and hides your identity), an additional full nude and fully visible face verification picture will be required. It is required for us to confirm that the persons depicted in the uploaded content matche. Uploading your verification picture: - The picture should be one taken recently and of good quality - Upload your picture onto the site (full frontal nude, face & body including genitals are clearly visible) - Select Verification Picture as the option - *This picture is for security purposes only and will never be made public"
-  },
-  { "code": "creator.creator.payout.title", "name": "Payout and Earnings" },
-  { "code": "creator.creator.payout.a.subtitle", "name": "Payout Bank Fees" },
-  {
-    "code": "creator.creator.payout.a.content",
-    "name": "Payment Processing fees Payment processing fees cover the cost of processing payments from your subscribers, including recurring billing, recovering declined payments, and fighting fraud. In order to maintain an 80% platform payout rate for Creators, we cover the payment processing fees. We also pay and remit the VAT and Sales taxes on behalf of the Creator as we are registered with the relevant revenue authorities as a platform. If you need information for your own accounting records, please contact us at creators@VIDA. Payout fees Payout fees are the charge for moving funds from your Creator balance to your preferred payout method, bank, or Paxum. The banks and P2P providers deduct this from the amount you receive when you request a payout. Your payout fees reflect no markups and are paid at a 1:1 charge. P2P has the lowest payout transactions fees and bank transfers have the highest payout transaction fees. We pride ourselves on being a Creator-centric platform, so we are continuously looking for the best options and rates for our Creator fees, and therefore all fees are subject to change. We're here to support, if there are particular payout options you're interested in us exploring, hit us up! We'd love to hear from you at creators@VIDA."
-  },
-  { "code": "creator.creator.payout.b.subtitle", "name": "How can I make money on VIDA?" },
-  {
-    "code": "creator.creator.payout.b.content",
-    "name": "You can make money from subscriptions, payments on locked content (content in your shop), and tips. In order to maximize spend on your page, we suggest you build a strong following by keeping your page fresh and enticing. You can also place a link to your VIDA page on your social media accounts, like Twitter or Instagram. Followers ultimately become subscribers!"
-  },
-  { "code": "creator.creator.payout.c.subtitle", "name": "Pricing your content and services" },
-  {
-    "code": "creator.creator.payout.c.content",
-    "name": "To set a subscription price for your content: Go to your profile - Edit Profile - Set up Subscription As a Creator, you are free to choose how much you charge for your services. Your pricing will heavily influence the number of purchases. Generally, we see that cheaper pricing converts better, but it's up to you to find your sweet spot. When you raise your subscription price, all new subscribers will be billed at the new rate. Keep in mind that your existing subscribers will continue to be billed at the original rate they agreed to pay when subscribing to your profile."
-  },
-  { "code": "creator.creator.payout.d.subtitle", "name": "Payout policy" },
-  {
-    "code": "creator.creator.payout.d.content",
-    "name": "What is the payout percentage? 80% on all spend on your page What is the minimum payout amount? The minimum payout amount required is $200. Your payment can only be withdrawn if you have reached the minimum payout amount. How often do I get paid? Creators can trigger payout withdrawal from their accounts as long as the withdrawn amount is over the $200 minimum payout amount. Payments are processed every other Friday. What payout methods does VIDA offer? We can currently accept the following payout methods: Bank wires Paxum accounts (P2P) These are all available in USD, EUR, GBP aside from the restrictions noted above. If there is a currency a Creator particularly needs, send a message to support@VIDA and we can advise whether this is possible. Scheduled payouts We've made it simple for you to receive your funds, VIDA now processes payouts to your account every other Friday! The option to automate your payouts is also available, we've thought of it all! Please remember to request your payout no later than Midnight UTC on Thursdays. Receipt of funds will vary in timing due to your bank/account regulations.* You can view a list of all of your pending and paid payouts on your earnings page. NOTE: Be sure to check the list of countries blocked by all banks and payment services we support. Also, banks and payment service providers reserve the right to refuse to serve any individual customer, in which case we will try and resolve the issue."
-  },
-  { "code": "creator.creator.payout.e.subtitle", "name": "How do I initiate a payout?" },
-  {
-    "code": "creator.creator.payout.e.content",
-    "name": "To initiate a payout, go to your User Menu and click Earnings. You must have a minimum of $200 in your account before you can withdraw your earnings. BENEFICIARY INFORMATION Payments will only be made to the same beneficiary name as provided during the KYC onboarding process. If you need to change this name (for example, you have changed your name, the name assigned to your ID documentation is different from the beneficiary name of your bank in your country, or you would like to be paid to a legal entity), please contact support@VIDA. You will need to provide proof of the reason for the change being required, we may need additional information from you as part of the due diligence process, and we reserve the absolute right to reject your request. If you request payment to a legal entity, the information provided during the KYC verification must be a UBO (Ultimate Beneficial Owner) of the entity, in accordance with EU 2015/849, as amended, regardless of the entity being subject to EU legislation. Payments will not be made to third parties under any circumstances, including, but not limited to, spouses, family members, escrow services, business partners, court-appointed guardians, or receivers of any kind. We have been continuously striving to provide services in as many regions as possible, hence, we will continue to review this list based on banking regulatory requirements: Bosnia and Herzegovina Myanmar Côte d'Ivoire Crimea region Democratic Republic of the Congo Iraq Liberia Lebanon Montenegro North Korea Serbia Sierra Leone Sudan Syria Zimbabwe Our banking services are blocked in the listed countries, but we are committed to expanding our services to as many regions as possible. We reserve the right to change and review policies every three to six months to ensure you are informed of any changes, so please check back regularly"
-  },
-  { "code": "creator.creator.payout.f.subtitle", "name": "Charge back protection" },
-  {
-    "code": "creator.creator.payout.f.content",
-    "name": "Please be aware that VIDA reserves the right to deduct Credits from your earnings if you are in violation of our Terms of Service page. Depending on the severity of the violation, this could include the indefinite suspension or deletion of your account. If a Customer initiates a Refund or Chargeback against you, these amounts will be deducted from your Credits balance."
-  },
-  { "code": "creator.creator.privacy.title", "name": "Privacy and ID-verification" },
-  { "code": "creator.creator.privacy.a.subtitle", "name": "Why do I have to ID-verify?" },
-  {
-    "code": "creator.creator.privacy.a.content",
-    "name": "We ask all content Creators to become ID-verified to prevent content theft and protect your right to monetize your own content."
-  },
-  { "code": "creator.creator.privacy.b.subtitle", "name": "How do I verify my ID?" },
-  {
-    "code": "creator.creator.privacy.b.content",
-    "name": "ID verification is the first step of registering as a Creator on VIDA. To verify your account, you will be asked to take a picture of yourself and your ID. The whole ID verification process is fully automated and takes less than 1 minute. NAVIGATION SUPPORT: Go to your User Menu and click on Become a Creator. A Verification process will appear prompting your next steps. Please note that all content can only contain adults (18 and over); therefore, even if you pass the verification, should we think any media depicts you under this age, we may seek further clarification and reserve the right to remove the content."
-  },
-  { "code": "creator.creator.privacy.c.subtitle", "name": "How is my content protected?" },
-  {
-    "code": "creator.creator.privacy.c.content",
-    "name": "All media have watermarks applied to prevent unauthorized use. We also provide download protection, and users on the site are only allowed to access content on the site. Users cannot download any media from the site."
-  },
-  { "code": "creator.creator.privacy.d.subtitle", "name": "Is VIDA anonymous for Creators?" },
-  {
-    "code": "creator.creator.privacy.d.content",
-    "name": "When you sign up for VIDA, we use a certified third-party provider to confirm personal details, including your real name, date of birth, country of residence, and a government-issued ID. We need this to remain legally compliant as a service platform. Furthermore, we may ask you for your payout information so we can process your payments. USERS NEVER HAVE ACCESS TO ANY OF YOUR PERSONAL DATA. Users will only see your username and other information that you have decided to share on your public profile or during your private conversations. Please see our Privacy Policy for a detailed rundown of how we collect, use, and protect your personal data."
-  },
-  { "code": "creator.creator.feature.title", "name": "features" },
-  { "code": "creator.creator.feature.a.subtitle", "name": "Uploading photos and videos" },
-  {
-    "code": "creator.creator.feature.a.content",
-    "name": "Uploading your content to VIDA is simple! Once verified please select one of the two options below: 1. Click on 'My Media,'press the add button, and upload content. 2. Click the add button on the top navigation bar and follow the upload prompts - if you are using a mobile, the navigation bar will appear at the bottom. If you would like your content to appear in our public feed, feel free to give your content a title and add 3 tags. Please remember the title and tags should be relevant to the photo/video you uploaded. All other persons need to be tagged and verified on the platform. Finally, decide who can view the content: - Everyone: means that anyone can see the content on your profile. - Subscribers: means that only your subscribers can view the content. - Vault: means only visible to you. You can switch the type at any time after uploading the content; private content is also good to send within DMs for possible tips or store custom content to be sent. - Shop: this content can be purchased by anyone, and you can set individual prices for each media item. Uploaded content will be sent to the moderation team. If your content is approved, it will appear on your profile shortly. Otherwise, you will receive a content rejected email stating the reason. Please note that all content can only contain adults (18 and over). Therefore, even if you pass the verification, should we think any media depicts you under this age, we may seek further clarification and reserve the right to remove the content."
-  },
-  { "code": "creator.creator.feature.b.subtitle", "name": "Deleting and editing content" },
-  {
-    "code": "creator.creator.feature.b.content",
-    "name": "You can edit or delete your content at any time. To do so, go to the User menu: 1. Select 'My Media' 2. Select an item you'd like to delete 3. Select 'Delete' on the top-right."
-  },
-  { "code": "creator.creator.feature.c.subtitle", "name": "Creator to Creator Messaging" },
-  {
-    "code": "creator.creator.feature.c.content",
-    "name": "We love creators supporting each other, but just to let you know, you can only message other creators that you subscribe to."
-  },
-  { "code": "creator.creator.feature.d.subtitle", "name": "How do I send content to a creator?" },
-  {
-    "code": "creator.creator.feature.d.content",
-    "name": "Subscribers are able to share media with creators. The content must adhere to the community guidelines. When messaging a creator, all you need to do is press the paperclip button next to the chat box and upload your picture or video from your device."
-  },
-  {
-    "code": "creator.creator.feature.e.subtitle",
-    "name": "Is the content saved on the user's profile for future uploads?"
-  },
-  {
-    "code": "creator.creator.feature.e.content",
-    "name": "No, the content will not be saved. The content will need to be uploaded from your device each time you wish to send it to a creator."
-  },
-  {
-    "code": "creator.creator.feature.f.subtitle",
-    "name": "Can content be deleted from a message thread by the user or creator?"
-  },
-  { "code": "creator.creator.feature.f.content", "name": "No content can be deleted from the thread at this time." },
-  { "code": "creator.creator.feature.g.subtitle", "name": "As a creator, what if I don't want to see it?" },
-  {
-    "code": "creator.creator.feature.g.content",
-    "name": "Creators will receive the content blurred, to avoid unsolicited spam. The creator can choose to change this setting at any time."
-  },
-  { "code": "creator.creator.feature.h.subtitle", "name": "What if the content is offensive in nature?" },
-  {
-    "code": "creator.creator.feature.h.content",
-    "name": "Creators can report any content that is sent to them, and we will take appropriate action."
-  },
-  { "code": "creator.creator.guideline.title", "name": "Content Guidelines" },
-  { "code": "creator.creator.guideline.a.subtitle", "name": "Guidelines for avatar and cover photos" },
-  {
-    "code": "creator.creator.guideline.a.content",
-    "name": "Your avatar and cover photos are very important as they are your first impression to potential customers. High-quality photos make customers more likely to check out your profile. Furthermore, the quality of your photos indirectly impacts the quality of our platform. That's why we request every Creator to follow these guidelines when posting profile photos. - High-quality photos: Generally, this means high resolution, sharp and well-lit photos. - Only yourself in the photo: Your profile is about you and you alone. Please only use photos where there is no other (recognizable) person but you present in the photo. - Be the centre of attention: We recommend that you are fully visible in the photo. We don't allow photos of objects or animals without you in the photo. - No watermarks or text/emojis overlaid: Your followers prefer authenticity, watermarking or otherwise overlaying text/emojis on your photos takes away from that. Of course, you are free to watermark photos that you directly send to customers through private message. - We don't allow guns: Only photos you own: We take copyrights very seriously. If you don't own the rights to a photo or video, please"
-  },
-  { "code": "creator.creator.guideline.b.subtitle", "name": "Accepted content" },
-  {
-    "code": "creator.creator.guideline.b.content",
-    "name": "Our moderation team reviews all content, if your content is rejected it can be for various reasons including but not limited to: - Images or videos with people who don't have verified accounts on VIDA - Posts showing signs of any discrimination, violence, forced or non - consensual activities - Posts possibly containing minors under 18 - Posts containing zoophilia or incest scenes - Posts containing scat or blood - Drawings and hentai - Low-quality content - Stolen content - Watermarks are too large - Watermarks cover main areas of content or block crucial content moments - Censor covering main area of content and blocks crucial content moments - Post's title/tags not matching the content - No personal data or private information (telephone numbers, GPS information, full legal names, email addresses, financial information or identification) should be shared. - Improperly sized media: recommended resolutions are 480 x 800, 640 x 1136, 720 x 1280, 750 x 1334, 1080 x 1920 and 1440 x 2560. The whole content must fit this and be full screen."
-  },
-  { "code": "creator.creator.guideline.c.subtitle", "name": "What kind of videos should I post in my free section?" },
-  {
-    "code": "creator.creator.guideline.c.content",
-    "name": "We want you to be in control of your content but recommend that you include free videos to help increase your followers. Include content that will entice users to subscribe to your premium content. We prefer these videos to be up to 60 seconds long and end before the 'best' part. Think, teaser videos, previews and even softcore/clothed content."
-  },
-  { "code": "creator.creator.guideline.d.subtitle", "name": "Posting content with other people" },
-  {
-    "code": "creator.creator.guideline.d.content",
-    "name": "All people depicted in content need to have verified VIDA accounts. You should tag their account on the video or picture so they can then approve on their own profile. We do not have a couples account facility, therefore even if you are a couple each individual requires a verified account. Please note, if the other Creator is not on VIDA they will need to be verified by creating their own profile and passing ID-verification. This profile DOES NOT need to be activated or available for public viewing. Any videos/photos with people that are not tagged and verified will be auto rejected. We will also reject untagged content with: - People in the background video (on TV, for example) - Photos in the background with recognizable faces."
-  },
-  { "code": "creator.creator.guideline.e.subtitle", "name": "Linking to other websites or apps" },
-  {
-    "code": "creator.creator.guideline.e.content",
-    "name": "Do not mention/promote competing websites (any site that your Creator handle(s) can be found where you, as the Creator, make money off your content) on the platform. You are not allowed to divert users to other sites, nor are you allowed to have their props visible. We allow the following links in watermarks only: - onlyfans - chaturbate - pornhub - youporn - xhamster - manyvids - fancentro - patreon - camsoda - linktree - sex panther - bodyshots tv - twitter - instagram - reddit - tiktok - snapchat - facebook - linkedin Not allowed: - We do not allow logos of other sites in watermarks - We do not allow logos of other sites on any part of the content When in doubt whether or not you can link to a certain website or app, feel free to email us at support@VIDA Please note that failure to adhere to these conditions may result in temporary or permanent suspension from the platform. For more information please visit our Terms of Service page page. We hold the right to change and review our policies every three and six months to ensure you are on top of all changes, check back frequently. We no longer allow mention of other sites in your bios to continue to protect the integrity of the platform; however, feel free to share your .sexy link in your bio, which will allow users to find you anywhere you'd like."
-  },
-  { "code": "creator.creator.guideline.f.subtitle", "name": "Permanent Ban" },
-  {
-    "code": "creator.creator.guideline.f.content",
-    "name": "We're committed to moderating our platform and creating a safe and enjoyable environment for both the Creator and users. We have a three-strike system in place whereas the Creator or user will be given a warning for the first two violations and will be notified on the third violation that their account on the platform has been permanently banned. This is our most severe violation enforcement action. Permanently banning an account will remove it from view, and the Creator or user will not be allowed to create new accounts. When we permanently ban an account, we notify the creator or user that they have been banned because of two previous violations and explain which policy or policies they have violated, the specific content that was in violation. Account violation can occur when a Creator or user does not comply with our community guidelines. It is strongly recommended to ensure compliance of our guidelines that Creators and users alike read our guidelines found here: https://www.VIDA/support. If you have any questions, please reach out to support@VIDA."
-  },
-  { "code": "creator.creator.contact.title", "name": "Contact" },
-  { "code": "creator.creator.contact.a.subtitle", "name": "How do I contact Creator support?" },
-  {
-    "code": "creator.creator.contact.a.content",
-    "name": "Should you have any questions or require any support with being a Creator on the site you can contact us either through: Creator support: Chat with us Sending us an E-Mail"
-  },
-  { "code": "creator.creator.delAccount.title", "name": "Deleting Your Account" },
-  { "code": "creator.creator.delAccount.a.subtitle", "name": "Deleting Your Account" },
-  {
-    "code": "creator.creator.delAccount.a.content",
-    "name": "Delete your account by going to settings – delete account. Please be aware that deleting your account is an irreversible process and all your data will be deleted permanently in accordance with our Privacy Policy. It can take up to 36 hours for the process to complete."
-  },
-  { "code": "creator.creator.delAccount.b.subtitle", "name": "What Happens to Your Earnings?" },
-  {
-    "code": "creator.creator.delAccount.b.content",
-    "name": "When you delete your account and your earnings are over the minimum payout amount, please arrange a payout via your nominated method before your account is closed. If you have less than $50 owing to you: We cannot complete a Bank Wire transfer due to restrictions enforced by our banking counterparties We can transfer your funds via Paxum, minus the transfer fee. Please keep in mind that the identity connected to your Paxum email has to match your KYC registration information."
-  },
-  { "code": "creator.creator.menu.title", "name": "Shop Menu Feature" },
-  { "code": "creator.creator.menu.a.subtitle", "name": "What is the new shop feature?" },
-  {
-    "code": "creator.creator.menu.a.content",
-    "name": "This exciting new feature allows creators to have personalised shop items for users to buy. They will be available for users to purchase directly from the main feed or the creator's shop. The available menu items for the shop are: Dick pic rating Custom video - content, length and price agreed with creator Name on body - picture or video Cosplay / Costume - picture or video Jerk off instructions (JOI) - video Holiday videos - birthday, valentines day, christmas, stag Treat me - user sends creator money for a treat e.g. pedicure and creator sends photo back"
-  },
-  { "code": "creator.creator.menu.b.subtitle", "name": "How do I set this up?" },
-  {
-    "code": "creator.creator.menu.b.content",
-    "name": "This can be easily done via your profile. To create an item just go to your shop and select the relevant template. Once the information has been entered (e.g. description, price, image) and reviewed, it will be added to your shop and the main feed. Items can be updated at any time by selecting the edit shop item option."
-  },
-  { "code": "creator.creator.menu.c.subtitle", "name": "How will I know a user has purchased an item?" },
-  {
-    "code": "creator.creator.menu.c.content",
-    "name": "Creators will receive a direct message informing them that a user has purchased the item."
-  },
-  { "code": "creator.creator.menu.d.subtitle", "name": "Can I use any media to fulfil the order?" },
-  {
-    "code": "creator.creator.menu.d.content",
-    "name": "You can send photos, videos, chat text to meet the requirements, just remember to “mark as delivered” once completed."
-  },
-  { "code": "creator.creator.menu.e.subtitle", "name": "If required, what media can a user send me?" },
-  { "code": "creator.creator.menu.e.content", "name": "A user can send you either videos or photos." },
-  { "code": "creator.creator.menu.f.subtitle", "name": "What if I don't want to fulfil the request?" },
-  {
-    "code": "creator.creator.menu.f.content",
-    "name": "If you don't respond and deliver the request within 72 hours the order will be cancelled and the user will receive a refund."
-  },
-  { "code": "creator.creator.menu.g.subtitle", "name": "Can I remove items from the shop?" },
-  { "code": "creator.creator.menu.g.content", "name": "Yes, you can deactivate items from your shop at any time." },
-  { "code": "dmca.dmca.info.title", "name": "How to Report a Copyright Infringement" },
-  {
-    "code": "dmca.dmca.info.content",
-    "name": "VIDA (the “Site”) respects the intellectual property rights of others and expects its users to do the same. VIDA has implemented a policy to disable and/or terminate the accounts of users who repeatedly infringe or are repeatedly charged with infringing the copyrights or other intellectual property rights of others. Copies of our Repeat Infringer Policy are available to subscribers upon written request.Although our company is based outside the United States and not governed by the laws of the United States, we respect the rights of copyright owners and thus have implemented certain policies in an effort to voluntarily comply with laws such as the Digital Millennium Copyright Act. Nonetheless, our Company reserves all rights and objections to the formal application of the laws of the United States to its operations.In accordance with the Digital Millennium Copyright Act of 1998, VIDA will respond expeditiously to claims of copyright infringement committed by third parties using the Site that are reported to VIDA’s designated DMCA agent (“Designated Agent”), identified below.If you are a copyright owner, or are authorized to act on behalf of one, please report alleged copyright infringements taking place on or through the Site by completing a DMCA notice of alleged infringement and delivering it to VIDA’s Designated Agent. Upon receipt of the notice as described below, VIDA will take whatever action, in its sole discretion, it deems appropriate, including removal of the challenged material from the Site.If you would like to remove content related to non-copyright issues such as privacy, abuse, harassment, inappropriate or illegal content, etc, please use this form instead .You can file a DMCA Request by filling out the DMCA Form ."
-  },
-  { "code": "dmca.dmca.notice.title", "name": "Notice of Claimed Infringement" },
-  {
-    "code": "dmca.dmca.notice.content",
-    "name": "If you believe that your work has been copied in a way that constitutes copyright infringement, please provide our Designated Agent (identified below) with the following information:An electronic or physical signature of the person authorized to act on behalf of the owner of the copyright or other intellectual property interest;A description of the copyrighted work or other intellectual property that you claim has been infringed;A description of where the material that you claim is infringing is located on the Site (preferably including specific URLs associated with the material);Your address, telephone number, and email address;A statement by you that you have a good faith belief that the disputed use is not authorized by the copyright owner, its agent, or the law; andA statement by you, made under penalty of perjury, that the above information in your notification is accurate and that you are the copyright or intellectual property owner or are authorized to act on the copyright or intellectual property owner’s behalf.You may send your Notice of Claimed Infringement (“Notice”) to our designated DMCA Agent:Lawrence G. Walters, Esq.Walters Law Group195 W. Pine Ave.Longwood, FL 32750-4104 Fax: (407)-774-6151Email: copyright@VIDA Please do not send other inquiries or information to our Designated Agent. Absent prior express permission, our Designated Agent is not authorized to accept or waive service of formal legal process, and any agency relationship beyond that required to accept valid DMCA Notices is expressly disclaimed.Your notice and information will be forwarded to the related user(s). If you do not want your information to be forwarded, please use our privacy removal form instead ."
-  },
-  { "code": "dmca.dmca.contact.title", "name": "Contacting Us" },
-  {
-    "code": "dmca.dmca.contact.content",
-    "name": "For any other inquiry, please contact us at support@VIDA.Further information regarding notification and takedown requirements can be found in the DMCA, here.Abuse Notification: Abusing the DMCA Notice procedures set forth above, or misrepresenting facts in a DMCA Notice or Counter-notification, can result in legal liability for damages, court costs, and attorneys fees under federal law. See 17 U.S.C. § 512(f). These Notice and Takedown Procedures only apply to claims of copyright infringement by copyright holders and their agents – not to any other kind of abuse, infringement, or legal claim. We will investigate and take action against anyone abusing the DMCA notification or counter-notification procedure. Please ensure that you meet all legal qualifications before submitting a DMCA Notice to our Designated Agent."
-  },
-  { "code": "dmca.dmca.procedure.title", "name": "Take Down Procedure" },
-  {
-    "code": "dmca.dmca.procedure.content",
-    "name": "This Site implements the following “notification and takedown” procedure upon receipt of any notification of claimed copyright infringement. The Site reserves the right at any time to disable access to or remove any material or activity accessible on the Site that is claimed to be infringing or from which infringing activity is apparent based on facts or circumstances. It is the firm policy of the Site to terminate the account of repeat copyright infringers, when appropriate, and the Site will act expeditiously to remove access to all material that infringes on another’s copyright, according to the procedure set forth in 17 U.S. C. § 512 of the DMCA. The Site’s DMCA Notice Procedures are set forth in the preceding paragraphs. If the Notice does not comply with § 512 of the DMCA but does comply with three requirements for identifying sites that are infringing according to § 512 of the DMCA, the Site shall attempt to contact or take other reasonable steps to contact the complaining party to help that party comply with the notification requirements. When the Designated Agent receives a valid Notice, the Site will expeditiously remove and/or disable access to the infringing material and shall notify the affected user. Then, the affected user may submit a counter-notification to the Designated Agent containing a statement made under penalty of perjury that the user has a good faith belief that the material was removed because of misidentification of the material. After the Designated Agent receives the counter-notification, it will replace the material at issue within ten to fourteen (10-14) days after receipt of the counter-notification unless the Designated Agent receives notice that a court action has been filed by the complaining party seeking an injunction against the infringing activity."
-  },
-  { "code": "dmca.dmca.counterNotification.title", "name": "DMCA Counter-Notification Procedure" },
-  {
-    "code": "dmca.dmca.counterNotification.content",
-    "name": "If the Recipient of a Notice of Claimed Infringement believes that the Notice is erroneous or false, and/or that allegedly infringing material has been wrongly removed in accordance with the procedures outlined above, the Recipient is permitted to submit a counter-notification pursuant to § 512(g)(2)-(3) of the DMCA. A counter-notification is the proper method for the Recipient to dispute the removal or disabling of material pursuant to a Notice. The information that a Recipient provides in a counter-notification must be accurate and truthful, and the Recipient will be liable for any misrepresentations which may cause any claims to be brought against the Site relating to the actions taken in response to the counter-notification.To submit a counter-notification, please provide our Designated Agent the following information:A specific description of the material that was removed or disabled pursuant to the Notice;A description of where the material was located within the Site or the content (as defined within the Site’s Terms of Use Agreement) before such material was removed and/or disabled (preferably including specific URLs associated with the material);A statement reflecting the Recipient’s belief that the removal or disabling of the material was done erroneously. For convenience, the following format may be used: “I swear, under penalty of perjury, that I have a good faith belief that the referenced material was removed or disabled by the service provider as a result of mistake or misidentification of the material to be removed or disabled.”;The Recipient’s physical address, telephone number, and email address; andA statement that the Recipient consents to the jurisdiction of the Federal District court in and for the judicial district where the Recipient is located, or if the Recipient is outside of the United States, for any judicial district in which the service provider may be found, and that the Recipient will accept service of process from the person who provided the Notice, or that person’s agent.Written notification containing the above information must be signed and sent to:Lawrence G. Walters, Esq.Walters Law Group195 W. Pine Ave.Longwood, FL 32750-4104Fax: (407)-774-6151Email: copyright@VIDAPlease do not send other inquiries or information to our Designated Agent. Absent prior express permission, our Designated Agent is not authorized to accept or waive service of formal legal process, and any agency relationship beyond that required to accept valid DMCA Notices is expressly disclaimed.All DMCA notices and counter-notifications must be written in the English language. Any attempted notifications written in foreign languages or using foreign characters will be deemed non-compliant and disregarded.After receiving a DMCA-complaint or counter-notification, our Designated Agent will forward it to the Site, and the Site will then provide the counter-notification to the claimant who first sent the original Notice identifying the allegedly infringing content.Thereafter, within ten to fourteen (10-14) days of the Site’s receipt of a counter-notification, the Site will replace or cease disabling access to the disputed material provided that the Site or our Designated Agent have not received notice that the original claimant has filed an action seeking a court order to restrain the Recipient from engaging in infringing activity relating to the material on the Site’s system or network."
-  },
-  { "code": "dmca.dmca.infringer.title", "name": "DMCA Repeat Infringer Policy" },
-  { "code": "dmca.dmca.infringer.content", "name": "You can view the policy here." },
-  { "code": "dmca.dmca.modifications.title", "name": "Modifications" },
-  {
-    "code": "dmca.dmca.modifications.content",
-    "name": "The Site reserves the right to modify, alter, or add to this policy, and all affected persons should regularly check back to stay current on any such changes."
-  },
-  { "code": "dmca.dmca.requests.title", "name": "Customer Service Requests" },
-  {
-    "code": "dmca.dmca.requests.content",
-    "name": "Please note that the Designated Agent is not associated with the Site in any other capacity but is an attorney with a private law firm. Customer service inquiries, payment questions, and cancellation requests will not receive a response. All such communications must be directed to the Site’s customer service department."
-  },
-  { "code": "dmca.dmca.language.title", "name": "Language" },
-  {
-    "code": "dmca.dmca.language.content",
-    "name": "This policy was originally written in English. To the extent any translated version of these this policy conflicts with the English version, the English version controls."
-  },
-  { "code": "dmca.dmca.final", "name": "Last modified: July 2023" },
-  { "code": "dmca.dmca.VIDA", "name": "© 2023 VIDA One Unless otherwise stated. All rights reserved." },
-  { "code": "pp.pp.info.title", "name": "Privacy Policy" },
-  {
-    "code": "pp.pp.info.content",
-    "name": "This privacy policy describes how we collect, use and protect your personal data. By using the Service, you are accepting the practices described in this Policy, to the extent permitted by law."
-  },
-  { "code": "pp.pp.definitions.title", "name": "Definitions" },
-  { "code": "pp.pp.definitions.table.title.a", "name": "Term" },
-  { "code": "pp.pp.definitions.table.title.b", "name": "The ”Policy”" },
-  { "code": "pp.pp.definitions.table.title.c", "name": "VIDA”, ”we”, or ”us”" },
-  { "code": "pp.pp.definitions.table.title.d", "name": "The ”Service”" },
-  { "code": "pp.pp.definitions.table.title.e", "name": "”Users”" },
-  { "code": "pp.pp.definitions.table.title.f", "name": "”Comply with a Legal Obligation”" },
-  { "code": "pp.pp.definitions.table.title.g", "name": "”EEA”" },
-  { "code": "pp.pp.definitions.table.title.h", "name": "”Legitimate Interests”" },
-  { "code": "pp.pp.definitions.table.title.i", "name": "”Performance of a Contract”" },
-  { "code": "pp.pp.definitions.table.content.a", "name": "Definition" },
-  { "code": "pp.pp.definitions.table.content.b", "name": "The privacy policy as outlined in this document." },
-  { "code": "pp.pp.definitions.table.content.c", "name": "Digital VIDA, trading under the name VIDA." },
-  {
-    "code": "pp.pp.definitions.table.content.d",
-    "name": "The VIDA website, located at VIDA, and any other websites, applications, or services provided, owned or operated by us that link to this Policy."
-  },
-  {
-    "code": "pp.pp.definitions.table.content.e",
-    "name": "Any and all visitors, users, and others who access or use the Service."
-  },
-  {
-    "code": "pp.pp.definitions.table.content.f",
-    "name": "Processing your personal data where it is necessary for compliance with a legal obligation that we are subject to."
-  },
-  {
-    "code": "pp.pp.definitions.table.content.g",
-    "name": "The European Economic Area, being the member states of the European Union together with Norway, Iceland and Liechtenstein."
-  },
-  {
-    "code": "pp.pp.definitions.table.content.h",
-    "name": "The interests of our business in conducting and managing our business to enable us to provide you with the best and most secure experience when using the Service and related functionality, or the interests of a third party. We make sure we consider and balance any potential impact on you (both positive and negative) and your rights before we process your personal data for our or any third party’s legitimate interests. We do not use your personal data for activities where our (or the relevant third party’s) interests are overridden by the impact on you (unless we have your consent or are otherwise required or permitted by law). You can obtain further information about how we assess our and any relevant third party’s legitimate interests against any potential impact on you in respect of specific activities by contacting us."
-  },
-  {
-    "code": "pp.pp.definitions.table.content.i",
-    "name": "Processing your data where it is necessary for the performance of a contract to which you are a party or to take steps at your request before entering into such a contract."
-  },
-  { "code": "pp.pp.termsService.title", "name": "Terms of Service" },
-  {
-    "code": "pp.pp.termsService.content",
-    "name": "This Policy forms part of our Terms of Service , which describes the terms under which we provide the Service."
-  },
-  { "code": "pp.pp.modifications.title", "name": "Modifications" },
-  {
-    "code": "pp.pp.modifications.content",
-    "name": "We reserve the right to change this Policy at any time. If we make changes, we will notify you by revising the date at the bottom of the Policy and, in some cases, we may provide you with additional notice (such as adding a statement to our homepage or sending you an email notification). Changes to this Policy are effective at the time they are published.Your continued use of the Service after the effective date of the revised Policy constitutes your acceptance of the policies."
-  },
-  { "code": "pp.pp.collectYou.title", "name": "Personal Information We Collect About You" },
-  {
-    "code": "pp.pp.collectYou.content",
-    "name": "We obtain information about you through the means discussed below when we provide the Service. Please note that we need certain types of information so that we can provide the Service to you. If you do not provide us with such information, or if you ask us to delete it, you may no longer be able to access or use the Service or certain functionality.Information You Provide to UWe collect information: (1) you directly give us, such as your image (in any content you upload), username and email address when you register for the Service (and for Creators, certain other information, including, without limitation, name, birthdate, and (where applicable) government-issued photo identification and photograph); (2) when you upload, purchase, view, or download certain content or products from the Service; or (3) when you otherwise use the features and functionality of the ServiceInformation We Collect AutomaticallWe use various technologies to collect information, and this may include cookies and web beacons. Cookies are small data files stored on your hard drive or in your device memory. Web beacons (also known as “tracking pixels”) are non-visible electronic images. For information about what cookies are, how they work, how VIDA uses them, and how to remove them, please see our Cookie Policy .Examples of such information we automatically collect include the type of device you use, access times, general location information of your Internet Service Provider based on your IP Address, information about your usage of the Service and the page you visited before navigating to our Service.These technologies are used for analytic and product improvement purposes, such as seeing which areas and features of the Service are popular and determining whether an email has been opened and acted uponInformation from Other SourceWe may obtain additional information such as demographic and statistical information from third parties and sources other than the Service, such as advertisers or social media networks (such as Twitter) for which you have approved our access. When you access the Service through social media networks or when you connect the Service to social media networks, you are authorizing VIDA to collect, store, and use such additional information and content in accordance with this Policy.If we combine or associate information from other sources with information that we collect through the Service, we will treat the combined information in accordance with this Policy"
-  },
-  { "code": "pp.pp.usePersonalInfo.title", "name": "How We Use Personal Information" },
-  {
-    "code": "pp.pp.usePersonalInfo.content",
-    "name": "We may use information about you for various purposes but only when the law allows us to. Most commonly, we will use your personal data in the following circumstances: (1) where we need to for Performance of a Contract; (2) where it is necessary for our Legitimate Interests (or those of a third party) and your interests and fundamental rights do not override those interests; (3) where we need to Comply with a Legal Obligation. Generally, we do not rely on consent as a legal basis for processing your personal data although we will get your consent before sending third-party direct marketing communications to you via email or text message. You have the right to withdraw consent to marketing at any time by contacting us.VIDA uses such information to: (1) operate, maintain, enhance, provide, create, and develop all of the features, functionality, and services (new or existing) found on the Service; (2) provide security for our websites, products, software, or applications; (3) manage relationships with VIDA account holders (e.g., partners, affiliates), including making or receiving payment; (4) improve Users’ experience with VIDA by providing content recommendations and by delivering content that we hope Users will find relevant and interesting, including advertising and marketing messages; (5) prevent fraud and abuse; and (6) understand the usage trends of our Users.We use your email address to communicate with you, including to notify you of major Service updates, for customer service purposes, or to contact you regarding any content that you have posted to or downloaded from the Service.VIDA may periodically send promotional notifications to you related to the Service if you have registered with us or requested information from us and you have not opted-out of receiving that marketing. You may opt-out of receiving promotional communications from us in your account settings once you have logged in to the Service or follow the unsubscribe instructions at the bottom of any email or text from us. If you opt-out, we may still send you non-promotional communications, such as those about your account. We will get your opt-in consent before we share your personal data with any third party for marketing purposes.In certain cases, we have a legal obligation to collect and process your personal information (such as our obligation to share data with tax authorities).We may also ask for your consent to process your personal information for a specific purpose that we communicate with you. When you consent to our processing your personal information for a specified purpose, you may withdraw your consent at any time and we will stop processing of your data for that purpose.VIDA will rely on legal grounds to process your personal information to the extent permitted by applicable law, which may include, without limitation: to honor contractual commitments, to take steps in anticipation of entering into a contract, to fulfill legal obligations, your consent, and VIDA's legitimate interest."
-  },
-  { "code": "pp.pp.changePurpose.title", "name": "Change of Purpose" },
-  {
-    "code": "pp.pp.changePurpose.content",
-    "name": "We will only use your personal data for the purposes for which we collected it, unless we reasonably consider that we need to use it for another reason and that reason is compatible with the original purpose. If you would like an explanation as to how the processing for the new purpose is compatible with the original purpose, please contact us.If we need to use your personal information for an unrelated purpose, we will notify you and we will explain the legal basis which allows us to do so.Please note that we may process your personal data without your knowledge or consent, in compliance with the above rules, where this is to Comply with a Legal Obligation."
-  },
-  { "code": "pp.pp.disclose.title", "name": "When We Disclose Personal Information" },
-  {
-    "code": "pp.pp.disclose.content",
-    "name": "You may be required to register an account to access certain features of the Service. You agree to keep your password confidential and will be responsible for all usage, activity and purchases conducted on the Service through your account. We reserve the right to remove, reclaim, or change a username you select if we determine, in our sole discretion, that such username is inappropriate, obscene, or otherwise objectionable.Unless expressly permitted in writing by VIDA, you may not sell, rent, lease, share or provide access to your account to anyone else. VIDA reserves all available legal rights and remedies to prevent unauthorized use of the Service, including, but not limited to, technological barriers, IP mapping, and, in serious cases, directly contacting your Internet Service Provider (ISP) regarding such unauthorized use.To the extent you voluntarily create a User profile to participate in certain select services offered by us, your profile (and its contents) may be searchable by other Users registered through the Service. Likewise, your profile (and its contents) may be searchable by publicly available search engines."
-  },
-  { "code": "pp.pp.usersIn.title", "name": "Users in the UK, EEA or Switzerland" },
-  {
-    "code": "pp.pp.usersIn.content",
-    "name": "If you are in the UK, EEA or Switzerland, you should know that VIDA is the controller of your personal information.Data Subject RequestsIn certain circumstances, as the data subject, you have the right to request access to personal data we hold about you and to ask that your personal data be corrected, erased or transferred. You may also have the right to object to, or request that we restrict, certain processing. If you would like to exercise any of these rights, you may contact us as indicated below.Your right to request access entitles you to request a copy of the personal data we hold about you and to check that we are processing it lawfully.Your right to request correction of your personal data that we hold enables you to have incomplete or inaccurate data corrected, though we may need to verify the accuracy of the new data you provide to us.The right to request erasure of your personal data entitles you to ask us to delete or remove personal data where there is no good reason for us continuing to process it.You also have the right to ask us to delete or remove your personal data where you have successfully exercised your right to object to processing (see below), where we may have processed your information unlawfully, or where we are required to erase your personal data to comply with local law. Note, however, that we may not always be able to comply with your request for erasure for specific legal reasons which will be notified to you, if applicable, at the time of your request.You may object to the processing of your personal data insofar as we base the processing of your personal data on Legitimate Interests and there is something about your particular situation which makes you want to object to processing on this ground as you feel it impacts on your fundamental rights and freedoms. If you wish to do so, we kindly ask for an explanation of the reasons for the objection. If your objection is justified, we will discontinue or adapt the data processing or explain why we have compelling legitimate grounds to continue processing your personal data notwithstanding your objection.You may, of course, object to the processing of your personal data for advertising and data analysis purposes at any time.You may request restriction of processing of your personal data. This entitles you to ask us to suspend the processing of your personal data in the following scenarios:If you want us to establish the data’s accuracy;Where our use of the data is unlawful but you do not want us to erase it;Where you need us to hold the data even if we no longer require it as you need it to establish, exercise or defend legal claims;You have objected to our use of your data but we need to verify whether we have overriding legitimate grounds to use it.You may request the transfer of your personal data to you or a third party. In this case, we will provide to you, or a third party you have chosen, your personal data in a structured, commonly used, machine-readable format. Note that this right only applies to automated information which you initially provided consent for us to use or where we used the information to perform a contract with you.As mentioned above, we do not generally rely on consent to process your personal data. If we do, you may withdraw your consent at any time (although this will not affect the lawfulness of any processing carried out before you withdrew your consent). If you withdraw your consent, we may not be able to provide certain services to you. We will advise you if this is the case at the time you withdraw your consent.You will not have to pay a fee to exercise any of the above rights. However, we may charge a reasonable fee if your request is clearly unfounded, repetitive or excessive. Alternatively, we could refuse to comply with your request in these circumstances.We may need to request specific information from you to help us confirm your identity in order to respond to any exercise of the above rights. This is a security measure to ensure that personal data is not disclosed to any person who has no right to receive it. We may also contact you to ask you for further information in relation to your request to speed up our response.We try to respond to all legitimate requests within one month. Occasionally it could take us longer than a month if your request is particularly complex or you have made a number of requests. In this case, we will notify you and keep you updated.International Data TransfersWe may collect your personal information from, transfer it to, and store and process it in other countries outside of where you live. If we provide any information about you to any such entities, we will take appropriate measures to ensure such companies protect your information in accordance with this Policy and applicable law. If you are in the UK or the EEA, and we transfer your personal data outside of the EEA, we ensure a similar degree of protection applies by implementing at least one of the following safeguards:We will only transfer your personal data to countries that have been deemed to provide an adequate level of protection for personal data by the European Commission.Where we use certain service providers, we may use specific contracts approved by the European Commission which give personal data the same protection as it has in Europe.Please contact us if you would like further information on the specific mechanism used when transferring your data outside the EEA.ComplaintsIf you’re based in the EU and in some other jurisdictions, you have the option to file a complaint against the processing of your personal data with the competent supervisory authority. We would however appreciate the chance to deal with your concerns before you approach the supervisory authority so please contact us in the first instance.Your ChoicesYou may decline to share certain information with VIDA, in which case VIDA may not be able to provide you with some of the features and functionality found on the Service. If you have created a VIDA account, you may be able to update your profile information and preferences or request to disable your account. For requests to review, update, delete, or otherwise limit VIDA's use of information that you have provided directly to VIDA, you may contact support@VIDA. In your request, please include your email address and your username and specify all relevant background. To protect your privacy and security, we may take steps to verify your identity before granting you access or making corrections to your information. You are responsible for maintaining the secrecy of your unique password and account information at all times."
-  },
-  { "code": "pp.pp.accountDeletion.title", "name": "Account Deletion" },
-  {
-    "code": "pp.pp.accountDeletion.content",
-    "name": "If you wish to delete your account, you may instruct us to do so by contacting us at support@VIDA. If you delete your account, VIDA may retain certain information about you for the activities described in this Policy, or as permitted or required by applicable law."
-  },
-  { "code": "pp.pp.thirdParty.title", "name": "Third-Party Services and Websites" },
-  {
-    "code": "pp.pp.thirdParty.content",
-    "name": "If you connect to a third-party service (such as Twitter, or another third party) through the Service or otherwise link your VIDA account with a third-party service, you are requesting and authorizing us to share or grant access to information on your behalf (such as your username, the fact that your connection originated from the Service, and other relevant usage and diagnostic information) with such third party.The Service may include links to third party websites, plug-ins and applications. Clicking on those links or enabling those connections may allow third parties to collect or share data about you. We do not control these third-party websites and are not responsible for their privacy statements. When you leave the Service, we encourage you to read the privacy policy of every website you visit."
-  },
-  { "code": "pp.pp.retention.title", "name": "Retention of Your Information" },
-  {
-    "code": "pp.pp.retention.content",
-    "name": "VIDA will only retain your personal data for as long as necessary to fulfill the relevant purposes described in this Policy, as may be required (or permitted) by law (such as for regulatory, tax, accounting and reporting purposes), or as otherwise communicated to you. We may retain your personal data for a longer period in the event of a complaint or if we reasonably believe there is a prospect of litigation in respect of our relationship with you.To determine the appropriate retention period for personal data, we consider the amount, nature and sensitivity of the personal data, the potential risk of harm from unauthorized use or disclosure of your personal data, the purposes for which we process your personal data, and whether we can achieve these purposes through other means, and the applicable legal, regulatory, tax, accounting or other requirements.By law, for tax purposes, we have to keep basic information about our customers (including contact, identity, financial and transaction data) for six years after they cease being customers.In some circumstances you can ask us to delete your data (see the sections Account Deletion and Data Subject Requests, above). Once you have asked us to delete your account, we will delete all information that we are not required or permitted to retain by law.In some circumstances we will anonymize your personal data (so that it can no longer be associated with you) for research or statistical purposes, in which case we may use this information indefinitely without further notice to you."
-  },
-  { "code": "pp.pp.mergerSale.title", "name": "Merger or Sale" },
-  {
-    "code": "pp.pp.mergerSale.content",
-    "name": "We reserve the right to transfer or assign the information that we have collected from Users in connection with any contemplated change of ownership transaction, including, without limitation, any merger, acquisition, sale of stock or assets related to the Service, corporate reorganization, or other change of control event, including in the course of diligence, provided that the transferee or assignee shall be obligated to treat the transferred or assigned information in accordance with this Policy."
-  },
-  { "code": "pp.pp.minors.title", "name": "Minors" },
-  {
-    "code": "pp.pp.minors.content",
-    "name": "VIDA does not knowingly collect, use or disclose information from Users who are not at least 18 years old or of the age of legal majority in their jurisdiction of residence, whichever is older. Our Service is intended for adults only and it is not directed to minors. If you believe we have collected personal information from a minor, please contact us at support@VIDA."
-  },
-  { "code": "pp.pp.track.title", "name": "Do Not Track" },
-  {
-    "code": "pp.pp.track.content",
-    "name": "The Service is not designed to respond to “do not track” signals sent by some browsers."
-  },
-  { "code": "pp.pp.contact.title", "name": "Contact" },
-  {
-    "code": "pp.pp.contact.content",
-    "name": "Questions or concerns regarding these Terms can be addressed to support@VIDA. Please note that e-mail communications will not necessarily be secure; accordingly you should not include credit card information or other sensitive information in your e-mail correspondence with us. Billing queries should be directed to billing@VIDA"
-  },
-  { "code": "pp.pp.miscellaneous.title", "name": "Miscellaneous" },
-  {
-    "code": "pp.pp.miscellaneous.content",
-    "name": "These Terms do not, and shall not be construed to, create any partnership, joint venture, employer-employee, agency or franchisor-franchisee relationship between you and VIDA. If any provision of these Terms is found to be unlawful, void or for any reason unenforceable, that provision will be deemed severable from these Terms and will not affect the validity and enforceability of any remaining provision. You may not assign, transfer or sublicense any or all of your rights or obligations under these Terms without our express prior written consent. We may assign, transfer or sublicense any or all of our rights or obligations under these Terms without restriction. No waiver by either party of any breach or default hereunder will be deemed to be a waiver of any preceding or subsequent breach or default. Any heading, caption or section title contained herein is inserted only as a matter of convenience, and in no way defines or explains any section or provision hereof. This, together with all policies referred to herein, is the entire agreement between you and VIDA relating to the subject matter herein and supersedes any and all prior or contemporaneous written or oral agreements or understandings between you and VIDA relating to such subject matter. Notices to you may be made via posting to the Service, by e-mail, or by regular mail, in VIDA’s discretion. The Service may also provide notices of changes to these Terms or other matters by displaying such notices or by providing links to such notices. Without limitation, you agree that a printed version of these Terms and of any notice given in electronic form shall be admissible in judicial or administrative proceedings based upon or relating to these Terms to the same extent and subject to the same conditions as other business documents and records originally generated and maintained in printed form. VIDA will not be responsible for failures to fulfill any obligations due to causes beyond its control."
-  },
-  { "code": "pp.pp.language.title", "name": "Language" },
-  {
-    "code": "pp.pp.language.content",
-    "name": "These Terms were originally written in English. To the extent any translated version of these Terms conflicts with the English version, the English version controls.Last modified: July 2023© 2023 VIDA unless otherwise noted. All rights reserved."
-  },
-  { "code": "pp.pp.final", "name": "Last modified: July 2023" },
-  { "code": "pp.pp.VIDA", "name": "© 2023 VIDA One Unless otherwise stated. All rights reserved." },
-  { "code": "support.faq.account.title", "name": "Account" },
-  { "code": "support.faq.account.a.subtitle", "name": "I forgot my password" },
-  {
-    "code": "support.faq.account.a.content",
-    "name": "Go to the login screen and click 'forgot' in the password field. If you no longer remember your email address, contact support@VIDA"
-  },
-  { "code": "support.faq.account.b.subtitle", "name": "How can I delete my account?" },
-  {
-    "code": "support.faq.account.b.content",
-    "name": "Please be aware that deleting your account is an irreversible process, and all your data will be deleted permanently in accordance with our Privacy Policy."
-  },
-  { "code": "support.faq.features.title", "name": "Features" },
-  { "code": "support.faq.features.a.subtitle", "name": "Why should I subscribe?" },
-  {
-    "code": "support.faq.features.a.content",
-    "name": "As a subscriber, you receive highly personalized content to your account based on the categories and Creators you have followed and subscribed to on VIDA. Not only do you get access to a Creator’s private content but you also have the exclusive opportunity to connect, direct message, and have a conversation with them!"
-  },
-  { "code": "support.faq.features.b.subtitle", "name": "How do I send content to a creator?" },
-  {
-    "code": "support.faq.features.b.content",
-    "name": "Subscribers are able to share media with creators. The content must adhere to the community guidelines. When messaging a creator all you need to do is press the paperclip button next to the chat box and upload your picture or video from your device."
-  },
-  {
-    "code": "support.faq.features.c.subtitle",
-    "name": "Is the content saved on the user’s profile for future uploads?"
-  },
-  {
-    "code": "support.faq.features.c.content",
-    "name": "No, the content will not be saved. The content will need to be uploaded from your device each time you wish to send it to a creator."
-  },
-  {
-    "code": "support.faq.features.d.subtitle",
-    "name": "Can content be deleted from a message thread by the user or creator?"
-  },
-  { "code": "support.faq.features.d.content", "name": "No content can be deleted from the thread at this time." },
-  { "code": "support.faq.features.e.subtitle", "name": "What if the content is offensive in nature?" },
-  {
-    "code": "support.faq.features.e.content",
-    "name": "Creators can report any content that is sent to them and we will take appropriate action."
-  },
-  { "code": "support.faq.contact.title", "name": "Contact" },
-  { "code": "support.faq.contact.a.subtitle", "name": "How do I contact VIDA support?" },
-  {
-    "code": "support.faq.contact.a.content",
-    "name": "We are always happy to help with your queries. To get in touch with us directly, please use the links and contact information below:General & Website Support: support@VIDABilling Support: support@VIDA or visit https: //www.VIDA (billing only)"
-  },
-  { "code": "support.faq.about.title", "name": "About VIDA" },
-  { "code": "support.faq.about.a.subtitle", "name": "What is VIDA?" },
-  {
-    "code": "support.faq.about.a.content",
-    "name": "VIDA is an online platform that enables Creators and influencers around the world to interact with their customers in a safe and secure environment for all parties involved."
-  },
-  { "code": "support.faq.about.b.subtitle", "name": "How do I share feedback?" },
-  {
-    "code": "support.faq.about.b.content",
-    "name": "VIDA wouldn't exist without you, and your opinion is important to us. We are always looking forward to hearing about your thoughts, suggestions, or concerns. The easiest way to send feedback is by sending an email to support@VIDA"
-  },
-  { "code": "support.faq.menu.title", "name": "Shop menu feature" },
-  { "code": "support.faq.menu.a.subtitle", "name": "What is available in the new shop?" },
-  {
-    "code": "support.faq.menu.a.content",
-    "name": "Creator’s can offer any of the following options please check the uploaded build additional services: Dick pic rating Custom video - content, length and price agreed with creator Name on body - picture or video Cosplay / Costume - picture or video Jerk off instructions (JOI) - video Holiday videos - birthday, valentines day, christmas, stag Boy girl or girl girl - video Treat me - user sends creator money for a treat e.g. pedicure and creator sends photo back"
-  },
-  { "code": "support.faq.menu.b.subtitle", "name": "What if I don’t receive the content I paid for?" },
-  {
-    "code": "support.faq.menu.b.content",
-    "name": "All requests must be fulfilled within 72 hours and creators must confirm delivery of the items ordered. If delivery is not complete we will process a refund."
-  },
-  { "code": "support.faq.menu.c.subtitle", "name": "Can customers cancel a request?" },
-  {
-    "code": "support.faq.menu.c.content",
-    "name": "No, a request by a customer cannot be canceled, however creators can choose to decline a request."
-  },
-  { "code": "support.faq.menu.d.subtitle", "name": "What if I need to report content I have received?" },
-  {
-    "code": "support.faq.menu.d.content",
-    "name": "There is a report option on all content received. Content needs to adhere to the community guidelines, therefore should you believe any media breaks these rules, you can use the report function. The content guidelines include but are not limited to: Any media showing signs of any discrimination, violence, forced or non - consensual activities Any media possibly containing minors under 18 Stolen content/copyright Main person in media does not match profile Instruction for suicide or murderTerrorism"
-  },
-  { "code": "tos.tos.info.title", "name": "Terms of Use" },
-  {
-    "code": "tos.tos.info.content1",
-    "name": "Please read these Terms of Service carefully. This is a binding contract. It relates to these services. These terms apply to all users. You agree that by registering, downloading, accessing or using the service, you A legally binding agreement with VIDA regarding your use of the Service."
-  },
-  {
-    "code": "tos.tos.info.content2",
-    "name": "When using the Services, you will comply with VIDA's Privacy Policy, VIDA's Cookie Policy, and other policies posted on or made available to you on the Services, or applicable to the specific services and features disclosed to you. guidelines or rules. Relating to such services. These terms apply to all users."
-  },
-  {
-    "code": "tos.tos.info.content3",
-    "name": "These terms apply to all users. You agree that by registering, downloading, accessing or using the service, you and VIDA form a legally binding agreement regarding your use of the service. You acknowledge that you have Read, understand and agree to be bound by these Terms. If you do not agree to these Terms, please do not access or otherwise use any Services."
-  },
-  { "code": "tos.tos.definitions.title", "name": "Definitions" },
-  { "code": "tos.tos.definitions.table.title.a", "name": "Term" },
-  { "code": "tos.tos.definitions.table.title.b", "name": "The ”Terms”" },
-  { "code": "tos.tos.definitions.table.title.c", "name": "VIDA”, ”we”, or ”us”" },
-  { "code": "tos.tos.definitions.table.title.d", "name": "The ”Service”" },
-  { "code": "tos.tos.definitions.table.title.e", "name": "”Customer(s)”" },
-  { "code": "tos.tos.definitions.table.title.f", "name": "”User(s)”" },
-  { "code": "tos.tos.definitions.table.title.g", "name": "”Creator(s)”" },
-  { "code": "tos.tos.definitions.table.title.h", "name": "”Content”" },
-  { "code": "tos.tos.definitions.table.title.i", "name": "”Credits”" },
-  { "code": "tos.tos.definitions.table.content.a", "name": "Definition" },
-  { "code": "tos.tos.definitions.table.content.b", "name": "These Terms of Service as outlined in this document.”" },
-  {
-    "code": "tos.tos.definitions.table.content.c",
-    "name": "VIDA, (or VIDA in relation to billing) trading under the name VIDA."
-  },
-  {
-    "code": "tos.tos.definitions.table.content.d",
-    "name": "The VIDA website, located at VIDA, and any other websites, applications, or services provided, owned or operated by us that link to these Terms."
-  },
-  {
-    "code": "tos.tos.definitions.table.content.e",
-    "name": "Any and all Users who purchase, unlock or otherwise access Content made available through the Service by Creators."
-  },
-  {
-    "code": "tos.tos.definitions.table.content.f",
-    "name": "Any and all visitors, users, and others who access or use the Service."
-  },
-  {
-    "code": "tos.tos.definitions.table.content.g",
-    "name": "Any and all Users who sell or otherwise provide Content through the Service to Customers."
-  },
-  {
-    "code": "tos.tos.definitions.table.content.h",
-    "name": "Videos, images, messages, text, sound, applications, code or other data or materials that Users may create, post, transmit, perform, store, or make available on or through the Service."
-  },
-  {
-    "code": "tos.tos.definitions.table.content.i",
-    "name": "A virtual currency used to purchase, unlock or otherwise access Content."
-  },
-  { "code": "tos.tos.aboutService.title", "name": "About the Service" },
-  {
-    "code": "tos.tos.aboutService.content",
-    "name": "VIDA provides a digital service platform that allows Creators to monetize their Content with their Customers. By accessing the Service you acknowledge that you understand the Service is for entertainment purposes only.We reserve the right, at any time and from time to time, temporarily or permanently, in whole or in part, to: modify or discontinue the Service, with or without notice; charge fees in connection with the use of the Service; modify and/or waive any fees charged in connection with the Service; and/or offer opportunities to some or all Users of the Service. You agree that we shall not be liable to you or to any third party for any modification, suspension or discontinuance of the Service, in whole or in part, or any content, feature or product offered through the Service. Your continued use of the Service after such changes constitutes your acceptance of the changes."
-  },
-  { "code": "tos.tos.jurisdictional.title", "name": "Jurisdictional Issues" },
-  {
-    "code": "tos.tos.jurisdictional.content",
-    "name": "The Service is controlled and operated by VIDA from its country of incorporation and is not intended to subject VIDA to the laws or jurisdiction of any other state, province, country or territory. Although VIDA attempts to ensure that the Service complies with certain laws of other jurisdictions in an effort to adhere to industry best practices (for example, the United States’ Digital Millennium Copyright Act and 18 U.S.C. §2257), such attempts shall not be deemed to subject VIDA to the laws of those jurisdictions. VIDA does not represent or warrant that the Service or any part thereof is appropriate or available for use in any particular jurisdiction. In choosing to access the Service, you do so on your own initiative and at your own risk, and you are responsible for complying with all local laws, rules and regulations. We may limit the Service's availability, in whole or in part, to any person, geographic area or jurisdiction we choose, at any time and in our sole discretion. Not all products or services described on the Service are available in all jurisdictions."
-  },
-  { "code": "tos.tos.minors.title", "name": "Minors" },
-  {
-    "code": "tos.tos.minors.content",
-    "name": "You must be at least 18 years old or the age of legal majority in your jurisdiction of residence, whichever is older, to have our permission to use our Service.We have zero-tolerance for minors using the Service. Moreover, we have zero tolerance for any Content referencing a minor for any reason, including pretending to be a minor as an adult or Content that features simulations of minors. If you believe that a minor is using the Service, we request and encourage Users to report them. We reserve the right to and do report each and every suspected minor to any and all law enforcement agencies we feel appropriate.BY VISITING, DOWNLOADING, OR OTHERWISE USING THE SERVICE, YOU REPRESENT THAT: (A) YOU ARE AT LEAST 18 YEARS OF AGE OR THE AGE OF MAJORITY IN YOUR JURISDICTION OF RESIDENCE (IF GREATER THAN 18 YEARS OF AGE); AND (B) THE JURISDICTION YOU ARE ACCESSING THE SERVICE FROM DOES NOT PROHIBIT THE RECEIPT, DOWNLOADING, VIEWING OR DISTRIBUTION OF SEXUALLY EXPLICT OR ADULT CONTENT.Parental control protections (such as computer hardware, software or filtering services) are commercially available that may assist you in limiting access to material that is harmful to minors. Guidance on using such protections is available on the U.S. Federal Trade Commission’s website here. Please note that VIDA does not endorse any of the products or services listed at such site."
-  },
-  { "code": "tos.tos.privacyPolicy.title", "name": "Privacy Policy" },
-  {
-    "code": "tos.tos.privacyPolicy.content",
-    "name": "Your privacy is important to Us. Please see our Privacy Policy for information relating to how we collect, use, and disclose your personal information."
-  },
-  { "code": "tos.tos.userRegistration.title", "name": "User Registration" },
-  {
-    "code": "tos.tos.userRegistration.content",
-    "name": "You may be required to register an account to access certain features of the Service. You agree to keep your password confidential and will be responsible for all usage, activity and purchases conducted on the Service through your account. We reserve the right to remove, reclaim, or change a username you select if we determine, in our sole discretion, that such username is inappropriate, obscene, or otherwise objectionable.Unless expressly permitted in writing by VIDA, you may not sell, rent, lease, share or provide access to your account to anyone else. VIDA reserves all available legal rights and remedies to prevent unauthorized use of the Service, including, but not limited to, technological barriers, IP mapping, and, in serious cases, directly contacting your Internet Service Provider (ISP) regarding such unauthorized use.To the extent you voluntarily create a User profile to participate in certain select services offered by us, your profile (and its contents) may be searchable by other Users registered through the Service. Likewise, your profile (and its contents) may be searchable by publicly available search engines."
-  },
-  { "code": "tos.tos.devicesServices.title", "name": "Use of Devices and Services" },
-  {
-    "code": "tos.tos.devicesServices.content",
-    "name": "Access to the Service may require the use of your personal computer or mobile device, as well as communications with or use of space on such devices. You are responsible for any Internet connection or mobile fees and charges that you incur when accessing the Service."
-  },
-  { "code": "tos.tos.modifications.title", "name": "Modifications" },
-  {
-    "code": "tos.tos.modifications.content",
-    "name": "We reserve the right to change these Terms at any time. If we make changes, we will notify you by revising the date at the bottom of the Terms and, in some cases, we will provide you with additional notice (such as adding a statement to our homepage or sending you an email notification). In order to comply with Regulation (EU) 2019/1150 (the 'Platform to Business Regulation' or 'P2BR') we will provide no less than 15 days' notice of any changes to these Terms on a 'durable medium' (as defined in the P2BR), other than those changes set out in Article 3 (4) of the P2BR. Changes to these Terms are effective at the time they are published. Your continued use of the Service after the effective date of the revised Terms constitutes your acceptance of the Terms.License to Use the Service Subject to these Terms, VIDA grants you a personal, worldwide, royalty-free, non-assignable, nonexclusive, revocable, and non-sublicensable license to access and use the Service. This license is for the sole purpose of letting you use and enjoy the Service’s benefits as intended by VIDA and permitted by these Terms."
-  },
-  { "code": "tos.tos.content.title", "name": "Content" },
-  {
-    "code": "tos.tos.content.content",
-    "name": "Subject to what is permitted under applicable law (including but not limited to copyright law), you are free to choose the type of Content you produce and post or publish. You shall be solely responsible for your own Content and the consequences of posting or publishing such Content. In connection with Content, you affirm, represent, and/or warrant that: (i) you own or have the necessary licenses, rights, consents, and permissions to use and authorize us to use all patent, trademark, trade secret, copyright, right to privacy, right to publicity, or other proprietary commercial or personal rights in and to any and all your Content to enable inclusion and use of Content in the manner contemplated by the Service and these Terms, and (ii) you have the written consent, release, and/or permission of each and every identifiable persons in your Content to use the name or likeness of each individual for use in your Content in the manner contemplated by the Service and these Terms.We are not responsible for any Content that violates a community's norms or mores. We expect and demand that you comply with all federal, state, provincial and local laws when using the Service and when submitting or posting Content to the Service. If you are unsure whether or not Content will violate a law, you are urged to contact a legal professional prior to posting the Content. We cannot enforce every jurisdiction's laws for all Content that is posted to the Service. As such, we are not responsible for the Content of the Service.You must evaluate, and bear all risks associated with, the use of any Content, including any reliance on the accuracy, completeness, or usefulness, or lawfulness of such Content. In this regard, you acknowledge that you may not rely on any Content created by us or Content transmitted to the Service. You are responsible for all your Content that is uploaded, posted, emailed, transmitted or otherwise made available via the Service.If we have a reason to suspect that your Content violates any third-party right, including without limitation any copyright, trademark, or property right, we can require you to provide us with written evidence of your ownership of, or right to use, the material in question. If we require such written evidence, you agree to provide it to us within five working days of the date of our request. Your failure to provide us with such required written evidence within that timeframe may lead to the immediate termination of your account, us demanding compensation from you for any accrued costs and damages related to such Content and the immediate suspension of any and all pending payments from us to you.Please note that you may not permit any other person to use your account and that you must immediately inform us of any apparent breach of security, such as loss or theft of your password.While we will make efforts we believe are reasonable to safeguard Content, and to make Content available in case of loss or deletion, we have no responsibility or liability for the deletion or failure to store or the security of any Content. We reserve the right to mark or treat as 'inactive' and archive Content, as determined by us. We reserve the right to change our practices and storage rules at any time in our sole discretion with or without notice to you.You understand and agree that we may monitor, censor or remove any and all Content, in whole or in part, that in our sole judgment violates these Terms or may harm the reputation of the Service. However, we have no obligation to display or review Content, and cannot ensure prompt removal of objectionable Content after it has been posted. Accordingly, we assume no liability for any action or inaction regarding transmissions, communications or Content provided by any User or third party. We have no liability or responsibility to anyone for performance or nonperformance of the activities described in this section."
-  },
-  { "code": "tos.tos.license.title", "name": "License to the Content" },
-  {
-    "code": "tos.tos.license.content",
-    "name": "For purposes of clarity, you retain any ownership rights that you may have in the Content, subject to the terms and conditions of this Agreement. For all Content that you make available through or in connection with the Service, you hereby grant to us a world-wide, royalty-free, fully paid-up, non-exclusive, perpetual, irrevocable, transferable and fully-sublicensable (through multiple tiers) license, without additional consideration to you or any third party, to reproduce, distribute, perform and display (publicly or otherwise), adapt, modify and otherwise use and exploit such Content, in any format or media now known or hereafter developed, and for any purpose in connection with the Service (including promotional purposes)."
-  },
-  { "code": "tos.tos.userInteractions.title", "name": "User Interactions" },
-  {
-    "code": "tos.tos.userInteractions.content",
-    "name": "VIDA is not responsible for the conduct of any User on the Service. You agree to use caution in all interactions with other Users. You agree that you will not provide your financial information (for example, your credit card or bank account information), or wire or otherwise send money, to other Users.YOU ARE SOLELY RESPONSIBLE FOR YOUR INTERACTIONS WITH OTHER USERS. YOU UNDERSTAND THAT VIDA DOES NOT CONDUCT CRIMINAL BACKGROUND CHECKS ON ITS USERS OR OTHERWISE INQUIRE INTO THE BACKGROUND OF ITS USERS. VIDA MAKES NO REPRESENTATIONS OR WARRANTIES AS TO THE CONDUCT OF USERS."
-  },
-  { "code": "tos.tos.prohibitedConduct.title", "name": "Prohibited Conduct" },
-  {
-    "code": "tos.tos.prohibitedConduct.content",
-    "name": "You agree that you will only use the Service for the lawful purposes expressly permitted and contemplated by these Terms. The Service may not be used in connection with any commercial endeavors except those that that we expressly approve in writing.You agree that you will view the Service and its Content unaltered and unmodified. You acknowledge and understand that you are prohibited from modifying the Service or eliminating any of the Content of the Service, including ads. By using the Service you expressly agree to accept advertising served on and through the Service and to refrain from using adblocking software or to disable adblocking software before visiting the Service.You agree that you will not use or attempt to use any method, device, software or routine to harm others or interfere with the functioning of the Service or use and/or monitor any information in or related to the Service for any unauthorized purpose. Your use of the Service is conditioned on your compliance with the rules of conduct set forth in this section; your failure to comply with such rules may result in termination of your access to the Service pursuant to the 'Termination' section below. BY USING THE SERVICE YOU AGREE NOT TO:behave in a manner that negatively affects other Users' ability to use or enjoy the Service, including, without limitation, by engaging in conduct that is abusive, harmful, harassing, inflammatory, intimidating, invasive of another's privacy, stalking, threatening, violent or encourages violence to people or animals, or racially, ethnically, or otherwise offensive or objectionable;engage in any form of harassment, prostitution, sex trafficking, solicitation, or other illegal or offensive behavior toward Creators;attempt to obtain or obtain personal contact information from any Creators on the Service;attempt to co-ordinate an in-person meeting with any of the Creators on the Service;post any Content depicting child pornography, rape, snuff, torture, death, violence, bestiality, incest, racial slurs or hate speech (either aurally or in writing);post any Content that is illegal, unlawful, obscene, defamatory, libelous, slanderous, harassing, hateful, racially or ethnically offensive, or encourages conduct that would be considered a criminal offense, gives rise to civil liability, violates any law, or is otherwise inappropriate;post any Content that depicts any person under 18 years of age (or older as required by any jurisdiction in which the age of majority is greater than 18);post any simulated Content that would violate any of these Terms if such Content were not simulated;post any Content that contains misrepresentations or falsehoods that could damage the reputation of the Service or of any third party;violate any law or regulation (including, without limitation, any law related to torts, contracts, copyrights, patents, trademarks, trade secrets, defamation, obscenity, pornography, rights of publicity or other rights) or encourage, solicit or instruct a third-party to do so;post any Content that contains or promotes contests, sweepstakes, lotteries, or otherwise related to gambling;post any Content that contains unsolicited advertising, promotional materials, spam, junk mail, pyramid schemes, chain letters, or any other form of unauthorized solicitation;post any Content in which another person is impersonated or that misrepresents your affiliation with or connection to a person;post any Content containing materials subject to intellectual property rights (including copyright) or other rights of third parties that you do have the right to post to the Service;transmit or use software or other code designed to interrupt, destroy, limit or otherwise interfere with the functionality of any computer software or hardware or telecommunications equipment, including, without limitation, by engaging in any denial of service attack, distributed denial-of-service attack or similar conduct;exceed your authorized access to any portion of the Service;obtain or attempt to obtain access to any Content or information through any means not intentionally provided through the Service;exploit errors in design, undocumented features or bugs to gain access that would not otherwise be available.remove, modify, circumvent or bypass any digital rights management (“DRM”) technology, encryption or security measures;collect, store or process anyone’s personal data;modify any part of the Service or its advertising, except as expressly permitted herein;do anything that could overburden, disable, damage, or impair any aspect of the Service;use any robot, spider, site search/retrieval application or other manual or automatic device to retrieve, index, 'scrape,''data mine' or in any way gather Service content or reproduce or circumvent the navigational structure or presentation of the Service without our express prior written consent. Notwithstanding the foregoing, we grants the operators of public search engines permission to use spiders to copy materials from the Service for the sole purpose of and solely to the extent necessary for creating publicly available searchable indices of the materials, but not caches or archives of such materials. VIDA reserves the right to revoke these exceptions either generally or in specific cases;create a database by systematically downloading and storing Service content;use any manual process to monitor or reproduce any material on the Service;use any information obtained from the Service to interfere with any advertising on the Service, including, without limitation, its display in your web browser;transmit any viruses, Trojan horses, worms, logic bombs, time bombs, cancelbots, corrupted files or any other similar software or code that is malicious or harmful or that that may damage another party’s property or the Service;attempt to gain unauthorized access to, interfere with, damage or disrupt any parts of the Service, the server on which the Service is stored, or any server, computer or database connected to the Service;remove any copyright or other proprietary notices from our Service or any of the materials contained therein;reproduce, duplicate, copy, sell, resell or otherwise exploit for any commercial purposes, any portion of, use of, or access to the Service;modify, adapt, translate, reverse engineer, decompile or disassemble any portion of the Service;frame or mirror any part of the Service without our express prior written consent."
-  },
-  { "code": "tos.tos.customerSupport.title", "name": "Customer Support" },
-  {
-    "code": "tos.tos.customerSupport.content",
-    "name": "When communicating with our customer support, you agree to be respectful and kind. If we feel that your behaviour towards any of our customer support staff or other employees is at any time threatening or offensive, we reserve the right to immediately terminate your account."
-  },
-  { "code": "tos.tos.advertising.title", "name": "Advertising" },
-  {
-    "code": "tos.tos.advertising.content",
-    "name": "In consideration for VIDA allowing you to use the Service, you agree that we, our affiliates, and our third-party partners may place advertising on the Service."
-  },
-  { "code": "tos.tos.creditsPurchases.title", "name": "Credits and Purchases" },
-  {
-    "code": "tos.tos.creditsPurchases.content",
-    "name": "You may purchase access to Content on the Service using your credit card or Credits. You may purchase Credits solely for use in the Service. Other than a limited, personal, revocable, non-transferable, non-sublicenseable license to use the Credits as part of the Service, you have no right or title in or to any such Credits appearing or originating in the Service, or any other attributes associated with use of the Service or stored within the Service. We have the absolute right to manage, regulate, control, modify and/or discontinue the availability or use of Credits on the Service in our sole discretion, and we shall have no liability to you or anyone for the exercise of such rights. Transfers of Credits are strictly prohibited except where explicitly authorized within the Service. Except as expressly provided in these Terms, you may not sell any Credits for “real-world” money or otherwise exchange such items for value. Any attempt to exchange Credits for actual currency, other than by following the process established by VIDA, is in violation of these Terms and may result in a lifetime ban from the Service and possible legal action. Unless otherwise provided by law, Credits are non-refundable, and you are not entitled to a refund for any unused Credits. Once you purchase access to Content or redeem a Credit for access to Content, you may not return, exchange or receive a refund for that Content. Notwithstanding the foregoing, we reserve the right to issue refunds for purchases or Credits at our sole discretion. If we issue a refund for a purchase or Credit, we are under no obligation to issue the same or similar refund in the future.Credit purchases can be made by credit cards, and when available, by debit cards, and will be processed through a third-party payment processor. Purchases are payable in advance. We may offer different packages you can choose from. We reserve the right to change Credit prices at any time, at our sole discretion and without liability to you. Any Credits will not be available in your account in the event that your account is deleted by you or otherwise terminated in accordance with these Terms, or if we discontinue providing the Service. You agree to pay all fees and applicable taxes incurred by you or anyone using a VIDA account registered to you. VIDA may revise the pricing for the goods and services offered through the Service at any time.Names that appear on the statement associated with your payment method (e.g., credit card, bank account, etc.) for any applicable charges may include VIDA, SXWEB, or other billing entities depending on your location. VIDA or the applicable billing entity may include other information on your statement as required by its agreements with banks, other third parties or by applicable laws or regulations. If you use a bank account to make a purchase through the Service, a debit will be charged to that account.You agree that you will not use an IP proxy or other similar methods to disguise the place where you are located, whether to circumvent geographical restrictions on Content and gain access to the Service when it would not otherwise be available to you, or to make Purchases at a price (including the application of sales taxes, excise taxes, Value Added Taxes or VAT) not applicable to your location, or for any other purpose. If you do this, we reserve the right to terminate your access to the Service.If you do not log into your account for more than twelve (12) months, then we reserve the right at our sole discretion to terminate your right to use the Service. In such a case, you hereby expressly accept, agree and acknowledge that you will forfeit any unused Credits, which you cannot later recover."
-  },
-  { "code": "tos.tos.cardPaymentProcessing.title", "name": "Card payment processing" },
-  {
-    "code": "tos.tos.cardPaymentProcessing.content",
-    "name": "VIDA is responsible for card payment processing.Payment ProcessorsAll financial transactions made in connection with the Service will be processed by a third-party payment processor. In no event will VIDA be responsible for the actions or inactions of any third-party payment processor. If you believe there has been a billing error, you can seek support at sxweb.com or by sending us an email at the billing support email address provided under the “Contact” section below."
-  },
-  { "code": "tos.tos.refundPolicy.title", "name": "Refund Policy" },
-  {
-    "code": "tos.tos.refundPolicy.content",
-    "name": "ALL SALES ARE FINAL AND NON-REFUNDABLE. We reserve the right (but not the obligation) to refund the purchased amount if there is are technical problems with the Service, or when you have had a provably unsatisfactory experience; this is to be determined by us in our sole discretion.If we receive a chargeback or payment dispute from a credit card company or bank, we reserve the right to, without notice and in our sole discretion, terminate your license to use the Service, and block or prevent your future access to and use of the Service as stipulated in these Terms."
-  },
-  { "code": "tos.tos.becomingCreator.title", "name": "Becoming a Creator" },
-  {
-    "code": "tos.tos.becomingCreator.content",
-    "name": "If you want to become a Creator and sell access to Content through the Service, you must first provide us true and correct personal information. If the information you provide is not true and correct, you face the immediate termination of your account and you may be subject to legal sanctions. Certain changes to your personal information such as country of residence or date of birth can only be made by our staff. Therefore, if your information appears incorrect or needs to be changed you may need to contact our staff to have this done.We may, in our sole discretion, revoke your right to sell access to Content through the Service for any reason.You may be asked to provide a valid email address for verification purposes, and you agree that we may send you emails, both of a transactional nature and also for commercial and promotional purposes. You will have the ability to opt out of commercial and promotional emails, as described more fully in the Privacy Policy.You will choose your own display name which must be unique to you, not offensive to others and not in violation of another's copyright or trademark. You will also choose your password, which you can change later.You will be requested to verify your identity and age through a third party identity verification partner.In order to do so, you need to submit the following documents to us:A Photo ID, meaning a government issued identification containing your date of birth, expiration date, your photo and your full legal name. This could be, for example, your driver's license (in countries where a national ID is not mandatory), international passport, citizenship card, state ID, national passport or your national ID card.A photo of yourself while holding the above-mentioned Photo ID.You acknowledge that you are solely responsible for the activity that occurs on your account, and you must immediately notify us if you believe there has been the slightest breach of security or unauthorized use of your account.You will be liable for any losses incurred by us due to the unauthorized use of your account. We are not liable for your losses caused by any unauthorized use of your account and you specifically waive any such claim and agree to defend and indemnify us against any such claims made against us by third parties."
-  },
-  { "code": "tos.tos.commission.title", "name": "Creators' Commission" },
-  {
-    "code": "tos.tos.commission.content",
-    "name": "Payments will only be made to the same beneficiary name as provided during the KYC onboarding process. If you need to change this name (for example, you have changed your name, the name assigned to your ID documentation is different to the beneficiary name of your bank in your country, or you would like to be paid to a legal entity) please contact support@VIDA. You will need to provide proof of the reason for the change being required, we may need additional information from you as part of the due diligence process, and we reserve the absolute right to reject your request. If you request payment to a legal entity, the information provided during the KYC verification must be an UBO (Ultimate Beneficial Owner) of the entity, in accordance with EU 2015/849, as amended, regardless of the entity being subject to EU legislation. Payments will not be made to third parties under any circumstances, including, but not limited to, spouses, family members, escrow services, business partners, court appointed guardians, or receivers of any kind.We will deduct and withhold from any amounts payable to you under these Terms such amounts as we are directed to deduct and withhold or are required to deduct and withhold with respect to such payment under the provision of any applicable laws (including sales taxes, excise taxes, Value Added Taxes or VAT) and remit such deduction and withholding amount to the appropriate governmental entity.We will provide you with a statement of transactions on your account, including details of your earnings and payouts, that you can access on the Service. You can request a payout on your net earnings at any time, provided they exceed the minimum payout of $200. A wire payment fee may be charged to you for this, depending on the payout method(s) available in the country in which you are based. Payout requests below this amount are not permitted except in connection with a request to terminate your relationship with us as a Creator. All earnings are subject to a hold period of 7 days, to account for potential disputes by purchaser(s). Earnings in the hold period will appear in your account as soon as the applicable transaction has been completed, but will not be available to be paid out until the end of the hold period. Although we will initiate payment to you promptly following your request in compliance with this paragraph, we cannot guarantee that you will receive the corresponding funds by any particular date. If you provide us with incorrect payment details, any fees for chargebacks resulting from such incorrect payment details will be offset against any amounts otherwise payable to you.In the event you violate any part of these Terms, you violate any third-party right, including without limitation any copyright, intellectual property, or privacy right, or where a third party claims that all or any part of your Content caused it damage, we may, at our sole discretion, withhold indefinitely payments to you.We remind you that it is your duty and obligation to fulfill all tax obligations with regards to your activities for us, for example registration, declaration and payment obligations related to income taxes, Sales Taxes and VAT. If we assist you with these obligations, it does not release you from your obligations. It is your duty to inform us in a timely manner of changes to your personal data such as an address change or a new email.If you have a Creator account with a positive balance with no transactions for a consecutive period of 12 months, we will attempt to contact you with a view to asking you to withdraw the balance from your account. If we are not able to contact you, we will charge you a dormancy fee of 8.33% of such balance per month from the first anniversary of the date of last account activity until the earlier of (1) the date of the next account activity or (2) the date your balance reaches zero, i.e., after another 12 months of inactivity. If we are charging your account the dormancy fee, but you want to reactivate it, please contact customer support on support@VIDA."
-  },
-  { "code": "tos.tos.thirdParty.title", "name": "Third-Party Services and Websites" },
-  {
-    "code": "tos.tos.thirdParty.content",
-    "name": "The Service may contain advertisements and promotions offered by third parties and links to other web sites or resources. VIDA is not responsible for the availability (or lack of availability) of such external websites or resources. If you choose to interact with the third parties made available through our Service, such party’s terms will govern their relationship with you. VIDA is not responsible or liable for such third parties’ terms or actions.Ideas and FeedbackUnless we expressly agree otherwise in writing, if you provide us with any ideas, proposals, suggestions or materials (“Input”), whether related to the Services or otherwise, you hereby acknowledge and agree that (a) your provision of any Input is gratuitous, unsolicited and without restriction and does not place VIDA under any fiduciary or other obligation; (b) any Input is not confidential and VIDA has no confidentiality obligations with respect to such Input; and (c) to the extent permitted under applicable law, any Input will become our sole property. Without limiting the foregoing, you hereby grant to us a world-wide, royalty-free, fully paid-up, exclusive, perpetual, irrevocable, transferable and fully sublicensable (through multiple tiers) license, without additional consideration to you or any third party, to: (i)reproduce, distribute, perform and display (publicly or otherwise), adapt, modify and otherwise use and exploit such Input, in any format or media now known or hereafter developed, and you hereby represent and warrant that you have all necessary rights to grant the foregoing license. We may use Input for any purpose whatsoever without compensation to you or any other person. You are and remain responsible and liable for the content of any Input."
-  },
-  { "code": "tos.tos.termination.title", "name": "Termination" },
-  {
-    "code": "tos.tos.termination.content",
-    "name": "These Terms are effective until terminated. VIDA, in its sole discretion, may suspend or terminate your access to or use of the Service, at any time and for any reason, including if VIDA believes that you have violated or acted inconsistently with the letter or spirit of these Terms. Upon any such termination, your right to use the Service will immediately cease. You agree that any termination of your access to or use of the Service may be effected without prior notice, and that VIDA may immediately deactivate or delete your password and user name, and all related information and files associated with it, and/or bar any further access to such information or files.For Creator accounts, to comply with the P2BR, unless the reason for Termination is any of the reasons set out in Article 4 (4) of the P2BR, we will provide you with at least 30 days' notice of the reason(s) for termination on a 'durable medium' (as defined in the P2BR).You agree that VIDA shall not be liable to you or any third party for any termination of your access to the Service or to any such information or files, and shall not be required to make such information or files available to you after any such termination. We reserve the right to make use of any personal, technological, legal, or other means available to enforce the Terms, at any time without liability and without the obligation to give you prior notice, including, but not limited to, preventing you from accessing the Services.If your account is terminated by you or by VIDA for any reason, these Terms continue and remain enforceable between you and VIDA, and you will not be entitled to any refund for purchases made. Your information will be maintained and deleted in accordance with our Privacy Policy .NO REPRESENTATIONS OR WARRANTIESTHE SERVICE, INCLUDING ALL IMAGES, AUDIO FILES AND OTHER CONTENT THEREIN, AND ANY OTHER INFORMATION, PROPERTY AND RIGHTS GRANTED OR PROVIDED TO YOU BY VIDA ARE PROVIDED TO YOU ON AN “AS IS” BASIS. VIDA AND ITS SUPPLIERS MAKE NO REPRESENTATIONS OR WARRANTIES OF ANY KIND WITH RESPECT TO THE SERVICE, EITHER EXPRESS, IMPLIED OR STATUTORY AND ALL SUCH REPRESENTATIONS AND WARRANTIES, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT, ARE EXPRESSLY DISCLAIMED. WITHOUT LIMITING THE GENERALITY OF THE FOREGOING, VIDA DOES NOT MAKE ANY REPRESENTATION OR WARRANTY OF ANY KIND RELATING TO ACCURACY, SERVICE AVAILABILITY, COMPLETENESS, INFORMATIONAL CONTENT, ERROR-FREE OPERATION, RESULTS TO BE OBTAINED FROM USE, OR NON-INFRINGEMENT. ACCESS AND USE OF THE SERVICE MAY BE UNAVAILABLE DURING PERIODS OF PEAK DEMAND, SYSTEM UPGRADES, MALFUNCTIONS OR SCHEDULED OR UNSCHEDULED MAINTENANCE OR FOR OTHER REASONS. SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF IMPLIED WARRANTIES, SO THE ABOVE EXCLUSION MAY NOT APPLY TO YOU."
-  },
-  { "code": "tos.tos.limitationLiability.title", "name": "LIMITATION OF LIABILITY" },
-  {
-    "code": "tos.tos.limitationLiability.content",
-    "name": "TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT WILL VIDA, ITS AFFILIATES, EMPLOYEES, LICENSORS OR SERVICE PROVIDERS BE LIABLE FOR ANY INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, SPECIAL OR PUNITIVE DAMAGES, INCLUDING, WITHOUT LIMITATION, LOSS OF PROFITS, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES, RESULTING FROM: (I) YOUR ACCESS TO OR USE OF OR INABILITY TO ACCESS OR USE THE SERVICE, (II) THE CONDUCT OR CONTENT OF OTHER USERS OR THIRD-PARTIES ON, THROUGH, OR FOLLOWING USE OF THE SERVICE; OR (III) UNAUTHORIZED ACCESS, USE OR ALTERATION OF YOUR CONTENT, EVEN IF VIDA HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. IN NO EVENT WILL VIDA’S AGGREGATE LIABILITY TO YOU FOR ALL CLAIMS RELATING TO THE SERVICE EXCEED THE AMOUNT PAID, IF ANY, BY YOU TO VIDA FOR THE SERVICE WHILE YOU HAVE AN ACCOUNT.SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OR LIMITATION OF CERTAIN DAMAGES, SO SOME OR ALL OF THE EXCLUSIONS AND LIMITATIONS IN THIS SECTION MAY NOT APPLY TO YOU.While we try to maintain the integrity and security of the Service and the servers from which the Service is operated, we do not guarantee that the Service will be or remain secure, complete or correct, or that access to the Service will be uninterrupted. The Service may include inaccuracies, errors and materials that violate or conflict with these Terms. Additionally, third parties may make unauthorized alterations to the Service. If you become aware of any unauthorized third party alteration to the Service, contact us at support@VIDA with a description of the material(s) at issue and the URL or location on the Service where such material(s) appear."
-  },
-  { "code": "tos.tos.indemnification.title", "name": "Indemnification" },
-  {
-    "code": "tos.tos.indemnification.content",
-    "name": "You agree, to the extent permitted under applicable law, to indemnify, defend and hold harmless VIDA, our affiliates, and their and our respective officers, directors, agents, and employees from and against any and all complaints, demands, claims, damages, losses, costs, liabilities and expenses, including attorney’s fees, due to, arising out of, or relating in any way to your access to or use of the Service, your Content, or your breach of these Terms."
-  },
-  { "code": "tos.tos.copyright.title", "name": "Copyright Infringement Claims." },
-  {
-    "code": "tos.tos.copyright.content",
-    "name": "The Digital Millennium Copyright Act of 1998 (the “DMCA”) provides recourse for copyright owners who believe that material appearing on the Internet infringes their rights under U.S. copyright law. You can find our DMCA policy here ."
-  },
-  { "code": "tos.tos.intellectualProperty.title", "name": "Intellectual Property" },
-  {
-    "code": "tos.tos.intellectualProperty.content",
-    "name": "The information and materials made available through the Service are and shall remain the property of VIDA and its licensors and suppliers, and are protected by copyright, trademark, patent, and/or other proprietary rights and laws. Subject to your compliance with these Terms, and solely for so long as you are permitted by VIDA to access and use the Service, you may view one (1) copy of any content on the Service to which we provide you access hereunder on any single computer or mobile device solely for your personal, non-commercial use, provided that you keep intact all copyright and other proprietary notices. Except as expressly authorized in advance by VIDA in writing, you agree not to reproduce, modify, rent, lease, loan, sell, distribute, or create derivative works based (whether in whole or in part) on, all or any part of the Service or any materials made available through the Service. Trade names, trademarks and service marks of VIDA include without limitation, VIDA and any associated logos. All trademarks and service marks on the Service not owned by VIDA are the property of their respective owners. The trade names, trademarks and service marks owned by VIDA, whether registered or unregistered, may not be used in connection with any product or service that is not ours, in any manner that is likely to cause confusion. Nothing contained on the Service should be construed as granting, by implication, estoppel or otherwise, any license or right to use any of VIDA’s trade names, trademarks or service marks without our express prior written consent. Reference on the Service to any products, services, processes or other information, by trade name, trademark, manufacturer, supplier, or otherwise does not constitute or imply endorsement, sponsorship, or recommendation thereof by us or any other affiliation."
-  },
-  { "code": "tos.tos.informationSecurity.title", "name": "Information Security" },
-  {
-    "code": "tos.tos.informationSecurity.content",
-    "name": "VIDA uses reasonable and appropriate organizational, technical, administrative and physical measures to protect the integrity and security of your information. These measures may vary based on the sensitivity of your information. We limit access to your personal data to those employees, agents, contractors and other third parties who have a business need to access it and they will only process your personal data on our instructions and are subject to a duty of confidentiality."
-  },
-  { "code": "tos.tos.governingLaw.title", "name": "Governing Law: Disputes" },
-  {
-    "code": "tos.tos.governingLaw.content",
-    "name": "These Terms shall be construed in accordance with and governed by the laws of Cyprus, without reference to rules regarding conflicts of law that would cause the application of the laws of any other jurisdiction to the rights and duties of the parties. All disputes arising out of or in connection with these Terms will be settled by binding arbitration conducted before a single arbitrator in Amsterdam, The Netherlands in the English language, administered by the International Centre for Dispute Resolution under its International Arbitration Rules. Any award issued as a result of such arbitration shall be binding and enforceable in courts of applicable jurisdiction. Notwithstanding the foregoing, you agree that VIDA may seek injunctive remedies (or an equivalent type of urgent legal relief) in the courts of any jurisdiction."
-  },
-  { "code": "tos.tos.contact.title", "name": "Contact" },
-  {
-    "code": "tos.tos.contact.content",
-    "name": "Questions or concerns regarding these Terms can be addressed to support@VIDA. Please note that e-mail communications will not necessarily be secure; accordingly you should not include credit card information or other sensitive information in your e-mail correspondence with us. Billing queries should be directed to billing@VIDA"
-  },
-  { "code": "tos.tos.miscellaneous.title", "name": "Miscellaneous" },
-  {
-    "code": "tos.tos.miscellaneous.content",
-    "name": "These Terms do not, and shall not be construed to, create any partnership, joint venture, employer-employee, agency or franchisor-franchisee relationship between you and VIDA. If any provision of these Terms is found to be unlawful, void or for any reason unenforceable, that provision will be deemed severable from these Terms and will not affect the validity and enforceability of any remaining provision. You may not assign, transfer or sublicense any or all of your rights or obligations under these Terms without our express prior written consent. We may assign, transfer or sublicense any or all of our rights or obligations under these Terms without restriction. No waiver by either party of any breach or default hereunder will be deemed to be a waiver of any preceding or subsequent breach or default. Any heading, caption or section title contained herein is inserted only as a matter of convenience, and in no way defines or explains any section or provision hereof. This, together with all policies referred to herein, is the entire agreement between you and VIDA relating to the subject matter herein and supersedes any and all prior or contemporaneous written or oral agreements or understandings between you and VIDA relating to such subject matter. Notices to you may be made via posting to the Service, by e-mail, or by regular mail, in VIDA’s discretion. The Service may also provide notices of changes to these Terms or other matters by displaying such notices or by providing links to such notices. Without limitation, you agree that a printed version of these Terms and of any notice given in electronic form shall be admissible in judicial or administrative proceedings based upon or relating to these Terms to the same extent and subject to the same conditions as other business documents and records originally generated and maintained in printed form. VIDA will not be responsible for failures to fulfill any obligations due to causes beyond its control."
-  },
-  { "code": "tos.tos.language.title", "name": "Language" },
-  {
-    "code": "tos.tos.language.content",
-    "name": "These Terms were originally written in English. To the extent any translated version of these Terms conflicts with the English version, the English version controls.Last modified: July 2023© 2023 VIDA unless otherwise noted. All rights reserved."
-  },
-  { "code": "tos.tos.final", "name": "Last modified: July 2023" },
-  { "code": "tos.tos.VIDA", "name": "© 2023 VIDA One Unless otherwise stated. All rights reserved." }
+  { "code": "AF", "name": "Afghanistan" },
+  { "code": "AX", "name": "Åland Islands" },
+  { "code": "AL", "name": "Albania" },
+  { "code": "DZ", "name": "Algeria" },
+  { "code": "AS", "name": "American Samoa" },
+  { "code": "AD", "name": "Andorra" },
+  { "code": "AO", "name": "Angola" },
+  { "code": "AI", "name": "Anguilla" },
+  { "code": "AQ", "name": "Antarctica" },
+  { "code": "AG", "name": "Antigua and Barbuda" },
+  { "code": "AR", "name": "Argentina" },
+  { "code": "AM", "name": "Armenia" },
+  { "code": "AW", "name": "Aruba" },
+  { "code": "AU", "name": "Australia" },
+  { "code": "AT", "name": "Austria" },
+  { "code": "AZ", "name": "Azerbaijan" },
+  { "code": "BS", "name": "Bahamas" },
+  { "code": "BH", "name": "Bahrain" },
+  { "code": "BD", "name": "Bangladesh" },
+  { "code": "BB", "name": "Barbados" },
+  { "code": "BY", "name": "belarus" },
+  { "code": "BE", "name": "Belgium" },
+  { "code": "BZ", "name": "Belize" },
+  { "code": "BJ", "name": "Benin" },
+  { "code": "BM", "name": "Bermuda" },
+  { "code": "BT", "name": "Bhutan" },
+  { "code": "BO", "name": "Bolivia, Plurinational State of" },
+  { "code": "BQ", "name": "Bonaire, St. Eustatius and Saba" },
+  { "code": "BA", "name": "Bosnia and Herzegovina" },
+  { "code": "BW", "name": "Botswana" },
+  { "code": "BV", "name": "Bouvet Island" },
+  { "code": "BR", "name": "Brazil" },
+  { "code": "IO", "name": "British Indian Ocean Territory" },
+  { "code": "BN", "name": "Brunei Darussalam" },
+  { "code": "BG", "name": "Bulgaria" },
+  { "code": "BF", "name": "Burkina Faso" },
+  { "code": "BI", "name": "Burundi" },
+  { "code": "KH", "name": "Cambodia" },
+  { "code": "CM", "name": "Cameroon" },
+  { "code": "CA", "name": "Canada" },
+  { "code": "CV", "name": "cape verde" },
+  { "code": "KY", "name": "Cayman Islands" },
+  { "code": "CF", "name": "central african republic" },
+  { "code": "TD", "name": "Chad" },
+  { "code": "CL", "name": "Chile" },
+  { "code": "CN", "name": "China" },
+  { "code": "CX", "name": "christmas island" },
+  { "code": "CC", "name": "cocos islands" },
+  { "code": "CO", "name": "Colombia" },
+  { "code": "KM", "name": "Comoros" },
+  { "code": "CG", "name": "Congo" },
+  { "code": "CD", "name": "Democratic Republic of the Congo" },
+  { "code": "CK", "name": "Island" },
+  { "code": "CR", "name": "costa rica" },
+  { "code": "CI", "name": "Cote d'Ivoire" },
+  { "code": "HR", "name": "Croatia" },
+  { "code": "CU", "name": "cuba" },
+  { "code": "CW", "name": "Curacao" },
+  { "code": "CY", "name": "Cyprus" },
+  { "code": "CZ", "name": "Czech Republic" },
+  { "code": "DK", "name": "Denmark" },
+  { "code": "DJ", "name": "Djibouti" },
+  { "code": "DM", "name": "Dominica" },
+  { "code": "DO", "name": "Dominican Republic" },
+  { "code": "EC", "name": "Ecuador" },
+  { "code": "EG", "name": "Egypt" },
+  { "code": "SV", "name": "El Salvador" },
+  { "code": "GQ", "name": "Equatorial Guinea" },
+  { "code": "ER", "name": "Eritrea" },
+  { "code": "EE", "name": "Estonia" },
+  { "code": "ET", "name": "Ethiopia" },
+  { "code": "FK", "name": "Falkland Islands (Malvinas)" },
+  { "code": "FO", "name": "faroe islands" },
+  { "code": "FJ", "name": "Fiji" },
+  { "code": "FI", "name": "Finland" },
+  { "code": "FR", "name": "France" },
+  { "code": "GF", "name": "French Guiana" },
+  { "code": "PF", "name": "French Polynesia" },
+  { "code": "TF", "name": "southern french territory" },
+  { "code": "GA", "name": "Gabon" },
+  { "code": "GM", "name": "Gambia" },
+  { "code": "GE", "name": "georgia" },
+  { "code": "DE", "name": "Germany" },
+  { "code": "GH", "name": "Ghana" },
+  { "code": "GI", "name": "Gibraltar" },
+  { "code": "GR", "name": "Greece" },
+  { "code": "GL", "name": "Greenland" },
+  { "code": "GD", "name": "Greneda" },
+  { "code": "GP", "name": "Guadeloupe" },
+  { "code": "GU", "name": "Guam" },
+  { "code": "GT", "name": "Guatemala" },
+  { "code": "GG", "name": "guernsey" },
+  { "code": "GN", "name": "Guinea" },
+  { "code": "GW", "name": "Guinea-Bissau" },
+  { "code": "GY", "name": "Guyana" },
+  { "code": "HT", "name": "Haiti" },
+  { "code": "HM", "name": "Heard Island and McDonald Islands" },
+  { "code": "VA", "name": "Holy See (Vatican City State)" },
+  { "code": "HN", "name": "Honduras" },
+  { "code": "HK", "name": "China Hong Kong" },
+  { "code": "HU", "name": "Hungary" },
+  { "code": "IS", "name": "Iceland" },
+  { "code": "IN", "name": "India" },
+  { "code": "ID", "name": "Indonesia" },
+  { "code": "IR", "name": "islamic republic of iran" },
+  { "code": "IQ", "name": "Iraq" },
+  { "code": "IE", "name": "Ireland" },
+  { "code": "IM", "name": "Isle of Man" },
+  { "code": "IL", "name": "Israel" },
+  { "code": "IT", "name": "Italy" },
+  { "code": "JM", "name": "jamaica" },
+  { "code": "JP", "name": "Japan" },
+  { "code": "JE", "name": "Jersey" },
+  { "code": "JO", "name": "Jordan" },
+  { "code": "KZ", "name": "Kazakhstan" },
+  { "code": "KE", "name": "Kenya" },
+  { "code": "KI", "name": "Kiribati" },
+  { "code": "KP", "name": "North Korea" },
+  { "code": "KR", "name": "South Korea" },
+  { "code": "KW", "name": "Kuwait" },
+  { "code": "KG", "name": "Kyrgyzstan" },
+  { "code": "LA", "name": "Laos" },
+  { "code": "LV", "name": "Latvia" },
+  { "code": "LB", "name": "lebanon" },
+  { "code": "LS", "name": "Lesotho" },
+  { "code": "LR", "name": "Liberia" },
+  { "code": "LY", "name": "Libya" },
+  { "code": "LI", "name": "Liechtenstein" },
+  { "code": "LT", "name": "Lithuania" },
+  { "code": "LU", "name": "Luxembourg" },
+  { "code": "MO", "name": "Macao, China" },
+  { "code": "MK", "name": "Macedonia, former Yugoslav Republic" },
+  { "code": "MG", "name": "madagascar" },
+  { "code": "MW", "name": "Malawi" },
+  { "code": "MY", "name": "Malaysia" },
+  { "code": "MV", "name": "Maldives" },
+  { "code": "ML", "name": "Mali" },
+  { "code": "MT", "name": "malta" },
+  { "code": "MH", "name": "Marshall Islands" },
+  { "code": "MQ", "name": "Martinique" },
+  { "code": "MR", "name": "mauritania" },
+  { "code": "MU", "name": "Mauritius" },
+  { "code": "YT", "name": "mayotte" },
+  { "code": "MX", "name": "Mexico" },
+  { "code": "FM", "name": "Federated States of Micronesia" },
+  { "code": "MD", "name": "Republic of Moldova" },
+  { "code": "MC", "name": "Monaco" },
+  { "code": "MN", "name": "Mongolia" },
+  { "code": "ME", "name": "Montenegro" },
+  { "code": "MS", "name": "montserrat" },
+  { "code": "MA", "name": "Morocco" },
+  { "code": "MZ", "name": "Mozambique" },
+  { "code": "MM", "name": "Myanmar" },
+  { "code": "NA", "name": "Namibia" },
+  { "code": "NR", "name": "Nauru" },
+  { "code": "NP", "name": "Nepal" },
+  { "code": "NL", "name": "Netherlands" },
+  { "code": "NC", "name": "new caledonia" },
+  { "code": "NZ", "name": "New Zealand" },
+  { "code": "NI", "name": "Nicaragua" },
+  { "code": "NE", "name": "Niger" },
+  { "code": "NG", "name": "Nigeria" },
+  { "code": "NU", "name": "Niue" },
+  { "code": "NF", "name": "norfolk island" },
+  { "code": "MP", "name": "Northern Mariana Islands" },
+  { "code": "NO", "name": "Norway" },
+  { "code": "OM", "name": "Oman" },
+  { "code": "PK", "name": "Pakistan" },
+  { "code": "PW", "name": "Palau" },
+  { "code": "PS", "name": "Palestine" },
+  { "code": "PA", "name": "Panama" },
+  { "code": "PG", "name": "papua new guinea" },
+  { "code": "PY", "name": "Paraguay" },
+  { "code": "PE", "name": "Peru" },
+  { "code": "PH", "name": "the Philippines" },
+  { "code": "PN", "name": "Pitcairn" },
+  { "code": "PL", "name": "Poland" },
+  { "code": "PT", "name": "Portugal" },
+  { "code": "PR", "name": "Puerto Rico" },
+  { "code": "QA", "name": "Qatar" },
+  { "code": "RE", "name": "Reunion" },
+  { "code": "RO", "name": "Romania" },
+  { "code": "RU", "name": "The Russian Federation" },
+  { "code": "RW", "name": "Rwanda" },
+  { "code": "BL", "name": "saint barthelemy" },
+  { "code": "SH", "name": "Saint Helena, Ascension Island and Tristan da Cunha Islands" },
+  { "code": "KN", "name": "Saint Kitts and Nevis" },
+  { "code": "LC", "name": "saint lucia" },
+  { "code": "MF", "name": "Saint Martin (France part)" },
+  { "code": "PM", "name": "Saint Pierre and Miquelon" },
+  { "code": "VC", "name": "Saint Vincent and the Grenadines" },
+  { "code": "WS", "name": "Samoa" },
+  { "code": "SM", "name": "san marino" },
+  { "code": "ST", "name": "sao tome and principe" },
+  { "code": "SA", "name": "Saudi Arabia" },
+  { "code": "SN", "name": "Senegal" },
+  { "code": "RS", "name": "Serbia" },
+  { "code": "SC", "name": "seychelles" },
+  { "code": "SL", "name": "Sierra Leone" },
+  { "code": "SG", "name": "Singapore" },
+  { "code": "SX", "name": "Sint Maarten (Dutch part)" },
+  { "code": "SK", "name": "Slovakia" },
+  { "code": "SI", "name": "slovenia" },
+  { "code": "SB", "name": "solomon islands" },
+  { "code": "SO", "name": "somalia" },
+  { "code": "ZA", "name": "South Africa" },
+  { "code": "GS", "name": "South Georgia and South Sandwich Islands" },
+  { "code": "SS", "name": "South Sudan" },
+  { "code": "ES", "name": "Spain" },
+  { "code": "LK", "name": "Sri Lanka" },
+  { "code": "SD", "name": "sudan red" },
+  { "code": "SR", "name": "Surinam" },
+  { "code": "SJ", "name": "Svalbard and Jan Mayen Island" },
+  { "code": "SZ", "name": "Swaziland" },
+  { "code": "SE", "name": "Sweden" },
+  { "code": "CH", "name": "Switzerland" },
+  { "code": "SY", "name": "syrian arab republic" },
+  { "code": "TW", "name": "Taiwan, China" },
+  { "code": "TJ", "name": "Tajikistan" },
+  { "code": "TZ", "name": "united republic of tanzania" },
+  { "code": "TH", "name": "Thailand" },
+  { "code": "TL", "name": "East Timor" },
+  { "code": "TG", "name": "togo" },
+  { "code": "TK", "name": "tokelau islands" },
+  { "code": "TO", "name": "Tonga" },
+  { "code": "TT", "name": "Trinidad and Tobago" },
+  { "code": "TN", "name": "Tunisia" },
+  { "code": "TR", "name": "Türkiye" },
+  { "code": "TM", "name": "Turkmenistan" },
+  { "code": "TC", "name": "Turks and Caicos Islands" },
+  { "code": "TV", "name": "Tuvalu" },
+  { "code": "UG", "name": "Uganda" },
+  { "code": "UA", "name": "Ukraine" },
+  { "code": "AE", "name": "United Arab Emirates" },
+  { "code": "GB", "name": "U.K." },
+  { "code": "US", "name": "USA" },
+  { "code": "UM", "name": "United States Minor Outlying Islands" },
+  { "code": "UY", "name": "Uruguay" },
+  { "code": "UZ", "name": "Uzbekistan" },
+  { "code": "VU", "name": "Vanuatu" },
+  { "code": "VE", "name": "Venezuela (Bolivarian Republic of)" },
+  { "code": "VN", "name": "Vietnam" },
+  { "code": "VG", "name": "The British Virgin Islands" },
+  { "code": "VI", "name": "U.S. Virgin Islands" },
+  { "code": "WF", "name": "wallis and futuna islands" },
+  { "code": "EH", "name": "Western Sahara" },
+  { "code": "YE", "name": "Yemen" },
+  { "code": "ZM", "name": "Zambia" },
+  { "code": "ZW", "name": "Zimbabwe" }
 ]
