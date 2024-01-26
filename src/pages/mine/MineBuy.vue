@@ -1,10 +1,10 @@
 <template>
   <Tab v-model="tab" :options="tabOptions" class="!h-35"></Tab>
   <div v-if="tab === 1">
-    <TransactionList :items="list"></TransactionList>
+    <TransactionList></TransactionList>
   </div>
   <div v-else-if="tab === 2">
-    <RecCard class="mt-30" :button-text="$t('common.unsubscribe')"></RecCard>
+    <RecCard :button-text="$t('common.unsubscribe')"></RecCard>
   </div>
   <div v-else-if="tab === 3">
     <div class="pt-20 text-base font-bold leading-lg">{{ $t('content.allPosts') }} 13</div>
@@ -39,30 +39,6 @@ const tabOptions = ref([
   { label: $t('label.texn'), value: 1 },
   { label: $t('label.subs'), value: 2 },
   { label: $t('label.artPur'), value: 3 },
-])
-
-const list = ref([
-  {
-    title: 'Cursed_ellie',
-    order: 'SUB12345',
-    price: 1500,
-    card: '1234********1234',
-    date: '2024-01-01',
-  },
-  {
-    title: 'Cursed_ellie',
-    order: 'SUB12345',
-    price: 1234,
-    card: '1234********1234',
-    date: '2024-01-02',
-  },
-  {
-    title: 'Cursed_ellie',
-    order: 'SUB12345',
-    price: 12353,
-    card: '1234********1234',
-    date: '2024-01-04',
-  },
 ])
 
 const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
