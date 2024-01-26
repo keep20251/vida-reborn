@@ -39,7 +39,7 @@ const emits = defineEmits(['update:modelValue'])
 
 const style = computed(() => {
   if (props.inset) {
-    return 'h-36 px-20 py-12 rounded-2xl border-gray20 shadow-[inset_0_-1px_8px_0_rgba(0,0,0,0.1)]'
+    return 'h-36 px-20 py-12 rounded-2xl border-gray-cc shadow-[inset_0_-1px_8px_0_rgba(0,0,0,0.1)]'
   }
   return `px-15 py-5 rounded-xl shadow-[0_0_3px_0_rgba(0,0,0,0.1)]`
 })

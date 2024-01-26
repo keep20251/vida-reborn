@@ -17,7 +17,7 @@
         </div>
       </template>
     </SelfIntro>
-    <div class="leading-md mt-20 flex h-36 w-full items-center bg-gray03 px-20 text-base font-bold">
+    <div class="mt-20 flex h-36 w-full items-center bg-gray03 px-20 text-base font-bold leading-md">
       {{ $t('content.allPosts') }} 85
     </div>
     <div class="overflow-x-hidden">

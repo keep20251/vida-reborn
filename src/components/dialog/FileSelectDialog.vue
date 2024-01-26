@@ -3,7 +3,7 @@
     <template #default>
       <div class="flex flex-col space-y-20">
         <div class="text-center text-lg font-bold">建立帖子</div>
-        <label class="flex cursor-pointer flex-col items-center justify-center space-y-10 bg-gray03 py-72">
+        <label class="bg-gray-f6 flex cursor-pointer flex-col items-center justify-center space-y-10 py-72">
           <svg xmlns="http://www.w3.org/2000/svg" width="62" height="55" viewBox="0 0 62 55" fill="none">
             <path
               d="M23.2808 10.5731C22.0864 10.5731 21.118 11.5453 21.118 12.7441V14.8621C21.118 16.0611 22.0865 17.0331 23.2808 17.0331C24.4751 17.0331 25.4435 16.061 25.4435 14.8621V12.7441C25.4435 11.5451 24.4751 10.5731 23.2808 10.5731Z"
@@ -22,7 +22,7 @@
               fill="#ECECEC"
             />
           </svg>
-          <span class="text-base leading-lg text-gray36">Tap here to upload photo or video</span>
+          <span class="text-gray-a3 text-base leading-lg">Tap here to upload photo or video</span>
           <input
             type="file"
             class="hidden"
@@ -30,7 +30,7 @@
             multiple
           />
         </label>
-        <div class="text-center text-sm text-gray30">
+        <div class="text-gray-a3 text-center text-sm">
           After uploading the video, proceed to the next step to edit the details
         </div>
       </div>

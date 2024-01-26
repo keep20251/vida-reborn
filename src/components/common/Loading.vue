@@ -2,51 +2,51 @@
   <div class="flex justify-center">
     <div class="relative h-40 w-40">
       <div
-        class="origin-[1.25rem_1.25rem] rotate-[0deg] after:absolute after:left-19 after:top-2 after:h-9 after:w-2 after:rounded-md after:bg-gray36"
+        class="after:bg-gray-a3 origin-[1.25rem_1.25rem] rotate-[0deg] after:absolute after:left-19 after:top-2 after:h-9 after:w-2 after:rounded-md"
         :class="[anim1]"
       ></div>
       <div
-        class="origin-[1.25rem_1.25rem] rotate-[30deg] after:absolute after:left-19 after:top-2 after:h-9 after:w-2 after:rounded-md after:bg-gray36"
+        class="after:bg-gray-a3 origin-[1.25rem_1.25rem] rotate-[30deg] after:absolute after:left-19 after:top-2 after:h-9 after:w-2 after:rounded-md"
         :class="[anim2]"
       ></div>
       <div
-        class="origin-[1.25rem_1.25rem] rotate-[60deg] after:absolute after:left-19 after:top-2 after:h-9 after:w-2 after:rounded-md after:bg-gray36"
+        class="after:bg-gray-a3 origin-[1.25rem_1.25rem] rotate-[60deg] after:absolute after:left-19 after:top-2 after:h-9 after:w-2 after:rounded-md"
         :class="[anim3]"
       ></div>
       <div
-        class="origin-[1.25rem_1.25rem] rotate-[90deg] after:absolute after:left-19 after:top-2 after:h-9 after:w-2 after:rounded-md after:bg-gray36"
+        class="after:bg-gray-a3 origin-[1.25rem_1.25rem] rotate-[90deg] after:absolute after:left-19 after:top-2 after:h-9 after:w-2 after:rounded-md"
         :class="[anim4]"
       ></div>
       <div
-        class="origin-[1.25rem_1.25rem] rotate-[120deg] after:absolute after:left-19 after:top-2 after:h-9 after:w-2 after:rounded-md after:bg-gray36"
+        class="after:bg-gray-a3 origin-[1.25rem_1.25rem] rotate-[120deg] after:absolute after:left-19 after:top-2 after:h-9 after:w-2 after:rounded-md"
         :class="[anim5]"
       ></div>
       <div
-        class="origin-[1.25rem_1.25rem] rotate-[150deg] after:absolute after:left-19 after:top-2 after:h-9 after:w-2 after:rounded-md after:bg-gray36"
+        class="after:bg-gray-a3 origin-[1.25rem_1.25rem] rotate-[150deg] after:absolute after:left-19 after:top-2 after:h-9 after:w-2 after:rounded-md"
         :class="[anim6]"
       ></div>
       <div
-        class="origin-[1.25rem_1.25rem] rotate-[180deg] after:absolute after:left-19 after:top-2 after:h-9 after:w-2 after:rounded-md after:bg-gray36"
+        class="after:bg-gray-a3 origin-[1.25rem_1.25rem] rotate-[180deg] after:absolute after:left-19 after:top-2 after:h-9 after:w-2 after:rounded-md"
         :class="[anim7]"
       ></div>
       <div
-        class="origin-[1.25rem_1.25rem] rotate-[210deg] after:absolute after:left-19 after:top-2 after:h-9 after:w-2 after:rounded-md after:bg-gray36"
+        class="after:bg-gray-a3 origin-[1.25rem_1.25rem] rotate-[210deg] after:absolute after:left-19 after:top-2 after:h-9 after:w-2 after:rounded-md"
         :class="[anim8]"
       ></div>
       <div
-        class="origin-[1.25rem_1.25rem] rotate-[240deg] after:absolute after:left-19 after:top-2 after:h-9 after:w-2 after:rounded-md after:bg-gray36"
+        class="after:bg-gray-a3 origin-[1.25rem_1.25rem] rotate-[240deg] after:absolute after:left-19 after:top-2 after:h-9 after:w-2 after:rounded-md"
         :class="[anim9]"
       ></div>
       <div
-        class="origin-[1.25rem_1.25rem] rotate-[270deg] after:absolute after:left-19 after:top-2 after:h-9 after:w-2 after:rounded-md after:bg-gray36"
+        class="after:bg-gray-a3 origin-[1.25rem_1.25rem] rotate-[270deg] after:absolute after:left-19 after:top-2 after:h-9 after:w-2 after:rounded-md"
         :class="[anim10]"
       ></div>
       <div
-        class="origin-[1.25rem_1.25rem] rotate-[300deg] after:absolute after:left-19 after:top-2 after:h-9 after:w-2 after:rounded-md after:bg-gray36"
+        class="after:bg-gray-a3 origin-[1.25rem_1.25rem] rotate-[300deg] after:absolute after:left-19 after:top-2 after:h-9 after:w-2 after:rounded-md"
         :class="[anim11]"
       ></div>
       <div
-        class="origin-[1.25rem_1.25rem] rotate-[330deg] after:absolute after:left-19 after:top-2 after:h-9 after:w-2 after:rounded-md after:bg-gray36"
+        class="after:bg-gray-a3 origin-[1.25rem_1.25rem] rotate-[330deg] after:absolute after:left-19 after:top-2 after:h-9 after:w-2 after:rounded-md"
         :class="[anim12]"
       ></div>
     </div>

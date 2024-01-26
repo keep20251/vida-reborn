@@ -31,7 +31,7 @@ const bg = computed(() => {
   return props.contrast
     ? 'bg-contrast'
     : props.cancel
-      ? 'bg-gray30'
+      ? 'bg-gray-a3'
       : props.gradient
         ? 'bg-gradient-to-r from-primary to-contrast'
         : 'bg-primary'

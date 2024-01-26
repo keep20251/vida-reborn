@@ -16,9 +16,9 @@
         <div class="flex items-center justify-between">
       <div class="flex items-center">
         <Avatar class="mr-10" :radius="30" :src="item.avatar"></Avatar>
-        <div class="leading-md text-base font-bold">{{ item.name }}</div>
+        <div class="text-base font-bold leading-md">{{ item.name }}</div>
       </div>
-      <div @click="unblock(index)" class="leading-lg cursor-pointer text-base font-bold text-gray66">
+      <div @click="unblock(index)" class="text-gray-57 cursor-pointer text-base font-bold leading-lg">
         {{ $t('content.unblock') }}
       </div>
     </div>

@@ -5,11 +5,11 @@
     </div>
     <div class="flex space-x-6 align-middle text-base font-medium">
       <Icon :name="firstSchema ? 'checkActive' : 'check'"></Icon>
-      <span class="text-gray66">{{ $t('info.passwordValidate.min') }}</span>
+      <span class="text-gray-57">{{ $t('info.passwordValidate.min') }}</span>
     </div>
     <div class="flex space-x-6 align-middle text-base font-medium">
       <Icon :name="secondSchema ? 'checkActive' : 'check'"></Icon>
-      <span class="text-gray66">{{ $t('info.passwordValidate.schema') }}</span>
+      <span class="text-gray-57">{{ $t('info.passwordValidate.schema') }}</span>
     </div>
   </div>
 </template>
