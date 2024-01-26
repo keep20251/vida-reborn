@@ -1,6 +1,6 @@
 <template>
   <div class="items-center border-t pt-10">
-    <List :items="items" item-key="aff">
+    <List :items="items" item-key="aff_blocked">
       <template #default="{ item, index }">
         <div class="flex items-center justify-between py-10">
           <div class="flex items-center">

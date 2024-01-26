@@ -55,37 +55,6 @@ const wdrlHist = async () => {
   }
 }
 
-// const items = ref([
-//   {
-//     cardType: '銀行卡',
-//     price: 1500,
-//     card: '1234********1234',
-//     date: '2024-01-01',
-//     status: 10,
-//   },
-//   {
-//     cardType: '銀行卡',
-//     price: 12353,
-//     card: '1234********1234',
-//     date: '2024-01-04',
-//     status: 15,
-//   },
-//   {
-//     cardType: '銀行卡',
-//     price: 12353,
-//     card: '1234********1234',
-//     date: '2024-01-04',
-//     status: 1,
-//   },
-//   {
-//     cardType: '銀行卡',
-//     price: 12353,
-//     card: '1234********1234',
-//     date: '2024-01-04',
-//     status: 5,
-//   },
-// ])
-
 const { t: $t } = useI18n()
 const statusShow = computed(() => {
   return (status) => {
