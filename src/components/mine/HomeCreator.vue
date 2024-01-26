@@ -16,7 +16,7 @@
             <Button>{{ $t('info.subscribeSetting') }}</Button>
           </div>
           <router-link :to="{ name: 'mine-profile-prvw' }" class="w-3/12">
-            <Button contrast class="text-nowrap">{{ $t('info.prvw') }}</Button>
+            <Button contrast class="!px-0 text-nowrap">{{ $t('info.prvw') }}</Button>
           </router-link>
         </div>
       </template>
