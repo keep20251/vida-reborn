@@ -2,7 +2,7 @@
   <div class="relative cursor-pointer">
     <div ref="dropdown" class="flex items-center justify-between bg-white" :class="[style]" @click="onDropdownClick">
       <div class="text-base leading-md">
-        {{ $t(options.find((o) => o[optionValue] === modelValue)[optionLabel]) }}
+        {{ props.disableTranslate ? selectedOptionLabel : $t(selectedOptionLabel) }}
       </div>
       <Icon name="dropdown" size="8" class="transition-transform" :class="{ 'rotate-180': open }"></Icon>
     </div>
@@ -19,7 +19,7 @@
           :class="{ 'bg-[#F1F1FF]': item.data[optionValue] === modelValue }"
           @click="onOptionClick(item.data[optionValue])"
         >
-          {{ $t(item.data[optionLabel]) }}
+          {{ props.disableTranslate ? item.data[optionLabel] : $t(item.data[optionLabel]) }}
         </div>
       </div>
     </div>
@@ -36,9 +36,11 @@ const props = defineProps({
   optionLabel: { type: String, default: 'label' },
   optionValue: { type: String, default: 'value' },
   inset: { type: Boolean, default: false },
+  disableTranslate: { type: Boolean, default: true },
 })
 
-const { list, containerProps, wrapperProps } = useVirtualList(props.options, { itemHeight: 14 })
+const computedOptions = computed(() => props.options)
+const { list, containerProps, wrapperProps } = useVirtualList(computedOptions, { itemHeight: 14 })
 
 const emits = defineEmits(['update:modelValue'])
 
@@ -61,6 +63,10 @@ const optionStyle = computed(() => {
     default:
       return 'top-30 origin-top'
   }
+})
+const selectedOptionLabel = computed(() => {
+  if (props.options.length === 0) return 'undefined'
+  return props.options.find((o) => o[props.optionValue] === props.modelValue)[props.optionLabel]
 })
 
 function onDropdownClick() {
