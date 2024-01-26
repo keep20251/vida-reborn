@@ -112,14 +112,14 @@
   </div>
 </template>
 <script setup>
-import { ref, watch } from 'vue'
+import { ref, watchEffect } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAuthRouteStore } from '@/store/auth-route'
 import { usePermissionStore } from '@/store/permission'
 import Dropdown from '@comp/form/Dropdown.vue'
 import { useLocale } from '@use/utils/locale'
-import { AUTH_ROUTES, PERMISSION } from '@const'
+import { AUTH_ROUTES, AUTH_STATUS, PERMISSION } from '@const'
 import { locales } from '@/i18n'
 
 const accountStore = useAccountStore()
@@ -132,23 +132,18 @@ console.log('你登入了嗎？', isLogin.value)
 console.log('是2就是創作者', userData.value?.auth_status)
 console.log('使用者資料', userData.value)
 
-// 角色權限顯示
-watch(
-  isLogin,
-  (isNewLogin) => {
-    if (!isNewLogin) {
-      role.value = PERMISSION.VISITOR
-      console.log('你是遊客')
-    } else if (userData.value?.auth_status === 2) {
-      role.value = PERMISSION.CREATOR
-      console.log('你是創作者')
-    } else {
-      role.value = PERMISSION.REGISTERED
-      console.log('你是一般會員')
-    }
-  },
-  { immediate: true },
-)
+watchEffect(() => {
+  if (!isLogin.value) {
+    role.value = PERMISSION.VISITOR
+    console.log('你是遊客')
+  } else if (userData.value?.auth_status === AUTH_STATUS.CREATOR) {
+    role.value = PERMISSION.CREATOR
+    console.log('你是創作者')
+  } else {
+    role.value = PERMISSION.REGISTERED
+    console.log('你是一般會員')
+  }
+})
 
 const accOpen = ref(false)
 const aboutOpen = ref(false)
