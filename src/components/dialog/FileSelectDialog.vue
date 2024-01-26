@@ -28,6 +28,7 @@
             class="hidden"
             accept="video/mp4, video/quicktime, video/x-quicktime, video/mov, video/x-mov, video/avi, image/jpg, image/jpeg, image/png, image/gif"
             multiple
+            @change="onFile"
           />
         </label>
         <div class="text-gray-a3 text-center text-sm">
@@ -39,9 +40,29 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useDialogStore } from '@/store/dialog'
+import { usePublishStore } from '@/store/publish'
 import BaseDialog from '@comp/dialog/BaseDialog.vue'
 
 const { fileSelectDialog } = storeToRefs(useDialogStore())
+
+const { setFile, startUpload } = usePublishStore()
+
+const router = useRouter()
+
+async function onFile(evt) {
+  const files = evt.target.files
+  if (files.length > 0) {
+    try {
+      setFile(files)
+      await router.push({ name: 'publish' })
+    } catch (e) {
+      console.error(e)
+    } finally {
+      fileSelectDialog.value = false
+    }
+  }
+}
 </script>

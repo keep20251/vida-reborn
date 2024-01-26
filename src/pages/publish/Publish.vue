@@ -1,7 +1,7 @@
 <template>
   <Page>
     <template #main-top>
-      <Head></Head>
+      <Head :title="'發布帖子'" feature-icon="close" @feature="onClose"></Head>
     </template>
     <template #default>
       <div class="flex flex-col space-y-20 pb-30">
@@ -12,7 +12,7 @@
         </div>
 
         <!-- 上傳視頻 -->
-        <div class="flex flex-col space-y-10">
+        <div v-if="isVideo" class="flex flex-col space-y-10">
           <div class="flex">
             <div class="flex grow flex-col space-y-10">
               <label class="text-left text-base leading-md">上傳視頻</label>
@@ -20,124 +20,30 @@
             </div>
             <Button class="self-end" size="md">重新選擇</Button>
           </div>
-          <div class="rounded-md bg-orange-200 pb-[64%]"></div>
+          <video ref="video" controls></video>
+          <!-- <div class="rounded-md bg-orange-200 pb-[64%]"></div> -->
         </div>
 
         <!-- 上傳圖片 -->
-        <div class="flex flex-col space-y-10">
+        <div v-if="isImage" class="flex flex-col space-y-10">
           <div class="flex">
             <div class="flex grow flex-col space-y-10">
               <label class="text-left text-base leading-md"
-                >上傳圖片 <span class="text-gray-57 text-left text-sm">10/10</span></label
+                >上傳圖片
+                <span class="text-gray-57 text-left text-sm">{{
+                  `${uploadFiles.filter((f) => f.status === UPLOAD_STATUS.DONE).length}/${uploadFiles.length}`
+                }}</span></label
               >
               <span class="text-gray-57 text-left text-sm">支持JPG/PNG格式，每张不超過1MB</span>
             </div>
             <Button class="self-end" size="md">添加</Button>
           </div>
           <div class="grid grid-cols-3 gap-10">
-            <div class="relative overflow-hidden rounded-sm pb-[64%]">
+            <div v-for="file in uploadFiles" class="relative overflow-hidden rounded-sm pb-[64%]" :key="file.id">
               <div class="absolute top-0 h-full w-full bg-orange-100"></div>
               <div
-                class="absolute top-0 h-full w-full origin-right scale-x-0 bg-white opacity-60 will-change-transform"
-              ></div>
-              <div
-                class="absolute right-10 top-10 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-white"
-              >
-                <Icon name="close" size="10"></Icon>
-              </div>
-            </div>
-            <div class="relative overflow-hidden rounded-sm pb-[64%]">
-              <div class="absolute top-0 h-full w-full bg-orange-100"></div>
-              <div
-                class="absolute top-0 h-full w-full origin-right scale-x-0 bg-white opacity-60 will-change-transform"
-              ></div>
-              <div
-                class="absolute right-10 top-10 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-white"
-              >
-                <Icon name="close" size="10"></Icon>
-              </div>
-            </div>
-            <div class="relative overflow-hidden rounded-sm pb-[64%]">
-              <div class="absolute top-0 h-full w-full bg-orange-100"></div>
-              <div
-                class="absolute top-0 h-full w-full origin-right scale-x-0 bg-white opacity-60 will-change-transform"
-              ></div>
-              <div
-                class="absolute right-10 top-10 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-white"
-              >
-                <Icon name="close" size="10"></Icon>
-              </div>
-            </div>
-            <div class="relative overflow-hidden rounded-sm pb-[64%]">
-              <div class="absolute top-0 h-full w-full bg-orange-100"></div>
-              <div
-                class="absolute top-0 h-full w-full origin-right scale-x-0 bg-white opacity-60 will-change-transform"
-              ></div>
-              <div
-                class="absolute right-10 top-10 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-white"
-              >
-                <Icon name="close" size="10"></Icon>
-              </div>
-            </div>
-            <div class="relative overflow-hidden rounded-sm pb-[64%]">
-              <div class="absolute top-0 h-full w-full bg-orange-100"></div>
-              <div
-                class="absolute top-0 h-full w-full origin-right scale-x-0 bg-white opacity-60 will-change-transform"
-              ></div>
-              <div
-                class="absolute right-10 top-10 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-white"
-              >
-                <Icon name="close" size="10"></Icon>
-              </div>
-            </div>
-            <div class="relative overflow-hidden rounded-sm pb-[64%]">
-              <div class="absolute top-0 h-full w-full bg-orange-100"></div>
-              <div
-                class="absolute top-0 h-full w-full origin-right scale-x-0 bg-white opacity-60 will-change-transform"
-              ></div>
-              <div
-                class="absolute right-10 top-10 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-white"
-              >
-                <Icon name="close" size="10"></Icon>
-              </div>
-            </div>
-            <div class="relative overflow-hidden rounded-sm pb-[64%]">
-              <div class="absolute top-0 h-full w-full bg-orange-100"></div>
-              <div
-                class="absolute top-0 h-full w-full origin-right scale-x-100 bg-white opacity-60 will-change-transform"
-              ></div>
-              <div
-                class="absolute right-10 top-10 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-white"
-              >
-                <Icon name="close" size="10"></Icon>
-              </div>
-            </div>
-            <div class="relative overflow-hidden rounded-sm pb-[64%]">
-              <div class="absolute top-0 h-full w-full bg-orange-100"></div>
-              <div
-                class="absolute top-0 h-full w-full origin-right scale-x-75 bg-white opacity-60 will-change-transform"
-              ></div>
-              <div
-                class="absolute right-10 top-10 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-white"
-              >
-                <Icon name="close" size="10"></Icon>
-              </div>
-            </div>
-            <div class="relative overflow-hidden rounded-sm pb-[64%]">
-              <div class="absolute top-0 h-full w-full bg-orange-100"></div>
-              <div
-                class="absolute top-0 h-full w-full origin-right scale-x-50 bg-white opacity-60 will-change-transform"
-              ></div>
-              <div
-                class="absolute right-10 top-10 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-white"
-              >
-                <Icon name="close" size="10"></Icon>
-              </div>
-            </div>
-            <div class="relative overflow-hidden rounded-sm pb-[64%]">
-              <div class="absolute top-0 h-full w-full bg-orange-100"></div>
-              <div
-                class="absolute top-0 h-full w-full origin-right scale-x-75 bg-white opacity-60 will-change-transform"
+                class="absolute top-0 h-full w-full origin-right bg-white opacity-60 will-change-transform"
+                :style="{ transform: `scaleX(${1 - file.progress})` }"
               ></div>
               <div
                 class="absolute right-10 top-10 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-white"
@@ -214,7 +120,10 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
+import { useRouter } from 'vue-router'
+import { storeToRefs } from 'pinia'
+import { usePublishStore } from '@/store/publish'
 import Button from '@comp/common/Button.vue'
 import Dropdown from '@comp/form/Dropdown.vue'
 import InputSwitch from '@comp/form/InputSwitch.vue'
@@ -223,6 +132,29 @@ import OptionsPicker from '@comp/form/OptionsPicker.vue'
 import TextareaWrap from '@comp/form/TextareaWrap.vue'
 import Head from '@comp/navigation/Head.vue'
 import { toDateTimeString } from '@/utils/string-helper'
+import { FEED_PERM, MEDIA_TYPE, UPLOAD_STATUS } from '@/constant/publish'
+
+const publishStore = usePublishStore()
+const { publishParams, uploadFiles, isVideo, isImage, isEditing } = storeToRefs(publishStore)
+const { startUpload, clear } = publishStore
+
+const router = useRouter()
+
+const video = ref(null)
+watch(
+  isEditing,
+  async (v) => {
+    if (v) {
+      try {
+        await startUpload(video)
+      } catch (e) {
+        console.error(e)
+        router.back()
+      }
+    }
+  },
+  { immediate: true },
+)
 
 const category = ref(1)
 const options = ref([
@@ -265,9 +197,8 @@ function addTag() {
 
 const perm = ref(1)
 const permOptions = ref([
-  { label: '訂閱者', value: 1 },
-  { label: '商店販售', value: 2 },
-  { label: '僅限自己', value: 3 },
+  { label: '訂閱者', value: FEED_PERM.SUB },
+  { label: '商店販售', value: FEED_PERM.BUY },
 ])
 
 const sub = ref(1)
@@ -290,4 +221,9 @@ const scheduleDateModel = computed({
     scheduleDate.value = v
   },
 })
+
+function onClose() {
+  clear()
+  router.back()
+}
 </script>
