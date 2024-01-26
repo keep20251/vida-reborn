@@ -129,3 +129,11 @@ export const AUTH_STATUS = {
   CREATOR: 2,  // 已成為創作者
   BANNED_CREATOR: 3,  // 被封禁的創作者
 }
+
+// 提交紀錄 - 申請狀態
+export const WITHDRAW_LIST_STATUS = {
+  PAID: 1,
+  NOT_REVIEWED: 15,
+  FAIL: 10,
+  UNDER_REVIEW: 5,
+}

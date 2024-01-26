@@ -58,6 +58,8 @@ export default {
     mailCodeLogin: "メールコードでログイン",
     pwdLogin: "パスワードログイン",
     editSocialLink: "ソーシャルリンクを編集します",
+    earnWdrlReq: "",
+    earnWdrlHist: "",
   },
   label: {
     account: "ユーザー名",
@@ -95,6 +97,8 @@ export default {
     all: "",
     unlocked: "",
     notUnlocked: "",
+    wdrlAmount: "",
+    status: "",
   },
   placeholder: {
     account: "ユーザー名を入力してください",
@@ -107,6 +111,7 @@ export default {
     nowPw: "",
     newPw: "",
     newPwCfm: "",
+    wdrlAmount: "",
   },
   message: {
     payment: { failed: "支払いに失敗しました", success: "支払い成功", cancel: "支払いがキャンセルされました" },
@@ -147,9 +152,12 @@ export default {
     prvw: "",
     video: "",
     img: "",
+    notReviewed: "",
     underReview: "",
     auditFailure: "",
+    paid: "",
     scheduledRelease: "",
+    time: "",
   },
   content: {
     welcomeToVida: "Vidaへようこそ、私たちと一緒に！",
@@ -167,7 +175,7 @@ export default {
     joinVida: "",
     useObey: "",
     allPosts: "",
-    earn: "",
+    currentEarn: "",
     withdrawalHistory: "",
     withdrawalApply: "",
     dataDashboard: "",
