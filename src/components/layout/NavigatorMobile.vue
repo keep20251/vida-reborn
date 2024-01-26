@@ -12,7 +12,7 @@
         <Icon v-else name="searchOutline" size="20"></Icon>
       </div>
     </router-link>
-    <Link class="grow" :href="`/${locale}/publish`">
+    <Link class="grow" :href="`/${locale}/publish`" @click="onPublishClick">
       <div class="flex items-center justify-center space-x-16 px-12 py-16">
         <Icon name="publish" size="16"></Icon>
       </div>
@@ -34,7 +34,10 @@
 
 <script setup>
 import { computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
+import { storeToRefs } from 'pinia'
+import { useDialogStore } from '@/store/dialog'
+import { usePublishStore } from '@/store/publish'
 import Link from '@comp/common/Link.vue'
 import { useLocale } from '@use/utils/locale'
 
@@ -45,4 +48,18 @@ const atMessage = computed(() => route.name === 'message')
 const atMine = computed(() => route.name.includes('mine'))
 
 const locale = useLocale()
+
+const router = useRouter()
+
+const { fileSelectDialog } = storeToRefs(useDialogStore())
+
+const publishStore = usePublishStore()
+const { isEditing } = storeToRefs(publishStore)
+function onPublishClick() {
+  if (isEditing.value) {
+    router.push({ name: 'publish' })
+  } else {
+    fileSelectDialog.value = true
+  }
+}
 </script>

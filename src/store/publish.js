@@ -2,7 +2,7 @@ import imageCompression from 'browser-image-compression'
 import { computed, reactive, readonly, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { defineStore } from 'pinia'
-import { FEED_PERM, MEDIA_TYPE, UPLOAD_STATUS } from '@/constant/publish'
+import { FEED_PERM, IMAGE_LIMIT_COUNT, MEDIA_TYPE, UPLOAD_STATUS } from '@/constant/publish'
 import uploadImage from '@/http/upload/uploadImage'
 import uploadVideo from '@/http/upload/uploadVideo'
 
@@ -59,7 +59,7 @@ export const usePublishStore = defineStore('publish', () => {
 
   const { t: $t } = useI18n()
 
-  const onFileInput = ref(null)
+  const startEditTimestamp = ref(null)
 
   const publishParams = reactive({ ...DEFAULT_PUBLISH_PARAMS })
 
@@ -91,6 +91,8 @@ export const usePublishStore = defineStore('publish', () => {
   const isVideo = computed(() => publishParams.type === MEDIA_TYPE.VIDEO)
   const isImage = computed(() => publishParams.type === MEDIA_TYPE.IMAGE)
 
+  const isEditing = computed(() => startEditTimestamp.value !== null)
+
   const publishTimeOpen = computed({
     get() {
       return publishParams.postTime !== null
@@ -109,7 +111,7 @@ export const usePublishStore = defineStore('publish', () => {
       pushUploadFile(file)
     }
 
-    onFileInput.value = new Date().getTime()
+    startEditTimestamp.value = new Date().getTime()
   }
 
   function addImageFile(files) {
@@ -127,6 +129,9 @@ export const usePublishStore = defineStore('publish', () => {
   }
 
   function pushUploadFile(file) {
+    if (uploadFiles.value.length === IMAGE_LIMIT_COUNT) {
+      return
+    }
     uploadFiles.value.push({
       id: idMaker.next().value,
       file,
@@ -282,7 +287,7 @@ export const usePublishStore = defineStore('publish', () => {
   }
 
   function clear() {
-    onFileInput.value = null
+    startEditTimestamp.value = null
     uploadFiles.value = []
 
     for (const [key, value] of Object.entries(DEFAULT_PUBLISH_PARAMS)) {
@@ -293,7 +298,7 @@ export const usePublishStore = defineStore('publish', () => {
   }
 
   return {
-    onFileInput: readonly(onFileInput),
+    startEditTimestamp: readonly(startEditTimestamp),
 
     uploadFiles,
 
@@ -302,6 +307,7 @@ export const usePublishStore = defineStore('publish', () => {
     isUpdate,
     isVideo,
     isImage,
+    isEditing,
     publishTimeOpen,
 
     setFile,
@@ -372,7 +378,7 @@ function imageCompress(uploadFile) {
       })
       .catch((err) => {
         uploadFile.status = UPLOAD_STATUS.FAIL
-        uploadFile.failMsg = $t('content.processFail')
+        uploadFile.failMsg = 'content.processFail'
         console.error(err)
       })
   })
@@ -393,7 +399,7 @@ function imagePropertyExtract(uploadFile) {
     }
     fr.onerror = function (evt) {
       uploadFile.status = UPLOAD_STATUS.FAIL
-      uploadFile.failMsg = $t('content.processFail')
+      uploadFile.failMsg = 'content.processFail'
       console.error(evt)
     }
     fr.readAsDataURL(uploadFile.compressedFile)

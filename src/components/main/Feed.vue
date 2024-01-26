@@ -10,8 +10,11 @@
 
     <!-- media -->
     <div>
-      <div class="w-full rounded-md bg-orange-100">
-        <div class="pt-[60%]"></div>
+      <div class="relative inline-block w-full rounded-md">
+        <div class="mt-[60%]"></div>
+        <div class="rounded-inherit absolute left-0 top-0 h-full w-full">
+          <EncryptImage :border-radius="10"></EncryptImage>
+        </div>
       </div>
     </div>
 

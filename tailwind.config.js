@@ -60,6 +60,7 @@ export default {
         },
       },
       borderRadius: {
+        inherit: 'inherit',
         sm: '0.4375rem',
         md: '0.625rem',
         lg: '0.75rem',

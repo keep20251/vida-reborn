@@ -16,3 +16,5 @@ export const UPLOAD_STATUS = {
   FAIL: 5,
   SAVE: 6,
 }
+
+export const IMAGE_LIMIT_COUNT = 10

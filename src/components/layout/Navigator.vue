@@ -45,7 +45,7 @@
           </div>
         </div>
       </router-link>
-      <Link :href="`/${locale}/publish`" @click="fileSelectDialog = true">
+      <Link :href="`/${locale}/publish`" @click="onPublishClick">
         <div class="hover:bg-gray-f6 flex items-center justify-center space-x-20 px-12 py-10 xl:justify-start">
           <Icon name="publish2" size="20"></Icon>
           <div class="hidden text-base font-normal xl:block">
@@ -73,6 +73,7 @@ import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useDialogStore } from '@/store/dialog'
+import { usePublishStore } from '@/store/publish'
 import Link from '@comp/common/Link.vue'
 import { useLocale } from '@use/utils/locale'
 import devRoutes from '@/router/routes/dev'
@@ -90,4 +91,14 @@ const locale = useLocale()
 const router = useRouter()
 
 const { fileSelectDialog } = storeToRefs(useDialogStore())
+
+const publishStore = usePublishStore()
+const { isEditing } = storeToRefs(publishStore)
+function onPublishClick() {
+  if (isEditing.value) {
+    router.push({ name: 'publish' })
+  } else {
+    fileSelectDialog.value = true
+  }
+}
 </script>

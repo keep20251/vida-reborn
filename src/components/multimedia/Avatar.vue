@@ -1,6 +1,6 @@
 <template>
   <div class="relative flex-shrink-0" :style="style">
-    <img class="h-full w-full rounded-[inherit] object-cover" :src="props.src" :alt="props.alt" />
+    <img class="rounded-inherit h-full w-full object-cover" :src="props.src" :alt="props.alt" />
     <div v-if="cameraIcon" class="absolute left-55 top-40 cursor-pointer">
       <div class="flex h-30 w-30 items-center justify-center rounded-full bg-light-gray">
         <Icon class="" name="camera" size="20"></Icon>
