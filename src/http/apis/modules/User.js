@@ -35,7 +35,7 @@ export default {
   // 刪除帳號
   deleteAccount: { method: 'post', url: '/api/user/deleteAccount' },
 
-  // 封鎖用戶
+  // 封鎖或解除封鎖用戶
   block: { method: 'post', url: '/api/user/blockUserEvent' },
 
   // 取得用戶封鎖清單

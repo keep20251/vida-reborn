@@ -4,10 +4,13 @@
       <template #default="{ item, index }">
         <div class="flex items-center justify-between py-10">
           <div class="flex items-center">
-            <Avatar class="mr-10" :radius="30" :src="item.avatar"></Avatar>
-            <div class="leading-md text-base font-bold">{{ item.name }}</div>
+            <Avatar class="mr-10" :radius="30" :src="item.thumb || defaultAvatar"></Avatar>
+            <div class="leading-md text-base font-bold">{{ item.nickname }}</div>
           </div>
-          <div @click="unblock(index)" class="leading-lg cursor-pointer text-base font-bold text-gray66">
+          <div
+            @click="unblock(item.aff_blocked, index)"
+            class="leading-lg cursor-pointer text-base font-bold text-gray66"
+          >
             {{ $t('content.unblock') }}
           </div>
         </div>
@@ -21,19 +24,46 @@
   </div>
 </template>
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import List from '@comp/common/List.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
+import useRequest from '@use/request/index.js'
 import defaultAvatar from '@/assets/images/avatar.jpeg'
+import { BLOCK_UPDATE } from '@/constant/index.js'
 
-const items = ref([
-  { avatar: defaultAvatar, name: 'Cursed_ellie', aff: 1231 },
-  { avatar: defaultAvatar, name: 'Cursed_ellie', aff: 1232 },
-  { avatar: defaultAvatar, name: 'Cursed_ellie', aff: 1233 },
-  { avatar: defaultAvatar, name: 'Cursed_ellie', aff: 1234 },
-])
+const items = ref(null)
 
-const unblock = (i) => {
-  console.log(i)
+onMounted(() => {
+  blockList()
+})
+
+let data
+const blockList = async () => {
+  const { execute } = useRequest('User.listBlock')
+  try {
+    data = await execute({
+      page: 1,
+      limit: 10,
+    })
+    items.value = data.list
+    console.log('items.value是多少', items.value)
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+const unblock = async (blocked, index) => {
+  console.log(`看看blocked和index`, blocked, index)
+  try {
+    const { execute } = useRequest('User.block')
+    await execute({
+      aff_blocked: blocked,
+      action_type: BLOCK_UPDATE.CANCEL_BLOCK,
+    })
+    blockList()
+    console.log('成功囉')
+  } catch (e) {
+    console.error(e)
+  }
 }
 </script>
