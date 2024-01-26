@@ -58,6 +58,8 @@ export default {
     mailCodeLogin: "Đăng nhập bằng mã email",
     pwdLogin: "Đăng nhập bằng mật khẩu",
     editSocialLink: "Chỉnh sửa liên kết xã hội",
+    earnWdrlReq: "",
+    earnWdrlHist: "",
   },
   label: {
     account: "Tên người dùng",
@@ -95,6 +97,8 @@ export default {
     all: "",
     unlocked: "",
     notUnlocked: "",
+    wdrlAmount: "",
+    status: "",
   },
   placeholder: {
     account: "Vui lòng nhập tên người dùng",
@@ -107,6 +111,7 @@ export default {
     nowPw: "",
     newPw: "",
     newPwCfm: "",
+    wdrlAmount: "",
   },
   message: {
     payment: { failed: "Thanh toán thất bại", success: "Thanh toán thành công", cancel: "Thanh toán đã hủy" },
@@ -147,9 +152,12 @@ export default {
     prvw: "",
     video: "",
     img: "",
+    notReviewed: "",
     underReview: "",
     auditFailure: "",
+    paid: "",
     scheduledRelease: "",
+    time: "",
   },
   content: {
     welcomeToVida: "Chào mừng bạn đến với Vida, hãy gia nhập chúng tôi!",
@@ -167,7 +175,7 @@ export default {
     joinVida: "",
     useObey: "",
     allPosts: "",
-    earn: "",
+    currentEarn: "",
     withdrawalHistory: "",
     withdrawalApply: "",
     dataDashboard: "",

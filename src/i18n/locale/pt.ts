@@ -58,6 +58,8 @@ export default {
     mailCodeLogin: "Login com código de e-mail",
     pwdLogin: "Login com senha",
     editSocialLink: "Edite Link Social",
+    earnWdrlReq: "",
+    earnWdrlHist: "",
   },
   label: {
     account: "Nome de usuário",
@@ -95,6 +97,8 @@ export default {
     all: "",
     unlocked: "",
     notUnlocked: "",
+    wdrlAmount: "",
+    status: "",
   },
   placeholder: {
     account: "Por favor, insira o nome de usuário",
@@ -107,6 +111,7 @@ export default {
     nowPw: "",
     newPw: "",
     newPwCfm: "",
+    wdrlAmount: "",
   },
   message: {
     payment: { failed: "Pagamento falhou", success: "Pagamento bem-sucedido", cancel: "Pagamento cancelado" },
@@ -147,9 +152,12 @@ export default {
     prvw: "",
     video: "",
     img: "",
+    notReviewed: "",
     underReview: "",
     auditFailure: "",
+    paid: "",
     scheduledRelease: "",
+    time: "",
   },
   content: {
     welcomeToVida: "Bem-vindo ao Vida, junte-se a nós!",
@@ -167,7 +175,7 @@ export default {
     joinVida: "",
     useObey: "",
     allPosts: "",
-    earn: "",
+    currentEarn: "",
     withdrawalHistory: "",
     withdrawalApply: "",
     dataDashboard: "",
