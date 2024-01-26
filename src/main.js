@@ -4,6 +4,7 @@ import ClientOnly from '@comp/common/ClientOnly'
 import Icon from '@comp/common/Icon.vue'
 import Loading from '@comp/common/Loading.vue'
 import Page from '@comp/layout/Page.vue'
+import EncryptImage from '@comp/multimedia/EncryptImage.vue'
 import { createRouter } from '@/router'
 import { createStore } from '@/store'
 import App from './App.vue'
@@ -23,6 +24,7 @@ export async function createApp() {
   app.component('Icon', Icon)
   app.component('Loading', Loading)
   app.component('ClientOnly', ClientOnly)
+  app.component('EncryptImage', EncryptImage)
 
   return { app, router, store, head }
 }

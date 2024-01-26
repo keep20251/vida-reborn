@@ -8,13 +8,30 @@ import { DecryptImage } from '@/utils/crypto-data'
 
 const STORE = new Map()
 
-export async function getDecryptDataUrl(url) {
+export async function getDecryptDataBlob(url) {
   // 已經有了直接回傳
   if (STORE.has(url)) {
-    return STORE.get(url)
+    return await STORE.get(url)
   }
 
-  // 沒有馬上發送請求
+  const promise = getDecryptData(url)
+
+  // 先存下 promise 避免尚未處理完之前又發生相同的 url 被觸發
+  STORE.set(url, promise)
+
+  try {
+    const decryptedData = await promise
+
+    // 將解密資料蓋掉 promise
+    STORE.set(url, decryptedData)
+  } catch (e) {
+    STORE.delete(url)
+    throw e
+  }
+}
+
+async function getDecryptData(url) {
+  // 發送請求
   const res = await axios.get(url, { responseType: 'arraybuffer' })
 
   const ext = url.substring(url.lastIndexOf('.') + 1)
@@ -22,9 +39,6 @@ export async function getDecryptDataUrl(url) {
 
   // 然後解密
   const decryptedData = await decryptData(blob, ext)
-
-  // 再存下來
-  STORE.set(url, decryptedData)
 
   return decryptedData
 }
@@ -36,8 +50,20 @@ async function decryptData(blob, ext) {
       const result = t.target.result
       const encryptedBase64 = result.substring(result.indexOf(',') + 1)
       const decryptedBase64 = DecryptImage(encryptedBase64)
-      resolve(`data:image/${ext};base64,${decryptedBase64}`)
+      resolve(toBlobUrl(decryptedBase64))
+      // resolve(`data:image/${ext};base64,${decryptedBase64}`)
     }
     reader.readAsDataURL(blob)
   })
+}
+
+function toBlobUrl(data) {
+  const byteChars = atob(data)
+  const byteNumbers = new Array(byteChars.length)
+  for (let i = 0; i < byteChars.length; i++) {
+    byteNumbers[i] = byteChars.charCodeAt(i)
+  }
+  const byteArray = new Uint8Array(byteNumbers)
+  const blob = new Blob([byteArray])
+  return URL.createObjectURL(blob)
 }

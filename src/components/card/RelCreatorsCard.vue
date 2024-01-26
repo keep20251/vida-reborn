@@ -3,7 +3,7 @@
   <div class="grid space-y-10">
     <List :items="creators" item-key="id">
       <template #default="{ item }">
-        <div class="mb-10 grid space-y-10 rounded-[0.625rem] bg-[#7FE2D326] px-20 py-15">
+        <div class="mb-10 grid space-y-10 rounded-md bg-[#7FE2D326] px-20 py-15">
           <div class="flex items-center justify-between">
             <div class="flex">
               <Avatar class="mr-10" :radius="50" :src="item.avatar"></Avatar>
