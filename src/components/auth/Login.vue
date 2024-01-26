@@ -1,6 +1,6 @@
 <template>
-  <div class="flex w-full flex-col justify-center space-y-30 pb-16 pt-32 last:mb-16">
-    <DialogHeader :title="$t('title.accountLogin')" @back="back">
+  <div class="flex h-full w-full flex-col justify-center space-y-30">
+    <DialogHeader :title="$t('title.accountLogin')" @back="back" @close="close">
       <template #default>
         <div class="flex flex-col space-y-32">
           <div class="flex flex-col space-y-8">
@@ -43,7 +43,7 @@ import useRequest from '@use/request/index.js'
 import { useYup } from '@use/validator/yup.js'
 import { AUTH_ROUTES } from '@const'
 
-const { to, back } = useAuthRouteStore()
+const { to, back, close } = useAuthRouteStore()
 
 const { Yup, validate } = useYup()
 const { string } = Yup

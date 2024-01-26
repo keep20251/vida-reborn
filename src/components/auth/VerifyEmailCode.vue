@@ -1,10 +1,10 @@
 <template>
-  <div class="flex w-full flex-col justify-center pb-16 pt-32">
+  <div class="flex h-full w-full flex-col justify-center">
     <DialogHeader :title="$t('title.mailCodeLogin')" @back="back" @close="close">
       <template #default>
         <div class="flex flex-col space-y-32">
           <div class="flex flex-col space-y-30">
-            <div class="px-[6.25rem] text-center text-sm font-normal leading-5">
+            <div class="px-auto text-center text-sm font-normal leading-5">
               {{ $t('info.mailCodeSent', { mail: email }) }}
             </div>
             <InputEmailCode

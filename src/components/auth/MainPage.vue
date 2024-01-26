@@ -1,6 +1,8 @@
 <template>
-  <div class="relative flex w-full flex-col items-center justify-center space-y-30 px-50 py-[7.5rem] last:mb-30">
-    <div class="absolute right-20 top-20 cursor-pointer" @click="close">
+  <div
+    class="relative flex h-[35rem] w-full flex-col items-center justify-center space-y-30 last:mb-30 xl:lg:md:h-full"
+  >
+    <div class="absolute right-0 top-0 cursor-pointer" @click="close">
       <Icon name="close"></Icon>
     </div>
     <div class="flex items-center justify-center">
@@ -19,7 +21,7 @@
       <Button :loading="isLoading" @click="next">{{ $t('common.next') }}</Button>
     </div>
     <div class="text-center text-base font-normal leading-3">{{ $t('info.loginOrRegister') }}</div>
-    <div class="flex w-full flex-col justify-center space-y-16 px-90">
+    <div class="flex w-full flex-col justify-center space-y-16 px-45 md:px-60 lg:px-90">
       <button
         v-for="(option, index) in loginOptions"
         :key="`login-option-${index}`"
