@@ -24,6 +24,9 @@ export const useAppStore = defineStore('app', () => {
     return data
   }
   function setAppConfig(data) {
+    if (!data) {
+      return
+    }
     for (const [k, v] of Object.entries(data)) {
       appConfig[k] = v
     }

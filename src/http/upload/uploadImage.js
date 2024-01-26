@@ -1,9 +1,5 @@
 import axios from 'axios'
-import { ref } from 'vue'
-import { useI18n } from 'vue-i18n'
 import { useAppStore } from '@/store/app'
-import { usePopupDialogStore } from '@/store/popup-dialog'
-import { POPUP_DIALOG_TYPE } from '@const'
 import { signData } from './util'
 
 export default function uploadImage(file, progress) {
@@ -30,26 +26,4 @@ export default function uploadImage(file, progress) {
         return Promise.reject(new Error(msg))
       }
     })
-}
-
-export const upload = async (file) => {
-  const { t: $t } = useI18n()
-  const { $popupDialog, close } = usePopupDialogStore()
-  try {
-    const progressTmp = ref(0)
-    $popupDialog(POPUP_DIALOG_TYPE.PROGRESS, {
-      title: $t('label.upload'),
-      content: {
-        progress: progressTmp,
-        size: 50,
-      },
-      showConfirm: false,
-      showClose: false,
-    }).open()
-    return await uploadImage(file, (progress) => (progressTmp.value = progress * 100))
-  } catch (e) {
-    console.error(e)
-  } finally {
-    close()
-  }
 }

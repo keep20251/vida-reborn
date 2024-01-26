@@ -45,7 +45,7 @@
           </div>
         </div>
       </router-link>
-      <Link :href="`/${locale}/publish`">
+      <Link :href="`/${locale}/publish`" @click="fileSelectDialog = true">
         <div class="flex items-center justify-center space-x-20 px-12 py-10 hover:bg-gray05 xl:justify-start">
           <Icon name="publish2" size="20"></Icon>
           <div class="hidden text-base font-normal xl:block">
@@ -71,6 +71,8 @@
 <script setup>
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { storeToRefs } from 'pinia'
+import { useDialogStore } from '@/store/dialog'
 import Link from '@comp/common/Link.vue'
 import { useLocale } from '@use/utils/locale'
 import devRoutes from '@/router/routes/dev'
@@ -86,4 +88,6 @@ const isDev = computed(() => import.meta.env.DEV)
 const locale = useLocale()
 
 const router = useRouter()
+
+const { fileSelectDialog } = storeToRefs(useDialogStore())
 </script>
