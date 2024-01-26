@@ -24,6 +24,8 @@ export async function getDecryptDataBlob(url) {
 
     // 將解密資料蓋掉 promise
     STORE.set(url, decryptedData)
+
+    return decryptedData
   } catch (e) {
     STORE.delete(url)
     throw e
@@ -51,7 +53,6 @@ async function decryptData(blob, ext) {
       const encryptedBase64 = result.substring(result.indexOf(',') + 1)
       const decryptedBase64 = DecryptImage(encryptedBase64)
       resolve(toBlobUrl(decryptedBase64))
-      // resolve(`data:image/${ext};base64,${decryptedBase64}`)
     }
     reader.readAsDataURL(blob)
   })
