@@ -48,7 +48,7 @@ import BaseDialog from '@comp/dialog/BaseDialog.vue'
 
 const { fileSelectDialog } = storeToRefs(useDialogStore())
 
-const { setFile, startUpload } = usePublishStore()
+const { setFile } = usePublishStore()
 
 const router = useRouter()
 

@@ -89,7 +89,7 @@ watch(
 )
 
 async function loadImage() {
-  if (decryptedBlob.value !== null) {
+  if (decryptedBlob.value !== null || loading.value) {
     return
   }
 
@@ -108,6 +108,7 @@ async function loadImage() {
   }
 
   loading.value = true
+  fail.value = false
   try {
     decryptedBlob.value = await getDecryptDataBlob(props.src)
   } catch (e) {
