@@ -113,3 +113,9 @@ export const EMAIL_VALIDATION = {
   UNVERIFIED: 0,
   VERIFIED: 1,
 }
+
+// 封鎖或解除封鎖 - 操作
+export const BLOCK_UPDATE = {
+  ADD_BLOCK: 1, // 添加封鎖
+  CANCEL_BLOCK: 2, // 解除封鎖
+}
