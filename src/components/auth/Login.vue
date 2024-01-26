@@ -19,7 +19,7 @@
             ></InputWrap>
             <Button :loading="isLoading" @click="validaite">{{ $t('label.login') }}</Button>
           </div>
-          <div class="text-center text-base leading-md text-gray66">
+          <div class="text-gray-57 text-center text-base leading-md">
             <span>
               {{ $t('info.neverRegister') }}
               <button class="underline" @click="to(AUTH_ROUTES.SIGN_UP)">

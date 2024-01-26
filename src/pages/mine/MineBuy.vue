@@ -7,7 +7,7 @@
     <RecCard class="mt-30" :button-text="$t('common.unsubscribe')"></RecCard>
   </div>
   <div v-else-if="tab === 3">
-    <div class="leading-lg pt-20 text-base font-bold">{{ $t('content.allPosts') }} 13</div>
+    <div class="pt-20 text-base font-bold leading-lg">{{ $t('content.allPosts') }} 13</div>
     <div class="overflow-x-hidden">
       <List :items="items" item-key="id">
         <template #default="{ last }">
@@ -15,7 +15,7 @@
           <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
         </template>
         <template #bottom>
-          <div class="flex items-center justify-center py-8 text-gray36">
+          <div class="text-gray-a3 flex items-center justify-center py-8">
             <Loading></Loading>{{ $t('common.noMore') }}
           </div>
         </template>
@@ -25,12 +25,12 @@
 </template>
 <script setup>
 import { ref } from 'vue'
-import Tab from '@comp/navigation/Tab.vue'
-import TransactionList from '@comp/mine/TransactionList.vue'
+import { useI18n } from 'vue-i18n'
 import RecCard from '@comp/card/RecCard.vue'
 import List from '@comp/common/List.vue'
 import Feed from '@comp/main/Feed.vue'
-import { useI18n } from 'vue-i18n'
+import TransactionList from '@comp/mine/TransactionList.vue'
+import Tab from '@comp/navigation/Tab.vue'
 
 const { t: $t } = useI18n()
 

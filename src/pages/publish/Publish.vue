@@ -16,7 +16,7 @@
           <div class="flex">
             <div class="flex grow flex-col space-y-10">
               <label class="text-left text-base leading-md">上傳視頻</label>
-              <span class="text-left text-sm text-gray66">支持mp4/mov格式，不超過 100 MB</span>
+              <span class="text-gray-57 text-left text-sm">支持mp4/mov格式，不超過 100 MB</span>
             </div>
             <Button class="self-end" size="md">重新選擇</Button>
           </div>
@@ -28,9 +28,9 @@
           <div class="flex">
             <div class="flex grow flex-col space-y-10">
               <label class="text-left text-base leading-md"
-                >上傳圖片 <span class="text-left text-sm text-gray66">10/10</span></label
+                >上傳圖片 <span class="text-gray-57 text-left text-sm">10/10</span></label
               >
-              <span class="text-left text-sm text-gray66">支持JPG/PNG格式，每张不超過1MB</span>
+              <span class="text-gray-57 text-left text-sm">支持JPG/PNG格式，每张不超過1MB</span>
             </div>
             <Button class="self-end" size="md">添加</Button>
           </div>
@@ -177,7 +177,7 @@
         <div class="flex flex-col">
           <label class="-mb-5 text-left text-base leading-md">
             誰可以看到
-            <span class="text-sm leading-3 text-gray66">允許特定訂閱方案查看</span>
+            <span class="text-gray-57 text-sm leading-3">允許特定訂閱方案查看</span>
           </label>
           <OptionsPicker v-model="perm" :options="permOptions"></OptionsPicker>
         </div>

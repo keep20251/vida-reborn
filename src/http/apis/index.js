@@ -1,4 +1,5 @@
 import Account from './modules/Account'
+import App from './modules/App'
 import Article from './modules/Article'
 import Chat from './modules/Chat'
 import Home from './modules/Home'
@@ -9,6 +10,7 @@ import User from './modules/User'
 
 export default {
   Account,
+  App,
   Article,
   Chat,
   Home,

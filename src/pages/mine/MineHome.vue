@@ -8,7 +8,7 @@
       <div class="flex items-center justify-center py-20">
         <div class="text-lg font-bold leading-5">{{ $t('info.loginOrRegister') }}</div>
       </div>
-      <div class="leading-md mb-10 text-base font-normal">{{ $t('content.notLoggedYet') }}</div>
+      <div class="mb-10 text-base font-normal leading-md">{{ $t('content.notLoggedYet') }}</div>
       <img
         class="rounded-md object-cover"
         src="https://i.postimg.cc/G2b2HYJ1/415980634-122147312060020771-8911205471669409308-n.jpg"
@@ -18,7 +18,7 @@
         <Button @click="openAuthDialog(AUTH_ROUTES.SIGN_UP)" contrast>{{ $t('title.join') }}</Button>
         <Button @click="openAuthDialog()">{{ $t('title.login') }}</Button>
       </div>
-      <div class="leading-lg text-center text-base font-normal text-gray66">
+      <div class="text-gray-57 text-center text-base font-normal leading-lg">
         <p>{{ $t('content.joinVida') }}</p>
         <p>
           {{ $t('content.useObey')

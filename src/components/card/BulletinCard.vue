@@ -1,5 +1,5 @@
 <template>
-  <div class="grid space-y-20 rounded-[0.625rem] bg-gray03 px-20 py-30">
+  <div class="bg-gray-f6 grid space-y-20 rounded-[0.625rem] px-20 py-30">
     <div class="flex flex-col space-y-10">
       <div class="text-lg font-bold leading-lg">VIDA 公告区</div>
       <div class="text-lg font-bold leading-lg">Subscribe to Premium</div>

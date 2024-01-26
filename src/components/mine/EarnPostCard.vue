@@ -31,38 +31,38 @@
     </div>
     <div
       :class="[{ 'max-h-[200px]': isActive, 'max-h-0 !p-0': !isActive }]"
-      class="z-0 mt-[-1rem] grid w-full space-y-30 rounded-b-lg bg-gray03 p-30 pt-40"
+      class="bg-gray-f6 z-0 mt-[-1rem] grid w-full space-y-30 rounded-b-lg p-30 pt-40"
     >
       <div :class="[{ flex: isActive, hidden: !isActive }]" class="flex space-x-15">
         <div class="grid w-3/12 space-y-10">
-          <div class="leading-md text-base font-normal">{{ $t('content.numberViews') }}:</div>
-          <div class="leading-lg text-lg font-bold">{{ media.numberViews }}</div>
+          <div class="text-base font-normal leading-md">{{ $t('content.numberViews') }}:</div>
+          <div class="text-lg font-bold leading-lg">{{ media.numberViews }}</div>
         </div>
         <div class="grid w-3/12 space-y-10">
-          <div class="leading-md text-base font-normal">{{ $t('content.watchDaily') }}:</div>
-          <div class="leading-lg text-lg font-bold">{{ media.watchDaily }}</div>
+          <div class="text-base font-normal leading-md">{{ $t('content.watchDaily') }}:</div>
+          <div class="text-lg font-bold leading-lg">{{ media.watchDaily }}</div>
         </div>
         <div class="grid w-3/12 space-y-10">
-          <div class="leading-md text-base font-normal">{{ $t('content.collect') }}:</div>
-          <div class="leading-lg text-lg font-bold">{{ media.collect }}</div>
+          <div class="text-base font-normal leading-md">{{ $t('content.collect') }}:</div>
+          <div class="text-lg font-bold leading-lg">{{ media.collect }}</div>
         </div>
         <div class="grid w-3/12 space-y-10">
-          <div class="leading-md text-base font-normal">{{ $t('content.comment') }}:</div>
-          <div class="leading-lg text-lg font-bold">{{ media.comment }}</div>
+          <div class="text-base font-normal leading-md">{{ $t('content.comment') }}:</div>
+          <div class="text-lg font-bold leading-lg">{{ media.comment }}</div>
         </div>
       </div>
       <div :class="[{ flex: isActive, hidden: !isActive }]" class="flex space-x-15">
         <div class="grid w-3/12 space-y-10">
-          <div class="leading-md text-base font-normal">{{ $t('content.numberShare') }}:</div>
-          <div class="leading-lg text-lg font-bold">{{ media.share }}</div>
+          <div class="text-base font-normal leading-md">{{ $t('content.numberShare') }}:</div>
+          <div class="text-lg font-bold leading-lg">{{ media.share }}</div>
         </div>
         <div class="grid w-3/12 space-y-10">
-          <div class="leading-md text-base font-normal">{{ $t('content.purchases') }}:</div>
-          <div class="leading-lg text-lg font-bold">{{ media.numberPurchases }}</div>
+          <div class="text-base font-normal leading-md">{{ $t('content.purchases') }}:</div>
+          <div class="text-lg font-bold leading-lg">{{ media.numberPurchases }}</div>
         </div>
         <div class="grid w-3/12 space-y-10">
-          <div class="leading-md text-base font-normal">{{ $t('content.periodIncome') }}:</div>
-          <div class="leading-lg text-lg font-bold">${{ media.periodIncome }}</div>
+          <div class="text-base font-normal leading-md">{{ $t('content.periodIncome') }}:</div>
+          <div class="text-lg font-bold leading-lg">${{ media.periodIncome }}</div>
         </div>
         <div class="grid w-3/12 space-y-10"></div>
       </div>

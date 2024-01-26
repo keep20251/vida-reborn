@@ -7,7 +7,7 @@
       :class="[
         (Array.isArray(modelValue) ? modelValue.includes(option[optionValue]) : modelValue === option[optionValue])
           ? 'bg-primary text-white'
-          : 'bg-gray05',
+          : 'bg-gray-f6',
       ]"
       @click="onClick(option[optionValue])"
     >

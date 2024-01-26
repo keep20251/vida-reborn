@@ -1,5 +1,5 @@
 <template>
-  <div class="leading-lg pb-20 text-lg font-bold">{{ $t('label.relCreators') }}</div>
+  <div class="pb-20 text-lg font-bold leading-lg">{{ $t('label.relCreators') }}</div>
   <div class="grid space-y-10">
     <List :items="creators" item-key="id">
       <template #default="{ item }">
@@ -8,14 +8,14 @@
             <div class="flex">
               <Avatar class="mr-10" :radius="50" :src="item.avatar"></Avatar>
               <div class="flex flex-col space-y-4">
-                <div class="leading-lg text-lg font-bold">{{ item.name }}</div>
-                <div class="text-sm font-normal leading-3 text-gray66">＠{{ item.username }}</div>
+                <div class="text-lg font-bold leading-lg">{{ item.name }}</div>
+                <div class="text-gray-57 text-sm font-normal leading-3">＠{{ item.username }}</div>
                 <div class="flex">
-                  <div class="text-sm font-normal leading-3 text-gray66">
+                  <div class="text-gray-57 text-sm font-normal leading-3">
                     {{ item.posts }} {{ $t('content.posts') }}
                   </div>
-                  <div class="mx-2 text-sm font-normal leading-3 text-gray66">•</div>
-                  <div class="text-sm font-normal leading-3 text-gray66">
+                  <div class="text-gray-57 mx-2 text-sm font-normal leading-3">•</div>
+                  <div class="text-gray-57 text-sm font-normal leading-3">
                     {{ item.viewed }} {{ $t('content.view') }}
                   </div>
                 </div>
@@ -25,13 +25,13 @@
               <Button class="!h-24 !px-18 !py-6 !text-sm !leading-3">{{ $t('common.check') }}</Button>
             </div>
           </div>
-          <p class="leading-lg max-w-fit overflow-hidden text-ellipsis whitespace-nowrap text-base font-normal">
+          <p class="max-w-fit overflow-hidden text-ellipsis whitespace-nowrap text-base font-normal leading-lg">
             {{ item.info }}
           </p>
         </div>
       </template>
       <template #bottom>
-        <div class="leading-md flex cursor-pointer items-center justify-center space-x-5 text-base font-bold">
+        <div class="flex cursor-pointer items-center justify-center space-x-5 text-base font-bold leading-md">
           <div>{{ $t('content.showMoreCreators') }}</div>
           <Icon name="drop" size="12"></Icon>
         </div>

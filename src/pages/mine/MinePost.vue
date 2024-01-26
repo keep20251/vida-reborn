@@ -13,7 +13,7 @@
             <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
           </template>
           <template #bottom>
-            <div class="flex items-center justify-center py-8 text-gray36">
+            <div class="text-gray-a3 flex items-center justify-center py-8">
               <Loading></Loading>{{ $t('common.noMore') }}
             </div>
           </template>
@@ -35,7 +35,7 @@
             <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
           </template>
           <template #bottom>
-            <div class="flex items-center justify-center py-8 text-gray36">
+            <div class="text-gray-a3 flex items-center justify-center py-8">
               <Loading></Loading>{{ $t('common.noMore') }}
             </div>
           </template>
@@ -59,7 +59,7 @@
             <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
           </template>
           <template #bottom>
-            <div class="flex items-center justify-center py-8 text-gray36">
+            <div class="text-gray-a3 flex items-center justify-center py-8">
               <Loading></Loading>{{ $t('common.noMore') }}
             </div>
           </template>

@@ -1,13 +1,10 @@
 <template>
   <div class="border-t pt-20">
     <div class="space-y-20">
-      <div class="leading-lg mb-10 text-base font-normal text-gray66">{{ $t('content.delAccContent') }} example@mail.com</div>
-      <InputWrap
-        v-model="nowPw"
-        :label="$t('label.nowPw')"
-        :placeholder="$t('placeholder.nowPw')"
-        password
-      ></InputWrap>
+      <div class="text-gray-57 mb-10 text-base font-normal leading-lg">
+        {{ $t('content.delAccContent') }} example@mail.com
+      </div>
+      <InputWrap v-model="nowPw" :label="$t('label.nowPw')" :placeholder="$t('placeholder.nowPw')" password></InputWrap>
       <Button @click="deleteAcc">{{ $t('content.delAcc') }}</Button>
       <div v-if="!!serverError" class="text-sm font-normal leading-md text-warning">{{ serverError }}</div>
     </div>
@@ -28,14 +25,14 @@ const nowPw = ref('')
 const serverError = ref('')
 async function deleteAcc() {
   const { execute } = useRequest('User.deleteAccount')
-  try{
+  try {
     await execute({
-      old_password: nowPw.value
+      old_password: nowPw.value,
     })
     console.log('成功囉！')
-        setTimeout(() => {
+    setTimeout(() => {
       logout()
-    }, 500);
+    }, 500)
   } catch (e) {
     serverError.value = e.message
     console.error(e)

@@ -4,7 +4,7 @@
     <div class="flex h-30 w-full items-center">
       <Avatar :radius="30" class="mr-5" :src="defaultAvatar"></Avatar>
       <div class="grow text-base font-bold leading-none">{{ props.item.nickname }}</div>
-      <div class="grow text-right text-sm font-medium leading-5 text-gray66">{{ props.item.postTime }} minutes</div>
+      <div class="text-gray-57 grow text-right text-sm font-medium leading-5">{{ props.item.postTime }} minutes</div>
       <Icon name="moreVertical" size="20"></Icon>
     </div>
 
@@ -57,7 +57,7 @@
             {{ props.item.content }}
           </div>
         </div>
-        <div class="text-base leading-lg text-gray66">more</div>
+        <div class="text-gray-57 text-base leading-lg">more</div>
       </div>
     </div>
   </div>

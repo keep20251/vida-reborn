@@ -30,7 +30,7 @@
         </div>
       </div>
       <InputWrap v-if="edit" v-model="email" :placeholder="$t('placeholder.email')"></InputWrap>
-      <div v-if="!edit" class="text-sm font-normal leading-3 text-gray66">{{ email }}</div>
+      <div v-if="!edit" class="text-gray-57 text-sm font-normal leading-3">{{ email }}</div>
     </div>
     <InputEmailCode
       v-if="userData.email_validation === EMAIL_VALIDATION.UNVERIFIED"
@@ -65,14 +65,14 @@
     <div class="mb-20 pt-10 text-center text-base font-normal leading-lg">{{ $t('info.bindThirdPartyLogin') }}</div>
     <div class="flex w-full flex-col items-center space-y-10">
       <div
-        class="flex w-3/6 cursor-pointer items-center justify-center space-x-10 rounded-full border border-gray30 py-10"
+        class="border-gray-a3 flex w-3/6 cursor-pointer items-center justify-center space-x-10 rounded-full border py-10"
         @click="googleLogin"
       >
         <Icon name="google" size="15"></Icon>
         <div class="text-base font-normal leading-lg">{{ $t('info.bindGoogle') }}</div>
       </div>
       <div
-        class="flex w-3/6 cursor-pointer items-center justify-center space-x-10 rounded-full border border-gray30 py-10"
+        class="border-gray-a3 flex w-3/6 cursor-pointer items-center justify-center space-x-10 rounded-full border py-10"
         @click="twitterLogin"
       >
         <Icon name="twitter" size="15"></Icon>

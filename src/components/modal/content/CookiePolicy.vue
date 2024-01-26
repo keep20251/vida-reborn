@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full w-full rounded-xl bg-gray05 py-30 pr-20">
+  <div class="bg-gray-f6 h-full w-full rounded-xl py-30 pr-20">
     <div class="scrollbar-md max-h-[37.5rem] overflow-y-scroll">
       <div class="flex flex-col space-y-20 px-20 text-base font-normal leading-lg">
         <div>{{ i18nPack.cp?.info.title }}</div>
@@ -7,26 +7,26 @@
         <div>{{ i18nPack.cp?.definitions.title }}</div>
         <table class="border-collapse">
           <tr>
-            <th class="border border-solid border-gray10 p-8">{{ i18nPack.cp?.definitions.table.title.a }}</th>
-            <th class="border border-solid border-gray10 p-8">{{ i18nPack.cp?.definitions.table.content.a }}</th>
+            <th class="border-gray-e5 border border-solid p-8">{{ i18nPack.cp?.definitions.table.title.a }}</th>
+            <th class="border-gray-e5 border border-solid p-8">{{ i18nPack.cp?.definitions.table.content.a }}</th>
           </tr>
           <tr>
-            <td class="border border-solid border-gray10 p-8">{{ i18nPack.cp?.definitions.table.title.b }}</td>
-            <td class="border border-solid border-gray10 p-8">{{ i18nPack.cp?.definitions.table.content.b }}</td>
+            <td class="border-gray-e5 border border-solid p-8">{{ i18nPack.cp?.definitions.table.title.b }}</td>
+            <td class="border-gray-e5 border border-solid p-8">{{ i18nPack.cp?.definitions.table.content.b }}</td>
           </tr>
           <tr>
-            <td class="border border-solid border-gray10 p-8">{{ i18nPack.cp?.definitions.table.title.c }}</td>
-            <td class="border border-solid border-gray10 p-8">{{ i18nPack.cp?.definitions.table.content.c }}</td>
+            <td class="border-gray-e5 border border-solid p-8">{{ i18nPack.cp?.definitions.table.title.c }}</td>
+            <td class="border-gray-e5 border border-solid p-8">{{ i18nPack.cp?.definitions.table.content.c }}</td>
           </tr>
           <tr>
-            <td class="border border-solid border-gray10 p-8">{{ i18nPack.cp?.definitions.table.title.d }}</td>
-            <td class="border border-solid border-gray10 p-8">
+            <td class="border-gray-e5 border border-solid p-8">{{ i18nPack.cp?.definitions.table.title.d }}</td>
+            <td class="border-gray-e5 border border-solid p-8">
               {{ i18nPack.cp?.definitions.table.content.d }}
             </td>
           </tr>
           <tr>
-            <td class="border border-solid border-gray10 p-8">{{ i18nPack.cp?.definitions.table.title.e }}</td>
-            <td class="border border-solid border-gray10 p-8">{{ i18nPack.cp?.definitions.table.content.e }}</td>
+            <td class="border-gray-e5 border border-solid p-8">{{ i18nPack.cp?.definitions.table.title.e }}</td>
+            <td class="border-gray-e5 border border-solid p-8">{{ i18nPack.cp?.definitions.table.content.e }}</td>
           </tr>
         </table>
         <div class="">{{ i18nPack.cp?.modifications.title }}</div>
@@ -39,22 +39,22 @@
             <th>{{ i18nPack.cp?.useCookie.table.content.a }}</th>
           </tr>
           <tr>
-            <td class="border border-solid border-gray10 p-8">{{ i18nPack.cp?.useCookie.table.title.b }}</td>
-            <td class="border border-solid border-gray10 p-8">{{ i18nPack.cp?.useCookie.table.content.b }}</td>
+            <td class="border-gray-e5 border border-solid p-8">{{ i18nPack.cp?.useCookie.table.title.b }}</td>
+            <td class="border-gray-e5 border border-solid p-8">{{ i18nPack.cp?.useCookie.table.content.b }}</td>
           </tr>
           <tr>
-            <td class="border border-solid border-gray10 p-8">{{ i18nPack.cp?.useCookie.table.title.c }}</td>
-            <td class="border border-solid border-gray10 p-8">{{ i18nPack.cp?.useCookie.table.content.c }}</td>
+            <td class="border-gray-e5 border border-solid p-8">{{ i18nPack.cp?.useCookie.table.title.c }}</td>
+            <td class="border-gray-e5 border border-solid p-8">{{ i18nPack.cp?.useCookie.table.content.c }}</td>
           </tr>
           <tr>
-            <td class="border border-solid border-gray10 p-8">{{ i18nPack.cp?.useCookie.table.title.d }}</td>
-            <td class="border border-solid border-gray10 p-8">
+            <td class="border-gray-e5 border border-solid p-8">{{ i18nPack.cp?.useCookie.table.title.d }}</td>
+            <td class="border-gray-e5 border border-solid p-8">
               {{ i18nPack.cp?.useCookie.table.content.d }}
             </td>
           </tr>
           <tr>
-            <td class="border border-solid border-gray10 p-8">{{ i18nPack.cp?.useCookie.table.title.e }}</td>
-            <td class="border border-solid border-gray10 p-8">{{ i18nPack.cp?.useCookie.table.content.e }}</td>
+            <td class="border-gray-e5 border border-solid p-8">{{ i18nPack.cp?.useCookie.table.title.e }}</td>
+            <td class="border-gray-e5 border border-solid p-8">{{ i18nPack.cp?.useCookie.table.content.e }}</td>
           </tr>
         </table>
         <div class="">{{ i18nPack.cp?.useCookie.content2 }}</div>

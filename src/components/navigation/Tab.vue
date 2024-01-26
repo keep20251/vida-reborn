@@ -3,7 +3,7 @@
     <div v-if="!!isBasicTab" class="flex h-full w-full flex-row space-x-2">
       <div
         v-for="option in options"
-        class="flex grow cursor-pointer flex-col items-center justify-center hover:bg-gray05"
+        class="hover:bg-gray-f6 flex grow cursor-pointer flex-col items-center justify-center"
         :key="option[optionValue]"
         @click="onClick(option[optionValue])"
       >
@@ -15,14 +15,14 @@
         </div>
         <div
           class="h-2 w-full rounded-full"
-          :class="[option[optionValue] === modelValue ? 'bg-black' : 'bg-gray30']"
+          :class="[option[optionValue] === modelValue ? 'bg-black' : 'bg-gray-a3']"
         ></div>
       </div>
     </div>
     <div v-if="!!isBtnTab" class="flex space-x-5">
       <div
         v-for="option in options"
-        class="flex cursor-pointer items-center justify-center rounded-full bg-gray03 px-15 py-5 hover:bg-gray05"
+        class="hover:bg-gray-f6 bg-gray-f6 flex cursor-pointer items-center justify-center rounded-full px-15 py-5"
         :key="option[optionValue]"
         @click="onClick(option[optionValue])"
       >

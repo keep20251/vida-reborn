@@ -3,7 +3,7 @@
     <input type="checkbox" class="hidden" :checked="isChecked" v-model="isChecked" :disabled="disabled" />
     <span
       class="slider mr-10 flex h-20 w-35 items-center rounded-full p-1 pl-3 duration-200"
-      :class="{ 'bg-primary': isChecked, 'bg-gray10': !isChecked, 'bg-gray36': disabled }"
+      :class="{ 'bg-primary': isChecked, 'bg-gray-e5': !isChecked, 'bg-gray-a3': disabled }"
     >
       <span
         class="dot h-14 w-14 rounded-full bg-white drop-shadow-[1px_1px_4px_rgba(0,0,0,0.25)] duration-200"

@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-20 text-center text-sm font-normal leading-lg text-gray66">{{ content }}</div>
+  <div class="text-gray-57 mb-20 text-center text-sm font-normal leading-lg">{{ content }}</div>
 </template>
 
 <script setup>

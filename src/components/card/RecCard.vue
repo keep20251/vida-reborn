@@ -2,20 +2,20 @@
   <div>
     <List :items="recCreators" item-key="id">
       <template #default="{ item, last }">
-        <div class="border-gray15 pb-20 pt-20" :class="{ 'border-b': !last }">
+        <div class="border-gray-e5 pb-20 pt-20" :class="{ 'border-b': !last }">
           <div class="flex grow items-center justify-between space-x-10">
             <Avatar :radius="30" :src="item.creator_avatar"></Avatar>
             <div class="flex grow flex-col space-y-5">
               <div class="flex space-x-5">
-                <div class="leading-md text-base font-bold">{{ item.creator_name }}</div>
+                <div class="text-base font-bold leading-md">{{ item.creator_name }}</div>
                 <div class="text-sm font-normal leading-3">@{{ item.creator_acc }}</div>
               </div>
               <div class="flex items-end space-x-5">
-                <div class="text-sm font-normal leading-3 text-gray66">
+                <div class="text-gray-57 text-sm font-normal leading-3">
                   {{ item.posts }} {{ $t('content.subscribers') }}
                 </div>
-                <div class="text-sm font-normal leading-3 text-gray66">•</div>
-                <div class="text-sm font-normal leading-3 text-gray66">
+                <div class="text-gray-57 text-sm font-normal leading-3">•</div>
+                <div class="text-gray-57 text-sm font-normal leading-3">
                   {{ item.sub_member }} {{ $t('content.view') }}
                 </div>
               </div>

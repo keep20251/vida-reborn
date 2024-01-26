@@ -4,24 +4,26 @@
       <div class="mb-10">Select country/region</div>
       <Dropdown v-model="dropdownValue" :options="options" inset> </Dropdown>
     </div>
-    <div class="text-center text-base font-normal leading-md text-gray66">Choose a document and start verification</div>
+    <div class="text-gray-57 text-center text-base font-normal leading-md">
+      Choose a document and start verification
+    </div>
     <div class="space-y-10">
-      <div class="flex cursor-pointer items-center justify-center space-x-10 rounded-md bg-gray03 py-5">
+      <div class="bg-gray-f6 flex cursor-pointer items-center justify-center space-x-10 rounded-md py-5">
         <Icon name="passport" size="50"></Icon>
         <div class="font-base font-normal leading-md">Passport</div>
       </div>
-      <div class="flex cursor-pointer items-center justify-center space-x-10 rounded-md bg-gray03 py-5">
+      <div class="bg-gray-f6 flex cursor-pointer items-center justify-center space-x-10 rounded-md py-5">
         <Icon name="identityCard" size="50"></Icon>
         <div class="font-base font-normal leading-md">Identity Card</div>
       </div>
-      <div class="flex cursor-pointer items-center justify-center space-x-10 rounded-md bg-gray03 py-5">
+      <div class="bg-gray-f6 flex cursor-pointer items-center justify-center space-x-10 rounded-md py-5">
         <Icon name="driverLicense" size="50"></Icon>
         <div class="font-base font-normal leading-md">Driver License</div>
       </div>
     </div>
   </div>
 
-  <div class="mb-20 text-center text-sm font-normal leading-lg text-gray66">{{ content }}</div>
+  <div class="text-gray-57 mb-20 text-center text-sm font-normal leading-lg">{{ content }}</div>
 </template>
 
 <script setup>
