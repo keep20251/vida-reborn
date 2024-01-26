@@ -7,17 +7,20 @@
       <Icon name="dropdown" size="8" class="transition-transform" :class="{ 'rotate-180': open }"></Icon>
     </div>
     <div
+      v-bind="containerProps"
       class="scrollbar absolute z-10 flex max-h-[300px] w-full flex-col overflow-auto rounded-xl bg-white shadow-[1px_1px_5px_0px_rgba(0,0,0,0.1)] transition-transform"
       :class="[{ 'scale-y-0': !open, 'scale-y-100': open }, optionStyle]"
     >
-      <div
-        v-for="option in options"
-        class="py-10 pl-15 text-base leading-md first:rounded-t-xl last:rounded-b-xl hover:bg-[#F1F1FF]"
-        :class="{ 'bg-[#F1F1FF]': option[optionValue] === modelValue }"
-        :key="option[optionValue]"
-        @click="onOptionClick(option[optionValue])"
-      >
-        {{ $t(option[optionLabel]) }}
+      <div v-bind="wrapperProps">
+        <div
+          v-for="item in list"
+          :key="item.index"
+          class="py-10 pl-15 text-base leading-md first:rounded-t-xl last:rounded-b-xl hover:bg-[#F1F1FF]"
+          :class="{ 'bg-[#F1F1FF]': item.data[optionValue] === modelValue }"
+          @click="onOptionClick(item.data[optionValue])"
+        >
+          {{ $t(item.data[optionLabel]) }}
+        </div>
       </div>
     </div>
   </div>
@@ -25,7 +28,7 @@
 
 <script setup>
 import { computed, onMounted, ref } from 'vue'
-import { useEventListener, useWindowSize } from '@vueuse/core'
+import { useEventListener, useVirtualList, useWindowSize } from '@vueuse/core'
 
 const props = defineProps({
   modelValue: { required: true },
@@ -34,6 +37,8 @@ const props = defineProps({
   optionValue: { type: String, default: 'value' },
   inset: { type: Boolean, default: false },
 })
+
+const { list, containerProps, wrapperProps } = useVirtualList(props.options, { itemHeight: 14 })
 
 const emits = defineEmits(['update:modelValue'])
 
