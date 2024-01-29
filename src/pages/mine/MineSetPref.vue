@@ -27,9 +27,10 @@ const mineStore = useMineStore()
 const { interested } = storeToRefs(mineStore)
 
 const options = ref([])
+const serverError = ref('')
 
 onMounted(() => {
-  interested.value = userData.interested.split(',').map(Number)
+  interested.value = userData.interested.split(',').map(Number) // 字串轉成陣列
   data()
 })
 
@@ -44,15 +45,16 @@ const data = async () => {
       label: $t(`category.${value}`),
     }))
   } catch (e) {
-    console.log(e)
+    console.error(e)
   }
 }
 
-const serverError = ref('')
 async function savePref() {
   const { execute } = useRequest('User.modifyInfo')
   try {
-    await execute({})
+    await execute({
+      interested: interested.value.join(','), // 陣列轉回字串
+    })
     console.log('成功囉！')
   } catch (e) {
     serverError.value = e.message
