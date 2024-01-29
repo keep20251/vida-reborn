@@ -35,13 +35,12 @@ export const useAppStore = defineStore('app', () => {
   const categories = ref([])
   async function initCategories() {
     const data = await useRequest('Article.categories', { immediate: true })
-    setCategories(data.list)
-    return data.list
+    const categories = Object.keys(data.list).map((k) => ({ label: `category.${k}`, value: k }))
+    setCategories(categories)
+    return categories
   }
   function setCategories(data) {
-    Object.entries(data).forEach(([value, label]) => {
-      categories.value.push({ label, value })
-    })
+    categories.value = [...data]
   }
 
   return {

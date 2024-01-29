@@ -52,11 +52,12 @@ const { appConfig, categories, userData } = storeToRefs(hydrationStore)
 
 const execTable = {
   base: [
-    { fetcher: initAppConfig, hydrationTarget: appConfig, hydrationAction: setAppConfig },
-    { fetcher: initCategories, hydrationTarget: categories, hydrationAction: setCategories },
+    { name: 'appConfig', fetcher: initAppConfig, hydrationTarget: appConfig, hydrationAction: setAppConfig },
+    { name: 'categories', fetcher: initCategories, hydrationTarget: categories, hydrationAction: setCategories },
   ],
   login: [
     {
+      name: 'userData',
       fetcher: async () => {
         const data = await useRequest('User.info', { immediate: true })
         resetUserData(data)
@@ -82,8 +83,9 @@ onServerClientOnce(async (isSSR) => {
 })
 onHydration(() => {
   const executors = isLogin.value ? [...execTable.base, ...execTable.login] : [...execTable.base]
-  executors.forEach(({ hydrationAction, hydrationTarget }, i) => {
+  executors.forEach(({ name, hydrationAction, hydrationTarget }, i) => {
     hydrationAction(hydrationTarget.value)
+    console.log('[Hydration]', name, 'is reverted', hydrationTarget.value)
   })
 })
 </script>
