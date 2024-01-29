@@ -7,7 +7,7 @@
         :options="countries"
         option-label="name"
         option-value="code"
-        disable-translate
+        disable-i18n
         inset
       ></Dropdown>
     </div>
