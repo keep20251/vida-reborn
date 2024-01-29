@@ -2,6 +2,7 @@ import { MODAL_TYPE } from '@const'
 import ApplyCreatorCert from './ApplyCreatorCert.vue'
 import CookiePolicy from './CookiePolicy.vue'
 import InterestedPick from './InterestedPick.vue'
+import PhotoCapture from './PhotoCapture.vue'
 import PrivacyPolicy from './PrivacyPolicy.vue'
 import SignUpSuccess from './SignUpSuccess.vue'
 import SocialLink from './SocialLink.vue'
@@ -18,6 +19,7 @@ export default Object.freeze({
 
   [MODAL_TYPE.INTERESTED_PICK]: InterestedPick,
   [MODAL_TYPE.APPLY_CREATOR_CERT]: ApplyCreatorCert,
+  [MODAL_TYPE.PHOTO_CAPTURE]: PhotoCapture,
 
   [MODAL_TYPE.PRIVACY_POLICY]: PrivacyPolicy,
   [MODAL_TYPE.TERMS_OF_SERVICE]: TermsOfService,
