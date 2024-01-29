@@ -115,7 +115,7 @@ export const useAccountStore = defineStore('account-store', () => {
         chatTokenCookie.value = v
       }
     }
-    userData.value = newData
+    userData.value = { ...newData }
   }
 
   function clearUserData() {

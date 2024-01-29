@@ -10,7 +10,7 @@ export function setupStoreHydrate(store) {
     if (!import.meta.env.DEV) {
       document.getElementById('ssr-state').remove()
     }
-    console.log('[hydration] Pinia hydration store is reverted')
+    console.log('[Hydration] Pinia hydration store is reverted', store.state.value.hydration)
   }
 }
 

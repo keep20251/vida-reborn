@@ -13,7 +13,7 @@
       <div class="relative inline-block w-full rounded-md">
         <div class="mt-[60%]"></div>
         <div class="absolute left-0 top-0 h-full w-full rounded-inherit">
-          <EncryptImage :src="url" :border-radius="10"></EncryptImage>
+          <EncryptImage :src="url" :border-radius="10" cover></EncryptImage>
         </div>
       </div>
     </div>

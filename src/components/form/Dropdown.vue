@@ -2,7 +2,7 @@
   <div class="relative cursor-pointer">
     <div ref="dropdown" class="flex items-center justify-between bg-white" :class="[style]" @click="onDropdownClick">
       <div class="text-base leading-md">
-        {{ props.disableTranslate ? selectedOptionLabel : $t(selectedOptionLabel) }}
+        {{ props.disableI18n ? selectedOptionLabel : $t(selectedOptionLabel) }}
       </div>
       <Icon name="dropdown" size="8" class="transition-transform" :class="{ 'rotate-180': open }"></Icon>
     </div>
@@ -15,11 +15,11 @@
         <div
           v-for="item in list"
           :key="item.index"
-          class="py-10 pl-15 text-base leading-md first:rounded-t-xl last:rounded-b-xl hover:bg-[#F1F1FF]"
+          class="py-10 pl-15 text-base first:rounded-t-xl last:rounded-b-xl hover:bg-[#F1F1FF]"
           :class="{ 'bg-[#F1F1FF]': item.data[optionValue] === modelValue }"
           @click="onOptionClick(item.data[optionValue])"
         >
-          {{ props.disableTranslate ? item.data[optionLabel] : $t(item.data[optionLabel]) }}
+          {{ props.disableI18n ? item.data[optionLabel] : $t(item.data[optionLabel]) }}
         </div>
       </div>
     </div>
@@ -36,11 +36,11 @@ const props = defineProps({
   optionLabel: { type: String, default: 'label' },
   optionValue: { type: String, default: 'value' },
   inset: { type: Boolean, default: false },
-  disableTranslate: { type: Boolean, default: true },
+  disableI18n: { type: Boolean, default: false },
 })
 
 const computedOptions = computed(() => props.options)
-const { list, containerProps, wrapperProps } = useVirtualList(computedOptions, { itemHeight: 14 })
+const { list, containerProps, wrapperProps } = useVirtualList(computedOptions, { itemHeight: 34 })
 
 const emits = defineEmits(['update:modelValue'])
 

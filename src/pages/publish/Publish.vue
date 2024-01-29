@@ -8,7 +8,7 @@
         <!-- 選擇主題 -->
         <div class="flex flex-col space-y-10">
           <label class="text-left text-base leading-md">選擇主題</label>
-          <Dropdown v-model="category" :options="options" inset></Dropdown>
+          <Dropdown v-model="publishParams.category" :options="categories" inset></Dropdown>
         </div>
 
         <!-- 上傳視頻 -->
@@ -66,32 +66,23 @@
         </div>
 
         <!-- 標題 -->
-        <InputWrap v-model="publishParams.title" :label="'標題'"></InputWrap>
+        <InputWrap v-model="publishParams.title" :label="'標題'" :err-msg="titleError"></InputWrap>
 
         <!-- 內文 -->
         <TextareaWrap
           v-model="publishParams.content"
           :label="'內文'"
           :placeholder="'填寫内文'"
+          :err-msg="contentError"
           :line="6"
         ></TextareaWrap>
 
         <!-- Tag -->
-        <div class="flex flex-col">
-          <label class="-mb-5 text-left text-base leading-md">Tag</label>
-          <OptionsPicker v-model="tag" :options="tagOptions"></OptionsPicker>
-          <InputWrap
-            class="mt-10"
-            v-model="tagInput"
-            :placeholder="'Add new tag...'"
-            :append-text-btn="'Add'"
-            @click:append="addTag"
-          ></InputWrap>
-        </div>
+        <TagEditor v-model="publishParams.tags" :err-msg="tagError"></TagEditor>
 
         <!-- 誰可以看到 -->
-        <div class="flex flex-col">
-          <label class="-mb-5 text-left text-base leading-md">
+        <div class="flex flex-col space-y-10">
+          <label class="text-left text-base leading-md">
             誰可以看到
             <span class="text-sm leading-3 text-gray-57">允許特定訂閱方案查看</span>
           </label>
@@ -99,9 +90,9 @@
         </div>
 
         <!-- 指定訂閱組 -->
-        <div v-if="publishParams.perm === FEED_PERM.SUB" class="flex flex-col">
-          <label class="-mb-5 text-left text-base leading-md">指定訂閱組</label>
-          <OptionsPicker v-model="publishParams.sub" :options="subOptions"></OptionsPicker>
+        <div v-if="publishParams.perm === FEED_PERM.SUB" class="flex flex-col space-y-10">
+          <label class="text-left text-base leading-md">指定訂閱組</label>
+          <OptionsPicker v-model="publishParams.subs" :options="subOptions"></OptionsPicker>
         </div>
 
         <!-- Price -->
@@ -111,6 +102,7 @@
           :label="'Price'"
           :sublabel="'單位：美金'"
           :placeholder="'9.99'"
+          :err-msg="moneyError"
           :append-text="'最高設置為90元'"
           :max-length="5"
         ></InputWrap>
@@ -124,7 +116,7 @@
           <InputWrap v-show="publishTimeOpen" v-model="postTimeModel" append-icon="calendar" disabled></InputWrap>
         </div>
 
-        <Button>發布</Button>
+        <Button :loading="publishing" @click="publish">發布</Button>
       </div>
     </template>
   </Page>
@@ -134,23 +126,31 @@
 import { computed, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
+import { useAppStore } from '@/store/app'
+import { useModalStore } from '@/store/modal'
 import { usePublishStore } from '@/store/publish'
 import Button from '@comp/common/Button.vue'
 import Dropdown from '@comp/form/Dropdown.vue'
 import InputSwitch from '@comp/form/InputSwitch.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
 import OptionsPicker from '@comp/form/OptionsPicker.vue'
+import TagEditor from '@comp/form/TagEditor.vue'
 import TextareaWrap from '@comp/form/TextareaWrap.vue'
 import Head from '@comp/navigation/Head.vue'
+import useRequest from '@use/request'
+import { useYup } from '@use/validator/yup.js'
 import { toDateTimeString } from '@/utils/string-helper'
-import { FEED_PERM, IMAGE_LIMIT_COUNT, UPLOAD_STATUS } from '@/constant/publish'
+import { FEED_PERM, IMAGE_LIMIT_COUNT, SUB_ALL_VALUE, UPLOAD_STATUS } from '@/constant/publish'
 
 const publishStore = usePublishStore()
-const { publishParams, uploadFiles, publishTimeOpen, isVideo, isImage, isEditing } = storeToRefs(publishStore)
-const { startUpload, clear, addImageFile, removeUploadFile } = publishStore
+const { uploadFiles, publishTimeOpen, isCreate, isUpdate, isVideo, isImage, isEditing } = storeToRefs(publishStore)
+const { publishParams, startUpload, clear, addImageFile, removeUploadFile } = publishStore
+
+const { alert, confirm } = useModalStore()
 
 const router = useRouter()
 
+const publishing = ref(false)
 const inputImage = ref(null)
 
 const video = ref(null)
@@ -169,57 +169,19 @@ watch(
   { immediate: true },
 )
 
-const category = ref(1)
-const options = ref([
-  { label: 'Option1', value: 1 },
-  { label: 'Option2', value: 2 },
-  { label: 'Option3', value: 3 },
-  { label: 'Option4', value: 4 },
-  { label: 'Option5', value: 5 },
-  { label: 'Option6', value: 6 },
-  { label: 'Option7', value: 7 },
-  { label: 'Option8', value: 8 },
-  { label: 'Option9', value: 9 },
-  { label: 'Option10', value: 10 },
-])
-
-const tagInput = ref('')
-const tag = ref([1, 3, 5])
-const tagOptions = ref([
-  { label: 'Tag1', value: 1 },
-  { label: 'Tag2', value: 2 },
-  { label: 'Tag3', value: 3 },
-  { label: 'Tag4', value: 4 },
-  { label: 'Tag5', value: 5 },
-  { label: 'Tag6', value: 6 },
-])
-function addTag() {
-  if (!tagInput.value) {
-    return
-  }
-  if (tagOptions.value.filter((t) => t.label === tagInput.value).length === 0) {
-    const value = new Date().getTime()
-    tagOptions.value.push({ label: tagInput.value, value })
-    tag.value.push(value)
-    tagInput.value = ''
-  }
-}
+const appStore = useAppStore()
+const { categories } = storeToRefs(appStore)
 
 const permOptions = ref([
   { label: '訂閱者', value: FEED_PERM.SUB },
   { label: '商店販售', value: FEED_PERM.BUY },
 ])
 
-const subOptions = ref([
-  { label: '全部', value: 1 },
-  { label: '鑽石訂閱', value: 2 },
-  { label: '黃金訂閱', value: 3 },
-  { label: '白金訂閱', value: 4 },
-])
+const subOptions = ref([{ label: '全部', value: SUB_ALL_VALUE }])
 
 const postTimeModel = computed(() => {
   if (publishTimeOpen.value) {
-    return toDateTimeString(publishParams.value.postTime).substring(0, 16)
+    return toDateTimeString(publishParams.postTime).substring(0, 16)
   }
   return ''
 })
@@ -234,5 +196,106 @@ function onImageFile(evt) {
 function onClose() {
   clear()
   router.back()
+}
+
+function publish() {
+  if (!validation()) return
+
+  const data = makeReqData()
+
+  publishing.value = true
+  useRequest('Article.publish', { params: data, immediate: true })
+    .then(() => {
+      alert({
+        title: '發布成功',
+        confirm: onClose,
+        fromCenter: true,
+      })
+    })
+    .catch((e) => {
+      alert({
+        title: '發布失敗',
+        content: e.message,
+      })
+    })
+    .finally(() => (publishing.value = false))
+}
+
+function makeReqData() {
+  const data = {
+    category: publishParams.category,
+    title: publishParams.title,
+    content: publishParams.content,
+    tags: publishParams.tags.join(','),
+    resource_type: publishParams.type,
+    article_type: publishParams.perm,
+  }
+
+  if (isUpdate.value) {
+    data.id = publishParams.id
+  }
+
+  if (publishParams.perm === FEED_PERM.SUB) {
+    if (publishParams.subs.includes(SUB_ALL_VALUE)) {
+      data.subscription_ids = 'all'
+    } else {
+      data.subscription_ids = publishParams.subs.join(',')
+    }
+  }
+
+  if (publishParams.perm === FEED_PERM.BUY) {
+    data.price = parseFloat(publishParams.money)
+  }
+
+  if (isVideo.value) {
+    data.content_url = uploadFiles.value[0].url
+  }
+
+  if (isImage.value) {
+    data.content_url = uploadFiles.value.map((f) => f.url).join(',')
+    data.content_width = uploadFiles.value.map((f) => f.width).join(',')
+    data.content_height = uploadFiles.value.map((f) => f.height).join(',')
+  }
+
+  return data
+}
+
+const { Yup, parseError } = useYup()
+const titleSchema = Yup.string().required()
+const titleError = ref('')
+const contentSchema = Yup.string().required()
+const contentError = ref('')
+const tagError = ref('')
+const moneySchema = Yup.number().positive()
+const moneyError = ref('')
+function validation() {
+  let result = true
+
+  titleError.value = ''
+  try {
+    titleSchema.validateSync(publishParams.title)
+  } catch (e) {
+    titleError.value = parseError(e)
+    result = false
+  }
+
+  contentError.value = ''
+  try {
+    contentSchema.validateSync(publishParams.content)
+  } catch (e) {
+    contentError.value = parseError(e)
+    result = false
+  }
+
+  if (publishParams.visible === FEED_PERM.BUY) {
+    try {
+      moneySchema.validateSync(publishParams.money)
+    } catch (e) {
+      moneyError.value = parseError(e)
+      result = false
+    }
+  }
+
+  return result
 }
 </script>

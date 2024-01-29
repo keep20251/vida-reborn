@@ -7,6 +7,7 @@ export const useHydrationStore = defineStore('hydration', () => {
 
   // 前置資料
   const appConfig = ref(null)
+  const categories = ref(null)
   const userData = ref(null)
 
   // route home
@@ -21,6 +22,7 @@ export const useHydrationStore = defineStore('hydration', () => {
 
   const prodData = {
     appConfig,
+    categories,
     userData,
 
     creator,
