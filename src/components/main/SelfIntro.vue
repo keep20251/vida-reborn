@@ -1,7 +1,7 @@
 <template>
   <div class="ml-[-20px] mr-[-20px] sm:ml-0 sm:mr-0 xl:ml-0 xl:mr-0">
     <div
-      class="bg-gray-57 relative mb-35 flex h-[180px] w-full bg-[url(https://i.postimg.cc/2yKgNXvn/ctrateBg.jpg)] bg-cover bg-center bg-no-repeat"
+      class="relative mb-35 flex h-[180px] w-full bg-gray-57 bg-[url(https://i.postimg.cc/2yKgNXvn/ctrateBg.jpg)] bg-cover bg-center bg-no-repeat"
     >
       <div
         v-if="showBgUpload"
@@ -35,16 +35,16 @@
       <div class="flex items-end justify-between">
         <div class="flex items-end space-x-5">
           <div class="text-lg font-bold leading-lg">{{ item.name }}</div>
-          <div class="text-gray-57 text-sm font-normal leading-3">＠{{ item.username }}</div>
+          <div class="text-sm font-normal leading-3 text-gray-57">＠{{ item.username }}</div>
         </div>
         <slot name="middleButton"></slot>
       </div>
       <div v-if="showPersonalInfo" class="grid space-y-10">
         <div class="flex items-end space-x-5">
           <div class="text-sm font-normal leading-3">{{ $t('info.myLink') }}</div>
-          <div class="text-gray-57 text-sm font-normal leading-3">{{ item.link }}</div>
-          <div class="text-gray-57 text-sm font-normal leading-3">•</div>
-          <div class="text-gray-57 text-sm font-normal leading-3">{{ item.viewed }} {{ $t('content.view') }}</div>
+          <div class="text-sm font-normal leading-3 text-gray-57">{{ item.link }}</div>
+          <div class="text-sm font-normal leading-3 text-gray-57">•</div>
+          <div class="text-sm font-normal leading-3 text-gray-57">{{ item.viewed }} {{ $t('content.view') }}</div>
         </div>
         <p class="text-base font-normal leading-lg">{{ item.info }}</p>
       </div>

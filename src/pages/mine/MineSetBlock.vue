@@ -9,14 +9,14 @@
           </div>
           <div
             @click="unblock(item.aff_blocked, index)"
-            class="text-gray-57 cursor-pointer text-base font-bold leading-lg"
+            class="cursor-pointer text-base font-bold leading-lg text-gray-57"
           >
             {{ $t('content.unblock') }}
           </div>
         </div>
       </template>
       <template #bottom>
-        <div class="text-gray-a3 flex items-center justify-center py-8">
+        <div class="flex items-center justify-center py-8 text-gray-a3">
           <Loading></Loading>{{ $t('common.noMore') }}
         </div>
       </template>

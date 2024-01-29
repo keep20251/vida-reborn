@@ -5,7 +5,7 @@
       v-if="decryptedBlob"
       :src="url"
       :alt="alt"
-      class="rounded-inherit h-full w-full"
+      class="h-full w-full rounded-inherit"
       :class="{ 'object-contain': !cover, 'object-cover': cover }"
     />
   </div>

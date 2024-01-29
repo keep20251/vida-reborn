@@ -9,13 +9,13 @@
               <Avatar class="mr-10" :radius="50" :src="item.avatar"></Avatar>
               <div class="flex flex-col space-y-4">
                 <div class="text-lg font-bold leading-lg">{{ item.name }}</div>
-                <div class="text-gray-57 text-sm font-normal leading-3">＠{{ item.username }}</div>
+                <div class="text-sm font-normal leading-3 text-gray-57">＠{{ item.username }}</div>
                 <div class="flex">
-                  <div class="text-gray-57 text-sm font-normal leading-3">
+                  <div class="text-sm font-normal leading-3 text-gray-57">
                     {{ item.posts }} {{ $t('content.posts') }}
                   </div>
-                  <div class="text-gray-57 mx-2 text-sm font-normal leading-3">•</div>
-                  <div class="text-gray-57 text-sm font-normal leading-3">
+                  <div class="mx-2 text-sm font-normal leading-3 text-gray-57">•</div>
+                  <div class="text-sm font-normal leading-3 text-gray-57">
                     {{ item.viewed }} {{ $t('content.view') }}
                   </div>
                 </div>

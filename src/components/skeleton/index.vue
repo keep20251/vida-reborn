@@ -1,3 +1,3 @@
 <template>
-  <div class="bg-gray-e5 rounded-inherit h-full w-full animate-pulse"></div>
+  <div class="h-full w-full animate-pulse rounded-inherit bg-gray-e5"></div>
 </template>

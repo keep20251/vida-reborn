@@ -2,12 +2,12 @@
   <div
     class="flex h-screen grow basis-full flex-row justify-start py-20 sm:basis-[540px] md:basis-[860px] xl:basis-[880px]"
   >
-    <div class="scrollbar-md border-l-gray-e5 mx-8 h-full w-[384px] overflow-auto border-l px-20 py-20">
+    <div class="scrollbar-md mx-8 h-full w-[384px] overflow-auto border-l border-l-gray-e5 px-20 py-20">
       <div class="flex flex-col space-y-20">
         <div class="text-lg font-bold leading-lg">Messages</div>
         <List :items="users" item-key="id">
           <template #default="{ item, last }">
-            <div class="hover:bg-gray-f6 flex cursor-pointer space-x-15 p-10" :class="{ 'border-b': !last }">
+            <div class="flex cursor-pointer space-x-15 p-10 hover:bg-gray-f6" :class="{ 'border-b': !last }">
               <div class="h-60 w-60 shrink-0 rounded-full bg-orange-200"></div>
               <div class="grow">
                 <div>

@@ -60,9 +60,9 @@
       </div>
     </div>
     <div v-if="includeTime">
-      <div class="bg-gray-a3 h-1"></div>
+      <div class="h-1 bg-gray-a3"></div>
       <div
-        class="gap-row-8 text-gray-57 placeholder:text-gray-a3 border-gray-cc mt-16 flex h-36 grow items-center divide-solid rounded-2xl bg-white px-20 py-12 text-sm font-normal not-italic leading-3 shadow-[inset_0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)]"
+        class="gap-row-8 mt-16 flex h-36 grow items-center divide-solid rounded-2xl border-gray-cc bg-white px-20 py-12 text-sm font-normal not-italic leading-3 text-gray-57 shadow-[inset_0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)] placeholder:text-gray-a3"
         :class="{ error: !!timeErr }"
       >
         <input

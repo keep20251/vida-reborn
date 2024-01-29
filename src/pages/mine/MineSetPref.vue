@@ -2,7 +2,7 @@
   <div class="border-t pt-20">
     <label class="text-base font-normal not-italic leading-md">{{ $t('title.prefer') }}： </label>
     <OptionsPicker v-model="interested" :options="options" class="!justify-start"></OptionsPicker>
-    <div class="text-gray-57 py-20 text-sm font-normal leading-3">{{ $t('label.multiple') }}</div>
+    <div class="py-20 text-sm font-normal leading-3 text-gray-57">{{ $t('label.multiple') }}</div>
     <Button @click="savePref">{{ $t('common.save') }}</Button>
     <div v-if="!!serverError" class="text-sm font-normal leading-md text-warning">{{ serverError }}</div>
   </div>

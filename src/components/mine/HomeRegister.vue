@@ -18,7 +18,7 @@
             <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
           </template>
           <template #bottom>
-            <div class="text-gray-a3 flex items-center justify-center py-8">
+            <div class="flex items-center justify-center py-8 text-gray-a3">
               <Loading></Loading> {{ $t('common.loading') }}
             </div>
           </template>

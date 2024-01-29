@@ -4,7 +4,7 @@
     <div class="flex h-30 w-full items-center">
       <Avatar :radius="30" class="mr-5" :src="defaultAvatar"></Avatar>
       <div class="grow text-base font-bold leading-none">{{ props.item.nickname }}</div>
-      <div class="text-gray-57 grow text-right text-sm font-medium leading-5">{{ props.item.postTime }} minutes</div>
+      <div class="grow text-right text-sm font-medium leading-5 text-gray-57">{{ props.item.postTime }} minutes</div>
       <Icon name="moreVertical" size="20"></Icon>
     </div>
 
@@ -12,7 +12,7 @@
     <div>
       <div class="relative inline-block w-full rounded-md">
         <div class="mt-[60%]"></div>
-        <div class="rounded-inherit absolute left-0 top-0 h-full w-full">
+        <div class="absolute left-0 top-0 h-full w-full rounded-inherit">
           <EncryptImage :src="url" :border-radius="10"></EncryptImage>
         </div>
       </div>
@@ -60,7 +60,7 @@
             {{ props.item.content }}
           </div>
         </div>
-        <div class="text-gray-57 text-base leading-lg">more</div>
+        <div class="text-base leading-lg text-gray-57">more</div>
       </div>
     </div>
   </div>

@@ -25,7 +25,7 @@
         </div>
         <div class="px-20 transition-all" :class="[{ 'max-h-[1000px]': subItem.open, 'max-h-0': !subItem.open }]">
           <span
-            class="text-gray-57 text-sm font-normal leading-md transition-all delay-300"
+            class="text-sm font-normal leading-md text-gray-57 transition-all delay-300"
             :class="{ flex: subItem.open, hidden: !subItem.open || !section.open }"
             >{{ subItem.subContent }}</span
           >

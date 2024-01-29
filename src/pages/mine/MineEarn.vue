@@ -19,13 +19,13 @@
     <div class="grid space-y-40">
       <div class="mt-20 flex items-center justify-center space-x-20 px-20">
         <div
-          class="bg-gray-f6 flex w-full cursor-pointer items-center justify-center rounded-full py-6 text-base font-normal leading-md"
+          class="flex w-full cursor-pointer items-center justify-center rounded-full bg-gray-f6 py-6 text-base font-normal leading-md"
         >
           2023-12-31
         </div>
         <div><Icon name="calendar" size="20"></Icon></div>
         <div
-          class="bg-gray-f6 flex w-full cursor-pointer items-center justify-center rounded-full py-6 text-base font-normal leading-md"
+          class="flex w-full cursor-pointer items-center justify-center rounded-full bg-gray-f6 py-6 text-base font-normal leading-md"
         >
           2023-12-31
         </div>
@@ -63,13 +63,13 @@
   <div v-else-if="tab === 2">
     <div class="mb-10 mt-20 flex items-center justify-center space-x-20 px-20">
       <div
-        class="bg-gray-f6 flex w-full cursor-pointer items-center justify-center rounded-full py-6 text-base font-normal leading-md"
+        class="flex w-full cursor-pointer items-center justify-center rounded-full bg-gray-f6 py-6 text-base font-normal leading-md"
       >
         2023-12-31
       </div>
       <div><Icon name="calendar" size="20"></Icon></div>
       <div
-        class="bg-gray-f6 flex w-full cursor-pointer items-center justify-center rounded-full py-6 text-base font-normal leading-md"
+        class="flex w-full cursor-pointer items-center justify-center rounded-full bg-gray-f6 py-6 text-base font-normal leading-md"
       >
         2023-12-31
       </div>
