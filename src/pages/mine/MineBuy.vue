@@ -25,20 +25,17 @@
 </template>
 <script setup>
 import { ref } from 'vue'
-import { useI18n } from 'vue-i18n'
 import RecCard from '@comp/card/RecCard.vue'
 import List from '@comp/common/List.vue'
 import Feed from '@comp/main/Feed.vue'
 import TransactionList from '@comp/mine/TransactionList.vue'
 import Tab from '@comp/navigation/Tab.vue'
 
-const { t: $t } = useI18n()
-
 const tab = ref(1)
 const tabOptions = ref([
-  { label: $t('label.texn'), value: 1 },
-  { label: $t('label.subs'), value: 2 },
-  { label: $t('label.artPur'), value: 3 },
+  { label: 'label.texn', value: 1 },
+  { label: 'label.subs', value: 2 },
+  { label: 'label.artPur', value: 3 },
 ])
 
 const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])

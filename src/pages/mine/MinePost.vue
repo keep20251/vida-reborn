@@ -71,25 +71,22 @@
 </template>
 <script setup>
 import { ref } from 'vue'
-import { useI18n } from 'vue-i18n'
 import List from '@comp/common/List.vue'
 import Loading from '@comp/common/Loading.vue'
 import Feed from '@comp/main/Feed.vue'
 import Tab from '@comp/navigation/Tab.vue'
 
-const { t: $t } = useI18n()
-
 const tab = ref(1)
 const tabOptions = ref([
-  { label: $t('common.subscribe'), value: 1 },
-  { label: $t('label.sale'), value: 2 },
-  { label: $t('label.scheduledRelease'), value: 3 },
+  { label: 'common.subscribe', value: 1 },
+  { label: 'label.sale', value: 2 },
+  { label: 'label.scheduledRelease', value: 3 },
 ])
 
 const tabBtn = ref(1)
 const tabBtnOptions = ref([
-  { label: $t('info.img'), value: 1 },
-  { label: $t('info.video'), value: 2 },
+  { label: 'info.img', value: 1 },
+  { label: 'info.video', value: 2 },
 ])
 const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
 

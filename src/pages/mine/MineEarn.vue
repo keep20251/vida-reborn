@@ -81,17 +81,14 @@
 </template>
 <script setup>
 import { ref } from 'vue'
-import { useI18n } from 'vue-i18n'
 import Button from '@comp/common/Button.vue'
 import EarnPostCard from '@comp/mine/EarnPostCard.vue'
 import Tab from '@comp/navigation/Tab.vue'
 
-const { t: $t } = useI18n()
-
 const tab = ref(1)
 const tabOptions = ref([
-  { label: $t('label.overallPerf'), value: 1 },
-  { label: $t('label.postPerf'), value: 2 },
+  { label: 'label.overallPerf', value: 1 },
+  { label: 'label.postPerf', value: 2 },
 ])
 
 const medias = ref([
