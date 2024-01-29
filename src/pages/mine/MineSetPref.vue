@@ -40,7 +40,7 @@ const data = async () => {
 
     // 將後端取得的 categories.list 轉換為 options 格式
     options.value = Object.entries(categories.list).map(([value, label]) => ({
-      value: parseInt(value, 10),
+      value: parseInt(value, 10), // 確保解析的值是十進制
       label: $t(`category.${value}`),
     }))
   } catch (e) {
