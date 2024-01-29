@@ -1,8 +1,9 @@
 import imageCompression from 'browser-image-compression'
 import { computed, reactive, readonly, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { defineStore } from 'pinia'
-import { FEED_PERM, IMAGE_LIMIT_COUNT, MEDIA_TYPE, UPLOAD_STATUS } from '@/constant/publish'
+import { defineStore, storeToRefs } from 'pinia'
+import { useAppStore } from '@/store/app'
+import { FEED_PERM, IMAGE_LIMIT_COUNT, MEDIA_TYPE, SUB_ALL_VALUE, UPLOAD_STATUS } from '@/constant/publish'
 import uploadImage from '@/http/upload/uploadImage'
 import uploadVideo from '@/http/upload/uploadVideo'
 
@@ -26,7 +27,7 @@ const DEFAULT_PUBLISH_PARAMS = {
   tags: [],
   type: null,
   perm: FEED_PERM.SUB,
-  subs: [],
+  subs: [SUB_ALL_VALUE],
   price: null,
 
   // 影片只會有一個，圖片會有多個(目前預定10個)
@@ -102,6 +103,9 @@ export const usePublishStore = defineStore('publish', () => {
     },
   })
 
+  const appStore = useAppStore()
+  const { categories } = storeToRefs(appStore)
+
   function setFile(files) {
     checkFileType(files)
 
@@ -110,6 +114,8 @@ export const usePublishStore = defineStore('publish', () => {
     for (const file of files) {
       pushUploadFile(file)
     }
+
+    publishParams.category = categories.value[0].value
 
     startEditTimestamp.value = new Date().getTime()
   }
@@ -251,9 +257,6 @@ export const usePublishStore = defineStore('publish', () => {
         .then(videoObjectUrlExtract)
         .then(videoPropertyExtract(videoRef))
         .then(videoUpload)
-        .then((uploadFile) => {
-          publishParams.videoPath = uploadFile.url
-        })
     }
 
     if (isImage.value) {
@@ -413,6 +416,7 @@ function imageUpload(uploadFile) {
       .then((url) => {
         uploadFile.status = UPLOAD_STATUS.DONE
         uploadFile.url = url
+        resolve(uploadFile)
       })
       .catch((err) => {
         uploadFile.status = UPLOAD_STATUS.FAIL

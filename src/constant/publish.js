@@ -18,3 +18,5 @@ export const UPLOAD_STATUS = {
 }
 
 export const IMAGE_LIMIT_COUNT = 10
+
+export const SUB_ALL_VALUE = -1
