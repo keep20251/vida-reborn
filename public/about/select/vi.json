@@ -1,774 +1,251 @@
 [
-  { "code": "cp.cp.info.title", "name": "Chính sách cookie" },
-  {
-    "code": "cp.cp.info.content",
-    "name": "Chính sách này không đề cập đến cách chúng tôi xử lý thông tin cá nhân của bạn. Để tìm hiểu thêm về cách chúng tôi thu thập và xử lý thông tin cá nhân của bạn, vui lòng xem Chính sách quyền riêng tư của chúng tôi. Chính sách này giải thích thêm về cách chúng tôi sử dụng Cookie và các lựa chọn liên quan của bạn. Bằng cách sử dụng Dịch vụ, bạn đồng ý rõ ràng với các phương pháp xử lý thông tin cũng như việc lưu trữ và truy cập Cookie như được mô tả trong Chính sách này"
-  },
-  { "code": "cp.cp.definitions.title", "name": "Các định nghĩa" },
-  { "code": "cp.cp.definitions.table.title.a", "name": "Thuật ngữ" },
-  { "code": "cp.cp.definitions.table.title.b", "name": "Chính sách\"" },
-  { "code": "cp.cp.definitions.table.title.c", "name": "VIDA”, “chúng tôi” hoặc “chúng tôi”" },
-  { "code": "cp.cp.definitions.table.title.d", "name": "Dịch vụ\"" },
-  { "code": "cp.cp.definitions.table.title.e", "name": "\"Bánh quy\"" },
-  { "code": "cp.cp.definitions.table.content.a", "name": "Sự định nghĩa" },
-  { "code": "cp.cp.definitions.table.content.b", "name": "Chính sách cookie như được nêu trong tài liệu này." },
-  { "code": "cp.cp.definitions.table.content.c", "name": "VIDA, giao dịch dưới tên VIDA." },
-  {
-    "code": "cp.cp.definitions.table.content.d",
-    "name": "Trang web VIDA, đặt tại VIDA và bất kỳ trang web, ứng dụng hoặc dịch vụ nào khác do chúng tôi cung cấp, sở hữu hoặc vận hành có liên kết với Chính sách này."
-  },
-  {
-    "code": "cp.cp.definitions.table.content.e",
-    "name": "Một phần dữ liệu nhỏ được lưu trữ trên thiết bị của bạn để giúp các trang web và ứng dụng dành cho thiết bị di động ghi nhớ những điều về bạn. Các công nghệ khác, bao gồm lưu trữ trên web và số nhận dạng được liên kết với thiết bị của bạn, có thể được sử dụng cho các mục đích tương tự."
-  },
-  { "code": "cp.cp.modifications.title", "name": "Sửa đổi" },
-  {
-    "code": "cp.cp.modifications.content",
-    "name": "Chúng tôi có quyền thay đổi các Điều khoản này bất kỳ lúc nào. Nếu chúng tôi thực hiện thay đổi, chúng tôi sẽ thông báo cho bạn bằng cách sửa lại ngày ở cuối Điều khoản và trong một số trường hợp, chúng tôi sẽ cung cấp cho bạn thông báo bổ sung (chẳng hạn như thêm tuyên bố vào trang chủ của chúng tôi hoặc gửi cho bạn thông báo qua email). Để tuân thủ Quy định (EU) 2019/1150 (\"Quy định về nền tảng kinh doanh\" hoặc \"P2BR\"), chúng tôi sẽ gửi thông báo trước ít nhất 15 ngày về bất kỳ thay đổi nào đối với các Điều khoản này trên \"phương tiện lâu dài\" (như được xác định trong P2BR), ngoài những thay đổi được nêu trong Điều 3 (4) của P2BR. Những thay đổi đối với các Điều khoản này có hiệu lực vào thời điểm chúng được xuất bản. Việc bạn tiếp tục sử dụng Dịch vụ sau ngày Điều khoản sửa đổi có hiệu lực sẽ cấu thành sự chấp nhận của bạn đối với Điều khoản. Giấy phép sử dụng Dịch vụ Theo các Điều khoản này, VIDA cấp cho bạn quyền cá nhân, toàn cầu, miễn phí bản quyền, không thể chuyển nhượng, không độc quyền , có thể hủy bỏ và không thể cấp phép lại để truy cập và sử dụng Dịch vụ. Giấy phép này chỉ nhằm mục đích duy nhất là cho phép bạn sử dụng và tận hưởng các lợi ích của Dịch vụ như VIDA dự định và được các Điều khoản này cho phép."
-  },
-  { "code": "cp.cp.useCookie.title", "name": "Cách chúng tôi sử dụng cookie" },
-  {
-    "code": "cp.cp.useCookie.content1",
-    "name": "VIDA sử dụng Cookie, bao gồm Cookie của bên thứ ba, vì một số lý do, như bảo vệ dữ liệu và tài khoản VIDA của bạn, giúp chúng tôi biết tính năng nào phổ biến nhất, đếm khách truy cập vào một trang, cải thiện trải nghiệm của người dùng, duy trì dịch vụ của chúng tôi bảo mật, cung cấp quảng cáo có liên quan và cung cấp cho bạn trải nghiệm tốt hơn, trực quan hơn và thỏa mãn hơn. Cookie chúng tôi sử dụng thường thuộc một trong các loại sau."
-  },
-  {
-    "code": "cp.cp.useCookie.content2",
-    "name": "Chúng tôi cũng có thể sử dụng các công nghệ tương tự như thẻ pixel, GIF rõ ràng và đèn hiệu web kết hợp với Cookie để theo dõi hoạt động trên Dịch vụ của chúng tôi. Trừ khi bạn tắt Cookies, khi bạn truy cập một trang web, những công nghệ này có thể cho chúng tôi biết rằng bạn đã truy cập. Những công nghệ này cũng có thể cho chúng tôi biết liệu bạn có nhận được email của chúng tôi hay không."
-  },
-  { "code": "cp.cp.useCookie.table.title.a", "name": "Loại" },
-  { "code": "cp.cp.useCookie.table.title.b", "name": "Cần thiết" },
-  { "code": "cp.cp.useCookie.table.title.c", "name": "Sở thích" },
-  { "code": "cp.cp.useCookie.table.title.d", "name": "Hiệu suất" },
-  { "code": "cp.cp.useCookie.table.title.e", "name": "Tiếp thị" },
-  { "code": "cp.cp.useCookie.table.content.a", "name": "Tại sao chúng tôi sử dụng những Cookie này" },
-  {
-    "code": "cp.cp.useCookie.table.content.b",
-    "name": "Chúng tôi sử dụng các Cookie này để chạy Dịch vụ của mình cũng như để xác định và ngăn chặn các rủi ro bảo mật. Ví dụ: chúng tôi có thể sử dụng các Cookie này để lưu trữ thông tin phiên của bạn."
-  },
-  {
-    "code": "cp.cp.useCookie.table.content.c",
-    "name": "Chúng tôi sử dụng các Cookie này để ghi nhớ các cài đặt và tùy chọn của bạn cũng như để cải thiện trải nghiệm của bạn trên Dịch vụ của chúng tôi. Ví dụ: chúng tôi có thể sử dụng các Cookie này để ghi nhớ tùy chọn ngôn ngữ của bạn."
-  },
-  {
-    "code": "cp.cp.useCookie.table.content.d",
-    "name": "Chúng tôi sử dụng các Cookie này để thu thập thông tin về cách bạn sử dụng Dịch vụ của chúng tôi cũng như theo dõi và cải thiện hiệu suất Dịch vụ của chúng tôi."
-  },
-  {
-    "code": "cp.cp.useCookie.table.content.e",
-    "name": "Chúng tôi sử dụng các Cookie này để phân phối quảng cáo, làm cho chúng phù hợp và có ý nghĩa hơn với người tiêu dùng cũng như để theo dõi hiệu quả của các chiến dịch quảng cáo của chúng tôi."
-  },
-  { "code": "cp.cp.analyticsAd.title", "name": "Nhà cung cấp phân tích và quảng cáo" },
-  {
-    "code": "cp.cp.analyticsAd.content",
-    "name": "VIDA có thể cho phép các công ty khác sử dụng Cookie trên Dịch vụ của chúng tôi. Các công ty này có thể thu thập thông tin về cách bạn sử dụng Dịch vụ của chúng tôi theo thời gian và kết hợp thông tin đó với thông tin tương tự từ các dịch vụ và công ty khác. Thông tin này có thể được sử dụng để phân tích và theo dõi dữ liệu, xác định mức độ phổ biến của một số nội dung nhất định và hiểu rõ hơn về hoạt động trực tuyến của bạn. Chúng tôi có thể thu thập thông tin về hoạt động của bạn trên các dịch vụ của bên thứ ba sử dụng Cookie do chúng tôi cung cấp. Chúng tôi sử dụng thông tin này để cải thiện dịch vụ quảng cáo của mình, bao gồm đo lường hiệu suất của quảng cáo và hiển thị cho bạn những quảng cáo có liên quan hơn."
-  },
-  { "code": "cp.cp.choices.title", "name": "Lựa chọn của bạn" },
-  {
-    "code": "cp.cp.choices.content",
-    "name": "Trình duyệt của bạn có thể cung cấp cho bạn tùy chọn từ chối một số hoặc tất cả Cookie của trình duyệt. Bạn cũng có thể xóa Cookies khỏi trình duyệt của mình. Để biết thêm thông tin về cách quản lý hoặc tắt Cookie, vui lòng làm theo hướng dẫn do trình duyệt của bạn cung cấp hoặc xem www.allaboutcookies.org/manage-cookies Một số tính năng của Dịch vụ có thể không hoạt động như dự định nếu bạn tắt Cookie."
-  },
-  { "code": "cp.cp.contact.title", "name": "Liên hệ" },
-  {
-    "code": "cp.cp.contact.content",
-    "name": "Các câu hỏi hoặc thắc mắc liên quan đến các Điều khoản này có thể được gửi tới support@VIDA. Xin lưu ý rằng thông tin liên lạc qua email không nhất thiết phải được bảo mật; do đó, bạn không nên đưa thông tin thẻ tín dụng hoặc thông tin nhạy cảm khác vào thư điện tử của bạn với chúng tôi. Các truy vấn về thanh toán phải được chuyển đến Billing@VIDA"
-  },
-  { "code": "cp.cp.miscellaneous.title", "name": "Điều khoản khác" },
-  {
-    "code": "cp.cp.miscellaneous.content",
-    "name": "Các Điều khoản này không và sẽ không được hiểu là tạo ra bất kỳ mối quan hệ đối tác, liên doanh, chủ lao động-nhân viên, đại lý hoặc bên nhượng quyền-nhượng quyền nào giữa bạn và VIDA. Nếu bất kỳ điều khoản nào trong các Điều khoản này bị phát hiện là bất hợp pháp, vô hiệu hoặc không thể thi hành vì bất kỳ lý do nào thì điều khoản đó sẽ được coi là có thể tách rời khỏi các Điều khoản này và sẽ không ảnh hưởng đến hiệu lực cũng như khả năng thực thi của bất kỳ điều khoản nào còn lại. Bạn không được chuyển nhượng, chuyển nhượng hoặc cấp phép lại bất kỳ hoặc tất cả các quyền hoặc nghĩa vụ của mình theo các Điều khoản này mà không có sự đồng ý trước bằng văn bản rõ ràng của chúng tôi. Chúng tôi có thể chuyển nhượng, chuyển giao hoặc cấp phép lại bất kỳ hoặc tất cả các quyền hoặc nghĩa vụ của chúng tôi theo các Điều khoản này mà không bị hạn chế. Việc từ bỏ của một trong hai bên đối với bất kỳ vi phạm hoặc vi phạm nào dưới đây sẽ không được coi là sự từ bỏ bất kỳ vi phạm hoặc vi phạm nào trước đó hoặc sau đó. Bất kỳ tiêu đề, chú thích hoặc tiêu đề phần nào trong tài liệu này chỉ được chèn vào nhằm mục đích thuận tiện và không xác định hay giải thích bất kỳ phần hoặc điều khoản nào trong tài liệu này. Điều này, cùng với tất cả các chính sách được đề cập ở đây, là toàn bộ thỏa thuận giữa bạn và VIDA liên quan đến chủ đề ở đây và thay thế bất kỳ và tất cả các thỏa thuận hoặc hiểu biết bằng văn bản hoặc bằng miệng trước đó hoặc đương thời giữa bạn và VIDA liên quan đến chủ đề đó vấn đề. Thông báo cho bạn có thể được thực hiện thông qua việc đăng lên Dịch vụ, qua e-mail hoặc bằng thư thông thường, theo quyết định riêng của VIDA. Dịch vụ cũng có thể cung cấp thông báo về các thay đổi đối với các Điều khoản này hoặc các vấn đề khác bằng cách hiển thị các thông báo đó hoặc bằng cách cung cấp liên kết đến các thông báo đó. Không giới hạn, bạn đồng ý rằng phiên bản in của các Điều khoản này và bất kỳ thông báo nào được đưa ra dưới dạng điện tử sẽ được chấp nhận trong các thủ tục tố tụng tư pháp hoặc hành chính dựa trên hoặc liên quan đến các Điều khoản này ở cùng mức độ và tuân theo các điều kiện giống như các tài liệu và tài liệu kinh doanh khác. hồ sơ ban đầu được tạo ra và duy trì ở dạng in. VIDA sẽ không chịu trách nhiệm về việc không thực hiện bất kỳ nghĩa vụ nào do những nguyên nhân nằm ngoài tầm kiểm soát của nó."
-  },
-  { "code": "cp.cp.language.title", "name": "Ngôn ngữ" },
-  {
-    "code": "cp.cp.language.content",
-    "name": "Các Điều khoản này ban đầu được viết bằng tiếng Anh. Trong trường hợp bất kỳ phiên bản dịch nào của các Điều khoản này xung đột với phiên bản tiếng Anh thì phiên bản tiếng Anh sẽ kiểm soát. Sửa đổi lần cuối: Tháng 7 năm 2023 © 2023 VIDA trừ khi có ghi chú khác. Đã đăng ký Bản quyền."
-  },
-  { "code": "cp.cp.final", "name": "Sửa đổi lần cuối: tháng 7 năm 2023" },
-  { "code": "cp.cp.VIDA", "name": "© 2023 VIDA One Trừ khi có quy định khác. Đã đăng ký Bản quyền." },
-  { "code": "creator.creator.become.title", "name": "Trở nên" },
-  { "code": "creator.creator.become.a.subtitle", "name": "Làm thế nào để tôi trở thành Người sáng tạo?" },
-  {
-    "code": "creator.creator.become.a.content",
-    "name": "VIDA là một trong những trang web người lớn lớn nhất và nổi tiếng nhất trên Internet. Chúng tôi tự hào về việc tạo ra một nền tảng giúp người đăng ký dễ dàng bày tỏ sự đánh giá cao và tương tác với cộng đồng của chúng tôi. Khi chúng tôi tiếp tục phát triển trên toàn thế giới, chúng tôi luôn tìm kiếm những Người sáng tạo mới tham gia nền tảng của chúng tôi. Nếu bạn mong muốn trở thành Người sáng tạo, bạn đã đến đúng nơi! Đây là cơ hội để bạn trở thành một phần của nền tảng độc quyền, được quảng bá rộng rãi và được ngưỡng mộ trên toàn cầu. Để giúp bạn hiểu rõ hơn về câu thần chú lấy Người sáng tạo làm trung tâm, chúng tôi nêu bật các khoản thanh toán tiêu chuẩn trong ngành, trong đó bạn nhận được 80% tổng số tiền chi tiêu trên trang của mình. Có hàng triệu khách truy cập mỗi ngày chỉ trên nguồn cấp dữ liệu chính của chúng tôi, một lượng khán giả háo hức đang chờ đợi bạn để tương tác với bạn và thưởng cho bạn vì sự nỗ lực của bạn. Là điểm đến giải trí dành cho người lớn hàng đầu trên thế giới, tại VIDA, tất cả chúng tôi đều chú trọng đến chất lượng cũng như trải nghiệm thú vị nhất đối với người dùng và Người sáng tạo. Vì vậy, chúng tôi chỉ tìm kiếm những điều tốt nhất, nếu bạn nghĩ đây là điều bạn nên tham gia cùng chúng tôi! Chỉ cần vào Trang chủ và nhấn Trở thành Người sáng tạo."
-  },
-  {
-    "code": "creator.creator.become.b.subtitle",
-    "name": "Tôi cần bao nhiêu nội dung trước khi có thể kích hoạt tài khoản của mình?"
-  },
-  {
-    "code": "creator.creator.become.b.content",
-    "name": "Khi bạn đã hoàn tất quy trình xác minh danh tính, tất cả những gì bạn cần là một phần nội dung để bắt đầu trên VIDA. Mỗi phần nội dung đều được đánh giá về chất lượng và đảm bảo nó không vi phạm bất kỳ điều khoản dịch vụ nào. Đừng quên nếu bạn đăng nội dung với tư cách là người sáng tạo không có khuôn mặt, tức là không bao giờ hiển thị khuôn mặt của bạn ở nơi chỉ có thể nhìn thấy cơ thể của bạn, bạn sẽ phải: Tải lên một bức ảnh khỏa thân có toàn bộ cơ thể của bạn bao gồm cả khuôn mặt được nhìn thấy rõ ràng (cùng nhau) và chọn hình ảnh xác minh Nó sẽ không được công khai mà chỉ được sử dụng cho mục đích bảo mật. Điều quan trọng là phải có một hồ sơ sinh động với các cập nhật nội dung thường xuyên nhằm mang lại cơ hội tương tác cho người đăng ký. Nếu bạn tải lên ít nội dung hoặc thiếu cập nhật thường xuyên, bạn sẽ khó có được người đăng ký hoặc có nguy cơ mất người đăng ký và phát sinh các khoản bồi hoàn. Bạn chịu trách nhiệm về tiềm năng của chính mình, đặc biệt là khi nói đến việc tối đa hóa thu nhập có thể đạt được của bạn. Chúng tôi thực sự khuyên bạn nên tạo video giới thiệu (tối đa 1 phút, theo chiều dọc) để đưa vào nguồn cấp dữ liệu chính. Để được đưa vào nguồn cấp dữ liệu chính, nội dung của bạn phải có chú thích hoặc tiêu đề và có ít nhất 3 thẻ!"
-  },
-  { "code": "creator.creator.become.c.subtitle", "name": "Nguồn cấp dữ liệu hoạt động như thế nào?" },
-  {
-    "code": "creator.creator.become.c.content",
-    "name": "Dạng ngắn Nguồn cấp dữ liệu trên nền tảng của chúng tôi được sắp xếp theo hầu hết các video phổ biến. Mức độ phổ biến được đo bằng tỷ lệ lượt xem trên lượt thích. Các video mới tải lên sẽ được thêm vào nguồn cấp dữ liệu sau mỗi lần vuốt thứ 10 cho đến khi chúng đạt được xếp hạng có ý nghĩa thống kê, sau đó chúng nhận được vị trí cố định trong bảng xếp hạng. Nhờ việc sắp xếp nguồn cấp dữ liệu của chúng tôi, mọi video mới tải lên đều được tiếp cận với hàng triệu người xem tiềm năng và có cơ hội được xếp hạng như nhau. Vì lưu lượng truy cập của chúng tôi lớn hơn đáng kể so với số lượng video mới tải lên nên video của bạn sẽ được hiển thị ngay lập tức và sẽ nhanh chóng được xếp hạng. Nếu muốn nổi bật trên nguồn cấp dữ liệu của chúng tôi, bạn cần đảm bảo nội dung của mình có chú thích và ít nhất 3 thẻ, điều này cũng sẽ giúp nội dung của bạn được tìm thấy trong các tìm kiếm từ người dùng của chúng tôi. Nguồn cấp dữ liệu công cộng (Người dùng chưa được xác minh) Khi người dùng truy cập trang web mà không đăng nhập, họ sẽ nhận được nguồn cấp dữ liệu toàn cầu hoặc theo quốc gia cụ thể. Nguồn cấp dữ liệu của họ sẽ hiển thị: Các video hàng đầu toàn cầu hoặc khu vực trong ngày (5 đến 10 video) Các video mới được tải lên trong một giờ qua (ngẫu nhiên, 2 video) Lặp lại Trải nghiệm người dùng này hiển thị nội dung hàng đầu trước tiên. Sau vài lần cuộn, nội dung mới sẽ được thêm vào nguồn cấp dữ liệu. Việc ngẫu nhiên hóa các video mới được tải lên trong một giờ qua đảm bảo rằng lượt xem của người dùng được phân bổ đều cho tất cả Người sáng tạo. Nguồn cấp dữ liệu riêng tư (Người dùng đã xác minh) Khi người dùng được xác minh, nguồn cấp dữ liệu sẽ ưu tiên hiển thị nội dung mới của Người sáng tạo mà họ đăng ký. Nguồn cấp dữ liệu cũng sẽ loại trừ các video đã xem trước đó để đảm bảo rằng người dùng nhìn thấy nội dung mới của Người sáng tạo yêu thích của họ trước khi vào nguồn cấp dữ liệu toàn cầu hoặc khu vực. Vậy... Làm cách nào để tối ưu hóa điều này để nhận được nhiều lượt xem hơn? Chúng tôi thực sự khuyên bạn nên tải lên nội dung hàng ngày, bao gồm ít nhất 1 video mới và 2 hình ảnh, để đảm bảo rằng hồ sơ của bạn được đưa vào nội dung mới ngẫu nhiên trên nguồn cấp dữ liệu của chúng tôi. Cuối cùng, để phân phối nội dung tải lên hàng ngày, chúng tôi khuyên bạn nên tuân theo lịch tải lên nội dung nghiêm ngặt để giúp bạn luôn đi đúng hướng. Hãy nhớ rằng, bạn là người làm chủ tiềm năng của chính mình. Khi bạn thu hút được sự chú ý của người đăng ký trên trang web của chúng tôi, người hâm mộ sẽ muốn gặp bạn thường xuyên với nội dung được tải lên chất lượng! Nội dung hàng đầu được xác định như thế nào? Nội dung hàng đầu được xác định bằng cách xem xét nhiều số liệu bằng thuật toán xếp hạng có trọng số, thường thông qua: Nguồn cấp dữ liệu video được xem trên 80%+ (theo chiều dọc 30-60 giây) (50%) Số lượt thích (20%) Số lượng nhận xét (20%) Bên ngoài chia sẻ liên kết (lưu lượng truy cập hợp pháp đến từ không phải công cụ tìm kiếm) (10%) *Xin lưu ý: Để đổi lấy hỗ trợ tiếp thị, một số Người sáng tạo có thể có nhiều nội dung hơn trong nguồn cấp dữ liệu với khả năng hiển thị cao hơn."
-  },
-  { "code": "creator.creator.become.d.subtitle", "name": "Tôi cần hỗ trợ hoặc tìm thấy một lỗi!" },
-  {
-    "code": "creator.creator.become.d.content",
-    "name": "Nếu bạn cần bất kỳ sự trợ giúp nào, bạn có thể Trò chuyện trực tiếp với chúng tôi hoặc gửi E-mail cho chúng tôi. Khi báo cáo lỗi, vui lòng gửi kèm ảnh chụp màn hình và mô tả chi tiết về sự cố bạn đang gặp phải."
-  },
-  { "code": "creator.creator.registrant.title", "name": "Quy trình đăng ký" },
-  {
-    "code": "creator.creator.registrant.a.subtitle",
-    "name": "Các đại lý hoặc xưởng sản xuất có thể tạo tài khoản trên VIDA không?"
-  },
-  {
-    "code": "creator.creator.registrant.a.content",
-    "name": "Tại thời điểm này, chúng tôi chỉ tập trung vào tài khoản người dùng cá nhân dành cho Người tạo nội dung. Người sáng tạo do đại lý đại diện được phép tạo tài khoản đã được xác minh nhưng phải được quản lý riêng bởi Người sáng tạo nội dung."
-  },
-  {
-    "code": "creator.creator.registrant.b.subtitle",
-    "name": "Tôi có thể trở thành Người sáng tạo từ bất kỳ quốc gia nào không?"
-  },
-  {
-    "code": "creator.creator.registrant.b.content",
-    "name": "Tại VIDA, chúng tôi muốn đại diện cho một nhóm Người sáng tạo đa dạng. Tuy nhiên, do hạn chế về ngân hàng, chúng tôi không thể chấp nhận Người sáng tạo (hoặc người dùng) từ các quốc gia sau. Chúng tôi luôn nỗ lực cung cấp dịch vụ của mình ở nhiều vùng lãnh thổ nhất có thể, vì vậy sẽ liên tục xem xét danh sách này theo các quy định ngân hàng: - Bosnia và Herzegovina - Miến Điện / Myanmar - Vùng Crimea - Cộng hòa Dân chủ Congo - Iraq - Liberia - Lebanon - Montenegro - Bắc Triều Tiên - Serbia - Sierra Leone - Sudan - Syria - Zimbabwe"
-  },
-  { "code": "creator.creator.registrant.c.subtitle", "name": "Không xác minh khuôn mặt" },
-  {
-    "code": "creator.creator.registrant.c.content",
-    "name": "Chúng tôi hiểu rằng một số người sáng tạo muốn tạo nội dung không mô tả khuôn mặt của họ. VIDA bắt buộc phải có được và lưu giữ sự đồng ý bằng văn bản của tất cả những người được mô tả trong bất kỳ nội dung nào được tải lên trang web và phải xác minh độ tuổi cũng như danh tính của tất cả những người được mô tả trong mọi phần nội dung được tải lên. Trường hợp khuôn mặt của người sáng tạo không được hiển thị rõ ràng trong nội dung (bao gồm đeo mặt nạ, lọc khuôn mặt, làm mờ khuôn mặt, biểu tượng cảm xúc làm khuôn mặt, về cơ bản là bất kỳ thứ gì che khuất khuôn mặt của bạn và che giấu danh tính của bạn), một hình ảnh xác minh khuôn mặt hoàn toàn khỏa thân và hiển thị đầy đủ sẽ được yêu cầu. Chúng tôi bắt buộc phải xác nhận rằng những người được mô tả trong nội dung được tải lên khớp với nhau. Tải ảnh xác minh của bạn lên: - Ảnh phải được chụp gần đây và có chất lượng tốt - Tải ảnh của bạn lên trang web (ảnh khỏa thân toàn bộ phía trước, khuôn mặt và cơ thể bao gồm cả bộ phận sinh dục đều hiển thị rõ ràng) - Chọn Ảnh xác minh làm tùy chọn - *Ảnh này là chỉ nhằm mục đích bảo mật và sẽ không bao giờ được công khai"
-  },
-  { "code": "creator.creator.payout.title", "name": "Thanh toán và thu nhập" },
-  { "code": "creator.creator.payout.a.subtitle", "name": "Phí ngân hàng thanh toán" },
-  {
-    "code": "creator.creator.payout.a.content",
-    "name": "Phí xử lý thanh toán Phí xử lý thanh toán bao gồm chi phí xử lý thanh toán từ người đăng ký của bạn, bao gồm thanh toán định kỳ, khôi phục các khoản thanh toán bị từ chối và chống gian lận. Để duy trì tỷ lệ thanh toán trên nền tảng là 80% cho Người sáng tạo, chúng tôi sẽ trả phí xử lý thanh toán. Chúng tôi cũng thay mặt Người sáng tạo thanh toán và nộp thuế VAT và thuế bán hàng vì chúng tôi đã đăng ký nền tảng với các cơ quan quản lý thuế có liên quan. Nếu bạn cần thông tin cho hồ sơ kế toán của riêng mình, vui lòng liên hệ với chúng tôi theo địa chỉ Creators@VIDA. Phí thanh toán Phí thanh toán là khoản phí chuyển tiền từ số dư Người sáng tạo của bạn sang phương thức thanh toán, ngân hàng hoặc Paxum ưa thích của bạn. Các ngân hàng và nhà cung cấp P2P khấu trừ số tiền này từ số tiền bạn nhận được khi yêu cầu thanh toán. Phí thanh toán của bạn không phản ánh khoản chênh lệch và được thanh toán theo tỷ lệ 1:1. P2P có phí giao dịch thanh toán thấp nhất và chuyển khoản ngân hàng có phí giao dịch thanh toán cao nhất. Chúng tôi tự hào là một nền tảng lấy Người sáng tạo làm trung tâm, vì vậy, chúng tôi liên tục tìm kiếm các lựa chọn và mức giá tốt nhất cho phí Người sáng tạo của mình và do đó, tất cả các khoản phí đều có thể thay đổi. Chúng tôi sẵn sàng hỗ trợ, nếu có các tùy chọn thanh toán cụ thể mà bạn muốn chúng tôi khám phá, hãy liên hệ với chúng tôi! Chúng tôi rất mong nhận được phản hồi từ bạn tại Creators@VIDA."
-  },
-  { "code": "creator.creator.payout.b.subtitle", "name": "Làm cách nào tôi có thể kiếm tiền trên VIDA?" },
-  {
-    "code": "creator.creator.payout.b.content",
-    "name": "Bạn có thể kiếm tiền từ đăng ký, thanh toán cho nội dung bị khóa (nội dung trong cửa hàng của bạn) và mẹo. Để tối đa hóa chi tiêu trên trang của bạn, chúng tôi khuyên bạn nên xây dựng lượng người theo dõi mạnh mẽ bằng cách giữ cho trang của bạn luôn mới mẻ và hấp dẫn. Bạn cũng có thể đặt liên kết đến trang VIDA trên các tài khoản mạng xã hội của mình, như Twitter hoặc Instagram. Người theo dõi cuối cùng trở thành người đăng ký!"
-  },
-  { "code": "creator.creator.payout.c.subtitle", "name": "Định giá nội dung và dịch vụ của bạn" },
-  {
-    "code": "creator.creator.payout.c.content",
-    "name": "Để đặt giá đăng ký cho nội dung của bạn: Đi tới hồ sơ của bạn - Chỉnh sửa hồ sơ - Thiết lập đăng ký Với tư cách là Người sáng tạo, bạn có quyền chọn số tiền bạn tính phí cho các dịch vụ của mình. Giá cả của bạn sẽ ảnh hưởng lớn đến số lượng mua hàng. Nhìn chung, chúng tôi thấy rằng mức giá rẻ hơn sẽ chuyển đổi tốt hơn nhưng việc tìm ra điểm phù hợp của mình là tùy thuộc vào bạn. Khi bạn tăng giá đăng ký, tất cả người đăng ký mới sẽ được tính phí theo mức giá mới. Hãy nhớ rằng những người đăng ký hiện tại của bạn sẽ tiếp tục được tính phí theo mức giá ban đầu mà họ đã đồng ý trả khi đăng ký hồ sơ của bạn."
-  },
-  { "code": "creator.creator.payout.d.subtitle", "name": "Chính sách thanh toán" },
-  {
-    "code": "creator.creator.payout.d.content",
-    "name": "Tỷ lệ thanh toán là bao nhiêu? 80% cho tất cả chi tiêu trên trang của bạn Số tiền thanh toán tối thiểu là bao nhiêu? Số tiền thanh toán tối thiểu được yêu cầu là 200 USD. Khoản thanh toán của bạn chỉ có thể được rút nếu bạn đã đạt đến số tiền thanh toán tối thiểu. Tôi có thường xuyên được trả tiền không? Người sáng tạo có thể kích hoạt việc rút tiền thanh toán từ tài khoản của họ miễn là số tiền đã rút vượt quá số tiền thanh toán tối thiểu 200 USD. Các khoản thanh toán được xử lý vào thứ Sáu cách tuần. VIDA cung cấp những phương thức thanh toán nào? Hiện tại, chúng tôi có thể chấp nhận các phương thức thanh toán sau: Chuyển khoản ngân hàng Tài khoản Paxum (P2P) Tất cả các phương thức này đều có sẵn bằng USD, EUR, GBP ngoài các hạn chế đã nêu ở trên. Nếu có một loại tiền tệ mà Người sáng tạo đặc biệt cần, hãy gửi tin nhắn đến support@VIDA và chúng tôi có thể tư vấn xem điều này có khả thi hay không. Các khoản thanh toán theo lịch trình Chúng tôi đã giúp bạn dễ dàng nhận tiền của mình, VIDA hiện xử lý các khoản thanh toán vào tài khoản của bạn vào thứ Sáu cách tuần! Tùy chọn tự động hóa các khoản thanh toán của bạn cũng có sẵn, chúng tôi đã nghĩ đến tất cả! Hãy nhớ yêu cầu thanh toán của bạn không muộn hơn nửa đêm UTC vào Thứ Năm. Việc nhận tiền sẽ thay đổi về thời gian do quy định của ngân hàng/tài khoản của bạn.* Bạn có thể xem danh sách tất cả các khoản thanh toán đang chờ xử lý và đã thanh toán trên trang thu nhập của mình. LƯU Ý: Hãy nhớ kiểm tra danh sách các quốc gia bị chặn bởi tất cả các ngân hàng và dịch vụ thanh toán mà chúng tôi hỗ trợ. Ngoài ra, các ngân hàng và nhà cung cấp dịch vụ thanh toán có quyền từ chối phục vụ bất kỳ khách hàng cá nhân nào, trong trường hợp đó chúng tôi sẽ cố gắng giải quyết vấn đề."
-  },
-  { "code": "creator.creator.payout.e.subtitle", "name": "Làm cách nào để bắt đầu thanh toán?" },
-  {
-    "code": "creator.creator.payout.e.content",
-    "name": "Để bắt đầu thanh toán, hãy đi tới Menu người dùng của bạn và nhấp vào Thu nhập. Bạn phải có tối thiểu 200 USD trong tài khoản trước khi có thể rút thu nhập của mình. THÔNG TIN NGƯỜI THỤ HƯỞNG Các khoản thanh toán sẽ chỉ được thực hiện cho cùng tên người thụ hưởng như được cung cấp trong quá trình giới thiệu KYC. Nếu bạn cần thay đổi tên này (ví dụ: bạn đã thay đổi tên của mình, tên được gán cho giấy tờ tùy thân của bạn khác với tên người thụ hưởng của ngân hàng ở quốc gia của bạn hoặc bạn muốn được thanh toán cho một pháp nhân), vui lòng liên hệ support@VIDA. Bạn sẽ cần cung cấp bằng chứng về lý do cần thay đổi, chúng tôi có thể cần thêm thông tin từ bạn như một phần của quy trình thẩm định và chúng tôi có quyền tuyệt đối từ chối yêu cầu của bạn. Nếu bạn yêu cầu thanh toán cho một pháp nhân, thông tin được cung cấp trong quá trình xác minh KYC phải là UBO (Chủ sở hữu hưởng lợi cuối cùng) của pháp nhân đó, theo EU 2015/849, đã được sửa đổi, bất kể pháp nhân đó có tuân theo luật pháp EU hay không. Các khoản thanh toán sẽ không được thực hiện cho bên thứ ba trong bất kỳ trường hợp nào, bao gồm nhưng không giới hạn ở vợ/chồng, thành viên gia đình, dịch vụ ký quỹ, đối tác kinh doanh, người giám hộ do tòa án chỉ định hoặc người nhận dưới bất kỳ hình thức nào. Chúng tôi đã liên tục phấn đấu để cung cấp dịch vụ ở nhiều khu vực nhất có thể, do đó, chúng tôi sẽ tiếp tục xem xét danh sách này dựa trên các yêu cầu quản lý ngân hàng: Bosnia và Herzegovina Myanmar Côte d'Ivoire Crimea khu vực Cộng hòa Dân chủ Congo Iraq Liberia Lebanon Montenegro North Hàn Quốc Serbia Sierra Leone Sudan Syria Zimbabwe Dịch vụ ngân hàng của chúng tôi bị chặn ở các quốc gia được liệt kê, nhưng chúng tôi cam kết mở rộng dịch vụ của mình đến nhiều khu vực nhất có thể. Chúng tôi có quyền thay đổi và xem xét các chính sách từ ba đến sáu tháng một lần để đảm bảo bạn được thông báo về bất kỳ thay đổi nào, vì vậy vui lòng kiểm tra lại thường xuyên"
-  },
-  { "code": "creator.creator.payout.f.subtitle", "name": "Bảo vệ sạc lại" },
-  {
-    "code": "creator.creator.payout.f.content",
-    "name": "Xin lưu ý rằng VIDA có quyền khấu trừ Tín dụng từ thu nhập của bạn nếu bạn vi phạm trang Điều khoản dịch vụ của chúng tôi. Tùy thuộc vào mức độ nghiêm trọng của hành vi vi phạm, điều này có thể bao gồm việc đình chỉ vô thời hạn hoặc xóa tài khoản của bạn. Nếu Khách hàng bắt đầu Hoàn tiền hoặc Khoản bồi hoàn đối với bạn, số tiền này sẽ được khấu trừ khỏi số dư Tín dụng của bạn."
-  },
-  { "code": "creator.creator.privacy.title", "name": "Quyền riêng tư và xác minh ID" },
-  { "code": "creator.creator.privacy.a.subtitle", "name": "Tại sao tôi phải xác minh ID?" },
-  {
-    "code": "creator.creator.privacy.a.content",
-    "name": "Chúng tôi yêu cầu tất cả Người sáng tạo nội dung phải xác minh ID để ngăn chặn hành vi trộm cắp nội dung và bảo vệ quyền kiếm tiền từ nội dung của chính bạn."
-  },
-  { "code": "creator.creator.privacy.b.subtitle", "name": "Làm cách nào để xác minh ID của tôi?" },
-  {
-    "code": "creator.creator.privacy.b.content",
-    "name": "Xác minh ID là bước đầu tiên để đăng ký làm Người sáng tạo trên VIDA. Để xác minh tài khoản của bạn, bạn sẽ được yêu cầu chụp ảnh chính mình và ID của bạn. Toàn bộ quá trình xác minh ID hoàn toàn tự động và chỉ mất chưa đầy 1 phút. HỖ TRỢ ĐIỀU HÀNH: Đi tới Menu Người dùng của bạn và nhấp vào Trở thành Người sáng tạo. Quá trình Xác minh sẽ xuất hiện nhắc nhở bạn các bước tiếp theo. Xin lưu ý rằng tất cả nội dung chỉ có thể chứa người lớn (18 tuổi trở lên); do đó, ngay cả khi bạn vượt qua quá trình xác minh, nếu chúng tôi cho rằng bất kỳ phương tiện truyền thông nào mô tả bạn dưới độ tuổi này, chúng tôi có thể yêu cầu làm rõ thêm và bảo lưu quyền xóa nội dung đó."
-  },
-  { "code": "creator.creator.privacy.c.subtitle", "name": "Nội dung của tôi được bảo vệ như thế nào?" },
-  {
-    "code": "creator.creator.privacy.c.content",
-    "name": "Tất cả các phương tiện đều có hình mờ được áp dụng để ngăn chặn việc sử dụng trái phép. Chúng tôi cũng cung cấp tính năng bảo vệ tải xuống và người dùng trên trang web chỉ được phép truy cập nội dung trên trang web. Người dùng không thể tải xuống bất kỳ phương tiện nào từ trang web."
-  },
-  { "code": "creator.creator.privacy.d.subtitle", "name": "VIDA có ẩn danh đối với Người sáng tạo không?" },
-  {
-    "code": "creator.creator.privacy.d.content",
-    "name": "Khi bạn đăng ký VIDA, chúng tôi sử dụng nhà cung cấp bên thứ ba được chứng nhận để xác nhận thông tin cá nhân, bao gồm tên thật, ngày sinh, quốc gia cư trú và ID do chính phủ cấp. Chúng tôi cần điều này để duy trì tuân thủ pháp luật với tư cách là một nền tảng dịch vụ. Hơn nữa, chúng tôi có thể yêu cầu bạn cung cấp thông tin thanh toán để chúng tôi có thể xử lý các khoản thanh toán của bạn. NGƯỜI DÙNG KHÔNG BAO GIỜ CÓ TRUY CẬP VÀO BẤT KỲ DỮ LIỆU CÁ NHÂN NÀO CỦA BẠN. Người dùng sẽ chỉ nhìn thấy tên người dùng của bạn và các thông tin khác mà bạn đã quyết định chia sẻ trên hồ sơ công khai hoặc trong các cuộc trò chuyện riêng tư của mình. Vui lòng xem Chính sách quyền riêng tư của chúng tôi để biết tóm tắt chi tiết về cách chúng tôi thu thập, sử dụng và bảo vệ dữ liệu cá nhân của bạn."
-  },
-  { "code": "creator.creator.feature.title", "name": "đặc trưng" },
-  { "code": "creator.creator.feature.a.subtitle", "name": "Tải lên ảnh và video" },
-  {
-    "code": "creator.creator.feature.a.content",
-    "name": "Tải nội dung của bạn lên VIDA thật đơn giản! Sau khi xác minh, vui lòng chọn một trong hai tùy chọn bên dưới: 1. Nhấp vào 'Phương tiện của tôi', nhấn nút thêm và tải lên nội dung. 2. Nhấp vào nút thêm trên thanh điều hướng trên cùng và làm theo lời nhắc tải lên - nếu bạn đang sử dụng điện thoại di động, thanh điều hướng sẽ xuất hiện ở phía dưới. Nếu bạn muốn nội dung của mình xuất hiện trong nguồn cấp dữ liệu công cộng của chúng tôi, vui lòng đặt tiêu đề cho nội dung của bạn và thêm 3 thẻ. Hãy nhớ tiêu đề và thẻ phải phù hợp với ảnh/video bạn đã tải lên. Tất cả những người khác cần phải được gắn thẻ và xác minh trên nền tảng. Cuối cùng, quyết định ai có thể xem nội dung: - Mọi người: nghĩa là bất kỳ ai cũng có thể xem nội dung trên hồ sơ của bạn. - Người đăng ký: nghĩa là chỉ người đăng ký của bạn mới có thể xem nội dung. - Vault: nghĩa là chỉ hiển thị với bạn. Bạn có thể chuyển đổi loại bất kỳ lúc nào sau khi tải nội dung lên; nội dung riêng tư cũng rất tốt để gửi trong DM để biết các mẹo có thể có hoặc lưu trữ nội dung tùy chỉnh sẽ được gửi. - Cửa hàng: bất kỳ ai cũng có thể mua nội dung này và bạn có thể đặt giá riêng cho từng mục phương tiện. Nội dung tải lên sẽ được gửi đến nhóm kiểm duyệt. Nếu nội dung của bạn được phê duyệt, nó sẽ sớm xuất hiện trên hồ sơ của bạn. Nếu không, bạn sẽ nhận được email từ chối nội dung nêu rõ lý do. Xin lưu ý rằng tất cả nội dung chỉ có thể chứa người lớn (18 tuổi trở lên). Do đó, ngay cả khi bạn vượt qua quá trình xác minh, nếu chúng tôi cho rằng bất kỳ phương tiện truyền thông nào mô tả bạn dưới độ tuổi này, chúng tôi có thể yêu cầu làm rõ thêm và bảo lưu quyền xóa nội dung đó."
-  },
-  { "code": "creator.creator.feature.b.subtitle", "name": "Xóa và chỉnh sửa nội dung" },
-  {
-    "code": "creator.creator.feature.b.content",
-    "name": "Bạn có thể chỉnh sửa hoặc xóa nội dung của mình bất kỳ lúc nào. Để làm như vậy, hãy chuyển đến menu Người dùng: 1. Chọn 'Phương tiện của tôi' 2. Chọn mục bạn muốn xóa 3. Chọn 'Xóa' ở trên cùng bên phải."
-  },
-  { "code": "creator.creator.feature.c.subtitle", "name": "Tin nhắn từ người sáng tạo đến người sáng tạo" },
-  {
-    "code": "creator.creator.feature.c.content",
-    "name": "Chúng tôi mong muốn những người sáng tạo hỗ trợ lẫn nhau nhưng xin thông báo cho bạn biết rằng bạn chỉ có thể nhắn tin cho những người sáng tạo khác mà bạn đăng ký."
-  },
-  { "code": "creator.creator.feature.d.subtitle", "name": "Làm cách nào để gửi nội dung cho người sáng tạo?" },
-  {
-    "code": "creator.creator.feature.d.content",
-    "name": "Người đăng ký có thể chia sẻ phương tiện với người sáng tạo. Nội dung phải tuân thủ các nguyên tắc cộng đồng. Khi nhắn tin cho người sáng tạo, tất cả những gì bạn cần làm là nhấn nút kẹp giấy bên cạnh hộp trò chuyện và tải ảnh hoặc video lên từ thiết bị của mình."
-  },
-  {
-    "code": "creator.creator.feature.e.subtitle",
-    "name": "Nội dung có được lưu trên hồ sơ của người dùng để tải lên trong tương lai không?"
-  },
-  {
-    "code": "creator.creator.feature.e.content",
-    "name": "Không, nội dung sẽ không được lưu. Nội dung sẽ cần được tải lên từ thiết bị của bạn mỗi lần bạn muốn gửi nội dung đó cho người sáng tạo."
-  },
-  {
-    "code": "creator.creator.feature.f.subtitle",
-    "name": "Người dùng hoặc người tạo có thể xóa nội dung khỏi chuỗi tin nhắn không?"
-  },
-  {
-    "code": "creator.creator.feature.f.content",
-    "name": "Không có nội dung nào có thể bị xóa khỏi chủ đề vào lúc này."
-  },
-  { "code": "creator.creator.feature.g.subtitle", "name": "Là người sáng tạo, nếu tôi không muốn xem thì sao?" },
-  {
-    "code": "creator.creator.feature.g.content",
-    "name": "Người sáng tạo sẽ nhận được nội dung bị mờ, để tránh thư rác không mong muốn. Người sáng tạo có thể chọn thay đổi cài đặt này bất cứ lúc nào."
-  },
-  { "code": "creator.creator.feature.h.subtitle", "name": "Điều gì sẽ xảy ra nếu nội dung đó có tính chất xúc phạm?" },
-  {
-    "code": "creator.creator.feature.h.content",
-    "name": "Người sáng tạo có thể báo cáo bất kỳ nội dung nào được gửi cho họ và chúng tôi sẽ có hành động thích hợp."
-  },
-  { "code": "creator.creator.guideline.title", "name": "Nguyên tắc nội dung" },
-  { "code": "creator.creator.guideline.a.subtitle", "name": "Hướng dẫn về ảnh đại diện và ảnh bìa" },
-  {
-    "code": "creator.creator.guideline.a.content",
-    "name": "Ảnh đại diện và ảnh bìa của bạn rất quan trọng vì chúng là ấn tượng đầu tiên của bạn đối với khách hàng tiềm năng. Ảnh chất lượng cao khiến khách hàng có nhiều khả năng xem hồ sơ của bạn hơn. Hơn nữa, chất lượng ảnh của bạn ảnh hưởng gián tiếp đến chất lượng nền tảng của chúng tôi. Đó là lý do tại sao chúng tôi yêu cầu mọi Người sáng tạo phải tuân theo những nguyên tắc này khi đăng ảnh hồ sơ. - Ảnh chất lượng cao: Nói chung, điều này có nghĩa là ảnh có độ phân giải cao, sắc nét và đủ ánh sáng. - Chỉ có chính bạn trong ảnh: Hồ sơ của bạn chỉ nói về bạn và một mình bạn. Vui lòng chỉ sử dụng những bức ảnh không có người nào khác (có thể nhận ra) ngoài bạn trong ảnh. - Hãy là trung tâm của sự chú ý: Chúng tôi khuyên bạn nên xuất hiện đầy đủ trong ảnh. Chúng tôi không cho phép chụp ảnh đồ vật hoặc động vật mà không có bạn trong ảnh. - Không có hình mờ hoặc văn bản/biểu tượng cảm xúc phủ lên: Những người theo dõi của bạn thích tính chân thực hơn, hình mờ hoặc việc phủ văn bản/biểu tượng cảm xúc trên ảnh của bạn sẽ làm mất đi điều đó. Tất nhiên, bạn có thể tạo hình mờ cho ảnh mà bạn trực tiếp gửi cho khách hàng thông qua tin nhắn riêng tư. - Chúng tôi không cho phép súng: Chỉ những ảnh bạn sở hữu: Chúng tôi rất coi trọng bản quyền. Nếu bạn không sở hữu quyền đối với ảnh hoặc video, vui lòng"
-  },
-  { "code": "creator.creator.guideline.b.subtitle", "name": "Nội dung được chấp nhận" },
-  {
-    "code": "creator.creator.guideline.b.content",
-    "name": "Nhóm kiểm duyệt của chúng tôi xem xét tất cả nội dung, nếu nội dung của bạn bị từ chối có thể vì nhiều lý do bao gồm nhưng không giới hạn ở: - Hình ảnh hoặc video có người chưa xác minh tài khoản trên VIDA - Bài đăng có dấu hiệu phân biệt đối xử, bạo lực , hoạt động cưỡng bức hoặc không có sự đồng thuận - Bài viết có thể chứa trẻ vị thành niên dưới 18 tuổi - Bài viết chứa cảnh động vật hoặc loạn luân - Bài viết chứa phân hoặc máu - Hình vẽ và phim hoạt hình - Nội dung chất lượng thấp - Nội dung bị đánh cắp - Hình mờ quá lớn - Hình mờ bao phủ các khu vực chính của nội dung hoặc chặn những khoảnh khắc nội dung quan trọng - Trình kiểm duyệt bao trùm khu vực nội dung chính và chặn những khoảnh khắc nội dung quan trọng - Tiêu đề/thẻ của bài đăng không khớp với nội dung - Không có dữ liệu cá nhân hoặc thông tin cá nhân (số điện thoại, thông tin GPS, tên pháp lý đầy đủ, địa chỉ email, thông tin tài chính hoặc nhận dạng) nên được chia sẻ. - Phương tiện có kích thước không phù hợp: độ phân giải được khuyến nghị là 480 x 800, 640 x 1136, 720 x 1280, 750 x 1334, 1080 x 1920 và 1440 x 2560. Toàn bộ nội dung phải phù hợp với điều này và ở chế độ toàn màn hình."
-  },
-  {
-    "code": "creator.creator.guideline.c.subtitle",
-    "name": "Tôi nên đăng loại video nào trong phần miễn phí của mình?"
-  },
-  {
-    "code": "creator.creator.guideline.c.content",
-    "name": "Chúng tôi muốn bạn kiểm soát nội dung của mình nhưng khuyên bạn nên đưa vào các video miễn phí để giúp tăng lượng người theo dõi. Bao gồm nội dung sẽ lôi kéo người dùng đăng ký nội dung cao cấp của bạn. Chúng tôi muốn những video này dài tối đa 60 giây và kết thúc trước phần 'hay nhất'. Hãy suy nghĩ, video giới thiệu, bản xem trước và thậm chí cả nội dung nhẹ nhàng/quần áo."
-  },
-  { "code": "creator.creator.guideline.d.subtitle", "name": "Đăng nội dung với người khác" },
-  {
-    "code": "creator.creator.guideline.d.content",
-    "name": "Tất cả những người được mô tả trong nội dung cần phải có tài khoản VIDA đã được xác minh. Bạn nên gắn thẻ tài khoản của họ trên video hoặc hình ảnh để họ có thể phê duyệt trên hồ sơ của chính họ. Chúng tôi không có cơ sở tài khoản cặp đôi, do đó, ngay cả khi bạn là một cặp đôi, mỗi cá nhân đều cần có tài khoản được xác minh. Xin lưu ý, nếu Người sáng tạo khác không có trên VIDA thì họ sẽ cần được xác minh bằng cách tạo hồ sơ của riêng mình và vượt qua quá trình xác minh ID. Hồ sơ này KHÔNG cần phải được kích hoạt hoặc có sẵn để xem công khai. Bất kỳ video/ảnh nào có người chưa được gắn thẻ và xác minh sẽ tự động bị từ chối. Chúng tôi cũng sẽ từ chối nội dung không được gắn thẻ có: - Người trong video nền (ví dụ: trên TV) - Ảnh trong nền có khuôn mặt dễ nhận biết."
-  },
-  { "code": "creator.creator.guideline.e.subtitle", "name": "Liên kết tới các trang web hoặc ứng dụng khác" },
-  {
-    "code": "creator.creator.guideline.e.content",
-    "name": "Không đề cập/quảng bá các trang web cạnh tranh (có thể tìm thấy bất kỳ trang web nào mà Người sáng tạo của bạn xử lý mà bạn, với tư cách là Người sáng tạo, kiếm tiền từ nội dung của mình) trên nền tảng. Bạn không được phép chuyển hướng người dùng đến các trang web khác cũng như không được phép hiển thị đạo cụ của họ. Chúng tôi chỉ cho phép các liên kết sau trong hình mờ: - onlyfans - chaturbate - pornhub - youporn - xhamster - manyvids - fancentro - patreon - camsoda - linktree - sex panther - bodyshots tv - twitter - instagram - reddit - tiktok - snapchat - facebook - linkedin Không được phép: - Chúng tôi không cho phép logo của các trang web khác có hình mờ - Chúng tôi không cho phép logo của các trang web khác trên bất kỳ phần nào của nội dung Khi nghi ngờ liệu bạn có thể liên kết đến một trang web hoặc ứng dụng nhất định hay không, vui lòng gửi email cho chúng tôi theo địa chỉ support@VIDA Xin lưu ý rằng việc không tuân thủ các điều kiện này có thể dẫn đến việc nền tảng bị đình chỉ tạm thời hoặc vĩnh viễn. Để biết thêm thông tin, vui lòng truy cập trang Điều khoản dịch vụ của chúng tôi. Chúng tôi có quyền thay đổi và xem xét các chính sách của mình ba và sáu tháng một lần để đảm bảo bạn nắm rõ mọi thay đổi, hãy kiểm tra lại thường xuyên. Chúng tôi không còn cho phép đề cập đến các trang web khác trong tiểu sử của bạn để tiếp tục bảo vệ tính toàn vẹn của nền tảng; tuy nhiên, vui lòng chia sẻ liên kết .sexy trong tiểu sử của bạn, điều này sẽ cho phép người dùng tìm thấy bạn ở bất cứ đâu bạn muốn."
-  },
-  { "code": "creator.creator.guideline.f.subtitle", "name": "Lệnh cấm vĩnh viễn" },
-  {
-    "code": "creator.creator.guideline.f.content",
-    "name": "Chúng tôi cam kết kiểm duyệt nền tảng của mình và tạo ra một môi trường an toàn và thú vị cho cả Người sáng tạo và người dùng. Chúng tôi áp dụng hệ thống ba cảnh cáo trong khi Người tạo hoặc người dùng sẽ bị cảnh cáo về hai lần vi phạm đầu tiên và sẽ được thông báo ở lần vi phạm thứ ba rằng tài khoản của họ trên nền tảng đã bị cấm vĩnh viễn. Đây là hành động thực thi vi phạm nghiêm trọng nhất của chúng tôi. Việc cấm vĩnh viễn một tài khoản sẽ xóa tài khoản đó khỏi chế độ xem và Người tạo hoặc người dùng sẽ không được phép tạo tài khoản mới. Khi chúng tôi cấm vĩnh viễn một tài khoản, chúng tôi sẽ thông báo cho người sáng tạo hoặc người dùng rằng họ đã bị cấm vì hai lần vi phạm trước đó và giải thích những chính sách hoặc chính sách nào họ đã vi phạm, nội dung cụ thể vi phạm. Vi phạm tài khoản có thể xảy ra khi Người tạo hoặc người dùng không tuân thủ nguyên tắc cộng đồng của chúng tôi. Chúng tôi đặc biệt khuyến khích người sáng tạo và người dùng đọc các nguyên tắc của chúng tôi tại đây để đảm bảo tuân thủ các nguyên tắc của chúng tôi: https://www.VIDA/support. Nếu bạn có bất kỳ câu hỏi nào, vui lòng liên hệ tới support@VIDA."
-  },
-  { "code": "creator.creator.contact.title", "name": "Liên hệ" },
-  {
-    "code": "creator.creator.contact.a.subtitle",
-    "name": "Làm cách nào để liên hệ với bộ phận hỗ trợ Người sáng tạo?"
-  },
-  {
-    "code": "creator.creator.contact.a.content",
-    "name": "Nếu bạn có bất kỳ câu hỏi nào hoặc yêu cầu bất kỳ sự hỗ trợ nào về việc trở thành Người sáng tạo trên trang web, bạn có thể liên hệ với chúng tôi thông qua: Hỗ trợ người sáng tạo: Trò chuyện với chúng tôi Gửi E-mail cho chúng tôi"
-  },
-  { "code": "creator.creator.delAccount.title", "name": "Xóa tài khoản của bạn" },
-  { "code": "creator.creator.delAccount.a.subtitle", "name": "Xóa tài khoản của bạn" },
-  {
-    "code": "creator.creator.delAccount.a.content",
-    "name": "Xóa tài khoản của bạn bằng cách vào cài đặt – xóa tài khoản. Xin lưu ý rằng việc xóa tài khoản của bạn là một quá trình không thể đảo ngược và tất cả dữ liệu của bạn sẽ bị xóa vĩnh viễn theo Chính sách quyền riêng tư của chúng tôi. Có thể mất tới 36 giờ để quá trình hoàn tất."
-  },
-  { "code": "creator.creator.delAccount.b.subtitle", "name": "Điều gì xảy ra với thu nhập của bạn?" },
-  {
-    "code": "creator.creator.delAccount.b.content",
-    "name": "Khi bạn xóa tài khoản của mình và thu nhập của bạn vượt quá số tiền thanh toán tối thiểu, vui lòng sắp xếp thanh toán qua phương thức được chỉ định trước khi tài khoản của bạn bị đóng. Nếu bạn nợ ít hơn $50: Chúng tôi không thể hoàn tất chuyển khoản Ngân hàng do các hạn chế được thực thi bởi các đối tác ngân hàng của chúng tôi. Chúng tôi có thể chuyển tiền của bạn qua Paxum, trừ đi phí chuyển khoản. Xin lưu ý rằng danh tính được kết nối với email Paxum của bạn phải khớp với thông tin đăng ký KYC của bạn."
-  },
-  { "code": "creator.creator.menu.title", "name": "Tính năng thực đơn cửa hàng" },
-  { "code": "creator.creator.menu.a.subtitle", "name": "Tính năng mới của cửa hàng là gì?" },
-  {
-    "code": "creator.creator.menu.a.content",
-    "name": "Tính năng mới thú vị này cho phép người sáng tạo có các mặt hàng trong cửa hàng được cá nhân hóa để người dùng mua. Người dùng sẽ có thể mua chúng trực tiếp từ nguồn cấp dữ liệu chính hoặc cửa hàng của người sáng tạo. Các mục menu có sẵn cho cửa hàng là: Xếp hạng hình ảnh Dick Video tùy chỉnh - nội dung, độ dài và giá cả đã thỏa thuận với người sáng tạo Tên trên cơ thể - hình ảnh hoặc video Cosplay / Trang phục - hình ảnh hoặc video Hướng dẫn giật gân (JOI) - video Video ngày lễ - sinh nhật, ngày lễ tình nhân, giáng sinh, độc thân Hãy chiêu đãi tôi - người dùng gửi tiền cho người sáng tạo để chiêu đãi, ví dụ: móng chân và người sáng tạo gửi ảnh lại"
-  },
-  { "code": "creator.creator.menu.b.subtitle", "name": "Làm cách nào để thiết lập điều này?" },
-  {
-    "code": "creator.creator.menu.b.content",
-    "name": "Điều này có thể được thực hiện dễ dàng thông qua hồ sơ của bạn. Để tạo một mặt hàng, chỉ cần đến cửa hàng của bạn và chọn mẫu có liên quan. Khi thông tin đã được nhập (ví dụ: mô tả, giá cả, hình ảnh) và được xem xét, thông tin đó sẽ được thêm vào cửa hàng và nguồn cấp dữ liệu chính của bạn. Các mặt hàng có thể được cập nhật bất cứ lúc nào bằng cách chọn tùy chọn chỉnh sửa mặt hàng trong cửa hàng."
-  },
-  { "code": "creator.creator.menu.c.subtitle", "name": "Làm cách nào để biết người dùng đã mua một mặt hàng?" },
-  {
-    "code": "creator.creator.menu.c.content",
-    "name": "Người sáng tạo sẽ nhận được tin nhắn trực tiếp thông báo rằng người dùng đã mua mặt hàng đó."
-  },
-  {
-    "code": "creator.creator.menu.d.subtitle",
-    "name": "Tôi có thể sử dụng bất kỳ phương tiện nào để thực hiện đơn hàng không?"
-  },
-  {
-    "code": "creator.creator.menu.d.content",
-    "name": "Bạn có thể gửi ảnh, video, tin nhắn trò chuyện để đáp ứng yêu cầu, chỉ cần nhớ “đánh dấu là đã gửi” sau khi hoàn thành."
-  },
-  {
-    "code": "creator.creator.menu.e.subtitle",
-    "name": "Nếu được yêu cầu, người dùng có thể gửi cho tôi phương tiện nào?"
-  },
-  { "code": "creator.creator.menu.e.content", "name": "Người dùng có thể gửi cho bạn video hoặc ảnh." },
-  { "code": "creator.creator.menu.f.subtitle", "name": "Nếu tôi không muốn thực hiện yêu cầu thì sao?" },
-  {
-    "code": "creator.creator.menu.f.content",
-    "name": "Nếu bạn không phản hồi và gửi yêu cầu trong vòng 72 giờ, đơn hàng sẽ bị hủy và người dùng sẽ được hoàn lại tiền."
-  },
-  { "code": "creator.creator.menu.g.subtitle", "name": "Tôi có thể xóa vật phẩm khỏi cửa hàng không?" },
-  {
-    "code": "creator.creator.menu.g.content",
-    "name": "Có, bạn có thể hủy kích hoạt các mặt hàng khỏi cửa hàng của mình bất cứ lúc nào."
-  },
-  { "code": "dmca.dmca.info.title", "name": "Cách báo cáo vi phạm bản quyền" },
-  {
-    "code": "dmca.dmca.info.content",
-    "name": "VIDA (“Trang web”) tôn trọng quyền sở hữu trí tuệ của người khác và mong muốn người dùng của mình cũng làm như vậy. VIDA đã thực hiện chính sách vô hiệu hóa và/hoặc chấm dứt tài khoản của những người dùng liên tục vi phạm hoặc bị buộc tội nhiều lần vi phạm bản quyền hoặc các quyền sở hữu trí tuệ khác của người khác. Bản sao Chính sách vi phạm nhiều lần của chúng tôi được cung cấp cho người đăng ký theo yêu cầu bằng văn bản. Mặc dù công ty của chúng tôi có trụ sở bên ngoài Hoa Kỳ và không chịu sự điều chỉnh của luật pháp Hoa Kỳ, nhưng chúng tôi tôn trọng quyền của chủ sở hữu bản quyền và do đó đã nỗ lực thực hiện một số chính sách nhất định để tự nguyện tuân thủ các luật như Đạo luật bản quyền thiên niên kỷ kỹ thuật số. Tuy nhiên, Công ty của chúng tôi bảo lưu mọi quyền và phản đối việc áp dụng chính thức luật pháp Hoa Kỳ vào hoạt động của mình. Theo Đạo luật bản quyền thiên niên kỷ kỹ thuật số năm 1998, VIDA sẽ nhanh chóng phản hồi các khiếu nại về vi phạm bản quyền của bên thứ ba sử dụng Trang web được báo cáo cho đại lý DMCA được chỉ định của VIDA (“Đại lý được chỉ định”), được xác định bên dưới. Nếu bạn là chủ sở hữu bản quyền hoặc được ủy quyền hành động thay mặt cho một chủ sở hữu, vui lòng báo cáo các cáo buộc vi phạm bản quyền diễn ra trên hoặc thông qua Trang web bằng cách hoàn thành thông báo DMCA về cáo buộc vi phạm và gửi thông báo đó cho Đại lý được chỉ định của VIDA. Khi nhận được thông báo như được mô tả bên dưới, VIDA sẽ thực hiện mọi hành động theo quyết định riêng của mình mà thấy phù hợp, bao gồm cả việc xóa tài liệu bị thách thức khỏi Trang web. Nếu bạn muốn xóa nội dung liên quan đến các vấn đề không liên quan đến bản quyền như vì quyền riêng tư, lạm dụng, quấy rối, nội dung không phù hợp hoặc bất hợp pháp, v.v., vui lòng sử dụng biểu mẫu này thay thế. Bạn có thể gửi Yêu cầu DMCA bằng cách điền vào Biểu mẫu DMCA."
-  },
-  { "code": "dmca.dmca.notice.title", "name": "Thông báo về vi phạm được khiếu nại" },
-  {
-    "code": "dmca.dmca.notice.content",
-    "name": "Nếu bạn cho rằng tác phẩm của mình đã bị sao chép theo cách cấu thành hành vi vi phạm bản quyền, vui lòng cung cấp cho Đại lý được chỉ định của chúng tôi (được xác định bên dưới) thông tin sau: Chữ ký điện tử hoặc vật lý của người được ủy quyền hành động thay mặt chủ sở hữu bản quyền hoặc lợi ích sở hữu trí tuệ khác; Mô tả về tác phẩm có bản quyền hoặc tài sản trí tuệ khác mà bạn cho là đã bị vi phạm; Mô tả về vị trí của tài liệu mà bạn khiếu nại là vi phạm trên Trang web (tốt nhất là bao gồm các URL cụ thể được liên kết với tài liệu); Địa chỉ, số điện thoại và địa chỉ email của bạn; Tuyên bố của bạn rằng bạn thực sự tin rằng việc sử dụng đang tranh chấp không được chủ sở hữu bản quyền, đại diện của chủ bản quyền hoặc luật pháp cho phép; vàMột tuyên bố của bạn, được đưa ra theo hình phạt khai man, rằng thông tin trên trong thông báo của bạn là chính xác và bạn là chủ sở hữu bản quyền hoặc sở hữu trí tuệ hoặc được ủy quyền hành động thay mặt cho chủ sở hữu bản quyền hoặc sở hữu trí tuệ. Bạn có thể gửi Thông báo của mình về Tuyên bố vi phạm (“Thông báo”) tới Đại lý DMCA được chỉ định của chúng tôi:Lawrence G. Walters, Esq.Walters Law Group195 W. Pine Ave.Longwood, FL 32750-4104 Fax: (407)-774-6151Email: Copyright@VIDA Vui lòng không gửi yêu cầu hoặc thông tin khác đến Đại lý được chỉ định của chúng tôi. Nếu không có sự cho phép rõ ràng trước đó, Đại lý được chỉ định của chúng tôi không được phép chấp nhận hoặc từ bỏ dịch vụ theo quy trình pháp lý chính thức và mọi mối quan hệ đại lý ngoài mối quan hệ cần thiết để chấp nhận Thông báo DMCA hợp lệ đều bị từ chối trách nhiệm một cách rõ ràng. Thông báo và thông tin của bạn sẽ được chuyển tiếp đến (những) người dùng liên quan ). Nếu bạn không muốn thông tin của mình được chuyển tiếp, vui lòng sử dụng biểu mẫu xóa quyền riêng tư của chúng tôi."
-  },
-  { "code": "dmca.dmca.contact.title", "name": "Liên hệ với chúng tôi" },
-  {
-    "code": "dmca.dmca.contact.content",
-    "name": "Đối với bất kỳ câu hỏi nào khác, vui lòng liên hệ với chúng tôi theo địa chỉ support@VIDA. Bạn có thể tìm thêm thông tin về các yêu cầu thông báo và gỡ xuống trong DMCA tại đây. Thông báo lạm dụng: Lạm dụng các thủ tục Thông báo DMCA nêu trên hoặc trình bày sai sự thật trong Thông báo DMCA hoặc Thông báo phản đối có thể dẫn đến trách nhiệm pháp lý đối với các thiệt hại, chi phí tòa án và phí luật sư theo luật liên bang. Xem 17 U.S.C. § 512(f). Các Quy trình thông báo và gỡ xuống này chỉ áp dụng cho các khiếu nại vi phạm bản quyền của chủ sở hữu bản quyền và đại lý của họ – không áp dụng cho bất kỳ hình thức lạm dụng, vi phạm hoặc khiếu nại pháp lý nào khác. Chúng tôi sẽ điều tra và có hành động chống lại bất kỳ ai lạm dụng quy trình thông báo hoặc thông báo phản đối DMCA. Vui lòng đảm bảo rằng bạn đáp ứng tất cả các tiêu chuẩn pháp lý trước khi gửi Thông báo DMCA cho Đại lý được chỉ định của chúng tôi."
-  },
-  { "code": "dmca.dmca.procedure.title", "name": "Thủ tục gỡ bỏ" },
-  {
-    "code": "dmca.dmca.procedure.content",
-    "name": "Trang web này thực hiện quy trình “thông báo và gỡ xuống” sau đây khi nhận được bất kỳ thông báo nào về vi phạm bản quyền được khiếu nại. Trang web có quyền vô hiệu hóa quyền truy cập hoặc xóa bất kỳ tài liệu hoặc hoạt động nào có thể truy cập trên Trang web được cho là vi phạm hoặc từ đó hoạt động vi phạm rõ ràng dựa trên thực tế hoặc hoàn cảnh. Chính sách chắc chắn của Trang web là chấm dứt tài khoản của những người vi phạm bản quyền nhiều lần, khi thích hợp và Trang web sẽ hành động nhanh chóng để xóa quyền truy cập vào tất cả tài liệu vi phạm bản quyền của người khác, theo quy trình được nêu trong 17 U.S. C. § 512 của DMCA. Quy trình thông báo DMCA của Trang web được quy định trong các đoạn trước. Nếu Thông báo không tuân thủ § 512 của DMCA nhưng tuân thủ ba yêu cầu để xác định các trang web vi phạm theo § 512 của DMCA, Trang web sẽ cố gắng liên hệ hoặc thực hiện các bước hợp lý khác để liên hệ với bên khiếu nại để giúp đỡ. bên đó tuân thủ các yêu cầu thông báo. Khi Đại lý được chỉ định nhận được Thông báo hợp lệ, Trang web sẽ nhanh chóng xóa và/hoặc vô hiệu hóa quyền truy cập vào tài liệu vi phạm và sẽ thông báo cho người dùng bị ảnh hưởng. Sau đó, người dùng bị ảnh hưởng có thể gửi thông báo phản đối tới Đại lý được chỉ định trong đó có tuyên bố được đưa ra theo hình phạt nếu khai man rằng người dùng thực sự tin rằng tài liệu đã bị xóa do xác định sai tài liệu. Sau khi Đại lý được chỉ định nhận được thông báo phản đối, nó sẽ thay thế tài liệu đang được đề cập trong vòng mười đến mười bốn (10-14) ngày sau khi nhận được thông báo phản đối trừ khi Đại lý được chỉ định nhận được thông báo rằng người khiếu nại đã nộp đơn kiện lên tòa án. bên yêu cầu lệnh cấm đối với hoạt động vi phạm."
-  },
-  { "code": "dmca.dmca.counterNotification.title", "name": "Thủ tục thông báo phản đối DMCA" },
-  {
-    "code": "dmca.dmca.counterNotification.content",
-    "name": "Nếu Người nhận Thông báo về Vi phạm được khiếu nại tin rằng Thông báo đó là sai hoặc sai và/hoặc tài liệu bị cáo buộc vi phạm đã bị xóa sai theo các thủ tục nêu trên, thì Người nhận được phép gửi thông báo phản đối theo § 512(g)(2)-(3) của DMCA. Thông báo phản đối là phương pháp thích hợp để Người nhận tranh chấp về việc xóa hoặc vô hiệu hóa tài liệu theo Thông báo. Thông tin mà Người nhận cung cấp trong thông báo phản đối phải chính xác và trung thực, đồng thời Người nhận sẽ chịu trách nhiệm về mọi thông tin sai lệch có thể dẫn đến bất kỳ khiếu nại nào chống lại Trang web liên quan đến các hành động được thực hiện để phản hồi thông báo phản đối. Để gửi thông báo phản đối, vui lòng cung cấp cho Đại lý được chỉ định của chúng tôi thông tin sau: Mô tả cụ thể về tài liệu đã bị xóa hoặc vô hiệu hóa theo Thông báo; Mô tả về vị trí của tài liệu trong Trang web hoặc nội dung (như được xác định trong Thỏa thuận Điều khoản Sử dụng của Trang web) trước khi tài liệu đó bị xóa và/hoặc vô hiệu hóa (tốt nhất là bao gồm các URL cụ thể được liên kết với tài liệu); Tuyên bố phản ánh niềm tin của Người nhận rằng việc xóa hoặc vô hiệu hóa tài liệu đó đã được thực hiện một cách sai lầm. Để thuận tiện, có thể sử dụng định dạng sau: “Tôi xin thề, dưới hình phạt khai man, rằng tôi thực sự tin rằng tài liệu được tham chiếu đã bị nhà cung cấp dịch vụ xóa hoặc vô hiệu hóa do nhầm lẫn hoặc xác định sai tài liệu sẽ được bị xóa hoặc vô hiệu hóa.”;Địa chỉ thực, số điện thoại và địa chỉ email của Người nhận; vàMột tuyên bố rằng Người nhận đồng ý với thẩm quyền của tòa án Quận Liên bang trong và đối với khu vực tư pháp nơi Người nhận sinh sống, hoặc nếu Người nhận ở bên ngoài Hoa Kỳ, đối với bất kỳ khu vực tư pháp nào mà nhà cung cấp dịch vụ có thể được tìm thấy, và rằng Người nhận sẽ chấp nhận dịch vụ xử lý từ người đã cung cấp Thông báo hoặc đại diện của người đó. Thông báo bằng văn bản có chứa thông tin trên phải được ký và gửi đến:Lawrence G. Walters, Esq.Walters Law Group195 W. Pine Ave. Longwood, FL 32750-4104Fax: (407)-774-6151Email: Copyright@VIDAVui lòng không gửi các yêu cầu hoặc thông tin khác đến Đại lý được chỉ định của chúng tôi. Nếu không có sự cho phép rõ ràng trước đó, Đại lý được chỉ định của chúng tôi không được phép chấp nhận hoặc từ bỏ dịch vụ theo quy trình pháp lý chính thức và bất kỳ mối quan hệ đại lý nào ngoài mối quan hệ cần thiết để chấp nhận Thông báo DMCA hợp lệ đều bị từ chối trách nhiệm rõ ràng. Tất cả các thông báo và thông báo phản đối DMCA phải được viết bằng tiếng Anh ngôn ngữ. Bất kỳ thông báo nào được cố gắng viết bằng tiếng nước ngoài hoặc sử dụng ký tự nước ngoài sẽ bị coi là không tuân thủ và bị coi thường. Sau khi nhận được khiếu nại DMCA hoặc thông báo phản đối, Đại lý được chỉ định của chúng tôi sẽ chuyển tiếp thông báo đó đến Trang web và Trang web sau đó sẽ cung cấp phản đối- thông báo cho nguyên đơn lần đầu tiên gửi Thông báo ban đầu xác định nội dung bị cáo buộc vi phạm. Sau đó, trong vòng mười đến mười bốn (10-14) ngày kể từ ngày Trang web nhận được thông báo phản đối, Trang web sẽ thay thế hoặc ngừng vô hiệu hóa quyền truy cập vào tài liệu đang tranh chấp với điều kiện Trang web hoặc Đại lý được chỉ định của chúng tôi chưa nhận được thông báo rằng nguyên đơn ban đầu đã nộp đơn kiện yêu cầu lệnh của tòa án nhằm hạn chế Người nhận tham gia vào hoạt động vi phạm liên quan đến tài liệu trên hệ thống hoặc mạng của Trang web."
-  },
-  { "code": "dmca.dmca.infringer.title", "name": "Chính sách vi phạm nhiều lần của DMCA" },
-  { "code": "dmca.dmca.infringer.content", "name": "Bạn có thể xem chính sách ở đây." },
-  { "code": "dmca.dmca.modifications.title", "name": "Sửa đổi" },
-  {
-    "code": "dmca.dmca.modifications.content",
-    "name": "Trang web có quyền sửa đổi, thay đổi hoặc thêm vào chính sách này và tất cả những người bị ảnh hưởng nên thường xuyên kiểm tra lại để cập nhật mọi thay đổi đó."
-  },
-  { "code": "dmca.dmca.requests.title", "name": "Yêu cầu dịch vụ khách hàng" },
-  {
-    "code": "dmca.dmca.requests.content",
-    "name": "Xin lưu ý rằng Đại lý được chỉ định không liên kết với Trang web với bất kỳ tư cách nào khác mà là luật sư của một công ty luật tư nhân. Các câu hỏi về dịch vụ khách hàng, câu hỏi thanh toán và yêu cầu hủy sẽ không nhận được phản hồi. Tất cả các thông tin liên lạc như vậy phải được chuyển đến bộ phận dịch vụ khách hàng của Trang web."
-  },
-  { "code": "dmca.dmca.language.title", "name": "Ngôn ngữ" },
-  {
-    "code": "dmca.dmca.language.content",
-    "name": "Chính sách này ban đầu được viết bằng tiếng Anh. Trong trường hợp bất kỳ phiên bản dịch nào của chính sách này xung đột với phiên bản tiếng Anh thì phiên bản tiếng Anh sẽ kiểm soát."
-  },
-  { "code": "dmca.dmca.final", "name": "Sửa đổi lần cuối: tháng 7 năm 2023" },
-  { "code": "dmca.dmca.VIDA", "name": "© 2023 VIDA One Trừ khi có quy định khác. Đã đăng ký Bản quyền." },
-  { "code": "pp.pp.info.title", "name": "Chính sách bảo mật" },
-  {
-    "code": "pp.pp.info.content",
-    "name": "Chính sách bảo mật này mô tả cách chúng tôi thu thập, sử dụng và bảo vệ dữ liệu cá nhân của bạn. Bằng cách sử dụng Dịch vụ, bạn chấp nhận các thực tiễn được mô tả trong Chính sách này, trong phạm vi được pháp luật cho phép."
-  },
-  { "code": "pp.pp.definitions.title", "name": "Các định nghĩa" },
-  { "code": "pp.pp.definitions.table.title.a", "name": "Thuật ngữ" },
-  { "code": "pp.pp.definitions.table.title.b", "name": "Chính sách\"" },
-  { "code": "pp.pp.definitions.table.title.c", "name": "VIDA”, “chúng tôi” hoặc “chúng tôi”" },
-  { "code": "pp.pp.definitions.table.title.d", "name": "Dịch vụ\"" },
-  { "code": "pp.pp.definitions.table.title.e", "name": "“Người dùng”" },
-  { "code": "pp.pp.definitions.table.title.f", "name": "“Tuân thủ nghĩa vụ pháp lý”" },
-  { "code": "pp.pp.definitions.table.title.g", "name": "“EEA”" },
-  { "code": "pp.pp.definitions.table.title.h", "name": "“Lợi ích chính đáng”" },
-  { "code": "pp.pp.definitions.table.title.i", "name": "“Thực hiện hợp đồng”" },
-  { "code": "pp.pp.definitions.table.content.a", "name": "Sự định nghĩa" },
-  { "code": "pp.pp.definitions.table.content.b", "name": "Chính sách bảo mật như được nêu trong tài liệu này." },
-  { "code": "pp.pp.definitions.table.content.c", "name": "VIDA kỹ thuật số, giao dịch dưới tên VIDA." },
-  {
-    "code": "pp.pp.definitions.table.content.d",
-    "name": "Trang web VIDA, đặt tại VIDA và bất kỳ trang web, ứng dụng hoặc dịch vụ nào khác do chúng tôi cung cấp, sở hữu hoặc vận hành có liên kết với Chính sách này."
-  },
-  {
-    "code": "pp.pp.definitions.table.content.e",
-    "name": "Bất kỳ và tất cả khách truy cập, người dùng và những người khác truy cập hoặc sử dụng Dịch vụ."
-  },
-  {
-    "code": "pp.pp.definitions.table.content.f",
-    "name": "Xử lý dữ liệu cá nhân của bạn khi cần thiết để tuân thủ nghĩa vụ pháp lý mà chúng tôi phải tuân theo."
-  },
-  {
-    "code": "pp.pp.definitions.table.content.g",
-    "name": "Khu vực Kinh tế Châu Âu, là các quốc gia thành viên của Liên minh Châu Âu cùng với Na Uy, Iceland và Liechtenstein."
-  },
-  {
-    "code": "pp.pp.definitions.table.content.h",
-    "name": "Lợi ích kinh doanh của chúng tôi trong việc tiến hành và quản lý hoạt động kinh doanh của chúng tôi nhằm cho phép chúng tôi cung cấp cho bạn trải nghiệm tốt nhất và an toàn nhất khi sử dụng Dịch vụ và chức năng liên quan hoặc lợi ích của bên thứ ba. Chúng tôi đảm bảo rằng chúng tôi xem xét và cân bằng mọi tác động tiềm ẩn đối với bạn (cả tích cực và tiêu cực) và quyền của bạn trước khi chúng tôi xử lý dữ liệu cá nhân của bạn vì lợi ích hợp pháp của chúng tôi hoặc của bất kỳ bên thứ ba nào. Chúng tôi không sử dụng dữ liệu cá nhân của bạn cho các hoạt động mà lợi ích của chúng tôi (hoặc của bên thứ ba có liên quan) bị ảnh hưởng bởi tác động đến bạn (trừ khi chúng tôi có được sự đồng ý của bạn hoặc được pháp luật yêu cầu hoặc cho phép). Bạn có thể nhận thêm thông tin về cách chúng tôi đánh giá lợi ích hợp pháp của chúng tôi và của bất kỳ bên thứ ba có liên quan nào trước mọi tác động tiềm ẩn đối với bạn trong các hoạt động cụ thể bằng cách liên hệ với chúng tôi."
-  },
-  {
-    "code": "pp.pp.definitions.table.content.i",
-    "name": "Xử lý dữ liệu của bạn khi cần thiết để thực hiện hợp đồng mà bạn là một bên hoặc thực hiện các bước theo yêu cầu của bạn trước khi ký kết hợp đồng đó."
-  },
-  { "code": "pp.pp.termsService.title", "name": "Điều khoản dịch vụ" },
-  {
-    "code": "pp.pp.termsService.content",
-    "name": "Chính sách này là một phần của Điều khoản dịch vụ của chúng tôi, mô tả các điều khoản mà chúng tôi cung cấp Dịch vụ."
-  },
-  { "code": "pp.pp.modifications.title", "name": "Sửa đổi" },
-  {
-    "code": "pp.pp.modifications.content",
-    "name": "Chúng tôi có quyền thay đổi Chính sách này bất cứ lúc nào. Nếu chúng tôi thực hiện thay đổi, chúng tôi sẽ thông báo cho bạn bằng cách sửa đổi ngày ở cuối Chính sách và trong một số trường hợp, chúng tôi có thể cung cấp cho bạn thông báo bổ sung (chẳng hạn như thêm tuyên bố vào trang chủ của chúng tôi hoặc gửi cho bạn thông báo qua email). Các thay đổi đối với Chính sách này có hiệu lực tại thời điểm chúng được xuất bản. Việc bạn tiếp tục sử dụng Dịch vụ sau ngày Chính sách sửa đổi có hiệu lực sẽ cấu thành sự chấp nhận của bạn đối với các chính sách."
-  },
-  { "code": "pp.pp.collectYou.title", "name": "Thông tin cá nhân chúng tôi thu thập về bạn" },
-  {
-    "code": "pp.pp.collectYou.content",
-    "name": "Chúng tôi thu thập thông tin về bạn thông qua các phương tiện được thảo luận bên dưới khi chúng tôi cung cấp Dịch vụ. Xin lưu ý rằng chúng tôi cần một số loại thông tin nhất định để có thể cung cấp Dịch vụ cho bạn. Nếu bạn không cung cấp cho chúng tôi thông tin đó hoặc nếu bạn yêu cầu chúng tôi xóa thông tin đó, bạn có thể không còn truy cập hoặc sử dụng Dịch vụ hoặc chức năng nhất định nữa. Thông tin bạn cung cấp cho UChúng tôi thu thập thông tin: (1) bạn trực tiếp cung cấp cho chúng tôi , chẳng hạn như hình ảnh của bạn (trong bất kỳ nội dung nào bạn tải lên), tên người dùng và địa chỉ email khi bạn đăng ký Dịch vụ (và đối với Người sáng tạo, một số thông tin khác, bao gồm nhưng không giới hạn ở tên, ngày sinh và (nếu có) ảnh do chính phủ cấp nhận dạng và chụp ảnh); (2) khi bạn tải lên, mua, xem hoặc tải xuống một số nội dung hoặc sản phẩm nhất định từ Dịch vụ; hoặc (3) khi bạn sử dụng các tính năng và chức năng của Thông tin dịch vụ mà chúng tôi thu thập tự động, tất cả chúng tôi sử dụng nhiều công nghệ khác nhau để thu thập thông tin và điều này có thể bao gồm cookie và đèn hiệu web. Cookie là các tệp dữ liệu nhỏ được lưu trữ trên ổ cứng hoặc trong bộ nhớ thiết bị của bạn. Đèn hiệu web (còn được gọi là “pixel theo dõi”) là hình ảnh điện tử không nhìn thấy được. Để biết thông tin về cookie là gì, cách chúng hoạt động, cách VIDA sử dụng chúng và cách xóa chúng, vui lòng xem Chính sách cookie của chúng tôi. Ví dụ về những thông tin mà chúng tôi tự động thu thập bao gồm loại thiết bị bạn sử dụng, thời gian truy cập, vị trí chung thông tin về Nhà cung cấp dịch vụ Internet của bạn dựa trên Địa chỉ IP của bạn, thông tin về việc bạn sử dụng Dịch vụ và trang bạn đã truy cập trước khi điều hướng đến Dịch vụ của chúng tôi. Những công nghệ này được sử dụng cho mục đích phân tích và cải tiến sản phẩm, chẳng hạn như xem khu vực và tính năng nào của Dịch vụ rất phổ biến và xác định liệu một email đã được mở và xử lý theo Thông tin từ nguồn khác Chúng tôi có thể lấy thông tin bổ sung như thông tin nhân khẩu học và thống kê từ các bên thứ ba và các nguồn ngoài Dịch vụ, chẳng hạn như nhà quảng cáo hoặc mạng truyền thông xã hội (chẳng hạn như Twitter) cho mà bạn đã chấp thuận quyền truy cập của chúng tôi. Khi bạn truy cập Dịch vụ thông qua mạng truyền thông xã hội hoặc khi bạn kết nối Dịch vụ với mạng truyền thông xã hội, bạn đang ủy quyền cho VIDA thu thập, lưu trữ và sử dụng thông tin và nội dung bổ sung đó theo Chính sách này. Nếu chúng tôi kết hợp hoặc liên kết thông tin từ các nguồn khác có thông tin mà chúng tôi thu thập thông qua Dịch vụ, chúng tôi sẽ xử lý thông tin kết hợp theo Chính sách này"
-  },
-  { "code": "pp.pp.usePersonalInfo.title", "name": "Cách chúng tôi sử dụng thông tin cá nhân" },
-  {
-    "code": "pp.pp.usePersonalInfo.content",
-    "name": "Chúng tôi có thể sử dụng thông tin về bạn cho nhiều mục đích khác nhau nhưng chỉ khi luật pháp cho phép. Thông thường nhất, chúng tôi sẽ sử dụng dữ liệu cá nhân của bạn trong các trường hợp sau: (1) khi chúng tôi cần để thực hiện Hợp đồng; (2) trong trường hợp cần thiết vì Lợi ích hợp pháp của chúng tôi (hoặc của bên thứ ba) và lợi ích cũng như quyền cơ bản của bạn không cao hơn những lợi ích đó; (3) khi chúng tôi cần Tuân thủ Nghĩa vụ Pháp lý. Nói chung, chúng tôi không dựa vào sự đồng ý làm cơ sở pháp lý để xử lý dữ liệu cá nhân của bạn mặc dù chúng tôi sẽ nhận được sự đồng ý của bạn trước khi gửi thông tin tiếp thị trực tiếp của bên thứ ba cho bạn qua email hoặc tin nhắn văn bản. Bạn có quyền rút lại sự đồng ý tiếp thị bất cứ lúc nào bằng cách liên hệ với chúng tôi.VIDA sử dụng thông tin đó để: (1) vận hành, duy trì, nâng cao, cung cấp, tạo và phát triển tất cả các tính năng, chức năng và dịch vụ (mới hoặc hiện có) được tìm thấy trên Dịch vụ; (2) cung cấp bảo mật cho các trang web, sản phẩm, phần mềm hoặc ứng dụng của chúng tôi; (3) quản lý mối quan hệ với chủ tài khoản VIDA (ví dụ: đối tác, chi nhánh), bao gồm cả việc thực hiện hoặc nhận thanh toán; (4) cải thiện trải nghiệm của Người dùng với VIDA bằng cách cung cấp các đề xuất nội dung và bằng cách cung cấp nội dung mà chúng tôi hy vọng Người dùng sẽ thấy có liên quan và thú vị, bao gồm các thông điệp quảng cáo và tiếp thị; (5) ngăn chặn gian lận và lạm dụng; và (6) hiểu xu hướng sử dụng của Người dùng của chúng tôi. Chúng tôi sử dụng địa chỉ email của bạn để liên lạc với bạn, bao gồm thông báo cho bạn về các cập nhật chính của Dịch vụ, cho mục đích dịch vụ khách hàng hoặc để liên hệ với bạn về bất kỳ nội dung nào bạn đã đăng lên hoặc tải xuống từ Dịch vụ.VIDA có thể định kỳ gửi thông báo quảng cáo cho bạn liên quan đến Dịch vụ nếu bạn đã đăng ký với chúng tôi hoặc yêu cầu thông tin từ chúng tôi và bạn chưa từ chối nhận thông tin tiếp thị đó. Bạn có thể từ chối nhận thông tin quảng cáo từ chúng tôi trong cài đặt tài khoản của mình sau khi đăng nhập vào Dịch vụ hoặc làm theo hướng dẫn hủy đăng ký ở cuối bất kỳ email hoặc tin nhắn nào từ chúng tôi. Nếu bạn chọn không tham gia, chúng tôi vẫn có thể gửi cho bạn những thông tin liên lạc không mang tính quảng cáo, chẳng hạn như những thông tin về tài khoản của bạn. Chúng tôi sẽ nhận được sự đồng ý tham gia của bạn trước khi chúng tôi chia sẻ dữ liệu cá nhân của bạn với bất kỳ bên thứ ba nào vì mục đích tiếp thị. Trong một số trường hợp nhất định, chúng tôi có nghĩa vụ pháp lý phải thu thập và xử lý thông tin cá nhân của bạn (chẳng hạn như nghĩa vụ chia sẻ dữ liệu với cơ quan thuế) .Chúng tôi cũng có thể yêu cầu bạn đồng ý xử lý thông tin cá nhân của bạn cho mục đích cụ thể mà chúng tôi liên lạc với bạn. Khi bạn đồng ý cho chúng tôi xử lý thông tin cá nhân của bạn cho một mục đích cụ thể, bạn có thể rút lại sự đồng ý của mình bất cứ lúc nào và chúng tôi sẽ ngừng xử lý dữ liệu của bạn cho mục đích đó.VIDA sẽ dựa trên cơ sở pháp lý để xử lý thông tin cá nhân của bạn trong phạm vi được pháp luật hiện hành cho phép, có thể bao gồm nhưng không giới hạn: tôn trọng các cam kết hợp đồng, thực hiện các bước chuẩn bị ký kết hợp đồng, thực hiện nghĩa vụ pháp lý, sự đồng ý của bạn và lợi ích hợp pháp của VIDA."
-  },
-  { "code": "pp.pp.changePurpose.title", "name": "Thay đổi mục đích" },
-  {
-    "code": "pp.pp.changePurpose.content",
-    "name": "Chúng tôi sẽ chỉ sử dụng dữ liệu cá nhân của bạn cho các mục đích mà chúng tôi đã thu thập dữ liệu đó, trừ khi chúng tôi có lý do hợp lý cho rằng chúng tôi cần sử dụng dữ liệu đó vì lý do khác và lý do đó phù hợp với mục đích ban đầu. Nếu bạn muốn được giải thích về cách xử lý cho mục đích mới tương thích với mục đích ban đầu, vui lòng liên hệ với chúng tôi. Nếu chúng tôi cần sử dụng thông tin cá nhân của bạn cho mục đích không liên quan, chúng tôi sẽ thông báo cho bạn và chúng tôi sẽ giải thích cơ sở pháp lý cho phép chúng tôi làm như vậy. Xin lưu ý rằng chúng tôi có thể xử lý dữ liệu cá nhân của bạn mà bạn không biết hoặc không đồng ý, tuân thủ các quy tắc trên, trong đó điều này là Tuân thủ Nghĩa vụ pháp lý."
-  },
-  { "code": "pp.pp.disclose.title", "name": "Khi chúng tôi tiết lộ thông tin cá nhân" },
-  {
-    "code": "pp.pp.disclose.content",
-    "name": "Bạn có thể được yêu cầu đăng ký tài khoản để truy cập một số tính năng nhất định của Dịch vụ. Bạn đồng ý giữ bí mật mật khẩu của mình và sẽ chịu trách nhiệm về mọi hoạt động sử dụng, hoạt động và mua hàng được thực hiện trên Dịch vụ thông qua tài khoản của bạn. Chúng tôi có quyền xóa, lấy lại hoặc thay đổi tên người dùng mà bạn chọn nếu chúng tôi xác định, theo quyết định riêng của mình, rằng tên người dùng đó không phù hợp, tục tĩu hoặc bị phản đối. Trừ khi được VIDA cho phép rõ ràng bằng văn bản, bạn không được bán , thuê, cho thuê, chia sẻ hoặc cung cấp quyền truy cập vào tài khoản của bạn cho bất kỳ ai khác. VIDA bảo lưu tất cả các quyền pháp lý và biện pháp khắc phục hiện có để ngăn chặn việc sử dụng trái phép Dịch vụ, bao gồm nhưng không giới hạn ở các rào cản công nghệ, lập bản đồ IP và trong trường hợp nghiêm trọng, liên hệ trực tiếp với Nhà cung cấp dịch vụ Internet (ISP) của bạn về việc sử dụng trái phép đó .Trong phạm vi bạn tự nguyện tạo hồ sơ Người dùng để tham gia vào một số dịch vụ chọn lọc nhất định do chúng tôi cung cấp, hồ sơ của bạn (và nội dung của hồ sơ) có thể được tìm kiếm bởi những Người dùng khác đã đăng ký thông qua Dịch vụ. Tương tự như vậy, hồ sơ của bạn (và nội dung của nó) có thể được tìm kiếm bởi các công cụ tìm kiếm công khai."
-  },
-  { "code": "pp.pp.usersIn.title", "name": "Người dùng ở Vương quốc Anh, EEA hoặc Thụy Sĩ" },
-  {
-    "code": "pp.pp.usersIn.content",
-    "name": "Nếu bạn ở Vương quốc Anh, EEA hoặc Thụy Sĩ, bạn nên biết rằng VIDA là người kiểm soát thông tin cá nhân của bạn. Yêu cầu chủ thể dữ liệu Trong một số trường hợp nhất định, với tư cách là chủ thể dữ liệu, bạn có quyền yêu cầu quyền truy cập vào dữ liệu cá nhân mà chúng tôi nắm giữ bạn và yêu cầu sửa, xóa hoặc chuyển dữ liệu cá nhân của bạn. Bạn cũng có thể có quyền phản đối hoặc yêu cầu chúng tôi hạn chế việc xử lý nhất định. Nếu bạn muốn thực hiện bất kỳ quyền nào trong số này, bạn có thể liên hệ với chúng tôi như được nêu bên dưới. Quyền yêu cầu quyền truy cập của bạn cho phép bạn yêu cầu một bản sao dữ liệu cá nhân mà chúng tôi lưu giữ về bạn và kiểm tra xem chúng tôi có đang xử lý dữ liệu đó một cách hợp pháp hay không. Quyền của bạn việc yêu cầu chỉnh sửa dữ liệu cá nhân của bạn mà chúng tôi lưu giữ cho phép bạn sửa dữ liệu không đầy đủ hoặc không chính xác, mặc dù chúng tôi có thể cần xác minh tính chính xác của dữ liệu mới mà bạn cung cấp cho chúng tôi. Bạn có quyền yêu cầu xóa dữ liệu cá nhân của mình chúng tôi xóa hoặc xóa dữ liệu cá nhân mà không có lý do chính đáng để chúng tôi tiếp tục xử lý dữ liệu đó. Bạn cũng có quyền yêu cầu chúng tôi xóa hoặc xóa dữ liệu cá nhân của mình khi bạn đã thực hiện thành công quyền phản đối việc xử lý dữ liệu đó (xem bên dưới) , trong đó chúng tôi có thể đã xử lý thông tin của bạn một cách bất hợp pháp hoặc khi chúng tôi được yêu cầu xóa dữ liệu cá nhân của bạn để tuân thủ luật pháp địa phương. Tuy nhiên, xin lưu ý rằng không phải lúc nào chúng tôi cũng có thể tuân thủ yêu cầu xóa của bạn vì những lý do pháp lý cụ thể mà chúng tôi sẽ thông báo cho bạn, nếu có, tại thời điểm bạn yêu cầu. Bạn có thể phản đối việc xử lý dữ liệu cá nhân của mình trong chừng mực vì chúng tôi xử lý dữ liệu cá nhân của bạn dựa trên Lợi ích hợp pháp và có điều gì đó về tình huống cụ thể của bạn khiến bạn muốn phản đối việc xử lý trên cơ sở này vì bạn cảm thấy nó ảnh hưởng đến các quyền và quyền tự do cơ bản của bạn. Nếu bạn muốn làm như vậy, chúng tôi vui lòng yêu cầu giải thích lý do phản đối. Nếu sự phản đối của bạn là chính đáng, chúng tôi sẽ ngừng hoặc điều chỉnh việc xử lý dữ liệu hoặc giải thích lý do tại sao chúng tôi có cơ sở chính đáng thuyết phục để tiếp tục xử lý dữ liệu cá nhân của bạn bất chấp sự phản đối của bạn. Tất nhiên, bạn có thể phản đối việc xử lý dữ liệu cá nhân của mình cho mục đích quảng cáo và dữ liệu mục đích phân tích bất cứ lúc nào. Bạn có thể yêu cầu hạn chế xử lý dữ liệu cá nhân của mình. Điều này cho phép bạn yêu cầu chúng tôi tạm dừng xử lý dữ liệu cá nhân của bạn trong các trường hợp sau: Nếu bạn muốn chúng tôi thiết lập tính chính xác của dữ liệu; Trường hợp việc sử dụng dữ liệu của chúng tôi là bất hợp pháp nhưng bạn không muốn chúng tôi xóa dữ liệu đó; Trường hợp bạn cần chúng tôi lưu giữ dữ liệu ngay cả khi chúng tôi không còn yêu cầu dữ liệu đó nữa vì bạn cần dữ liệu đó để thiết lập, thực hiện hoặc bảo vệ các khiếu nại pháp lý;Bạn đã phản đối việc chúng tôi sử dụng dữ liệu của bạn nhưng chúng tôi cần xác minh xem liệu chúng tôi có cơ sở hợp pháp quan trọng hơn để sử dụng dữ liệu đó hay không. Bạn có thể yêu cầu chuyển dữ liệu cá nhân của bạn cho bạn hoặc bên thứ ba. Trong trường hợp này, chúng tôi sẽ cung cấp cho bạn hoặc bên thứ ba mà bạn đã chọn, dữ liệu cá nhân của bạn ở định dạng có cấu trúc, thường được sử dụng và có thể đọc được bằng máy. Lưu ý rằng quyền này chỉ áp dụng cho thông tin tự động mà ban đầu bạn đã đồng ý cho chúng tôi sử dụng hoặc khi chúng tôi sử dụng thông tin đó để thực hiện hợp đồng với bạn. Như đã đề cập ở trên, chúng tôi thường không dựa vào sự đồng ý để xử lý dữ liệu cá nhân của bạn. Nếu chúng tôi làm như vậy, bạn có thể rút lại sự đồng ý của mình bất cứ lúc nào (mặc dù điều này sẽ không ảnh hưởng đến tính hợp pháp của bất kỳ quá trình xử lý nào được thực hiện trước khi bạn rút lại sự đồng ý của mình). Nếu bạn rút lại sự đồng ý của mình, chúng tôi có thể không cung cấp được một số dịch vụ nhất định cho bạn. Chúng tôi sẽ thông báo cho bạn nếu trường hợp này xảy ra tại thời điểm bạn rút lại sự đồng ý. Bạn sẽ không phải trả phí để thực hiện bất kỳ quyền nào ở trên. Tuy nhiên, chúng tôi có thể tính một khoản phí hợp lý nếu yêu cầu của bạn rõ ràng là vô căn cứ, lặp đi lặp lại hoặc quá mức. Ngoài ra, chúng tôi có thể từ chối thực hiện yêu cầu của bạn trong những trường hợp này. Chúng tôi có thể cần yêu cầu thông tin cụ thể từ bạn để giúp chúng tôi xác nhận danh tính của bạn nhằm đáp ứng bất kỳ việc thực hiện các quyền trên. Đây là biện pháp bảo mật nhằm đảm bảo dữ liệu cá nhân không bị tiết lộ cho bất kỳ người nào không có quyền nhận dữ liệu đó. Chúng tôi cũng có thể liên hệ với bạn để yêu cầu bạn cung cấp thêm thông tin liên quan đến yêu cầu của bạn nhằm tăng tốc độ phản hồi của chúng tôi. Chúng tôi cố gắng phản hồi tất cả các yêu cầu hợp pháp trong vòng một tháng. Đôi khi, chúng tôi có thể mất hơn một tháng nếu yêu cầu của bạn đặc biệt phức tạp hoặc bạn đã đưa ra nhiều yêu cầu. Trong trường hợp này, chúng tôi sẽ thông báo cho bạn và cập nhật cho bạn. Truyền dữ liệu quốc tế Chúng tôi có thể thu thập thông tin cá nhân của bạn từ đó, chuyển thông tin đó đến cũng như lưu trữ và xử lý thông tin đó ở các quốc gia khác ngoài nơi bạn sinh sống. Nếu chúng tôi cung cấp bất kỳ thông tin nào về bạn cho bất kỳ tổ chức nào như vậy, chúng tôi sẽ thực hiện các biện pháp thích hợp để đảm bảo các công ty đó bảo vệ thông tin của bạn theo Chính sách này và luật hiện hành. Nếu bạn ở Vương quốc Anh hoặc EEA và chúng tôi chuyển dữ liệu cá nhân của bạn ra ngoài EEA, chúng tôi đảm bảo áp dụng mức độ bảo vệ tương tự bằng cách thực hiện ít nhất một trong các biện pháp bảo vệ sau: Chúng tôi sẽ chỉ chuyển dữ liệu cá nhân của bạn đến các quốc gia có được Ủy ban Châu Âu coi là cung cấp mức độ bảo vệ thích hợp cho dữ liệu cá nhân. Khi chúng tôi sử dụng một số nhà cung cấp dịch vụ nhất định, chúng tôi có thể sử dụng các hợp đồng cụ thể đã được Ủy ban Châu Âu phê duyệt để cung cấp cho dữ liệu cá nhân sự bảo vệ tương tự như ở Châu Âu. Vui lòng liên hệ với chúng tôi nếu bạn muốn biết thêm thông tin về cơ chế cụ thể được sử dụng khi truyền dữ liệu của mình ra ngoài EEA. Khiếu nại Nếu bạn sống ở EU và ở một số khu vực pháp lý khác, bạn có tùy chọn gửi khiếu nại về việc xử lý dữ liệu cá nhân của bạn với cơ quan giám sát có thẩm quyền. Tuy nhiên, chúng tôi đánh giá cao cơ hội giải quyết những lo ngại của bạn trước khi bạn tiếp cận cơ quan giám sát, vì vậy, vui lòng liên hệ với chúng tôi ngay từ đầu. Lựa chọn của bạn Bạn có thể từ chối chia sẻ một số thông tin nhất định với VIDA, trong trường hợp đó VIDA có thể không thể cung cấp cho bạn một số tính năng và chức năng có trên Dịch vụ. Nếu bạn đã tạo tài khoản VIDA, bạn có thể cập nhật thông tin hồ sơ và tùy chọn của mình hoặc yêu cầu vô hiệu hóa tài khoản của mình. Đối với các yêu cầu xem xét, cập nhật, xóa hoặc hạn chế việc VIDA sử dụng thông tin mà bạn đã cung cấp trực tiếp cho VIDA, bạn có thể liên hệ với support@VIDA. Trong yêu cầu của bạn, vui lòng bao gồm địa chỉ email và tên người dùng của bạn và chỉ định tất cả thông tin cơ bản có liên quan. Để bảo vệ quyền riêng tư và bảo mật của bạn, chúng tôi có thể thực hiện các bước để xác minh danh tính của bạn trước khi cấp cho bạn quyền truy cập hoặc chỉnh sửa thông tin của bạn. Bạn có trách nhiệm luôn giữ bí mật mật khẩu và thông tin tài khoản duy nhất của mình."
-  },
-  { "code": "pp.pp.accountDeletion.title", "name": "Xóa tài khoản" },
-  {
-    "code": "pp.pp.accountDeletion.content",
-    "name": "Nếu bạn muốn xóa tài khoản của mình, bạn có thể hướng dẫn chúng tôi làm như vậy bằng cách liên hệ với chúng tôi theo địa chỉ support@VIDA. Nếu bạn xóa tài khoản của mình, VIDA có thể giữ lại một số thông tin nhất định về bạn cho các hoạt động được mô tả trong Chính sách này hoặc theo sự cho phép hoặc yêu cầu của luật hiện hành."
-  },
-  { "code": "pp.pp.thirdParty.title", "name": "Dịch vụ và trang web của bên thứ ba" },
-  {
-    "code": "pp.pp.thirdParty.content",
-    "name": "Nếu bạn kết nối với dịch vụ của bên thứ ba (chẳng hạn như Twitter hoặc bên thứ ba khác) thông qua Dịch vụ hoặc liên kết tài khoản VIDA của bạn với dịch vụ của bên thứ ba, thì bạn đang yêu cầu và ủy quyền cho chúng tôi chia sẻ hoặc cấp quyền truy cập vào thông tin thay mặt bạn (chẳng hạn như tên người dùng của bạn, thực tế là kết nối của bạn bắt nguồn từ Dịch vụ cũng như thông tin chẩn đoán và sử dụng có liên quan khác) với bên thứ ba đó. Dịch vụ có thể bao gồm các liên kết đến các trang web, plugin và ứng dụng của bên thứ ba. Việc nhấp vào các liên kết đó hoặc bật các kết nối đó có thể cho phép các bên thứ ba thu thập hoặc chia sẻ dữ liệu về bạn. Chúng tôi không kiểm soát các trang web của bên thứ ba này và không chịu trách nhiệm về các tuyên bố về quyền riêng tư của họ. Khi bạn rời khỏi Dịch vụ, chúng tôi khuyến khích bạn đọc chính sách quyền riêng tư của mọi trang web bạn truy cập."
-  },
-  { "code": "pp.pp.retention.title", "name": "Lưu giữ thông tin của bạn" },
-  {
-    "code": "pp.pp.retention.content",
-    "name": "VIDA sẽ chỉ lưu giữ dữ liệu cá nhân của bạn trong khoảng thời gian cần thiết để thực hiện các mục đích liên quan được mô tả trong Chính sách này, theo yêu cầu (hoặc cho phép) của pháp luật (chẳng hạn như cho các mục đích quản lý, thuế, kế toán và báo cáo), hoặc như được thông báo khác cho bạn. Chúng tôi có thể lưu giữ dữ liệu cá nhân của bạn trong thời gian dài hơn trong trường hợp có khiếu nại hoặc nếu chúng tôi tin tưởng một cách hợp lý rằng có khả năng xảy ra kiện tụng liên quan đến mối quan hệ của chúng tôi với bạn. Để xác định khoảng thời gian lưu giữ thích hợp cho dữ liệu cá nhân, chúng tôi xem xét số tiền, tính chất và độ nhạy cảm của dữ liệu cá nhân, nguy cơ tổn hại tiềm ẩn do sử dụng trái phép hoặc tiết lộ dữ liệu cá nhân của bạn, mục đích chúng tôi xử lý dữ liệu cá nhân của bạn và liệu chúng tôi có thể đạt được những mục đích này thông qua các phương tiện khác cũng như quy định, pháp lý hiện hành hay không. , thuế, kế toán hoặc các yêu cầu khác. Theo luật, vì mục đích thuế, chúng tôi phải lưu giữ thông tin cơ bản về khách hàng của mình (bao gồm dữ liệu liên hệ, danh tính, tài chính và giao dịch) trong sáu năm sau khi họ ngừng là khách hàng. Trong một số trường hợp, bạn có thể yêu cầu chúng tôi xóa dữ liệu của bạn (xem phần Xóa tài khoản và Yêu cầu chủ thể dữ liệu ở trên). Khi bạn yêu cầu chúng tôi xóa tài khoản của bạn, chúng tôi sẽ xóa tất cả thông tin mà pháp luật không yêu cầu hoặc cho phép giữ lại. Trong một số trường hợp, chúng tôi sẽ ẩn danh dữ liệu cá nhân của bạn (để dữ liệu đó không còn liên quan đến bạn nữa) để nghiên cứu hoặc mục đích thống kê, trong trường hợp đó chúng tôi có thể sử dụng thông tin này vô thời hạn mà không cần thông báo thêm cho bạn."
-  },
-  { "code": "pp.pp.mergerSale.title", "name": "Sáp nhập hoặc bán" },
-  {
-    "code": "pp.pp.mergerSale.content",
-    "name": "Chúng tôi có quyền chuyển nhượng hoặc chuyển nhượng thông tin mà chúng tôi đã thu thập từ Người dùng liên quan đến bất kỳ thay đổi dự kiến ​​nào về giao dịch quyền sở hữu, bao gồm nhưng không giới hạn ở mọi hoạt động sáp nhập, mua lại, bán cổ phiếu hoặc tài sản liên quan đến Dịch vụ, tổ chức lại công ty hoặc sự kiện thay đổi quyền kiểm soát khác, kể cả trong quá trình thẩm định, với điều kiện là người được chuyển nhượng hoặc người được chuyển nhượng có nghĩa vụ xử lý thông tin được chuyển giao hoặc chuyển giao theo Chính sách này."
-  },
-  { "code": "pp.pp.minors.title", "name": "trẻ vị thành niên" },
-  {
-    "code": "pp.pp.minors.content",
-    "name": "VIDA không cố ý thu thập, sử dụng hoặc tiết lộ thông tin từ Người dùng không đủ 18 tuổi hoặc đủ tuổi trưởng thành hợp pháp tại khu vực pháp lý cư trú của họ, tùy theo độ tuổi nào lớn hơn. Dịch vụ của chúng tôi chỉ dành cho người lớn và không hướng tới trẻ vị thành niên. Nếu bạn cho rằng chúng tôi đã thu thập thông tin cá nhân từ trẻ vị thành niên, vui lòng liên hệ với chúng tôi theo địa chỉ support@VIDA."
-  },
-  { "code": "pp.pp.track.title", "name": "Không theo dõi" },
-  {
-    "code": "pp.pp.track.content",
-    "name": "Dịch vụ không được thiết kế để phản hồi các tín hiệu “không theo dõi” do một số trình duyệt gửi đến."
-  },
-  { "code": "pp.pp.contact.title", "name": "Liên hệ" },
-  {
-    "code": "pp.pp.contact.content",
-    "name": "Các câu hỏi hoặc thắc mắc liên quan đến các Điều khoản này có thể được gửi tới support@VIDA. Xin lưu ý rằng thông tin liên lạc qua email không nhất thiết phải được bảo mật; do đó, bạn không nên đưa thông tin thẻ tín dụng hoặc thông tin nhạy cảm khác vào thư điện tử của bạn với chúng tôi. Các truy vấn về thanh toán phải được chuyển đến Billing@VIDA"
-  },
-  { "code": "pp.pp.miscellaneous.title", "name": "Điều khoản khác" },
-  {
-    "code": "pp.pp.miscellaneous.content",
-    "name": "Các Điều khoản này không và sẽ không được hiểu là tạo ra bất kỳ mối quan hệ đối tác, liên doanh, chủ lao động-nhân viên, đại lý hoặc bên nhượng quyền-nhượng quyền nào giữa bạn và VIDA. Nếu bất kỳ điều khoản nào trong các Điều khoản này bị phát hiện là bất hợp pháp, vô hiệu hoặc không thể thi hành vì bất kỳ lý do nào thì điều khoản đó sẽ được coi là có thể tách rời khỏi các Điều khoản này và sẽ không ảnh hưởng đến hiệu lực cũng như khả năng thực thi của bất kỳ điều khoản nào còn lại. Bạn không được chuyển nhượng, chuyển nhượng hoặc cấp phép lại bất kỳ hoặc tất cả các quyền hoặc nghĩa vụ của mình theo các Điều khoản này mà không có sự đồng ý trước bằng văn bản rõ ràng của chúng tôi. Chúng tôi có thể chuyển nhượng, chuyển giao hoặc cấp phép lại bất kỳ hoặc tất cả các quyền hoặc nghĩa vụ của chúng tôi theo các Điều khoản này mà không bị hạn chế. Việc từ bỏ của một trong hai bên đối với bất kỳ vi phạm hoặc vi phạm nào dưới đây sẽ không được coi là sự từ bỏ bất kỳ vi phạm hoặc vi phạm nào trước đó hoặc sau đó. Bất kỳ tiêu đề, chú thích hoặc tiêu đề phần nào trong tài liệu này chỉ được chèn vào nhằm mục đích thuận tiện và không xác định hay giải thích bất kỳ phần hoặc điều khoản nào trong tài liệu này. Điều này, cùng với tất cả các chính sách được đề cập ở đây, là toàn bộ thỏa thuận giữa bạn và VIDA liên quan đến chủ đề ở đây và thay thế bất kỳ và tất cả các thỏa thuận hoặc hiểu biết bằng văn bản hoặc bằng miệng trước đó hoặc đương thời giữa bạn và VIDA liên quan đến chủ đề đó vấn đề. Thông báo cho bạn có thể được thực hiện thông qua việc đăng lên Dịch vụ, qua e-mail hoặc bằng thư thông thường, theo quyết định riêng của VIDA. Dịch vụ cũng có thể cung cấp thông báo về các thay đổi đối với các Điều khoản này hoặc các vấn đề khác bằng cách hiển thị các thông báo đó hoặc bằng cách cung cấp liên kết đến các thông báo đó. Không giới hạn, bạn đồng ý rằng phiên bản in của các Điều khoản này và bất kỳ thông báo nào được đưa ra dưới dạng điện tử sẽ được chấp nhận trong các thủ tục tố tụng tư pháp hoặc hành chính dựa trên hoặc liên quan đến các Điều khoản này ở cùng mức độ và tuân theo các điều kiện giống như các tài liệu và tài liệu kinh doanh khác. hồ sơ ban đầu được tạo ra và duy trì ở dạng in. VIDA sẽ không chịu trách nhiệm về việc không thực hiện bất kỳ nghĩa vụ nào do những nguyên nhân nằm ngoài tầm kiểm soát của nó."
-  },
-  { "code": "pp.pp.language.title", "name": "Ngôn ngữ" },
-  {
-    "code": "pp.pp.language.content",
-    "name": "Các Điều khoản này ban đầu được viết bằng tiếng Anh. Trong trường hợp bất kỳ phiên bản dịch nào của các Điều khoản này xung đột với phiên bản tiếng Anh thì phiên bản tiếng Anh sẽ kiểm soát. Sửa đổi lần cuối: Tháng 7 năm 2023 © 2023 VIDA trừ khi có ghi chú khác. Đã đăng ký Bản quyền."
-  },
-  { "code": "pp.pp.final", "name": "Sửa đổi lần cuối: tháng 7 năm 2023" },
-  { "code": "pp.pp.VIDA", "name": "© 2023 VIDA One Trừ khi có quy định khác. Đã đăng ký Bản quyền." },
-  { "code": "support.faq.account.title", "name": "Tài khoản" },
-  { "code": "support.faq.account.a.subtitle", "name": "Tôi quên mật khẩu của tôi" },
-  {
-    "code": "support.faq.account.a.content",
-    "name": "Chuyển đến màn hình đăng nhập và nhấp vào 'quên' trong trường mật khẩu. Nếu bạn không còn nhớ địa chỉ email của mình, hãy liên hệ với support@VIDA"
-  },
-  { "code": "support.faq.account.b.subtitle", "name": "Làm cách nào để xóa tài khoản của tôi?" },
-  {
-    "code": "support.faq.account.b.content",
-    "name": "Xin lưu ý rằng việc xóa tài khoản của bạn là một quá trình không thể đảo ngược và tất cả dữ liệu của bạn sẽ bị xóa vĩnh viễn theo Chính sách quyền riêng tư của chúng tôi."
-  },
-  { "code": "support.faq.features.title", "name": "Đặc trưng" },
-  { "code": "support.faq.features.a.subtitle", "name": "Tại sao tôi nên đăng ký?" },
-  {
-    "code": "support.faq.features.a.content",
-    "name": "Với tư cách là người đăng ký, bạn sẽ nhận được nội dung được cá nhân hóa cao cho tài khoản của mình dựa trên các danh mục và Người sáng tạo mà bạn đã theo dõi và đăng ký trên VIDA. Bạn không chỉ có quyền truy cập vào nội dung riêng tư của Người sáng tạo mà còn có cơ hội độc quyền để kết nối, nhắn tin trực tiếp và trò chuyện với họ!"
-  },
-  { "code": "support.faq.features.b.subtitle", "name": "Làm cách nào để gửi nội dung cho người sáng tạo?" },
-  {
-    "code": "support.faq.features.b.content",
-    "name": "Người đăng ký có thể chia sẻ phương tiện với người sáng tạo. Nội dung phải tuân thủ các nguyên tắc cộng đồng. Khi nhắn tin cho người sáng tạo, tất cả những gì bạn cần làm là nhấn nút kẹp giấy bên cạnh hộp trò chuyện và tải ảnh hoặc video lên từ thiết bị của mình."
-  },
-  {
-    "code": "support.faq.features.c.subtitle",
-    "name": "Nội dung có được lưu trên hồ sơ của người dùng để tải lên trong tương lai không?"
-  },
-  {
-    "code": "support.faq.features.c.content",
-    "name": "Không, nội dung sẽ không được lưu. Nội dung sẽ cần được tải lên từ thiết bị của bạn mỗi lần bạn muốn gửi nội dung đó cho người sáng tạo."
-  },
-  {
-    "code": "support.faq.features.d.subtitle",
-    "name": "Người dùng hoặc người tạo có thể xóa nội dung khỏi chuỗi tin nhắn không?"
-  },
-  { "code": "support.faq.features.d.content", "name": "Không có nội dung nào có thể bị xóa khỏi chủ đề vào lúc này." },
-  { "code": "support.faq.features.e.subtitle", "name": "Điều gì sẽ xảy ra nếu nội dung đó có tính chất xúc phạm?" },
-  {
-    "code": "support.faq.features.e.content",
-    "name": "Người sáng tạo có thể báo cáo bất kỳ nội dung nào được gửi cho họ và chúng tôi sẽ có hành động thích hợp."
-  },
-  { "code": "support.faq.contact.title", "name": "Liên hệ" },
-  { "code": "support.faq.contact.a.subtitle", "name": "Làm cách nào để liên hệ với bộ phận hỗ trợ của VIDA?" },
-  {
-    "code": "support.faq.contact.a.content",
-    "name": "Chúng tôi luôn sẵn lòng trợ giúp với các thắc mắc của bạn. Để liên hệ trực tiếp với chúng tôi, vui lòng sử dụng các liên kết và thông tin liên hệ bên dưới: Hỗ trợ chung & trang web: support@VIDA Hỗ trợ thanh toán: support@VIDA hoặc truy cập https: //www.VIDA (chỉ thanh toán)"
-  },
-  { "code": "support.faq.about.title", "name": "Về VIDA" },
-  { "code": "support.faq.about.a.subtitle", "name": "VIDA là gì?" },
-  {
-    "code": "support.faq.about.a.content",
-    "name": "VIDA là một nền tảng trực tuyến cho phép Người sáng tạo và những người có ảnh hưởng trên toàn thế giới tương tác với khách hàng của họ trong một môi trường an toàn và bảo mật cho tất cả các bên liên quan."
-  },
-  { "code": "support.faq.about.b.subtitle", "name": "Làm cách nào để chia sẻ phản hồi?" },
-  {
-    "code": "support.faq.about.b.content",
-    "name": "VIDA sẽ không tồn tại nếu không có bạn và ý kiến ​​của bạn rất quan trọng đối với chúng tôi. Chúng tôi luôn mong muốn được nghe về những suy nghĩ, đề xuất hoặc mối quan tâm của bạn. Cách dễ nhất để gửi phản hồi là gửi email đến support@VIDA"
-  },
-  { "code": "support.faq.menu.title", "name": "Tính năng menu cửa hàng" },
-  { "code": "support.faq.menu.a.subtitle", "name": "Cửa hàng mới có những gì?" },
-  {
-    "code": "support.faq.menu.a.content",
-    "name": "Người sáng tạo có thể cung cấp bất kỳ tùy chọn nào sau đây, vui lòng kiểm tra các dịch vụ bổ sung của bản dựng đã tải lên: Xếp hạng hình ảnh Dick Video tùy chỉnh - nội dung, độ dài và giá cả đã thỏa thuận với người sáng tạo Tên trên cơ thể - hình ảnh hoặc video Cosplay / Trang phục - hình ảnh hoặc video Hướng dẫn giật gân (JOI) - video Video ngày lễ - sinh nhật, ngày lễ tình nhân, giáng sinh, hươu Con trai hay con gái - video Hãy chiêu đãi tôi - người dùng gửi tiền cho người sáng tạo để chiêu đãi, ví dụ: móng chân và người sáng tạo gửi ảnh lại"
-  },
-  { "code": "support.faq.menu.b.subtitle", "name": "Nếu tôi không nhận được nội dung mà tôi đã thanh toán thì sao?" },
-  {
-    "code": "support.faq.menu.b.content",
-    "name": "Tất cả các yêu cầu phải được thực hiện trong vòng 72 giờ và người sáng tạo phải xác nhận việc giao các mặt hàng đã đặt. Nếu việc giao hàng không hoàn tất, chúng tôi sẽ xử lý hoàn lại tiền."
-  },
-  { "code": "support.faq.menu.c.subtitle", "name": "Khách hàng có thể hủy yêu cầu không?" },
-  {
-    "code": "support.faq.menu.c.content",
-    "name": "Không, yêu cầu của khách hàng không thể bị hủy, tuy nhiên người sáng tạo có thể chọn từ chối yêu cầu."
-  },
-  { "code": "support.faq.menu.d.subtitle", "name": "Nếu tôi cần báo cáo nội dung tôi đã nhận được thì sao?" },
-  {
-    "code": "support.faq.menu.d.content",
-    "name": "Có một tùy chọn báo cáo về tất cả nội dung nhận được. Nội dung cần tuân thủ các nguyên tắc cộng đồng, do đó, nếu bạn cho rằng bất kỳ phương tiện truyền thông nào vi phạm các quy tắc này, bạn có thể sử dụng chức năng báo cáo. Nguyên tắc nội dung bao gồm nhưng không giới hạn ở: Bất kỳ phương tiện truyền thông nào có dấu hiệu phân biệt đối xử, bạo lực, hoạt động cưỡng bức hoặc không có sự đồng thuận Bất kỳ phương tiện truyền thông nào có thể chứa trẻ vị thành niên dưới 18 tuổi Nội dung/bản quyền bị đánh cắp Nhân vật chính trong phương tiện truyền thông không khớp với hồ sơ Hướng dẫn tự tử hoặc giết người Khủng bố"
-  },
-  { "code": "tos.tos.info.title", "name": "Điều khoản sử dụng" },
-  {
-    "code": "tos.tos.info.content1",
-    "name": "Vui lòng đọc kỹ các Điều khoản dịch vụ này. Đây là một hợp đồng ràng buộc. Nó liên quan đến các dịch vụ này. Những điều khoản này áp dụng cho tất cả người dùng. Bạn đồng ý rằng bằng cách đăng ký, tải xuống, truy cập hoặc sử dụng dịch vụ, bạn đã có một thỏa thuận ràng buộc về mặt pháp lý với VIDA về việc bạn sử dụng Dịch vụ."
-  },
-  {
-    "code": "tos.tos.info.content2",
-    "name": "Khi sử dụng Dịch vụ, bạn sẽ tuân thủ Chính sách quyền riêng tư của VIDA, Chính sách cookie của VIDA và các chính sách khác được đăng trên hoặc cung cấp cho bạn trên Dịch vụ hoặc áp dụng cho các dịch vụ và tính năng cụ thể được tiết lộ cho bạn. hướng dẫn hoặc quy tắc. Liên quan đến các dịch vụ như vậy. Những điều khoản này áp dụng cho tất cả người dùng."
-  },
-  {
-    "code": "tos.tos.info.content3",
-    "name": "Những điều khoản này áp dụng cho tất cả người dùng. Bạn đồng ý rằng bằng cách đăng ký, tải xuống, truy cập hoặc sử dụng dịch vụ, bạn và VIDA sẽ hình thành một thỏa thuận ràng buộc về mặt pháp lý liên quan đến việc bạn sử dụng dịch vụ. Bạn thừa nhận rằng bạn đã Đọc, hiểu và đồng ý bị ràng buộc bởi các Điều khoản này. Nếu bạn không đồng ý với các Điều khoản này, vui lòng không truy cập hoặc sử dụng bất kỳ Dịch vụ nào."
-  },
-  { "code": "tos.tos.definitions.title", "name": "Các định nghĩa" },
-  { "code": "tos.tos.definitions.table.title.a", "name": "Thuật ngữ" },
-  { "code": "tos.tos.definitions.table.title.b", "name": "Các “Điều khoản”" },
-  { "code": "tos.tos.definitions.table.title.c", "name": "VIDA”, “chúng tôi” hoặc “chúng tôi”" },
-  { "code": "tos.tos.definitions.table.title.d", "name": "Dịch vụ\"" },
-  { "code": "tos.tos.definitions.table.title.e", "name": "“(Các) khách hàng”" },
-  { "code": "tos.tos.definitions.table.title.f", "name": "”(Những) người dùng”" },
-  { "code": "tos.tos.definitions.table.title.g", "name": "“(Những) người sáng tạo”" },
-  { "code": "tos.tos.definitions.table.title.h", "name": "\"Nội dung\"" },
-  { "code": "tos.tos.definitions.table.title.i", "name": "\"Tín dụng\"" },
-  { "code": "tos.tos.definitions.table.content.a", "name": "Sự định nghĩa" },
-  {
-    "code": "tos.tos.definitions.table.content.b",
-    "name": "Các Điều khoản dịch vụ này như được nêu trong tài liệu này.”"
-  },
-  {
-    "code": "tos.tos.definitions.table.content.c",
-    "name": "VIDA, (hoặc VIDA liên quan đến thanh toán) giao dịch dưới tên VIDA."
-  },
-  {
-    "code": "tos.tos.definitions.table.content.d",
-    "name": "Trang web VIDA, đặt tại VIDA và bất kỳ trang web, ứng dụng hoặc dịch vụ nào khác do chúng tôi cung cấp, sở hữu hoặc vận hành có liên kết đến các Điều khoản này."
-  },
-  {
-    "code": "tos.tos.definitions.table.content.e",
-    "name": "Bất kỳ và tất cả Người dùng mua, mở khóa hoặc truy cập Nội dung do Người sáng tạo cung cấp thông qua Dịch vụ."
-  },
-  {
-    "code": "tos.tos.definitions.table.content.f",
-    "name": "Bất kỳ và tất cả khách truy cập, người dùng và những người khác truy cập hoặc sử dụng Dịch vụ."
-  },
-  {
-    "code": "tos.tos.definitions.table.content.g",
-    "name": "Bất kỳ và tất cả Người dùng bán hoặc cung cấp Nội dung thông qua Dịch vụ cho Khách hàng."
-  },
-  {
-    "code": "tos.tos.definitions.table.content.h",
-    "name": "Video, hình ảnh, tin nhắn, văn bản, âm thanh, ứng dụng, mã hoặc dữ liệu hoặc tài liệu khác mà Người dùng có thể tạo, đăng, truyền, thực hiện, lưu trữ hoặc cung cấp trên hoặc thông qua Dịch vụ."
-  },
-  {
-    "code": "tos.tos.definitions.table.content.i",
-    "name": "Một loại tiền ảo được sử dụng để mua, mở khóa hoặc truy cập Nội dung."
-  },
-  { "code": "tos.tos.aboutService.title", "name": "Về dịch vụ" },
-  {
-    "code": "tos.tos.aboutService.content",
-    "name": "VIDA cung cấp nền tảng dịch vụ kỹ thuật số cho phép Người sáng tạo kiếm tiền từ Nội dung của họ với Khách hàng. Bằng cách truy cập Dịch vụ, bạn thừa nhận rằng bạn hiểu Dịch vụ chỉ nhằm mục đích giải trí. Chúng tôi có quyền, vào bất kỳ lúc nào và tùy từng thời điểm, tạm thời hoặc vĩnh viễn, toàn bộ hoặc một phần, để: sửa đổi hoặc ngừng Dịch vụ, với hoặc không cần thông báo; tính phí liên quan đến việc sử dụng Dịch vụ; sửa đổi và/hoặc miễn mọi khoản phí liên quan đến Dịch vụ; và/hoặc mang lại cơ hội cho một số hoặc tất cả Người dùng Dịch vụ. Bạn đồng ý rằng chúng tôi sẽ không chịu trách nhiệm pháp lý với bạn hoặc bất kỳ bên thứ ba nào về bất kỳ sửa đổi, đình chỉ hoặc ngừng Dịch vụ nào, toàn bộ hoặc một phần, hoặc bất kỳ nội dung, tính năng hoặc sản phẩm nào được cung cấp thông qua Dịch vụ. Việc bạn tiếp tục sử dụng Dịch vụ sau những thay đổi đó đồng nghĩa với việc bạn chấp nhận những thay đổi đó."
-  },
-  { "code": "tos.tos.jurisdictional.title", "name": "Các vấn đề thẩm quyền" },
-  {
-    "code": "tos.tos.jurisdictional.content",
-    "name": "Dịch vụ được kiểm soát và vận hành bởi VIDA từ quốc gia thành lập và không nhằm mục đích buộc VIDA phải tuân theo luật pháp hoặc quyền tài phán của bất kỳ tiểu bang, tỉnh, quốc gia hoặc lãnh thổ nào khác. Mặc dù VIDA cố gắng đảm bảo rằng Dịch vụ tuân thủ một số luật nhất định của các khu vực pháp lý khác nhằm nỗ lực tuân thủ các thông lệ tốt nhất trong ngành (ví dụ: Đạo luật bản quyền thiên niên kỷ kỹ thuật số của Hoa Kỳ và 18 U.S.C. §2257), những nỗ lực đó sẽ không được chấp nhận. được coi là buộc VIDA phải tuân theo luật pháp của các khu vực pháp lý đó. VIDA không tuyên bố hoặc đảm bảo rằng Dịch vụ hoặc bất kỳ phần nào trong đó phù hợp hoặc có sẵn để sử dụng ở bất kỳ khu vực pháp lý cụ thể nào. Khi chọn truy cập Dịch vụ, bạn tự mình thực hiện việc đó và tự chịu rủi ro, đồng thời bạn có trách nhiệm tuân thủ tất cả các luật, quy tắc và quy định của địa phương. Chúng tôi có thể giới hạn tính khả dụng của Dịch vụ, toàn bộ hoặc một phần, đối với bất kỳ người nào, khu vực địa lý hoặc khu vực pháp lý mà chúng tôi chọn, bất kỳ lúc nào và theo quyết định riêng của chúng tôi. Không phải tất cả các sản phẩm hoặc dịch vụ được mô tả trên Dịch vụ đều có sẵn ở mọi khu vực pháp lý."
-  },
-  { "code": "tos.tos.minors.title", "name": "trẻ vị thành niên" },
-  {
-    "code": "tos.tos.minors.content",
-    "name": "Bạn phải ít nhất 18 tuổi hoặc đủ tuổi trưởng thành hợp pháp tại khu vực pháp lý nơi bạn cư trú, tùy theo độ tuổi nào lớn hơn, để được chúng tôi cho phép sử dụng Dịch vụ của chúng tôi. Chúng tôi không khoan nhượng đối với trẻ vị thành niên sử dụng Dịch vụ. Ngoài ra, chúng tôi không khoan nhượng đối với bất kỳ Nội dung nào đề cập đến trẻ vị thành niên vì bất kỳ lý do gì, bao gồm cả việc giả vờ là trẻ vị thành niên khi trưởng thành hoặc Nội dung mô phỏng trẻ vị thành niên. Nếu bạn tin rằng trẻ vị thành niên đang sử dụng Dịch vụ, chúng tôi yêu cầu và khuyến khích Người dùng báo cáo họ. Chúng tôi có quyền và báo cáo từng trẻ vị thành niên bị nghi ngờ cho bất kỳ và tất cả các cơ quan thực thi pháp luật mà chúng tôi cảm thấy phù hợp. BẰNG CÁCH TRUY CẬP, TẢI XUỐNG HOẶC SỬ DỤNG DỊCH VỤ, BẠN TUYÊN BỐ RẰNG: (A) BẠN TUỔI ÍT NHẤT 18 TUỔI HOẶC TUỔI TRƯỞNG THÀNH TRONG KHU VỰC CƯ TRÚ CỦA BẠN (NẾU TUỔI TRÊN 18 TUỔI); VÀ (B) KHU VỰC QUYỀN mà BẠN TRUY CẬP DỊCH VỤ KHÔNG CẤM NHẬN, TẢI XUỐNG, XEM HOẶC PHÂN PHỐI NỘI DUNG KHUYẾN MÃI HOẶC NGƯỜI LỚN. Các biện pháp bảo vệ quyền kiểm soát của cha mẹ (chẳng hạn như phần cứng, phần mềm hoặc dịch vụ lọc máy tính) có sẵn trên thị trường có thể hỗ trợ bạn trong việc hạn chế quyền truy cập vào tài liệu có hại cho trẻ vị thành niên. Hướng dẫn sử dụng các biện pháp bảo vệ như vậy có sẵn trên trang web của Ủy ban Thương mại Liên bang Hoa Kỳ tại đây. Xin lưu ý rằng VIDA không xác nhận bất kỳ sản phẩm hoặc dịch vụ nào được liệt kê trên trang web đó."
-  },
-  { "code": "tos.tos.privacyPolicy.title", "name": "Chính sách bảo mật" },
-  {
-    "code": "tos.tos.privacyPolicy.content",
-    "name": "Quyền riêng tư của bạn rất quan trọng với chúng tôi. Vui lòng xem Chính sách quyền riêng tư của chúng tôi để biết thông tin liên quan đến cách chúng tôi thu thập, sử dụng và tiết lộ thông tin cá nhân của bạn."
-  },
-  { "code": "tos.tos.userRegistration.title", "name": "Đăng ký người dùng" },
-  {
-    "code": "tos.tos.userRegistration.content",
-    "name": "Bạn có thể được yêu cầu đăng ký tài khoản để truy cập một số tính năng nhất định của Dịch vụ. Bạn đồng ý giữ bí mật mật khẩu của mình và sẽ chịu trách nhiệm về mọi hoạt động sử dụng, hoạt động và mua hàng được thực hiện trên Dịch vụ thông qua tài khoản của bạn. Chúng tôi có quyền xóa, lấy lại hoặc thay đổi tên người dùng mà bạn chọn nếu chúng tôi xác định, theo quyết định riêng của mình, rằng tên người dùng đó không phù hợp, tục tĩu hoặc bị phản đối. Trừ khi được VIDA cho phép rõ ràng bằng văn bản, bạn không được bán , thuê, cho thuê, chia sẻ hoặc cung cấp quyền truy cập vào tài khoản của bạn cho bất kỳ ai khác. VIDA bảo lưu tất cả các quyền pháp lý và biện pháp khắc phục hiện có để ngăn chặn việc sử dụng trái phép Dịch vụ, bao gồm nhưng không giới hạn ở các rào cản công nghệ, lập bản đồ IP và trong trường hợp nghiêm trọng, liên hệ trực tiếp với Nhà cung cấp dịch vụ Internet (ISP) của bạn về việc sử dụng trái phép đó .Trong phạm vi bạn tự nguyện tạo hồ sơ Người dùng để tham gia vào một số dịch vụ chọn lọc nhất định do chúng tôi cung cấp, hồ sơ của bạn (và nội dung của hồ sơ) có thể được tìm kiếm bởi những Người dùng khác đã đăng ký thông qua Dịch vụ. Tương tự như vậy, hồ sơ của bạn (và nội dung của nó) có thể được tìm kiếm bởi các công cụ tìm kiếm công khai."
-  },
-  { "code": "tos.tos.devicesServices.title", "name": "Sử dụng thiết bị và dịch vụ" },
-  {
-    "code": "tos.tos.devicesServices.content",
-    "name": "Việc truy cập Dịch vụ có thể yêu cầu bạn sử dụng máy tính cá nhân hoặc thiết bị di động cũng như liên lạc hoặc sử dụng không gian trên các thiết bị đó. Bạn chịu trách nhiệm về mọi khoản phí và lệ phí kết nối Internet hoặc di động mà bạn phải chịu khi truy cập Dịch vụ."
-  },
-  { "code": "tos.tos.modifications.title", "name": "Sửa đổi" },
-  {
-    "code": "tos.tos.modifications.content",
-    "name": "Chúng tôi có quyền thay đổi các Điều khoản này bất cứ lúc nào. Nếu chúng tôi thực hiện thay đổi, chúng tôi sẽ thông báo cho bạn bằng cách sửa lại ngày ở cuối Điều khoản và trong một số trường hợp, chúng tôi sẽ cung cấp cho bạn thông báo bổ sung (chẳng hạn như thêm tuyên bố vào trang chủ của chúng tôi hoặc gửi cho bạn thông báo qua email). Để tuân thủ Quy định (EU) 2019/1150 (\"Quy định về nền tảng kinh doanh\" hoặc \"P2BR\"), chúng tôi sẽ gửi thông báo trước ít nhất 15 ngày về bất kỳ thay đổi nào đối với các Điều khoản này trên \"phương tiện lâu dài\" (như được xác định trong P2BR), ngoài những thay đổi được nêu trong Điều 3 (4) của P2BR. Những thay đổi đối với các Điều khoản này có hiệu lực vào thời điểm chúng được xuất bản. Việc bạn tiếp tục sử dụng Dịch vụ sau ngày Điều khoản sửa đổi có hiệu lực sẽ cấu thành sự chấp nhận của bạn đối với Điều khoản. Giấy phép sử dụng Dịch vụ Theo các Điều khoản này, VIDA cấp cho bạn quyền cá nhân, toàn cầu, miễn phí bản quyền, không thể chuyển nhượng, không độc quyền , có thể hủy bỏ và không thể cấp phép lại để truy cập và sử dụng Dịch vụ. Giấy phép này chỉ nhằm mục đích duy nhất là cho phép bạn sử dụng và tận hưởng các lợi ích của Dịch vụ như VIDA dự định và được các Điều khoản này cho phép."
-  },
-  { "code": "tos.tos.content.title", "name": "Nội dung" },
-  {
-    "code": "tos.tos.content.content",
-    "name": "Tùy thuộc vào những gì được luật hiện hành cho phép (bao gồm nhưng không giới hạn ở luật bản quyền), bạn có quyền tự do lựa chọn loại Nội dung bạn sản xuất và đăng hoặc xuất bản. Bạn sẽ hoàn toàn chịu trách nhiệm về Nội dung của chính mình và hậu quả của việc đăng hoặc xuất bản Nội dung đó. Liên quan đến Nội dung, bạn khẳng định, tuyên bố và/hoặc bảo đảm rằng: (i) bạn sở hữu hoặc có giấy phép, quyền, sự đồng ý và quyền cần thiết để sử dụng và ủy quyền cho chúng tôi sử dụng tất cả bằng sáng chế, nhãn hiệu, bí mật thương mại, bản quyền, quyền riêng tư, quyền công khai hoặc các quyền cá nhân hoặc thương mại độc quyền khác đối với bất kỳ và tất cả Nội dung của bạn để cho phép đưa vào và sử dụng Nội dung theo cách được quy định trong Dịch vụ và các Điều khoản này, và (ii) bạn có sự đồng ý bằng văn bản , giải phóng và/hoặc cho phép từng người có thể nhận dạng trong Nội dung của bạn sử dụng tên hoặc chân dung của từng cá nhân để sử dụng trong Nội dung của bạn theo cách mà Dịch vụ và các Điều khoản này dự tính. Chúng tôi không chịu trách nhiệm về bất kỳ Nội dung nào vi phạm chuẩn mực hoặc tập tục của cộng đồng. Chúng tôi mong đợi và yêu cầu bạn tuân thủ tất cả các luật liên bang, tiểu bang, tỉnh và địa phương khi sử dụng Dịch vụ cũng như khi gửi hoặc đăng Nội dung lên Dịch vụ. Nếu bạn không chắc chắn Nội dung có vi phạm luật hay không, bạn nên liên hệ với chuyên gia pháp lý trước khi đăng Nội dung. Chúng tôi không thể thực thi luật của mọi khu vực pháp lý đối với tất cả Nội dung được đăng lên Dịch vụ. Do đó, chúng tôi không chịu trách nhiệm về Nội dung của Dịch vụ. Bạn phải đánh giá và chịu mọi rủi ro liên quan đến việc sử dụng bất kỳ Nội dung nào, bao gồm mọi sự tin cậy vào tính chính xác, đầy đủ hoặc hữu ích hoặc tính hợp pháp của Nội dung đó. Về vấn đề này, bạn thừa nhận rằng bạn không được dựa vào bất kỳ Nội dung nào do chúng tôi tạo hoặc Nội dung được truyền tới Dịch vụ. Bạn chịu trách nhiệm về tất cả Nội dung của mình được tải lên, đăng, gửi email, truyền đi hoặc cung cấp thông qua Dịch vụ. Nếu chúng tôi có lý do để nghi ngờ rằng Nội dung của bạn vi phạm bất kỳ quyền nào của bên thứ ba, bao gồm nhưng không giới hạn bất kỳ bản quyền, nhãn hiệu hoặc quyền tài sản, chúng tôi có thể yêu cầu bạn cung cấp cho chúng tôi bằng chứng bằng văn bản về quyền sở hữu hoặc quyền sử dụng tài liệu được đề cập của bạn. Nếu chúng tôi yêu cầu bằng chứng bằng văn bản như vậy, bạn đồng ý cung cấp cho chúng tôi trong vòng năm ngày làm việc kể từ ngày chúng tôi yêu cầu. Việc bạn không cung cấp cho chúng tôi bằng chứng bằng văn bản được yêu cầu trong khung thời gian đó có thể dẫn đến việc chấm dứt tài khoản của bạn ngay lập tức, chúng tôi yêu cầu bạn bồi thường cho mọi chi phí tích lũy và thiệt hại liên quan đến Nội dung đó và đình chỉ ngay lập tức bất kỳ và tất cả các khoản thanh toán đang chờ xử lý từ chúng tôi cho bạn. Xin lưu ý rằng bạn không được cho phép bất kỳ người nào khác sử dụng tài khoản của mình và bạn phải thông báo ngay cho chúng tôi về bất kỳ vi phạm bảo mật rõ ràng nào, chẳng hạn như mất hoặc đánh cắp mật khẩu của bạn. Mặc dù chúng tôi sẽ nỗ lực mà chúng tôi tin là hợp lý để bảo vệ Nội dung và để cung cấp Nội dung trong trường hợp bị mất hoặc bị xóa, chúng tôi không có trách nhiệm hoặc trách nhiệm pháp lý đối với việc xóa hoặc không lưu trữ hoặc bảo mật bất kỳ Nội dung nào. Chúng tôi có quyền đánh dấu hoặc coi là 'không hoạt động' và lưu trữ Nội dung, theo quyết định của chúng tôi. Chúng tôi có quyền thay đổi các quy tắc lưu trữ và thực tiễn của mình bất kỳ lúc nào theo quyết định riêng của chúng tôi, có hoặc không có thông báo cho bạn. Bạn hiểu và đồng ý rằng chúng tôi có thể giám sát, kiểm duyệt hoặc xóa bất kỳ và tất cả Nội dung, toàn bộ hoặc một phần, trong phán quyết duy nhất của chúng tôi là vi phạm các Điều khoản này hoặc có thể gây tổn hại đến danh tiếng của Dịch vụ. Tuy nhiên, chúng tôi không có nghĩa vụ hiển thị hoặc xem xét Nội dung và không thể đảm bảo xóa ngay Nội dung phản cảm sau khi đăng. Theo đó, chúng tôi không chịu trách nhiệm pháp lý đối với bất kỳ hành động hoặc không hành động nào liên quan đến việc truyền tải, thông tin liên lạc hoặc Nội dung do bất kỳ Người dùng hoặc bên thứ ba nào cung cấp. Chúng tôi không có trách nhiệm pháp lý hay trách nhiệm nào với bất kỳ ai về việc thực hiện hoặc không thực hiện các hoạt động được mô tả trong phần này."
-  },
-  { "code": "tos.tos.license.title", "name": "Giấy phép Nội dung" },
-  {
-    "code": "tos.tos.license.content",
-    "name": "Để làm rõ, bạn giữ mọi quyền sở hữu mà bạn có thể có đối với Nội dung, tuân theo các điều khoản và điều kiện của Thỏa thuận này. Đối với tất cả Nội dung mà bạn cung cấp thông qua hoặc liên quan đến Dịch vụ, theo đây bạn cấp cho chúng tôi quyền sử dụng toàn cầu, miễn phí bản quyền, thanh toán đầy đủ, không độc quyền, vĩnh viễn, không thể thu hồi, có thể chuyển nhượng và có thể cấp phép lại hoàn toàn (thông qua nhiều bậc) mà không cần xem xét thêm đối với bạn hoặc bất kỳ bên thứ ba nào, để tái tạo, phân phối, thực hiện và hiển thị (công khai hoặc cách khác), điều chỉnh, sửa đổi và sử dụng cũng như khai thác Nội dung đó, ở bất kỳ định dạng hoặc phương tiện nào hiện đã biết hoặc được phát triển sau này, và cho bất kỳ mục đích nào liên quan đến Dịch vụ (bao gồm cả mục đích quảng cáo)."
-  },
-  { "code": "tos.tos.userInteractions.title", "name": "Tương tác người dùng" },
-  {
-    "code": "tos.tos.userInteractions.content",
-    "name": "VIDA không chịu trách nhiệm về hành vi của bất kỳ Người dùng nào trên Dịch vụ. Bạn đồng ý thận trọng trong mọi tương tác với những Người dùng khác. Bạn đồng ý rằng bạn sẽ không cung cấp thông tin tài chính của mình (ví dụ: thông tin thẻ tín dụng hoặc tài khoản ngân hàng), hoặc chuyển khoản hoặc gửi tiền cho những Người dùng khác. BẠN HOÀN TOÀN CHỊU TRÁCH NHIỆM VỀ TƯƠNG TÁC CỦA MÌNH VỚI NHỮNG NGƯỜI DÙNG KHÁC. BẠN HIỂU RẰNG VIDA KHÔNG TIẾN HÀNH KIỂM TRA LÝ DO HÌNH SỰ ĐỐI VỚI NGƯỜI DÙNG CỦA MÌNH HOẶC YÊU CẦU NỀN TẢNG CỦA NGƯỜI DÙNG. VIDA KHÔNG ĐẠI DIỆN HAY ĐẢM BẢO VỀ HÀNH VI CỦA NGƯỜI DÙNG."
-  },
-  { "code": "tos.tos.prohibitedConduct.title", "name": "Hành vi bị cấm" },
-  {
-    "code": "tos.tos.prohibitedConduct.content",
-    "name": "Bạn đồng ý rằng bạn sẽ chỉ sử dụng Dịch vụ cho các mục đích hợp pháp được cho phép và dự tính rõ ràng trong các Điều khoản này. Không được sử dụng Dịch vụ liên quan đến bất kỳ nỗ lực thương mại nào ngoại trừ những nỗ lực được chúng tôi chấp thuận rõ ràng bằng văn bản. Bạn đồng ý rằng bạn sẽ xem Dịch vụ và Nội dung của nó ở trạng thái nguyên vẹn và không bị sửa đổi. Bạn thừa nhận và hiểu rằng bạn bị cấm sửa đổi Dịch vụ hoặc loại bỏ bất kỳ Nội dung nào của Dịch vụ, bao gồm cả quảng cáo. Bằng cách sử dụng Dịch vụ, bạn đồng ý chấp nhận quảng cáo được phân phát trên và thông qua Dịch vụ và không sử dụng phần mềm chặn quảng cáo hoặc tắt phần mềm chặn quảng cáo trước khi truy cập Dịch vụ. Bạn đồng ý rằng bạn sẽ không sử dụng hoặc cố gắng sử dụng bất kỳ phương pháp, thiết bị, phần mềm nào hoặc hành vi thường ngày nhằm gây hại cho người khác hoặc cản trở hoạt động của Dịch vụ hoặc sử dụng và/hoặc giám sát bất kỳ thông tin nào trong hoặc liên quan đến Dịch vụ cho bất kỳ mục đích trái phép nào. Việc bạn sử dụng Dịch vụ tùy thuộc vào việc bạn tuân thủ các quy tắc ứng xử được nêu trong phần này; việc bạn không tuân thủ các quy tắc đó có thể dẫn đến việc bạn bị chấm dứt quyền truy cập Dịch vụ theo phần 'Chấm dứt' bên dưới. BẰNG CÁCH SỬ DỤNG DỊCH VỤ BẠN ĐỒNG Ý KHÔNG SỬ DỤNG: cư xử theo cách ảnh hưởng tiêu cực đến khả năng sử dụng hoặc tận hưởng Dịch vụ của những Người dùng khác, bao gồm nhưng không giới hạn ở việc tham gia vào hành vi lạm dụng, có hại, quấy rối, kích động, hăm dọa, xâm phạm quyền riêng tư của người khác, theo dõi, đe dọa, bạo lực hoặc khuyến khích bạo lực đối với người hoặc động vật, hoặc phân biệt chủng tộc, sắc tộc hoặc xúc phạm hoặc phản cảm khác; tham gia dưới bất kỳ hình thức quấy rối, mại dâm, buôn bán tình dục, gạ gẫm hoặc hành vi bất hợp pháp hoặc xúc phạm khác đối với Người sáng tạo; cố gắng lấy hoặc lấy thông tin liên hệ cá nhân từ bất kỳ Người sáng tạo nào trên Dịch vụ; cố gắng điều phối một cuộc gặp trực tiếp với bất kỳ Người sáng tạo nào trên Dịch vụ; đăng bất kỳ Nội dung nào mô tả nội dung khiêu dâm trẻ em, hãm hiếp, hít thuốc, tra tấn, chết chóc, bạo lực , thú tính, loạn luân, nói xấu chủng tộc hoặc lời nói căm thù (bằng lời nói hoặc bằng văn bản); đăng bất kỳ Nội dung nào bất hợp pháp, bất hợp pháp, tục tĩu, phỉ báng, bôi nhọ, vu khống, quấy rối, hận thù, xúc phạm chủng tộc hoặc sắc tộc hoặc khuyến khích hành vi có thể được coi là hành vi phạm tội hình sự, làm phát sinh trách nhiệm dân sự, vi phạm bất kỳ luật nào hoặc không phù hợp; đăng bất kỳ Nội dung nào mô tả bất kỳ người nào dưới 18 tuổi (hoặc lớn hơn theo yêu cầu của bất kỳ khu vực pháp lý nào trong đó độ tuổi trưởng thành lớn hơn 18 ); đăng bất kỳ Nội dung mô phỏng nào có thể vi phạm bất kỳ Điều khoản nào nếu Nội dung đó không được mô phỏng; đăng bất kỳ Nội dung nào chứa thông tin xuyên tạc hoặc sai sự thật có thể gây tổn hại đến danh tiếng của Dịch vụ hoặc của bất kỳ bên thứ ba nào; vi phạm bất kỳ luật hoặc quy định nào (bao gồm, không giới hạn, bất kỳ luật nào liên quan đến vi phạm pháp luật, hợp đồng, bản quyền, bằng sáng chế, nhãn hiệu, bí mật thương mại, phỉ báng, tục tĩu, khiêu dâm, quyền công khai hoặc các quyền khác) hoặc khuyến khích, gạ gẫm hoặc hướng dẫn bên thứ ba làm như vậy;đăng bất kỳ Nội dung nào chứa hoặc quảng bá các cuộc thi, rút ​​thăm trúng thưởng, xổ số hoặc liên quan đến cờ bạc; đăng bất kỳ Nội dung nào chứa quảng cáo không được yêu cầu, tài liệu quảng cáo, thư rác, thư rác, sơ đồ kim tự tháp, thư dây chuyền hoặc bất kỳ hình thức chào mời trái phép nào khác; đăng bất kỳ Nội dung nào trong mà người khác mạo danh hoặc xuyên tạc mối quan hệ hoặc mối liên hệ của bạn với một người; đăng bất kỳ Nội dung nào chứa tài liệu thuộc quyền sở hữu trí tuệ (bao gồm bản quyền) hoặc các quyền khác của bên thứ ba mà bạn có quyền đăng lên Dịch vụ; truyền tải hoặc sử dụng phần mềm hoặc mã khác được thiết kế để làm gián đoạn, phá hủy, hạn chế hoặc can thiệp vào chức năng của bất kỳ phần mềm, phần cứng máy tính hoặc thiết bị viễn thông nào, bao gồm nhưng không giới hạn ở việc tham gia vào bất kỳ cuộc tấn công từ chối dịch vụ nào, tấn công từ chối dịch vụ phân tán hoặc hành vi tương tự; vượt quá quyền truy cập được ủy quyền của bạn vào bất kỳ phần nào của Dịch vụ; có được hoặc cố gắng có được quyền truy cập vào bất kỳ Nội dung hoặc thông tin nào thông qua bất kỳ phương tiện nào không được cung cấp có chủ ý thông qua Dịch vụ; khai thác các lỗi trong thiết kế, các tính năng không có giấy tờ hoặc lỗi để có được quyền truy cập có thể không có sẵn.xóa, sửa đổi, phá hoại hoặc bỏ qua mọi công nghệ, mã hóa hoặc biện pháp bảo mật quản lý quyền kỹ thuật số (“DRM”); thu thập, lưu trữ hoặc xử lý dữ liệu cá nhân của bất kỳ ai; sửa đổi bất kỳ phần nào của Dịch vụ hoặc quảng cáo của Dịch vụ, trừ khi được nêu rõ ràng được phép ở đây; làm bất cứ điều gì có thể gây quá tải, vô hiệu hóa, làm hỏng hoặc làm suy yếu bất kỳ khía cạnh nào của Dịch vụ; sử dụng bất kỳ robot, nhện, ứng dụng tìm kiếm/truy xuất trang web hoặc thiết bị thủ công hoặc tự động nào khác để truy xuất, lập chỉ mục, 'cạo''dữ liệu của tôi ' hoặc thu thập nội dung Dịch vụ hoặc sao chép hoặc phá hoại cấu trúc điều hướng hoặc cách trình bày Dịch vụ bằng bất kỳ cách nào mà không có sự đồng ý trước bằng văn bản rõ ràng của chúng tôi. Bất kể những điều đã nói ở trên, chúng tôi cấp cho các nhà điều hành công cụ tìm kiếm công cộng quyền sử dụng các trình thu thập thông tin để sao chép các tài liệu từ Dịch vụ cho mục đích duy nhất và chỉ trong phạm vi cần thiết để tạo ra các chỉ mục có thể tìm kiếm công khai của các tài liệu, chứ không phải các bộ nhớ đệm hoặc kho lưu trữ như vậy. nguyên vật liệu. VIDA có quyền thu hồi các ngoại lệ này nói chung hoặc trong các trường hợp cụ thể; tạo cơ sở dữ liệu bằng cách tải xuống và lưu trữ nội dung Dịch vụ một cách có hệ thống; sử dụng bất kỳ quy trình thủ công nào để giám sát hoặc sao chép bất kỳ tài liệu nào trên Dịch vụ; sử dụng bất kỳ thông tin nào thu được từ Dịch vụ để can thiệp vào bất kỳ quảng cáo nào trên Dịch vụ, bao gồm nhưng không giới hạn ở việc hiển thị quảng cáo đó trong trình duyệt web của bạn; truyền bất kỳ vi rút, ngựa Trojan, sâu, bom logic, bom hẹn giờ, bot hủy, tệp bị hỏng hoặc bất kỳ phần mềm hoặc mã tương tự nào khác độc hại hoặc có hại hoặc có thể làm hỏng tài sản hoặc Dịch vụ của bên khác; cố gắng truy cập trái phép, can thiệp, làm hỏng hoặc làm gián đoạn bất kỳ phần nào của Dịch vụ, máy chủ lưu trữ Dịch vụ hoặc bất kỳ máy chủ, máy tính hoặc cơ sở dữ liệu nào được kết nối với Dịch vụ; xóa mọi thông báo bản quyền hoặc quyền sở hữu khác khỏi Dịch vụ của chúng tôi hoặc bất kỳ tài liệu nào có trong đó; tái sản xuất, sao chép, sao chép, bán, bán lại hoặc khai thác theo cách khác cho bất kỳ mục đích thương mại nào, bất kỳ phần, việc sử dụng hoặc quyền truy cập nào vào Dịch vụ ;sửa đổi, điều chỉnh, dịch, đảo ngược kỹ thuật, dịch ngược hoặc tháo rời bất kỳ phần nào của Dịch vụ; đóng khung hoặc sao chép bất kỳ phần nào của Dịch vụ mà không có sự đồng ý trước bằng văn bản rõ ràng của chúng tôi."
-  },
-  { "code": "tos.tos.customerSupport.title", "name": "Hỗ trợ khách hàng" },
-  {
-    "code": "tos.tos.customerSupport.content",
-    "name": "Khi liên lạc với bộ phận hỗ trợ khách hàng của chúng tôi, bạn đồng ý tỏ ra tôn trọng và tử tế. Nếu chúng tôi cảm thấy rằng hành vi của bạn đối với bất kỳ nhân viên hỗ trợ khách hàng hoặc nhân viên nào khác của chúng tôi vào bất kỳ lúc nào mang tính đe dọa hoặc xúc phạm, chúng tôi có quyền chấm dứt tài khoản của bạn ngay lập tức."
-  },
-  { "code": "tos.tos.advertising.title", "name": "Quảng cáo" },
-  {
-    "code": "tos.tos.advertising.content",
-    "name": "Khi xem xét việc VIDA cho phép bạn sử dụng Dịch vụ, bạn đồng ý rằng chúng tôi, các chi nhánh và đối tác bên thứ ba của chúng tôi có thể đặt quảng cáo trên Dịch vụ."
-  },
-  { "code": "tos.tos.creditsPurchases.title", "name": "Tín dụng và mua hàng" },
-  {
-    "code": "tos.tos.creditsPurchases.content",
-    "name": "Bạn có thể mua quyền truy cập vào Nội dung trên Dịch vụ bằng thẻ tín dụng hoặc Tín dụng của mình. Bạn chỉ có thể mua Tín dụng để sử dụng trong Dịch vụ. Ngoài giấy phép giới hạn, cá nhân, có thể thu hồi, không thể chuyển nhượng, không thể cấp phép lại để sử dụng Tín dụng như một phần của Dịch vụ, bạn không có quyền hoặc quyền sở hữu đối với bất kỳ Tín dụng nào xuất hiện hoặc bắt nguồn từ Dịch vụ hoặc bất kỳ thuộc tính nào khác liên quan đến việc sử dụng Dịch vụ hoặc được lưu trữ trong Dịch vụ. Chúng tôi có toàn quyền quản lý, điều chỉnh, kiểm soát, sửa đổi và/hoặc ngừng cung cấp hoặc ngừng sử dụng Tín dụng trên Dịch vụ theo quyết định riêng của chúng tôi và chúng tôi sẽ không chịu trách nhiệm pháp lý với bạn hoặc bất kỳ ai về việc thực hiện các quyền đó. Việc chuyển Tín dụng bị nghiêm cấm trừ khi được cho phép rõ ràng trong Dịch vụ. Trừ khi được quy định rõ ràng trong các Điều khoản này, bạn không được bán bất kỳ khoản Tín dụng nào để lấy tiền “thực” hoặc trao đổi các mặt hàng đó để lấy giá trị. Bất kỳ nỗ lực nào để đổi Tín dụng lấy tiền tệ thực tế, ngoài việc tuân theo quy trình do VIDA thiết lập, đều vi phạm các Điều khoản này và có thể dẫn đến lệnh cấm Dịch vụ suốt đời và có thể xảy ra hành động pháp lý. Trừ khi pháp luật có quy định khác, Tín dụng không được hoàn lại và bạn không có quyền được hoàn lại cho bất kỳ Tín dụng nào chưa được sử dụng. Sau khi bạn mua quyền truy cập vào Nội dung hoặc đổi Tín dụng để truy cập vào Nội dung, bạn không được trả lại, trao đổi hoặc nhận tiền hoàn lại cho Nội dung đó. Bất kể những điều đã nói ở trên, chúng tôi có quyền hoàn lại tiền cho các giao dịch mua hoặc Tín dụng theo quyết định riêng của chúng tôi. Nếu chúng tôi hoàn lại tiền cho một giao dịch mua hoặc Tín dụng, chúng tôi không có nghĩa vụ phải hoàn lại khoản tiền tương tự hoặc tương tự trong tương lai. Việc mua tín dụng có thể được thực hiện bằng thẻ tín dụng và nếu có, bằng thẻ ghi nợ và sẽ được xử lý thông qua một bộ xử lý thanh toán của bên thứ ba. Mua hàng phải trả trước. Chúng tôi có thể cung cấp các gói khác nhau để bạn lựa chọn. Chúng tôi có quyền thay đổi giá Tín dụng bất cứ lúc nào, theo quyết định riêng của chúng tôi và không chịu trách nhiệm pháp lý với bạn. Mọi khoản Tín dụng sẽ không có sẵn trong tài khoản của bạn trong trường hợp tài khoản của bạn bị bạn xóa hoặc bị chấm dứt theo các Điều khoản này hoặc nếu chúng tôi ngừng cung cấp Dịch vụ. Bạn đồng ý thanh toán tất cả các khoản phí và thuế hiện hành mà bạn hoặc bất kỳ ai sử dụng tài khoản VIDA đã đăng ký cho bạn phải chịu. VIDA có thể sửa đổi giá của hàng hóa và dịch vụ được cung cấp thông qua Dịch vụ bất cứ lúc nào. Tên xuất hiện trên bảng sao kê liên quan đến phương thức thanh toán của bạn (ví dụ: thẻ tín dụng, tài khoản ngân hàng, v.v.) cho mọi khoản phí áp dụng có thể bao gồm VIDA .one, SXWEB hoặc các tổ chức thanh toán khác tùy thuộc vào vị trí của bạn. VIDA hoặc tổ chức thanh toán hiện hành có thể đưa thông tin khác vào bảng sao kê của bạn theo yêu cầu trong thỏa thuận của họ với ngân hàng, các bên thứ ba khác hoặc theo luật hoặc quy định hiện hành. Nếu bạn sử dụng tài khoản ngân hàng để mua hàng thông qua Dịch vụ, một khoản ghi nợ sẽ được tính vào tài khoản đó. Bạn đồng ý rằng bạn sẽ không sử dụng proxy IP hoặc các phương pháp tương tự khác để ngụy trang địa điểm nơi bạn đang ở, cho dù để tránh né địa lý hạn chế về Nội dung và có quyền truy cập vào Dịch vụ khi dịch vụ đó không có sẵn cho bạn hoặc để thực hiện Mua hàng ở mức giá (bao gồm việc áp dụng thuế bán hàng, thuế tiêu thụ đặc biệt, Thuế giá trị gia tăng hoặc VAT) không áp dụng cho địa điểm của bạn, hoặc cho bất kỳ mục đích nào khác. Nếu bạn làm điều này, chúng tôi có quyền chấm dứt quyền truy cập của bạn vào Dịch vụ. Nếu bạn không đăng nhập vào tài khoản của mình trong hơn mười hai (12) tháng thì chúng tôi có toàn quyền chấm dứt quyền sử dụng Dịch vụ của bạn. Dịch vụ. Trong trường hợp như vậy, bạn chấp nhận, đồng ý và thừa nhận một cách rõ ràng rằng bạn sẽ bị mất mọi khoản Tín dụng chưa sử dụng mà sau này bạn không thể lấy lại được."
-  },
-  { "code": "tos.tos.cardPaymentProcessing.title", "name": "Xử lý thanh toán thẻ" },
-  {
-    "code": "tos.tos.cardPaymentProcessing.content",
-    "name": "VIDA chịu trách nhiệm xử lý thanh toán thẻ. Bộ xử lý thanh toán Tất cả các giao dịch tài chính được thực hiện liên quan đến Dịch vụ sẽ được xử lý bởi bộ xử lý thanh toán của bên thứ ba. Trong mọi trường hợp, VIDA sẽ không chịu trách nhiệm về hành động hoặc không hành động của bất kỳ bộ xử lý thanh toán bên thứ ba nào. Nếu bạn cho rằng đã xảy ra lỗi thanh toán, bạn có thể tìm kiếm hỗ trợ tại sxweb.com hoặc bằng cách gửi email cho chúng tôi theo địa chỉ email hỗ trợ thanh toán được cung cấp trong phần “Liên hệ” bên dưới."
-  },
-  { "code": "tos.tos.refundPolicy.title", "name": "Chính sách hoàn tiền" },
-  {
-    "code": "tos.tos.refundPolicy.content",
-    "name": "TẤT CẢ BÁN HÀNG LÀ CUỐI CÙNG VÀ KHÔNG HOÀN LẠI. Chúng tôi có quyền (nhưng không có nghĩa vụ) hoàn lại số tiền đã mua nếu có vấn đề kỹ thuật với Dịch vụ hoặc khi bạn có trải nghiệm được cho là không đạt yêu cầu; điều này sẽ do chúng tôi quyết định theo quyết định riêng của chúng tôi. Nếu chúng tôi nhận được khiếu nại về khoản bồi hoàn hoặc thanh toán từ công ty thẻ tín dụng hoặc ngân hàng, chúng tôi có quyền chấm dứt giấy phép sử dụng Dịch vụ của bạn mà không cần thông báo và theo quyết định riêng của chúng tôi, và chặn hoặc ngăn chặn việc bạn truy cập và sử dụng Dịch vụ trong tương lai theo quy định trong các Điều khoản này."
-  },
-  { "code": "tos.tos.becomingCreator.title", "name": "Trở thành người sáng tạo" },
-  {
-    "code": "tos.tos.becomingCreator.content",
-    "name": "Nếu bạn muốn trở thành Người sáng tạo và bán quyền truy cập vào Nội dung thông qua Dịch vụ, trước tiên bạn phải cung cấp cho chúng tôi thông tin cá nhân trung thực và chính xác. Nếu thông tin bạn cung cấp không đúng sự thật và chính xác, tài khoản của bạn sẽ bị chấm dứt ngay lập tức và bạn có thể phải chịu các biện pháp trừng phạt pháp lý. Một số thay đổi nhất định đối với thông tin cá nhân của bạn như quốc gia cư trú hoặc ngày sinh chỉ có thể được thực hiện bởi nhân viên của chúng tôi. Do đó, nếu thông tin của bạn có vẻ không chính xác hoặc cần thay đổi, bạn có thể cần phải liên hệ với nhân viên của chúng tôi để thực hiện việc này. Chúng tôi có thể, theo quyết định riêng của mình, thu hồi quyền bán quyền truy cập Nội dung thông qua Dịch vụ của bạn vì bất kỳ lý do gì. Bạn có thể bị được yêu cầu cung cấp địa chỉ email hợp lệ cho mục đích xác minh và bạn đồng ý rằng chúng tôi có thể gửi email cho bạn, cả về tính chất giao dịch lẫn mục đích thương mại và quảng cáo. Bạn sẽ có khả năng từ chối nhận email thương mại và quảng cáo, như được mô tả đầy đủ hơn trong Chính sách quyền riêng tư. Bạn sẽ chọn tên hiển thị của riêng mình, tên này phải là duy nhất đối với bạn, không gây khó chịu cho người khác và không vi phạm bản quyền hoặc nhãn hiệu của người khác . Bạn cũng sẽ chọn mật khẩu của mình và bạn có thể thay đổi mật khẩu này sau. Bạn sẽ được yêu cầu xác minh danh tính và tuổi của mình thông qua đối tác xác minh danh tính bên thứ ba. Để thực hiện việc này, bạn cần gửi các tài liệu sau cho chúng tôi: Giấy tờ tùy thân có ảnh , nghĩa là giấy tờ tùy thân do chính phủ cấp có chứa ngày sinh, ngày hết hạn, ảnh và tên pháp lý đầy đủ của bạn. Ví dụ: đây có thể là giấy phép lái xe của bạn (ở những quốc gia không bắt buộc phải có giấy tờ tùy thân), hộ chiếu quốc tế, thẻ công dân, giấy tờ tùy thân tiểu bang, hộ chiếu quốc gia hoặc thẻ căn cước quốc gia của bạn. Ảnh của chính bạn khi cầm Ảnh nêu trên ID.Bạn thừa nhận rằng bạn hoàn toàn chịu trách nhiệm về hoạt động xảy ra trên tài khoản của mình và bạn phải thông báo ngay cho chúng tôi nếu bạn cho rằng đã có vi phạm bảo mật nhỏ nhất hoặc việc sử dụng trái phép tài khoản của bạn. Bạn sẽ chịu trách nhiệm pháp lý cho mọi tổn thất phát sinh của chúng tôi do tài khoản của bạn bị sử dụng trái phép. Chúng tôi không chịu trách nhiệm về những tổn thất của bạn do bất kỳ việc sử dụng trái phép tài khoản của bạn gây ra và bạn đặc biệt từ bỏ mọi khiếu nại như vậy và đồng ý bảo vệ và bồi thường cho chúng tôi trước mọi khiếu nại như vậy do bên thứ ba đưa ra chống lại chúng tôi."
-  },
-  { "code": "tos.tos.commission.title", "name": "Ủy ban của người sáng tạo" },
-  {
-    "code": "tos.tos.commission.content",
-    "name": "Các khoản thanh toán sẽ chỉ được thực hiện cho cùng tên người thụ hưởng như được cung cấp trong quá trình giới thiệu KYC. Nếu bạn cần thay đổi tên này (ví dụ: bạn đã thay đổi tên của mình, tên được gán cho giấy tờ tùy thân của bạn khác với tên người thụ hưởng của ngân hàng ở quốc gia của bạn hoặc bạn muốn được thanh toán cho một pháp nhân) vui lòng liên hệ support@VIDA. Bạn sẽ cần cung cấp bằng chứng về lý do cần thay đổi, chúng tôi có thể cần thêm thông tin từ bạn như một phần của quy trình thẩm định và chúng tôi có quyền tuyệt đối từ chối yêu cầu của bạn. Nếu bạn yêu cầu thanh toán cho một pháp nhân, thông tin được cung cấp trong quá trình xác minh KYC phải là UBO (Chủ sở hữu hưởng lợi cuối cùng) của pháp nhân đó, theo EU 2015/849, đã được sửa đổi, bất kể pháp nhân đó tuân theo luật pháp EU. Các khoản thanh toán sẽ không được thực hiện cho bên thứ ba trong bất kỳ trường hợp nào, bao gồm nhưng không giới hạn ở vợ/chồng, thành viên gia đình, dịch vụ ký quỹ, đối tác kinh doanh, người giám hộ do tòa án chỉ định hoặc người nhận dưới bất kỳ hình thức nào. Chúng tôi sẽ khấu trừ và giữ lại bất kỳ số tiền nào phải trả cho bạn theo các Điều khoản này, số tiền mà chúng tôi được yêu cầu khấu trừ và giữ lại hoặc được yêu cầu khấu trừ và giữ lại đối với khoản thanh toán đó theo quy định của bất kỳ luật hiện hành nào (bao gồm thuế bán hàng, thuế tiêu thụ đặc biệt, Thuế Giá trị Gia tăng hoặc VAT) và chuyển khoản đó số tiền khấu trừ và khấu trừ cho cơ quan chính phủ thích hợp. Chúng tôi sẽ cung cấp cho bạn bản sao kê các giao dịch trên tài khoản của bạn, bao gồm chi tiết về thu nhập và khoản thanh toán của bạn mà bạn có thể truy cập trên Dịch vụ. Bạn có thể yêu cầu thanh toán trên thu nhập ròng của mình bất kỳ lúc nào, miễn là chúng vượt quá mức thanh toán tối thiểu là 200 USD. Bạn có thể bị tính phí thanh toán chuyển khoản cho việc này, tùy thuộc vào (các) phương thức thanh toán có sẵn tại quốc gia nơi bạn sinh sống. Không được phép yêu cầu thanh toán dưới số tiền này ngoại trừ liên quan đến yêu cầu chấm dứt mối quan hệ của bạn với chúng tôi với tư cách là Người sáng tạo. Tất cả thu nhập đều phải bị tạm giữ trong thời gian 7 ngày để giải quyết các tranh chấp có thể xảy ra giữa (những) người mua. Thu nhập trong thời gian tạm giữ sẽ xuất hiện trong tài khoản của bạn ngay sau khi giao dịch hiện hành hoàn tất nhưng sẽ không có sẵn để thanh toán cho đến khi kết thúc thời gian tạm giữ. Mặc dù chúng tôi sẽ bắt đầu thanh toán cho bạn ngay sau khi bạn yêu cầu theo đoạn này, nhưng chúng tôi không thể đảm bảo rằng bạn sẽ nhận được số tiền tương ứng vào bất kỳ ngày cụ thể nào. Nếu bạn cung cấp cho chúng tôi chi tiết thanh toán không chính xác, mọi khoản phí bồi hoàn do chi tiết thanh toán không chính xác đó sẽ được bù đắp vào bất kỳ khoản tiền nào phải trả cho bạn. Trong trường hợp bạn vi phạm bất kỳ phần nào của Điều khoản này, bạn vi phạm bất kỳ quyền nào của bên thứ ba, bao gồm không giới hạn bất kỳ bản quyền, quyền sở hữu trí tuệ hoặc quyền riêng tư nào hoặc khi bên thứ ba khiếu nại rằng tất cả hoặc bất kỳ phần nào trong Nội dung của bạn đã gây ra thiệt hại, chúng tôi có thể, theo quyết định riêng của mình, từ chối thanh toán vô thời hạn cho bạn. Chúng tôi xin nhắc bạn rằng đó là sự thật nghĩa vụ và nghĩa vụ của bạn trong việc thực hiện tất cả các nghĩa vụ về thuế liên quan đến các hoạt động của bạn đối với chúng tôi, ví dụ như nghĩa vụ đăng ký, kê khai và thanh toán liên quan đến thuế thu nhập, Thuế bán hàng và VAT. Nếu chúng tôi hỗ trợ bạn thực hiện các nghĩa vụ này, điều đó sẽ không giải phóng bạn khỏi các nghĩa vụ của bạn. Nhiệm vụ của bạn là thông báo kịp thời cho chúng tôi về những thay đổi đối với dữ liệu cá nhân của bạn, chẳng hạn như thay đổi địa chỉ hoặc email mới. Nếu bạn có tài khoản Creator có số dư dương và không có giao dịch nào trong thời gian 12 tháng liên tiếp, chúng tôi sẽ cố gắng liên hệ với bạn nhằm yêu cầu bạn rút số dư từ tài khoản của mình. Nếu chúng tôi không thể liên hệ với bạn, chúng tôi sẽ tính phí tạm dừng là 8,33% số dư đó mỗi tháng kể từ ngày kỷ niệm đầu tiên của ngày hoạt động tài khoản cuối cùng cho đến trước (1) ngày hoạt động tài khoản tiếp theo hoặc (2) ngày số dư của bạn về 0, tức là sau 12 tháng không hoạt động nữa. Nếu chúng tôi tính phí tạm dừng cho tài khoản của bạn nhưng bạn muốn kích hoạt lại tài khoản, vui lòng liên hệ với bộ phận hỗ trợ khách hàng theo địa chỉ support@VIDA."
-  },
-  { "code": "tos.tos.thirdParty.title", "name": "Dịch vụ và trang web của bên thứ ba" },
-  {
-    "code": "tos.tos.thirdParty.content",
-    "name": "Dịch vụ có thể chứa các quảng cáo và khuyến mãi do bên thứ ba cung cấp và liên kết đến các trang web hoặc tài nguyên khác. VIDA không chịu trách nhiệm về tính khả dụng (hoặc thiếu tính khả dụng) của các trang web hoặc tài nguyên bên ngoài đó. Nếu bạn chọn tương tác với các bên thứ ba được cung cấp thông qua Dịch vụ của chúng tôi, các điều khoản của bên đó sẽ chi phối mối quan hệ của họ với bạn. VIDA không chịu trách nhiệm hoặc nghĩa vụ pháp lý đối với các điều khoản hoặc hành động của bên thứ ba đó. Ý tưởng và phản hồi Trừ khi chúng tôi có thỏa thuận rõ ràng khác bằng văn bản, nếu bạn cung cấp cho chúng tôi bất kỳ ý tưởng, đề xuất, đề xuất hoặc tài liệu nào (“Đầu vào”), cho dù có liên quan đến Dịch vụ hay nói cách khác, bạn thừa nhận và đồng ý rằng (a) việc bạn cung cấp bất kỳ Đầu vào nào là miễn phí, không được yêu cầu và không có hạn chế và không đặt VIDA dưới bất kỳ nghĩa vụ ủy thác hoặc nghĩa vụ nào khác; (b) mọi Đầu vào không được bảo mật và VIDA không có nghĩa vụ bảo mật đối với Đầu vào đó; và (c) trong phạm vi được luật hiện hành cho phép, mọi Thông tin đầu vào sẽ trở thành tài sản duy nhất của chúng tôi. Không giới hạn những điều đã nói ở trên, theo đây, bạn cấp cho chúng tôi giấy phép toàn cầu, miễn phí bản quyền, thanh toán đầy đủ, độc quyền, vĩnh viễn, không thể thu hồi, có thể chuyển nhượng và có thể cấp phép lại hoàn toàn (thông qua nhiều cấp) mà không cần cân nhắc thêm đối với bạn hoặc bất kỳ bên thứ ba nào , để: (i) tái tạo, phân phối, thực hiện và hiển thị (công khai hoặc cách khác), điều chỉnh, sửa đổi và sử dụng và khai thác Đầu vào đó, ở bất kỳ định dạng hoặc phương tiện nào hiện đã biết hoặc được phát triển sau này, và bạn tuyên bố và bảo đảm rằng bạn có tất cả các quyền cần thiết để cấp giấy phép nói trên. Chúng tôi có thể sử dụng Đầu vào cho bất kỳ mục đích nào mà không phải bồi thường cho bạn hoặc bất kỳ người nào khác. Bạn đang và vẫn chịu trách nhiệm về nội dung của bất kỳ Thông tin đầu vào nào."
-  },
-  { "code": "tos.tos.termination.title", "name": "Chấm dứt" },
-  {
-    "code": "tos.tos.termination.content",
-    "name": "Các Điều khoản này có hiệu lực cho đến khi chấm dứt. VIDA, theo quyết định riêng của mình, có thể đình chỉ hoặc chấm dứt quyền truy cập hoặc sử dụng Dịch vụ của bạn bất cứ lúc nào và vì bất kỳ lý do gì, kể cả nếu VIDA tin rằng bạn đã vi phạm hoặc hành động không nhất quán với nội dung hoặc tinh thần của những điều này Điều kiện. Khi chấm dứt như vậy, quyền sử dụng Dịch vụ của bạn sẽ ngay lập tức chấm dứt. Bạn đồng ý rằng mọi việc chấm dứt quyền truy cập hoặc sử dụng Dịch vụ của bạn có thể có hiệu lực mà không cần thông báo trước và VIDA có thể hủy kích hoạt hoặc xóa ngay lập tức mật khẩu và tên người dùng của bạn cũng như tất cả thông tin và tệp liên quan được liên kết với nó và/hoặc cấm mọi quyền truy cập thêm vào thông tin hoặc tệp đó. Đối với tài khoản Người sáng tạo, để tuân thủ P2BR, trừ khi lý do Chấm dứt là bất kỳ lý do nào được nêu trong Điều 4 (4) của P2BR, chúng tôi sẽ cung cấp cho bạn ít nhất 30 thông báo trước một ngày về lý do chấm dứt trên 'phương tiện lâu dài' (như được định nghĩa trong P2BR). Bạn đồng ý rằng VIDA sẽ không chịu trách nhiệm pháp lý với bạn hoặc bất kỳ bên thứ ba nào về bất kỳ việc chấm dứt quyền truy cập Dịch vụ của bạn hoặc đối với bất kỳ thông tin hoặc tệp nào như vậy và sẽ không bắt buộc phải cung cấp thông tin hoặc tệp đó cho bạn sau khi chấm dứt. Chúng tôi có quyền sử dụng bất kỳ phương tiện cá nhân, công nghệ, pháp lý hoặc phương tiện nào khác có sẵn để thực thi Điều khoản vào bất kỳ lúc nào mà không chịu trách nhiệm pháp lý và không có nghĩa vụ phải thông báo trước cho bạn, bao gồm nhưng không giới hạn ở việc ngăn cản bạn truy cập Dịch vụ. Nếu tài khoản của bạn bị bạn hoặc VIDA chấm dứt vì bất kỳ lý do gì, các Điều khoản này sẽ tiếp tục và có hiệu lực thi hành giữa bạn và VIDA và bạn sẽ không được hưởng bất kỳ khoản hoàn trả nào cho các giao dịch mua đã thực hiện. Thông tin của bạn sẽ được duy trì và xóa theo Chính sách quyền riêng tư của chúng tôi. KHÔNG CÓ ĐẠI DIỆN HOẶC BẢO ĐẢM DỊCH VỤ, BAO GỒM TẤT CẢ HÌNH ẢNH, TỆP ÂM THANH VÀ NỘI DUNG KHÁC TRONG ĐÓ VÀ BẤT KỲ THÔNG TIN, TÀI SẢN VÀ QUYỀN NÀO KHÁC ĐƯỢC CẤP HOẶC CUNG CẤP CHO BẠN BỞI VIDA ĐƯỢC CUNG CẤP GỬI BẠN TRÊN CƠ SỞ “NGUYÊN TRẠNG”. VIDA và các nhà cung cấp của nó không đưa ra các đại diện hay bảo đảm nào đối với dịch vụ, hoặc thể hiện, ngụ ý hoặc theo luật định và tất cả các tuyên bố và bảo đảm đó TUYÊN BỐ TỪ CHỐI. KHÔNG GIỚI HẠN TÍNH CHUNG CỦA NHỮNG ĐIỀU NÀY, VIDA KHÔNG ĐẠI DIỆN HOẶC BẢO ĐẢM DƯỚI BẤT KỲ HÌNH THỨC NÀO LIÊN QUAN ĐẾN ĐỘ CHÍNH XÁC, SẴN SÀNG DỊCH VỤ, ĐẦY ĐỦ, NỘI DUNG THÔNG TIN, HOẠT ĐỘNG KHÔNG CÓ LỖI, KẾT QUẢ THU ĐƯỢC TỪ VIỆC SỬ DỤNG HOẶC KHÔNG VI PHẠM. TRUY CẬP VÀ SỬ DỤNG DỊCH VỤ CÓ THỂ KHÔNG CÓ TRONG THỜI KỲ CÓ NHU CẦU ĐỈNH, NÂNG CẤP HỆ THỐNG, TRỤ SỐ HOẶC BẢO TRÌ THEO LỊCH HOẶC KHÔNG LẬP LỊCH HOẶC CÁC LÝ DO KHÁC. MỘT SỐ QUYỀN LOẠI TRỪ TRÊN CÓ THỂ KHÔNG ÁP DỤNG CHO BẠN."
-  },
-  { "code": "tos.tos.limitationLiability.title", "name": "TRÁCH NHIỆM HỮU HẠN" },
-  {
-    "code": "tos.tos.limitationLiability.content",
-    "name": "TRONG PHẠM VI TỐI ĐA ĐƯỢC LUẬT HIỆN HÀNH CHO PHÉP, TRONG MỌI TRƯỜNG HỢP, VIDA, CÁC LIÊN KẾT, NHÂN VIÊN, NHÀ CẤP PHÉP HOẶC NHÀ CUNG CẤP DỊCH VỤ SẼ KHÔNG CHỊU TRÁCH NHIỆM GIÁN TIẾP CHO BẤT KỲ THIỆT HẠI GIÁN TIẾP, DO HẬU QUẢ, MẪU ĐẶC BIỆT, NGẪU NHIÊN, ĐẶC BIỆT HOẶC trừng phạt, BAO GỒM KHÔNG GIỚI HẠN, MẤT MÁT LỢI NHUẬN, DÙ PHẢI TRỰC TIẾP HAY GIÁN TIẾP, HOẶC BẤT KỲ MẤT MẤT DỮ LIỆU, VIỆC SỬ DỤNG, TÍN HIỆU TÍN HIỆU HOẶC MẤT MÁT VÔ HÌNH KHÁC, DO: (I) BẠN TRUY CẬP HOẶC SỬ DỤNG HOẶC KHÔNG THỂ TRUY CẬP HOẶC SỬ DỤNG DỊCH VỤ, (II) HÀNH VI HOẶC NỘI DUNG CỦA NGƯỜI SỬ DỤNG KHÁC HOẶC BÊN THỨ BA TRÊN, THÔNG QUA HOẶC SAU KHI SỬ DỤNG DỊCH VỤ; HOẶC (III) TRUY CẬP, SỬ DỤNG HOẶC THAY ĐỔI NỘI DUNG CỦA BẠN TRÁI PHÉP, NGAY CẢ KHI VIDA ĐÃ ĐƯỢC TƯ VẤN VỀ KHẢ NĂNG GÂY THIỆT HẠI ĐÓ. TRONG MỌI TRƯỜNG HỢP SẼ TRÁCH NHIỆM TỔNG HỢP CỦA VIDA ĐỐI VỚI BẠN VỀ TẤT CẢ CÁC KHIẾU NẠI LIÊN QUAN ĐẾN DỊCH VỤ VƯỢT QUÁ SỐ TIỀN BẠN TRẢ, NẾU CÓ, CHO VIDA CHO DỊCH VỤ KHI BẠN CÓ TÀI KHOẢN. MỘT SỐ QUYỀN QUYỀN KHÔNG CHO PHÉP LOẠI TRỪ HOẶC GIỚI HẠN VỀ MỘT SỐ THIỆT HẠI NÀO, NÊN MỘT SỐ HOẶC TẤT CẢ CÁC LOẠI TRỪ VÀ GIỚI HẠN TRONG PHẦN NÀY CÓ THỂ KHÔNG ÁP DỤNG CHO BẠN. Mặc dù chúng tôi cố gắng duy trì tính toàn vẹn và bảo mật của Dịch vụ cũng như các máy chủ mà Dịch vụ được vận hành từ đó, chúng tôi không đảm bảo rằng Dịch vụ sẽ hoặc vẫn an toàn, đầy đủ hoặc chính xác hoặc việc truy cập vào Dịch vụ sẽ không bị gián đoạn. Dịch vụ có thể bao gồm những thông tin không chính xác, sai sót và các tài liệu vi phạm hoặc xung đột với các Điều khoản này. Ngoài ra, các bên thứ ba có thể thực hiện các thay đổi trái phép đối với Dịch vụ. Nếu bạn biết về bất kỳ sự thay đổi trái phép nào của bên thứ ba đối với Dịch vụ, hãy liên hệ với chúng tôi theo địa chỉ support@VIDA kèm theo mô tả về (các) tài liệu được đề cập và URL hoặc vị trí trên Dịch vụ nơi (các) tài liệu đó xuất hiện."
-  },
-  { "code": "tos.tos.indemnification.title", "name": "Sự bồi thường" },
-  {
-    "code": "tos.tos.indemnification.content",
-    "name": "Bạn đồng ý, trong phạm vi được luật hiện hành cho phép, bồi thường, bảo vệ và giữ cho VIDA, các chi nhánh của chúng tôi cũng như các quan chức, giám đốc, đại lý và nhân viên tương ứng của họ và của chúng tôi khỏi mọi khiếu nại, yêu cầu, khiếu nại, thiệt hại, tổn thất, chi phí, trách nhiệm pháp lý và phí tổn, bao gồm phí luật sư, do, phát sinh từ hoặc liên quan theo bất kỳ cách nào đến việc bạn truy cập hoặc sử dụng Dịch vụ, Nội dung của bạn hoặc việc bạn vi phạm các Điều khoản này."
-  },
-  { "code": "tos.tos.copyright.title", "name": "Khiếu nại vi phạm bản quyền." },
-  {
-    "code": "tos.tos.copyright.content",
-    "name": "Đạo luật bản quyền thiên niên kỷ kỹ thuật số năm 1998 (“DMCA”) cung cấp quyền truy đòi cho các chủ sở hữu bản quyền tin rằng tài liệu xuất hiện trên Internet vi phạm quyền của họ theo luật bản quyền của Hoa Kỳ. Bạn có thể tìm thấy chính sách DMCA của chúng tôi tại đây."
-  },
-  { "code": "tos.tos.intellectualProperty.title", "name": "Sở hữu trí tuệ" },
-  {
-    "code": "tos.tos.intellectualProperty.content",
-    "name": "Thông tin và tài liệu được cung cấp thông qua Dịch vụ vẫn là tài sản của VIDA cũng như người cấp phép và nhà cung cấp của nó và được bảo vệ bởi bản quyền, nhãn hiệu, bằng sáng chế và/hoặc các quyền và luật sở hữu khác. Tùy thuộc vào việc bạn tuân thủ các Điều khoản này và chỉ trong thời gian bạn được VIDA cho phép truy cập và sử dụng Dịch vụ, bạn có thể xem một (1) bản sao của bất kỳ nội dung nào trên Dịch vụ mà chúng tôi cung cấp cho bạn quyền truy cập dưới đây trên bất kỳ máy tính hoặc thiết bị di động nào chỉ dành cho mục đích sử dụng cá nhân, phi thương mại của bạn, miễn là bạn giữ nguyên tất cả các thông báo bản quyền và quyền sở hữu khác. Trừ khi được VIDA cho phép trước bằng văn bản, bạn đồng ý không sao chép, sửa đổi, thuê, cho thuê, cho mượn, bán, phân phối hoặc tạo các tác phẩm phái sinh dựa trên (dù là toàn bộ hay một phần) trên, tất cả hoặc bất kỳ phần nào của Dịch vụ hoặc bất kỳ tài liệu nào được cung cấp thông qua Dịch vụ. Tên thương mại, nhãn hiệu và nhãn hiệu dịch vụ của VIDA bao gồm nhưng không giới hạn ở VIDA và bất kỳ logo liên quan nào. Tất cả các nhãn hiệu và nhãn hiệu dịch vụ trên Dịch vụ không thuộc sở hữu của VIDA đều là tài sản của chủ sở hữu tương ứng. Tên thương mại, nhãn hiệu và nhãn hiệu dịch vụ do VIDA sở hữu, dù đã đăng ký hay chưa đăng ký, đều không được sử dụng liên quan đến bất kỳ sản phẩm hoặc dịch vụ nào không phải của chúng tôi, theo bất kỳ cách nào có thể gây nhầm lẫn. Không có nội dung nào trên Dịch vụ được hiểu là cấp, bằng ngụ ý, ngăn cản hay nói cách khác, bất kỳ giấy phép hoặc quyền sử dụng bất kỳ tên thương mại, nhãn hiệu hoặc nhãn hiệu dịch vụ nào của VIDA mà không có sự đồng ý trước bằng văn bản rõ ràng của chúng tôi. Việc đề cập đến Dịch vụ tới bất kỳ sản phẩm, dịch vụ, quy trình hoặc thông tin nào khác theo tên thương mại, nhãn hiệu, nhà sản xuất, nhà cung cấp hoặc cách khác không cấu thành hoặc ngụ ý sự chứng thực, tài trợ hoặc khuyến nghị của chúng tôi hoặc bất kỳ đơn vị liên kết nào khác."
-  },
-  { "code": "tos.tos.informationSecurity.title", "name": "Bảo mật thông tin" },
-  {
-    "code": "tos.tos.informationSecurity.content",
-    "name": "VIDA sử dụng các biện pháp tổ chức, kỹ thuật, hành chính và vật lý hợp lý và phù hợp để bảo vệ tính toàn vẹn và bảo mật thông tin của bạn. Các biện pháp này có thể thay đổi tùy theo mức độ nhạy cảm của thông tin của bạn. Chúng tôi giới hạn quyền truy cập vào dữ liệu cá nhân của bạn cho những nhân viên, đại lý, nhà thầu và các bên thứ ba khác có nhu cầu truy cập vào dữ liệu đó và họ sẽ chỉ xử lý dữ liệu cá nhân của bạn theo hướng dẫn của chúng tôi và phải tuân theo nghĩa vụ bảo mật."
-  },
-  { "code": "tos.tos.governingLaw.title", "name": "Luật điều chỉnh: Tranh chấp" },
-  {
-    "code": "tos.tos.governingLaw.content",
-    "name": "Các Điều khoản này sẽ được hiểu và điều chỉnh theo luật pháp của Síp mà không tham chiếu đến các quy tắc liên quan đến xung đột luật pháp có thể dẫn đến việc áp dụng luật pháp của bất kỳ khu vực tài phán nào khác đối với quyền và nghĩa vụ của các bên. Tất cả các tranh chấp phát sinh từ hoặc liên quan đến các Điều khoản này sẽ được giải quyết bằng trọng tài ràng buộc được tiến hành trước một trọng tài viên duy nhất ở Amsterdam, Hà Lan bằng tiếng Anh, do Trung tâm Giải quyết Tranh chấp Quốc tế quản lý theo Quy tắc Trọng tài Quốc tế. Bất kỳ phán quyết nào được ban hành do kết quả của quá trình phân xử trọng tài đó sẽ có tính ràng buộc và được thi hành tại các tòa án có thẩm quyền xét xử hiện hành. Bất kể những điều đã nói ở trên, bạn đồng ý rằng VIDA có thể tìm kiếm các biện pháp khẩn cấp theo lệnh (hoặc một hình thức trợ giúp pháp lý khẩn cấp tương đương) tại các tòa án thuộc bất kỳ khu vực tài phán nào."
-  },
-  { "code": "tos.tos.contact.title", "name": "Liên hệ" },
-  {
-    "code": "tos.tos.contact.content",
-    "name": "Các câu hỏi hoặc thắc mắc liên quan đến các Điều khoản này có thể được gửi tới support@VIDA. Xin lưu ý rằng thông tin liên lạc qua email không nhất thiết phải được bảo mật; do đó, bạn không nên đưa thông tin thẻ tín dụng hoặc thông tin nhạy cảm khác vào thư điện tử của bạn với chúng tôi. Các truy vấn về thanh toán phải được chuyển đến Billing@VIDA"
-  },
-  { "code": "tos.tos.miscellaneous.title", "name": "Điều khoản khác" },
-  {
-    "code": "tos.tos.miscellaneous.content",
-    "name": "Các Điều khoản này không và sẽ không được hiểu là tạo ra bất kỳ mối quan hệ đối tác, liên doanh, chủ lao động-nhân viên, đại lý hoặc bên nhượng quyền-nhượng quyền nào giữa bạn và VIDA. Nếu bất kỳ điều khoản nào trong các Điều khoản này bị phát hiện là bất hợp pháp, vô hiệu hoặc không thể thi hành vì bất kỳ lý do nào thì điều khoản đó sẽ được coi là có thể tách rời khỏi các Điều khoản này và sẽ không ảnh hưởng đến hiệu lực cũng như khả năng thực thi của bất kỳ điều khoản nào còn lại. Bạn không được chuyển nhượng, chuyển nhượng hoặc cấp phép lại bất kỳ hoặc tất cả các quyền hoặc nghĩa vụ của mình theo các Điều khoản này mà không có sự đồng ý trước bằng văn bản rõ ràng của chúng tôi. Chúng tôi có thể chuyển nhượng, chuyển giao hoặc cấp phép lại bất kỳ hoặc tất cả các quyền hoặc nghĩa vụ của chúng tôi theo các Điều khoản này mà không bị hạn chế. Việc từ bỏ của một trong hai bên đối với bất kỳ vi phạm hoặc vi phạm nào dưới đây sẽ không được coi là sự từ bỏ bất kỳ vi phạm hoặc vi phạm nào trước đó hoặc sau đó. Bất kỳ tiêu đề, chú thích hoặc tiêu đề phần nào trong tài liệu này chỉ được chèn vào nhằm mục đích thuận tiện và không xác định hay giải thích bất kỳ phần hoặc điều khoản nào trong tài liệu này. Điều này, cùng với tất cả các chính sách được đề cập ở đây, là toàn bộ thỏa thuận giữa bạn và VIDA liên quan đến chủ đề ở đây và thay thế bất kỳ và tất cả các thỏa thuận hoặc hiểu biết bằng văn bản hoặc bằng miệng trước đó hoặc đương thời giữa bạn và VIDA liên quan đến chủ đề đó vấn đề. Thông báo cho bạn có thể được thực hiện thông qua việc đăng lên Dịch vụ, qua e-mail hoặc bằng thư thông thường, theo quyết định riêng của VIDA. Dịch vụ cũng có thể cung cấp thông báo về các thay đổi đối với các Điều khoản này hoặc các vấn đề khác bằng cách hiển thị các thông báo đó hoặc bằng cách cung cấp liên kết đến các thông báo đó. Không giới hạn, bạn đồng ý rằng phiên bản in của các Điều khoản này và bất kỳ thông báo nào được đưa ra dưới dạng điện tử sẽ được chấp nhận trong các thủ tục tố tụng tư pháp hoặc hành chính dựa trên hoặc liên quan đến các Điều khoản này ở cùng mức độ và tuân theo các điều kiện giống như các tài liệu và tài liệu kinh doanh khác. hồ sơ ban đầu được tạo ra và duy trì ở dạng in. VIDA sẽ không chịu trách nhiệm về việc không thực hiện bất kỳ nghĩa vụ nào do những nguyên nhân nằm ngoài tầm kiểm soát của nó."
-  },
-  { "code": "tos.tos.language.title", "name": "Ngôn ngữ" },
-  {
-    "code": "tos.tos.language.content",
-    "name": "Các Điều khoản này ban đầu được viết bằng tiếng Anh. Trong trường hợp bất kỳ phiên bản dịch nào của các Điều khoản này xung đột với phiên bản tiếng Anh thì phiên bản tiếng Anh sẽ kiểm soát. Sửa đổi lần cuối: Tháng 7 năm 2023 © 2023 VIDA trừ khi có ghi chú khác. Đã đăng ký Bản quyền."
-  },
-  { "code": "tos.tos.final", "name": "Sửa đổi lần cuối: tháng 7 năm 2023" },
-  { "code": "tos.tos.VIDA", "name": "© 2023 VIDA One Trừ khi có quy định khác. Đã đăng ký Bản quyền." }
+  { "code": "AF", "name": "Afghanistan" },
+  { "code": "AX", "name": "Quần đảo Aland" },
+  { "code": "AL", "name": "Albania" },
+  { "code": "DZ", "name": "Algérie" },
+  { "code": "AS", "name": "American Samoa" },
+  { "code": "AD", "name": "Andorra" },
+  { "code": "AO", "name": "Ăng-gô-la" },
+  { "code": "AI", "name": "Anguilla" },
+  { "code": "AQ", "name": "Nam Cực" },
+  { "code": "AG", "name": "Antigua và Barbuda" },
+  { "code": "AR", "name": "Argentina" },
+  { "code": "AM", "name": "Armenia" },
+  { "code": "AW", "name": "Aruba" },
+  { "code": "AU", "name": "Châu Úc" },
+  { "code": "AT", "name": "Áo" },
+  { "code": "AZ", "name": "Azerbaijan" },
+  { "code": "BS", "name": "Bahamas" },
+  { "code": "BH", "name": "Bahrain" },
+  { "code": "BD", "name": "Bangladesh" },
+  { "code": "BB", "name": "Barbados" },
+  { "code": "BY", "name": "Bêlarut" },
+  { "code": "BE", "name": "nước Bỉ" },
+  { "code": "BZ", "name": "Belize" },
+  { "code": "BJ", "name": "Bénin" },
+  { "code": "BM", "name": "Bermuda" },
+  { "code": "BT", "name": "Bhutan" },
+  { "code": "BO", "name": "Bolivia, Nhà nước đa quốc gia" },
+  { "code": "BQ", "name": "Bonaire, Thánh Eustatius và Saba" },
+  { "code": "BA", "name": "Bosnia và Herzegovina" },
+  { "code": "BW", "name": "Botswana" },
+  { "code": "BV", "name": "Đảo Bouvet" },
+  { "code": "BR", "name": "Brazil" },
+  { "code": "IO", "name": "Lãnh thổ Ấn Độ Dương thuộc Anh" },
+  { "code": "BN", "name": "Vương quốc Bru-nây" },
+  { "code": "BG", "name": "Bulgaria" },
+  { "code": "BF", "name": "Burkina Faso" },
+  { "code": "BI", "name": "Burundi" },
+  { "code": "KH", "name": "Campuchia" },
+  { "code": "CM", "name": "Ca-mơ-run" },
+  { "code": "CA", "name": "Canada" },
+  { "code": "CV", "name": "mũi verde" },
+  { "code": "KY", "name": "Quần đảo Cayman" },
+  { "code": "CF", "name": "Cộng hòa trung phi" },
+  { "code": "TD", "name": "Tchad" },
+  { "code": "CL", "name": "Chilê" },
+  { "code": "CN", "name": "Trung Quốc" },
+  { "code": "CX", "name": "đảo giáng sinh" },
+  { "code": "CC", "name": "đảo dừa" },
+  { "code": "CO", "name": "Colombia" },
+  { "code": "KM", "name": "Comoros" },
+  { "code": "CG", "name": "Congo" },
+  { "code": "CD", "name": "Cộng hòa Dân chủ Congo" },
+  { "code": "CK", "name": "Hòn đảo" },
+  { "code": "CR", "name": "costa rica" },
+  { "code": "CI", "name": "Bờ Biển Ngà" },
+  { "code": "HR", "name": "Croatia" },
+  { "code": "CU", "name": "cuba" },
+  { "code": "CW", "name": "rượu cam bì" },
+  { "code": "CY", "name": "Síp" },
+  { "code": "CZ", "name": "Cộng hòa Séc" },
+  { "code": "DK", "name": "Đan mạch" },
+  { "code": "DJ", "name": "Djibouti" },
+  { "code": "DM", "name": "Dominica" },
+  { "code": "DO", "name": "Cộng hòa Dominica" },
+  { "code": "EC", "name": "Ecuador" },
+  { "code": "EG", "name": "Ai Cập" },
+  { "code": "SV", "name": "El Salvador" },
+  { "code": "GQ", "name": "Equatorial Guinea" },
+  { "code": "ER", "name": "Eritrea" },
+  { "code": "EE", "name": "Estonia" },
+  { "code": "ET", "name": "Ethiopia" },
+  { "code": "FK", "name": "Quần đảo Falkland (Malvinas)" },
+  { "code": "FO", "name": "quần đảo faroe" },
+  { "code": "FJ", "name": "Fiji" },
+  { "code": "FI", "name": "Phần Lan" },
+  { "code": "FR", "name": "Pháp" },
+  { "code": "GF", "name": "Guiana thuộc Pháp" },
+  { "code": "PF", "name": "Polynesia thuộc Pháp" },
+  { "code": "TF", "name": "lãnh thổ miền Nam nước Pháp" },
+  { "code": "GA", "name": "Gabon" },
+  { "code": "GM", "name": "Gambia" },
+  { "code": "GE", "name": "bang Georgia" },
+  { "code": "DE", "name": "nước Đức" },
+  { "code": "GH", "name": "Ghana" },
+  { "code": "GI", "name": "Gibraltar" },
+  { "code": "GR", "name": "Hy Lạp" },
+  { "code": "GL", "name": "Greenland" },
+  { "code": "GD", "name": "Greneda" },
+  { "code": "GP", "name": "Guadeloupe" },
+  { "code": "GU", "name": "đảo Guam" },
+  { "code": "GT", "name": "Guatemala" },
+  { "code": "GG", "name": "du kích" },
+  { "code": "GN", "name": "Ghi-nê" },
+  { "code": "GW", "name": "Guiné-Bissau" },
+  { "code": "GY", "name": "Guyana" },
+  { "code": "HT", "name": "Haiti" },
+  { "code": "HM", "name": "Đảo Heard và Quần đảo McDonald" },
+  { "code": "VA", "name": "Tòa Thánh (Thành phố Vatican)" },
+  { "code": "HN", "name": "Honduras" },
+  { "code": "HK", "name": "Trung Quốc Hồng Kông" },
+  { "code": "HU", "name": "Hungary" },
+  { "code": "IS", "name": "Nước Iceland" },
+  { "code": "IN", "name": "Ấn Độ" },
+  { "code": "ID", "name": "Indonesia" },
+  { "code": "IR", "name": "Cộng hòa Hồi giáo Iran" },
+  { "code": "IQ", "name": "Irắc" },
+  { "code": "IE", "name": "Ireland" },
+  { "code": "IM", "name": "Đảo Man" },
+  { "code": "IL", "name": "Người israel" },
+  { "code": "IT", "name": "Nước Ý" },
+  { "code": "JM", "name": "Jamaica" },
+  { "code": "JP", "name": "Nhật Bản" },
+  { "code": "JE", "name": "áo đấu" },
+  { "code": "JO", "name": "Jordan" },
+  { "code": "KZ", "name": "Kazakhstan" },
+  { "code": "KE", "name": "Kenya" },
+  { "code": "KI", "name": "Kiribati" },
+  { "code": "KP", "name": "Bắc Triều Tiên" },
+  { "code": "KR", "name": "Hàn Quốc" },
+  { "code": "KW", "name": "Cô-oét" },
+  { "code": "KG", "name": "Kyrgyzstan" },
+  { "code": "LA", "name": "Nước Lào" },
+  { "code": "LV", "name": "Latvia" },
+  { "code": "LB", "name": "lebanon" },
+  { "code": "LS", "name": "Lesotho" },
+  { "code": "LR", "name": "Liberia" },
+  { "code": "LY", "name": "Lybia" },
+  { "code": "LI", "name": "Liechtenstein" },
+  { "code": "LT", "name": "Litva" },
+  { "code": "LU", "name": "Luxembourg" },
+  { "code": "MO", "name": "Ma-cao, Trung Quốc" },
+  { "code": "MK", "name": "Macedonia, Nam Tư cũ" },
+  { "code": "MG", "name": "Madagascar" },
+  { "code": "MW", "name": "Malawi" },
+  { "code": "MY", "name": "Malaysia" },
+  { "code": "MV", "name": "Maldives" },
+  { "code": "ML", "name": "Mali" },
+  { "code": "MT", "name": "mạch nha" },
+  { "code": "MH", "name": "đảo Marshall" },
+  { "code": "MQ", "name": "Martinique" },
+  { "code": "MR", "name": "Mauritanie" },
+  { "code": "MU", "name": "Mô-ri-xơ" },
+  { "code": "YT", "name": "mayotte" },
+  { "code": "MX", "name": "México" },
+  { "code": "FM", "name": "Liên bang Micronesia" },
+  { "code": "MD", "name": "Cộng hòa Moldova" },
+  { "code": "MC", "name": "Monaco" },
+  { "code": "MN", "name": "Mông Cổ" },
+  { "code": "ME", "name": "Montenegro" },
+  { "code": "MS", "name": "Montserrat" },
+  { "code": "MA", "name": "Ma-rốc" },
+  { "code": "MZ", "name": "Mozambique" },
+  { "code": "MM", "name": "Myanmar" },
+  { "code": "NA", "name": "Namibia" },
+  { "code": "NR", "name": "Nauru" },
+  { "code": "NP", "name": "Nepal" },
+  { "code": "NL", "name": "nước Hà Lan" },
+  { "code": "NC", "name": "caledonia mới" },
+  { "code": "NZ", "name": "New Zealand" },
+  { "code": "NI", "name": "Nicaragua" },
+  { "code": "NE", "name": "Niger" },
+  { "code": "NG", "name": "Nigeria" },
+  { "code": "NU", "name": "Niue" },
+  { "code": "NF", "name": "Đảo Norfolk" },
+  { "code": "MP", "name": "Quần đảo Bắc Mariana" },
+  { "code": "NO", "name": "Na Uy" },
+  { "code": "OM", "name": "Ô-man" },
+  { "code": "PK", "name": "Pakistan" },
+  { "code": "PW", "name": "Palau" },
+  { "code": "PS", "name": "Palestine" },
+  { "code": "PA", "name": "Panama" },
+  { "code": "PG", "name": "papua new guinea" },
+  { "code": "PY", "name": "Paraguay" },
+  { "code": "PE", "name": "Peru" },
+  { "code": "PH", "name": "Philippines" },
+  { "code": "PN", "name": "Pitcairn" },
+  { "code": "PL", "name": "Ba Lan" },
+  { "code": "PT", "name": "Bồ Đào Nha" },
+  { "code": "PR", "name": "Puerto Rico" },
+  { "code": "QA", "name": "Qatar" },
+  { "code": "RE", "name": "Đoàn tụ" },
+  { "code": "RO", "name": "Rumani" },
+  { "code": "RU", "name": "Liên bang Nga" },
+  { "code": "RW", "name": "Rwanda" },
+  { "code": "BL", "name": "thánh barthelemy" },
+  { "code": "SH", "name": "Quần đảo Saint Helena, Đảo Ascension và Tristan da Cunha" },
+  { "code": "KN", "name": "Saint Kitts và Nevis" },
+  { "code": "LC", "name": "thánh lucia" },
+  { "code": "MF", "name": "Saint Martin (phần Pháp)" },
+  { "code": "PM", "name": "Thánh Pierre và Miquelon" },
+  { "code": "VC", "name": "Saint Vincent và Grenadines" },
+  { "code": "WS", "name": "Samoa" },
+  { "code": "SM", "name": "san marino" },
+  { "code": "ST", "name": "Sao Tome và Principe" },
+  { "code": "SA", "name": "Ả Rập Saudi" },
+  { "code": "SN", "name": "Sénégal" },
+  { "code": "RS", "name": "Serbia" },
+  { "code": "SC", "name": "Seychelles" },
+  { "code": "SL", "name": "Sierra Leone" },
+  { "code": "SG", "name": "Singapore" },
+  { "code": "SX", "name": "Sint Maarten (phần tiếng Hà Lan)" },
+  { "code": "SK", "name": "Slovakia" },
+  { "code": "SI", "name": "Slovenia" },
+  { "code": "SB", "name": "Quần đảo Solomon" },
+  { "code": "SO", "name": "somali" },
+  { "code": "ZA", "name": "Nam Phi" },
+  { "code": "GS", "name": "Quần đảo Nam Georgia và Nam Sandwich" },
+  { "code": "SS", "name": "phía nam Sudan" },
+  { "code": "ES", "name": "Tây ban nha" },
+  { "code": "LK", "name": "Sri Lanka" },
+  { "code": "SD", "name": "sudan đỏ" },
+  { "code": "SR", "name": "Surinam" },
+  { "code": "SJ", "name": "Đảo Svalbard và Jan Mayen" },
+  { "code": "SZ", "name": "Swaziland" },
+  { "code": "SE", "name": "Thụy Điển" },
+  { "code": "CH", "name": "Thụy sĩ" },
+  { "code": "SY", "name": "Cộng Hòa Arab Syrian" },
+  { "code": "TW", "name": "Đài Loan, Trung Quốc" },
+  { "code": "TJ", "name": "Tajikistan" },
+  { "code": "TZ", "name": "Cộng hòa thống nhất Tanzania" },
+  { "code": "TH", "name": "nước Thái Lan" },
+  { "code": "TL", "name": "Đông Timor" },
+  { "code": "TG", "name": "Đi" },
+  { "code": "TK", "name": "quần đảo tokelau" },
+  { "code": "TO", "name": "Tonga" },
+  { "code": "TT", "name": "Trinidad và Tobago" },
+  { "code": "TN", "name": "Tunisia" },
+  { "code": "TR", "name": "Thổ Nhĩ Kỳ" },
+  { "code": "TM", "name": "Turkmenistan" },
+  { "code": "TC", "name": "Quần đảo Turks và Caicos" },
+  { "code": "TV", "name": "Tuvalu" },
+  { "code": "UG", "name": "Uganda" },
+  { "code": "UA", "name": "Ukraina" },
+  { "code": "AE", "name": "các Tiểu Vương Quốc Ả Rập Thống Nhất" },
+  { "code": "GB", "name": "Vương quốc Anh" },
+  { "code": "US", "name": "Hoa Kỳ" },
+  { "code": "UM", "name": "Quần đảo xa xôi nhỏ của Hoa Kỳ" },
+  { "code": "UY", "name": "Uruguay" },
+  { "code": "UZ", "name": "Uzbekistan" },
+  { "code": "VU", "name": "Vanuatu" },
+  { "code": "VE", "name": "Venezuela (Cộng hòa Bolivar)" },
+  { "code": "VN", "name": "Việt Nam" },
+  { "code": "VG", "name": "Quần đảo Virgin thuộc Anh" },
+  { "code": "VI", "name": "Quần đảo Virgin thuộc Hoa Kỳ" },
+  { "code": "WF", "name": "quần đảo wallis và futuna" },
+  { "code": "EH", "name": "Phía tây Sahara" },
+  { "code": "YE", "name": "Yêmen" },
+  { "code": "ZM", "name": "Zambia" },
+  { "code": "ZW", "name": "Zimbabwe" }
 ]
