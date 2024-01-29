@@ -26,31 +26,33 @@ const { userData } = accountStore
 const mineStore = useMineStore()
 const { interested } = storeToRefs(mineStore)
 
+const options = ref([])
+
 onMounted(() => {
   interested.value = userData.interested.split(',').map(Number)
+  data()
 })
 
-const options = ref([
-  { label: $t('content.foodieRecipe'), value: 1 },
-  { label: $t('content.educatorTeaching'), value: 2 },
-  { label: $t('content.photoInsta'), value: 3 },
-  { label: $t('content.beautyFasion'), value: 4 },
-  { label: $t('content.news'), value: 5 },
-  { label: $t('content.travelPhoto'), value: 6 },
-  { label: $t('content.gameHost'), value: 7 },
-  { label: $t('content.cosplay'), value: 8 },
-  { label: $t('content.lgScale'), value: 9 },
-  { label: $t('content.nsfwMale'), value: 10 },
-  { label: $t('content.nsfwFemale'), value: 11 },
-])
+const data = async () => {
+  let categories
+  try {
+    categories = await useRequest('Article.categories', { immediate: true })
+
+    // 將後端取得的 categories.list 轉換為 options 格式
+    options.value = Object.entries(categories.list).map(([value, label]) => ({
+      value: parseInt(value, 10),
+      label: $t(`category.${value}`),
+    }))
+  } catch (e) {
+    console.log(e)
+  }
+}
 
 const serverError = ref('')
 async function savePref() {
   const { execute } = useRequest('User.modifyInfo')
   try {
-    await execute({
-      interested: interested.value.join(','),
-    })
+    await execute({})
     console.log('成功囉！')
   } catch (e) {
     serverError.value = e.message
