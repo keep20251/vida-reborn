@@ -1,765 +1,251 @@
 [
-  { "code": "cp.cp.info.title", "name": "Cookie-Richtlinie" },
-  {
-    "code": "cp.cp.info.content",
-    "name": "Diese Richtlinie befasst sich nicht mit der Art und Weise, wie wir mit Ihren personenbezogenen Daten umgehen. Weitere Informationen darüber, wie wir Ihre personenbezogenen Daten erfassen und verarbeiten, finden Sie in unserer Datenschutzerklärung. In dieser Richtlinie erfahren Sie mehr darüber, wie wir Cookies verwenden und welche Wahlmöglichkeiten Sie haben. Durch die Nutzung des Dienstes stimmen Sie ausdrücklich den in dieser Richtlinie beschriebenen Praktiken zum Umgang mit Informationen sowie der Speicherung und dem Zugriff auf Cookies zu"
-  },
-  { "code": "cp.cp.definitions.title", "name": "Definitionen" },
-  { "code": "cp.cp.definitions.table.title.a", "name": "Begriff" },
-  { "code": "cp.cp.definitions.table.title.b", "name": "Die Richtlinie\"" },
-  { "code": "cp.cp.definitions.table.title.c", "name": "VIDA“, „wir“ oder „uns“" },
-  { "code": "cp.cp.definitions.table.title.d", "name": "Der Service\"" },
-  { "code": "cp.cp.definitions.table.title.e", "name": "\"Kekse\"" },
-  { "code": "cp.cp.definitions.table.content.a", "name": "Definition" },
-  { "code": "cp.cp.definitions.table.content.b", "name": "Die in diesem Dokument beschriebene Cookie-Richtlinie." },
-  { "code": "cp.cp.definitions.table.content.c", "name": "VIDA, firmierend unter dem Namen VIDA." },
-  {
-    "code": "cp.cp.definitions.table.content.d",
-    "name": "Die VIDA-Website unter VIDA und alle anderen Websites, Anwendungen oder Dienste, die von uns bereitgestellt werden, uns gehören oder von uns betrieben werden und auf diese Richtlinie verweisen."
-  },
-  {
-    "code": "cp.cp.definitions.table.content.e",
-    "name": "Eine kleine Datenmenge, die auf Ihrem Gerät gespeichert wird, damit Websites und mobile Apps sich an Dinge über Sie erinnern können. Andere Technologien, einschließlich Webspeicher und mit Ihrem Gerät verknüpfte Identifikatoren, können für ähnliche Zwecke verwendet werden."
-  },
-  { "code": "cp.cp.modifications.title", "name": "Änderungen" },
-  {
-    "code": "cp.cp.modifications.content",
-    "name": "Wir behalten uns das Recht vor, diese Bedingungen jederzeit zu ändern. Wenn wir Änderungen vornehmen, benachrichtigen wir Sie, indem wir das Datum am Ende der Bedingungen ändern, und in einigen Fällen werden wir Sie zusätzlich benachrichtigen (z. B. indem wir eine Erklärung auf unserer Homepage hinzufügen oder Ihnen eine E-Mail-Benachrichtigung senden). Um die Verordnung (EU) 2019/1150 (die „Platform-to-Business-Verordnung“ oder „P2BR“) einzuhalten, werden wir alle Änderungen dieser Bedingungen mindestens 15 Tage im Voraus auf einem „dauerhaften Datenträger“ (wie definiert) bekannt geben im P2BR), mit Ausnahme der in Artikel 3 Absatz 4 des P2BR genannten Änderungen. Änderungen dieser Bedingungen treten zum Zeitpunkt ihrer Veröffentlichung in Kraft. Durch Ihre fortgesetzte Nutzung des Dienstes nach dem Inkrafttreten der überarbeiteten Bedingungen erklären Sie sich mit den Bedingungen einverstanden. Lizenz zur Nutzung des Dienstes Vorbehaltlich dieser Bedingungen gewährt Ihnen VIDA eine persönliche, weltweite, gebührenfreie, nicht abtretbare und nicht exklusive Lizenz , widerrufliche und nicht unterlizenzierbare Lizenz für den Zugriff und die Nutzung des Dienstes. Diese Lizenz dient ausschließlich dem Zweck, Ihnen die Nutzung und den Genuss der Vorteile des Dienstes zu ermöglichen, wie von VIDA vorgesehen und durch diese Bedingungen gestattet."
-  },
-  { "code": "cp.cp.useCookie.title", "name": "Wie wir Cookies verwenden" },
-  {
-    "code": "cp.cp.useCookie.content1",
-    "name": "VIDA verwendet Cookies, einschließlich Cookies von Drittanbietern, aus verschiedenen Gründen, z. B. zum Schutz Ihrer Daten und Ihres Kontos bei VIDA, um zu erkennen, welche Funktionen am beliebtesten sind, um die Besucher einer Seite zu zählen, um die Erfahrung unserer Benutzer zu verbessern und um die Nutzung von Cookies zu gewährleisten Unsere Dienste sind sicher, bieten relevante Werbung und bieten Ihnen ein besseres, intuitiveres und zufriedenstellenderes Erlebnis. Die von uns verwendeten Cookies fallen im Allgemeinen in eine der folgenden Kategorien."
-  },
-  {
-    "code": "cp.cp.useCookie.content2",
-    "name": "Wir können auch ähnliche Technologien wie Pixel-Tags, Clear GIFS und Web-Beacons in Verbindung mit Cookies verwenden, um Aktivitäten auf unserem Dienst zu verfolgen. Sofern Sie Cookies nicht deaktivieren, können uns diese Technologien beim Besuch einer Webseite mitteilen, dass Sie diese besucht haben. Diese Technologien können uns auch darüber informieren, ob Sie unsere E-Mails erhalten haben."
-  },
-  { "code": "cp.cp.useCookie.table.title.a", "name": "Kategorie" },
-  { "code": "cp.cp.useCookie.table.title.b", "name": "Notwendig" },
-  { "code": "cp.cp.useCookie.table.title.c", "name": "Präferenzen" },
-  { "code": "cp.cp.useCookie.table.title.d", "name": "Leistung" },
-  { "code": "cp.cp.useCookie.table.title.e", "name": "Marketing" },
-  { "code": "cp.cp.useCookie.table.content.a", "name": "Warum wir diese Cookies verwenden" },
-  {
-    "code": "cp.cp.useCookie.table.content.b",
-    "name": "Wir verwenden diese Cookies, um unsere Dienste auszuführen und um Sicherheitsrisiken zu erkennen und zu verhindern. Beispielsweise können wir diese Cookies verwenden, um Ihre Sitzungsinformationen zu speichern."
-  },
-  {
-    "code": "cp.cp.useCookie.table.content.c",
-    "name": "Wir verwenden diese Cookies, um Ihre Einstellungen und Präferenzen zu speichern und Ihre Erfahrung mit unseren Diensten zu verbessern. Beispielsweise können wir diese Cookies verwenden, um Ihre Spracheinstellungen zu speichern."
-  },
-  {
-    "code": "cp.cp.useCookie.table.content.d",
-    "name": "Wir verwenden diese Cookies, um Informationen darüber zu sammeln, wie Sie unsere Dienste nutzen, und um die Leistung unserer Dienste zu überwachen und zu verbessern."
-  },
-  {
-    "code": "cp.cp.useCookie.table.content.e",
-    "name": "Wir verwenden diese Cookies, um Werbung zu liefern, sie für Verbraucher relevanter und aussagekräftiger zu machen und um die Effizienz unserer Werbekampagnen zu verfolgen."
-  },
-  { "code": "cp.cp.analyticsAd.title", "name": "Analyse- und Werbeanbieter" },
-  {
-    "code": "cp.cp.analyticsAd.content",
-    "name": "VIDA kann anderen Unternehmen erlauben, Cookies auf unserem Service zu verwenden. Diese Unternehmen können im Laufe der Zeit Informationen darüber sammeln, wie Sie unseren Dienst nutzen, und diese mit ähnlichen Informationen von anderen Diensten und Unternehmen kombinieren. Diese Informationen können unter anderem dazu verwendet werden, Daten zu analysieren und zu verfolgen, die Beliebtheit bestimmter Inhalte zu bestimmen und Ihre Online-Aktivitäten besser zu verstehen. Wir können Informationen über Ihre Aktivitäten bei Drittanbieterdiensten sammeln, die von uns bereitgestellte Cookies verwenden. Wir verwenden diese Informationen, um unsere Werbedienste zu verbessern, einschließlich der Messung der Leistung von Anzeigen und der Anzeige relevanterer Anzeigen."
-  },
-  { "code": "cp.cp.choices.title", "name": "Deine Entscheidungen" },
-  {
-    "code": "cp.cp.choices.content",
-    "name": "Ihr Browser bietet Ihnen möglicherweise die Möglichkeit, einige oder alle Browser-Cookies abzulehnen. Möglicherweise können Sie Cookies auch aus Ihrem Browser entfernen. Weitere Informationen zum Verwalten oder Deaktivieren von Cookies finden Sie in den Anweisungen Ihres Browsers oder unter www.allaboutcookies.org/manage-cookies. Einige Funktionen des Dienstes funktionieren möglicherweise nicht wie vorgesehen, wenn Sie Cookies deaktivieren."
-  },
-  { "code": "cp.cp.contact.title", "name": "Kontakt" },
-  {
-    "code": "cp.cp.contact.content",
-    "name": "Fragen oder Bedenken zu diesen Bedingungen können an support@VIDA gerichtet werden. Bitte beachten Sie, dass E-Mail-Kommunikation nicht unbedingt sicher ist. Dementsprechend sollten Sie in Ihrer E-Mail-Korrespondenz mit uns keine Kreditkarteninformationen oder andere sensible Informationen angeben. Rechnungsanfragen sollten an billing@VIDA gerichtet werden"
-  },
-  { "code": "cp.cp.miscellaneous.title", "name": "Verschiedenes" },
-  {
-    "code": "cp.cp.miscellaneous.content",
-    "name": "Diese Bedingungen begründen keine Partnerschaft, kein Joint Venture, kein Arbeitgeber-Arbeitnehmer-Verhältnis, keine Agenturbeziehung oder kein Franchisegeber-Franchisenehmer-Verhältnis zwischen Ihnen und VIDA und dürfen auch nicht so ausgelegt werden. Sollte sich herausstellen, dass eine Bestimmung dieser Bedingungen rechtswidrig, nichtig oder aus irgendeinem Grund nicht durchsetzbar ist, gilt diese Bestimmung als von diesen Bedingungen trennbar und hat keinen Einfluss auf die Gültigkeit und Durchsetzbarkeit der übrigen Bestimmungen. Ohne unsere ausdrückliche vorherige schriftliche Zustimmung dürfen Sie Ihre Rechte oder Pflichten aus diesen Bedingungen nicht ganz oder teilweise abtreten, übertragen oder unterlizenzieren. Wir können einige oder alle unserer Rechte und Pflichten aus diesen Bedingungen ohne Einschränkung abtreten, übertragen oder unterlizenzieren. Kein Verzicht einer der Parteien im Hinblick auf eine Verletzung oder Nichterfüllung dieser Vereinbarung gilt als Verzichtserklärung für eine frühere oder nachfolgende Verletzung oder Nichterfüllung. Alle hierin enthaltenen Überschriften, Bildunterschriften oder Abschnittstitel werden nur aus Gründen der Bequemlichkeit eingefügt und definieren oder erklären in keiner Weise einen Abschnitt oder eine Bestimmung hierin. Dies stellt zusammen mit allen hier genannten Richtlinien die gesamte Vereinbarung zwischen Ihnen und VIDA in Bezug auf den hierin genannten Gegenstand dar und ersetzt alle vorherigen oder gleichzeitigen schriftlichen oder mündlichen Vereinbarungen oder Absprachen zwischen Ihnen und VIDA in Bezug auf diesen Gegenstand Gegenstand. Mitteilungen an Sie können nach Ermessen von VIDA durch Veröffentlichung im Dienst, per E-Mail oder per Post erfolgen. Der Dienst kann auch Mitteilungen über Änderungen dieser Bedingungen oder anderer Angelegenheiten bereitstellen, indem er solche Mitteilungen anzeigt oder Links zu solchen Mitteilungen bereitstellt. Ohne Einschränkung erklären Sie sich damit einverstanden, dass eine gedruckte Version dieser Bedingungen und aller in elektronischer Form übermittelten Mitteilungen in Gerichts- oder Verwaltungsverfahren, die auf diesen Bedingungen basieren oder sich darauf beziehen, im gleichen Umfang und unter den gleichen Bedingungen zulässig sind wie andere Geschäftsdokumente und Aufzeichnungen, die ursprünglich in gedruckter Form erstellt und verwaltet wurden. VIDA haftet nicht für die Nichterfüllung von Verpflichtungen aufgrund von Ursachen, die außerhalb seiner Kontrolle liegen."
-  },
-  { "code": "cp.cp.language.title", "name": "Sprache" },
-  {
-    "code": "cp.cp.language.content",
-    "name": "Diese Bedingungen wurden ursprünglich in Englisch verfasst. Soweit eine übersetzte Version dieser Bedingungen im Widerspruch zur englischen Version steht, gilt die englische Version. Letzte Änderung: Juli 2023© 2023 VIDA, sofern nicht anders angegeben. Alle Rechte vorbehalten."
-  },
-  { "code": "cp.cp.final", "name": "Letzte Änderung: Juli 2023" },
-  { "code": "cp.cp.VIDA", "name": "© 2023 VIDA One Sofern nicht anders angegeben. Alle Rechte vorbehalten." },
-  { "code": "creator.creator.become.title", "name": "Werden" },
-  { "code": "creator.creator.become.a.subtitle", "name": "Wie werde ich ein Schöpfer?" },
-  {
-    "code": "creator.creator.become.a.content",
-    "name": "VIDA ist eine der größten und bekanntesten Erotik-Websites im Internet. Wir sind stolz darauf, eine Plattform zu schaffen, die es Abonnenten leicht macht, ihre Wertschätzung auszudrücken und mit unserer Community zu interagieren. Da wir weltweit weiter wachsen, sind wir immer auf der Suche nach neuen Entwicklern, die unserer Plattform beitreten möchten. Wenn Sie ein Schöpfer werden möchten, sind Sie bei uns genau richtig! Dies ist Ihre Gelegenheit, Teil einer exklusiven, weithin beworbenen und weltweit anerkannten Plattform zu werden. Um Ihnen eine Vorstellung von unserem Creator-zentrierten Mantra zu geben: Wir bieten Auszahlungen, die über dem Branchenstandard liegen und bei denen Sie 80 % aller Ausgaben auf Ihrer Seite erhalten. Allein auf unserem Haupt-Feed gibt es täglich Millionen einzigartiger Besucher. Ein eifriges Publikum erwartet Sie, um mit Ihnen in Kontakt zu treten und Sie für Ihren Einsatz zu belohnen. Als weltweit führende Adresse für Erwachsenenunterhaltung legen wir bei VIDA Wert auf Qualität und ein möglichst angenehmes Nutzer- und Erstellererlebnis. Deshalb suchen wir nur das Allerbeste. Wenn Sie glauben, dass es das Richtige für Sie ist, schließen Sie sich uns an! Gehen Sie einfach zur Startseite und klicken Sie auf „Ersteller werden“."
-  },
-  {
-    "code": "creator.creator.become.b.subtitle",
-    "name": "Wie viele Inhalte benötige ich, bevor ich mein Konto aktivieren kann?"
-  },
-  {
-    "code": "creator.creator.become.b.content",
-    "name": "Sobald Sie den Identitätsprüfungsprozess abgeschlossen haben, benötigen Sie nur noch einen Inhalt, um auf VIDA loszulegen. Jeder Inhalt wird auf Qualität geprüft und um sicherzustellen, dass er nicht gegen die Nutzungsbedingungen verstößt. Vergessen Sie nicht, wenn Sie Inhalte posten, ohne Ihr Gesicht zu zeigen, d. h. Ihr Gesicht nie dort zu zeigen, wo nur Ihr Körper sichtbar ist, müssen Sie Folgendes tun: Laden Sie ein Nacktfoto hoch, auf dem Ihr ganzer Körper einschließlich Gesicht (zusammen) deutlich sichtbar ist, und wählen Sie es aus Verifizierungsbild. Es wird nicht veröffentlicht, sondern nur zu Sicherheitszwecken verwendet. Es ist wichtig, ein lebendiges Profil mit regelmäßigen Inhaltsaktualisierungen zu haben, das Möglichkeiten zur Abonnenteninteraktion bietet. Wenn Sie nur wenige Inhalte hochgeladen haben oder keine regelmäßigen Updates erhalten, wird es für Sie schwierig, Abonnenten zu gewinnen, oder Sie riskieren, Abonnenten zu verlieren und Rückbuchungen zu erleiden. Sie sind für Ihr eigenes Potenzial verantwortlich, insbesondere wenn es darum geht, Ihr erzielbares Einkommen zu maximieren. Wir empfehlen dringend, Teaser-Videos (bis zu 1 Minute, vertikal) zu erstellen, die in den Haupt-Feed aufgenommen werden. Um in den Haupt-Feed aufgenommen zu werden, muss Ihr Inhalt eine Bildunterschrift oder einen Titel und mindestens 3 Tags haben!"
-  },
-  { "code": "creator.creator.become.c.subtitle", "name": "Wie funktioniert der Feed?" },
-  {
-    "code": "creator.creator.become.c.content",
-    "name": "Kurzform Der Feed unserer Plattform ist nach den beliebtesten Videos sortiert. Die Popularität wird anhand des Verhältnisses von Aufrufen zu Likes gemessen. Neu hochgeladene Videos werden bei jedem 10. Wischvorgang dem Feed hinzugefügt, bis sie eine statistisch signifikante Bewertung erreichen und erhalten danach ihren festen Platz im Ranking. Aufgrund unserer Feed-Reihenfolge wird jedes neu hochgeladene Video Millionen potenzieller Zuschauer angezeigt und hat die gleiche Chance, in die Rangliste aufgenommen zu werden. Da unser Traffic die Menge der neu hochgeladenen Videos deutlich übersteigt, wird Ihr Video sofort bekannt gemacht und schnell im Ranking platziert. Wenn Sie in unserem Feed angezeigt werden möchten, müssen Sie sicherstellen, dass Ihr Inhalt über eine Überschrift und mindestens drei Tags verfügt. Dies hilft auch dabei, dass Ihr Inhalt bei Suchanfragen unserer Benutzer gefunden wird. Öffentlicher Feed (nicht verifizierte Benutzer) Wenn ein Benutzer die Website ohne Anmeldung besucht, erhält er den globalen oder einen länderspezifischen Feed. Ihr Feed zeigt Folgendes an: Die besten globalen oder regionalen Videos des Tages (5 bis 10 Videos) Neue Videos, die in der letzten Stunde hochgeladen wurden (randomisiert, 2 Videos) Wiederholen Diese Benutzererfahrung zeigt Top-Inhalte zuerst an. Nach ein paar Scrolls werden dem Feed neue Inhalte hinzugefügt. Diese Randomisierung neuer Videos, die in der letzten Stunde hochgeladen wurden, stellt sicher, dass die Benutzeraufrufe gleichmäßig auf alle Ersteller verteilt werden. Privater Feed (verifizierte Benutzer) Wenn ein Benutzer verifiziert ist, priorisiert der Feed die Anzeige neuer Inhalte von Erstellern, die er abonniert hat. Der Feed schließt auch zuvor angesehene Videos aus, um sicherzustellen, dass Benutzer zuerst die neuen Inhalte ihrer Lieblingsersteller sehen, bevor sie die globalen oder regionalen Feeds aufrufen. Also... Wie optimiere ich das, um mehr Aufrufe zu erhalten? Wir empfehlen dringend, täglich Inhalte hochzuladen, darunter mindestens 1 neues Video und 2 Bilder, um sicherzustellen, dass Ihr Profil in die zufällig ausgewählten neuen Inhalte in unserem Feed aufgenommen wird. Um die täglichen Uploads zu gewährleisten, empfehlen wir schließlich, einen strengen Zeitplan für das Hochladen von Inhalten einzuhalten, damit Sie auf dem Laufenden bleiben. Denken Sie daran: Sie sind der Herr Ihres eigenen Potenzials. Sobald Sie die Aufmerksamkeit der Abonnenten auf unserer Website auf sich ziehen, werden Ihre Fans Sie regelmäßig mit hochwertigen hochgeladenen Inhalten sehen wollen! Wie wird der Top-Content ermittelt? Top-Inhalte werden durch die Betrachtung mehrerer Metriken unter Verwendung eines gewichteten Ranking-Algorithmus bestimmt, typischerweise durch: Feed-Videos, die über 80 % (30–60 Sekunden vertikal) angesehen wurden (50 %) Anzahl der Likes (20 %) Anzahl der Kommentare (20 %) Extern Link-Sharing (legitimer Traffic, der von Nicht-Suchmaschinen kommt) (10 %) *Bitte beachten Sie: Als Gegenleistung für Marketingunterstützung stellen einige Ersteller möglicherweise mehr Inhalte mit höherer Sichtbarkeit im Feed bereit."
-  },
-  { "code": "creator.creator.become.d.subtitle", "name": "Ich brauche Unterstützung oder habe einen Fehler gefunden!" },
-  {
-    "code": "creator.creator.become.d.content",
-    "name": "Wenn Sie Hilfe benötigen, können Sie direkt mit uns chatten oder uns eine E-Mail senden. Wenn Sie einen Fehler melden, fügen Sie bitte einen Screenshot und eine detaillierte Beschreibung des aufgetretenen Problems bei."
-  },
-  { "code": "creator.creator.registrant.title", "name": "Registrierungsprozess" },
-  {
-    "code": "creator.creator.registrant.a.subtitle",
-    "name": "Können Agenturen oder Produktionsstudios Konten auf VIDA erstellen?"
-  },
-  {
-    "code": "creator.creator.registrant.a.content",
-    "name": "Derzeit konzentrieren wir uns auf einzelne Benutzerkonten nur für Inhaltsersteller. Von einer Agentur vertretene Ersteller dürfen verifizierte Konten erstellen, diese müssen jedoch vom Ersteller des Inhalts individuell verwaltet werden."
-  },
-  { "code": "creator.creator.registrant.b.subtitle", "name": "Kann ich aus jedem Land ein Creator werden?" },
-  {
-    "code": "creator.creator.registrant.b.content",
-    "name": "Bei VIDA lieben wir es, eine vielfältige Gruppe von Schöpfern zu repräsentieren. Aufgrund von Bankeinschränkungen können wir jedoch keine Ersteller (oder Benutzer) aus den folgenden Ländern akzeptieren. Wir arbeiten ständig daran, unsere Dienstleistungen in so vielen Gebieten wie möglich anzubieten, daher werden wir diese Liste kontinuierlich im Einklang mit den Bankvorschriften überprüfen: - Bosnien und Herzegowina - Burma / Myanmar - Krimregion - Demokratische Republik Kongo - Irak - Liberia - Libanon - Montenegro - Nordkorea - Serbien - Sierra Leone - Sudan - Syrien - Simbabwe"
-  },
-  { "code": "creator.creator.registrant.c.subtitle", "name": "Keine Gesichtsverifizierung" },
-  {
-    "code": "creator.creator.registrant.c.content",
-    "name": "Wir verstehen, dass einige Ersteller Inhalte erstellen möchten, die ihr Gesicht nicht darstellen. VIDA ist verpflichtet, die schriftliche Zustimmung aller in den auf die Website hochgeladenen Inhalten abgebildeten Personen einzuholen und aufzubewahren sowie das Alter und die Identität aller in den hochgeladenen Inhalten abgebildeten Personen überprüft zu haben. Wenn das Gesicht des Erstellers im Inhalt ansonsten nicht deutlich sichtbar ist (einschließlich Tragen von Masken, Filtergesichtern, verschwommenem Gesicht, Emoticons als Gesichter, im Grunde alles, was Ihr Gesicht verdeckt und Ihre Identität verbirgt), ein zusätzliches, vollständig nacktes und vollständig sichtbares Bild zur Gesichtsverifizierung wird benötigt werden. Für uns ist eine Bestätigung erforderlich, dass die in den hochgeladenen Inhalten abgebildeten Personen übereinstimmen. Hochladen Ihres Verifizierungsbildes: - Das Bild sollte kürzlich aufgenommen und von guter Qualität sein. - Laden Sie Ihr Bild auf die Website hoch (vollständiger Frontalakt, Gesicht und Körper einschließlich Genitalien sind deutlich sichtbar). - Wählen Sie Verifizierungsbild als Option. - *Dieses Bild ist dienen ausschließlich Sicherheitszwecken und werden niemals veröffentlicht"
-  },
-  { "code": "creator.creator.payout.title", "name": "Auszahlung und Verdienst" },
-  { "code": "creator.creator.payout.a.subtitle", "name": "Gebühren der Auszahlungsbank" },
-  {
-    "code": "creator.creator.payout.a.content",
-    "name": "Gebühren für die Zahlungsabwicklung Die Gebühren für die Zahlungsabwicklung decken die Kosten für die Verarbeitung von Zahlungen Ihrer Abonnenten, einschließlich wiederkehrender Abrechnungen, der Wiederherstellung abgelehnter Zahlungen und der Betrugsbekämpfung. Um eine Plattform-Auszahlungsrate von 80 % für Creator aufrechtzuerhalten, übernehmen wir die Gebühren für die Zahlungsabwicklung. Da wir bei den zuständigen Finanzbehörden als Plattform registriert sind, zahlen und überweisen wir auch die Mehrwertsteuer und Umsatzsteuer im Namen des Urhebers. Wenn Sie Informationen für Ihre eigenen Buchhaltungsunterlagen benötigen, kontaktieren Sie uns bitte unter Creators@VIDA. Auszahlungsgebühren Auszahlungsgebühren sind die Gebühren für die Überweisung von Geldern von Ihrem Creator-Guthaben auf Ihre bevorzugte Auszahlungsmethode, Bank oder Paxum. Die Banken und P2P-Anbieter ziehen diesen Betrag von dem Betrag ab, den Sie erhalten, wenn Sie eine Auszahlung beantragen. Ihre Auszahlungsgebühren beinhalten keine Aufschläge und werden im Verhältnis 1:1 ausgezahlt. P2P hat die niedrigsten Auszahlungstransaktionsgebühren und Banküberweisungen haben die höchsten Auszahlungstransaktionsgebühren. Wir sind stolz darauf, eine Creator-zentrierte Plattform zu sein, daher sind wir ständig auf der Suche nach den besten Optionen und Tarifen für unsere Creator-Gebühren. Daher können sich alle Gebühren ändern. Wir sind hier, um Sie zu unterstützen. Wenn Sie daran interessiert sind, bestimmte Auszahlungsoptionen auszuprobieren, sprechen Sie uns an! Wir würden uns freuen, von Ihnen unter Creators@VIDA zu hören."
-  },
-  { "code": "creator.creator.payout.b.subtitle", "name": "Wie kann ich mit VIDA Geld verdienen?" },
-  {
-    "code": "creator.creator.payout.b.content",
-    "name": "Sie können mit Abonnements, Zahlungen für gesperrte Inhalte (Inhalte in Ihrem Shop) und Trinkgeldern Geld verdienen. Um die Ausgaben für Ihre Seite zu maximieren, empfehlen wir Ihnen, eine starke Fangemeinde aufzubauen, indem Sie Ihre Seite aktuell und verlockend halten. Sie können auch einen Link zu Ihrer VIDA-Seite auf Ihren Social-Media-Konten wie Twitter oder Instagram platzieren. Aus Followern werden letztendlich Abonnenten!"
-  },
-  { "code": "creator.creator.payout.c.subtitle", "name": "Preisgestaltung für Ihre Inhalte und Dienste" },
-  {
-    "code": "creator.creator.payout.c.content",
-    "name": "So legen Sie einen Abonnementpreis für Ihre Inhalte fest: Gehen Sie zu Ihrem Profil – Profil bearbeiten – Abonnement einrichten. Als Ersteller können Sie frei wählen, wie viel Sie für Ihre Dienste verlangen. Ihre Preisgestaltung hat großen Einfluss auf die Anzahl der Käufe. Im Allgemeinen sehen wir, dass sich günstigere Preise besser umsetzen lassen, aber es liegt an Ihnen, Ihren Sweet Spot zu finden. Wenn Sie Ihren Abonnementpreis erhöhen, wird allen neuen Abonnenten der neue Tarif in Rechnung gestellt. Beachten Sie, dass Ihren bestehenden Abonnenten weiterhin der ursprüngliche Preis in Rechnung gestellt wird, den sie beim Abonnieren Ihres Profils vereinbart haben."
-  },
-  { "code": "creator.creator.payout.d.subtitle", "name": "Auszahlungspolitik" },
-  {
-    "code": "creator.creator.payout.d.content",
-    "name": "Wie hoch ist der Auszahlungsprozentsatz? 80 % aller Ausgaben auf Ihrer Seite. Wie hoch ist der Mindestauszahlungsbetrag? Der erforderliche Mindestauszahlungsbetrag beträgt 200 $. Eine Auszahlung Ihrer Zahlung ist nur möglich, wenn Sie den Mindestauszahlungsbetrag erreicht haben. Wie oft werde ich bezahlt? Ersteller können eine Auszahlung von ihrem Konto auslösen, solange der Auszahlungsbetrag über dem Mindestauszahlungsbetrag von 200 $ liegt. Die Zahlungsabwicklung erfolgt jeden zweiten Freitag. Welche Auszahlungsmethoden bietet VIDA an? Wir können derzeit die folgenden Auszahlungsmethoden akzeptieren: Banküberweisungen Paxum-Konten (P2P) Diese sind alle in USD, EUR, GBP verfügbar, abgesehen von den oben genannten Einschränkungen. Wenn es eine Währung gibt, die ein Ersteller besonders benötigt, senden Sie eine Nachricht an support@VIDA und wir können Ihnen mitteilen, ob dies möglich ist. Geplante Auszahlungen Wir haben es Ihnen leicht gemacht, Ihr Geld zu erhalten. VIDA verarbeitet Auszahlungen auf Ihr Konto jetzt jeden zweiten Freitag! Es besteht auch die Möglichkeit, Ihre Auszahlungen zu automatisieren, wir haben an alles gedacht! Bitte denken Sie daran, Ihre Auszahlung donnerstags bis spätestens Mitternacht UTC anzufordern. Der Zeitpunkt des Erhalts der Gelder kann aufgrund Ihrer Bank-/Kontobestimmungen variieren.* Auf Ihrer Einnahmenseite können Sie eine Liste aller Ihrer ausstehenden und bezahlten Auszahlungen einsehen. HINWEIS: Überprüfen Sie unbedingt die Liste der Länder, die von allen von uns unterstützten Banken und Zahlungsdiensten blockiert werden. Darüber hinaus behalten sich Banken und Zahlungsdienstleister das Recht vor, die Betreuung einzelner Kunden zu verweigern. In diesem Fall werden wir versuchen, das Problem zu lösen."
-  },
-  { "code": "creator.creator.payout.e.subtitle", "name": "Wie veranlasse ich eine Auszahlung?" },
-  {
-    "code": "creator.creator.payout.e.content",
-    "name": "Um eine Auszahlung zu veranlassen, gehen Sie zu Ihrem Benutzermenü und klicken Sie auf Einnahmen. Sie müssen mindestens 200 $ auf Ihrem Konto haben, bevor Sie Ihre Einnahmen abheben können. INFORMATIONEN ZUM BEgünstigTEN Zahlungen erfolgen nur an denselben Begünstigtennamen, der während des KYC-Onboarding-Prozesses angegeben wurde. Wenn Sie diesen Namen ändern müssen (z. B. wenn Sie Ihren Namen geändert haben, der Name, der Ihren Ausweisdokumenten zugewiesen ist, vom Namen des Begünstigten Ihrer Bank in Ihrem Land abweicht oder Sie eine Auszahlung an eine juristische Person wünschen), Bitte kontaktieren Sie support@VIDA. Sie müssen den Grund für die erforderliche Änderung nachweisen. Im Rahmen des Due-Diligence-Prozesses benötigen wir möglicherweise zusätzliche Informationen von Ihnen. Wir behalten uns das uneingeschränkte Recht vor, Ihren Antrag abzulehnen. Wenn Sie eine Zahlung an eine juristische Person beantragen, müssen die bei der KYC-Überprüfung bereitgestellten Informationen gemäß EU 2015/849 in der jeweils gültigen Fassung ein UBO (Ultimate Beneficial Owner) der juristischen Person sein, unabhängig davon, ob die juristische Person der EU-Gesetzgebung unterliegt. Zahlungen erfolgen unter keinen Umständen an Dritte, insbesondere an Ehepartner, Familienmitglieder, Treuhanddienste, Geschäftspartner, gerichtlich bestellte Vormunde oder Insolvenzverwalter jeglicher Art. Wir sind kontinuierlich bestrebt, Dienstleistungen in so vielen Regionen wie möglich anzubieten, daher werden wir diese Liste weiterhin auf der Grundlage bankaufsichtsrechtlicher Anforderungen überprüfen: Bosnien und Herzegowina, Myanmar, Côte d'Ivoire, Krimregion, Demokratische Republik Kongo, Irak, Liberia, Libanon, Montenegro, Nord Korea Serbien Sierra Leone Sudan Syrien Simbabwe Unsere Bankdienstleistungen sind in den aufgeführten Ländern blockiert, wir sind jedoch bestrebt, unsere Dienstleistungen auf so viele Regionen wie möglich auszuweiten. Wir behalten uns das Recht vor, die Richtlinien alle drei bis sechs Monate zu ändern und zu überprüfen, um sicherzustellen, dass Sie über alle Änderungen informiert sind. Schauen Sie daher bitte regelmäßig vorbei"
-  },
-  { "code": "creator.creator.payout.f.subtitle", "name": "Rückladungsschutz" },
-  {
-    "code": "creator.creator.payout.f.content",
-    "name": "Bitte beachten Sie, dass sich VIDA das Recht vorbehält, Credits von Ihren Einnahmen abzuziehen, wenn Sie gegen unsere Seite mit den Nutzungsbedingungen verstoßen. Abhängig von der Schwere des Verstoßes kann dies die unbefristete Sperrung oder Löschung Ihres Kontos umfassen. Wenn ein Kunde eine Rückerstattung oder Rückbuchung gegen Sie veranlasst, werden diese Beträge von Ihrem Guthaben abgezogen."
-  },
-  { "code": "creator.creator.privacy.title", "name": "Datenschutz und ID-Verifizierung" },
-  { "code": "creator.creator.privacy.a.subtitle", "name": "Warum muss ich mich ausweisen?" },
-  {
-    "code": "creator.creator.privacy.a.content",
-    "name": "Wir bitten alle Inhaltsersteller, sich einer Identitätsprüfung zu unterziehen, um Inhaltsdiebstahl zu verhindern und Ihr Recht auf Monetarisierung Ihrer eigenen Inhalte zu schützen."
-  },
-  { "code": "creator.creator.privacy.b.subtitle", "name": "Wie verifiziere ich meinen Ausweis?" },
-  {
-    "code": "creator.creator.privacy.b.content",
-    "name": "Die ID-Verifizierung ist der erste Schritt der Registrierung als Creator auf VIDA. Um Ihr Konto zu verifizieren, werden Sie gebeten, ein Foto von sich und Ihrem Ausweis zu machen. Der gesamte ID-Überprüfungsprozess ist vollständig automatisiert und dauert weniger als 1 Minute. NAVIGATIONSUNTERSTÜTZUNG: Gehen Sie zu Ihrem Benutzermenü und klicken Sie auf „Ersteller werden“. Es erscheint ein Verifizierungsprozess, der Sie zu Ihren nächsten Schritten auffordert. Bitte beachten Sie, dass alle Inhalte nur für Erwachsene (ab 18 Jahren) geeignet sind. Selbst wenn Sie die Überprüfung bestehen und wir der Meinung sind, dass Sie in einem Medium unter diesem Alter abgebildet sind, können wir daher weitere Erläuterungen einholen und uns das Recht vorbehalten, den Inhalt zu entfernen."
-  },
-  { "code": "creator.creator.privacy.c.subtitle", "name": "Wie werden meine Inhalte geschützt?" },
-  {
-    "code": "creator.creator.privacy.c.content",
-    "name": "Alle Medien sind mit Wasserzeichen versehen, um eine unbefugte Nutzung zu verhindern. Wir bieten auch einen Download-Schutz und Benutzer der Website dürfen nur auf Inhalte auf der Website zugreifen. Benutzer können keine Medien von der Website herunterladen."
-  },
-  { "code": "creator.creator.privacy.d.subtitle", "name": "Ist VIDA für Ersteller anonym?" },
-  {
-    "code": "creator.creator.privacy.d.content",
-    "name": "Wenn Sie sich bei VIDA anmelden, nutzen wir einen zertifizierten Drittanbieter, um persönliche Daten zu bestätigen, einschließlich Ihres richtigen Namens, Ihres Geburtsdatums, Ihres Wohnsitzlandes und eines amtlichen Ausweises. Wir brauchen dies, um als Serviceplattform rechtskonform zu bleiben. Darüber hinaus fragen wir Sie möglicherweise nach Ihren Auszahlungsinformationen, damit wir Ihre Zahlungen bearbeiten können. BENUTZER HABEN NIEMALS ZUGRIFF AUF IHRE PERSONENBEZOGENEN DATEN. Benutzer sehen nur Ihren Benutzernamen und andere Informationen, die Sie in Ihrem öffentlichen Profil oder während Ihrer privaten Gespräche preisgegeben haben. In unserer Datenschutzrichtlinie finden Sie eine detaillierte Übersicht darüber, wie wir Ihre personenbezogenen Daten erfassen, verwenden und schützen."
-  },
-  { "code": "creator.creator.feature.title", "name": "Merkmale" },
-  { "code": "creator.creator.feature.a.subtitle", "name": "Hochladen von Fotos und Videos" },
-  {
-    "code": "creator.creator.feature.a.content",
-    "name": "Das Hochladen Ihrer Inhalte auf VIDA ist ganz einfach! Wählen Sie nach der Überprüfung eine der beiden folgenden Optionen aus: 1. Klicken Sie auf „Meine Medien“, klicken Sie auf die Schaltfläche „Hinzufügen“ und laden Sie Inhalte hoch. 2. Klicken Sie in der oberen Navigationsleiste auf die Schaltfläche „Hinzufügen“ und befolgen Sie die Anweisungen zum Hochladen. Wenn Sie ein Mobiltelefon verwenden, wird die Navigationsleiste unten angezeigt. Wenn Sie möchten, dass Ihre Inhalte in unserem öffentlichen Feed erscheinen, können Sie Ihren Inhalten gerne einen Titel geben und drei Tags hinzufügen. Bitte denken Sie daran, dass der Titel und die Tags für das von Ihnen hochgeladene Foto/Video relevant sein sollten. Alle anderen Personen müssen auf der Plattform markiert und verifiziert werden. Entscheiden Sie abschließend, wer den Inhalt sehen kann: - Jeder: bedeutet, dass jeder den Inhalt in Ihrem Profil sehen kann. - Abonnenten: bedeutet, dass nur Ihre Abonnenten den Inhalt sehen können. - Tresor: bedeutet nur für Sie sichtbar. Sie können den Typ jederzeit nach dem Hochladen des Inhalts ändern; Private Inhalte lassen sich auch gut in DMs versenden, um mögliche Tipps zu erhalten oder benutzerdefinierte Inhalte zu speichern, die versendet werden sollen. - Shop: Dieser Inhalt kann von jedermann gekauft werden, und Sie können für jeden Medienartikel individuelle Preise festlegen. Hochgeladene Inhalte werden an das Moderationsteam gesendet. Wenn Ihr Inhalt genehmigt wird, wird er in Kürze in Ihrem Profil angezeigt. Andernfalls erhalten Sie eine E-Mail mit der Begründung, dass der Inhalt abgelehnt wurde. Bitte beachten Sie, dass alle Inhalte nur für Erwachsene (ab 18 Jahren) geeignet sind. Selbst wenn Sie die Verifizierung bestehen und wir der Meinung sind, dass Sie in einem Medium unter diesem Alter abgebildet sind, können wir daher um weitere Klärung bitten und behalten uns das Recht vor, den Inhalt zu entfernen."
-  },
-  { "code": "creator.creator.feature.b.subtitle", "name": "Inhalte löschen und bearbeiten" },
-  {
-    "code": "creator.creator.feature.b.content",
-    "name": "Sie können Ihre Inhalte jederzeit bearbeiten oder löschen. Gehen Sie dazu zum Benutzermenü: 1. Wählen Sie „Meine Medien“. 2. Wählen Sie ein Element aus, das Sie löschen möchten. 3. Wählen Sie oben rechts „Löschen“."
-  },
-  { "code": "creator.creator.feature.c.subtitle", "name": "Nachrichten von Schöpfer zu Schöpfer" },
-  {
-    "code": "creator.creator.feature.c.content",
-    "name": "Wir freuen uns über die gegenseitige Unterstützung von YouTubern, aber um Sie darüber zu informieren: Sie können nur anderen YouTubern Nachrichten senden, die Sie abonniert haben."
-  },
-  { "code": "creator.creator.feature.d.subtitle", "name": "Wie sende ich Inhalte an einen Ersteller?" },
-  {
-    "code": "creator.creator.feature.d.content",
-    "name": "Abonnenten haben die Möglichkeit, Medien mit den Erstellern zu teilen. Der Inhalt muss den Community-Richtlinien entsprechen. Wenn Sie einem Ersteller eine Nachricht senden, müssen Sie lediglich auf die Büroklammer-Taste neben dem Chat-Feld klicken und Ihr Bild oder Video von Ihrem Gerät hochladen."
-  },
-  {
-    "code": "creator.creator.feature.e.subtitle",
-    "name": "Wird der Inhalt im Profil des Benutzers für zukünftige Uploads gespeichert?"
-  },
-  {
-    "code": "creator.creator.feature.e.content",
-    "name": "Nein, der Inhalt wird nicht gespeichert. Der Inhalt muss jedes Mal von Ihrem Gerät hochgeladen werden, wenn Sie ihn an einen Ersteller senden möchten."
-  },
-  {
-    "code": "creator.creator.feature.f.subtitle",
-    "name": "Kann der Benutzer oder Ersteller Inhalte aus einem Nachrichtenthread löschen?"
-  },
-  { "code": "creator.creator.feature.f.content", "name": "Derzeit kann kein Inhalt aus dem Thread gelöscht werden." },
-  { "code": "creator.creator.feature.g.subtitle", "name": "Was ist, wenn ich es als Schöpfer nicht sehen möchte?" },
-  {
-    "code": "creator.creator.feature.g.content",
-    "name": "Ersteller erhalten den Inhalt unkenntlich gemacht, um unerwünschten Spam zu vermeiden. Der Ersteller kann diese Einstellung jederzeit ändern."
-  },
-  { "code": "creator.creator.feature.h.subtitle", "name": "Was passiert, wenn der Inhalt beleidigender Natur ist?" },
-  {
-    "code": "creator.creator.feature.h.content",
-    "name": "Ersteller können alle an sie gesendeten Inhalte melden und wir werden entsprechende Maßnahmen ergreifen."
-  },
-  { "code": "creator.creator.guideline.title", "name": "Inhaltsrichtlinien" },
-  { "code": "creator.creator.guideline.a.subtitle", "name": "Richtlinien für Avatar- und Titelbilder" },
-  {
-    "code": "creator.creator.guideline.a.content",
-    "name": "Ihr Avatar und Ihr Titelbild sind sehr wichtig, da sie Ihren ersten Eindruck bei potenziellen Kunden hinterlassen. Hochwertige Fotos erhöhen die Wahrscheinlichkeit, dass sich Kunden Ihr Profil ansehen. Darüber hinaus wirkt sich die Qualität Ihrer Fotos indirekt auf die Qualität unserer Plattform aus. Aus diesem Grund bitten wir jeden Ersteller, diese Richtlinien beim Posten von Profilfotos zu befolgen. - Hochwertige Fotos: Im Allgemeinen bedeutet dies hochauflösende, scharfe und gut beleuchtete Fotos. - Nur Sie selbst auf dem Foto: In Ihrem Profil geht es um Sie und Sie allein. Bitte verwenden Sie nur Fotos, auf denen außer Ihnen keine andere (erkennbare) Person zu sehen ist. - Stehen Sie im Mittelpunkt: Wir empfehlen, dass Sie auf dem Foto vollständig sichtbar sind. Wir erlauben keine Fotos von Objekten oder Tieren ohne Sie auf dem Foto. - Keine Wasserzeichen oder überlagerten Text/Emojis: Ihre Follower bevorzugen Authentizität, Wasserzeichen oder anderweitig überlagerte Texte/Emojis auf Ihren Fotos beeinträchtigen dies. Selbstverständlich steht es Ihnen frei, Fotos, die Sie direkt per Privatnachricht an Kunden senden, mit einem Wasserzeichen zu versehen. - Wir erlauben keine Waffen: Nur Fotos, die Ihnen gehören: Wir nehmen Urheberrechte sehr ernst. Wenn Sie nicht die Rechte an einem Foto oder Video besitzen, wenden Sie sich bitte an uns"
-  },
-  { "code": "creator.creator.guideline.b.subtitle", "name": "Akzeptierter Inhalt" },
-  {
-    "code": "creator.creator.guideline.b.content",
-    "name": "Unser Moderationsteam überprüft alle Inhalte. Wenn Ihre Inhalte abgelehnt werden, kann dies verschiedene Gründe haben, unter anderem: - Bilder oder Videos von Personen, die keine verifizierten Konten auf VIDA haben - Beiträge, die Anzeichen von Diskriminierung oder Gewalt aufweisen , erzwungene oder nicht einvernehmliche Aktivitäten – Beiträge, die möglicherweise Minderjährige unter 18 Jahren enthalten – Beiträge, die Zoophilie oder Inzestszenen enthalten – Beiträge, die Kot oder Blut enthalten – Zeichnungen und Hentai – Inhalte von geringer Qualität – Gestohlene Inhalte – Wasserzeichen sind zu groß – Wasserzeichen decken Hauptbereiche von ab Inhalt oder blockieren Sie wichtige Inhaltsmomente – Zensur deckt den Hauptbereich des Inhalts ab und blockiert wichtige Inhaltsmomente – Titel/Tags des Beitrags stimmen nicht mit dem Inhalt überein – Keine persönlichen Daten oder privaten Informationen (Telefonnummern, GPS-Informationen, vollständige Namen, E-Mail-Adressen, Finanzinformationen). oder Identifizierung) sollten geteilt werden. - Medien mit falscher Größe: Empfohlene Auflösungen sind 480 x 800, 640 x 1136, 720 x 1280, 750 x 1334, 1080 x 1920 und 1440 x 2560. Der gesamte Inhalt muss dazu passen und im Vollbildmodus angezeigt werden."
-  },
-  {
-    "code": "creator.creator.guideline.c.subtitle",
-    "name": "Welche Art von Videos sollte ich in meinem kostenlosen Bereich veröffentlichen?"
-  },
-  {
-    "code": "creator.creator.guideline.c.content",
-    "name": "Wir möchten, dass Sie die Kontrolle über Ihre Inhalte haben. Wir empfehlen Ihnen jedoch, kostenlose Videos einzubinden, um die Anzahl Ihrer Follower zu erhöhen. Fügen Sie Inhalte hinzu, die Benutzer dazu verleiten, Ihre Premium-Inhalte zu abonnieren. Wir bevorzugen, dass diese Videos bis zu 60 Sekunden lang sind und vor dem „besten“ Teil enden. Denken Sie an Teaser-Videos, Vorschauen und sogar Softcore-/Bekleidungsinhalte."
-  },
-  { "code": "creator.creator.guideline.d.subtitle", "name": "Inhalte mit anderen Personen veröffentlichen" },
-  {
-    "code": "creator.creator.guideline.d.content",
-    "name": "Alle im Inhalt abgebildeten Personen müssen über verifizierte VIDA-Konten verfügen. Sie sollten ihr Konto im Video oder Bild markieren, damit sie es dann in ihrem eigenen Profil genehmigen können. Wir verfügen nicht über die Funktion eines Paarkontos. Selbst wenn Sie also ein Paar sind, benötigt jede Person ein verifiziertes Konto. Bitte beachten Sie, dass der andere Ersteller, wenn er nicht auf VIDA ist, verifiziert werden muss, indem er ein eigenes Profil erstellt und die ID-Verifizierung besteht. Dieses Profil muss NICHT aktiviert oder für die öffentliche Ansicht verfügbar sein. Alle Videos/Fotos mit Personen, die nicht getaggt und verifiziert sind, werden automatisch abgelehnt. Wir lehnen außerdem Inhalte ohne Tags ab, die Folgendes enthalten: - Personen im Hintergrundvideo (z. B. im Fernsehen) - Fotos im Hintergrund mit erkennbaren Gesichtern."
-  },
-  { "code": "creator.creator.guideline.e.subtitle", "name": "Verlinkung zu anderen Websites oder Apps" },
-  {
-    "code": "creator.creator.guideline.e.content",
-    "name": "Erwähnen/bewerben Sie keine konkurrierenden Websites (jede Website, die Ihr Ersteller verwaltet, auf der Sie als Ersteller Geld mit Ihren Inhalten verdienen) auf der Plattform. Es ist Ihnen nicht gestattet, Benutzer auf andere Websites umzuleiten und deren Requisiten nicht sichtbar zu machen. Wir erlauben nur die folgenden Links in Wasserzeichen: - Onlyfans - Chaturbate - Pornhub - Youporn - Xhamster - Manyvids - Fancentro - Patreon - Camsoda - Linktree - Sex Panther - Bodyshots TV - Twitter - Instagram - Reddit - Tiktok - Snapchat - Facebook - Linkedin Nicht erlaubt: - Wir gestatten keine Logos anderer Websites in Wasserzeichen. - Wir gestatten keine Logos anderer Websites in irgendeinem Teil des Inhalts. Wenn Sie Zweifel haben, ob Sie auf eine bestimmte Website oder App verlinken können, schreiben Sie uns bitte eine E-Mail an support@VIDA Bitte beachten Sie, dass die Nichteinhaltung dieser Bedingungen zu einer vorübergehenden oder dauerhaften Sperrung der Plattform führen kann. Weitere Informationen finden Sie auf unserer Seite „Nutzungsbedingungen“. Wir behalten uns das Recht vor, unsere Richtlinien alle drei und sechs Monate zu ändern und zu überprüfen, um sicherzustellen, dass Sie über alle Änderungen auf dem Laufenden sind. Schauen Sie regelmäßig vorbei. Um die Integrität der Plattform weiterhin zu schützen, erlauben wir keine Erwähnung anderer Websites mehr in Ihrem BIOS. Teilen Sie Ihren .sexy-Link jedoch gerne in Ihrer Biografie mit, damit Benutzer Sie überall finden können, wo Sie möchten."
-  },
-  { "code": "creator.creator.guideline.f.subtitle", "name": "Permanenter Bann" },
-  {
-    "code": "creator.creator.guideline.f.content",
-    "name": "Wir sind bestrebt, unsere Plattform zu moderieren und eine sichere und angenehme Umgebung sowohl für den Ersteller als auch für die Benutzer zu schaffen. Wir verfügen über ein Drei-Strike-System, bei dem der Ersteller oder Benutzer bei den ersten beiden Verstößen eine Warnung erhält und beim dritten Verstoß darüber informiert wird, dass sein Konto auf der Plattform dauerhaft gesperrt wurde. Dies ist unsere schwerste Durchsetzungsmaßnahme bei Verstößen. Durch die dauerhafte Sperrung eines Kontos wird es aus der Ansicht entfernt und der Ersteller oder Benutzer darf keine neuen Konten erstellen. Wenn wir ein Konto dauerhaft sperren, benachrichtigen wir den Ersteller oder Benutzer darüber, dass er aufgrund zweier früherer Verstöße gesperrt wurde, und erläutern, gegen welche Richtlinie(n) er verstoßen hat und gegen welche spezifischen Inhalte er verstoßen hat. Ein Kontoverstoß kann vorliegen, wenn ein Ersteller oder Benutzer unsere Community-Richtlinien nicht einhält. Um die Einhaltung unserer Richtlinien sicherzustellen, wird dringend empfohlen, dass sowohl Ersteller als auch Benutzer unsere Richtlinien hier lesen: https://www.VIDA/support. Wenn Sie Fragen haben, wenden Sie sich bitte an support@VIDA."
-  },
-  { "code": "creator.creator.contact.title", "name": "Kontakt" },
-  { "code": "creator.creator.contact.a.subtitle", "name": "Wie kontaktiere ich den Creator-Support?" },
-  {
-    "code": "creator.creator.contact.a.content",
-    "name": "Sollten Sie Fragen haben oder Unterstützung benötigen, wenn Sie als Ersteller auf der Website tätig sind, können Sie uns entweder kontaktieren über: Ersteller-Support: Chatten Sie mit uns, senden Sie uns eine E-Mail"
-  },
-  { "code": "creator.creator.delAccount.title", "name": "Löschen Ihres Kontos" },
-  { "code": "creator.creator.delAccount.a.subtitle", "name": "Löschen Ihres Kontos" },
-  {
-    "code": "creator.creator.delAccount.a.content",
-    "name": "Löschen Sie Ihr Konto, indem Sie zu „Einstellungen – Konto löschen“ gehen. Bitte beachten Sie, dass das Löschen Ihres Kontos ein unumkehrbarer Vorgang ist und alle Ihre Daten gemäß unserer Datenschutzrichtlinie dauerhaft gelöscht werden. Es kann bis zu 36 Stunden dauern, bis der Vorgang abgeschlossen ist."
-  },
-  { "code": "creator.creator.delAccount.b.subtitle", "name": "Was passiert mit Ihrem Einkommen?" },
-  {
-    "code": "creator.creator.delAccount.b.content",
-    "name": "Wenn Sie Ihr Konto löschen und Ihre Einnahmen den Mindestauszahlungsbetrag überschreiten, veranlassen Sie bitte eine Auszahlung über die von Ihnen angegebene Methode, bevor Ihr Konto geschlossen wird. Wenn Sie weniger als 50 US-Dollar schulden: Wir können eine Banküberweisung aufgrund von Beschränkungen unserer Bankkontrahenten nicht durchführen. Wir können Ihr Geld über Paxum abzüglich der Überweisungsgebühr überweisen. Bitte beachten Sie, dass die mit Ihrer Paxum-E-Mail verknüpfte Identität mit Ihren KYC-Registrierungsinformationen übereinstimmen muss."
-  },
-  { "code": "creator.creator.menu.title", "name": "Shop-Menüfunktion" },
-  { "code": "creator.creator.menu.a.subtitle", "name": "Was ist die neue Shop-Funktion?" },
-  {
-    "code": "creator.creator.menu.a.content",
-    "name": "Diese aufregende neue Funktion ermöglicht es Erstellern, personalisierte Shop-Artikel bereitzustellen, die Benutzer kaufen können. Sie stehen den Nutzern zum Kauf direkt im Haupt-Feed oder im Shop des Erstellers zur Verfügung. Die verfügbaren Menüpunkte für den Shop sind: Schwanzbildbewertung Individuelles Video – Inhalt, Länge und Preis mit dem Ersteller vereinbart Name auf dem Körper – Bild oder Video Cosplay / Kostüm – Bild oder Video Wichsanweisungen (JOI) – Video Urlaubsvideos – Geburtstag, Valentinstag, Weihnachten, Hirsch. Behandle mich – der Benutzer sendet dem Ersteller Geld für eine Belohnung, z. B. Pediküre und Ersteller sendet Foto zurück"
-  },
-  { "code": "creator.creator.menu.b.subtitle", "name": "Wie richte ich das ein?" },
-  {
-    "code": "creator.creator.menu.b.content",
-    "name": "Dies geht ganz einfach über Ihr Profil. Um einen Artikel zu erstellen, gehen Sie einfach zu Ihrem Shop und wählen Sie die entsprechende Vorlage aus. Sobald die Informationen eingegeben (z. B. Beschreibung, Preis, Bild) und überprüft wurden, werden sie Ihrem Shop und dem Hauptfeed hinzugefügt. Artikel können jederzeit aktualisiert werden, indem Sie die Option „Shop-Artikel bearbeiten“ auswählen."
-  },
-  {
-    "code": "creator.creator.menu.c.subtitle",
-    "name": "Wie erfahre ich, dass ein Benutzer einen Artikel gekauft hat?"
-  },
-  {
-    "code": "creator.creator.menu.c.content",
-    "name": "Ersteller erhalten eine Direktnachricht, die sie darüber informiert, dass ein Benutzer den Artikel gekauft hat."
-  },
-  {
-    "code": "creator.creator.menu.d.subtitle",
-    "name": "Kann ich zur Erfüllung der Bestellung beliebige Medien nutzen?"
-  },
-  {
-    "code": "creator.creator.menu.d.content",
-    "name": "Sie können Fotos, Videos und Chat-Texte senden, um die Anforderungen zu erfüllen. Vergessen Sie jedoch nicht, „als geliefert“ zu markieren, sobald Sie fertig sind."
-  },
-  { "code": "creator.creator.menu.e.subtitle", "name": "Welche Medien kann mir ein Nutzer bei Bedarf zusenden?" },
-  { "code": "creator.creator.menu.e.content", "name": "Ein Benutzer kann Ihnen entweder Videos oder Fotos senden." },
-  { "code": "creator.creator.menu.f.subtitle", "name": "Was passiert, wenn ich der Anfrage nicht nachkommen möchte?" },
-  {
-    "code": "creator.creator.menu.f.content",
-    "name": "Wenn Sie nicht innerhalb von 72 Stunden antworten und die Anfrage übermitteln, wird die Bestellung storniert und der Benutzer erhält eine Rückerstattung."
-  },
-  { "code": "creator.creator.menu.g.subtitle", "name": "Kann ich Artikel aus dem Shop entfernen?" },
-  { "code": "creator.creator.menu.g.content", "name": "Ja, Sie können Artikel jederzeit aus Ihrem Shop deaktivieren." },
-  { "code": "dmca.dmca.info.title", "name": "So melden Sie eine Urheberrechtsverletzung" },
-  {
-    "code": "dmca.dmca.info.content",
-    "name": "VIDA (die „Website“) respektiert die geistigen Eigentumsrechte anderer und erwartet von seinen Nutzern, dass sie dasselbe tun. VIDA hat eine Richtlinie eingeführt, um die Konten von Benutzern zu sperren und/oder zu kündigen, die wiederholt gegen die Urheberrechte oder andere geistige Eigentumsrechte anderer verstoßen oder denen wiederholt vorgeworfen wird, diese zu verletzen. Kopien unserer Richtlinie zu Wiederholungstätern stehen Abonnenten auf schriftliche Anfrage zur Verfügung. Obwohl unser Unternehmen seinen Sitz außerhalb der Vereinigten Staaten hat und nicht den Gesetzen der Vereinigten Staaten unterliegt, respektieren wir die Rechte der Urheberrechtsinhaber und haben daher bestimmte Richtlinien implementiert sich freiwillig an Gesetze wie den Digital Millennium Copyright Act zu halten. Dennoch behält sich unser Unternehmen alle Rechte und Einwände gegen die formelle Anwendung der Gesetze der Vereinigten Staaten auf seine Geschäftstätigkeit vor. Gemäß dem Digital Millennium Copyright Act von 1998 wird VIDA zügig auf Ansprüche Dritter wegen Urheberrechtsverletzungen reagieren Nutzung der Website, die dem unten aufgeführten DMCA-Vertreter von VIDA („Beauftragter Vertreter“) gemeldet werden. Wenn Sie Urheberrechtsinhaber sind oder berechtigt sind, in dessen Namen zu handeln, melden Sie bitte mutmaßliche Urheberrechtsverletzungen, die auf oder durch stattfinden der Website, indem Sie eine DMCA-Mitteilung über einen mutmaßlichen Verstoß ausfüllen und diese an den designierten Vertreter von VIDA übermitteln. Nach Erhalt der unten beschriebenen Mitteilung wird VIDA nach eigenem Ermessen alle Maßnahmen ergreifen, die es für angemessen hält, einschließlich der Entfernung des beanstandeten Materials von der Website. Wenn Sie Inhalte im Zusammenhang mit nicht urheberrechtlich geschützten Themen wie z B. Datenschutz, Missbrauch, Belästigung, unangemessene oder illegale Inhalte usw., verwenden Sie bitte stattdessen dieses Formular. Sie können einen DMCA-Antrag einreichen, indem Sie das DMCA-Formular ausfüllen."
-  },
-  { "code": "dmca.dmca.notice.title", "name": "Mitteilung über behauptete Rechtsverletzung" },
-  {
-    "code": "dmca.dmca.notice.content",
-    "name": "Wenn Sie der Meinung sind, dass Ihr Werk in einer Weise kopiert wurde, die eine Urheberrechtsverletzung darstellt, übermitteln Sie bitte unserem benannten Vertreter (siehe unten) die folgenden Informationen: Eine elektronische oder physische Unterschrift der Person, die befugt ist, im Namen des Inhabers des Urheberrechts zu handeln oder andere Interessen an geistigem Eigentum; Eine Beschreibung des urheberrechtlich geschützten Werks oder anderen geistigen Eigentums, das Ihrer Meinung nach verletzt wurde; Eine Beschreibung, wo sich das Material, von dem Sie behaupten, dass es eine Verletzung darstellt, auf der Website befindet (vorzugsweise einschließlich spezifischer URLs, die mit dem Material verknüpft sind); Ihre Adresse, Telefonnummer und E-Mail-Adresse; Eine Erklärung von Ihnen, dass Sie in gutem Glauben davon ausgehen, dass die umstrittene Nutzung nicht vom Urheberrechtsinhaber, seinem Vertreter oder dem Gesetz genehmigt wurde; undEine eidesstattliche Erklärung von Ihnen, dass die oben genannten Informationen in Ihrer Benachrichtigung korrekt sind und dass Sie der Inhaber des Urheberrechts oder des geistigen Eigentums sind oder befugt sind, im Namen des Inhabers des Urheberrechts oder des geistigen Eigentums zu handeln. Sie können Ihre Mitteilung an senden Behauptete Rechtsverletzung („Mitteilung“) an unseren benannten DMCA-Agenten: Lawrence G. Walters, Esq. Walters Law Group 195 W. Pine Ave. Longwood, FL 32750-4104 Fax: (407)-774-6151 E-Mail: copyright@VIDA Bitte Senden Sie keine anderen Anfragen oder Informationen an unseren benannten Vertreter. Ohne vorherige ausdrückliche Genehmigung ist unser benannter Vertreter nicht berechtigt, die Zustellung eines formellen Rechtsverfahrens anzunehmen oder darauf zu verzichten, und jede Agenturbeziehung, die über die für die Annahme gültiger DMCA-Mitteilungen erforderliche hinausgeht, wird ausdrücklich abgelehnt. Ihre Mitteilung und Informationen werden an den/die betreffenden Benutzer weitergeleitet ). Wenn Sie nicht möchten, dass Ihre Daten weitergegeben werden, nutzen Sie bitte stattdessen unser Datenschutz-Entfernungsformular."
-  },
-  { "code": "dmca.dmca.contact.title", "name": "Uns kontaktieren" },
-  {
-    "code": "dmca.dmca.contact.content",
-    "name": "Für jede andere Anfrage kontaktieren Sie uns bitte unter support@VIDA. Weitere Informationen zu Benachrichtigungs- und Deaktivierungsanforderungen finden Sie im DMCA hier. Missbrauchsbenachrichtigung: Missbrauch der oben beschriebenen DMCA-Mitteilungsverfahren oder falsche Darstellung von Fakten in einer DMCA-Mitteilung oder Gegendarstellung können nach Bundesrecht zu einer rechtlichen Haftung für Schadensersatz, Gerichtskosten und Anwaltsgebühren führen. Siehe 17 U.S.C. § 512(f). Diese Benachrichtigungs- und Entfernungsverfahren gelten nur für Ansprüche von Urheberrechtsinhabern und ihren Vertretern wegen Urheberrechtsverletzungen – nicht für andere Arten von Missbrauch, Verstößen oder Rechtsansprüchen. Wir werden jeden untersuchen und gegen jeden vorgehen, der das DMCA-Benachrichtigungs- oder Gegendarstellungsverfahren missbraucht. Bitte stellen Sie sicher, dass Sie alle rechtlichen Voraussetzungen erfüllen, bevor Sie eine DMCA-Mitteilung an unseren benannten Vertreter übermitteln."
-  },
-  { "code": "dmca.dmca.procedure.title", "name": "Take-Down-Verfahren" },
-  {
-    "code": "dmca.dmca.procedure.content",
-    "name": "Diese Website implementiert das folgende „Benachrichtigungs- und Deaktivierungsverfahren“ nach Erhalt einer Benachrichtigung über eine behauptete Urheberrechtsverletzung. Die Website behält sich das Recht vor, jederzeit den Zugriff auf Materialien oder Aktivitäten auf der Website zu sperren oder diese zu entfernen, von denen behauptet wird, dass sie rechtsverletzend sind oder bei denen aufgrund von Tatsachen oder Umständen eine rechtsverletzende Aktivität erkennbar ist. Es ist die feste Richtlinie der Website, das Konto von wiederholten Urheberrechtsverletzern gegebenenfalls zu kündigen, und die Website wird zügig handeln, um den Zugriff auf sämtliches Material zu entfernen, das das Urheberrecht eines anderen verletzt, gemäß dem in 17 U.S. C. § 512 dargelegten Verfahren die DMCA. Die DMCA-Benachrichtigungsverfahren der Website sind in den vorstehenden Absätzen dargelegt. Wenn die Mitteilung nicht § 512 des DMCA entspricht, aber drei Anforderungen zur Identifizierung von Websites erfüllt, die gegen § 512 des DMCA verstoßen, wird die Website versuchen, die beschwerdeführende Partei zu kontaktieren oder andere angemessene Schritte zu unternehmen, um ihr zu helfen Diese Partei erfüllt die Meldepflichten. Wenn der benannte Vertreter eine gültige Mitteilung erhält, wird die Website das rechtsverletzende Material umgehend entfernen und/oder den Zugriff darauf sperren und den betroffenen Benutzer benachrichtigen. Anschließend kann der betroffene Benutzer eine Gegendarstellung an den benannten Vertreter einreichen, die eine unter Strafe des Meineids abgegebene Erklärung enthält, dass der Benutzer in gutem Glauben davon ausgeht, dass das Material aufgrund einer falschen Identifizierung des Materials entfernt wurde. Nachdem der benannte Vertreter die Gegendarstellung erhalten hat, wird er das strittige Material innerhalb von zehn bis vierzehn (10-14) Tagen nach Erhalt der Gegendarstellung ersetzen, es sei denn, der benannte Vertreter erhält eine Mitteilung darüber, dass der Beschwerdeführer eine gerichtliche Klage eingereicht hat Partei, die eine einstweilige Verfügung gegen die rechtsverletzende Tätigkeit beantragt."
-  },
-  { "code": "dmca.dmca.counterNotification.title", "name": "DMCA-Gegendarstellungsverfahren" },
-  {
-    "code": "dmca.dmca.counterNotification.content",
-    "name": "Wenn der Empfänger einer Mitteilung über eine behauptete Rechtsverletzung der Ansicht ist, dass die Mitteilung fehlerhaft oder falsch ist und/oder dass angeblich rechtsverletzendes Material gemäß den oben beschriebenen Verfahren zu Unrecht entfernt wurde, ist es dem Empfänger gestattet, eine Gegendarstellung gemäß § einzureichen. 512(g)(2)-(3) des DMCA. Eine Gegendarstellung ist für den Empfänger die geeignete Methode, um die Entfernung oder Sperrung von Material gemäß einer Mitteilung anzufechten. Die Informationen, die ein Empfänger in einer Gegendarstellung bereitstellt, müssen korrekt und wahrheitsgemäß sein, und der Empfänger haftet für etwaige Falschdarstellungen, die dazu führen können, dass Ansprüche gegen die Website im Zusammenhang mit den als Reaktion auf die Gegendarstellung ergriffenen Maßnahmen geltend gemacht werden. Um eine Gegendarstellung einzureichen, stellen Sie unserem benannten Vertreter bitte die folgenden Informationen zur Verfügung: Eine spezifische Beschreibung des Materials, das gemäß der Mitteilung entfernt oder deaktiviert wurde; Eine Beschreibung, wo sich das Material auf der Website oder im Inhalt (wie darin definiert) befand der Nutzungsbedingungen der Website), bevor dieses Material entfernt und/oder deaktiviert wurde (vorzugsweise einschließlich spezifischer URLs, die mit dem Material verknüpft sind); eine Erklärung, die die Überzeugung des Empfängers widerspiegelt, dass die Entfernung oder Deaktivierung des Materials irrtümlich erfolgte. Der Einfachheit halber kann das folgende Format verwendet werden: „Ich schwöre unter Strafe des Meineids, dass ich in gutem Glauben davon überzeugt bin, dass das referenzierte Material vom Dienstanbieter aufgrund eines Fehlers oder einer falschen Identifizierung des betreffenden Materials entfernt oder deaktiviert wurde.“ entfernt oder deaktiviert.“;Die physische Adresse, Telefonnummer und E-Mail-Adresse des Empfängers; undEine Erklärung, dass der Empfänger der Zuständigkeit des Bundesbezirksgerichts in und für den Gerichtsbezirk zustimmt, in dem der Empfänger seinen Sitz hat, oder, wenn der Empfänger außerhalb der Vereinigten Staaten ist, für jeden Gerichtsbezirk, in dem sich der Dienstleister befindet, und dass der Empfänger die Zustellung der Klage von der Person, die die Mitteilung übermittelt hat, oder dem Vertreter dieser Person akzeptiert. Eine schriftliche Mitteilung mit den oben genannten Informationen muss unterzeichnet und gesendet werden an: Lawrence G. Walters, Esq. Walters Law Group, 195 W. Pine Ave. Longwood, FL 32750-4104Fax: (407)-774-6151E-Mail: copyright@VIDABitte senden Sie keine anderen Anfragen oder Informationen an unseren benannten Vertreter. Ohne vorherige ausdrückliche Genehmigung ist unser benannter Vertreter nicht berechtigt, die Zustellung eines formellen Rechtsverfahrens anzunehmen oder darauf zu verzichten, und jede Agenturbeziehung, die über die für die Annahme gültiger DMCA-Mitteilungen erforderliche hinausgeht, wird ausdrücklich abgelehnt. Alle DMCA-Mitteilungen und Gegendarstellungen müssen in englischer Sprache verfasst sein Sprache. Alle versuchten Benachrichtigungen, die in Fremdsprachen verfasst sind oder fremde Zeichen verwenden, gelten als nicht konform und werden nicht berücksichtigt. Nach Erhalt einer DMCA-Beschwerde oder Gegendarstellung leitet unser benannter Vertreter diese an die Website weiter, und die Website stellt dann die Gegendarstellung zur Verfügung. Benachrichtigung an den Antragsteller, der als Erster die ursprüngliche Mitteilung gesendet hat, in der der mutmaßlich rechtsverletzende Inhalt identifiziert wird. Danach wird die Website innerhalb von zehn bis vierzehn (10-14) Tagen nach Erhalt einer Gegendarstellung auf der Website das umstrittene Material ersetzen oder den Zugriff darauf nicht mehr sperren vorausgesetzt, die Website oder unser benannter Vertreter haben keine Mitteilung darüber erhalten, dass der ursprüngliche Kläger eine Klage eingereicht hat, um eine gerichtliche Anordnung zu erwirken, um den Empfänger von rechtsverletzenden Aktivitäten im Zusammenhang mit dem Material im System oder Netzwerk der Website abzuhalten."
-  },
-  { "code": "dmca.dmca.infringer.title", "name": "DMCA-Richtlinie für Wiederholungstäter" },
-  { "code": "dmca.dmca.infringer.content", "name": "Die Richtlinie können Sie hier einsehen." },
-  { "code": "dmca.dmca.modifications.title", "name": "Änderungen" },
-  {
-    "code": "dmca.dmca.modifications.content",
-    "name": "Die Website behält sich das Recht vor, diese Richtlinie zu ändern, zu ändern oder zu ergänzen, und alle betroffenen Personen sollten regelmäßig nachschauen, um über solche Änderungen auf dem Laufenden zu bleiben."
-  },
-  { "code": "dmca.dmca.requests.title", "name": "Kundendienstanfragen" },
-  {
-    "code": "dmca.dmca.requests.content",
-    "name": "Bitte beachten Sie, dass der benannte Vertreter in keiner anderen Funktion mit der Website verbunden ist, sondern ein Anwalt einer privaten Anwaltskanzlei ist. Kundendienstanfragen, Zahlungsfragen und Stornierungsanfragen werden nicht beantwortet. Alle derartigen Mitteilungen müssen an die Kundendienstabteilung der Website gerichtet werden."
-  },
-  { "code": "dmca.dmca.language.title", "name": "Sprache" },
-  {
-    "code": "dmca.dmca.language.content",
-    "name": "Diese Richtlinie wurde ursprünglich in Englisch verfasst. Soweit eine übersetzte Version dieser Richtlinie im Widerspruch zur englischen Version steht, gilt die englische Version."
-  },
-  { "code": "dmca.dmca.final", "name": "Letzte Änderung: Juli 2023" },
-  { "code": "dmca.dmca.VIDA", "name": "© 2023 VIDA One Sofern nicht anders angegeben. Alle Rechte vorbehalten." },
-  { "code": "pp.pp.info.title", "name": "Datenschutzrichtlinie" },
-  {
-    "code": "pp.pp.info.content",
-    "name": "Diese Datenschutzrichtlinie beschreibt, wie wir Ihre personenbezogenen Daten erheben, nutzen und schützen. Durch die Nutzung des Dienstes akzeptieren Sie die in dieser Richtlinie beschriebenen Praktiken, soweit gesetzlich zulässig."
-  },
-  { "code": "pp.pp.definitions.title", "name": "Definitionen" },
-  { "code": "pp.pp.definitions.table.title.a", "name": "Begriff" },
-  { "code": "pp.pp.definitions.table.title.b", "name": "Die Richtlinie\"" },
-  { "code": "pp.pp.definitions.table.title.c", "name": "VIDA“, „wir“ oder „uns“" },
-  { "code": "pp.pp.definitions.table.title.d", "name": "Der Service\"" },
-  { "code": "pp.pp.definitions.table.title.e", "name": "„Benutzer“" },
-  { "code": "pp.pp.definitions.table.title.f", "name": "„Eine gesetzliche Verpflichtung einhalten“" },
-  { "code": "pp.pp.definitions.table.title.g", "name": "„EWR“" },
-  { "code": "pp.pp.definitions.table.title.h", "name": "„Berechtigte Interessen“" },
-  { "code": "pp.pp.definitions.table.title.i", "name": "„Vertragserfüllung“" },
-  { "code": "pp.pp.definitions.table.content.a", "name": "Definition" },
-  { "code": "pp.pp.definitions.table.content.b", "name": "Die in diesem Dokument dargelegte Datenschutzrichtlinie." },
-  { "code": "pp.pp.definitions.table.content.c", "name": "Digital VIDA, firmierend unter dem Namen VIDA." },
-  {
-    "code": "pp.pp.definitions.table.content.d",
-    "name": "Die VIDA-Website unter VIDA und alle anderen Websites, Anwendungen oder Dienste, die von uns bereitgestellt werden, uns gehören oder von uns betrieben werden und auf diese Richtlinie verweisen."
-  },
-  {
-    "code": "pp.pp.definitions.table.content.e",
-    "name": "Alle Besucher, Benutzer und andere Personen, die auf den Dienst zugreifen oder ihn nutzen."
-  },
-  {
-    "code": "pp.pp.definitions.table.content.f",
-    "name": "Verarbeitung Ihrer personenbezogenen Daten, soweit dies zur Erfüllung einer rechtlichen Verpflichtung, der wir unterliegen, erforderlich ist."
-  },
-  {
-    "code": "pp.pp.definitions.table.content.g",
-    "name": "Der Europäische Wirtschaftsraum, bestehend aus den Mitgliedstaaten der Europäischen Union zusammen mit Norwegen, Island und Liechtenstein."
-  },
-  {
-    "code": "pp.pp.definitions.table.content.h",
-    "name": "Die Interessen unseres Unternehmens an der Führung und Verwaltung unseres Geschäfts, damit wir Ihnen die beste und sicherste Erfahrung bei der Nutzung des Dienstes und der damit verbundenen Funktionalität bieten können, oder die Interessen Dritter. Wir stellen sicher, dass wir alle möglichen Auswirkungen auf Sie (sowohl positive als auch negative) und Ihre Rechte berücksichtigen und abwägen, bevor wir Ihre personenbezogenen Daten für unsere oder die berechtigten Interessen Dritter verarbeiten. Wir verwenden Ihre personenbezogenen Daten nicht für Aktivitäten, bei denen unsere Interessen (oder die Interessen Dritter) durch die Auswirkungen auf Sie überwiegen (es sei denn, wir haben Ihr Einverständnis oder sind anderweitig gesetzlich dazu verpflichtet oder erlaubt). Sie können weitere Informationen darüber erhalten, wie wir unsere berechtigten Interessen und die berechtigter Dritter im Hinblick auf mögliche Auswirkungen auf Sie in Bezug auf bestimmte Aktivitäten abwägen, indem Sie Kontakt mit uns aufnehmen."
-  },
-  {
-    "code": "pp.pp.definitions.table.content.i",
-    "name": "Die Verarbeitung Ihrer Daten erfolgt, wenn dies zur Erfüllung eines Vertrags, dessen Vertragspartei Sie sind, oder zur Durchführung vorvertraglicher Maßnahmen auf Ihren Wunsch hin erforderlich ist."
-  },
-  { "code": "pp.pp.termsService.title", "name": "Nutzungsbedingungen" },
-  {
-    "code": "pp.pp.termsService.content",
-    "name": "Diese Richtlinie ist Teil unserer Nutzungsbedingungen, in denen die Bedingungen beschrieben werden, unter denen wir den Service bereitstellen."
-  },
-  { "code": "pp.pp.modifications.title", "name": "Änderungen" },
-  {
-    "code": "pp.pp.modifications.content",
-    "name": "Wir behalten uns das Recht vor, diese Richtlinie jederzeit zu ändern. Wenn wir Änderungen vornehmen, werden wir Sie benachrichtigen, indem wir das Datum unten in der Richtlinie ändern. In einigen Fällen können wir Ihnen zusätzliche Mitteilungen zukommen lassen (z. B. indem wir eine Erklärung auf unserer Homepage hinzufügen oder Ihnen eine E-Mail-Benachrichtigung senden). Änderungen dieser Richtlinie treten zum Zeitpunkt ihrer Veröffentlichung in Kraft. Durch Ihre fortgesetzte Nutzung des Dienstes nach dem Datum des Inkrafttretens der überarbeiteten Richtlinie erklären Sie sich mit den Richtlinien einverstanden."
-  },
-  { "code": "pp.pp.collectYou.title", "name": "Persönliche Informationen, die wir über Sie sammeln" },
-  {
-    "code": "pp.pp.collectYou.content",
-    "name": "Bei der Bereitstellung des Dienstes erhalten wir Informationen über Sie auf die unten erläuterten Weise. Bitte beachten Sie, dass wir bestimmte Arten von Informationen benötigen, damit wir Ihnen den Service anbieten können. Wenn Sie uns solche Informationen nicht zur Verfügung stellen oder wenn Sie uns auffordern, sie zu löschen, können Sie möglicherweise nicht mehr auf den Dienst oder bestimmte Funktionen zugreifen oder ihn nutzen. Informationen, die Sie U zur Verfügung stellen. Wir sammeln Informationen: (1) Sie geben uns diese direkt B. Ihr Bild (in allen von Ihnen hochgeladenen Inhalten), Ihren Benutzernamen und Ihre E-Mail-Adresse, wenn Sie sich für den Dienst registrieren (und für Ersteller bestimmte andere Informationen, einschließlich, aber nicht beschränkt auf, Namen, Geburtsdatum und (sofern zutreffend) von der Regierung ausgestelltes Foto). Ausweis und Foto); (2) wenn Sie bestimmte Inhalte oder Produkte vom Dienst hochladen, kaufen, ansehen oder herunterladen; oder (3) wenn Sie die Features und Funktionen des Dienstes anderweitig nutzen. Informationen, die wir automatisch sammeln. Wir verwenden verschiedene Technologien, um Informationen zu sammeln, und dazu können Cookies und Web-Beacons gehören. Cookies sind kleine Datendateien, die auf Ihrer Festplatte oder im Speicher Ihres Geräts gespeichert werden. Web-Beacons (auch „Tracking-Pixel“ genannt) sind nicht sichtbare elektronische Bilder. Informationen darüber, was Cookies sind, wie sie funktionieren, wie VIDA sie verwendet und wie man sie entfernt, finden Sie in unserer Cookie-Richtlinie. Beispiele für solche Informationen, die wir automatisch erfassen, sind der Typ des von Ihnen verwendeten Geräts, Zugriffszeiten und der allgemeine Standort Informationen Ihres Internetdienstanbieters basierend auf Ihrer IP-Adresse, Informationen über Ihre Nutzung des Dienstes und der Seite, die Sie besucht haben, bevor Sie zu unserem Dienst navigierten. Diese Technologien werden für Analyse- und Produktverbesserungszwecke verwendet, z. B. um zu sehen, welche Bereiche und Funktionen des Der Dienst ist beliebt und stellt fest, ob eine E-Mail geöffnet und darauf reagiert wurde. Informationen aus anderen Quellen. Wir erhalten möglicherweise zusätzliche Informationen wie demografische und statistische Informationen von Dritten und anderen Quellen als dem Dienst, z. B. Werbetreibenden oder sozialen Netzwerken (z. B. Twitter). mit der Sie unseren Zugang genehmigt haben. Wenn Sie über soziale Netzwerke auf den Dienst zugreifen oder den Dienst mit sozialen Netzwerken verbinden, ermächtigen Sie VIDA, diese zusätzlichen Informationen und Inhalte gemäß dieser Richtlinie zu sammeln, zu speichern und zu nutzen. Wenn wir Informationen kombinieren oder verknüpfen aus anderen Quellen mit Informationen, die wir über den Dienst sammeln, behandeln wir die kombinierten Informationen gemäß dieser Richtlinie"
-  },
-  { "code": "pp.pp.usePersonalInfo.title", "name": "Wie wir personenbezogene Daten verwenden" },
-  {
-    "code": "pp.pp.usePersonalInfo.content",
-    "name": "Wir können Informationen über Sie für verschiedene Zwecke verwenden, jedoch nur, wenn das Gesetz dies erlaubt. Am häufigsten verwenden wir Ihre personenbezogenen Daten unter den folgenden Umständen: (1) wenn wir dies zur Erfüllung eines Vertrags benötigen; (2) wenn es für unsere berechtigten Interessen (oder die eines Dritten) notwendig ist und Ihre Interessen und Grundrechte diese Interessen nicht überwiegen; (3) wenn wir einer gesetzlichen Verpflichtung nachkommen müssen. Im Allgemeinen verlassen wir uns nicht auf die Einwilligung als Rechtsgrundlage für die Verarbeitung Ihrer personenbezogenen Daten, obwohl wir Ihre Einwilligung einholen, bevor wir Ihnen Direktmarketing-Mitteilungen Dritter per E-Mail oder SMS senden. Sie haben das Recht, Ihre Einwilligung zum Marketing jederzeit zu widerrufen, indem Sie uns kontaktieren. VIDA verwendet diese Informationen, um (1) alle Features, Funktionen und Dienste (neu) zu betreiben, zu warten, zu verbessern, bereitzustellen, zu erstellen und zu entwickeln oder vorhanden), die im Dienst gefunden wurden; (2) Sicherheit für unsere Websites, Produkte, Software oder Anwendungen bieten; (3) Verwaltung der Beziehungen zu VIDA-Kontoinhabern (z. B. Partnern, verbundenen Unternehmen), einschließlich der Durchführung oder Entgegennahme von Zahlungen; (4) die Erfahrung der Benutzer mit VIDA zu verbessern, indem wir Inhaltsempfehlungen bereitstellen und Inhalte bereitstellen, von denen wir hoffen, dass sie für Benutzer relevant und interessant sind, einschließlich Werbe- und Marketingbotschaften; (5) Betrug und Missbrauch verhindern; und (6) die Nutzungstrends unserer Benutzer zu verstehen. Wir verwenden Ihre E-Mail-Adresse, um mit Ihnen zu kommunizieren, einschließlich der Benachrichtigung über wichtige Service-Updates, für Kundendienstzwecke oder um Sie bezüglich aller Inhalte zu kontaktieren, die Sie gepostet oder heruntergeladen haben vom Service.VIDA kann Ihnen in regelmäßigen Abständen Werbebenachrichtigungen im Zusammenhang mit dem Service senden, wenn Sie sich bei uns registriert oder Informationen von uns angefordert haben und sich nicht vom Erhalt dieser Marketingmitteilungen abgemeldet haben. Sie können den Erhalt von Werbemitteilungen von uns in Ihren Kontoeinstellungen ablehnen, sobald Sie sich beim Dienst angemeldet haben, oder den Anweisungen zum Abbestellen am Ende jeder E-Mail oder Textnachricht von uns folgen. Wenn Sie sich abmelden, senden wir Ihnen möglicherweise weiterhin nicht werbliche Mitteilungen, beispielsweise zu Ihrem Konto. Wir holen Ihr Einverständnis ein, bevor wir Ihre personenbezogenen Daten zu Marketingzwecken an Dritte weitergeben. In bestimmten Fällen sind wir gesetzlich verpflichtet, Ihre personenbezogenen Daten zu erfassen und zu verarbeiten (z. B. unsere Verpflichtung, Daten an Steuerbehörden weiterzugeben). Wir können Sie auch um Ihre Einwilligung zur Verarbeitung Ihrer personenbezogenen Daten für einen bestimmten Zweck bitten, den wir mit Ihnen kommunizieren. Wenn Sie der Verarbeitung Ihrer personenbezogenen Daten für einen bestimmten Zweck zustimmen, können Sie Ihre Einwilligung jederzeit widerrufen und wir werden die Verarbeitung Ihrer Daten für diesen Zweck einstellen. VIDA wird sich bei der Verarbeitung Ihrer personenbezogenen Daten in diesem Umfang auf rechtliche Gründe stützen nach geltendem Recht zulässig, wozu unter anderem gehören kann: die Einhaltung vertraglicher Verpflichtungen, das Ergreifen von Maßnahmen im Vorfeld eines Vertragsabschlusses, die Erfüllung gesetzlicher Verpflichtungen, Ihrer Einwilligung und des berechtigten Interesses von VIDA."
-  },
-  { "code": "pp.pp.changePurpose.title", "name": "Zweckänderung" },
-  {
-    "code": "pp.pp.changePurpose.content",
-    "name": "Wir werden Ihre personenbezogenen Daten nur für die Zwecke verwenden, für die wir sie erhoben haben, es sei denn, wir sind berechtigterweise der Ansicht, dass wir sie aus einem anderen Grund verwenden müssen und dieser Grund mit dem ursprünglichen Zweck vereinbar ist. Wenn Sie eine Erklärung darüber wünschen, wie die Verarbeitung für den neuen Zweck mit dem ursprünglichen Zweck vereinbar ist, kontaktieren Sie uns bitte. Wenn wir Ihre personenbezogenen Daten für einen anderen Zweck verwenden müssen, werden wir Sie darüber informieren und Ihnen die Rechtsgrundlage erläutern Dies ermöglicht uns dies. Bitte beachten Sie, dass wir Ihre personenbezogenen Daten ohne Ihr Wissen oder Ihre Zustimmung in Übereinstimmung mit den oben genannten Regeln verarbeiten können, wenn dies der Erfüllung einer gesetzlichen Verpflichtung dient."
-  },
-  { "code": "pp.pp.disclose.title", "name": "Wenn wir personenbezogene Daten offenlegen" },
-  {
-    "code": "pp.pp.disclose.content",
-    "name": "Möglicherweise müssen Sie ein Konto registrieren, um auf bestimmte Funktionen des Dienstes zugreifen zu können. Sie erklären sich damit einverstanden, Ihr Passwort vertraulich zu behandeln und sind für alle Nutzungen, Aktivitäten und Käufe verantwortlich, die im Rahmen des Dienstes über Ihr Konto durchgeführt werden. Wir behalten uns das Recht vor, einen von Ihnen gewählten Benutzernamen zu entfernen, zurückzufordern oder zu ändern, wenn wir nach unserem alleinigen Ermessen feststellen, dass dieser Benutzername unangemessen, obszön oder anderweitig anstößig ist. Sofern VIDA dies nicht ausdrücklich schriftlich gestattet, dürfen Sie nicht verkaufen , vermieten, leasen, teilen oder anderen Personen Zugriff auf Ihr Konto gewähren. VIDA behält sich alle verfügbaren gesetzlichen Rechte und Rechtsmittel vor, um eine unbefugte Nutzung des Dienstes zu verhindern, einschließlich, aber nicht beschränkt auf technologische Barrieren, IP-Mapping und in schwerwiegenden Fällen die direkte Kontaktaufnahme mit Ihrem Internetdienstanbieter (ISP) bezüglich einer solchen unbefugten Nutzung .Soweit Sie freiwillig ein Benutzerprofil erstellen, um an bestimmten ausgewählten von uns angebotenen Diensten teilzunehmen, kann Ihr Profil (und sein Inhalt) möglicherweise von anderen über den Dienst registrierten Benutzern durchsucht werden. Ebenso kann Ihr Profil (und sein Inhalt) von öffentlich zugänglichen Suchmaschinen durchsuchbar sein."
-  },
-  { "code": "pp.pp.usersIn.title", "name": "Benutzer im Vereinigten Königreich, im EWR oder in der Schweiz" },
-  {
-    "code": "pp.pp.usersIn.content",
-    "name": "Wenn Sie sich im Vereinigten Königreich, im EWR oder in der Schweiz befinden, sollten Sie wissen, dass VIDA der Verantwortliche für Ihre personenbezogenen Daten ist. Anfragen von Datensubjekten Unter bestimmten Umständen haben Sie als Datensubjekt das Recht, Zugang zu den von uns gespeicherten personenbezogenen Daten zu verlangen Sie zu kontaktieren und die Berichtigung, Löschung oder Übermittlung Ihrer personenbezogenen Daten zu verlangen. Möglicherweise haben Sie auch das Recht, einer bestimmten Verarbeitung zu widersprechen oder von uns eine Einschränkung zu verlangen. Wenn Sie eines dieser Rechte ausüben möchten, können Sie uns wie unten angegeben kontaktieren. Ihr Recht, Zugang zu verlangen, berechtigt Sie, eine Kopie der personenbezogenen Daten anzufordern, die wir über Sie gespeichert haben, und zu überprüfen, ob wir diese rechtmäßig verarbeiten. Ihr Recht Wenn Sie die Berichtigung Ihrer von uns gespeicherten personenbezogenen Daten verlangen, können Sie unvollständige oder unrichtige Daten berichtigen lassen. Möglicherweise müssen wir jedoch die Richtigkeit der neuen Daten, die Sie uns zur Verfügung stellen, überprüfen. Das Recht, die Löschung Ihrer personenbezogenen Daten zu verlangen, berechtigt Sie dazu, dies zu verlangen uns, personenbezogene Daten zu löschen oder zu entfernen, wenn es keinen triftigen Grund dafür gibt, dass wir sie weiterhin verarbeiten. Sie haben auch das Recht, uns zu bitten, Ihre personenbezogenen Daten zu löschen oder zu entfernen, wenn Sie Ihr Recht auf Widerspruch gegen die Verarbeitung erfolgreich ausgeübt haben (siehe unten). , wenn wir Ihre Daten möglicherweise unrechtmäßig verarbeitet haben oder wenn wir verpflichtet sind, Ihre personenbezogenen Daten zu löschen, um den örtlichen Gesetzen zu entsprechen. Bitte beachten Sie jedoch, dass wir Ihrem Antrag auf Löschung aus bestimmten rechtlichen Gründen, die Ihnen gegebenenfalls zum Zeitpunkt Ihres Antrags mitgeteilt werden, möglicherweise nicht immer nachkommen können. Sie können der Verarbeitung Ihrer personenbezogenen Daten insoweit widersprechen Da wir die Verarbeitung Ihrer personenbezogenen Daten auf berechtigte Interessen stützen und Ihre besondere Situation etwas an sich hat, das Sie dazu veranlasst, der Verarbeitung aus diesem Grund zu widersprechen, da Sie der Meinung sind, dass sie Auswirkungen auf Ihre Grundrechte und -freiheiten hat. Sofern Sie dies wünschen, bitten wir um eine Darlegung der Gründe für den Widerspruch. Sofern Ihr Widerspruch begründet ist, werden wir die Datenverarbeitung einstellen bzw. anpassen oder Ihnen darlegen, warum wir trotz Ihres Widerspruchs zwingende schutzwürdige Gründe dafür haben, die Verarbeitung Ihrer personenbezogenen Daten fortzusetzen. Selbstverständlich können Sie der Verarbeitung Ihrer personenbezogenen Daten für Werbe- und Datenzwecke widersprechen Zu Analysezwecken jederzeit widerrufen. Sie können die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten verlangen. Dies berechtigt Sie, von uns die Aussetzung der Verarbeitung Ihrer personenbezogenen Daten in den folgenden Fällen zu verlangen: Wenn Sie möchten, dass wir die Richtigkeit der Daten feststellen; wenn unsere Verwendung der Daten rechtswidrig ist, Sie aber nicht möchten, dass wir sie löschen; wenn Sie dies benötigen uns, die Daten auch dann aufzubewahren, wenn wir sie nicht mehr benötigen, da Sie sie zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen benötigen. Sie haben der Verwendung Ihrer Daten durch uns widersprochen, wir müssen jedoch prüfen, ob wir zwingende berechtigte Gründe für die Verwendung Ihrer Daten haben. Sie kann die Übermittlung Ihrer personenbezogenen Daten an Sie oder einen Dritten verlangen. In diesem Fall stellen wir Ihnen oder einem von Ihnen gewählten Dritten Ihre personenbezogenen Daten in einem strukturierten, gängigen und maschinenlesbaren Format zur Verfügung. Beachten Sie, dass dieses Recht nur für automatisierte Informationen gilt, für deren Nutzung Sie uns zunächst Ihre Einwilligung erteilt haben oder für die wir die Informationen zur Erfüllung eines Vertrags mit Ihnen verwendet haben. Wie oben erwähnt, verlassen wir uns bei der Verarbeitung Ihrer personenbezogenen Daten im Allgemeinen nicht auf eine Einwilligung. Wenn wir dies tun, können Sie Ihre Einwilligung jederzeit widerrufen (obwohl dies keinen Einfluss auf die Rechtmäßigkeit der Verarbeitung hat, die vor dem Widerruf Ihrer Einwilligung durchgeführt wurde). Wenn Sie Ihre Einwilligung widerrufen, können wir Ihnen möglicherweise bestimmte Dienste nicht mehr anbieten. Wir werden Sie darüber informieren, wenn dies der Fall ist, wenn Sie Ihre Einwilligung widerrufen. Für die Ausübung der oben genannten Rechte müssen Sie keine Gebühr zahlen. Wir können jedoch eine angemessene Gebühr erheben, wenn Ihre Anfrage offensichtlich unbegründet, sich wiederholend oder übertrieben ist. Alternativ könnten wir uns unter diesen Umständen weigern, Ihrer Anfrage nachzukommen. Möglicherweise müssen wir von Ihnen spezifische Informationen anfordern, die uns helfen, Ihre Identität zu bestätigen, um auf die Ausübung der oben genannten Rechte reagieren zu können. Hierbei handelt es sich um eine Sicherheitsmaßnahme, um sicherzustellen, dass personenbezogene Daten nicht an Personen weitergegeben werden, die kein Recht darauf haben, sie zu erhalten. Wir können Sie auch kontaktieren, um Sie um weitere Informationen zu Ihrer Anfrage zu bitten, um unsere Antwort zu beschleunigen. Wir versuchen, alle berechtigten Anfragen innerhalb eines Monats zu beantworten. Gelegentlich kann es länger als einen Monat dauern, wenn Ihre Anfrage besonders komplex ist oder Sie mehrere Anfragen gestellt haben. In diesem Fall werden wir Sie benachrichtigen und Sie auf dem Laufenden halten.Internationale DatenübermittlungenWir können Ihre personenbezogenen Daten in anderen Ländern außerhalb Ihres Wohnortes erfassen, in andere Länder übermitteln und dort speichern und verarbeiten. Wenn wir solchen Unternehmen Informationen über Sie zur Verfügung stellen, werden wir geeignete Maßnahmen ergreifen, um sicherzustellen, dass diese Unternehmen Ihre Daten gemäß dieser Richtlinie und geltendem Recht schützen. Wenn Sie sich im Vereinigten Königreich oder im EWR befinden und wir Ihre personenbezogenen Daten außerhalb des EWR übertragen, stellen wir sicher, dass ein ähnliches Schutzniveau gilt, indem wir mindestens eine der folgenden Sicherheitsmaßnahmen umsetzen: Wir übertragen Ihre personenbezogenen Daten nur in Länder, in denen dies der Fall ist Die Europäische Kommission hat festgestellt, dass ein angemessenes Schutzniveau für personenbezogene Daten gewährleistet ist. Wenn wir bestimmte Dienstleister einsetzen, können wir spezielle, von der Europäischen Kommission genehmigte Verträge nutzen, die personenbezogenen Daten den gleichen Schutz bieten wie in Europa. Bitte kontaktieren Sie uns wenn Sie weitere Informationen über den spezifischen Mechanismus wünschen, der bei der Übermittlung Ihrer Daten außerhalb des EWR verwendet wird zuständige Aufsichtsbehörde. Wir würden uns jedoch über die Möglichkeit freuen, Ihre Bedenken zu klären, bevor Sie sich an die Aufsichtsbehörde wenden. Bitte kontaktieren Sie uns daher zunächst. Ihre Wahlmöglichkeiten: Sie können die Weitergabe bestimmter Informationen an VIDA ablehnen. In diesem Fall ist VIDA möglicherweise nicht dazu in der Lage Bereitstellung einiger der Features und Funktionen des Dienstes. Wenn Sie ein VIDA-Konto erstellt haben, können Sie möglicherweise Ihre Profilinformationen und Präferenzen aktualisieren oder die Deaktivierung Ihres Kontos beantragen. Für Anfragen zur Überprüfung, Aktualisierung, Löschung oder anderweitigen Einschränkung der Nutzung von Informationen durch VIDA, die Sie VIDA direkt zur Verfügung gestellt haben, können Sie sich an support@VIDA wenden. Bitte geben Sie in Ihrer Anfrage Ihre E-Mail-Adresse und Ihren Benutzernamen an und geben Sie alle relevanten Hintergrundinformationen an. Um Ihre Privatsphäre und Sicherheit zu schützen, können wir Maßnahmen ergreifen, um Ihre Identität zu überprüfen, bevor wir Ihnen Zugriff gewähren oder Korrekturen an Ihren Daten vornehmen. Sie sind für die jederzeitige Geheimhaltung Ihres individuellen Passworts und Ihrer Kontoinformationen verantwortlich."
-  },
-  { "code": "pp.pp.accountDeletion.title", "name": "Kontolöschung" },
-  {
-    "code": "pp.pp.accountDeletion.content",
-    "name": "Wenn Sie Ihr Konto löschen möchten, können Sie uns dies anweisen, indem Sie uns unter support@VIDA kontaktieren. Wenn Sie Ihr Konto löschen, behält VIDA möglicherweise bestimmte Informationen über Sie für die in dieser Richtlinie beschriebenen Aktivitäten oder soweit dies nach geltendem Recht zulässig oder erforderlich ist."
-  },
-  { "code": "pp.pp.thirdParty.title", "name": "Dienste und Websites Dritter" },
-  {
-    "code": "pp.pp.thirdParty.content",
-    "name": "Wenn Sie über den Dienst eine Verbindung zu einem Drittanbieterdienst (z. B. Twitter oder einem anderen Drittanbieter) herstellen oder Ihr VIDA-Konto auf andere Weise mit einem Drittanbieterdienst verknüpfen, fordern Sie uns auf und autorisieren Sie, Informationen weiterzugeben oder Zugriff darauf zu gewähren in Ihrem Namen (z. B. Ihren Benutzernamen, die Tatsache, dass Ihre Verbindung über den Dienst hergestellt wurde, und andere relevante Nutzungs- und Diagnoseinformationen) mit solchen Dritten. Der Dienst kann Links zu Websites, Plug-ins und Anwendungen Dritter enthalten. Wenn Sie auf diese Links klicken oder diese Verbindungen aktivieren, können Dritte möglicherweise Daten über Sie sammeln oder weitergeben. Wir kontrollieren diese Websites Dritter nicht und sind nicht für deren Datenschutzerklärungen verantwortlich. Wenn Sie den Dienst verlassen, empfehlen wir Ihnen, die Datenschutzrichtlinien jeder von Ihnen besuchten Website zu lesen."
-  },
-  { "code": "pp.pp.retention.title", "name": "Aufbewahrung Ihrer Daten" },
-  {
-    "code": "pp.pp.retention.content",
-    "name": "VIDA speichert Ihre personenbezogenen Daten nur so lange, wie es zur Erfüllung der in dieser Richtlinie beschriebenen relevanten Zwecke erforderlich ist, wie es gesetzlich vorgeschrieben (oder zulässig) sein kann (z. B. für behördliche, steuerliche, buchhalterische und Berichtszwecke) oder wie Ihnen nichts anderes mitgeteilt wird. Im Falle einer Beschwerde oder wenn wir begründeten Anlass zu der Annahme haben, dass die Aussicht auf einen Rechtsstreit in Bezug auf unsere Beziehung zu Ihnen besteht, können wir Ihre personenbezogenen Daten für einen längeren Zeitraum aufbewahren. Um die angemessene Aufbewahrungsfrist für personenbezogene Daten zu bestimmen, berücksichtigen wir die Menge, Art und Sensibilität der personenbezogenen Daten, das potenzielle Risiko eines Schadens durch unbefugte Nutzung oder Offenlegung Ihrer personenbezogenen Daten, die Zwecke, für die wir Ihre personenbezogenen Daten verarbeiten und ob wir diese Zwecke mit anderen Mitteln erreichen können, sowie die geltenden gesetzlichen und regulatorischen Bestimmungen , Steuer-, Buchhaltungs- oder andere Anforderungen. Aus steuerlichen Gründen müssen wir grundlegende Informationen über unsere Kunden (einschließlich Kontakt-, Identitäts-, Finanz- und Transaktionsdaten) sechs Jahre lang aufbewahren, nachdem sie nicht mehr Kunden sind. Unter bestimmten Umständen können Sie nachfragen uns, Ihre Daten zu löschen (siehe oben in den Abschnitten „Kontolöschung“ und „Anfragen betroffener Personen“). Sobald Sie uns gebeten haben, Ihr Konto zu löschen, löschen wir alle Informationen, zu deren Aufbewahrung wir gesetzlich nicht verpflichtet oder berechtigt sind. Unter bestimmten Umständen werden wir Ihre personenbezogenen Daten zu Forschungszwecken anonymisieren (so dass sie nicht mehr mit Ihnen in Verbindung gebracht werden können). oder zu statistischen Zwecken. In diesem Fall können wir diese Informationen ohne weitere Mitteilung an Sie auf unbestimmte Zeit verwenden."
-  },
-  { "code": "pp.pp.mergerSale.title", "name": "Fusion oder Verkauf" },
-  {
-    "code": "pp.pp.mergerSale.content",
-    "name": "Wir behalten uns das Recht vor, die Informationen, die wir von Benutzern gesammelt haben, im Zusammenhang mit einer geplanten Änderung des Eigentumsverhältnisses zu übertragen oder abzutreten, einschließlich, aber nicht beschränkt auf Fusionen, Übernahmen, Verkäufe von Aktien oder Vermögenswerten im Zusammenhang mit dem Dienst, Unternehmensumstrukturierungen usw sonstiges Kontrollwechselereignis, auch im Rahmen der Sorgfaltspflicht, vorausgesetzt, dass der Erwerber oder Abtretungsempfänger verpflichtet ist, die übertragenen oder abgetretenen Informationen in Übereinstimmung mit dieser Richtlinie zu behandeln."
-  },
-  { "code": "pp.pp.minors.title", "name": "Minderjährige" },
-  {
-    "code": "pp.pp.minors.content",
-    "name": "VIDA sammelt, verwendet oder gibt wissentlich keine Informationen von Benutzern weiter, die nicht mindestens 18 Jahre alt sind oder in ihrem Wohnsitzland nicht die gesetzliche Volljährigkeit erreicht haben, je nachdem, welches Alter älter ist. Unser Service ist nur für Erwachsene gedacht und richtet sich nicht an Minderjährige. Wenn Sie glauben, dass wir personenbezogene Daten eines Minderjährigen gesammelt haben, kontaktieren Sie uns bitte unter support@VIDA."
-  },
-  { "code": "pp.pp.track.title", "name": "Nicht verfolgen" },
-  {
-    "code": "pp.pp.track.content",
-    "name": "Der Dienst ist nicht darauf ausgelegt, auf „Do Not Track“-Signale zu reagieren, die von einigen Browsern gesendet werden."
-  },
-  { "code": "pp.pp.contact.title", "name": "Kontakt" },
-  {
-    "code": "pp.pp.contact.content",
-    "name": "Fragen oder Bedenken zu diesen Bedingungen können an support@VIDA gerichtet werden. Bitte beachten Sie, dass E-Mail-Kommunikation nicht unbedingt sicher ist. Dementsprechend sollten Sie in Ihrer E-Mail-Korrespondenz mit uns keine Kreditkarteninformationen oder andere sensible Informationen angeben. Rechnungsanfragen sollten an billing@VIDA gerichtet werden"
-  },
-  { "code": "pp.pp.miscellaneous.title", "name": "Verschiedenes" },
-  {
-    "code": "pp.pp.miscellaneous.content",
-    "name": "Diese Bedingungen begründen keine Partnerschaft, kein Joint Venture, kein Arbeitgeber-Arbeitnehmer-Verhältnis, keine Agenturbeziehung oder kein Franchisegeber-Franchisenehmer-Verhältnis zwischen Ihnen und VIDA und dürfen auch nicht so ausgelegt werden. Sollte sich herausstellen, dass eine Bestimmung dieser Bedingungen rechtswidrig, nichtig oder aus irgendeinem Grund nicht durchsetzbar ist, gilt diese Bestimmung als von diesen Bedingungen trennbar und hat keinen Einfluss auf die Gültigkeit und Durchsetzbarkeit der übrigen Bestimmungen. Ohne unsere ausdrückliche vorherige schriftliche Zustimmung dürfen Sie Ihre Rechte oder Pflichten aus diesen Bedingungen nicht ganz oder teilweise abtreten, übertragen oder unterlizenzieren. Wir können einige oder alle unserer Rechte und Pflichten aus diesen Bedingungen ohne Einschränkung abtreten, übertragen oder unterlizenzieren. Kein Verzicht einer der Parteien im Hinblick auf eine Verletzung oder Nichterfüllung dieser Vereinbarung gilt als Verzichtserklärung für eine frühere oder nachfolgende Verletzung oder Nichterfüllung. Alle hierin enthaltenen Überschriften, Bildunterschriften oder Abschnittstitel werden nur aus Gründen der Bequemlichkeit eingefügt und definieren oder erklären in keiner Weise einen Abschnitt oder eine Bestimmung hierin. Dies stellt zusammen mit allen hier genannten Richtlinien die gesamte Vereinbarung zwischen Ihnen und VIDA in Bezug auf den hierin genannten Gegenstand dar und ersetzt alle vorherigen oder gleichzeitigen schriftlichen oder mündlichen Vereinbarungen oder Absprachen zwischen Ihnen und VIDA in Bezug auf diesen Gegenstand Gegenstand. Mitteilungen an Sie können nach Ermessen von VIDA durch Veröffentlichung im Dienst, per E-Mail oder per Post erfolgen. Der Dienst kann auch Mitteilungen über Änderungen dieser Bedingungen oder anderer Angelegenheiten bereitstellen, indem er solche Mitteilungen anzeigt oder Links zu solchen Mitteilungen bereitstellt. Ohne Einschränkung erklären Sie sich damit einverstanden, dass eine gedruckte Version dieser Bedingungen und aller in elektronischer Form übermittelten Mitteilungen in Gerichts- oder Verwaltungsverfahren, die auf diesen Bedingungen basieren oder sich darauf beziehen, im gleichen Umfang und unter den gleichen Bedingungen zulässig sind wie andere Geschäftsdokumente und Aufzeichnungen, die ursprünglich in gedruckter Form erstellt und verwaltet wurden. VIDA haftet nicht für die Nichterfüllung von Verpflichtungen aufgrund von Ursachen, die außerhalb seiner Kontrolle liegen."
-  },
-  { "code": "pp.pp.language.title", "name": "Sprache" },
-  {
-    "code": "pp.pp.language.content",
-    "name": "Diese Bedingungen wurden ursprünglich in Englisch verfasst. Soweit eine übersetzte Version dieser Bedingungen im Widerspruch zur englischen Version steht, gilt die englische Version. Letzte Änderung: Juli 2023© 2023 VIDA, sofern nicht anders angegeben. Alle Rechte vorbehalten."
-  },
-  { "code": "pp.pp.final", "name": "Letzte Änderung: Juli 2023" },
-  { "code": "pp.pp.VIDA", "name": "© 2023 VIDA One Sofern nicht anders angegeben. Alle Rechte vorbehalten." },
-  { "code": "support.faq.account.title", "name": "Konto" },
-  { "code": "support.faq.account.a.subtitle", "name": "Ich habe mein Passwort vergessen" },
-  {
-    "code": "support.faq.account.a.content",
-    "name": "Gehen Sie zum Anmeldebildschirm und klicken Sie im Passwortfeld auf „Vergessen“. Wenn Sie sich nicht mehr an Ihre E-Mail-Adresse erinnern, wenden Sie sich an support@VIDA"
-  },
-  { "code": "support.faq.account.b.subtitle", "name": "Wie kann ich mein Konto löschen?" },
-  {
-    "code": "support.faq.account.b.content",
-    "name": "Bitte beachten Sie, dass das Löschen Ihres Kontos ein unumkehrbarer Vorgang ist und alle Ihre Daten gemäß unserer Datenschutzrichtlinie dauerhaft gelöscht werden."
-  },
-  { "code": "support.faq.features.title", "name": "Merkmale" },
-  { "code": "support.faq.features.a.subtitle", "name": "Warum sollte ich mich anmelden?" },
-  {
-    "code": "support.faq.features.a.content",
-    "name": "Als Abonnent erhalten Sie hochgradig personalisierte Inhalte auf Ihrem Konto, basierend auf den Kategorien und Erstellern, denen Sie auf VIDA gefolgt sind und die Sie abonniert haben. Sie erhalten nicht nur Zugriff auf die privaten Inhalte eines Erstellers, sondern haben auch die exklusive Möglichkeit, sich mit ihm zu vernetzen, ihm Direktnachrichten zu senden und ein Gespräch zu führen!"
-  },
-  { "code": "support.faq.features.b.subtitle", "name": "Wie sende ich Inhalte an einen Ersteller?" },
-  {
-    "code": "support.faq.features.b.content",
-    "name": "Abonnenten haben die Möglichkeit, Medien mit den Erstellern zu teilen. Der Inhalt muss den Community-Richtlinien entsprechen. Wenn Sie einem Ersteller eine Nachricht senden, müssen Sie lediglich auf die Büroklammer-Taste neben dem Chat-Feld klicken und Ihr Bild oder Video von Ihrem Gerät hochladen."
-  },
-  {
-    "code": "support.faq.features.c.subtitle",
-    "name": "Wird der Inhalt im Profil des Benutzers für zukünftige Uploads gespeichert?"
-  },
-  {
-    "code": "support.faq.features.c.content",
-    "name": "Nein, der Inhalt wird nicht gespeichert. Der Inhalt muss jedes Mal von Ihrem Gerät hochgeladen werden, wenn Sie ihn an einen Ersteller senden möchten."
-  },
-  {
-    "code": "support.faq.features.d.subtitle",
-    "name": "Kann der Benutzer oder Ersteller Inhalte aus einem Nachrichtenthread löschen?"
-  },
-  { "code": "support.faq.features.d.content", "name": "Derzeit kann kein Inhalt aus dem Thread gelöscht werden." },
-  { "code": "support.faq.features.e.subtitle", "name": "Was passiert, wenn der Inhalt beleidigender Natur ist?" },
-  {
-    "code": "support.faq.features.e.content",
-    "name": "Ersteller können alle an sie gesendeten Inhalte melden und wir werden entsprechende Maßnahmen ergreifen."
-  },
-  { "code": "support.faq.contact.title", "name": "Kontakt" },
-  { "code": "support.faq.contact.a.subtitle", "name": "Wie kontaktiere ich den VIDA-Support?" },
-  {
-    "code": "support.faq.contact.a.content",
-    "name": "Wir helfen Ihnen jederzeit gerne bei Ihren Fragen weiter. Um direkt mit uns in Kontakt zu treten, verwenden Sie bitte die folgenden Links und Kontaktinformationen: Allgemeiner und Website-Support: support@VIDAAbrechnungssupport: support@VIDA oder besuchen Sie https://www.VIDA (nur Abrechnung)."
-  },
-  { "code": "support.faq.about.title", "name": "Über VIDA" },
-  { "code": "support.faq.about.a.subtitle", "name": "Was ist VIDA?" },
-  {
-    "code": "support.faq.about.a.content",
-    "name": "VIDA ist eine Online-Plattform, die es Kreativen und Influencern auf der ganzen Welt ermöglicht, mit ihren Kunden in einer für alle Beteiligten sicheren Umgebung zu interagieren."
-  },
-  { "code": "support.faq.about.b.subtitle", "name": "Wie teile ich Feedback?" },
-  {
-    "code": "support.faq.about.b.content",
-    "name": "Ohne Sie gäbe es VIDA nicht und Ihre Meinung ist uns wichtig. Wir freuen uns immer über Ihre Gedanken, Anregungen oder Anliegen. Der einfachste Weg, Feedback zu senden, ist eine E-Mail an support@VIDA"
-  },
-  { "code": "support.faq.menu.title", "name": "Shop-Menüfunktion" },
-  { "code": "support.faq.menu.a.subtitle", "name": "Was gibt es im neuen Shop?" },
-  {
-    "code": "support.faq.menu.a.content",
-    "name": "Der Ersteller kann eine der folgenden Optionen anbieten. Bitte überprüfen Sie die hochgeladenen Build-Zusatzdienste: Schwanzbildbewertung Benutzerdefiniertes Video – Inhalt, Länge und Preis mit dem Ersteller vereinbart Name auf dem Körper – Bild oder Video Cosplay/Kostüm – Bild oder Video Wichsanweisungen (JOI) - Video Feiertagsvideos - Geburtstag, Valentinstag, Weihnachten, Junggeselle Junge Mädchen oder Mädchen Mädchen - Video Behandle mich – Benutzer sendet dem Ersteller Geld für eine Belohnung, z. B. Pediküre und Ersteller sendet Foto zurück"
-  },
-  {
-    "code": "support.faq.menu.b.subtitle",
-    "name": "Was passiert, wenn ich die Inhalte, für die ich bezahlt habe, nicht erhalte?"
-  },
-  {
-    "code": "support.faq.menu.b.content",
-    "name": "Alle Anfragen müssen innerhalb von 72 Stunden bearbeitet werden und die Ersteller müssen die Lieferung der bestellten Artikel bestätigen. Wenn die Lieferung nicht vollständig ist, veranlassen wir eine Rückerstattung."
-  },
-  { "code": "support.faq.menu.c.subtitle", "name": "Können Kunden eine Anfrage stornieren?" },
-  {
-    "code": "support.faq.menu.c.content",
-    "name": "Nein, eine Anfrage eines Kunden kann nicht storniert werden. Ersteller haben jedoch die Möglichkeit, eine Anfrage abzulehnen."
-  },
-  { "code": "support.faq.menu.d.subtitle", "name": "Was passiert, wenn ich erhaltene Inhalte melden muss?" },
-  {
-    "code": "support.faq.menu.d.content",
-    "name": "Für alle empfangenen Inhalte gibt es eine Berichtsmöglichkeit. Der Inhalt muss den Community-Richtlinien entsprechen. Sollten Sie daher der Meinung sein, dass Medien gegen diese Regeln verstoßen, können Sie die Meldefunktion nutzen. Zu den Inhaltsrichtlinien gehören unter anderem: Alle Medien, die Anzeichen von Diskriminierung, Gewalt, erzwungenen oder nicht einvernehmlichen Aktivitäten aufweisen. Alle Medien, die möglicherweise Minderjährige unter 18 Jahren enthalten. Gestohlene Inhalte/Urheberrechte. Die Hauptperson in den Medien stimmt nicht mit dem Profil überein. Anweisungen für Selbstmord oder Mord, Terrorismus"
-  },
-  { "code": "tos.tos.info.title", "name": "Nutzungsbedingungen" },
-  {
-    "code": "tos.tos.info.content1",
-    "name": "Bitte lesen Sie diese Nutzungsbedingungen sorgfältig durch. Es handelt sich hierbei um einen verbindlichen Vertrag. Es bezieht sich auf diese Dienstleistungen. Diese Bedingungen gelten für alle Benutzer. Sie erklären sich damit einverstanden, dass Sie durch die Registrierung, das Herunterladen, den Zugriff auf oder die Nutzung des Dienstes eine rechtsverbindliche Vereinbarung mit VIDA hinsichtlich Ihrer Nutzung des Dienstes abschließen."
-  },
-  {
-    "code": "tos.tos.info.content2",
-    "name": "Bei der Nutzung der Dienste halten Sie sich an die Datenschutzrichtlinie von VIDA, die Cookie-Richtlinie von VIDA und andere Richtlinien, die auf den Diensten veröffentlicht oder Ihnen dort zur Verfügung gestellt werden oder auf die Ihnen offengelegten spezifischen Dienste und Funktionen anwendbar sind. Richtlinien oder Regeln. Bezogen auf solche Dienstleistungen. Diese Bedingungen gelten für alle Benutzer."
-  },
-  {
-    "code": "tos.tos.info.content3",
-    "name": "Diese Bedingungen gelten für alle Benutzer. Sie erklären sich damit einverstanden, dass Sie und VIDA durch die Registrierung, das Herunterladen, den Zugriff auf oder die Nutzung des Dienstes eine rechtsverbindliche Vereinbarung über Ihre Nutzung des Dienstes treffen. Sie bestätigen, dass Sie diese Bedingungen gelesen und verstanden haben und damit einverstanden sind, an sie gebunden zu sein. Wenn Sie diesen Bedingungen nicht zustimmen, greifen Sie bitte nicht auf die Dienste zu und nutzen Sie diese auch nicht anderweitig."
-  },
-  { "code": "tos.tos.definitions.title", "name": "Definitionen" },
-  { "code": "tos.tos.definitions.table.title.a", "name": "Begriff" },
-  { "code": "tos.tos.definitions.table.title.b", "name": "Die „Bedingungen“" },
-  { "code": "tos.tos.definitions.table.title.c", "name": "VIDA“, „wir“ oder „uns“" },
-  { "code": "tos.tos.definitions.table.title.d", "name": "Der Service\"" },
-  { "code": "tos.tos.definitions.table.title.e", "name": "\"Kunden)\"" },
-  { "code": "tos.tos.definitions.table.title.f", "name": "„Benutzer“" },
-  { "code": "tos.tos.definitions.table.title.g", "name": "„Ersteller“" },
-  { "code": "tos.tos.definitions.table.title.h", "name": "\"Inhalt\"" },
-  { "code": "tos.tos.definitions.table.title.i", "name": "„Credits“" },
-  { "code": "tos.tos.definitions.table.content.a", "name": "Definition" },
-  {
-    "code": "tos.tos.definitions.table.content.b",
-    "name": "Diese Nutzungsbedingungen, wie in diesem Dokument dargelegt.“"
-  },
-  {
-    "code": "tos.tos.definitions.table.content.c",
-    "name": "VIDA (oder VIDA in Bezug auf die Abrechnung) firmiert unter dem Namen VIDA."
-  },
-  {
-    "code": "tos.tos.definitions.table.content.d",
-    "name": "Die VIDA-Website unter VIDA und alle anderen Websites, Anwendungen oder Dienste, die von uns bereitgestellt werden, uns gehören oder von uns betrieben werden und auf diese Bedingungen verweisen."
-  },
-  {
-    "code": "tos.tos.definitions.table.content.e",
-    "name": "Alle Benutzer, die Inhalte kaufen, entsperren oder anderweitig darauf zugreifen, die von den Erstellern über den Dienst zur Verfügung gestellt werden."
-  },
-  {
-    "code": "tos.tos.definitions.table.content.f",
-    "name": "Alle Besucher, Benutzer und andere Personen, die auf den Dienst zugreifen oder ihn nutzen."
-  },
-  {
-    "code": "tos.tos.definitions.table.content.g",
-    "name": "Alle Benutzer, die über den Dienst Inhalte an Kunden verkaufen oder anderweitig bereitstellen."
-  },
-  {
-    "code": "tos.tos.definitions.table.content.h",
-    "name": "Videos, Bilder, Nachrichten, Text, Ton, Anwendungen, Code oder andere Daten oder Materialien, die Benutzer auf oder über den Dienst erstellen, veröffentlichen, übertragen, ausführen, speichern oder verfügbar machen können."
-  },
-  {
-    "code": "tos.tos.definitions.table.content.i",
-    "name": "Eine virtuelle Währung, die zum Kauf, Freischalten oder anderweitigen Zugriff auf Inhalte verwendet wird."
-  },
-  { "code": "tos.tos.aboutService.title", "name": "Über den Service" },
-  {
-    "code": "tos.tos.aboutService.content",
-    "name": "VIDA bietet eine digitale Serviceplattform, die es Erstellern ermöglicht, ihre Inhalte mit ihren Kunden zu monetarisieren. Indem Sie auf den Dienst zugreifen, bestätigen Sie, dass Sie verstehen, dass der Dienst nur zu Unterhaltungszwecken dient. Wir behalten uns das Recht vor, jederzeit und von Zeit zu Zeit, vorübergehend oder dauerhaft, ganz oder teilweise: den Dienst zu ändern oder einzustellen, mit oder ohne Vorankündigung; Gebühren im Zusammenhang mit der Nutzung des Dienstes erheben; jegliche im Zusammenhang mit dem Service erhobenen Gebühren zu ändern und/oder darauf zu verzichten; und/oder einigen oder allen Nutzern des Dienstes Möglichkeiten anzubieten. Sie erklären sich damit einverstanden, dass wir weder Ihnen noch Dritten gegenüber für eine Änderung, Aussetzung oder Einstellung des Dienstes, ganz oder teilweise, oder für Inhalte, Funktionen oder Produkte, die über den Dienst angeboten werden, haftbar sind. Durch Ihre fortgesetzte Nutzung des Dienstes nach solchen Änderungen erklären Sie sich mit den Änderungen einverstanden."
-  },
-  { "code": "tos.tos.jurisdictional.title", "name": "Zuständigkeitsfragen" },
-  {
-    "code": "tos.tos.jurisdictional.content",
-    "name": "Der Dienst wird von VIDA in seinem Gründungsland kontrolliert und betrieben und soll VIDA nicht den Gesetzen oder der Gerichtsbarkeit eines anderen Staates, einer Provinz, eines Landes oder eines Territoriums unterwerfen. Obwohl VIDA versucht, sicherzustellen, dass der Dienst bestimmten Gesetzen anderer Gerichtsbarkeiten entspricht, um die Best Practices der Branche einzuhalten (z. B. das Digital Millennium Copyright Act der Vereinigten Staaten und 18 U.S.C. §2257), werden solche Versuche nicht durchgeführt Es wird davon ausgegangen, dass VIDA den Gesetzen dieser Gerichtsbarkeiten unterliegt. VIDA übernimmt keine Zusicherung oder Garantie dafür, dass der Dienst oder Teile davon für die Nutzung in einer bestimmten Gerichtsbarkeit geeignet oder verfügbar sind. Wenn Sie sich für den Zugriff auf den Dienst entscheiden, tun Sie dies auf eigene Initiative und auf eigenes Risiko und sind für die Einhaltung aller örtlichen Gesetze, Regeln und Vorschriften verantwortlich. Wir können die Verfügbarkeit des Dienstes jederzeit und nach unserem alleinigen Ermessen ganz oder teilweise auf eine von uns gewählte Person, ein geografisches Gebiet oder eine Gerichtsbarkeit beschränken. Nicht alle im Service beschriebenen Produkte oder Dienstleistungen sind in allen Gerichtsbarkeiten verfügbar."
-  },
-  { "code": "tos.tos.minors.title", "name": "Minderjährige" },
-  {
-    "code": "tos.tos.minors.content",
-    "name": "Um unsere Erlaubnis zur Nutzung unseres Dienstes zu erhalten, müssen Sie mindestens 18 Jahre alt sein oder die gesetzliche Volljährigkeit in Ihrem Wohnsitzland erreicht haben, je nachdem, was älter ist. Wir tolerieren die Nutzung des Dienstes durch Minderjährige nicht. Darüber hinaus tolerieren wir keinerlei Inhalte, die sich aus irgendeinem Grund auf Minderjährige beziehen, einschließlich der Vortäuschung, als Erwachsener minderjährig zu sein, oder Inhalten, die Simulationen von Minderjährigen enthalten. Wenn Sie glauben, dass ein Minderjähriger den Dienst nutzt, bitten und ermutigen wir die Benutzer, dies zu melden. Wir behalten uns das Recht vor, jeden einzelnen mutmaßlichen Minderjährigen allen Strafverfolgungsbehörden zu melden, die wir für angemessen halten. Durch den Besuch, das Herunterladen oder die anderweitige Nutzung des Dienstes erklären Sie, dass: (A) Sie mindestens 18 Jahre alt sind ODER DAS MEHRJÄHRIGE ALTER IN IHREM WOHNZIMMER (FALLS ÜBER 18 JAHRE ALT); UND (B) Die Gerichtsbarkeit, von der aus Sie auf den Dienst zugreifen, verbietet den Empfang, das Herunterladen, das Ansehen oder die Verbreitung von sexuell expliziten oder nicht jugendfreien Inhalten nicht. Im Handel sind Kindersicherungsschutzmaßnahmen (z. B. Computerhardware, Software oder Filterdienste) erhältlich, die hilfreich sein können Sie bitten darum, den Zugang zu jugendgefährdendem Material einzuschränken. Anleitungen zur Nutzung solcher Schutzmaßnahmen finden Sie hier auf der Website der U.S. Federal Trade Commission. Bitte beachten Sie, dass VIDA keine der auf dieser Website aufgeführten Produkte oder Dienstleistungen unterstützt."
-  },
-  { "code": "tos.tos.privacyPolicy.title", "name": "Datenschutzrichtlinie" },
-  {
-    "code": "tos.tos.privacyPolicy.content",
-    "name": "Ihre Privatsphäre ist uns wichtig. Bitte lesen Sie unsere Datenschutzrichtlinie für Informationen darüber, wie wir Ihre persönlichen Daten erfassen, verwenden und offenlegen."
-  },
-  { "code": "tos.tos.userRegistration.title", "name": "Benutzer Registration" },
-  {
-    "code": "tos.tos.userRegistration.content",
-    "name": "Möglicherweise müssen Sie ein Konto registrieren, um auf bestimmte Funktionen des Dienstes zugreifen zu können. Sie erklären sich damit einverstanden, Ihr Passwort vertraulich zu behandeln und sind für alle Nutzungen, Aktivitäten und Käufe verantwortlich, die im Rahmen des Dienstes über Ihr Konto durchgeführt werden. Wir behalten uns das Recht vor, einen von Ihnen gewählten Benutzernamen zu entfernen, zurückzufordern oder zu ändern, wenn wir nach unserem alleinigen Ermessen feststellen, dass dieser Benutzername unangemessen, obszön oder anderweitig anstößig ist. Sofern VIDA dies nicht ausdrücklich schriftlich gestattet, dürfen Sie nicht verkaufen , vermieten, leasen, teilen oder anderen Personen Zugriff auf Ihr Konto gewähren. VIDA behält sich alle verfügbaren gesetzlichen Rechte und Rechtsmittel vor, um eine unbefugte Nutzung des Dienstes zu verhindern, einschließlich, aber nicht beschränkt auf technologische Barrieren, IP-Mapping und in schwerwiegenden Fällen die direkte Kontaktaufnahme mit Ihrem Internetdienstanbieter (ISP) bezüglich einer solchen unbefugten Nutzung .Soweit Sie freiwillig ein Benutzerprofil erstellen, um an bestimmten ausgewählten von uns angebotenen Diensten teilzunehmen, kann Ihr Profil (und sein Inhalt) möglicherweise von anderen über den Dienst registrierten Benutzern durchsucht werden. Ebenso kann Ihr Profil (und sein Inhalt) von öffentlich zugänglichen Suchmaschinen durchsuchbar sein."
-  },
-  { "code": "tos.tos.devicesServices.title", "name": "Nutzung von Geräten und Diensten" },
-  {
-    "code": "tos.tos.devicesServices.content",
-    "name": "Für den Zugriff auf den Dienst ist möglicherweise die Verwendung Ihres persönlichen Computers oder Mobilgeräts sowie die Kommunikation mit diesen Geräten oder die Nutzung des Speicherplatzes auf diesen Geräten erforderlich. Sie sind für alle Internetverbindungs- oder Mobilfunkgebühren verantwortlich, die Ihnen beim Zugriff auf den Dienst entstehen."
-  },
-  { "code": "tos.tos.modifications.title", "name": "Änderungen" },
-  {
-    "code": "tos.tos.modifications.content",
-    "name": "Wir behalten uns das Recht vor, diese Bedingungen jederzeit zu ändern. Wenn wir Änderungen vornehmen, benachrichtigen wir Sie, indem wir das Datum am Ende der Bedingungen ändern, und in einigen Fällen werden wir Sie zusätzlich benachrichtigen (z. B. indem wir eine Erklärung auf unserer Homepage hinzufügen oder Ihnen eine E-Mail-Benachrichtigung senden). Um die Verordnung (EU) 2019/1150 (die „Platform-to-Business-Verordnung“ oder „P2BR“) einzuhalten, werden wir alle Änderungen dieser Bedingungen mindestens 15 Tage im Voraus auf einem „dauerhaften Datenträger“ (wie definiert) bekannt geben im P2BR), mit Ausnahme der in Artikel 3 Absatz 4 des P2BR genannten Änderungen. Änderungen dieser Bedingungen treten zum Zeitpunkt ihrer Veröffentlichung in Kraft. Durch Ihre fortgesetzte Nutzung des Dienstes nach dem Inkrafttreten der überarbeiteten Bedingungen erklären Sie sich mit den Bedingungen einverstanden. Lizenz zur Nutzung des Dienstes Vorbehaltlich dieser Bedingungen gewährt Ihnen VIDA eine persönliche, weltweite, gebührenfreie, nicht abtretbare und nicht exklusive Lizenz , widerrufliche und nicht unterlizenzierbare Lizenz für den Zugriff und die Nutzung des Dienstes. Diese Lizenz dient ausschließlich dem Zweck, Ihnen die Nutzung und den Genuss der Vorteile des Dienstes zu ermöglichen, wie von VIDA vorgesehen und durch diese Bedingungen gestattet."
-  },
-  { "code": "tos.tos.content.title", "name": "Inhalt" },
-  {
-    "code": "tos.tos.content.content",
-    "name": "Vorbehaltlich dessen, was nach geltendem Recht zulässig ist (einschließlich, aber nicht beschränkt auf das Urheberrecht), können Sie die Art der Inhalte, die Sie erstellen und veröffentlichen oder veröffentlichen, frei wählen. Sie tragen die alleinige Verantwortung für Ihre eigenen Inhalte und die Folgen der Veröffentlichung dieser Inhalte. Im Zusammenhang mit den Inhalten bestätigen, versichern und/oder garantieren Sie, dass: (i) Sie die erforderlichen Lizenzen, Rechte, Zustimmungen und Genehmigungen besitzen oder besitzen, um uns zur Nutzung aller Patente, Marken, Geschäftsgeheimnisse, Urheberrechte, Recht auf Privatsphäre, Recht auf Veröffentlichung oder andere gewerbliche oder persönliche Eigentumsrechte an allen Ihren Inhalten, um die Aufnahme und Nutzung von Inhalten in der im Dienst und in diesen Bedingungen vorgesehenen Weise zu ermöglichen, und (ii) Sie haben die schriftliche Zustimmung , Freigabe und/oder Erlaubnis jeder einzelnen identifizierbaren Person in Ihren Inhalten, den Namen oder das Bild jeder Person zur Verwendung in Ihren Inhalten in der im Service und diesen Bedingungen vorgesehenen Weise zu verwenden. Wir sind nicht verantwortlich für Inhalte, die gegen diese Bestimmungen verstoßen die Normen oder Sitten einer Gemeinschaft. Wir erwarten und verlangen, dass Sie bei der Nutzung des Dienstes und bei der Übermittlung oder Veröffentlichung von Inhalten an den Dienst alle Gesetze auf Bundes-, Landes-, Provinz- und lokaler Ebene einhalten. Wenn Sie sich nicht sicher sind, ob Inhalte gegen ein Gesetz verstoßen, wird Ihnen dringend empfohlen, sich vor der Veröffentlichung der Inhalte an einen Anwalt zu wenden. Wir können nicht die Gesetze jeder Gerichtsbarkeit für alle Inhalte durchsetzen, die auf dem Dienst veröffentlicht werden. Daher sind wir nicht für den Inhalt des Dienstes verantwortlich. Sie müssen alle mit der Nutzung von Inhalten verbundenen Risiken bewerten und alle damit verbundenen Risiken tragen, einschließlich des Vertrauens auf die Richtigkeit, Vollständigkeit, Nützlichkeit oder Rechtmäßigkeit dieser Inhalte. In diesem Zusammenhang erkennen Sie an, dass Sie sich nicht auf von uns erstellte oder an den Dienst übermittelte Inhalte verlassen dürfen. Sie sind für alle Ihre Inhalte verantwortlich, die hochgeladen, gepostet, per E-Mail verschickt, übertragen oder anderweitig über den Dienst verfügbar gemacht werden. Wenn wir Grund zu der Annahme haben, dass Ihre Inhalte Rechte Dritter verletzen, einschließlich, aber nicht beschränkt auf Urheberrechte, Markenrechte oder Eigentumsrecht können wir von Ihnen verlangen, dass Sie uns einen schriftlichen Nachweis über Ihr Eigentumsrecht oder Nutzungsrecht an dem betreffenden Material vorlegen. Wenn wir einen solchen schriftlichen Nachweis benötigen, erklären Sie sich damit einverstanden, uns diesen innerhalb von fünf Werktagen nach dem Datum unserer Anfrage vorzulegen. Wenn Sie uns die erforderlichen schriftlichen Nachweise nicht innerhalb dieser Frist vorlegen, kann dies zur sofortigen Kündigung Ihres Kontos führen. Wir verlangen von Ihnen eine Entschädigung für alle angefallenen Kosten und Schäden im Zusammenhang mit diesen Inhalten sowie die sofortige Aussetzung aller ausstehenden Zahlungen von uns an Sie. Bitte beachten Sie, dass Sie keiner anderen Person die Nutzung Ihres Kontos gestatten dürfen und dass Sie uns unverzüglich über jede offensichtliche Sicherheitsverletzung, wie z. B. den Verlust oder Diebstahl Ihres Passworts, informieren müssen. Wir werden jedoch alle Anstrengungen unternehmen, die wir für angemessen halten Wir schützen Inhalte und stellen Inhalte im Falle eines Verlusts oder einer Löschung zur Verfügung. Wir übernehmen keine Verantwortung oder Haftung für die Löschung oder Nichtspeicherung oder die Sicherheit von Inhalten. Wir behalten uns das Recht vor, Inhalte nach unserem Ermessen als „inaktiv“ zu markieren oder zu behandeln und zu archivieren. Wir behalten uns das Recht vor, unsere Praktiken und Speicherregeln jederzeit nach unserem alleinigen Ermessen mit oder ohne vorherige Ankündigung an Sie zu ändern. Sie verstehen und stimmen zu, dass wir alle darin enthaltenen Inhalte ganz oder teilweise überwachen, zensieren oder entfernen können Unser alleiniges Ermessen verstößt gegen diese Bedingungen oder kann dem Ruf des Dienstes schaden. Wir sind jedoch nicht verpflichtet, Inhalte anzuzeigen oder zu überprüfen, und können nicht gewährleisten, dass anstößige Inhalte nach ihrer Veröffentlichung umgehend entfernt werden. Dementsprechend übernehmen wir keine Haftung für Handlungen oder Unterlassungen in Bezug auf Übertragungen, Mitteilungen oder Inhalte, die von einem Benutzer oder Dritten bereitgestellt werden. Wir übernehmen keinerlei Haftung oder Verantwortung gegenüber irgendjemandem für die Durchführung oder Nichterfüllung der in diesem Abschnitt beschriebenen Aktivitäten."
-  },
-  { "code": "tos.tos.license.title", "name": "Lizenz für den Inhalt" },
-  {
-    "code": "tos.tos.license.content",
-    "name": "Zur Klarstellung: Sie behalten alle Eigentumsrechte, die Sie möglicherweise an den Inhalten haben, vorbehaltlich der Bedingungen dieser Vereinbarung. Für alle Inhalte, die Sie über oder in Verbindung mit dem Dienst zur Verfügung stellen, gewähren Sie uns hiermit ein weltweites, gebührenfreies, vollständig bezahltes, nicht exklusives, unbefristetes, unwiderrufliches, übertragbares und vollständig unterlizenzierbares Recht (durch mehrere Ebenen) Lizenz, ohne zusätzliche Gegenleistung für Sie oder Dritte, diese Inhalte zu reproduzieren, zu verbreiten, aufzuführen und anzuzeigen (öffentlich oder anderweitig), anzupassen, zu modifizieren und anderweitig zu nutzen und zu verwerten, in jedem Format oder Medium, das jetzt bekannt ist oder später entwickelt wird, und für jeden Zweck im Zusammenhang mit dem Service (einschließlich Werbezwecken)."
-  },
-  { "code": "tos.tos.userInteractions.title", "name": "Benutzerinteraktionen" },
-  {
-    "code": "tos.tos.userInteractions.content",
-    "name": "VIDA ist nicht verantwortlich für das Verhalten eines Benutzers im Dienst. Sie erklären sich damit einverstanden, bei allen Interaktionen mit anderen Benutzern Vorsicht walten zu lassen. Sie erklären sich damit einverstanden, dass Sie Ihre Finanzinformationen (z. B. Ihre Kreditkarten- oder Bankkontoinformationen) nicht an andere Benutzer weitergeben oder Geld überweisen oder auf andere Weise senden. SIE SIND ALLEIN VERANTWORTLICH FÜR IHRE INTERAKTIONEN MIT ANDEREN BENUTZERN. SIE VERSTEHEN, DASS VIDA KEINE kriminalpolizeilichen Hintergrundüberprüfungen seiner Benutzer durchführt oder sich anderweitig über den Hintergrund seiner Benutzer erkundigt. VIDA ÜBERNIMMT KEINE ZUSICHERUNGEN ODER GEWÄHRLEISTUNGEN HINSICHTLICH DES VERHALTENS DER BENUTZER."
-  },
-  { "code": "tos.tos.prohibitedConduct.title", "name": "Verbotenes Verhalten" },
-  {
-    "code": "tos.tos.prohibitedConduct.content",
-    "name": "Sie erklären sich damit einverstanden, dass Sie den Dienst nur für die rechtmäßigen Zwecke nutzen, die in diesen Bedingungen ausdrücklich gestattet und vorgesehen sind. Der Dienst darf nicht in Verbindung mit kommerziellen Zwecken genutzt werden, es sei denn, wir genehmigen dies ausdrücklich schriftlich. Sie erklären sich damit einverstanden, dass Sie den Dienst und seinen Inhalt unverändert und unverändert ansehen werden. Sie erkennen an und verstehen, dass es Ihnen untersagt ist, den Dienst zu ändern oder Inhalte des Dienstes, einschließlich Werbung, zu entfernen. Durch die Nutzung des Dienstes erklären Sie sich ausdrücklich damit einverstanden, Werbung zu akzeptieren, die auf und über den Dienst bereitgestellt wird, und keine Werbeblocker-Software zu verwenden oder Werbeblocker-Software zu deaktivieren, bevor Sie den Dienst besuchen. Sie stimmen zu, dass Sie keine Methode, kein Gerät oder keine Software verwenden oder versuchen werden, diese zu verwenden oder Routine, um anderen Schaden zuzufügen oder die Funktionsweise des Dienstes zu beeinträchtigen oder Informationen im oder im Zusammenhang mit dem Dienst für unbefugte Zwecke zu nutzen und/oder zu überwachen. Ihre Nutzung des Dienstes setzt voraus, dass Sie die in diesem Abschnitt dargelegten Verhaltensregeln einhalten. Wenn Sie diese Regeln nicht einhalten, kann dies zur Beendigung Ihres Zugriffs auf den Dienst gemäß dem Abschnitt „Kündigung“ unten führen. Durch die Nutzung des Dienstes erklären Sie sich damit einverstanden, sich nicht auf eine Art und Weise zu verhalten, die die Fähigkeit anderer Benutzer, den Dienst zu nutzen oder zu genießen, negativ beeinflusst, insbesondere durch beleidigendes, schädliches, belästigendes, aufrührerisches, einschüchterndes oder aufdringliches Verhalten die Privatsphäre eines anderen verletzen, stalken, drohen, gewalttätig sein oder zu Gewalt gegenüber Menschen oder Tieren auffordern, oder rassistisch, ethnisch oder anderweitig anstößig oder anstößig sein; sich in irgendeiner Form an Belästigung, Prostitution, Sexhandel, Werbung oder anderem illegalen oder beleidigenden Verhalten gegenüber den Urhebern beteiligen; Versuchen Sie, persönliche Kontaktinformationen von den Erstellern des Dienstes zu erhalten oder zu erhalten. Versuchen Sie, ein persönliches Treffen mit einem der Ersteller des Dienstes zu vereinbaren. Veröffentlichen Sie Inhalte, die Kinderpornografie, Vergewaltigung, Schnupftabak, Folter, Tod oder Gewalt darstellen , Sodomie, Inzest, rassistische Beleidigungen oder Hassreden (entweder mündlich oder schriftlich); Inhalte veröffentlichen, die illegal, rechtswidrig, obszön, verleumderisch, verleumderisch, verleumderisch, belästigend, hasserfüllt, rassistisch oder ethnisch beleidigend sind oder zu einem solchen Verhalten ermutigen als Straftat angesehen werden, eine zivilrechtliche Haftung nach sich ziehen, gegen ein Gesetz verstoßen oder anderweitig unangemessen sind; Inhalte veröffentlichen, die eine Person unter 18 Jahren (oder älter, wie in einer Gerichtsbarkeit vorgeschrieben, in der das Volljährigkeitsalter über 18 Jahre liegt) darstellen );veröffentlichen Sie simulierte Inhalte, die gegen diese Bedingungen verstoßen würden, wenn diese Inhalte nicht simuliert würden;veröffentlichen Sie Inhalte, die falsche Darstellungen oder Unwahrheiten enthalten, die den Ruf des Dienstes oder eines Dritten schädigen könnten;gegen Gesetze oder Vorschriften verstoßen (einschließlich, ohne Einschränkung alle Gesetze in Bezug auf unerlaubte Handlungen, Verträge, Urheberrechte, Patente, Marken, Geschäftsgeheimnisse, Verleumdung, Obszönität, Pornographie, Veröffentlichungsrechte oder andere Rechte) oder einen Dritten dazu ermutigen, auffordern oder anweisen; Inhalte veröffentlichen die Wettbewerbe, Verlosungen, Lotterien oder andere Dinge im Zusammenhang mit Glücksspielen enthalten oder fördern; Inhalte veröffentlichen, die unerwünschte Werbung, Werbematerialien, Spam, Junk-Mail, Schneeballsysteme, Kettenbriefe oder andere Formen unbefugter Werbung enthalten; Inhalte veröffentlichen in die sich als eine andere Person ausgibt oder die Ihre Zugehörigkeit oder Verbindung zu einer Person falsch darstellt; Inhalte veröffentlichen, die Materialien enthalten, die geistigen Eigentumsrechten (einschließlich Urheberrechten) oder anderen Rechten Dritter unterliegen, zu deren Veröffentlichung Sie im Dienst berechtigt sind; übermitteln oder Software oder anderen Code verwenden, der darauf ausgelegt ist, die Funktionalität von Computersoftware oder -hardware oder Telekommunikationsgeräten zu unterbrechen, zu zerstören, einzuschränken oder auf andere Weise zu beeinträchtigen, einschließlich, aber nicht beschränkt auf die Beteiligung an einem Denial-of-Service-Angriff oder einem verteilten Denial-of-Service-Angriff oder ein ähnliches Verhalten; Sie überschreiten Ihren autorisierten Zugriff auf einen Teil des Dienstes; Sie erhalten Zugriff auf Inhalte oder Informationen auf andere Weise oder versuchen dies zu erhalten, und zwar auf andere Art und Weise, als dies nicht absichtlich durch den Dienst bereitgestellt wird; Sie nutzen Designfehler, nicht dokumentierte Funktionen oder Bugs aus, um Zugriff zu erhalten nicht anderweitig verfügbar sein.Entfernen, Modifizieren, Umgehen oder Umgehen jeglicher Digital Rights Management („DRM“)-Technologie, Verschlüsselung oder Sicherheitsmaßnahmen;Erheben, Speichern oder Verarbeiten personenbezogener Daten von Personen;Ändern von Teilen des Dienstes oder seiner Werbung, sofern nicht ausdrücklich anders angegeben die hierin gestattet sind; irgendetwas tun, das irgendeinen Aspekt des Dienstes überlasten, deaktivieren, beschädigen oder beeinträchtigen könnte; einen Roboter, Spider, eine Website-Such-/Abrufanwendung oder ein anderes manuelles oder automatisches Gerät verwenden, um Daten abzurufen, zu indizieren, zu „scrapen“ oder zu extrahieren ' oder in irgendeiner Weise ohne unsere ausdrückliche vorherige schriftliche Zustimmung Inhalte des Dienstes sammeln oder die Navigationsstruktur oder Präsentation des Dienstes reproduzieren oder umgehen. Ungeachtet des Vorstehenden gewähren wir den Betreibern öffentlicher Suchmaschinen die Erlaubnis, Spider zum Kopieren von Materialien aus dem Dienst zu verwenden, und zwar ausschließlich zum Zweck und nur in dem Umfang, der für die Erstellung öffentlich zugänglicher durchsuchbarer Indizes der Materialien erforderlich ist, jedoch nicht für Caches oder Archive dieser Materialien Materialien. VIDA behält sich das Recht vor, diese Ausnahmen entweder allgemein oder in bestimmten Fällen zu widerrufen; eine Datenbank durch systematisches Herunterladen und Speichern von Dienstinhalten zu erstellen; manuelle Prozesse zu verwenden, um Material auf dem Dienst zu überwachen oder zu reproduzieren; alle vom Dienst erhaltenen Informationen zu verwenden jegliche Werbung auf dem Dienst stören, einschließlich, aber nicht beschränkt auf, deren Anzeige in Ihrem Webbrowser; Viren, Trojaner, Würmer, Logikbomben, Zeitbomben, Cancelbots, beschädigte Dateien oder andere ähnliche Software oder Codes übertragen, die bösartig sind oder schädlich sind oder das Eigentum einer anderen Partei oder den Dienst beschädigen könnten; Versuche, sich unbefugten Zugriff auf Teile des Dienstes, den Server, auf dem der Dienst gespeichert ist, oder einen damit verbundenen Server, Computer oder eine Datenbank zu verschaffen, diese zu stören, zu beschädigen oder zu unterbrechen des Dienstes; jegliche Urheberrechts- oder andere Eigentumshinweise von unserem Dienst oder den darin enthaltenen Materialien entfernen; Teile davon, Nutzung oder Zugriff auf den Dienst reproduzieren, duplizieren, kopieren, verkaufen, weiterverkaufen oder anderweitig für kommerzielle Zwecke nutzen ;jeden Teil des Dienstes zu modifizieren, anzupassen, zu übersetzen, zurückzuentwickeln, zu dekompilieren oder zu disassemblieren; jeden Teil des Dienstes ohne unsere ausdrückliche vorherige schriftliche Zustimmung zu gestalten oder zu spiegeln."
-  },
-  { "code": "tos.tos.customerSupport.title", "name": "Kundendienst" },
-  {
-    "code": "tos.tos.customerSupport.content",
-    "name": "Bei der Kommunikation mit unserem Kundensupport verpflichten Sie sich, respektvoll und freundlich zu sein. Wenn wir der Meinung sind, dass Ihr Verhalten gegenüber einem unserer Kundenbetreuer oder anderen Mitarbeitern zu irgendeinem Zeitpunkt bedrohlich oder beleidigend ist, behalten wir uns das Recht vor, Ihr Konto sofort zu kündigen."
-  },
-  { "code": "tos.tos.advertising.title", "name": "Werbung" },
-  {
-    "code": "tos.tos.advertising.content",
-    "name": "Als Gegenleistung dafür, dass VIDA Ihnen die Nutzung des Dienstes ermöglicht, erklären Sie sich damit einverstanden, dass wir, unsere verbundenen Unternehmen und unsere Drittpartner Werbung auf dem Dienst platzieren dürfen."
-  },
-  { "code": "tos.tos.creditsPurchases.title", "name": "Credits und Käufe" },
-  {
-    "code": "tos.tos.creditsPurchases.content",
-    "name": "Sie können den Zugriff auf Inhalte des Dienstes mit Ihrer Kreditkarte oder Ihrem Guthaben erwerben. Sie dürfen Credits ausschließlich zur Nutzung im Service erwerben. Abgesehen von einer begrenzten, persönlichen, widerruflichen, nicht übertragbaren, nicht unterlizenzierbaren Lizenz zur Nutzung der Credits als Teil des Dienstes haben Sie kein Recht oder Eigentum an solchen Credits, die im Service erscheinen oder daraus stammen, oder an anderen Attributen mit der Nutzung des Dienstes in Zusammenhang stehen oder innerhalb des Dienstes gespeichert werden. Wir haben das uneingeschränkte Recht, die Verfügbarkeit oder Nutzung von Credits im Dienst nach unserem alleinigen Ermessen zu verwalten, zu regulieren, zu kontrollieren, zu ändern und/oder einzustellen, und wir haften Ihnen oder anderen gegenüber nicht für die Ausübung dieser Rechte. Übertragungen von Gutschriften sind strengstens untersagt, es sei denn, sie sind im Rahmen des Dienstes ausdrücklich genehmigt. Sofern in diesen Bedingungen nicht ausdrücklich etwas anderes vorgesehen ist, ist es Ihnen nicht gestattet, Credits gegen „echtes“ Geld zu verkaufen oder solche Gegenstände auf andere Weise gegen einen Gegenwert einzutauschen. Jeder Versuch, Credits in tatsächliche Währung umzutauschen, ohne den von VIDA festgelegten Prozess zu befolgen, verstößt gegen diese Bedingungen und kann zu einem lebenslangen Ausschluss vom Dienst und möglichen rechtlichen Schritten führen. Sofern gesetzlich nichts anderes bestimmt ist, sind Credits nicht erstattungsfähig und Sie haben keinen Anspruch auf eine Rückerstattung für ungenutzte Credits. Sobald Sie Zugang zu Inhalten erworben oder eine Gutschrift für den Zugang zu Inhalten eingelöst haben, ist es Ihnen nicht möglich, diese Inhalte zurückzugeben, umzutauschen oder eine Rückerstattung zu erhalten. Ungeachtet des Vorstehenden behalten wir uns das Recht vor, nach unserem alleinigen Ermessen Rückerstattungen für Käufe oder Gutschriften zu gewähren. Wenn wir eine Rückerstattung für einen Kauf oder eine Gutschrift gewähren, sind wir nicht dazu verpflichtet, in Zukunft die gleiche oder eine ähnliche Rückerstattung zu leisten.Käufe mit Guthaben können mit Kreditkarten und, sofern verfügbar, mit Debitkarten erfolgen und werden über a abgewickelt Zahlungsabwickler eines Drittanbieters. Einkäufe sind im Voraus zu bezahlen. Wir bieten möglicherweise verschiedene Pakete an, aus denen Sie wählen können. Wir behalten uns das Recht vor, die Credit-Preise jederzeit nach eigenem Ermessen und ohne Haftung Ihnen gegenüber zu ändern. Das Guthaben steht Ihrem Konto nicht mehr zur Verfügung, wenn Ihr Konto von Ihnen gelöscht oder anderweitig gemäß diesen Bedingungen gekündigt wird oder wenn wir die Bereitstellung des Dienstes einstellen. Sie erklären sich damit einverstanden, alle Gebühren und anfallenden Steuern zu zahlen, die Ihnen oder jemandem entstehen, der ein für Sie registriertes VIDA-Konto nutzt. VIDA kann die Preise für die über den Dienst angebotenen Waren und Dienstleistungen jederzeit ändern. Zu den Namen, die auf der Abrechnung Ihrer Zahlungsmethode (z. B. Kreditkarte, Bankkonto usw.) für anfallende Gebühren erscheinen, kann VIDA gehören .one, SXWEB oder andere Abrechnungseinheiten, abhängig von Ihrem Standort. VIDA oder die zuständige Abrechnungsstelle können auf Ihrem Kontoauszug weitere Informationen angeben, sofern dies aufgrund ihrer Vereinbarungen mit Banken, anderen Dritten oder aufgrund geltender Gesetze oder Vorschriften erforderlich ist. Wenn Sie ein Bankkonto verwenden, um einen Kauf über den Dienst zu tätigen, wird eine Belastung von diesem Konto abgebucht. Sie erklären sich damit einverstanden, dass Sie keinen IP-Proxy oder andere ähnliche Methoden verwenden, um den Ort, an dem Sie sich befinden, zu verschleiern, sei es zur Umgehung der geografischen Lage Beschränkungen des Inhalts und Zugriff auf den Dienst, wenn dieser Ihnen sonst nicht zur Verfügung stünde, oder um Käufe zu einem Preis zu tätigen (einschließlich der Anwendung von Umsatzsteuern, Verbrauchssteuern, Mehrwertsteuern oder Mehrwertsteuer), der an Ihrem Standort nicht gilt, oder für jeden anderen Zweck. Wenn Sie dies tun, behalten wir uns das Recht vor, Ihren Zugriff auf den Dienst zu kündigen. Wenn Sie sich länger als zwölf (12) Monate lang nicht bei Ihrem Konto anmelden, behalten wir uns das Recht vor, nach unserem alleinigen Ermessen Ihr Recht zur Nutzung des Dienstes zu kündigen Service. In einem solchen Fall akzeptieren Sie hiermit ausdrücklich, stimmen zu und erkennen an, dass Sie alle ungenutzten Credits verfallen lassen, die Sie später nicht zurückerhalten können."
-  },
-  { "code": "tos.tos.cardPaymentProcessing.title", "name": "Abwicklung von Kartenzahlungen" },
-  {
-    "code": "tos.tos.cardPaymentProcessing.content",
-    "name": "VIDA ist für die Abwicklung von Kartenzahlungen verantwortlich. Zahlungsabwickler Alle im Zusammenhang mit dem Dienst getätigten Finanztransaktionen werden von einem externen Zahlungsabwickler abgewickelt. VIDA ist in keinem Fall für die Handlungen oder Unterlassungen von Zahlungsabwicklern Dritter verantwortlich. Wenn Sie der Meinung sind, dass ein Abrechnungsfehler vorliegt, können Sie sich unter sxweb.com an den Support wenden oder uns eine E-Mail an die im Abschnitt „Kontakt“ unten angegebene E-Mail-Adresse für den Abrechnungssupport senden."
-  },
-  { "code": "tos.tos.refundPolicy.title", "name": "Rückgaberecht" },
-  {
-    "code": "tos.tos.refundPolicy.content",
-    "name": "ALLE VERKÄUFE SIND ENDGÜLTIG UND NICHT RÜCKERSTATTUNGSFÄHIG. Wir behalten uns das Recht (aber nicht die Verpflichtung) vor, den Kaufbetrag zurückzuerstatten, wenn es technische Probleme mit dem Service gibt oder wenn Sie nachweislich eine unbefriedigende Erfahrung gemacht haben; Dies liegt in unserem alleinigen Ermessen. Wenn wir eine Rückbuchung oder einen Zahlungsstreit von einem Kreditkartenunternehmen oder einer Bank erhalten, behalten wir uns das Recht vor, Ihre Lizenz zur Nutzung des Dienstes ohne Vorankündigung und nach unserem alleinigen Ermessen zu kündigen. und Ihren zukünftigen Zugriff auf den Dienst und dessen Nutzung gemäß diesen Bedingungen zu blockieren oder zu verhindern."
-  },
-  { "code": "tos.tos.becomingCreator.title", "name": "Ein Schöpfer werden" },
-  {
-    "code": "tos.tos.becomingCreator.content",
-    "name": "Wenn Sie Ersteller werden und über den Dienst Zugang zu Inhalten verkaufen möchten, müssen Sie uns zunächst wahrheitsgetreue und korrekte personenbezogene Daten zur Verfügung stellen. Wenn die von Ihnen bereitgestellten Informationen nicht der Wahrheit entsprechen und nicht korrekt sind, müssen Sie mit der sofortigen Kündigung Ihres Kontos rechnen und können mit rechtlichen Sanktionen rechnen. Bestimmte Änderungen an Ihren persönlichen Daten wie Wohnsitzland oder Geburtsdatum können nur durch unsere Mitarbeiter vorgenommen werden. Wenn Ihre Informationen daher falsch erscheinen oder geändert werden müssen, müssen Sie sich möglicherweise an unsere Mitarbeiter wenden, um dies zu erledigen. Wir können nach unserem alleinigen Ermessen Ihr Recht, den Zugriff auf Inhalte über den Dienst zu verkaufen, aus beliebigem Grund widerrufen. Möglicherweise ist dies der Fall Sie werden gebeten, zu Überprüfungszwecken eine gültige E-Mail-Adresse anzugeben, und Sie erklären sich damit einverstanden, dass wir Ihnen E-Mails senden, sowohl transaktionsbezogener Natur als auch für kommerzielle und Werbezwecke. Sie haben die Möglichkeit, kommerzielle und Werbe-E-Mails abzubestellen, wie in der Datenschutzrichtlinie ausführlicher beschrieben. Sie wählen Ihren eigenen Anzeigenamen, der für Sie eindeutig sein muss, für andere nicht anstößig sein darf und nicht das Urheberrecht oder die Marke anderer verletzt . Sie wählen auch Ihr Passwort, das Sie später ändern können. Sie werden gebeten, Ihre Identität und Ihr Alter durch einen externen Identitätsprüfungspartner zu überprüfen. Dazu müssen Sie uns die folgenden Dokumente vorlegen: Einen Lichtbildausweis Dabei handelt es sich um einen von der Regierung ausgestellten Ausweis, der Ihr Geburtsdatum, das Ablaufdatum, Ihr Foto und Ihren vollständigen Namen enthält. Dies kann beispielsweise Ihr Führerschein (in Ländern, in denen ein nationaler Ausweis nicht obligatorisch ist), ein internationaler Reisepass, eine Staatsbürgerschaftskarte, ein Staatsausweis, ein nationaler Reisepass oder Ihr nationaler Personalausweis sein. Ein Foto von Ihnen, während Sie das oben genannte Foto in der Hand halten ID.Sie erkennen an, dass Sie allein für die Aktivitäten auf Ihrem Konto verantwortlich sind, und Sie müssen uns unverzüglich benachrichtigen, wenn Sie glauben, dass es zu einer geringfügigen Sicherheitsverletzung oder einer unbefugten Nutzung Ihres Kontos gekommen ist. Sie haften für alle entstandenen Verluste von uns aufgrund der unbefugten Nutzung Ihres Kontos. Wir haften nicht für Ihre Verluste, die durch eine unbefugte Nutzung Ihres Kontos entstehen, und Sie verzichten ausdrücklich auf alle derartigen Ansprüche und erklären sich damit einverstanden, uns gegen alle derartigen Ansprüche Dritter gegen uns zu verteidigen und schadlos zu halten."
-  },
-  { "code": "tos.tos.commission.title", "name": "Schöpferkommission" },
-  {
-    "code": "tos.tos.commission.content",
-    "name": "Zahlungen erfolgen nur an denselben Begünstigtennamen, der während des KYC-Onboarding-Prozesses angegeben wurde. Wenn Sie diesen Namen ändern müssen (z. B. weil Sie Ihren Namen geändert haben, der Name, der Ihren Ausweisdokumenten zugewiesen ist, vom Namen des Begünstigten Ihrer Bank in Ihrem Land abweicht oder Sie Zahlungen an eine juristische Person wünschen), wenden Sie sich bitte an uns Kontaktieren Sie support@VIDA. Sie müssen den Grund für die erforderliche Änderung nachweisen. Im Rahmen des Due-Diligence-Prozesses benötigen wir möglicherweise zusätzliche Informationen von Ihnen. Wir behalten uns das uneingeschränkte Recht vor, Ihren Antrag abzulehnen. Wenn Sie eine Zahlung an eine juristische Person beantragen, müssen die bei der KYC-Überprüfung bereitgestellten Informationen gemäß EU 2015/849 in der jeweils gültigen Fassung ein UBO (Ultimate Beneficial Owner) der juristischen Person sein, unabhängig davon, ob die juristische Person der EU-Gesetzgebung unterliegt. Zahlungen werden unter keinen Umständen an Dritte geleistet, einschließlich, aber nicht beschränkt auf, Ehepartner, Familienmitglieder, Treuhanddienste, Geschäftspartner, gerichtlich bestellte Vormunde oder Insolvenzverwalter jeglicher Art. Wir werden alle zahlbaren Beträge abziehen und einbehalten Sie erhalten im Rahmen dieser Bedingungen die Beträge, die wir von dieser Zahlung abziehen und einbehalten müssen oder gemäß den Bestimmungen der geltenden Gesetze (einschließlich Umsatzsteuer, Verbrauchssteuer, Mehrwertsteuer oder Mehrwertsteuer) abziehen und einbehalten müssen, und überweisen diese Abzugs- und Einbehaltungsbetrag an die zuständige staatliche Stelle überweisen. Wir stellen Ihnen eine Übersicht über die Transaktionen auf Ihrem Konto zur Verfügung, einschließlich Einzelheiten zu Ihren Einnahmen und Auszahlungen, auf die Sie über den Service zugreifen können. Sie können jederzeit eine Auszahlung Ihrer Nettoeinnahmen beantragen, sofern diese die Mindestauszahlung von 200 $ überschreiten. Abhängig von der/den Auszahlungsmethode(n), die in dem Land, in dem Sie ansässig sind, verfügbar ist/sind, kann Ihnen hierfür eine Gebühr für die Überweisung berechnet werden. Auszahlungsanfragen unter diesem Betrag sind nicht zulässig, außer im Zusammenhang mit einer Anfrage zur Beendigung Ihrer Beziehung zu uns als Creator. Alle Einnahmen unterliegen einer Aufbewahrungsfrist von 7 Tagen, um möglichen Streitigkeiten seitens der Käufer Rechnung zu tragen. Die während der Sperrfrist erzielten Einnahmen werden auf Ihrem Konto angezeigt, sobald die entsprechende Transaktion abgeschlossen ist, können jedoch erst nach Ablauf der Sperrfrist ausgezahlt werden. Obwohl wir die Zahlung an Sie umgehend nach Ihrer Anfrage gemäß diesem Absatz veranlassen, können wir nicht garantieren, dass Sie die entsprechenden Mittel zu einem bestimmten Datum erhalten. Wenn Sie uns falsche Zahlungsdetails mitteilen, werden etwaige Gebühren für Rückbuchungen, die sich aus solchen falschen Zahlungsdetails ergeben, mit allen ansonsten an Sie zu zahlenden Beträgen verrechnet. Für den Fall, dass Sie gegen einen Teil dieser Bedingungen verstoßen, verletzen Sie alle Rechte Dritter, einschließlich ohne Einschränkung eines Urheberrechts, geistigen Eigentums oder Datenschutzrechts, oder wenn ein Dritter behauptet, dass Ihr Inhalt ganz oder teilweise beschädigt wurde, können wir nach unserem alleinigen Ermessen Zahlungen an Sie auf unbestimmte Zeit zurückhalten. Wir erinnern Sie daran, dass dies der Fall ist Ihre Pflicht und Verpflichtung zur Erfüllung aller steuerlichen Verpflichtungen im Zusammenhang mit Ihrer Tätigkeit für uns, zum Beispiel Registrierungs-, Deklarations- und Zahlungspflichten im Zusammenhang mit Einkommenssteuern, Umsatzsteuern und Mehrwertsteuer. Wenn wir Sie bei der Erfüllung dieser Verpflichtungen unterstützen, entbindet Sie dies nicht von Ihren Verpflichtungen. Es ist Ihre Pflicht, uns rechtzeitig über Änderungen Ihrer persönlichen Daten, wie z. B. eine Adressänderung oder eine neue E-Mail-Adresse, zu informieren. Wenn Sie über ein Creator-Konto mit einem positiven Saldo ohne Transaktionen in einem aufeinanderfolgenden Zeitraum von 12 Monaten verfügen, werden wir dies tun Versuchen Sie, Kontakt mit Ihnen aufzunehmen, um Sie zu bitten, den Restbetrag von Ihrem Konto abzuheben. Wenn wir Sie nicht kontaktieren können, berechnen wir Ihnen eine Ruhegebühr in Höhe von 8,33 % dieses Guthabens pro Monat ab dem ersten Jahrestag des Datums der letzten Kontoaktivität bis zum (1) Datum der nächsten Kontoaktivität, je nachdem, welches früher eintritt (2) das Datum, an dem Ihr Guthaben Null erreicht, d. h. nach weiteren 12 Monaten Inaktivität. Wenn wir Ihrem Konto die Ruhegebühr in Rechnung stellen, Sie es aber reaktivieren möchten, wenden Sie sich bitte an den Kundensupport unter support@VIDA."
-  },
-  { "code": "tos.tos.thirdParty.title", "name": "Dienste und Websites Dritter" },
-  {
-    "code": "tos.tos.thirdParty.content",
-    "name": "Der Dienst kann von Dritten angebotene Werbung und Werbeaktionen sowie Links zu anderen Websites oder Ressourcen enthalten. VIDA ist nicht verantwortlich für die Verfügbarkeit (oder mangelnde Verfügbarkeit) solcher externen Websites oder Ressourcen. Wenn Sie sich entscheiden, mit den über unseren Service zur Verfügung gestellten Dritten zu interagieren, regeln die Bedingungen dieser Partei ihre Beziehung zu Ihnen. VIDA ist nicht verantwortlich oder haftbar für die Bedingungen oder Handlungen dieser Dritten. Ideen und Feedback Sofern wir nicht ausdrücklich schriftlich etwas anderes vereinbaren, wenn Sie uns Ideen, Vorschläge, Anregungen oder Materialien („Input“) zur Verfügung stellen, unabhängig davon, ob sie damit zusammenhängen Sie erkennen hiermit an und stimmen zu, dass (a) Ihre Bereitstellung jeglicher Eingaben unentgeltlich, unaufgefordert und ohne Einschränkungen erfolgt und VIDA keiner treuhänderischen oder sonstigen Verpflichtung unterliegt; (b) alle Eingaben sind nicht vertraulich und VIDA hat keine Vertraulichkeitsverpflichtungen in Bezug auf diese Eingaben; und (c) soweit nach geltendem Recht zulässig, gehen alle Eingaben in unser alleiniges Eigentum über. Ohne das Vorstehende einzuschränken, gewähren Sie uns hiermit eine weltweite, gebührenfreie, vollständig bezahlte, exklusive, unbefristete, unwiderrufliche, übertragbare und vollständig unterlizenzierbare (über mehrere Stufen) Lizenz, ohne zusätzliche Gegenleistung für Sie oder Dritte , um: (i) solche Eingaben zu reproduzieren, zu verteilen, aufzuführen und anzuzeigen (öffentlich oder anderweitig), anzupassen, zu modifizieren und anderweitig zu nutzen und zu verwerten, und zwar in jedem Format oder Medium, das jetzt bekannt ist oder später entwickelt wird, und Sie erklären und garantieren hiermit, dass Sie dies getan haben alle erforderlichen Rechte zur Gewährung der vorstehenden Lizenz. Wir können Eingaben für jeden Zweck nutzen, ohne Ihnen oder einer anderen Person eine Entschädigung zu zahlen. Sie sind und bleiben für den Inhalt aller Eingaben verantwortlich und haftbar."
-  },
-  { "code": "tos.tos.termination.title", "name": "Beendigung" },
-  {
-    "code": "tos.tos.termination.content",
-    "name": "Diese Bedingungen gelten bis zu ihrer Kündigung. VIDA kann nach eigenem Ermessen Ihren Zugriff auf den Dienst oder Ihre Nutzung des Dienstes jederzeit und aus beliebigem Grund aussetzen oder beenden, auch wenn VIDA der Ansicht ist, dass Sie gegen den Wortlaut oder Geist dieser Bestimmungen verstoßen oder im Widerspruch dazu gehandelt haben Bedingungen. Bei einer solchen Kündigung erlischt Ihr Recht zur Nutzung des Dienstes sofort. Sie erklären sich damit einverstanden, dass die Beendigung Ihres Zugriffs auf den Dienst oder Ihrer Nutzung des Dienstes ohne vorherige Ankündigung erfolgen kann und dass VIDA Ihr Passwort und Ihren Benutzernamen sowie alle damit verbundenen Informationen und Dateien sofort deaktivieren oder löschen kann und/oder jeden weiteren Zugriff auf solche Informationen oder Dateien sperren. Für Creator-Konten stellen wir Ihnen zur Einhaltung der P2BR mindestens 30 zur Verfügung, es sei denn, der Grund für die Kündigung ist einer der in Artikel 4 (4) der P2BR genannten Gründe Sie müssen uns die Gründe für die Kündigung innerhalb von Tagen auf einem „dauerhaften Datenträger“ (wie im P2BR definiert) mitteilen. Sie stimmen zu, dass VIDA Ihnen oder Dritten gegenüber nicht für die Kündigung Ihres Zugriffs auf den Dienst haftbar ist oder auf solche Informationen oder Dateien und ist nicht verpflichtet, Ihnen diese Informationen oder Dateien nach einer solchen Kündigung zur Verfügung zu stellen. Wir behalten uns das Recht vor, jederzeit alle verfügbaren persönlichen, technologischen, rechtlichen oder anderen verfügbaren Mittel zur Durchsetzung der Bedingungen zu nutzen, ohne dafür haftbar zu sein und ohne die Verpflichtung, Sie im Voraus zu benachrichtigen, einschließlich, aber nicht beschränkt auf die Verhinderung des Zugriffs Die Dienste. Wenn Ihr Konto von Ihnen oder von VIDA aus irgendeinem Grund gekündigt wird, bleiben diese Bedingungen zwischen Ihnen und VIDA bestehen und durchsetzbar, und Sie haben keinen Anspruch auf Rückerstattung für getätigte Einkäufe. Ihre Daten werden in Übereinstimmung mit unserer Datenschutzrichtlinie aufbewahrt und gelöscht. Für den Dienst, einschließlich aller darin enthaltenen Bilder, Audiodateien und sonstigen Inhalte, sowie für alle anderen Informationen, Eigentumsrechte und Rechte, die Ihnen von VIDA gewährt oder zur Verfügung gestellt werden, werden keine Zusicherungen oder Gewährleistungen übernommen FÜR SIE „WIE BESEHEN“. VIDA und SEINE LIEFERANTEN GEBEN KEINERLEI ZUSICHERUNGEN ODER GEWÄHRLEISTUNGEN JEGLICHER ART IN BEZUG AUF DEN DIENST, WEDER AUSDRÜCKLICH, STILLSCHWEIGEND ODER GESETZLICH, UND ALLE DERARTIGEN ZUSICHERUNGEN UND GEWÄHRLEISTUNGEN, EINSCHLIESSLICH GEWÄHRLEISTUNGEN DER MARKTGÄNGIGKEIT, EIGNUNG FÜR EINEN BESTIMMTEN ZWECK ODER NICHTVERLETZUNG, SIND AUSDRÜCKLICH AUSGESCHLOSSEN. Ohne die Allgemeingültigkeit des Vorstehenden einzuschränken, übernimmt VIDA keinerlei Zusicherungen oder Gewährleistungen jeglicher Art in Bezug auf Genauigkeit, Verfügbarkeit des Dienstes, Vollständigkeit, Informationsgehalt, fehlerfreien Betrieb, durch die Nutzung zu erzielende Ergebnisse oder Nichtverletzung. DER ZUGRIFF UND DIE NUTZUNG DES DIENSTES KÖNNEN IN ZEITEN MIT SPITZENNACHFRAGE, SYSTEM-UPGRADES, STÖRUNGEN, GEPLANTEN ODER UNPLANLICHEN WARTUNGSARBEITEN ODER AUS ANDEREN GRÜNDEN NICHT VERFÜGBAR SEIN. IN EINIGEN GERICHTSBARKEITEN IST DER AUSSCHLUSS STILLSCHWEIGENDER GEWÄHRLEISTUNGEN NICHT ZULÄSSIG, SO DASS DER OBEN GENANNTE AUSSCHLUSS FÜR SIE MÖGLICHERWEISE NICHT GILT."
-  },
-  { "code": "tos.tos.limitationLiability.title", "name": "HAFTUNGSBESCHRÄNKUNG" },
-  {
-    "code": "tos.tos.limitationLiability.content",
-    "name": "SOWEIT NACH GELTENDEM RECHT ZULÄSSIG, SIND VIDA, SEINE PARTNER, MITARBEITER, LIZENZGEBER ODER DIENSTLEISTER IN KEINEM FALL HAFTBAR FÜR INDIREKTE, FOLGESCHÄDEN, EXEMPLARISCHE, NEBENSCHÄDEN, BESONDERE ODER STRAFSCHÄDEN, EINSCHLIESSLICH, OHNE BESCHRÄNKUNG, VERLUSTE VON GEWINNE, OB DIREKT ODER INDIREKT, ODER VERLUST VON DATEN, NUTZUNG, FIRMENWERT ODER ANDERE IMMATERIELLE VERLUSTE, DIE AUS (I) IHREM ZUGRIFF AUF ODER IHRE NUTZUNG ODER UNMÖGLICHKEIT, AUF DEN DIENST ZUGREIFEN ODER IHREN NUTZUNG ZU ERHALTEN, (II) DEM VERHALTEN ODER INHALTE ANDERER NUTZER ODER DRITTER AUF, DURCH ODER NACH DER NUTZUNG DES DIENSTES; ODER (III) UNBEFUGTER ZUGRIFF, NUTZUNG ODER ÄNDERUNG IHRER INHALTE, SELBST WENN VIDA ÜBER DIE MÖGLICHKEIT SOLCHER SCHÄDEN INFORMIERT WURDE. IN KEINEM FALL ÜBERSTEIGT DIE GESAMTHAFTUNG VON VIDA IHNEN GEGENÜBER FÜR ALLE ANSPRÜCHE IM ZUSAMMENHANG MIT DEM DIENST DEN BETRAG, DEN SIE GEGEBENENFALLS FÜR DEN DIENST GEZAHLT HABEN, WÄHREND SIE ÜBER EIN KONTO HABEN. IN EINIGEN RECHTSORDNUNGEN IST DER AUSSCHLUSS ODER DIE BESCHRÄNKUNG NICHT ZULÄSSIG VON BESTIMMTEN SCHÄDEN, SO DASS EINIGE ODER ALLE DER AUSSCHLÜSSE UND EINSCHRÄNKUNGEN IN DIESEM ABSCHNITT MÖGLICHERWEISE NICHT AUF SIE ZUTREFFEN. Obwohl wir versuchen, die Integrität und Sicherheit des Dienstes und der Server, von denen aus der Dienst betrieben wird, aufrechtzuerhalten, können wir nicht garantieren, dass die dass der Dienst sicher, vollständig oder korrekt ist oder bleibt oder dass der Zugriff auf den Dienst ununterbrochen möglich ist. Der Dienst kann Ungenauigkeiten, Fehler und Materialien enthalten, die gegen diese Bedingungen verstoßen oder diesen widersprechen. Darüber hinaus können Dritte unbefugte Änderungen am Dienst vornehmen. Wenn Sie Kenntnis von einer unbefugten Änderung des Dienstes durch Dritte erhalten, kontaktieren Sie uns unter support@VIDA mit einer Beschreibung des betreffenden Materials bzw. der betreffenden Materialien sowie der URL oder dem Ort im Dienst, an dem dieses Material bzw. diese Materialien angezeigt werden."
-  },
-  { "code": "tos.tos.indemnification.title", "name": "Entschädigung" },
-  {
-    "code": "tos.tos.indemnification.content",
-    "name": "Sie erklären sich damit einverstanden, VIDA, unsere verbundenen Unternehmen und deren und unsere jeweiligen leitenden Angestellten, Direktoren, Vertreter und Mitarbeiter im gesetzlich zulässigen Umfang von sämtlichen Beschwerden, Forderungen und Ansprüchen freizustellen, zu verteidigen und schadlos zu halten. Schäden, Verluste, Kosten, Verbindlichkeiten und Ausgaben, einschließlich Anwaltskosten, die sich aus Ihrem Zugriff auf oder Ihrer Nutzung des Dienstes, Ihren Inhalten oder Ihrem Verstoß gegen diese Bedingungen ergeben, sich daraus ergeben oder in irgendeiner Weise damit in Zusammenhang stehen."
-  },
-  { "code": "tos.tos.copyright.title", "name": "Ansprüche wegen Urheberrechtsverletzung." },
-  {
-    "code": "tos.tos.copyright.content",
-    "name": "Der Digital Millennium Copyright Act von 1998 (der „DMCA“) sieht Rechtsmittel für Urheberrechtsinhaber vor, die glauben, dass im Internet erscheinendes Material ihre Rechte gemäß dem US-amerikanischen Urheberrecht verletzt. Unsere DMCA-Richtlinie finden Sie hier."
-  },
-  { "code": "tos.tos.intellectualProperty.title", "name": "Geistiges Eigentum" },
-  {
-    "code": "tos.tos.intellectualProperty.content",
-    "name": "Die über den Dienst zur Verfügung gestellten Informationen und Materialien sind und bleiben Eigentum von VIDA und seinen Lizenzgebern und Lieferanten und sind durch Urheberrechte, Marken, Patente und/oder andere Eigentumsrechte und Gesetze geschützt. Vorbehaltlich Ihrer Einhaltung dieser Bedingungen und nur so lange, wie VIDA Ihnen gestattet, auf den Dienst zuzugreifen und ihn zu nutzen, dürfen Sie eine (1) Kopie aller Inhalte des Dienstes ansehen, zu dem wir Ihnen hierunter Zugriff gewähren einen einzelnen Computer oder ein mobiles Gerät ausschließlich für Ihren persönlichen, nicht kommerziellen Gebrauch verwenden, vorausgesetzt, dass Sie alle Urheberrechts- und sonstigen Eigentumshinweise intakt halten. Sofern nicht ausdrücklich im Voraus von VIDA schriftlich genehmigt, erklären Sie sich damit einverstanden, die Inhalte nicht ganz oder teilweise zu reproduzieren, zu modifizieren, zu vermieten, zu verleasen, zu verleihen, zu verkaufen, zu verteilen oder daraus (ganz oder teilweise) abgeleitete Werke zu erstellen des Dienstes oder aller über den Dienst zur Verfügung gestellten Materialien. Zu den Handelsnamen, Marken und Dienstleistungsmarken von VIDA gehören unter anderem VIDA und alle damit verbundenen Logos. Alle Marken und Dienstleistungsmarken des Dienstes, die nicht Eigentum von VIDA sind, sind Eigentum ihrer jeweiligen Inhaber. Die Handelsnamen, Marken und Dienstleistungsmarken von VIDA, ob eingetragen oder nicht, dürfen nicht in Verbindung mit Produkten oder Dienstleistungen, die nicht uns gehören, in einer Weise verwendet werden, die zu Verwirrung führen könnte. Nichts, was in dem Dienst enthalten ist, darf so ausgelegt werden, dass ohne unsere ausdrückliche vorherige schriftliche Zustimmung stillschweigend, durch Rechtsverwirkung oder auf andere Weise eine Lizenz oder ein Recht zur Nutzung der Handelsnamen, Marken oder Dienstleistungsmarken von VIDA gewährt wird. Verweise im Service auf Produkte, Dienstleistungen, Prozesse oder andere Informationen, sei es durch Handelsnamen, Markenzeichen, Hersteller, Lieferanten oder auf andere Weise, stellen keine Billigung, Förderung oder Empfehlung derselben durch uns oder ein anderes Unternehmen dar und implizieren diese auch nicht."
-  },
-  { "code": "tos.tos.informationSecurity.title", "name": "Informationssicherheit" },
-  {
-    "code": "tos.tos.informationSecurity.content",
-    "name": "VIDA ergreift angemessene und angemessene organisatorische, technische, administrative und physische Maßnahmen, um die Integrität und Sicherheit Ihrer Daten zu schützen. Diese Maßnahmen können je nach Sensibilität Ihrer Daten variieren. Wir beschränken den Zugriff auf Ihre personenbezogenen Daten auf diejenigen Mitarbeiter, Vertreter, Auftragnehmer und andere Dritte, die aus geschäftlichen Gründen darauf zugreifen müssen. Diese verarbeiten Ihre personenbezogenen Daten nur auf unsere Anweisung hin und unterliegen der Geheimhaltungspflicht."
-  },
-  { "code": "tos.tos.governingLaw.title", "name": "Anwendbares Recht: Streitigkeiten" },
-  {
-    "code": "tos.tos.governingLaw.content",
-    "name": "Diese Bedingungen sind in Übereinstimmung mit den Gesetzen Zyperns auszulegen und unterliegen diesen, ohne Bezug auf Regeln zu Rechtskonflikten, die zur Anwendung der Gesetze einer anderen Gerichtsbarkeit auf die Rechte und Pflichten der Parteien führen würden. Alle Streitigkeiten, die sich aus oder im Zusammenhang mit diesen Bedingungen ergeben, werden durch ein verbindliches Schiedsverfahren beigelegt, das vor einem einzelnen Schiedsrichter in Amsterdam, Niederlande, in englischer Sprache durchgeführt wird und vom International Centre for Dispute Resolution gemäß seinen International Arbitration Rules verwaltet wird. Jeder als Ergebnis eines solchen Schiedsverfahrens erlassene Schiedsspruch ist bindend und vor den zuständigen Gerichten durchsetzbar. Ungeachtet des Vorstehenden erklären Sie sich damit einverstanden, dass VIDA bei den Gerichten jeder Gerichtsbarkeit Unterlassungsansprüche (oder eine gleichwertige Art dringender Rechtsbehelfe) geltend machen kann."
-  },
-  { "code": "tos.tos.contact.title", "name": "Kontakt" },
-  {
-    "code": "tos.tos.contact.content",
-    "name": "Fragen oder Bedenken zu diesen Bedingungen können an support@VIDA gerichtet werden. Bitte beachten Sie, dass E-Mail-Kommunikation nicht unbedingt sicher ist. Dementsprechend sollten Sie in Ihrer E-Mail-Korrespondenz mit uns keine Kreditkarteninformationen oder andere sensible Informationen angeben. Rechnungsanfragen sollten an billing@VIDA gerichtet werden"
-  },
-  { "code": "tos.tos.miscellaneous.title", "name": "Verschiedenes" },
-  {
-    "code": "tos.tos.miscellaneous.content",
-    "name": "Diese Bedingungen begründen keine Partnerschaft, kein Joint Venture, kein Arbeitgeber-Arbeitnehmer-Verhältnis, keine Agenturbeziehung oder kein Franchisegeber-Franchisenehmer-Verhältnis zwischen Ihnen und VIDA und dürfen auch nicht so ausgelegt werden. Sollte sich herausstellen, dass eine Bestimmung dieser Bedingungen rechtswidrig, nichtig oder aus irgendeinem Grund nicht durchsetzbar ist, gilt diese Bestimmung als von diesen Bedingungen trennbar und hat keinen Einfluss auf die Gültigkeit und Durchsetzbarkeit der übrigen Bestimmungen. Ohne unsere ausdrückliche vorherige schriftliche Zustimmung dürfen Sie Ihre Rechte oder Pflichten aus diesen Bedingungen nicht ganz oder teilweise abtreten, übertragen oder unterlizenzieren. Wir können einige oder alle unserer Rechte und Pflichten aus diesen Bedingungen ohne Einschränkung abtreten, übertragen oder unterlizenzieren. Kein Verzicht einer der Parteien im Hinblick auf eine Verletzung oder Nichterfüllung dieser Vereinbarung gilt als Verzichtserklärung für eine frühere oder nachfolgende Verletzung oder Nichterfüllung. Alle hierin enthaltenen Überschriften, Bildunterschriften oder Abschnittstitel werden nur aus Gründen der Bequemlichkeit eingefügt und definieren oder erklären in keiner Weise einen Abschnitt oder eine Bestimmung hierin. Dies stellt zusammen mit allen hier genannten Richtlinien die gesamte Vereinbarung zwischen Ihnen und VIDA in Bezug auf den hierin genannten Gegenstand dar und ersetzt alle vorherigen oder gleichzeitigen schriftlichen oder mündlichen Vereinbarungen oder Absprachen zwischen Ihnen und VIDA in Bezug auf diesen Gegenstand Gegenstand. Mitteilungen an Sie können nach Ermessen von VIDA durch Veröffentlichung im Dienst, per E-Mail oder per Post erfolgen. Der Dienst kann auch Mitteilungen über Änderungen dieser Bedingungen oder anderer Angelegenheiten bereitstellen, indem er solche Mitteilungen anzeigt oder Links zu solchen Mitteilungen bereitstellt. Ohne Einschränkung erklären Sie sich damit einverstanden, dass eine gedruckte Version dieser Bedingungen und aller in elektronischer Form übermittelten Mitteilungen in Gerichts- oder Verwaltungsverfahren, die auf diesen Bedingungen basieren oder sich darauf beziehen, im gleichen Umfang und unter den gleichen Bedingungen zulässig sind wie andere Geschäftsdokumente und Aufzeichnungen, die ursprünglich in gedruckter Form erstellt und verwaltet wurden. VIDA haftet nicht für die Nichterfüllung von Verpflichtungen aufgrund von Ursachen, die außerhalb seiner Kontrolle liegen."
-  },
-  { "code": "tos.tos.language.title", "name": "Sprache" },
-  {
-    "code": "tos.tos.language.content",
-    "name": "Diese Bedingungen wurden ursprünglich in Englisch verfasst. Soweit eine übersetzte Version dieser Bedingungen im Widerspruch zur englischen Version steht, gilt die englische Version. Letzte Änderung: Juli 2023© 2023 VIDA, sofern nicht anders angegeben. Alle Rechte vorbehalten."
-  },
-  { "code": "tos.tos.final", "name": "Letzte Änderung: Juli 2023" },
-  { "code": "tos.tos.VIDA", "name": "© 2023 VIDA One Sofern nicht anders angegeben. Alle Rechte vorbehalten." }
+  { "code": "AF", "name": "Afghanistan" },
+  { "code": "AX", "name": "Åland-Inseln" },
+  { "code": "AL", "name": "Albanien" },
+  { "code": "DZ", "name": "Algerien" },
+  { "code": "AS", "name": "Amerikanischen Samoa-Inseln" },
+  { "code": "AD", "name": "Andorra" },
+  { "code": "AO", "name": "Angola" },
+  { "code": "AI", "name": "Anguilla" },
+  { "code": "AQ", "name": "Antarktis" },
+  { "code": "AG", "name": "Antigua und Barbuda" },
+  { "code": "AR", "name": "Argentinien" },
+  { "code": "AM", "name": "Armenien" },
+  { "code": "AW", "name": "Aruba" },
+  { "code": "AU", "name": "Australien" },
+  { "code": "AT", "name": "Österreich" },
+  { "code": "AZ", "name": "Aserbaidschan" },
+  { "code": "BS", "name": "Bahamas" },
+  { "code": "BH", "name": "Bahrain" },
+  { "code": "BD", "name": "Bangladesch" },
+  { "code": "BB", "name": "Barbados" },
+  { "code": "BY", "name": "Weißrussland" },
+  { "code": "BE", "name": "Belgien" },
+  { "code": "BZ", "name": "Belize" },
+  { "code": "BJ", "name": "Benin" },
+  { "code": "BM", "name": "Bermuda" },
+  { "code": "BT", "name": "Bhutan" },
+  { "code": "BO", "name": "Bolivien, plurinationaler Staat" },
+  { "code": "BQ", "name": "Bonaire, St. Eustatius und Saba" },
+  { "code": "BA", "name": "Bosnien und Herzegowina" },
+  { "code": "BW", "name": "Botswana" },
+  { "code": "BV", "name": "Bouvetinsel" },
+  { "code": "BR", "name": "Brasilien" },
+  { "code": "IO", "name": "Britisches Territorium des Indischen Ozeans" },
+  { "code": "BN", "name": "Brunei Darussalam" },
+  { "code": "BG", "name": "Bulgarien" },
+  { "code": "BF", "name": "Burkina Faso" },
+  { "code": "BI", "name": "Burundi" },
+  { "code": "KH", "name": "Kambodscha" },
+  { "code": "CM", "name": "Kamerun" },
+  { "code": "CA", "name": "Kanada" },
+  { "code": "CV", "name": "Kap Verde" },
+  { "code": "KY", "name": "Cayman Inseln" },
+  { "code": "CF", "name": "Zentralafrikanische Republik" },
+  { "code": "TD", "name": "Tschad" },
+  { "code": "CL", "name": "Chile" },
+  { "code": "CN", "name": "China" },
+  { "code": "CX", "name": "Weihnachtsinsel" },
+  { "code": "CC", "name": "Kokosinseln" },
+  { "code": "CO", "name": "Kolumbien" },
+  { "code": "KM", "name": "Komoren" },
+  { "code": "CG", "name": "Kongo" },
+  { "code": "CD", "name": "Demokratische Republik Kongo" },
+  { "code": "CK", "name": "Insel" },
+  { "code": "CR", "name": "Costa Rica" },
+  { "code": "CI", "name": "Elfenbeinküste" },
+  { "code": "HR", "name": "Kroatien" },
+  { "code": "CU", "name": "Kuba" },
+  { "code": "CW", "name": "Curacao" },
+  { "code": "CY", "name": "Zypern" },
+  { "code": "CZ", "name": "Tschechien" },
+  { "code": "DK", "name": "Dänemark" },
+  { "code": "DJ", "name": "Dschibuti" },
+  { "code": "DM", "name": "Dominica" },
+  { "code": "DO", "name": "Dominikanische Republik" },
+  { "code": "EC", "name": "Ecuador" },
+  { "code": "EG", "name": "Ägypten" },
+  { "code": "SV", "name": "El Salvador" },
+  { "code": "GQ", "name": "Äquatorialguinea" },
+  { "code": "ER", "name": "Eritrea" },
+  { "code": "EE", "name": "Estland" },
+  { "code": "ET", "name": "Äthiopien" },
+  { "code": "FK", "name": "Falklandinseln (Malvinas)" },
+  { "code": "FO", "name": "Färöer Inseln" },
+  { "code": "FJ", "name": "Fidschi" },
+  { "code": "FI", "name": "Finnland" },
+  { "code": "FR", "name": "Frankreich" },
+  { "code": "GF", "name": "Französisch-Guayana" },
+  { "code": "PF", "name": "Französisch Polynesien" },
+  { "code": "TF", "name": "südfranzösisches Territorium" },
+  { "code": "GA", "name": "Gabun" },
+  { "code": "GM", "name": "Gambia" },
+  { "code": "GE", "name": "Georgia" },
+  { "code": "DE", "name": "Deutschland" },
+  { "code": "GH", "name": "Ghana" },
+  { "code": "GI", "name": "Gibraltar" },
+  { "code": "GR", "name": "Griechenland" },
+  { "code": "GL", "name": "Grönland" },
+  { "code": "GD", "name": "Greneda" },
+  { "code": "GP", "name": "Guadeloupe" },
+  { "code": "GU", "name": "Guam" },
+  { "code": "GT", "name": "Guatemala" },
+  { "code": "GG", "name": "Guernsey" },
+  { "code": "GN", "name": "Guinea" },
+  { "code": "GW", "name": "Guinea-Bissau" },
+  { "code": "GY", "name": "Guyana" },
+  { "code": "HT", "name": "Haiti" },
+  { "code": "HM", "name": "Heard-Insel und McDonald-Inseln" },
+  { "code": "VA", "name": "Heiliger Stuhl (Vatikanstadtstaat)" },
+  { "code": "HN", "name": "Honduras" },
+  { "code": "HK", "name": "China Hongkong" },
+  { "code": "HU", "name": "Ungarn" },
+  { "code": "IS", "name": "Island" },
+  { "code": "IN", "name": "Indien" },
+  { "code": "ID", "name": "Indonesien" },
+  { "code": "IR", "name": "Islamische Republik Iran" },
+  { "code": "IQ", "name": "Irak" },
+  { "code": "IE", "name": "Irland" },
+  { "code": "IM", "name": "Isle of Man" },
+  { "code": "IL", "name": "Israel" },
+  { "code": "IT", "name": "Italien" },
+  { "code": "JM", "name": "Jamaika" },
+  { "code": "JP", "name": "Japan" },
+  { "code": "JE", "name": "Jersey" },
+  { "code": "JO", "name": "Jordanien" },
+  { "code": "KZ", "name": "Kasachstan" },
+  { "code": "KE", "name": "Kenia" },
+  { "code": "KI", "name": "Kiribati" },
+  { "code": "KP", "name": "Nord Korea" },
+  { "code": "KR", "name": "Südkorea" },
+  { "code": "KW", "name": "Kuwait" },
+  { "code": "KG", "name": "Kirgisistan" },
+  { "code": "LA", "name": "Laos" },
+  { "code": "LV", "name": "Lettland" },
+  { "code": "LB", "name": "Libanon" },
+  { "code": "LS", "name": "Lesotho" },
+  { "code": "LR", "name": "Liberia" },
+  { "code": "LY", "name": "Libyen" },
+  { "code": "LI", "name": "Liechtenstein" },
+  { "code": "LT", "name": "Litauen" },
+  { "code": "LU", "name": "Luxemburg" },
+  { "code": "MO", "name": "Macau, China" },
+  { "code": "MK", "name": "Mazedonien, ehemalige jugoslawische Republik" },
+  { "code": "MG", "name": "Madagaskar" },
+  { "code": "MW", "name": "Malawi" },
+  { "code": "MY", "name": "Malaysia" },
+  { "code": "MV", "name": "Malediven" },
+  { "code": "ML", "name": "Mali" },
+  { "code": "MT", "name": "Malta" },
+  { "code": "MH", "name": "Marshallinseln" },
+  { "code": "MQ", "name": "Martinique" },
+  { "code": "MR", "name": "Mauretanien" },
+  { "code": "MU", "name": "Mauritius" },
+  { "code": "YT", "name": "Mayotte" },
+  { "code": "MX", "name": "Mexiko" },
+  { "code": "FM", "name": "Die Verbündeten Staaten von Micronesia" },
+  { "code": "MD", "name": "Republik Moldawien" },
+  { "code": "MC", "name": "Monaco" },
+  { "code": "MN", "name": "Mongolei" },
+  { "code": "ME", "name": "Montenegro" },
+  { "code": "MS", "name": "Montserrat" },
+  { "code": "MA", "name": "Marokko" },
+  { "code": "MZ", "name": "Mosambik" },
+  { "code": "MM", "name": "Myanmar" },
+  { "code": "NA", "name": "Namibia" },
+  { "code": "NR", "name": "Nauru" },
+  { "code": "NP", "name": "Nepal" },
+  { "code": "NL", "name": "Niederlande" },
+  { "code": "NC", "name": "Neu-Kaledonien" },
+  { "code": "NZ", "name": "Neuseeland" },
+  { "code": "NI", "name": "Nicaragua" },
+  { "code": "NE", "name": "Niger" },
+  { "code": "NG", "name": "Nigeria" },
+  { "code": "NU", "name": "Niue" },
+  { "code": "NF", "name": "Norfolkinsel" },
+  { "code": "MP", "name": "Nördliche Marianneninseln" },
+  { "code": "NO", "name": "Norwegen" },
+  { "code": "OM", "name": "Oman" },
+  { "code": "PK", "name": "Pakistan" },
+  { "code": "PW", "name": "Palau" },
+  { "code": "PS", "name": "Palästina" },
+  { "code": "PA", "name": "Panama" },
+  { "code": "PG", "name": "Papua Neu-Guinea" },
+  { "code": "PY", "name": "Paraguay" },
+  { "code": "PE", "name": "Peru" },
+  { "code": "PH", "name": "die Phillipinen" },
+  { "code": "PN", "name": "Pitcairn" },
+  { "code": "PL", "name": "Polen" },
+  { "code": "PT", "name": "Portugal" },
+  { "code": "PR", "name": "Puerto Rico" },
+  { "code": "QA", "name": "Katar" },
+  { "code": "RE", "name": "Wiedervereinigung" },
+  { "code": "RO", "name": "Rumänien" },
+  { "code": "RU", "name": "Die Russische Föderation" },
+  { "code": "RW", "name": "Ruanda" },
+  { "code": "BL", "name": "St. Barthélemy" },
+  { "code": "SH", "name": "St. Helena, Ascension Island und Tristan da Cunha Islands" },
+  { "code": "KN", "name": "St. Kitts und Nevis" },
+  { "code": "LC", "name": "Heilige Lucia" },
+  { "code": "MF", "name": "Saint Martin (Teil Frankreich)" },
+  { "code": "PM", "name": "Saint-Pierre und Miquelon" },
+  { "code": "VC", "name": "St. Vincent und die Grenadinen" },
+  { "code": "WS", "name": "Samoa" },
+  { "code": "SM", "name": "San Marino" },
+  { "code": "ST", "name": "Sao Tome und Principe" },
+  { "code": "SA", "name": "Saudi-Arabien" },
+  { "code": "SN", "name": "Senegal" },
+  { "code": "RS", "name": "Serbien" },
+  { "code": "SC", "name": "Seychellen" },
+  { "code": "SL", "name": "Sierra Leone" },
+  { "code": "SG", "name": "Singapur" },
+  { "code": "SX", "name": "Sint Maarten (niederländischer Teil)" },
+  { "code": "SK", "name": "Slowakei" },
+  { "code": "SI", "name": "Slowenien" },
+  { "code": "SB", "name": "Salomon-Inseln" },
+  { "code": "SO", "name": "Somalia" },
+  { "code": "ZA", "name": "Südafrika" },
+  { "code": "GS", "name": "Südgeorgien und Südliche Sandwichinseln" },
+  { "code": "SS", "name": "Südsudan" },
+  { "code": "ES", "name": "Spanien" },
+  { "code": "LK", "name": "Sri Lanka" },
+  { "code": "SD", "name": "Sudanrot" },
+  { "code": "SR", "name": "Surinam" },
+  { "code": "SJ", "name": "Spitzbergen und Jan-Mayen-Insel" },
+  { "code": "SZ", "name": "Swasiland" },
+  { "code": "SE", "name": "Schweden" },
+  { "code": "CH", "name": "Schweiz" },
+  { "code": "SY", "name": "Syrische Arabische Republik" },
+  { "code": "TW", "name": "Taiwan, China" },
+  { "code": "TJ", "name": "Tadschikistan" },
+  { "code": "TZ", "name": "Vereinigte Republik Tansania" },
+  { "code": "TH", "name": "Thailand" },
+  { "code": "TL", "name": "Osttimor" },
+  { "code": "TG", "name": "Gehen" },
+  { "code": "TK", "name": "Tokelau-Inseln" },
+  { "code": "TO", "name": "Tonga" },
+  { "code": "TT", "name": "Trinidad und Tobago" },
+  { "code": "TN", "name": "Tunesien" },
+  { "code": "TR", "name": "Türkei" },
+  { "code": "TM", "name": "Turkmenistan" },
+  { "code": "TC", "name": "Turks- und Caicosinseln" },
+  { "code": "TV", "name": "Tuvalu" },
+  { "code": "UG", "name": "Uganda" },
+  { "code": "UA", "name": "Ukraine" },
+  { "code": "AE", "name": "Vereinigte Arabische Emirate" },
+  { "code": "GB", "name": "VEREINIGTES KÖNIGREICH." },
+  { "code": "US", "name": "USA" },
+  { "code": "UM", "name": "Kleinere vorgelagerte Inseln der Vereinigten Staaten" },
+  { "code": "UY", "name": "Uruguay" },
+  { "code": "UZ", "name": "Usbekistan" },
+  { "code": "VU", "name": "Vanuatu" },
+  { "code": "VE", "name": "Venezuela (Bolivarische Republik)" },
+  { "code": "VN", "name": "Vietnam" },
+  { "code": "VG", "name": "Die Britischen Jungferninseln" },
+  { "code": "VI", "name": "US Jungferninseln" },
+  { "code": "WF", "name": "Wallis- und Futuna-Inseln" },
+  { "code": "EH", "name": "Westsahara" },
+  { "code": "YE", "name": "Jemen" },
+  { "code": "ZM", "name": "Sambia" },
+  { "code": "ZW", "name": "Zimbabwe" }
 ]

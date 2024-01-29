@@ -2,7 +2,14 @@
   <div class="space-y-20 border-t">
     <div class="mt-20">
       <div class="mb-10">Select country/region</div>
-      <Dropdown v-model="dropdownValue" :options="options" inset> </Dropdown>
+      <Dropdown
+        v-model="dropdownValue"
+        :options="countries"
+        option-label="name"
+        option-value="code"
+        disable-translate
+        inset
+      ></Dropdown>
     </div>
     <div class="text-center text-base font-normal leading-md text-gray-57">
       Choose a document and start verification
@@ -33,23 +40,13 @@ import { storeToRefs } from 'pinia'
 import { useModalStore } from '@/store/modal'
 import Dropdown from '@comp/form/Dropdown.vue'
 import { useConfirmData } from '@use/modal/confirm-data'
+import { useI18nPack } from '@use/request/i18nPack'
+
+const dropdownValue = ref('CN')
+const countries = useI18nPack('select', 'about', [])
 
 const modalStore = useModalStore()
 const { content } = storeToRefs(modalStore)
-
-const dropdownValue = ref(1)
-const options = ref([
-  { label: '台灣', value: 1 },
-  { label: '英國', value: 2 },
-  { label: '菲律賓', value: 3 },
-  { label: '加拿大', value: 4 },
-  { label: '澳洲', value: 5 },
-  { label: '義大利', value: 6 },
-  { label: '冰島', value: 7 },
-  { label: '奈及利亞', value: 8 },
-  { label: '哈爾濱', value: 9 },
-  { label: '法國', value: 10 },
-])
 
 useConfirmData(onValidate)
 
