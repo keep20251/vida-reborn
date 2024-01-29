@@ -2,7 +2,7 @@
   <div class="w-full">
     <div class="mb-10">Consent</div>
     <div
-      class="scrollbar-md text-gray-57 bg-gray-f6 mb-30 h-[530px] min-h-[250px] space-y-2 overflow-y-scroll rounded-md p-20 text-base font-normal leading-lg"
+      class="scrollbar-md mb-30 h-[530px] min-h-[250px] space-y-2 overflow-y-scroll rounded-md bg-gray-f6 p-20 text-base font-normal leading-lg text-gray-57"
     >
       <p>IMPORTANT INFORMATION – PLEASE READ</p>
       <p>Verifying And Authenticating Your Age and Identity – Using Face Match Identification</p>
@@ -92,16 +92,16 @@
         <li>The identity which you use for this purpose is authentic and valid.</li>
       </ul>
     </div>
-    <ol class="text-gray-57 mb-20 !list-decimal space-y-10 pl-20 text-base font-normal leading-lg">
+    <ol class="mb-20 !list-decimal space-y-10 pl-20 text-base font-normal leading-lg text-gray-57">
       <li>Before you can upload your content or make money as an affiliate, <b>we need to verify your identity.</b></li>
       <li>This process takes <b>less than 5 minute</b> and is fully confidential.</li>
       <li>During this process, you will be asked to take pictures of you and your ID.</li>
       <li>Make sure your webcam <b>or phone camera</b> is working and you have your ID nearby.</li>
     </ol>
-    <div class="text-gray-a3 text-center text-base font-normal leading-lg">
+    <div class="text-center text-base font-normal leading-lg text-gray-a3">
       If something went wrong during this process you will be able to restart or continue verification from this page.
     </div>
-    <p class="text-gray-a3 text-center text-base font-normal leading-lg">
+    <p class="text-center text-base font-normal leading-lg text-gray-a3">
       You can also contact support by sending an email to
       <a class="text-gray-57" href="mail:support@vida.pub">support@vida.pub</a>
     </p>

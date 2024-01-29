@@ -3,7 +3,7 @@
     <div v-if="!!isBasicTab" class="flex h-full w-full flex-row space-x-2">
       <div
         v-for="option in options"
-        class="hover:bg-gray-f6 flex grow cursor-pointer flex-col items-center justify-center"
+        class="flex grow cursor-pointer flex-col items-center justify-center hover:bg-gray-f6"
         :key="option[optionValue]"
         @click="onClick(option[optionValue])"
       >
@@ -22,7 +22,7 @@
     <div v-if="!!isBtnTab" class="flex space-x-5">
       <div
         v-for="option in options"
-        class="hover:bg-gray-f6 bg-gray-f6 flex cursor-pointer items-center justify-center rounded-full px-15 py-5"
+        class="flex cursor-pointer items-center justify-center rounded-full bg-gray-f6 px-15 py-5 hover:bg-gray-f6"
         :key="option[optionValue]"
         @click="onClick(option[optionValue])"
       >

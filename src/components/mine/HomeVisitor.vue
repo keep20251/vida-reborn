@@ -13,7 +13,7 @@
       <Button @click="openAuthDialog(AUTH_ROUTES.SIGN_UP)" contrast>{{ $t('title.join') }}</Button>
       <Button @click="openAuthDialog()">{{ $t('title.login') }}</Button>
     </div>
-    <div class="text-gray-57 text-center text-base font-normal leading-lg">
+    <div class="text-center text-base font-normal leading-lg text-gray-57">
       <p>{{ $t('content.joinVida') }}</p>
       <p>
         {{ $t('content.useObey')

@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-f6 h-full w-full rounded-xl py-30 pr-20">
+  <div class="h-full w-full rounded-xl bg-gray-f6 py-30 pr-20">
     <div class="scrollbar-md max-h-[37.5rem] overflow-y-scroll">
       <div class="flex flex-col space-y-20 px-20 text-base font-normal leading-lg">
         <h5>{{ i18nPack.tos?.info.title }}</h5>
@@ -9,44 +9,44 @@
         <h5>{{ i18nPack.tos?.definitions.title }}</h5>
         <table class="border-collapse">
           <tr>
-            <th class="border-gray-e5 border border-solid p-8">{{ i18nPack.tos?.definitions.table.title.a }}</th>
-            <th class="border-gray-e5 border border-solid p-8">{{ i18nPack.tos?.definitions.table.content.a }}</th>
+            <th class="border border-solid border-gray-e5 p-8">{{ i18nPack.tos?.definitions.table.title.a }}</th>
+            <th class="border border-solid border-gray-e5 p-8">{{ i18nPack.tos?.definitions.table.content.a }}</th>
           </tr>
           <tr>
-            <td class="border-gray-e5 border border-solid p-8">{{ i18nPack.tos?.definitions.table.title.b }}</td>
-            <td class="border-gray-e5 border border-solid p-8">{{ i18nPack.tos?.definitions.table.content.b }}</td>
+            <td class="border border-solid border-gray-e5 p-8">{{ i18nPack.tos?.definitions.table.title.b }}</td>
+            <td class="border border-solid border-gray-e5 p-8">{{ i18nPack.tos?.definitions.table.content.b }}</td>
           </tr>
           <tr>
-            <td class="border-gray-e5 border border-solid p-8">{{ i18nPack.tos?.definitions.table.title.c }}</td>
-            <td class="border-gray-e5 border border-solid p-8">{{ i18nPack.tos?.definitions.table.content.c }}</td>
+            <td class="border border-solid border-gray-e5 p-8">{{ i18nPack.tos?.definitions.table.title.c }}</td>
+            <td class="border border-solid border-gray-e5 p-8">{{ i18nPack.tos?.definitions.table.content.c }}</td>
           </tr>
           <tr>
-            <td class="border-gray-e5 border border-solid p-8">{{ i18nPack.tos?.definitions.table.title.d }}</td>
-            <td class="border-gray-e5 border border-solid p-8">
+            <td class="border border-solid border-gray-e5 p-8">{{ i18nPack.tos?.definitions.table.title.d }}</td>
+            <td class="border border-solid border-gray-e5 p-8">
               {{ i18nPack.tos?.definitions.table.content.d }}
             </td>
           </tr>
           <tr>
-            <td class="border-gray-e5 border border-solid p-8">{{ i18nPack.tos?.definitions.table.title.e }}</td>
-            <td class="border-gray-e5 border border-solid p-8">{{ i18nPack.tos?.definitions.table.content.e }}</td>
+            <td class="border border-solid border-gray-e5 p-8">{{ i18nPack.tos?.definitions.table.title.e }}</td>
+            <td class="border border-solid border-gray-e5 p-8">{{ i18nPack.tos?.definitions.table.content.e }}</td>
           </tr>
           <tr>
-            <td class="border-gray-e5 border border-solid p-8">{{ i18nPack.tos?.definitions.table.title.f }}</td>
-            <td class="border-gray-e5 border border-solid p-8">{{ i18nPack.tos?.definitions.table.content.f }}</td>
+            <td class="border border-solid border-gray-e5 p-8">{{ i18nPack.tos?.definitions.table.title.f }}</td>
+            <td class="border border-solid border-gray-e5 p-8">{{ i18nPack.tos?.definitions.table.content.f }}</td>
           </tr>
           <tr>
-            <td class="border-gray-e5 border border-solid p-8">{{ i18nPack.tos?.definitions.table.title.g }}</td>
-            <td class="border-gray-e5 border border-solid p-8">{{ i18nPack.tos?.definitions.table.content.g }}</td>
+            <td class="border border-solid border-gray-e5 p-8">{{ i18nPack.tos?.definitions.table.title.g }}</td>
+            <td class="border border-solid border-gray-e5 p-8">{{ i18nPack.tos?.definitions.table.content.g }}</td>
           </tr>
           <tr>
-            <td class="border-gray-e5 border border-solid p-8">{{ i18nPack.tos?.definitions.table.title.h }}</td>
-            <td class="border-gray-e5 border border-solid p-8">
+            <td class="border border-solid border-gray-e5 p-8">{{ i18nPack.tos?.definitions.table.title.h }}</td>
+            <td class="border border-solid border-gray-e5 p-8">
               {{ i18nPack.tos?.definitions.table.content.h }}
             </td>
           </tr>
           <tr>
-            <td class="border-gray-e5 border border-solid p-8">{{ i18nPack.tos?.definitions.table.title.i }}</td>
-            <td class="border-gray-e5 border border-solid p-8">{{ i18nPack.tos?.definitions.table.content.i }}</td>
+            <td class="border border-solid border-gray-e5 p-8">{{ i18nPack.tos?.definitions.table.title.i }}</td>
+            <td class="border border-solid border-gray-e5 p-8">{{ i18nPack.tos?.definitions.table.content.i }}</td>
           </tr>
         </table>
         <div class="flex flex-col space-y-20 even:pt-8">

@@ -11,11 +11,11 @@
                 <div class="text-sm font-normal leading-3">@{{ item.creator_acc }}</div>
               </div>
               <div class="flex items-end space-x-5">
-                <div class="text-gray-57 text-sm font-normal leading-3">
+                <div class="text-sm font-normal leading-3 text-gray-57">
                   {{ item.posts }} {{ $t('content.subscribers') }}
                 </div>
-                <div class="text-gray-57 text-sm font-normal leading-3">•</div>
-                <div class="text-gray-57 text-sm font-normal leading-3">
+                <div class="text-sm font-normal leading-3 text-gray-57">•</div>
+                <div class="text-sm font-normal leading-3 text-gray-57">
                   {{ item.sub_member }} {{ $t('content.view') }}
                 </div>
               </div>

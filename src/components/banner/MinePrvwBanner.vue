@@ -4,14 +4,14 @@
       <div
         :class="{ 'text-white': isPrvwActive === 'isVisitor' }"
         @click="setActive('isVisitor')"
-        class="text-gray-a3 cursor-pointer"
+        class="cursor-pointer text-gray-a3"
       >
         {{ $t('info.perVisitor') }}
       </div>
       <div
         :class="{ 'text-white': isPrvwActive === 'isSubScriber' }"
         @click="setActive('isSubScriber')"
-        class="text-gray-a3 cursor-pointer"
+        class="cursor-pointer text-gray-a3"
       >
         {{ $t('info.perSubscriber') }}
       </div>

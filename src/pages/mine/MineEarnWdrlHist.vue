@@ -3,15 +3,15 @@
     <List :items="items" item-key="id">
       <template #default="{ item, last }">
         <div :key="itemKey ? item[itemKey] : index" class="space-y-10 pb-10 pt-10 last:pb-0">
-          <div class="flex justify-between items-center">
+          <div class="flex items-center justify-between">
             <div class="text-base font-bold leading-md">{{ $t('info.time') }}</div>
-            <div class="text-gray-57 text-base font-normal leading-lg">{{ item.created_at }}</div>
+            <div class="text-base font-normal leading-lg text-gray-57">{{ item.created_at }}</div>
           </div>
-          <div class="flex justify-between items-center">
+          <div class="flex items-center justify-between">
             <div class="text-base font-bold leading-md">{{ $t('label.wdrlAmount') }}</div>
             <div class="text-base font-normal leading-md">$ {{ item.amount }}</div>
           </div>
-          <div class="flex justify-between items-center">
+          <div class="flex items-center justify-between">
             <div class="text-base font-bold leading-md">{{ $t('label.status') }}</div>
             <div class="text-base font-normal leading-lg">{{ statusShow(item.status) }}</div>
           </div>
@@ -19,7 +19,7 @@
         <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
       </template>
       <template #bottom>
-        <div class="text-gray-a3 flex items-center justify-center py-8">
+        <div class="flex items-center justify-center py-8 text-gray-a3">
           <Loading></Loading>{{ $t('common.noMore') }}
         </div>
       </template>

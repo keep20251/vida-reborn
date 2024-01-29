@@ -124,10 +124,10 @@ export const BLOCK_UPDATE = {
 
 // userData 作者狀態
 export const AUTH_STATUS = {
-  UNVERIFIED: 0,  // 尚未驗證
-  VERIFIED: 1,  // 已驗證
-  CREATOR: 2,  // 已成為創作者
-  BANNED_CREATOR: 3,  // 被封禁的創作者
+  UNVERIFIED: 0, // 尚未驗證
+  VERIFIED: 1, // 已驗證
+  CREATOR: 2, // 已成為創作者
+  BANNED_CREATOR: 3, // 被封禁的創作者
 }
 
 // 提交紀錄 - 申請狀態

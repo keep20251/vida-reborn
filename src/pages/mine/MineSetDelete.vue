@@ -1,7 +1,7 @@
 <template>
   <div class="border-t pt-20">
     <div class="space-y-20">
-      <div class="text-gray-57 mb-10 text-base font-normal leading-lg">
+      <div class="mb-10 text-base font-normal leading-lg text-gray-57">
         {{ $t('content.delAccContent') }} example@mail.com
       </div>
       <InputWrap v-model="nowPw" :label="$t('label.nowPw')" :placeholder="$t('placeholder.nowPw')" password></InputWrap>
