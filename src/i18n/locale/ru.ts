@@ -195,6 +195,7 @@ export default {
     delAccContent: "",
     unableRecover: "",
     delAcc: "",
+    showMoreCreators: "",
   },
   month: {
     Jan: "Январь",
@@ -317,5 +318,5 @@ export default {
     amount: { min: "Минимальная сумма вывода - 20 $." },
   },
   up: { object: { adult: "Вы должны быть не моложе 18 лет." } },
-  category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "", 12: "" },
+  category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "" },
 }

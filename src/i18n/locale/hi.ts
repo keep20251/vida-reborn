@@ -194,6 +194,7 @@ export default {
     delAccContent: "",
     unableRecover: "",
     delAcc: "",
+    showMoreCreators: "",
   },
   month: {
     Jan: "जनवरी",
@@ -312,5 +313,5 @@ export default {
     amount: { min: "न्यूनतम निकासी राशि $20 है।" },
   },
   up: { object: { adult: "आपको कम से कम 18 साल की आयु होनी चाहिए।" } },
-  category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "", 12: "" },
+  category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "" },
 }
