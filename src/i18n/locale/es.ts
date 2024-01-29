@@ -195,6 +195,7 @@ export default {
     delAccContent: "",
     unableRecover: "",
     delAcc: "",
+    showMoreCreators: "",
   },
   month: {
     Jan: "Enero",
@@ -317,5 +318,5 @@ export default {
     amount: { min: "El monto mínimo de retiro es de $20." },
   },
   up: { object: { adult: "Debe tener al menos 18 años." } },
-  category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "", 12: "" },
+  category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "" },
 }

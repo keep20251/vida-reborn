@@ -195,6 +195,7 @@ export default {
     delAccContent: "",
     unableRecover: "",
     delAcc: "",
+    showMoreCreators: "",
   },
   month: {
     Jan: "Januari",
@@ -316,5 +317,5 @@ export default {
     amount: { min: "Jumlah penarikan minimum adalah $20." },
   },
   up: { object: { adult: "Anda harus berusia setidaknya 18 tahun." } },
-  category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "", 12: "" },
+  category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "" },
 }

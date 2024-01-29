@@ -193,6 +193,7 @@ export default {
     delAccContent: "",
     unableRecover: "",
     delAcc: "",
+    showMoreCreators: "",
   },
   month: {
     Jan: "يناير",
@@ -311,5 +312,5 @@ export default {
     amount: { min: "الحد الأدنى للسحب هو 20 دولار." },
   },
   up: { object: { adult: "يجب أن تكون على الأقل 18 عامًا." } },
-  category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "", 12: "" },
+  category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "" },
 }

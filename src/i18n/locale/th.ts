@@ -194,6 +194,7 @@ export default {
     delAccContent: "",
     unableRecover: "",
     delAcc: "",
+    showMoreCreators: "",
   },
   month: {
     Jan: "มกราคม",
@@ -312,5 +313,5 @@ export default {
     amount: { min: "ยอดถอนขั้นต่ำคือ 20 ดอลลาร์" },
   },
   up: { object: { adult: "คุณต้องมีอายุอย่างน้อย 18 ปี" } },
-  category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "", 12: "" },
+  category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "" },
 }

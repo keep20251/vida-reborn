@@ -197,6 +197,7 @@ export default {
     delAccContent: "",
     unableRecover: "",
     delAcc: "",
+    showMoreCreators: "",
   },
   month: {
     Jan: "Januar",
@@ -318,5 +319,5 @@ export default {
     amount: { min: "Der Mindestauszahlungsbetrag beträgt 20 $." },
   },
   up: { object: { adult: "Sie müssen mindestens 18 Jahre alt sein." } },
-  category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "", 12: "" },
+  category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "" },
 }

@@ -195,6 +195,7 @@ export default {
     delAccContent: "",
     unableRecover: "",
     delAcc: "",
+    showMoreCreators: "",
   },
   month: {
     Jan: "Janvier",
@@ -317,5 +318,5 @@ export default {
     amount: { min: "Le montant minimum de retrait est de 20 $." },
   },
   up: { object: { adult: "Vous devez avoir au moins 18 ans." } },
-  category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "", 12: "" },
+  category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "" },
 }

@@ -197,6 +197,7 @@ export default {
     delAccContent: "",
     unableRecover: "",
     delAcc: "",
+    showMoreCreators: "",
   },
   month: {
     Jan: "Janeiro",
@@ -319,5 +320,5 @@ export default {
     amount: { min: "O valor mínimo de saque é de $20." },
   },
   up: { object: { adult: "Você deve ter pelo menos 18 anos." } },
-  category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "", 12: "" },
+  category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "" },
 }

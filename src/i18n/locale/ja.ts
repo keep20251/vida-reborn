@@ -197,6 +197,7 @@ export default {
     delAccContent: "",
     unableRecover: "",
     delAcc: "",
+    showMoreCreators: "",
   },
   month: {
     Jan: "1月",
@@ -318,5 +319,5 @@ export default {
     amount: { min: "最低引き出し金額は$20です。" },
   },
   up: { object: { adult: "少なくとも18歳である必要があります。" } },
-  category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "", 12: "" },
+  category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "" },
 }

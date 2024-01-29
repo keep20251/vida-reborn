@@ -197,6 +197,7 @@ export default {
     delAccContent: "",
     unableRecover: "",
     delAcc: "",
+    showMoreCreators: "",
   },
   month: {
     Jan: "Tháng Một",
@@ -318,5 +319,5 @@ export default {
     amount: { min: "Số tiền tối thiểu có thể rút là $20." },
   },
   up: { object: { adult: "Bạn phải đủ 18 tuổi." } },
-  category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "", 12: "" },
+  category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "" },
 }

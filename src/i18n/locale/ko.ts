@@ -194,6 +194,7 @@ export default {
     delAccContent: "",
     unableRecover: "",
     delAcc: "",
+    showMoreCreators: "",
   },
   month: {
     Jan: "1월",
@@ -315,5 +316,5 @@ export default {
     amount: { min: "최소 인출 금액은 $20입니다." },
   },
   up: { object: { adult: "최소 18세 이어야 합니다." } },
-  category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "", 12: "" },
+  category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "" },
 }
