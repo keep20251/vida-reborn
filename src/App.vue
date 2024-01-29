@@ -38,7 +38,7 @@ import { loadSeoHead } from '@/utils/init'
 const route = useRoute()
 const appStore = useAppStore()
 const { isDesktop, isMobile } = storeToRefs(appStore)
-const { initAppConfig, setAppConfig } = appStore
+const { initAppConfig, setAppConfig, initCategories, setCategories } = appStore
 
 loadSeoHead()
 const { authDialog, fileSelectDialog } = storeToRefs(useDialogStore())
@@ -48,49 +48,42 @@ const { resetUserData } = accountStore
 const { isLogin } = storeToRefs(accountStore)
 
 const hydrationStore = useHydrationStore()
-const { appConfig, userData } = storeToRefs(hydrationStore)
+const { appConfig, categories, userData } = storeToRefs(hydrationStore)
+
+const execTable = {
+  base: [
+    { fetcher: initAppConfig, hydrationTarget: appConfig, hydrationAction: setAppConfig },
+    { fetcher: initCategories, hydrationTarget: categories, hydrationAction: setCategories },
+  ],
+  login: [
+    {
+      fetcher: async () => {
+        const data = await useRequest('User.info', { immediate: true })
+        resetUserData(data)
+        return data
+      },
+      hydrationTarget: userData,
+      hydrationAction: resetUserData,
+    },
+  ],
+}
 onServerClientOnce(async (isSSR) => {
-  // 有登入初始資料
-  if (isLogin.value) {
-    try {
-      const [resAppConfig, resUserData] = await Promise.all([
-        initAppConfig(),
-        useRequest('User.info', { immediate: true }),
-      ])
-      resetUserData(resUserData)
-
-      if (isSSR) {
-        appConfig.value = resAppConfig
-        userData.value = resUserData
-      }
-    } catch (e) {
-      console.error(e)
+  const executors = isLogin.value ? [...execTable.base, ...execTable.login] : [...execTable.base]
+  try {
+    const datas = await Promise.all(executors.map((e) => e.fetcher()))
+    if (isSSR) {
+      executors.forEach(({ hydrationTarget }, i) => {
+        hydrationTarget.value = datas[i]
+      })
     }
-  }
-
-  // 未登入初始資料
-  else {
-    try {
-      const [resAppConfig] = await Promise.all([initAppConfig()])
-
-      if (isSSR) {
-        appConfig.value = resAppConfig
-      }
-    } catch (e) {
-      console.error(e)
-    }
+  } catch (e) {
+    console.error(e)
   }
 })
 onHydration(() => {
-  // 有登入資料還原
-  if (isLogin.value) {
-    setAppConfig(appConfig.value)
-    resetUserData(userData.value)
-  }
-
-  // 未登入資料還原
-  else {
-    setAppConfig(appConfig.value)
-  }
+  const executors = isLogin.value ? [...execTable.base, ...execTable.login] : [...execTable.base]
+  executors.forEach(({ hydrationAction, hydrationTarget }, i) => {
+    hydrationAction(hydrationTarget.value)
+  })
 })
 </script>

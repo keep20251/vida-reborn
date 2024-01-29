@@ -32,6 +32,18 @@ export const useAppStore = defineStore('app', () => {
     }
   }
 
+  const categories = ref([])
+  async function initCategories() {
+    const data = await useRequest('Article.categories', { immediate: true })
+    setCategories(data.list)
+    return data.list
+  }
+  function setCategories(data) {
+    Object.entries(data).forEach(([value, label]) => {
+      categories.value.push({ label, value })
+    })
+  }
+
   return {
     isDesktop,
     isMobile,
@@ -39,5 +51,9 @@ export const useAppStore = defineStore('app', () => {
     appConfig: readonly(appConfig),
     initAppConfig,
     setAppConfig,
+
+    categories: readonly(categories),
+    initCategories,
+    setCategories,
   }
 })
