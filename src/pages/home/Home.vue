@@ -93,7 +93,7 @@ const {
   transformer: feedStore.sync,
 })
 
-const tab = ref(1)
+const tab = ref(TAB_TYPE.REC)
 const tabOptions = ref([
   { label: 'common.recommand', value: TAB_TYPE.REC },
   { label: 'common.subscribe', value: TAB_TYPE.SUB },
