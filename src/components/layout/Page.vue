@@ -11,29 +11,36 @@
             'w-[calc(100%-60px)]': isDesktop,
             'h-44': isMobile,
             'h-52': isDesktop,
-            'top-0': isDesktop || !$slots['mobile-top'],
-            'top-52': isMobile && $slots['mobile-top'],
+            'top-52': $slots['app-top'],
             'translate-y-[-100%]': !mainTopOpen,
           }"
         >
           <slot name="main-top"></slot>
         </div>
 
-        <!-- mobile-top -->
+        <!-- app-top -->
         <div
-          v-if="isMobile && $slots['mobile-top']"
-          class="fixed top-0 z-10 -ml-20 h-52 w-full max-w-[500px] bg-white px-20 py-9"
+          v-if="$slots['app-top']"
+          class="fixed top-0 z-10 -ml-20 h-52 max-w-[540px] overflow-hidden bg-white px-20 py-9"
+          :class="{
+            'w-full': isMobile,
+            'w-[calc(100%-60px)]': isDesktop,
+          }"
         >
-          <slot name="mobile-top"></slot>
+          <slot name="app-top"></slot>
         </div>
 
         <!-- main -->
         <div
           ref="main"
           :class="{
-            'pt-44': isMobile && $slots['main-top'] && !$slots['mobile-top'],
-            'pt-52': (isDesktop && $slots['main-top']) || (!$slots['main-top'] && $slots['mobile-top']),
-            'pt-96': isMobile && $slots['mobile-top'] && $slots['main-top'],
+            'pt-44': isMobile && $slots['main-top'] && !$slots['app-top'],
+            'pt-52':
+              (isDesktop &&
+                (($slots['main-top'] && !$slots['app-top']) || (!$slots['main-top'] && $slots['app-top']))) ||
+              (isMobile && !$slots['main-top'] && $slots['app-top']),
+            'pt-96': isMobile && $slots['app-top'] && $slots['main-top'],
+            'pt-[6.5rem]': isDesktop && $slots['app-top'] && $slots['main-top'],
           }"
         >
           <slot></slot>

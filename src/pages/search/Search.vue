@@ -1,25 +1,10 @@
 <template>
   <Page infinite @load="nextFn">
-    <template #mobile-top>
-      <div class="bg-white">
-        <MobileTopBar @update:keyword="(v) => (keyword = v)" @trigger:search="onSearch"></MobileTopBar>
-        <div class="mt-10 h-34 w-full">
-          <Tab v-model="activeTab" :options="tabOptions"></Tab>
-        </div>
-      </div>
+    <template #app-top>
+      <TopSearchBar :logo="isMobile" @update:keyword="(v) => (keyword = v)" @trigger:search="onSearch"></TopSearchBar>
     </template>
-    <template v-if="isDesktop" #main-top>
-      <div class="flex h-full flex-col items-center">
-        <InputWrap
-          class="w-full"
-          v-model="keyword"
-          :placeholder="$t('placeholder.search')"
-          :appendIcon="'search2'"
-          @click:append="onSearch"
-          @keypress:enter="onSearch"
-        ></InputWrap>
-        <Tab v-model="activeTab" :options="tabOptions"></Tab>
-      </div>
+    <template #main-top>
+      <Tab v-model="activeTab" :options="tabOptions"></Tab>
     </template>
     <template #default>
       <div>
@@ -80,10 +65,9 @@ import ViewSubscribeCard from '@comp/card/ViewSubscribeCard.vue'
 import Carousel from '@comp/common/Carousel.vue'
 import ClientOnly from '@comp/common/ClientOnly'
 import List from '@comp/common/List.vue'
-import InputWrap from '@comp/form/InputWrap.vue'
 import Feed from '@comp/main/Feed.vue'
-import MobileTopBar from '@comp/navigation/MobileTopBar.vue'
 import Tab from '@comp/navigation/Tab.vue'
+import TopSearchBar from '@comp/navigation/TopSearchBar.vue'
 import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import { useInfinite } from '@use/request/infinite'
 import { SEARCH_TAB } from '@const'
@@ -91,7 +75,7 @@ import { SEARCH_TAB } from '@const'
 const { t: $t } = useI18n()
 
 const appStore = useAppStore()
-const { isDesktop } = storeToRefs(appStore)
+const { isMobile } = storeToRefs(appStore)
 
 const activeTab = ref(SEARCH_TAB.AUTHOR)
 const tabOptions = [
