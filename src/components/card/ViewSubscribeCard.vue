@@ -1,16 +1,18 @@
 <template>
   <div class="relative h-[11rem]">
-    <img class="h-full w-full rounded-xl bg-no-repeat object-cover" :src="props.bgImage" />
+    <div class="h-full w-full rounded-xl bg-no-repeat object-cover">
+      <EncryptImage :src="props.item.background" :border-radius="15" cover></EncryptImage>
+    </div>
     <div class="absolute top-0 h-full w-full flex-shrink-0 rounded-xl opacity-80" :class="colorTheme"></div>
     <div class="absolute top-0 h-full w-full px-20 py-30">
       <div class="flex flex-row">
-        <Avatar :radius="70" class="mr-10" :src="props.avatar" :alt="props.username"></Avatar>
+        <Avatar :radius="70" class="mr-10" :src="props.item.thumb" :alt="props.item.username"></Avatar>
         <div class="flex flex-col space-y-10">
           <div>
-            <div class="text-lg font-bold leading-5 text-white">{{ props.nickname }}</div>
-            <div class="text-sm font-normal leading-3 text-white">{{ props.username }}</div>
+            <div class="text-lg font-bold leading-5 text-white">{{ props.item.nickname }}</div>
+            <div class="text-sm font-normal leading-3 text-white">{{ props.item.username }}</div>
           </div>
-          <div class="w-[14.375rem] text-base font-normal leading-5 text-white">{{ props.content }}</div>
+          <div class="w-[14.375rem] text-base font-normal leading-5 text-white">{{ props.item?.content }}</div>
         </div>
         <div class="ml-auto flex items-end">
           <Button class="!px-10">{{ $t('common.viewSubscribePlan') }}</Button>
@@ -30,25 +32,15 @@ import defaultAvatar from '@/assets/images/avatar.jpeg'
 import defaultBgImage from '@/assets/images/creator-card.png'
 
 const props = defineProps({
-  bgImage: {
-    type: String,
-    default: defaultBgImage,
-  },
-  avatar: {
-    type: String,
-    default: defaultAvatar,
-  },
-  nickname: {
-    type: String,
-    default: 'Angelababy',
-  },
-  username: {
-    type: String,
-    default: '@angelababy',
-  },
-  content: {
-    type: String,
-    default: `🇩🇪/🇺🇸 - 19 years😇 check my link to get to know me <3, I'm convinced your massive dick will help me get to the spread, daddy💦💦`,
+  item: {
+    type: Object,
+    default: () => ({
+      background: defaultBgImage,
+      thumb: defaultAvatar,
+      nickname: 'Angelababy',
+      username: '@angelababy',
+      content: `🇩🇪/🇺🇸 - 19 years😇 check my link to get to know me <3, I'm convinced your massive dick will help me get to the spread, daddy💦💦`,
+    }),
   },
   theme: {
     type: Number,
