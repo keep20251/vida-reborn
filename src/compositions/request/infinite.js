@@ -3,9 +3,10 @@ import useRequest from '.'
 
 /**
  *
- * @param {Function} apiKey api key
+ * @param {String} apiKey Module.name
  * @param {Object} params 其他額外的參數
  * @param {Number} limit 分頁數量，預設 10
+ * @param {Function} transformer 資料轉換函式
  *
  * @returns {Array} infinite.dataList 資料陣列(ref)
  * @returns {Error} infinite.error 請求時發生錯誤
@@ -17,7 +18,7 @@ import useRequest from '.'
  * @returns {Function} infinite.revert 還原資料
  * @returns {Function} infinite.next 後續觸發請求
  */
-export function useInfinite(apiKey, { params = {}, limit = 10 } = {}) {
+export function useInfinite(apiKey, { params = {}, limit = 10, transformer } = {}) {
   // 請求資料清單
   const dataList = ref([])
 
@@ -48,7 +49,7 @@ export function useInfinite(apiKey, { params = {}, limit = 10 } = {}) {
 
   function revert(src) {
     reset()
-    dataList.value.push(...src)
+    dataList.value.push(...transformData(src))
   }
 
   async function next() {
@@ -70,7 +71,7 @@ export function useInfinite(apiKey, { params = {}, limit = 10 } = {}) {
         throw new Error(`API ${apiKey} response data.list is not array...`)
       }
 
-      const newDataList = [...data.value.list]
+      const newDataList = transformData(data.value.list)
       if (newDataList.length < limit) {
         noMore.value = true
       }
@@ -80,6 +81,10 @@ export function useInfinite(apiKey, { params = {}, limit = 10 } = {}) {
       console.error(e)
       return Promise.reject(e)
     }
+  }
+
+  function transformData(data) {
+    return transformer ? transformer(data) : [...data]
   }
 
   return {

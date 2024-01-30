@@ -15,7 +15,7 @@ export const useCreatorStore = defineStore('creator', () => {
 
   const inRequesting = {}
 
-  async function getCreator(username) {
+  async function get(username) {
     if (creatorsMap.has(username)) {
       return creatorsMap.get(username)
     }
@@ -51,7 +51,7 @@ export const useCreatorStore = defineStore('creator', () => {
    * @param {*} data creator data
    * @return creator in creatorsMap
    */
-  function revertCreator(data) {
+  function revert(data) {
     if (creatorsMap.has(data.username)) {
       throw new Error(`Creator '${data.username}' already exist, but you still revert it?`)
     }
@@ -66,8 +66,8 @@ export const useCreatorStore = defineStore('creator', () => {
   }
 
   return {
-    getCreator,
-    revertCreator,
+    get,
+    revert,
     clear,
   }
 })
