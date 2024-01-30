@@ -111,6 +111,7 @@ export default {
     newPw: "请输入新密码",
     newPwCfm: "请再输入一次新密码",
     wdrlAmount: "请输入提领金额",
+    search: "搜索...",
   },
   message: { payment: { failed: "付款失败", success: "付款成功", cancel: "付款取消" } },
   copy: { link: "复制链接", fail: "复制失败" },

@@ -116,6 +116,7 @@ export default {
     newPw: "",
     newPwCfm: "",
     wdrlAmount: "",
+    search: "suchen...",
   },
   message: {
     payment: { failed: "Zahlung fehlgeschlagen", success: "Zahlung erfolgreich", cancel: "Zahlung abgebrochen" },

@@ -116,6 +116,7 @@ export default {
     newPw: "",
     newPwCfm: "",
     wdrlAmount: "",
+    search: "mencari...",
   },
   message: { payment: { failed: "Pembayaran gagal", success: "Pembayaran berhasil", cancel: "Pembayaran dibatalkan" } },
   copy: { link: "Salin tautan", fail: "Salinan gagal" },

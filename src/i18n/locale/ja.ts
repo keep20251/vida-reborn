@@ -111,6 +111,7 @@ export default {
     newPw: "",
     newPwCfm: "",
     wdrlAmount: "",
+    search: "検索...",
   },
   message: {
     payment: { failed: "支払いに失敗しました", success: "支払い成功", cancel: "支払いがキャンセルされました" },

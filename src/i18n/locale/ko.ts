@@ -111,6 +111,7 @@ export default {
     newPw: "",
     newPwCfm: "",
     wdrlAmount: "",
+    search: "찾다...",
   },
   message: { payment: { failed: "결제 실패", success: "결제 성공", cancel: "결제 취소" } },
   copy: { link: "링크 복사하기", fail: "복사 실패" },
