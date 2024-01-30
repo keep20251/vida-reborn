@@ -120,6 +120,22 @@ export const usePublishStore = defineStore('publish', () => {
     startEditTimestamp.value = new Date().getTime()
   }
 
+  function changeVideoFile(files, videoRef) {
+    const firstFileType = files[0].type
+    const feedType = getMediaType(firstFileType)
+    if (feedType !== MEDIA_TYPE.VIDEO) {
+      throw new Error($t('content.onlyChangeVideo'))
+    }
+
+    fileList = files
+
+    uploadFiles.value = []
+
+    pushUploadFile(files[0])
+
+    startUpload(videoRef)
+  }
+
   function addImageFile(files) {
     for (const file of files) {
       if (getMediaType(file.type) !== MEDIA_TYPE.IMAGE) {
@@ -317,6 +333,7 @@ export const usePublishStore = defineStore('publish', () => {
     // setPublishParams,
     getUploadPayload,
     startUpload,
+    changeVideoFile,
     addImageFile,
     removeUploadFile,
     reUploadFile,

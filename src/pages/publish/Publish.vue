@@ -12,16 +12,31 @@
         </div>
 
         <!-- 上傳視頻 -->
-        <div v-if="isVideo" class="flex flex-col space-y-10">
-          <div class="flex">
+        <div v-if="isVideo" class="flex flex-col">
+          <div class="mb-10 flex">
             <div class="flex grow flex-col space-y-10">
               <label class="text-left text-base leading-md">上傳視頻</label>
               <span class="text-left text-sm text-gray-57">支持mp4/mov格式，不超過 100 MB</span>
             </div>
-            <Button class="self-end" size="md">重新選擇</Button>
+            <Button class="self-end" size="md" @click="() => inputVideo.click()">重新選擇</Button>
+            <input
+              type="file"
+              class="hidden"
+              accept="video/mp4, video/quicktime, video/x-quicktime, video/mov, video/x-mov, video/avi"
+              multiple
+              ref="inputVideo"
+              @change="onVideoFile"
+            />
           </div>
-          <video ref="video" controls></video>
-          <!-- <div class="rounded-md bg-orange-200 pb-[64%]"></div> -->
+          <div class="relative overflow-hidden rounded-sm pb-[64%]">
+            <video class="absolute left-1/2 top-0 h-full -translate-x-1/2" ref="video" controls></video>
+            <div
+              v-if="uploadFiles[0].status !== UPLOAD_STATUS.DONE"
+              class="absolute top-0 h-full w-full bg-black p-20 text-right text-white opacity-70"
+            >
+              {{ `上傳進度 ${Math.floor(uploadFiles[0].progress * 100)}%` }}
+            </div>
+          </div>
         </div>
 
         <!-- 上傳圖片 -->
@@ -40,7 +55,7 @@
             <input
               type="file"
               class="hidden"
-              accept="video/mp4, video/quicktime, video/x-quicktime, video/mov, video/x-mov, video/avi, image/jpg, image/jpeg, image/png, image/gif"
+              accept="image/jpg, image/jpeg, image/png, image/gif"
               multiple
               ref="inputImage"
               @change="onImageFile"
@@ -144,13 +159,14 @@ import { FEED_PERM, IMAGE_LIMIT_COUNT, SUB_ALL_VALUE, UPLOAD_STATUS } from '@/co
 
 const publishStore = usePublishStore()
 const { uploadFiles, publishTimeOpen, isCreate, isUpdate, isVideo, isImage, isEditing } = storeToRefs(publishStore)
-const { publishParams, startUpload, clear, addImageFile, removeUploadFile } = publishStore
+const { publishParams, startUpload, clear, changeVideoFile, addImageFile, removeUploadFile } = publishStore
 
 const { alert, confirm } = useModalStore()
 
 const router = useRouter()
 
 const publishing = ref(false)
+const inputVideo = ref(null)
 const inputImage = ref(null)
 
 const video = ref(null)
@@ -185,6 +201,13 @@ const postTimeModel = computed(() => {
   }
   return ''
 })
+
+function onVideoFile(evt) {
+  const files = evt.target.files
+  if (files.length > 0) {
+    changeVideoFile(files, video)
+  }
+}
 
 function onImageFile(evt) {
   const files = evt.target.files
