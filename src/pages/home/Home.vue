@@ -7,7 +7,7 @@
       <Tab v-model="tab" :options="tabOptions"></Tab>
     </template>
     <template #default>
-      <div v-if="tab === TAB_TYPE.REC">
+      <div v-show="tab === TAB_TYPE.REC">
         <div class="overflow-x-hidden">
           <List :items="items" item-key="id">
             <template #default="{ item, last }">
@@ -23,7 +23,7 @@
           </List>
         </div>
       </div>
-      <div v-else-if="tab === TAB_TYPE.SUB">
+      <div v-show="tab === TAB_TYPE.SUB">
         <div class="flex justify-between pt-20">
           <div class="text-base font-bold leading-md">Popular Creator</div>
           <Icon name="filter" size="20" class="cursor-pointer"></Icon>
