@@ -1,6 +1,6 @@
 <template>
-  <div class="flex items-center space-x-20">
-    <Link :href="`/${locale}`" title="VIDA" @click="router.push({ name: 'home' })">
+  <div class="flex h-full items-center space-x-20">
+    <Link v-if="logo" :href="`/${locale}`" title="VIDA" @click="router.push({ name: 'home' })">
       <img class="h-30 w-54" src="@/assets/logo.svg?url" alt="VIDA" />
     </Link>
     <InputWrap
@@ -29,6 +29,7 @@ import { useLocaleReadonly } from '@use/utils/localeReadonly'
 const { t: $t } = useI18n()
 
 defineProps({
+  logo: { type: Boolean, default: false },
   featureIcon: { type: String },
 })
 defineEmits(['feature', 'trigger:search', 'update:keyword'])

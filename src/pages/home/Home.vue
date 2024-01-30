@@ -1,7 +1,7 @@
 <template>
   <Page infinite @load="next">
-    <template #mobile-top>
-      <MobileTopBar feature-icon="filter"></MobileTopBar>
+    <template v-if="isMobile" #app-top>
+      <TopSearchBar logo feature-icon="filter"></TopSearchBar>
     </template>
     <template #main-top>
       <Tab v-model="tab" :options="tabOptions"></Tab>
@@ -39,15 +39,7 @@
       </div>
     </template>
     <template #aside-top>
-      <div class="flex h-full items-center">
-        <InputWrap
-          class="grow"
-          v-model="searchValue"
-          :placeholder="'搜索...'"
-          appendIcon="search2"
-          @click:append="console.log('appendIcon')"
-        ></InputWrap>
-      </div>
+      <TopSearchBar></TopSearchBar>
     </template>
     <template #aside>
       <ClientOnly>
@@ -64,6 +56,7 @@
 <script setup>
 import { onActivated, onServerPrefetch, ref } from 'vue'
 import { storeToRefs } from 'pinia'
+import { useAppStore } from '@/store/app'
 import { useFeedStore } from '@/store/feed'
 import { useHeadStore } from '@/store/head'
 import { useHydrationStore } from '@/store/hydration'
@@ -72,13 +65,15 @@ import RecCard from '@comp/card/RecCard.vue'
 import ViewSubscribeCard from '@comp/card/ViewSubscribeCard.vue'
 import Carousel from '@comp/common/Carousel.vue'
 import List from '@comp/common/List.vue'
-import InputWrap from '@comp/form/InputWrap.vue'
 import Feed from '@comp/main/Feed.vue'
-import MobileTopBar from '@comp/navigation/MobileTopBar.vue'
 import Tab from '@comp/navigation/Tab.vue'
+import TopSearchBar from '@comp/navigation/TopSearchBar.vue'
 import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import { useInfinite } from '@use/request/infinite'
 import { TAB_TYPE } from '@const/home'
+
+const appStore = useAppStore()
+const { isMobile } = storeToRefs(appStore)
 
 const feedStore = useFeedStore()
 const {
