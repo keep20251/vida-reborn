@@ -1,16 +1,22 @@
 <template>
-  <Page infinite @load="next">
+  <Page infinite @load="nextFn">
     <template #mobile-top>
-      <MobileTopBar></MobileTopBar>
+      <div class="bg-white">
+        <MobileTopBar @update:keyword="(v) => (keyword = v)" @trigger:search="onSearch"></MobileTopBar>
+        <div class="mt-10 h-34 w-full">
+          <Tab v-model="activeTab" :options="tabOptions"></Tab>
+        </div>
+      </div>
     </template>
     <template v-if="isDesktop" #main-top>
       <div class="flex h-full flex-col items-center">
         <InputWrap
           class="w-full"
-          v-model="inputValue"
-          :placeholder="'搜索...'"
+          v-model="keyword"
+          :placeholder="$t('placeholder.search')"
           :appendIcon="'search2'"
-          @click:append="console.log('appendIcon')"
+          @click:append="onSearch"
+          @keypress:enter="onSearch"
         ></InputWrap>
         <Tab v-model="activeTab" :options="tabOptions"></Tab>
       </div>
@@ -61,7 +67,9 @@
 </template>
 
 <script setup>
+import debounce from 'lodash/debounce'
 import { computed, ref, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useHydrationStore } from '@/store/hydration'
@@ -79,12 +87,12 @@ import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import { useInfinite } from '@use/request/infinite'
 import { SEARCH_TAB } from '@const'
 
+const { t: $t } = useI18n()
+
 const appStore = useAppStore()
 const { isDesktop } = storeToRefs(appStore)
 
-const inputValue = ref('')
-
-const activeTab = ref(1)
+const activeTab = ref(SEARCH_TAB.AUTHOR)
 const tabOptions = [
   { label: 'tab.relatedAuthor', value: SEARCH_TAB.AUTHOR },
   { label: 'tab.relatedPost', value: SEARCH_TAB.POST },
@@ -96,6 +104,7 @@ const {
   noMore: articleNoMore,
   init: articleInit,
   next: articleNext,
+  reload: articleReload,
 } = useInfinite('Article.list', {
   params: {},
 })
@@ -107,11 +116,12 @@ const {
   init: creatorInit,
   revert: creatorRevert,
   next: creatorNext,
+  reload: creatorReload,
 } = useInfinite('User.searchCreator', {
   params: {},
 })
 
-const next = computed(() => (activeTab.value === SEARCH_TAB.AUTHOR ? creatorNext : articleNext))
+const nextFn = computed(() => (activeTab.value === SEARCH_TAB.AUTHOR ? creatorNext : articleNext))
 
 watch(
   activeTab,
@@ -130,4 +140,19 @@ onHydration(() => {
   creatorRevert(relatedAuthors.value)
   console.log('relatedAuthors.value', relatedAuthors.value)
 })
+
+const keyword = ref('')
+const reloadFn = computed(() => (activeTab.value === SEARCH_TAB.AUTHOR ? creatorReload : articleReload))
+const onSearch = debounce(() => {
+  console.log('onSearch')
+  if (keyword.value === '') return
+  reloadFn.value({ newParams: { keyword: keyword.value } })
+}, 500)
+
+watch(
+  keyword,
+  debounce((v) => {
+    if (v === '') reloadFn.value({ newParams: {} })
+  }, 500),
+)
 </script>
