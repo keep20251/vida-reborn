@@ -116,6 +116,7 @@ export default {
     newPw: "",
     newPwCfm: "",
     wdrlAmount: "",
+    search: "يبحث...",
   },
   message: { payment: { failed: "فشل الدفع", success: "الدفع ناجح", cancel: "تم إلغاء الدفع" } },
   copy: { link: "نسخ الرابط", fail: "فشل النسخ" },

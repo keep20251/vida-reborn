@@ -45,6 +45,7 @@ export const iconMap = {
   passport: 'function/passport',
   focal: 'function/focal',
   questionOutline: 'function/question-outline',
+  ellipse: 'function/ellipse',
 
   comment: 'interaction/comment',
   likeOutline: 'interaction/like-outline',

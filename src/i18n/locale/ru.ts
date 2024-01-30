@@ -116,6 +116,7 @@ export default {
     newPw: "",
     newPwCfm: "",
     wdrlAmount: "",
+    search: "поиск...",
   },
   message: { payment: { failed: "Оплата не прошла", success: "Оплата прошла успешно", cancel: "Оплата отменена" } },
   copy: { link: "Скопировать ссылку", fail: "Копирование не удалось" },

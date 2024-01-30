@@ -116,6 +116,7 @@ export default {
     newPw: "",
     newPwCfm: "",
     wdrlAmount: "",
+    search: "खोज...",
   },
   message: { payment: { failed: "भुगतान असफल", success: "भुगतान सफल", cancel: "भुगतान रद्द" } },
   copy: { link: "लिंक कॉपी करें", fail: "कॉपी विफल" },

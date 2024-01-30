@@ -116,6 +116,7 @@ export default {
     newPw: "",
     newPwCfm: "",
     wdrlAmount: "",
+    search: "recherche...",
   },
   message: { payment: { failed: "Paiement échoué", success: "Paiement réussi", cancel: "Paiement annulé" } },
   copy: { link: "Copier le lien", fail: "Copie échouée" },

@@ -116,6 +116,7 @@ export default {
     newPw: "Please enter a new password",
     newPwCfm: "Please enter new password again",
     wdrlAmount: "Please enter the withdrawal amount",
+    search: "search...",
   },
   message: { payment: { failed: "Payment Failed", success: "Payment Successful", cancel: "Payment Cancelled" } },
   copy: { link: "Copy Link", fail: "Copy Failed" },

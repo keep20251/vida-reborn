@@ -22,6 +22,7 @@
             'pr-48': !!password,
           }"
           class="h-35 w-full shrink-0 divide-solid rounded-2xl border-gray-cc bg-white px-20 py-12 text-sm font-normal not-italic leading-3 text-gray-57 shadow-[inset_0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)] outline-none placeholder:text-sm placeholder:text-gray-a3"
+          @keypress.enter="emits('keypress:enter')"
         />
         <Icon
           v-if="!!prependIcon"
@@ -95,7 +96,7 @@ const props = defineProps({
   typingAppend: { type: Boolean, default: false },
 })
 
-const emits = defineEmits(['update:modelValue', 'click:prepend', 'click:append'])
+const emits = defineEmits(['update:modelValue', 'click:prepend', 'click:append', 'keypress:enter'])
 
 const value = computed({
   get() {

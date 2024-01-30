@@ -116,6 +116,7 @@ export default {
     newPw: "",
     newPwCfm: "",
     wdrlAmount: "",
+    search: "tìm kiếm...",
   },
   message: {
     payment: { failed: "Thanh toán thất bại", success: "Thanh toán thành công", cancel: "Thanh toán đã hủy" },

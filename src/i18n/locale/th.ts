@@ -116,6 +116,7 @@ export default {
     newPw: "",
     newPwCfm: "",
     wdrlAmount: "",
+    search: "ค้นหา...",
   },
   message: { payment: { failed: "การชำระเงินล้มเหลว", success: "การชำระเงินสำเร็จ", cancel: "การชำระเงินถูกยกเลิก" } },
   copy: { link: "คัดลอกลิงค์", fail: "คัดลอกไม่สำเร็จ" },
