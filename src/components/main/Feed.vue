@@ -46,7 +46,7 @@
     <div class="flex flex-col space-y-5">
       <div class="text-base font-bold leading-none">{{ item.title }}</div>
       <div class="flex items-end space-x-5">
-        <div>
+        <div class="grow">
           <div class="flex space-x-5">
             <div v-for="(tag, i) in tags" :key="i" class="text-base leading-lg text-primary">#{{ tag }}</div>
           </div>
@@ -66,7 +66,7 @@ import Avatar from '@comp/multimedia/Avatar.vue'
 import defaultAvatar from '@/assets/images/avatar.jpeg'
 
 const props = defineProps({
-  item: { type: Object },
+  item: { type: Object, required: true },
 })
 
 const tags = computed(() => (props.item.tags ? props.item.tags.split(',') : []))

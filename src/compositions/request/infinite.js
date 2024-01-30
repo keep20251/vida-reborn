@@ -6,6 +6,16 @@ import useRequest from '.'
  * @param {Function} apiKey api key
  * @param {Object} params 其他額外的參數
  * @param {Number} limit 分頁數量，預設 10
+ *
+ * @returns {Array} infinite.dataList 資料陣列(ref)
+ * @returns {Error} infinite.error 請求時發生錯誤
+ * @returns {boolean} infinite.isLoading 請求執行中
+ * @returns {boolean} infinite.noMore 沒有資料了
+ * @returns {Function} infinite.init 第一次發出請求
+ * @returns {Function} infinite.reset 重置狀態
+ * @returns {Function} infinite.reload 重新載入(reset + init)
+ * @returns {Function} infinite.revert 還原資料
+ * @returns {Function} infinite.next 後續觸發請求
  */
 export function useInfinite(apiKey, { params = {}, limit = 10 } = {}) {
   // 請求資料清單
@@ -31,14 +41,24 @@ export function useInfinite(apiKey, { params = {}, limit = 10 } = {}) {
     noMore.value = false
   }
 
+  async function reload({ newParams = params, newLimit = limit } = {}) {
+    reset({ newParams, newLimit })
+    return await init()
+  }
+
+  function revert(src) {
+    reset()
+    dataList.value.push(...src)
+  }
+
   async function next() {
     if (isLoading.value) {
-      console.warn('Infinite reqeust is loading, but you still call next() to request.')
-      return Promise.reject(new Error('Infinite executor is loading...'))
+      // console.warn('Infinite reqeust is loading, but you still call next() to request.')
+      return
     }
     if (noMore.value) {
-      console.warn('Infinite reqeust is no more data, but you still call next() to request.')
-      return Promise.reject(new Error('Infinite is no more data...'))
+      // console.warn('Infinite reqeust is no more data, but you still call next() to request.')
+      return
     }
 
     const page = Math.ceil(dataList.value.length / limit) + 1
@@ -62,11 +82,6 @@ export function useInfinite(apiKey, { params = {}, limit = 10 } = {}) {
     }
   }
 
-  async function reload({ newParams = params, newLimit = limit } = {}) {
-    reset({ newParams, newLimit })
-    return await init()
-  }
-
   return {
     dataList: readonly(dataList),
     error,
@@ -74,7 +89,8 @@ export function useInfinite(apiKey, { params = {}, limit = 10 } = {}) {
     noMore: readonly(noMore),
     init,
     reset,
-    next,
     reload,
+    revert,
+    next,
   }
 }

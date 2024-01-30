@@ -1,5 +1,5 @@
 <template>
-  <Page infinite @load="onLoad">
+  <Page infinite @load="next">
     <template #mobile-top>
       <MobileTopBar feature-icon="filter"></MobileTopBar>
     </template>
@@ -7,22 +7,23 @@
       <Tab v-model="tab" :options="tabOptions"></Tab>
     </template>
     <template #default>
-      <div v-if="tab === 1">
+      <div v-if="tab === TAB_TYPE.REC">
         <div class="overflow-x-hidden">
           <List :items="items" item-key="id">
-            <template #default="{ last }">
-              <Feed class="py-20"></Feed>
+            <template #default="{ item, last }">
+              <Feed class="py-20" :item="item"></Feed>
               <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
             </template>
             <template #bottom>
               <div class="flex items-center justify-center py-8 text-gray-a3">
-                <Loading></Loading>{{ $t('common.noMore') }}
+                <Loading v-if="isLoading"></Loading>
+                <span v-if="noMore">{{ $t('common.noMore') }}</span>
               </div>
             </template>
           </List>
         </div>
       </div>
-      <div v-else-if="tab === 2">
+      <div v-else-if="tab === TAB_TYPE.SUB">
         <div class="flex justify-between pt-20">
           <div class="text-base font-bold leading-md">Popular Creator</div>
           <Icon name="filter" size="20" class="cursor-pointer"></Icon>
@@ -62,7 +63,9 @@
 
 <script setup>
 import { onActivated, onServerPrefetch, ref } from 'vue'
+import { storeToRefs } from 'pinia'
 import { useHeadStore } from '@/store/head'
+import { useHydrationStore } from '@/store/hydration'
 import BulletinCard from '@comp/card/BulletinCard.vue'
 import RecCard from '@comp/card/RecCard.vue'
 import ViewSubscribeCard from '@comp/card/ViewSubscribeCard.vue'
@@ -72,28 +75,42 @@ import InputWrap from '@comp/form/InputWrap.vue'
 import Feed from '@comp/main/Feed.vue'
 import MobileTopBar from '@comp/navigation/MobileTopBar.vue'
 import Tab from '@comp/navigation/Tab.vue'
+import { onHydration, onServerClientOnce } from '@use/lifecycle'
+import { useInfinite } from '@use/request/infinite'
+import { TAB_TYPE } from '@const/home'
 
-const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
+const {
+  dataList: items,
+  isLoading,
+  noMore,
+  init,
+  revert,
+  next,
+} = useInfinite('Article.list', {
+  params: { user_interested: 1, include_my_article: 1 },
+})
 
 const tab = ref(1)
 const tabOptions = ref([
-  { label: 'common.recommand', value: 1 },
-  { label: 'common.subscribe', value: 2 },
+  { label: 'common.recommand', value: TAB_TYPE.REC },
+  { label: 'common.subscribe', value: TAB_TYPE.SUB },
 ])
 
 const searchValue = ref('')
 
-function onLoad() {
-  console.log('load at', new Date())
-}
+const hydrationStore = useHydrationStore()
+const { forYou } = storeToRefs(hydrationStore)
+onServerClientOnce(async (isSSR) => {
+  await init()
+  if (isSSR) {
+    forYou.value = items.value
+  }
+})
+onHydration(() => {
+  revert(forYou.value)
+})
 
 const { reset: resetHeadStore } = useHeadStore()
-
-onServerPrefetch(() => {
-  resetHeadStore()
-})
-
-onActivated(() => {
-  resetHeadStore()
-})
+onServerPrefetch(resetHeadStore)
+onActivated(resetHeadStore)
 </script>
