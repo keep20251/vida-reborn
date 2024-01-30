@@ -22,6 +22,10 @@
       <div class="mb-10">【 Related Creators Card 】</div>
       <RelCreatorsCard :items="creators"></RelCreatorsCard>
     </div>
+    <div class="my-10 flex flex-col space-y-10 px-20">
+      <div class="mb-10">【 Search Creators Card 】</div>
+      <SearchCreatorCard v-for="index in 3" :key="`search-card-${index}`"></SearchCreatorCard>
+    </div>
   </Page>
 </template>
 <script setup>
@@ -29,6 +33,7 @@ import { ref } from 'vue'
 import BulletinCard from '@comp/card/BulletinCard.vue'
 import RecCard from '@comp/card/RecCard.vue'
 import RelCreatorsCard from '@comp/card/RelCreatorsCard.vue'
+import SearchCreatorCard from '@comp/card/SearchCreatorCard.vue'
 import ViewSubscribeCard from '@comp/card/ViewSubscribeCard.vue'
 import defaultAvatar from '@/assets/images/avatar.jpeg'
 

@@ -25,8 +25,8 @@
       <div>
         <div v-show="activeTab === SEARCH_TAB.AUTHOR" class="overflow-x-hidden">
           <List :items="creatorList" item-key="id">
-            <template #default="{ item, index, last }">
-              <ViewSubscribeCard :item="item" :theme="index % 3" class="mt-20"></ViewSubscribeCard>
+            <template #default="{ item, last }">
+              <SearchCreatorCard :item="item" class="mt-20"></SearchCreatorCard>
               <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
             </template>
             <template #bottom>
@@ -75,6 +75,7 @@ import { useAppStore } from '@/store/app'
 import { useHydrationStore } from '@/store/hydration'
 import BulletinCard from '@comp/card/BulletinCard.vue'
 import RelCreatorsCard from '@comp/card/RelCreatorsCard.vue'
+import SearchCreatorCard from '@comp/card/SearchCreatorCard.vue'
 import ViewSubscribeCard from '@comp/card/ViewSubscribeCard.vue'
 import Carousel from '@comp/common/Carousel.vue'
 import ClientOnly from '@comp/common/ClientOnly'
