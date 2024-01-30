@@ -38,9 +38,13 @@ export const iconMap = {
   link: 'function/link',
   bin: 'function/bin',
   camera: 'function/camera',
+  cameraCapture: 'function/camera-capture',
+  cameraFlip: 'function/camera-flip',
   driverLicense: 'function/driver-license',
   identityCard: 'function/identity-card',
   passport: 'function/passport',
+  focal: 'function/focal',
+  questionOutline: 'function/question-outline',
 
   comment: 'interaction/comment',
   likeOutline: 'interaction/like-outline',

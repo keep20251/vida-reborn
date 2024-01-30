@@ -14,13 +14,18 @@ export const useModalStore = defineStore('modal', () => {
   const otherAction = ref(null)
   const otherText = ref(null)
   const showClose = ref(false)
+  const showConfirm = ref(true)
 
   const confirmData = ref(null)
 
   const isOpen = computed(() => type.value !== null)
 
-  function alert({ size = 'sm', title, content, confirmAction = () => {}, confirmText } = {}, showClose = false) {
-    open(MODAL_TYPE.ALERT, { size, title, content, confirmAction, confirmText, showClose })
+  function alert(
+    { size = 'sm', title, content, confirmAction = () => {}, confirmText } = {},
+    showClose = false,
+    showConfirm = true,
+  ) {
+    open(MODAL_TYPE.ALERT, { size, title, content, confirmAction, confirmText, showClose, showConfirm })
   }
 
   function confirm({
@@ -34,6 +39,7 @@ export const useModalStore = defineStore('modal', () => {
     otherAction = () => {},
     otherText,
     showClose = false,
+    showConfirm = true,
   } = {}) {
     open(MODAL_TYPE.CONFIRM, {
       size,
@@ -46,6 +52,7 @@ export const useModalStore = defineStore('modal', () => {
       otherAction,
       otherText,
       showClose,
+      showConfirm,
     })
   }
 
@@ -61,6 +68,7 @@ export const useModalStore = defineStore('modal', () => {
     otherAction.value = options.otherAction
     otherText.value = options.otherText
     showClose.value = options.showClose
+    showConfirm.value = options.showConfirm ?? true
   }
 
   function close() {
@@ -76,6 +84,7 @@ export const useModalStore = defineStore('modal', () => {
     otherText.value = null
     confirmData.value = null
     showClose.value = false
+    showConfirm.value = true
   }
 
   function setConfirmData(action) {
@@ -97,6 +106,7 @@ export const useModalStore = defineStore('modal', () => {
 
     isOpen,
     showClose,
+    showConfirm,
 
     alert,
     confirm,

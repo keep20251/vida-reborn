@@ -35,7 +35,32 @@ export function useYup() {
     }
   }
 
-  return { Yup, parseError, validate, validateSync }
+  /**
+   * 提供一個純粹的驗證方法，只改變傳入的 validator
+   * @param {Yup.Schema} schema
+   * @param {mixed} value
+   * @param {Object} validator
+   * @returns
+   */
+  function validatePure(schema, value, validator) {
+    if (!(`error` in validator) || !(`check` in validator)) {
+      throw new Error('Object is not valid. It should be { error, check }')
+    }
+
+    return schema
+      .validate(value)
+      .then(() => {
+        validator.error = ''
+        validator.check = true
+      })
+      .catch((error) => {
+        validator.error = parseError(error)
+        validator.check = false
+        throw new Error(error)
+      })
+  }
+
+  return { Yup, parseError, validate, validateSync, validatePure }
 }
 
 Yup.setLocale({

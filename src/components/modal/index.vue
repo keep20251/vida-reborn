@@ -8,7 +8,7 @@
         <div class="mb-20 text-center font-bold leading-lg" :class="[titleFontSize]">{{ title }}</div>
         <div class="mb-20">
           <keep-alive :max="5">
-            <component :is="component"></component>
+            <component :is="component" @component:confirm="checkCustomContentData"></component>
           </keep-alive>
         </div>
         <div class="flex space-x-8">
@@ -18,7 +18,7 @@
           <Button v-if="otherAction" @click="tryExecute(otherAction)" contrast :disabled="confirming">
             {{ otherText || $t('common.getAround') }}
           </Button>
-          <Button v-if="confirmAction" @click="checkCustomContentData" :loading="confirming">
+          <Button v-if="showConfirm" @click="checkCustomContentData" :loading="confirming">
             {{ confirmText || $t('common.confirm') }}
           </Button>
         </div>
@@ -51,6 +51,7 @@ const {
   otherAction,
   otherText,
   showClose,
+  showConfirm,
 } = storeToRefs(modalStore)
 const { close, setConfirmData } = modalStore
 
