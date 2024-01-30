@@ -11,7 +11,7 @@
           <div class="text-sm font-normal leading-3 text-black">
             {{ $t('content.posts') }} {{ props.item?.post_num }}
             <span class="text-center"><Icon name="ellipse" size="3"></Icon></span>
-            {{ viewCount }}{{ $t('content.view') }}
+            {{ viewCount }} {{ $t('content.view') }}
           </div>
           <div class="text-base font-normal leading-5 text-black">
             {{ props.item?.description }}
@@ -41,10 +41,10 @@ const props = defineProps({
       username: '@angelababy',
       description: `🇩🇪/🇺🇸 - 19 years😇 check my link to get to know me <3, I'm convinced your massive dick will help me get to the spread, daddy💦💦`,
       post_num: 5,
-      view_count: 5100,
+      videos_count: 5100,
     }),
   },
 })
 
-const viewCount = computed(() => toKiloRoundString(props.item?.view_count ?? 0, 1))
+const viewCount = computed(() => toKiloRoundString(props.item?.videos_count ?? 0, 1))
 </script>
