@@ -65,7 +65,8 @@ const optionStyle = computed(() => {
   }
 })
 const selectedOptionLabel = computed(() => {
-  if (props.options.length === 0) return 'undefined'
+  if (props.options.length === 0) return '---'
+  if (!props.modelValue) return '---'
   return props.options.find((o) => o[props.optionValue] === props.modelValue)[props.optionLabel]
 })
 
