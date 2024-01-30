@@ -18,9 +18,13 @@ export default {
     hi: "हिन्दी",
   },
   nav: { home: "Startseite", search: "Suchen", publish: "Erstellen", message: "Nachricht", mine: "Mein" },
-  common: {
+  tab: {
     recommand: "Empfehlen",
     subscribe: "Abonnieren",
+    relatedAuthor: "Verwandte Autoren",
+    relatedPost: "In Verbindung stehende Artikel",
+  },
+  common: {
     next: "Nächster",
     getAround: "Sich umsehen",
     goNow: "Jetzt gehen",
@@ -317,6 +321,7 @@ export default {
       constantCase: "",
     },
     amount: { min: "Der Mindestauszahlungsbetrag beträgt 20 $." },
+    file: { required: "Bitte laden Sie die Datei hoch hoch" },
   },
   up: { object: { adult: "Sie müssen mindestens 18 Jahre alt sein." } },
   category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "" },

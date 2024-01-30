@@ -18,9 +18,13 @@ export default {
     hi: "हिन्दी",
   },
   nav: { home: "الصفحة الرئيسية", search: "بحث", publish: "إنشاء", message: "رسالة", mine: "لي" },
-  common: {
+  tab: {
     recommand: "يوصى به",
     subscribe: "الاشتراك",
+    relatedAuthor: "المؤلفين ذات الصلة",
+    relatedPost: "مقالات ذات صلة",
+  },
+  common: {
     next: "التالي",
     getAround: "تصفح",
     goNow: "اذهب الآن",
@@ -310,6 +314,7 @@ export default {
       constantCase: "",
     },
     amount: { min: "الحد الأدنى للسحب هو 20 دولار." },
+    file: { required: "يرجى تحميل الملف" },
   },
   up: { object: { adult: "يجب أن تكون على الأقل 18 عامًا." } },
   category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "" },

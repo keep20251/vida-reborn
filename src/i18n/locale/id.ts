@@ -18,9 +18,13 @@ export default {
     hi: "हिन्दी",
   },
   nav: { home: "Beranda", search: "Cari", publish: "Buat", message: "Pesan", mine: "Saya" },
-  common: {
+  tab: {
     recommand: "Rekomendasikan",
     subscribe: "Berlangganan",
+    relatedAuthor: "Penulis terkait",
+    relatedPost: "Artikel terkait",
+  },
+  common: {
     next: "Selanjutnya",
     getAround: "Jelajahi",
     goNow: "Pergi sekarang",
@@ -315,6 +319,7 @@ export default {
       constantCase: "",
     },
     amount: { min: "Jumlah penarikan minimum adalah $20." },
+    file: { required: "Harap unggah file" },
   },
   up: { object: { adult: "Anda harus berusia setidaknya 18 tahun." } },
   category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "" },

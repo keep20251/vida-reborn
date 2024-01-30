@@ -18,9 +18,13 @@ export default {
     hi: "हिन्दी",
   },
   nav: { home: "मुख पृष्ठ", search: "खोजें", publish: "बनाएँ", message: "संदेश", mine: "मेरा" },
-  common: {
+  tab: {
     recommand: "सिफारिश करना",
     subscribe: "सदस्यता लें",
+    relatedAuthor: "संबंधित लेखक",
+    relatedPost: "संबंधित आलेख",
+  },
+  common: {
     next: "अगला",
     getAround: "चारों ओर देखें",
     goNow: "अब जाओ",
@@ -311,6 +315,7 @@ export default {
       constantCase: "",
     },
     amount: { min: "न्यूनतम निकासी राशि $20 है।" },
+    file: { required: "कृपया फ़ाइल अपलोड करें" },
   },
   up: { object: { adult: "आपको कम से कम 18 साल की आयु होनी चाहिए।" } },
   category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "" },

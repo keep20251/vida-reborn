@@ -18,9 +18,13 @@ export default {
     hi: "हिन्दी",
   },
   nav: { home: "หน้าหลัก", search: "ค้นหา", publish: "สร้าง", message: "ข้อความ", mine: "ของฉัน" },
-  common: {
+  tab: {
     recommand: "แนะนำ",
     subscribe: "สมัครสมาชิก",
+    relatedAuthor: "ผู้เขียนที่เกี่ยวข้อง",
+    relatedPost: "บทความที่เกี่ยวข้อง",
+  },
+  common: {
     next: "ต่อไป",
     getAround: "ชมรอบๆ",
     goNow: "ไปเลย",
@@ -311,6 +315,7 @@ export default {
       constantCase: "",
     },
     amount: { min: "ยอดถอนขั้นต่ำคือ 20 ดอลลาร์" },
+    file: { required: "กรุณาอัปโหลดไฟล์" },
   },
   up: { object: { adult: "คุณต้องมีอายุอย่างน้อย 18 ปี" } },
   category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "" },

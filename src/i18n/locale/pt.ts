@@ -18,9 +18,13 @@ export default {
     hi: "हिन्दी",
   },
   nav: { home: "Início", search: "Pesquisar", publish: "Criar", message: "Mensagem", mine: "Meu" },
-  common: {
+  tab: {
     recommand: "Recomendar",
     subscribe: "Assinar",
+    relatedAuthor: "Autores relacionados",
+    relatedPost: "Artigos relacionados",
+  },
+  common: {
     next: "Próximo",
     getAround: "Dar uma olhada",
     goNow: "Ir agora",
@@ -318,6 +322,7 @@ export default {
       constantCase: "",
     },
     amount: { min: "O valor mínimo de saque é de $20." },
+    file: { required: "Faça o upload do arquivo" },
   },
   up: { object: { adult: "Você deve ter pelo menos 18 anos." } },
   category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "" },

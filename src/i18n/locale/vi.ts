@@ -18,9 +18,13 @@ export default {
     hi: "हिन्दी",
   },
   nav: { home: "Trang chủ", search: "Tìm kiếm", publish: "Tạo", message: "Tin nhắn", mine: "Của tôi" },
-  common: {
+  tab: {
     recommand: "Gợi ý",
     subscribe: "Đăng ký",
+    relatedAuthor: "Các tác giả liên quan",
+    relatedPost: "Những bài viết liên quan",
+  },
+  common: {
     next: "Tiếp theo",
     getAround: "Xem quanh",
     goNow: "Đi ngay",
@@ -317,6 +321,7 @@ export default {
       constantCase: "",
     },
     amount: { min: "Số tiền tối thiểu có thể rút là $20." },
+    file: { required: "Vui lòng tải lên tệp" },
   },
   up: { object: { adult: "Bạn phải đủ 18 tuổi." } },
   category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "" },

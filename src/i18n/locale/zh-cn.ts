@@ -18,9 +18,8 @@ export default {
     hi: "हिन्दी",
   },
   nav: { home: "主页", search: "搜索", publish: "创建", message: "信息", mine: "我的" },
+  tab: { recommand: "推荐", subscribe: "订阅", relatedAuthor: "相关作者", relatedPost: "相关文章" },
   common: {
-    recommand: "推荐",
-    subscribe: "订阅",
     next: "下一步",
     getAround: "先逛逛",
     goNow: "立即前往",
@@ -304,6 +303,7 @@ export default {
       constantCase: "",
     },
     amount: { min: "最低提现金额为$20元" },
+    file: { required: "请上传档案" },
   },
   up: { object: { adult: "您必须年满18岁。" } },
   category: {

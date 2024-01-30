@@ -18,9 +18,8 @@ export default {
     hi: "हिन्दी",
   },
   nav: { home: "홈", search: "검색", publish: "만들기", message: "메시지", mine: "내 것" },
+  tab: { recommand: "추천", subscribe: "구독", relatedAuthor: "관련 저자", relatedPost: "관련 기사" },
   common: {
-    recommand: "추천",
-    subscribe: "구독",
     next: "다음",
     getAround: "둘러보기",
     goNow: "지금 가기",
@@ -314,6 +313,7 @@ export default {
       constantCase: "",
     },
     amount: { min: "최소 인출 금액은 $20입니다." },
+    file: { required: "파일을 업로드하십시오" },
   },
   up: { object: { adult: "최소 18세 이어야 합니다." } },
   category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "" },
