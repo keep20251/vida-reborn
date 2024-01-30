@@ -30,7 +30,7 @@ import { onHydration, onServerClientOnce } from '@use/lifecycle'
 const route = useRoute()
 
 const creatorStore = useCreatorStore()
-const { getCreator: $getCreator, revertCreator } = creatorStore
+const { get: $getCreator, revert: revertCreator } = creatorStore
 
 const creator = ref(null)
 const error = ref('')

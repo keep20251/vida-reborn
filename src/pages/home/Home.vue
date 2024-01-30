@@ -64,6 +64,7 @@
 <script setup>
 import { onActivated, onServerPrefetch, ref } from 'vue'
 import { storeToRefs } from 'pinia'
+import { useFeedStore } from '@/store/feed'
 import { useHeadStore } from '@/store/head'
 import { useHydrationStore } from '@/store/hydration'
 import BulletinCard from '@comp/card/BulletinCard.vue'
@@ -79,6 +80,7 @@ import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import { useInfinite } from '@use/request/infinite'
 import { TAB_TYPE } from '@const/home'
 
+const feedStore = useFeedStore()
 const {
   dataList: items,
   isLoading,
@@ -88,6 +90,7 @@ const {
   next,
 } = useInfinite('Article.list', {
   params: { user_interested: 1, include_my_article: 1 },
+  transformer: feedStore.sync,
 })
 
 const tab = ref(1)
