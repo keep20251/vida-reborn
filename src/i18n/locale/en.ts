@@ -18,9 +18,13 @@ export default {
     hi: "हिन्दी",
   },
   nav: { home: "Home", search: "Search", publish: "Create", message: "Message", mine: "Mine" },
-  common: {
+  tab: {
     recommand: "Recommend",
     subscribe: "Subscribe",
+    relatedAuthor: "Related authors",
+    relatedPost: "related articles",
+  },
+  common: {
     next: "Next",
     getAround: "Browse around",
     goNow: "Go now",
@@ -315,6 +319,7 @@ export default {
       constantCase: "",
     },
     amount: { min: "The minimum withdrawal amount is $20." },
+    file: { required: "Please upload the file" },
   },
   up: { object: { adult: "You must be at least 18 years old." } },
   category: {

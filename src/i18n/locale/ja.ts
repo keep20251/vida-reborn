@@ -18,9 +18,8 @@ export default {
     hi: "हिन्दी",
   },
   nav: { home: "ホーム", search: "検索", publish: "作成", message: "メッセージ", mine: "私の" },
+  tab: { recommand: "おすすめ", subscribe: "購読", relatedAuthor: "関連著者", relatedPost: "関連記事" },
   common: {
-    recommand: "おすすめ",
-    subscribe: "購読",
     next: "次へ",
     getAround: "周りを見る",
     goNow: "今すぐ行く",
@@ -317,6 +316,7 @@ export default {
       constantCase: "",
     },
     amount: { min: "最低引き出し金額は$20です。" },
+    file: { required: "ファイルをアップロードしてください" },
   },
   up: { object: { adult: "少なくとも18歳である必要があります。" } },
   category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "" },

@@ -18,9 +18,13 @@ export default {
     hi: "हिन्दी",
   },
   nav: { home: "Inicio", search: "Buscar", publish: "Crear", message: "Mensaje", mine: "Mío" },
-  common: {
+  tab: {
     recommand: "Recomendar",
     subscribe: "Suscribirse",
+    relatedAuthor: "Autores relacionados",
+    relatedPost: "Artículos relacionados",
+  },
+  common: {
     next: "Siguiente",
     getAround: "Echar un vistazo",
     goNow: "Ir ahora",
@@ -316,6 +320,7 @@ export default {
       constantCase: "",
     },
     amount: { min: "El monto mínimo de retiro es de $20." },
+    file: { required: "Sube el archivo" },
   },
   up: { object: { adult: "Debe tener al menos 18 años." } },
   category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "" },

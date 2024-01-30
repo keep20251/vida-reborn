@@ -18,9 +18,13 @@ export default {
     hi: "हिन्दी",
   },
   nav: { home: "Accueil", search: "Rechercher", publish: "Créer", message: "Message", mine: "Mon" },
-  common: {
+  tab: {
     recommand: "Recommander",
     subscribe: "S’abonner",
+    relatedAuthor: "Auteurs connexes",
+    relatedPost: "Articles Liés",
+  },
+  common: {
     next: "Suivant",
     getAround: "Faire le tour",
     goNow: "Aller maintenant",
@@ -316,6 +320,7 @@ export default {
       constantCase: "",
     },
     amount: { min: "Le montant minimum de retrait est de 20 $." },
+    file: { required: "Veuillez télécharger le fichier" },
   },
   up: { object: { adult: "Vous devez avoir au moins 18 ans." } },
   category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "" },

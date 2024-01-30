@@ -18,9 +18,8 @@ export default {
     hi: "हिन्दी",
   },
   nav: { home: "主頁", search: "搜尋", publish: "建立", message: "訊息", mine: "我的" },
+  tab: { recommand: "推薦", subscribe: "訂閱", relatedAuthor: "相關作者", relatedPost: "相關文章" },
   common: {
-    recommand: "推薦",
-    subscribe: "訂閱",
     next: "下一步",
     getAround: "先逛逛",
     goNow: "立即前往",
@@ -304,6 +303,7 @@ export default {
       constantCase: "",
     },
     amount: { min: "最低提現金額為$20元" },
+    file: { required: "請上傳檔案" },
   },
   up: { object: { adult: "您必須年滿18歲。" } },
   category: {

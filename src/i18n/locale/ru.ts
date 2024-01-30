@@ -18,9 +18,13 @@ export default {
     hi: "हिन्दी",
   },
   nav: { home: "Домой", search: "Поиск", publish: "Создать", message: "Сообщение", mine: "Мой" },
-  common: {
+  tab: {
     recommand: "Рекомендовать",
     subscribe: "Подписаться",
+    relatedAuthor: "Связанные авторы",
+    relatedPost: "Статьи по Теме",
+  },
+  common: {
     next: "Далее",
     getAround: "Посмотреть вокруг",
     goNow: "Пойти сейчас",
@@ -316,6 +320,7 @@ export default {
       constantCase: "",
     },
     amount: { min: "Минимальная сумма вывода - 20 $." },
+    file: { required: "Пожалуйста, загрузите файл" },
   },
   up: { object: { adult: "Вы должны быть не моложе 18 лет." } },
   category: { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "" },
