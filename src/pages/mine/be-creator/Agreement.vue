@@ -120,9 +120,10 @@ const openSocialLinkDialog = () => {
   open(MODAL_TYPE.APPLY_CREATOR_CERT, {
     size: 'lg',
     title: 'Choose document',
-    showClose: true,
     confirmText: 'Next',
     confirmAction: () => {},
+    showClose: true,
+    showConfirm: false,
   })
 }
 </script>
