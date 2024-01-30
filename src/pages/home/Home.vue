@@ -95,8 +95,8 @@ const {
 
 const tab = ref(TAB_TYPE.REC)
 const tabOptions = ref([
-  { label: 'common.recommand', value: TAB_TYPE.REC },
-  { label: 'common.subscribe', value: TAB_TYPE.SUB },
+  { label: 'tab.recommand', value: TAB_TYPE.REC },
+  { label: 'tab.subscribe', value: TAB_TYPE.SUB },
 ])
 
 const searchValue = ref('')

@@ -58,8 +58,8 @@ const userInfo = computed(() => ({
 
 const tab = ref(1)
 const tabOptions = ref([
-  { label: 'common.recommand', value: 1 },
-  { label: 'common.subscribe', value: 2 },
+  { label: 'tab.recommand', value: 1 },
+  { label: 'tab.subscribe', value: 2 },
 ])
 
 const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
