@@ -145,3 +145,8 @@ export const BECOME_CREATOR_IDENTITY = {
   IDENTITY_CARD: 2,
   DRIVER_LICENSE: 3,
 }
+
+export const SEARCH_TAB = {
+  AUTHOR: 1,
+  POST: 2,
+}

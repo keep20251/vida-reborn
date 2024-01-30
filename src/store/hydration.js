@@ -14,6 +14,7 @@ export const useHydrationStore = defineStore('hydration', () => {
   const forYou = ref(null)
 
   // route search
+  const relatedAuthors = ref([])
 
   // route creator
   const creator = ref(null)
@@ -25,6 +26,8 @@ export const useHydrationStore = defineStore('hydration', () => {
     appConfig,
     categories,
     userData,
+
+    relatedAuthors,
 
     forYou,
 
