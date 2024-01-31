@@ -62,5 +62,5 @@ const tabOptions = ref([
   { label: 'tab.subscribe', value: 2 },
 ])
 
-const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
+const items = ref([])
 </script>

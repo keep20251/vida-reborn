@@ -61,5 +61,5 @@ const userInfo = computed(() => ({
   info: userData.value?.description,
 }))
 
-const items = ref([{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
+const items = ref([])
 </script>
