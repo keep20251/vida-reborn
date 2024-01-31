@@ -8,6 +8,12 @@
       class="h-full w-full rounded-inherit"
       :class="{ 'object-contain': !cover, 'object-cover': cover }"
     />
+    <img
+      v-else
+      :src="defaultBgImage"
+      class="h-full w-full rounded-inherit"
+      :class="{ 'object-contain': !cover, 'object-cover': cover }"
+    />
   </div>
 </template>
 
@@ -16,6 +22,7 @@ import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import Skeleton from '@comp/skeleton/index.vue'
 import { getDecryptDataBlob } from '@/utils/encrypt-img-store'
 import lazyloader from '@/utils/lazyloader'
+import defaultBgImage from '@/assets/images/creator-bg.jpg'
 
 const props = defineProps({
   src: { type: String },
