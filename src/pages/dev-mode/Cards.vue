@@ -5,7 +5,7 @@
       <RecCard class="py-30" :items="items"></RecCard>
     </div>
     <div class="my-10 px-20">
-      <div class="mb-10">【 Creator Card 】</div>
+      <div class="mb-10 font-bold">【 漸層版查看創作者卡片 】</div>
       <div class="flex flex-col justify-center space-y-16 py-16 align-middle">
         <ViewSubscribeCard
           v-for="index in 3"
@@ -23,7 +23,7 @@
       <RelCreatorsCard :items="creators"></RelCreatorsCard>
     </div>
     <div class="my-10 flex flex-col space-y-10 px-20">
-      <div class="mb-10">【 Search Creators Card 】</div>
+      <div class="mb-10 font-bold">【 搜索頁面用的創作者卡片 】</div>
       <SearchCreatorCard v-for="index in 3" :key="`search-card-${index}`"></SearchCreatorCard>
     </div>
   </Page>
@@ -35,11 +35,10 @@ import RecCard from '@comp/card/RecCard.vue'
 import RelCreatorsCard from '@comp/card/RelCreatorsCard.vue'
 import SearchCreatorCard from '@comp/card/SearchCreatorCard.vue'
 import ViewSubscribeCard from '@comp/card/ViewSubscribeCard.vue'
-import defaultAvatar from '@/assets/images/avatar.jpeg'
 
 const items = ref([
   {
-    creator_avatar: defaultAvatar,
+    creator_avatar: null,
     creator_name: 'Cursed_ellie',
     creator_acc: 'cursed_ellie',
     posts: 134,
@@ -47,7 +46,7 @@ const items = ref([
     id: 1,
   },
   {
-    creator_avatar: defaultAvatar,
+    creator_avatar: null,
     creator_name: 'Cursed_ellie',
     creator_acc: 'cursed_ellie',
     posts: 134,
@@ -55,7 +54,7 @@ const items = ref([
     id: 2,
   },
   {
-    creator_avatar: defaultAvatar,
+    creator_avatar: null,
     creator_name: 'Cursed_ellie',
     creator_acc: 'cursed_ellie',
     posts: 134,
@@ -66,7 +65,7 @@ const items = ref([
 
 const creators = ref([
   {
-    creator_avatar: defaultAvatar,
+    creator_avatar: null,
     creator_name: 'Angelababy',
     creator_username: '＠angelababy',
     creator_posts: 134,
@@ -76,7 +75,7 @@ const creators = ref([
     id: 1,
   },
   {
-    creator_avatar: defaultAvatar,
+    creator_avatar: null,
     creator_name: 'Angelababy',
     creator_username: '＠angelababy',
     creator_posts: 134,
@@ -86,7 +85,7 @@ const creators = ref([
     id: 2,
   },
   {
-    creator_avatar: defaultAvatar,
+    creator_avatar: null,
     creator_name: 'Angelababy',
     creator_username: '＠angelababy',
     creator_posts: 134,

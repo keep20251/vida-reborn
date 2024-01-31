@@ -30,15 +30,13 @@
 import { computed } from 'vue'
 import Button from '@comp/common/Button.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
-import defaultAvatar from '@/assets/images/avatar.jpeg'
-import defaultBgImage from '@/assets/images/creator-card.png'
 
 const props = defineProps({
   item: {
     type: Object,
     default: () => ({
-      background: defaultBgImage,
-      thumb: defaultAvatar,
+      background: null,
+      thumb: null,
       nickname: 'Angelababy',
       username: '@angelababy',
       description: `🇩🇪/🇺🇸 - 19 years😇 check my link to get to know me <3, I'm convinced your massive dick will help me get to the spread, daddy💦💦`,

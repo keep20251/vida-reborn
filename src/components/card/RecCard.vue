@@ -35,7 +35,6 @@
 import { ref } from 'vue'
 import List from '@comp/common/List.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
-import defaultAvatar from '@/assets/images/avatar.jpeg'
 
 defineProps({
   buttonText: { type: String, required: true },
@@ -43,7 +42,7 @@ defineProps({
 
 const recCreators = ref([
   {
-    creator_avatar: defaultAvatar,
+    creator_avatar: null,
     creator_name: 'Cursed_ellie',
     creator_acc: 'cursed_ellie',
     posts: 134,
@@ -51,7 +50,7 @@ const recCreators = ref([
     id: 1,
   },
   {
-    creator_avatar: defaultAvatar,
+    creator_avatar: null,
     creator_name: 'Cursed_ellie',
     creator_acc: 'cursed_ellie',
     posts: 134,
@@ -59,7 +58,7 @@ const recCreators = ref([
     id: 2,
   },
   {
-    creator_avatar: defaultAvatar,
+    creator_avatar: null,
     creator_name: 'Cursed_ellie',
     creator_acc: 'cursed_ellie',
     posts: 134,
