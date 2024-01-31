@@ -2,8 +2,8 @@
   <div class="flex w-full flex-col space-y-10">
     <!-- head -->
     <div class="flex h-30 w-full items-center">
-      <Avatar :radius="30" class="mr-5" :src="defaultAvatar"></Avatar>
-      <div class="grow text-base font-bold leading-none">{{ item?.user?.nickname }}</div>
+      <Avatar :radius="30" class="mr-5" :src="item.user?.thumb"></Avatar>
+      <div class="grow text-base font-bold leading-none">{{ item.user?.nickname }}</div>
       <div class="grow text-right text-sm font-medium leading-5 text-gray-57">{{ item.created_at }}</div>
       <Icon name="moreVertical" size="20"></Icon>
     </div>
@@ -67,7 +67,6 @@
 import { computed } from 'vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
 import { MEDIA_TYPE } from '@const/publish'
-import defaultAvatar from '@/assets/images/avatar.jpeg'
 
 const props = defineProps({
   item: { type: Object, required: true },
