@@ -36,7 +36,8 @@ export default {
     save: "Сохранять",
     cookie: "Примите и не показывайте это сообщение снова",
     check: "",
-    unsubscribe: "",
+    subscribe: "подписка",
+    unsubscribe: "Отписаться",
   },
   title: {
     join: "Присоединиться",

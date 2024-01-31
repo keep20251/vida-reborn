@@ -36,7 +36,8 @@ export default {
     save: "Menyimpan",
     cookie: "Terima dan jangan tunjukkan pesan ini lagi",
     check: "",
-    unsubscribe: "",
+    subscribe: "berlangganan",
+    unsubscribe: "berhenti berlangganan",
   },
   title: {
     join: "Bergabung",

@@ -36,7 +36,8 @@ export default {
     save: "Sauvegarder",
     cookie: "Acceptez et ne montrez plus ce message",
     check: "",
-    unsubscribe: "",
+    subscribe: "abonnement",
+    unsubscribe: "Se désabonner",
   },
   title: {
     join: "Rejoindre",

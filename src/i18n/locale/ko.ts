@@ -31,7 +31,8 @@ export default {
     save: "구하다",
     cookie: "이 메시지를 다시 수락하고 다시 보여주지 마십시오",
     check: "",
-    unsubscribe: "",
+    subscribe: "신청",
+    unsubscribe: "구독 취소",
   },
   title: {
     join: "가입하기",
