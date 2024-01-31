@@ -1,18 +1,10 @@
 import Hls from 'hls.js'
-import VideoStoreEmptyError from '@/errors/VideoStoreEmptyError'
 
 const VIDEO_LIMIT = 6
 const VIDEO_STORE = []
 const VIDEO_MUTED_CONTROL_TEMP = [] // 存放與 VIDEO_STORE 初始化完全相同的所有 video 元件，目的是當使用者調整靜音的時候要全部一次改變
-const SIGN = `fantasi_${new Date().getTime()}`
+const SIGN = `vida_${new Date().getTime()}`
 let count = 0
-
-// 初始化 store
-for (let i = 0; i < VIDEO_LIMIT; i++) {
-  const videoElement = makeNewVideoElement()
-  VIDEO_STORE.push(videoElement)
-  VIDEO_MUTED_CONTROL_TEMP.push(videoElement)
-}
 
 function makeNewVideoElement() {
   count++
@@ -22,11 +14,14 @@ function makeNewVideoElement() {
   }
 
   const videoElement = document.createElement('video')
-  videoElement.classList.add('viewer-video')
-  videoElement._fantasi_count = count
-  videoElement._fantasi_sign = SIGN
+  videoElement.style.width = 'inherit'
+  videoElement.style.height = 'inherit'
+  videoElement.style.objectFit = 'contain'
+  videoElement._vida_count = count
+  videoElement._vida_sign = SIGN
   videoElement.setAttribute('loop', true)
   videoElement.setAttribute('playsinline', true)
+  videoElement.setAttribute('controls', true)
   // 补充安卓playsinline的兼容
   videoElement.setAttribute('webkit-playsinline', true)
   videoElement.setAttribute('x5-playsinline', true)
@@ -37,21 +32,25 @@ function makeNewVideoElement() {
   return videoElement
 }
 
-export function get(src, { currentTime = 0, onLoaded, onWaiting, onPlaying, onTimeupdate, onError, isPreview } = {}) {
+export function init() {
+  for (let i = 0; i < VIDEO_LIMIT; i++) {
+    const videoElement = makeNewVideoElement()
+    VIDEO_STORE.push(videoElement)
+    VIDEO_MUTED_CONTROL_TEMP.push(videoElement)
+  }
+}
+
+export function get(src, { currentTime = 0, onLoaded, onWaiting, onPlaying, onTimeupdate, onError } = {}) {
   if (VIDEO_STORE.length === 0) {
-    throw new VideoStoreEmptyError('VIDEO_STORE is empty...')
+    throw new Error('VIDEO_STORE is empty...')
   }
 
   const videoElement = VIDEO_STORE.shift()
 
-  if (isPreview) {
-    videoElement.classList.add('preview')
-  }
-
   // src 佈置
   if (Hls.isSupported()) {
     const hls = new Hls()
-    videoElement._fantasi_hls = hls
+    videoElement._vida_hls = hls
     hls.loadSource(src)
     hls.attachMedia(videoElement)
   } else if (videoElement.canPlayType('application/vnd.apple.mpegurl')) {
@@ -73,7 +72,7 @@ export function get(src, { currentTime = 0, onLoaded, onWaiting, onPlaying, onTi
 
   videoElement.load()
 
-  // console.log(`video ${videoElement._fantasi_count} 被取用`, VIDEO_STORE.map((v) => v._fantasi_count).sort())
+  // console.log(`video ${videoElement._vida_count} 被取用`, VIDEO_STORE.map((v) => v._vida_count).sort())
   return videoElement
 }
 
@@ -82,14 +81,13 @@ export function release(videoElement) {
     throw new Error('Not video element...')
   }
 
-  if (videoElement._fantasi_sign !== SIGN) {
+  if (videoElement._vida_sign !== SIGN) {
     throw new Error('Video element is not belong to store...')
   }
 
   // 重置 video element
   videoElement.pause()
   videoElement.removeAttribute('src')
-  videoElement.classList.remove('preview')
   videoElement.load()
   videoElement.remove()
   videoElement.onloadeddata = undefined
@@ -100,13 +98,13 @@ export function release(videoElement) {
   videoElement.onerror = undefined
 
   // 釋放掉舊的 hls
-  if (videoElement._fantasi_hls) {
-    videoElement._fantasi_hls.destroy()
-    delete videoElement._fantasi_hls
+  if (videoElement._vida_hls) {
+    videoElement._vida_hls.destroy()
+    delete videoElement._vida_hls
   }
 
   VIDEO_STORE.push(videoElement)
-  // console.log(`video ${videoElement._fantasi_count} 被釋放`, VIDEO_STORE.map((v) => v._fantasi_count).sort())
+  // console.log(`video ${videoElement._vida_count} 被釋放`, VIDEO_STORE.map((v) => v._vida_count).sort())
 }
 
 export function setMuted(muted) {
