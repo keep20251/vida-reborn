@@ -1,6 +1,6 @@
 <template>
   <div
-    class="min-w-20 flex h-20 w-fit items-center justify-center rounded-full bg-primary px-6 py-4 text-sm text-white"
+    class="flex h-20 w-fit min-w-[1.25rem] items-center justify-center rounded-full bg-primary px-6 py-4 text-sm text-white"
   >
     <slot></slot>
   </div>

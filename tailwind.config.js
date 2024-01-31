@@ -67,6 +67,7 @@ export default {
         lg: '0.75rem',
         xl: '0.9375rem',
         '2xl': '1.125rem',
+        '3xl': '1.5rem',
       },
       lineHeight: {
         md: '0.875rem',
