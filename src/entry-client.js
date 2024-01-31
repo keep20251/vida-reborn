@@ -3,9 +3,13 @@ import { hydrated } from '@use/lifecycle'
 import { COOKIE_KEY } from '@const'
 import { useAppleSignIn } from '@/utils/apple'
 import { setupStoreHydrate } from '@/utils/init'
+import { init } from '@/utils/video-store'
 import { createI18n } from '@/i18n'
 import '@/style.scss'
 import { createApp } from './main'
+
+// 初始化 video-store
+init()
 
 createApp()
   .then(async ({ app, router, store }) => {

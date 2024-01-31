@@ -2,15 +2,9 @@
   <div class="flex h-full w-full items-center justify-center" ref="encryptImage" :style="{ ...shapeStyle }">
     <Skeleton v-if="loading"></Skeleton>
     <img
-      v-if="decryptedBlob"
+      v-else-if="url"
       :src="url"
       :alt="alt"
-      class="h-full w-full rounded-inherit"
-      :class="{ 'object-contain': !cover, 'object-cover': cover }"
-    />
-    <img
-      v-else
-      :src="defaultBgImage"
       class="h-full w-full rounded-inherit"
       :class="{ 'object-contain': !cover, 'object-cover': cover }"
     />
@@ -68,9 +62,11 @@ const fail = ref(false)
 const decryptedBlob = ref(null)
 const url = computed(() => {
   if (fail.value) {
-    return props.failSrc || ''
-  } else {
+    return props.failSrc || defaultBgImage
+  } else if (decryptedBlob.value !== null) {
     return decryptedBlob.value
+  } else {
+    return ''
   }
 })
 
