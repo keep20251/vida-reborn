@@ -1,7 +1,7 @@
 <template>
   <div class="relative flex-shrink-0" :style="style">
     <div v-if="props.src" class="h-full w-full rounded-inherit object-cover">
-      <EncryptImage :src="props.src" :border-radius="70" cover></EncryptImage>
+      <EncryptImage :src="props.src" :border-radius="radius" cover></EncryptImage>
     </div>
     <img v-else :src="defaultAvatar" class="h-full w-full rounded-inherit object-cover" />
     <div v-if="cameraIcon" class="absolute left-55 top-40 cursor-pointer">
@@ -24,7 +24,7 @@ const props = defineProps({
 })
 
 const style = computed(() => {
-  const lenVal = `${props.radius / 16}rem`
+  const lenVal = `${(props.radius * 2) / 16}rem`
   return {
     width: lenVal,
     height: lenVal,

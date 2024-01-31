@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="absolute bottom-[-35px] flex h-70 w-full px-20">
-        <Avatar :radius="70" :src="item.thumb" :cameraIcon="cameraIcon"></Avatar>
+        <Avatar :radius="35" :src="item.thumb" :cameraIcon="cameraIcon"></Avatar>
       </div>
       <div class="absolute bottom-[-50px] right-0 mr-[20px] flex w-full justify-end sm:mr-0 xl:mr-0">
         <slot name="topButton"></slot>

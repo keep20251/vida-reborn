@@ -6,7 +6,7 @@
     <div class="absolute top-0 h-full w-full flex-shrink-0 rounded-xl opacity-80" :class="colorTheme"></div>
     <div class="absolute top-0 h-full w-full px-20 py-30">
       <div class="flex h-full flex-row">
-        <Avatar :radius="70" class="mr-10" :src="props.item.thumb" :alt="props.item.username"></Avatar>
+        <Avatar :radius="35" class="mr-10" :src="props.item.thumb" :alt="props.item.username"></Avatar>
         <div class="flex flex-col space-y-10">
           <div>
             <div class="text-lg font-bold leading-5 text-white">{{ props.item.nickname }}</div>

@@ -2,7 +2,7 @@
   <div class="relative h-full rounded-md bg-gray-f6">
     <div class="h-full w-full px-20 py-30">
       <div class="flex h-full flex-row items-center">
-        <Avatar :radius="70" class="mr-10" :src="props.item?.thumb" :alt="props.item?.username"></Avatar>
+        <Avatar :radius="35" class="mr-10" :src="props.item?.thumb" :alt="props.item?.username"></Avatar>
         <div class="flex flex-col space-y-10">
           <div class="flex flex-row items-center space-x-5">
             <div class="text-lg font-bold leading-5 text-black">{{ props.item?.nickname }}</div>

@@ -4,7 +4,7 @@
       <template #default="{ item, index }">
         <div class="flex items-center justify-between py-10">
           <div class="flex items-center">
-            <Avatar class="mr-10" :radius="30" :src="item.thumb || defaultAvatar"></Avatar>
+            <Avatar class="mr-10" :radius="15" :src="item.thumb || defaultAvatar"></Avatar>
             <div class="text-base font-bold leading-md">{{ item.nickname }}</div>
           </div>
           <div

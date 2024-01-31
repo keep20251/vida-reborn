@@ -31,7 +31,6 @@ export function useInfinite(apiKey, { params = {}, limit = 10, transformer } = {
     if (!isLoading.value && !noMore.value && dataList.value.length === 0) {
       return await next()
     }
-    return Promise.reject(new Error('Infinite already init...'))
   }
 
   function reset({ newParams = params, newLimit = limit } = {}) {
