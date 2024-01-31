@@ -5,6 +5,7 @@
       <div
         v-if="showBgUpload"
         class="absolute left-1/2 top-1/2 w-full translate-x-[-50%] translate-y-[-50%] cursor-pointer"
+        @click="() => inputBackground.click()"
       >
         <div class="flex justify-center">
           <div class="text-sm font-normal leading-3 text-white">{{ $t('info.clickToUploadBg') }}</div>
@@ -24,7 +25,12 @@
         </div>
       </div>
       <div class="absolute bottom-[-35px] flex h-70 w-full px-20">
-        <Avatar :radius="35" :src="item.thumb" :cameraIcon="cameraIcon"></Avatar>
+        <Avatar
+          :radius="35"
+          :src="item.thumb"
+          :cameraIcon="cameraIcon"
+          @click:camera="() => inputAvatar.click()"
+        ></Avatar>
       </div>
       <div class="absolute bottom-[-50px] right-0 mr-[20px] flex w-full justify-end sm:mr-0 xl:mr-0">
         <slot name="topButton"></slot>
@@ -51,29 +57,37 @@
     <div v-if="$slots['bottomButton']" class="my-20 flex space-x-10">
       <slot name="bottomButton"></slot>
     </div>
+    <input
+      type="file"
+      accept="image/jpg, image/jpeg, image/png, image/gif"
+      hidden
+      ref="inputAvatar"
+      @change="(e) => emits('file:avatar', e.target.files[0])"
+    />
+    <input
+      type="file"
+      accept="image/jpg, image/jpeg, image/png, image/gif"
+      hidden
+      ref="inputBackground"
+      @change="(e) => emits('file:background', e.target.files[0])"
+    />
   </div>
 </template>
 <script setup>
+import { ref } from 'vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
 
+const emits = defineEmits(['file:avatar', 'file:background'])
+
 defineProps({
+  item: { type: Object, required: true },
   showBgUpload: { type: Boolean, default: false },
   showBgData: { type: Boolean, default: false },
   showPersonalInfo: { type: Boolean, default: false },
   showAllInfo: { type: Boolean, default: false },
   cameraIcon: { type: Boolean, default: false },
-  item: {
-    type: Object,
-    default: () => ({
-      avatar: '',
-      subscriber: '',
-      posts: '',
-      name: '',
-      username: '',
-      link: '',
-      viewed: '',
-      info: '',
-    }),
-  },
 })
+
+const inputAvatar = ref(null)
+const inputBackground = ref(null)
 </script>

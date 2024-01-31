@@ -1,6 +1,12 @@
 <template>
   <div class="flex flex-col space-y-20">
-    <SelfIntro :item="userData" camera-icon show-bg-upload></SelfIntro>
+    <SelfIntro
+      :item="userData"
+      camera-icon
+      show-bg-upload
+      @file:avatar="(file) => (files.avatar = file)"
+      @file:background="(file) => (files.background = file)"
+    ></SelfIntro>
     <div class="flex flex-col space-y-20 pl-4">
       <InputWrap
         v-model="profile.nickname"
@@ -62,11 +68,10 @@
         </div>
         <div v-if="subscriptions.length > 0" class="flex flex-col space-y-10">
           <SubscribeSwitch
-            v-for="(sub, index) in subscriptions"
-            :key="`sub-${index}`"
-            v-model="sub.isOpen"
-            :title="sub.title"
-            :price="sub.price"
+            v-for="(item, index) in subscriptions"
+            :key="`subscription-${index}`"
+            v-model="item.isOpen"
+            :item="item"
           ></SubscribeSwitch>
         </div>
       </div>
@@ -93,6 +98,7 @@ import SelfIntro from '@comp/main/SelfIntro.vue'
 import useRequest from '@use/request/index.js'
 import { useLocale } from '@use/utils/locale'
 import { MODAL_TYPE } from '@const'
+import uploadImage from '@/http/upload/uploadImage'
 
 const serverError = ref('')
 const { t: $t } = useI18n()
@@ -123,8 +129,12 @@ const profile = reactive({
   },
 })
 
+const files = reactive({
+  avatar: null,
+  background: null,
+})
+
 // TODO 訂閱設定還沒串好
-// TODO 上傳大頭貼跟背景圖還沒串好
 // const subscriptions = ref([
 //   { title: 'General', price: 0.99, isOpen: true },
 //   { title: 'Silver', price: 9.99, isOpen: true },
@@ -138,6 +148,7 @@ async function fetchSubscriptions() {
   try {
     await execute()
     subscriptions.value = data.value?.list
+    console.log(`訂閱組資料`, subscriptions.value)
   } catch (e) {
     console.error(e)
     serverError.value = e.message ?? 'Server Error'
@@ -181,6 +192,9 @@ const onSave = async () => {
   payload.set_social_media = JSON.stringify(socialMedia)
 
   try {
+    if (files.avatar) payload.thumb = await uploadImage(files.avatar, () => {})
+    if (files.background) payload.background = await uploadImage(files.background, () => {})
+
     await execute(payload)
     Object.entries(profile).forEach(([key, value]) => {
       if (key === 'socialLinks') {
