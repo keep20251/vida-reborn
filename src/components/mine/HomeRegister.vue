@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SelfIntro :item="userInfo" show-all-info>
+    <SelfIntro :item="userData" show-all-info>
       <template #topButton>
         <div class="flex items-center space-x-10">
           <Icon class="cursor-pointer" name="link" size="20"></Icon>
@@ -44,7 +44,7 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
@@ -53,21 +53,9 @@ import Feed from '@comp/main/Feed.vue'
 import SelfIntro from '@comp/main/SelfIntro.vue'
 import Tab from '@comp/navigation/Tab.vue'
 import { TAB_TYPE } from '@const/home'
-import defaultAvatar from '@/assets/images/avatar.jpeg'
 
 const { t: $t } = useI18n()
 const { userData } = storeToRefs(useAccountStore())
-
-const userInfo = computed(() => ({
-  avatar: defaultAvatar,
-  name: userData.value?.nickname,
-  username: userData.value?.username,
-  subscriber: userData.value?.subscriber_count,
-  posts: userData.value?.post_num,
-  link: 'WenHsin.com',
-  viewed: userData.value?.view_count,
-  info: userData.value?.description,
-}))
 
 const tab = ref(TAB_TYPE.REC)
 const tabOptions = ref([

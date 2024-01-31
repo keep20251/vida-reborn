@@ -31,7 +31,8 @@ export default {
     save: "保存",
     cookie: "このメッセージを受け入れて見ないでください",
     check: "",
-    unsubscribe: "",
+    subscribe: "サブスクリプション",
+    unsubscribe: "登録解除",
   },
   title: {
     join: "参加する",

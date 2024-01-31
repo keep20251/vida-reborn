@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SelfIntro :item="userInfo" show-bg-data show-personal-Info show-all-info>
+    <SelfIntro :item="userData" show-bg-data show-personal-Info show-all-info>
       <template #topButton>
         <div class="flex items-center space-x-10">
           <Icon class="cursor-pointer" name="link" size="20"></Icon>
@@ -35,7 +35,7 @@
   </div>
 </template>
 <script setup>
-import { computed, ref, watch } from 'vue'
+import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useMineStore } from '@/store/mine'
@@ -43,23 +43,11 @@ import Button from '@comp/common/Button.vue'
 import List from '@comp/common/List.vue'
 import Feed from '@comp/main/Feed.vue'
 import SelfIntro from '@comp/main/SelfIntro.vue'
-import defaultAvatar from '@/assets/images/avatar.jpeg'
 
 const mineStore = useMineStore()
 const { isPrvwActive } = storeToRefs(mineStore)
 
 const { userData } = storeToRefs(useAccountStore())
-
-const userInfo = computed(() => ({
-  avatar: defaultAvatar,
-  name: userData.value?.nickname,
-  username: userData.value?.username,
-  subscriber: userData.value?.subscriber_count,
-  posts: userData.value?.post_num,
-  link: 'WenHsin.com',
-  viewed: userData.value?.view_count,
-  info: userData.value?.description,
-}))
 
 const items = ref([])
 </script>

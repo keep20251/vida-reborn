@@ -36,7 +36,8 @@ export default {
     save: "बचाना",
     cookie: "स्वीकार करें और इस संदेश को फिर से न दिखाएं",
     check: "",
-    unsubscribe: "",
+    subscribe: "अंशदान",
+    unsubscribe: "सदस्यता रद्द",
   },
   title: {
     join: "शामिल हों",

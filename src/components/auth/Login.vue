@@ -18,6 +18,7 @@
               :err-msg="credential.password.error"
             ></InputWrap>
             <Button :loading="isLoading" @click="validaite">{{ $t('label.login') }}</Button>
+            <div v-if="serverErrorMsg" class="text-base text-warning">{{ serverErrorMsg }}</div>
           </div>
           <div class="text-center text-base leading-md text-gray-57">
             <span>
@@ -84,6 +85,8 @@ async function validaite() {
 const accountStore = useAccountStore()
 const { login: loginAccount } = accountStore
 
+const serverErrorMsg = ref('')
+
 async function login() {
   const { data, execute } = useRequest('Account.loginByPassword')
   try {
@@ -94,6 +97,7 @@ async function login() {
     await loginAccount(data.value.token)
   } catch (e) {
     console.error(e)
+    serverErrorMsg.value = e.message
   } finally {
     isLoading.value = false
   }

@@ -31,6 +31,7 @@ export default {
     save: "儲存",
     cookie: "接受，不要再顯示此消息",
     check: "查看",
+    subscribe: "訂閱",
     unsubscribe: "取消订阅",
   },
   title: {

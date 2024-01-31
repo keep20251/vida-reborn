@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col space-y-20">
-    <SelfIntro :item="userInfo" camera-icon show-bg-upload></SelfIntro>
+    <SelfIntro :item="userData" camera-icon show-bg-upload></SelfIntro>
     <div class="flex flex-col space-y-20 pl-4">
       <InputWrap
         v-model="profile.nickname"
@@ -78,7 +78,7 @@
   </div>
 </template>
 <script setup>
-import { computed, onMounted, reactive, ref } from 'vue'
+import { onMounted, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
@@ -93,24 +93,12 @@ import SelfIntro from '@comp/main/SelfIntro.vue'
 import useRequest from '@use/request/index.js'
 import { useLocale } from '@use/utils/locale'
 import { MODAL_TYPE } from '@const'
-import defaultAvatar from '@/assets/images/avatar.jpeg'
 
 const serverError = ref('')
 const { t: $t } = useI18n()
 
 const { userData } = storeToRefs(useAccountStore())
 console.log(`userData`, userData.value)
-
-const userInfo = computed(() => ({
-  avatar: defaultAvatar,
-  name: userData.value.nickname,
-  username: userData.value.username,
-  subscriber: userData.value.subscriber_count,
-  posts: userData.value.post_num,
-  link: 'WenHsin.com',
-  viewed: userData.value.view_count,
-  info: userData.value.descriptions,
-}))
 
 const profile = reactive({
   nickname: userData.value.nickname,
