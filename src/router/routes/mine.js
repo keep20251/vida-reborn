@@ -22,6 +22,7 @@ import IdentityAgreement from '@/pages/mine/be-creator/IdentityAgreement.vue'
 import TakePicture from '@/pages/mine/be-creator/TakePicture.vue'
 
 const prefix = 'mine'
+
 export default [
   { name: `${prefix}-home`, path: '', component: MineHome, meta: {} },
   { name: `${prefix}-profile-set`, path: `profile-set`, component: MineProfileSet, meta: {} },
@@ -38,14 +39,27 @@ export default [
     component: MineBeCreator,
     meta: {},
     children: [
-      { name: `${prefix}-creator-agreement`, path: '', component: Agreement, meta: {} },
+      {
+        name: `${prefix}-creator-agreement`,
+        path: '',
+        component: Agreement,
+        meta: {},
+        beforeEnter: (to, from) => redirectIfNotMatch(to, from, prefix),
+      },
       {
         name: `${prefix}-creator-identity-agreement`,
         path: `identity-agreement`,
         component: IdentityAgreement,
         meta: {},
+        beforeEnter: (to, from) => redirectIfNotMatch(to, from, `${prefix}-creator-agreement`),
       },
-      { name: `${prefix}-creator-take-picture`, path: `take-picture`, component: TakePicture, meta: {} },
+      {
+        name: `${prefix}-creator-take-picture`,
+        path: `take-picture`,
+        component: TakePicture,
+        meta: {},
+        beforeEnter: (to, from) => redirectIfNotMatch(to, from, `${prefix}-creator-identity-agreement`),
+      },
     ],
   },
   { name: `${prefix}-account`, path: `account`, component: MineSetAcc, meta: {} },
@@ -58,3 +72,8 @@ export default [
   { name: `${prefix}-cp`, path: `cp`, component: MineAboutCP, meta: {} },
   { name: `${prefix}-dmca`, path: `dmca`, component: MineAboutDMCA, meta: {} },
 ]
+
+function redirectIfNotMatch(to, from, routeName) {
+  if (from?.name?.includes(routeName)) return true
+  return { name: 'mine-home', params: { lang: to.params.lang } }
+}
