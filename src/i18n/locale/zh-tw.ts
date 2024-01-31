@@ -207,6 +207,7 @@ export default {
     Nov: "十一月",
     Dec: "十二月",
   },
+  unit: { day: "{days} 天" },
   meta: {
     home: {
       title: "Vida {pipe} 高質感成人短視頻平台",

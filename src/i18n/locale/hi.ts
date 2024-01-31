@@ -216,6 +216,7 @@ export default {
     Nov: "नवंबर",
     Dec: "दिसंबर",
   },
+  unit: { day: "{days} दिन" },
   meta: {
     home: {
       title: "Vida {pipe} प्रीमियम एडल्ट शॉर्ट वीडियो प्लेटफॉर्म",

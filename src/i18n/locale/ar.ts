@@ -215,6 +215,7 @@ export default {
     Nov: "نوفمبر",
     Dec: "ديسمبر",
   },
+  unit: { day: "{days} أيام" },
   meta: {
     home: {
       title: "Vida {pipe} منصة الفيديو القصيرة الفاخرة للبالغين",

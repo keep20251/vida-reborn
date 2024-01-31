@@ -211,6 +211,7 @@ export default {
     Nov: "11월",
     Dec: "12월",
   },
+  unit: { day: "{days} 일" },
   meta: {
     home: {
       title: "Vida {pipe} 고급 성인용 짧은 비디오 플랫폼",

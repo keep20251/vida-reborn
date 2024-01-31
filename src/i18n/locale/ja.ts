@@ -214,6 +214,7 @@ export default {
     Nov: "11月",
     Dec: "12月",
   },
+  unit: { day: "{days}日" },
   meta: {
     home: {
       title: "Vida {pipe} 大人向け高品質ショートビデオプラットフォーム",

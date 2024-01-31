@@ -219,6 +219,7 @@ export default {
     Nov: "Tháng Mười Một",
     Dec: "Tháng Mười Hai",
   },
+  unit: { day: "{days} ngày" },
   meta: {
     home: {
       title: "Vida {pipe} Nền tảng Video Ngắn Cao cấp cho Người lớn",
