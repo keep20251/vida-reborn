@@ -6,7 +6,7 @@
         <div class="mb-10 grid space-y-10 rounded-md bg-[#7FE2D326] px-20 py-15">
           <div class="flex items-center justify-between">
             <div class="flex">
-              <Avatar class="mr-10" :radius="50" :src="item.avatar"></Avatar>
+              <Avatar class="mr-10" :radius="25" :src="item.avatar"></Avatar>
               <div class="flex flex-col space-y-4">
                 <div class="text-lg font-bold leading-lg">{{ item.name }}</div>
                 <div class="text-sm font-normal leading-3 text-gray-57">＠{{ item.username }}</div>

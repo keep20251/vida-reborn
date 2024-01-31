@@ -2,7 +2,7 @@
   <div class="flex w-full flex-col space-y-10">
     <!-- head -->
     <div class="flex h-30 w-full items-center">
-      <Avatar :radius="30" class="mr-5" :src="item.user?.thumb"></Avatar>
+      <Avatar :radius="15" class="mr-5" :src="item.user?.thumb"></Avatar>
       <div class="grow text-base font-bold leading-none">{{ item.user?.nickname }}</div>
       <div class="grow text-right text-sm font-medium leading-5 text-gray-57">{{ item.created_at }}</div>
       <Icon name="moreVertical" size="20"></Icon>
