@@ -60,8 +60,8 @@ export const PERMISSION = {
     avatar: true,
     subscribers: false,
     profile: false,
-    registerLogin: false,
-    postEarn: false,
+    registerLogin: true, // 暫打開
+    postEarn: true, // 暫打開
     buyCollect: true,
     beCreator: true,
     settings: true,
@@ -71,7 +71,7 @@ export const PERMISSION = {
     avatar: true,
     subscribers: true,
     profile: true,
-    registerLogin: false,
+    registerLogin: true, // 暫打開
     postEarn: true,
     buyCollect: true,
     beCreator: false,
