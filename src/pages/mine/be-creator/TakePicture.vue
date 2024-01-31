@@ -36,13 +36,17 @@
 <script setup>
 import { reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
+import { useAccountStore } from '@/store/account'
 import { useBecomeCreatorStore } from '@/store/become-creator'
 import { useModalStore } from '@/store/modal'
 import Button from '@comp/common/Button.vue'
 import PhotoContainer from '@comp/mine/PhotoContainer.vue'
+import useRequest from '@use/request'
 import { useYup } from '@use/validator/yup.js'
-import { MODAL_TYPE } from '@const'
+import { AUTH_STATUS, MODAL_TYPE } from '@const'
+import uploadImage from '@/http/upload/uploadImage'
 
 const { t: $t } = useI18n()
 const { open } = useModalStore()
@@ -64,8 +68,6 @@ const validator = reactive({
   idPhotoData: { check: false, error: '' },
   facePhotoData: { check: false, error: '' },
 })
-
-const serverErrorMsg = ref('')
 
 async function validate() {
   try {
@@ -89,12 +91,59 @@ function openConfirm() {
     size: 'sm',
     content: '请问您是否确认要送出资料？',
     confirmText: $t('common.confirm'),
-    confirmAction: () => {},
+    confirmAction: uploadPicture,
     cancelText: $t('common.cancel'),
     cancelAction: () => {},
   })
 }
 
-function uploadImage() {}
-function send() {}
+const idPhotoUrl = ref('')
+const facePhotoUrl = ref('')
+const serverErrorMsg = ref('')
+
+async function uploadPicture() {
+  try {
+    idPhotoUrl.value = await uploadImage(idPhotoData.value, () => {})
+    facePhotoUrl.value = await uploadImage(facePhotoData.value, () => {})
+    submit()
+  } catch (e) {
+    console.error(e)
+    serverErrorMsg.value = e.message
+  }
+}
+
+const router = useRouter()
+const { userData } = storeToRefs(useAccountStore())
+
+async function submit() {
+  const { execute } = useRequest('User.applyCreator')
+
+  try {
+    const payload = {
+      country: country.value,
+      identify: identity.value,
+      url: `${idPhotoUrl.value},${facePhotoUrl.value}`,
+    }
+    await execute(payload)
+    userData.value.auth_status = AUTH_STATUS.VERIFIED
+
+    open(MODAL_TYPE.CONFIRM, {
+      title: '提出申请成功',
+      size: 'sm',
+      content: '太棒了！相关资料已成功送出，我们将会在七天内尽快完成您的审核，结果将以信息的方式通知您。感谢您的耐心！',
+      confirmText: $t('common.confirm'),
+      confirmAction: () => router.push({ name: 'mine-home' }),
+    })
+  } catch (e) {
+    console.error(e)
+    serverErrorMsg.value = e.message
+    open(MODAL_TYPE.CONFIRM, {
+      title: '提出申请失敗',
+      size: 'sm',
+      content: e.message,
+      confirmText: $t('common.confirm'),
+      confirmAction: () => router.push({ name: 'mine-home' }),
+    })
+  }
+}
 </script>
