@@ -4,7 +4,7 @@
       <EncryptImage :src="props.src" :border-radius="radius" cover></EncryptImage>
     </div>
     <img v-else :src="defaultAvatar" class="h-full w-full rounded-inherit object-cover" />
-    <div v-if="cameraIcon" class="absolute left-55 top-40 cursor-pointer">
+    <div v-if="cameraIcon" class="absolute left-55 top-40 cursor-pointer" @click="emits('click:camera')">
       <div class="flex h-30 w-30 items-center justify-center rounded-full bg-light-gray">
         <Icon class="" name="camera" size="20"></Icon>
       </div>
@@ -15,6 +15,8 @@
 <script setup>
 import { computed } from 'vue'
 import defaultAvatar from '@/assets/images/avatar.jpeg'
+
+const emits = defineEmits(['click:camera'])
 
 const props = defineProps({
   src: { type: String },

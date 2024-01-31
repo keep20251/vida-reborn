@@ -217,6 +217,7 @@ export default {
     Nov: "November",
     Dec: "Desember",
   },
+  unit: { day: "{days} Days" },
   meta: {
     home: {
       title: "Vida {pipe} Platform Video Pendek Dewasa Berkualitas Tinggi",
