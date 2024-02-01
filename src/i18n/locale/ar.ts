@@ -33,6 +33,7 @@ export default {
     confirm: "تأكيد",
     loading: "جار التحميل",
     noMore: "لا يوجد المزيد",
+    more: "أكثر",
     save: "يحفظ",
     cookie: "اقبل ولا تظهر هذه الرسالة مرة أخرى",
     check: "",

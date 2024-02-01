@@ -42,6 +42,7 @@ export default {
         primary: '#6567E8',
         contrast: '#7FE2D3',
         warning: '#FF1D00',
+        subscribe: '#FF8947',
         'gray-57': '#575757',
         'gray-a3': '#A3A3A3',
         'gray-cc': '#CCCCCC',
@@ -79,6 +80,9 @@ export default {
       },
       listStyleType: {
         'lower-alpha': 'lower-alpha',
+      },
+      content: {
+        more: '"more"',
       },
     },
     spacing: generateSpacing(),

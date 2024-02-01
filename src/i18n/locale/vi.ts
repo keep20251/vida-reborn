@@ -33,6 +33,7 @@ export default {
     confirm: "Xác nhận",
     loading: "Đang tải",
     noMore: "Không còn nữa",
+    more: "Hơn",
     save: "Cứu",
     cookie: "Chấp nhận và don lồng hiển thị lại tin nhắn này",
     check: "",

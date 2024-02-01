@@ -33,6 +33,7 @@ export default {
     confirm: "Bestätigen",
     loading: "Laden",
     noMore: "Nicht mehr",
+    more: "Mehr",
     save: "Speichern",
     cookie: "Akzeptieren und zeigen Sie diese Nachricht nicht noch einmal",
     check: "",
