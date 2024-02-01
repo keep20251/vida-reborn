@@ -89,6 +89,7 @@ import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
+import { useAppStore } from '@/store/app'
 import { useModalStore } from '@/store/modal'
 import Button from '@comp/common/Button.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
@@ -100,6 +101,9 @@ import useRequest from '@use/request/index.js'
 import { useLocale } from '@use/utils/locale'
 import { MODAL_TYPE } from '@const'
 import { uploadImageDialog } from '@/http/upload/uploadImage'
+
+const { appConfig } = useAppStore()
+console.log(`appConfig`, appConfig)
 
 const serverError = ref('')
 const { t: $t } = useI18n()
@@ -186,6 +190,11 @@ const onSave = async () => {
     Object.entries(profile).forEach(([key, value]) => {
       if (key === 'socialLinks') {
         Object.entries(value).forEach(([k, v]) => (userData.value[`${k}_link`] = v.value))
+        return
+      }
+      if (key === 'thumb' || key === 'background') {
+        userData.value[key] = appConfig.config.img_url + value
+        return
       }
       userData.value[key] = value
     })
