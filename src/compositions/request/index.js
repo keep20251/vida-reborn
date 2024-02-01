@@ -69,6 +69,7 @@ export default useRequest
 function useRequest(apiKey, { params = {}, immediate = false, shallow = true, initialData = null } = {}) {
   const guestIdCookie = useCookie(COOKIE_KEY.GUEST_ID, { default: uuidv4, readonly: true })
   const tokenCookie = useCookie(COOKIE_KEY.AUTH, { default: '' })
+  const localeCookie = useLocaleReadonly()
 
   const data = (shallow ? shallowRef : ref)(initialData)
   const error = shallowRef(null)
@@ -107,7 +108,7 @@ function useRequest(apiKey, { params = {}, immediate = false, shallow = true, in
       data: reqParams,
       config: {
         headers: {
-          'Accept-Language': useLocaleReadonly().value,
+          'Accept-Language': localeCookie.value,
         },
         signal: controller.signal,
       },

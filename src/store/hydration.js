@@ -18,6 +18,7 @@ export const useHydrationStore = defineStore('hydration', () => {
 
   // route creator
   const creator = ref(null)
+  const creatorArticleList = ref(null)
   const creatorError = ref('')
 
   // route feed
@@ -32,6 +33,7 @@ export const useHydrationStore = defineStore('hydration', () => {
     forYou,
 
     creator,
+    creatorArticleList,
     creatorError,
   }
 

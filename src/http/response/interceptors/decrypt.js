@@ -1,9 +1,5 @@
 import { Decrypt } from '@/utils/crypto-data'
-
-// import { storeToRefs } from 'pinia'
-// import { useAccountStore } from '@/store/account'
-// import { usePopupDialogStore } from '@/store/popup-dialog'
-// import i18n from '@/i18n'
+import TokenInvalidError from '@/errors/TokenInvalidError'
 
 export default function (response) {
   // 是一個 Promise 物件的話不處理
@@ -20,23 +16,7 @@ export default function (response) {
 
     // 未授權
   } else if (processedData.status === 422) {
-    // TODO 還沒處理以下的流程，先註解
-    // const accountStore = useAccountStore()
-    // const { isLogin } = storeToRefs(accountStore)
-    // const { logout } = accountStore
-    // const { $alert } = usePopupDialogStore()
-    // if (isLogin.value) {
-    //   $alert({
-    //     title: i18n.global.t('common.error'),
-    //     content: i18n.global.t('content.tokenExpired'),
-    //     confirm: () => {
-    //       logout()
-    //     },
-    //     showClose: false,
-    //   }).open()
-    // }
-
-    return Promise.reject(new Error(processedData.msg))
+    return Promise.reject(new TokenInvalidError(processedData.msg))
   }
 
   if (import.meta.env.DEV) console.log(`[response]${config.url}`, processedData.data)
