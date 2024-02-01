@@ -36,7 +36,6 @@
 <script setup>
 import { reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useBecomeCreatorStore } from '@/store/become-creator'
@@ -44,6 +43,7 @@ import { useModalStore } from '@/store/modal'
 import Button from '@comp/common/Button.vue'
 import PhotoContainer from '@comp/mine/PhotoContainer.vue'
 import useRequest from '@use/request'
+import { useRouters } from '@use/routers'
 import { useYup } from '@use/validator/yup.js'
 import { AUTH_STATUS, MODAL_TYPE } from '@const'
 import uploadImage from '@/http/upload/uploadImage'
@@ -112,7 +112,7 @@ async function uploadPicture() {
   }
 }
 
-const router = useRouter()
+const { to } = useRouters()
 const { userData } = storeToRefs(useAccountStore())
 
 async function submit() {
@@ -132,7 +132,7 @@ async function submit() {
       size: 'sm',
       content: '太棒了！相关资料已成功送出，我们将会在七天内尽快完成您的审核，结果将以信息的方式通知您。感谢您的耐心！',
       confirmText: $t('common.confirm'),
-      confirmAction: () => router.push({ name: 'mine-home' }),
+      confirmAction: () => to('mine-home'),
     })
   } catch (e) {
     console.error(e)
@@ -142,7 +142,7 @@ async function submit() {
       size: 'sm',
       content: e.message,
       confirmText: $t('common.confirm'),
-      confirmAction: () => router.push({ name: 'mine-home' }),
+      confirmAction: () => to('mine-home'),
     })
   }
 }

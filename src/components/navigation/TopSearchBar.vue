@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-full items-center space-x-20">
-    <Link v-if="logo" :href="`/${locale}`" title="VIDA" @click="router.push({ name: 'home' })">
+    <Link v-if="logo" :href="`/${locale}`" title="VIDA" @click="to('home')">
       <img class="h-30 w-54" src="@/assets/logo.svg?url" alt="VIDA" />
     </Link>
     <InputWrap
@@ -21,9 +21,9 @@
 <script setup>
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useRouter } from 'vue-router'
 import Link from '@comp/common/Link.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
+import { useRouters } from '@use/routers'
 import { useLocaleReadonly } from '@use/utils/localeReadonly'
 
 const { t: $t } = useI18n()
@@ -38,5 +38,5 @@ const searchValue = ref('')
 
 const locale = useLocaleReadonly()
 
-const router = useRouter()
+const { to } = useRouters()
 </script>

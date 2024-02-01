@@ -1,12 +1,7 @@
 <template>
   <header class="flex shrink-0 grow basis-60 justify-end overflow-x-hidden md:basis-72 xl:basis-[150px]">
     <nav class="fixed flex h-full min-h-[600px] w-60 flex-col overflow-x-hidden md:w-72 xl:w-[150px]">
-      <Link
-        class="mt-10 px-12 pb-20 pt-10 hover:bg-gray-f6"
-        :href="`/${locale}`"
-        title="VIDA"
-        @click="router.push({ name: 'home' })"
-      >
+      <Link class="mt-10 px-12 pb-20 pt-10 hover:bg-gray-f6" :href="`/${locale}`" title="VIDA" @click="to('home')">
         <img class="h-20 w-36 xl:h-40 xl:w-72" src="@/assets/logo.svg?url" alt="VIDA" />
       </Link>
       <router-link :to="`/${locale}`">
@@ -70,11 +65,12 @@
 </template>
 <script setup>
 import { computed } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useDialogStore } from '@/store/dialog'
 import { usePublishStore } from '@/store/publish'
 import Link from '@comp/common/Link.vue'
+import { useRouters } from '@use/routers'
 import { useLocale } from '@use/utils/locale'
 import devRoutes from '@/router/routes/dev'
 
@@ -88,7 +84,7 @@ const isDev = computed(() => import.meta.env.DEV)
 
 const locale = useLocale()
 
-const router = useRouter()
+const { to } = useRouters()
 
 const { fileSelectDialog } = storeToRefs(useDialogStore())
 
@@ -96,7 +92,7 @@ const publishStore = usePublishStore()
 const { isEditing } = storeToRefs(publishStore)
 function onPublishClick() {
   if (isEditing.value) {
-    router.push({ name: 'publish' })
+    to('publish')
   } else {
     fileSelectDialog.value = true
   }

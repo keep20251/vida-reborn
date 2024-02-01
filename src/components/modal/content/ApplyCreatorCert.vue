@@ -31,13 +31,13 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useBecomeCreatorStore } from '@/store/become-creator'
 import { useModalStore } from '@/store/modal'
 import Dropdown from '@comp/form/Dropdown.vue'
 import { useConfirmData } from '@use/modal/confirm-data'
 import { useI18nPack } from '@use/request/i18nPack'
+import { useRouters } from '@use/routers'
 import { BECOME_CREATOR_IDENTITY } from '@const'
 
 const emit = defineEmits(['component:confirm'])
@@ -54,11 +54,11 @@ const { identity, country } = storeToRefs(useBecomeCreatorStore())
 const modalStore = useModalStore()
 const { content } = storeToRefs(modalStore)
 
-const router = useRouter()
+const { to } = useRouters()
 
 function onIdentitySelected(value) {
   identity.value = value
   emit('component:confirm')
 }
-useConfirmData(() => router.push({ name: 'mine-creator-identity-agreement' }))
+useConfirmData(() => to('mine-creator-identity-agreement'))
 </script>

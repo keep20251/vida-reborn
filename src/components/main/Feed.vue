@@ -2,8 +2,14 @@
   <div class="flex w-full flex-col space-y-10">
     <!-- head -->
     <div class="flex h-30 w-full items-center">
-      <Avatar :radius="15" class="mr-5" :src="item.user?.thumb"></Avatar>
-      <div class="grow text-base font-bold leading-none">{{ item.user?.nickname }}</div>
+      <div class="cursor-pointer" @click="toCreator(item.user.username)">
+        <Avatar :radius="15" class="mr-5" :src="item.user?.thumb"></Avatar>
+      </div>
+      <div class="grow text-base font-bold leading-none">
+        <span class="cursor-pointer hover:underline" @click="toCreator(item.user.username)"
+          >{{ item.user?.nickname }}
+        </span>
+      </div>
       <div class="grow text-right text-sm font-medium leading-5 text-gray-57">{{ item.created_at }}</div>
       <Icon name="moreVertical" size="20"></Icon>
     </div>
@@ -68,6 +74,7 @@
 import { computed } from 'vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
 import Video from '@comp/multimedia/Video.vue'
+import { useRouters } from '@use/routers'
 import { MEDIA_TYPE } from '@const/publish'
 
 const props = defineProps({
@@ -77,4 +84,6 @@ const props = defineProps({
 const isVideo = computed(() => props.item.resource_type === MEDIA_TYPE.VIDEO)
 const isImage = computed(() => props.item.resource_type === MEDIA_TYPE.IMAGE)
 const tags = computed(() => (props.item.tags ? props.item.tags.split(',') : []))
+
+const { toCreator } = useRouters()
 </script>

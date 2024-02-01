@@ -40,24 +40,24 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useDialogStore } from '@/store/dialog'
 import { usePublishStore } from '@/store/publish'
 import BaseDialog from '@comp/dialog/BaseDialog.vue'
+import { useRouters } from '@use/routers'
 
 const { fileSelectDialog } = storeToRefs(useDialogStore())
 
 const { setFile } = usePublishStore()
 
-const router = useRouter()
+const { to } = useRouters()
 
 async function onFile(evt) {
   const files = evt.target.files
   if (files.length > 0) {
     try {
       setFile(files)
-      await router.push({ name: 'publish' })
+      await to('publish')
     } catch (e) {
       console.error(e)
     } finally {

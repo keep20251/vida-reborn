@@ -1,6 +1,6 @@
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useRouter } from 'vue-router'
+import { useRouters } from '@use/routers'
 import { useCookie } from '@use/utils/cookie'
 import { COOKIE_KEY } from '@const'
 import { getLang, loadLanguage } from '@/i18n'
@@ -17,7 +17,7 @@ export function useLocale() {
   const i18n = useI18n()
   const cookieLocale = useCookie(COOKIE_KEY.LOCALE, { default: i18n.locale.value })
 
-  const router = useRouter()
+  const { updateParams } = useRouters()
 
   async function setLocale(langCode) {
     const lang = getLang(langCode)
@@ -47,7 +47,7 @@ export function useLocale() {
     i18n.locale.value = lang
     cookieLocale.value = lang
 
-    router.replace({ name: router.currentRoute.name, params: { lang } })
+    updateParams({ params: { lang } })
 
     return lang
   }

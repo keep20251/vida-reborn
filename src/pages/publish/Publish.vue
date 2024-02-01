@@ -139,7 +139,6 @@
 
 <script setup>
 import { computed, ref, watch } from 'vue'
-import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useModalStore } from '@/store/modal'
@@ -153,6 +152,7 @@ import TagEditor from '@comp/form/TagEditor.vue'
 import TextareaWrap from '@comp/form/TextareaWrap.vue'
 import Head from '@comp/navigation/Head.vue'
 import useRequest from '@use/request'
+import { useRouters } from '@use/routers'
 import { useYup } from '@use/validator/yup.js'
 import { toDateTimeString } from '@/utils/string-helper'
 import { FEED_PERM, IMAGE_LIMIT_COUNT, SUB_ALL_VALUE, UPLOAD_STATUS } from '@/constant/publish'
@@ -163,7 +163,7 @@ const { publishParams, startUpload, clear, changeVideoFile, addImageFile, remove
 
 const { alert, confirm } = useModalStore()
 
-const router = useRouter()
+const { back } = useRouters()
 
 const publishing = ref(false)
 const inputVideo = ref(null)
@@ -178,7 +178,7 @@ watch(
         await startUpload(video)
       } catch (e) {
         console.error(e)
-        router.back()
+        back()
       }
     }
   },
@@ -218,7 +218,7 @@ function onImageFile(evt) {
 
 function onClose() {
   clear()
-  router.back()
+  back()
 }
 
 function publish() {
