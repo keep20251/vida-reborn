@@ -4,8 +4,8 @@
       :item="userData"
       camera-icon
       show-bg-upload
-      @file:avatar="(file) => (files.avatar = file)"
-      @file:background="(file) => (files.background = file)"
+      @file:avatar="async (file) => (profile.thumb = await uploadImageDialog(file))"
+      @file:background="async (file) => (profile.background = await uploadImageDialog(file))"
     ></SelfIntro>
     <div class="flex flex-col space-y-20 pl-4">
       <InputWrap
@@ -70,7 +70,7 @@
           <SubscribeSwitch
             v-for="(item, index) in subscriptions"
             :key="`subscription-${index}`"
-            v-model="item.isOpen"
+            v-model="item.status"
             :item="item"
           ></SubscribeSwitch>
         </div>
@@ -83,7 +83,8 @@
   </div>
 </template>
 <script setup>
-import { onMounted, reactive, ref } from 'vue'
+import cloneDeep from 'lodash/cloneDeep'
+import { computed, onMounted, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
@@ -98,13 +99,12 @@ import SelfIntro from '@comp/main/SelfIntro.vue'
 import useRequest from '@use/request/index.js'
 import { useLocale } from '@use/utils/locale'
 import { MODAL_TYPE } from '@const'
-import uploadImage from '@/http/upload/uploadImage'
+import { uploadImageDialog } from '@/http/upload/uploadImage'
 
 const serverError = ref('')
 const { t: $t } = useI18n()
 
 const { userData } = storeToRefs(useAccountStore())
-console.log(`userData`, userData.value)
 
 const profile = reactive({
   nickname: userData.value.nickname,
@@ -127,28 +127,28 @@ const profile = reactive({
       value: userData.value?.tiktok_link ?? null,
     },
   },
+  thumb: '',
+  background: '',
 })
-
-const files = reactive({
-  avatar: null,
-  background: null,
-})
-
-// TODO 訂閱設定還沒串好
-// const subscriptions = ref([
-//   { title: 'General', price: 0.99, isOpen: true },
-//   { title: 'Silver', price: 9.99, isOpen: true },
-//   { title: 'Golden', price: 99.99, isOpen: true },
-// ])
 
 const subscriptions = ref([])
+const originSubscription = ref([])
+const compareSubscription = computed(() =>
+  subscriptions.value.filter((item) =>
+    originSubscription.value.some((originItem) => item.id === originItem.id && item.status !== originItem.status),
+  ),
+)
 
 async function fetchSubscriptions() {
   const { data, execute } = useRequest('Subscription.list')
   try {
     await execute()
-    subscriptions.value = data.value?.list
-    console.log(`訂閱組資料`, subscriptions.value)
+    const cleanData = data.value?.list.map((item) => {
+      return { ...item, status: !!item.status }
+    })
+    console.log(`訂閱組資料`, cleanData)
+    subscriptions.value = cleanData
+    originSubscription.value = cloneDeep(cleanData)
   } catch (e) {
     console.error(e)
     serverError.value = e.message ?? 'Server Error'
@@ -177,8 +177,27 @@ const locale = useLocale()
 const { push } = useRouter()
 
 const onSave = async () => {
-  const { execute } = useRequest('User.modifyInfo')
+  try {
+    await saveUserInfo()
 
+    for (const item of compareSubscription.value) {
+      await saveSubscription(item)
+    }
+    Object.entries(profile).forEach(([key, value]) => {
+      if (key === 'socialLinks') {
+        Object.entries(value).forEach(([k, v]) => (userData.value[`${k}_link`] = v.value))
+      }
+      userData.value[key] = value
+    })
+    push({ name: 'mine-home' })
+  } catch (e) {
+    console.error(e)
+    serverError.value = e.message ?? 'Server Error'
+  }
+}
+
+const saveUserInfo = async () => {
+  const { execute: modifyUserInfo } = useRequest('User.modifyInfo')
   const payload = {
     nickname: profile.nickname,
     username: profile.username,
@@ -191,21 +210,23 @@ const onSave = async () => {
   })
   payload.set_social_media = JSON.stringify(socialMedia)
 
-  try {
-    if (files.avatar) payload.thumb = await uploadImage(files.avatar, () => {})
-    if (files.background) payload.background = await uploadImage(files.background, () => {})
+  if (profile.thumb) payload.thumb = profile.thumb
+  if (profile.background) payload.background = profile.background
 
-    await execute(payload)
-    Object.entries(profile).forEach(([key, value]) => {
-      if (key === 'socialLinks') {
-        Object.entries(value).forEach(([k, v]) => (userData.value[`${k}_link`] = v.value))
-      }
-      userData.value[key] = value
-    })
-    push({ name: 'mine-home' })
+  try {
+    await modifyUserInfo(payload)
   } catch (e) {
-    console.error(e)
-    serverError.value = e.message ?? 'Server Error'
+    throw new Error(e.message)
+  }
+}
+
+const saveSubscription = async (item) => {
+  const { execute: updateSubscription } = useRequest('Subscription.update')
+  const payload = { ...item, status: +!!item.status }
+  try {
+    await updateSubscription(payload)
+  } catch (e) {
+    throw new Error(e.message)
   }
 }
 </script>
