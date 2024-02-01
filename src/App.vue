@@ -45,7 +45,7 @@ const { authDialog, fileSelectDialog } = storeToRefs(useDialogStore())
 
 const accountStore = useAccountStore()
 const { resetUserData } = accountStore
-const { isLogin } = storeToRefs(accountStore)
+const { token } = storeToRefs(accountStore)
 
 const hydrationStore = useHydrationStore()
 const { appConfig, categories, userData } = storeToRefs(hydrationStore)
@@ -69,7 +69,7 @@ const execTable = {
   ],
 }
 onServerClientOnce(async (isSSR) => {
-  const executors = isLogin.value ? [...execTable.base, ...execTable.login] : [...execTable.base]
+  const executors = token.value ? [...execTable.base, ...execTable.login] : [...execTable.base]
   try {
     const datas = await Promise.all(executors.map((e) => e.fetcher()))
     if (isSSR) {
@@ -82,7 +82,7 @@ onServerClientOnce(async (isSSR) => {
   }
 })
 onHydration(() => {
-  const executors = isLogin.value ? [...execTable.base, ...execTable.login] : [...execTable.base]
+  const executors = token.value ? [...execTable.base, ...execTable.login] : [...execTable.base]
   executors.forEach(({ name, hydrationAction, hydrationTarget }, i) => {
     hydrationAction(hydrationTarget.value)
     console.log('[Hydration]', name, 'is reverted', hydrationTarget.value)
