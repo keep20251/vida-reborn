@@ -1,6 +1,10 @@
 <template>
   <Page>
     <div class="my-10 px-20">
+      <div class="mb-10">【 訂閱方案卡片 】</div>
+      <SubscribeCard class="py-30"></SubscribeCard>
+    </div>
+    <div class="my-10 px-20">
       <div class="mb-10">【 Creator Recommended Card 】</div>
       <RecCard class="py-30" :items="items"></RecCard>
     </div>
@@ -34,6 +38,7 @@ import BulletinCard from '@comp/card/BulletinCard.vue'
 import RecCard from '@comp/card/RecCard.vue'
 import RelCreatorsCard from '@comp/card/RelCreatorsCard.vue'
 import SearchCreatorCard from '@comp/card/SearchCreatorCard.vue'
+import SubscribeCard from '@comp/card/SubscribeCard.vue'
 import ViewSubscribeCard from '@comp/card/ViewSubscribeCard.vue'
 
 const items = ref([
