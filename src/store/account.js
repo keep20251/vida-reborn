@@ -23,7 +23,7 @@ export const useAccountStore = defineStore('account-store', () => {
 
   const userData = ref(null)
 
-  const isLogin = computed(() => !!tokenCookie.value)
+  const isLogin = computed(() => !!tokenCookie.value && !!userData.value)
   const username = computed(() => usernameCookie.value)
   const token = computed(() => tokenCookie.value)
   const userId = computed(() => affCookie.value)
@@ -71,8 +71,6 @@ export const useAccountStore = defineStore('account-store', () => {
   }
 
   function logout() {
-    tokenCookie.value = ''
-
     usernameCookie.value = ''
     tokenCookie.value = ''
     affCookie.value = ''
