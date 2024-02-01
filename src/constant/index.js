@@ -29,6 +29,7 @@ export const LOCAL_STORAGE_KEYS = {
 export const MODAL_TYPE = {
   ALERT: 1,
   CONFIRM: 2,
+  PROGRESS: 3,
 
   SOCIAL_LINK: 10,
   SIGN_UP_SUCCESS: 11,

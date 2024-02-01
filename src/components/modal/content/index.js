@@ -4,6 +4,7 @@ import CookiePolicy from './CookiePolicy.vue'
 import InterestedPick from './InterestedPick.vue'
 import PhotoCapture from './PhotoCapture.vue'
 import PrivacyPolicy from './PrivacyPolicy.vue'
+import Progress from './Progress.vue'
 import SignUpSuccess from './SignUpSuccess.vue'
 import SocialLink from './SocialLink.vue'
 import TermsOfService from './TermsOfService.vue'
@@ -13,6 +14,7 @@ import Text from './Text.vue'
 export default Object.freeze({
   [MODAL_TYPE.ALERT]: Text,
   [MODAL_TYPE.CONFIRM]: Text,
+  [MODAL_TYPE.PROGRESS]: Progress,
 
   [MODAL_TYPE.SOCIAL_LINK]: SocialLink,
   [MODAL_TYPE.SIGN_UP_SUCCESS]: SignUpSuccess,
