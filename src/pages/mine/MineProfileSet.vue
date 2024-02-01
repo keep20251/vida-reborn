@@ -97,13 +97,13 @@ import SocialLink from '@comp/form/SocialLink.vue'
 import SubscribeSwitch from '@comp/form/SubscribeSwitch.vue'
 import TextareaWrap from '@comp/form/TextareaWrap.vue'
 import SelfIntro from '@comp/main/SelfIntro.vue'
+import { useDialog } from '@use/modal/upload'
 import useRequest from '@use/request/index.js'
 import { useLocale } from '@use/utils/locale'
 import { MODAL_TYPE } from '@const'
-import { uploadImageDialog } from '@/http/upload/uploadImage'
 
+const { uploadImageDialog } = useDialog()
 const { appConfig } = useAppStore()
-console.log(`appConfig`, appConfig)
 
 const serverError = ref('')
 const { t: $t } = useI18n()
@@ -188,12 +188,15 @@ const onSave = async () => {
       await saveSubscription(item)
     }
     Object.entries(profile).forEach(([key, value]) => {
+      if (!!value === false) return
+
       if (key === 'socialLinks') {
         Object.entries(value).forEach(([k, v]) => (userData.value[`${k}_link`] = v.value))
         return
       }
       if (key === 'thumb' || key === 'background') {
         userData.value[key] = appConfig.config.img_url + value
+        console.log(`userData.value[key]`, userData.value[key])
         return
       }
       userData.value[key] = value
