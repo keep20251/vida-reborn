@@ -74,7 +74,7 @@
 import { computed } from 'vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
 import Video from '@comp/multimedia/Video.vue'
-import { useRouters } from '@use/router'
+import { useRouters } from '@use/routers'
 import { MEDIA_TYPE } from '@const/publish'
 
 const props = defineProps({

@@ -34,11 +34,12 @@
 
 <script setup>
 import { computed } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useDialogStore } from '@/store/dialog'
 import { usePublishStore } from '@/store/publish'
 import Link from '@comp/common/Link.vue'
+import { useRouters } from '@use/routers'
 import { useLocale } from '@use/utils/locale'
 
 const route = useRoute()
@@ -49,7 +50,7 @@ const atMine = computed(() => route.name.includes('mine'))
 
 const locale = useLocale()
 
-const router = useRouter()
+const { to } = useRouters()
 
 const { fileSelectDialog } = storeToRefs(useDialogStore())
 
@@ -57,7 +58,7 @@ const publishStore = usePublishStore()
 const { isEditing } = storeToRefs(publishStore)
 function onPublishClick() {
   if (isEditing.value) {
-    router.push({ name: 'publish' })
+    to('publish')
   } else {
     fileSelectDialog.value = true
   }

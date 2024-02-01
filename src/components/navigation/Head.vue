@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router'
+import { useRouters } from '@use/routers'
 
 defineProps({
   title: { type: String },
@@ -23,13 +23,8 @@ defineProps({
 
 const emits = defineEmits(['back', 'feature'])
 
-const router = useRouter()
+const { back } = useRouters()
 function onBack() {
-  if (window.history.state.back === null) {
-    router.push({ name: 'home' })
-  } else {
-    router.back()
-  }
-  emits('back')
+  back().then(() => emits('back'))
 }
 </script>

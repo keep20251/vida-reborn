@@ -6,16 +6,16 @@
       <div>{{ $t('content.verifyAccount') }}</div>
     </div>
     <div class="16 flex px-48">
-      <Button @click="`${(close(), router.push('/'))}`">{{ $t('common.getAround') }}</Button>
-      <Button @click="`${(close(), router.push('/'))}`">{{ $t('common.goNow') }}</Button>
+      <Button @click="`${(close(), to('home'))}`">{{ $t('common.getAround') }}</Button>
+      <Button @click="`${(close(), to('mine-account'))}`">{{ $t('common.goNow') }}</Button>
     </div>
   </div>
 </template>
 <script setup>
-import { useRouter } from 'vue-router'
 import { useAuthRouteStore } from '@/store/auth-route'
 import Button from '@comp/common/Button.vue'
+import { useRouters } from '@use/routers'
 
 const { close } = useAuthRouteStore()
-const router = useRouter()
+const { to } = useRouters()
 </script>
