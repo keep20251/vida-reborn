@@ -28,6 +28,7 @@ export default {
     confirm: "確認",
     loading: "読み込み中",
     noMore: "もうありません",
+    more: "もっと",
     save: "保存",
     cookie: "このメッセージを受け入れて見ないでください",
     check: "",

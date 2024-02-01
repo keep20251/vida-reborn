@@ -28,6 +28,7 @@ export default {
     confirm: "确认",
     loading: "载入中",
     noMore: "没有更多了",
+    more: "更多",
     save: "储存",
     cookie: "接受，不要再显示此消息",
     check: "查看",

@@ -33,6 +33,7 @@ export default {
     confirm: "Konfirmasi",
     loading: "Memuat",
     noMore: "Tidak ada lagi",
+    more: "Lagi",
     save: "Menyimpan",
     cookie: "Terima dan jangan tunjukkan pesan ini lagi",
     check: "",
