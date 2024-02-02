@@ -211,10 +211,7 @@ export default {
     subIn: "",
     expiration: "",
     renew: "",
-<<<<<<< HEAD
     beExpired: "",
-=======
->>>>>>> 0592491 (little thing...)
     error: "",
     noData: "",
     noNetwork: "",

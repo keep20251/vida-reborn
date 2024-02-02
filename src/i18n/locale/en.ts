@@ -209,10 +209,7 @@ export default {
     subIn: "Subscription will expire on",
     expiration: "maturity",
     renew: "Renew contract",
-<<<<<<< HEAD
     beExpired: "Be expired",
-=======
->>>>>>> 0592491 (little thing...)
     error: "",
     noData: "",
     noNetwork: "",
