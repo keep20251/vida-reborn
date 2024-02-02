@@ -1,5 +1,5 @@
 <template>
-  <Page :infinite="!!nextFn" @load="nextFn">
+  <Page infinite @load="nextFn">
     <template #main-top v-if="excludeRoutes.includes(route.name) === false && headerTitle">
       <div class="flex items-center justify-center border-b py-20">
         <div class="text-lg font-bold leading-5">
@@ -25,7 +25,10 @@
     </template>
     <template #aside>
       <ClientOnly>
-        <div class="m-15 grid space-y-20">
+        <div v-show="isPreviewMode" class="m-15 grid space-y-20">
+          <SubscribeCard v-for="n in 3" :key="`subscribe-card-${n}`"></SubscribeCard>
+        </div>
+        <div v-show="!isPreviewMode" class="m-15 grid space-y-20">
           <SetList />
           <div class="grid space-y-5">
             <Carousel :items="cats" interval-time></Carousel>
@@ -46,13 +49,14 @@ import { onBeforeRouteUpdate, useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useHeadStore } from '@/store/head'
 import { useMineStore } from '@/store/mine'
+import SubscribeCard from '@comp/card/SubscribeCard.vue'
 import Carousel from '@comp/common/Carousel.vue'
 import ClientOnly from '@comp/common/ClientOnly'
 import InputWrap from '@comp/form/InputWrap.vue'
 import SetList from '@comp/mine/SetList.vue'
 import { MINE_TITLE } from '@const'
 
-const { nextFn } = storeToRefs(useMineStore())
+const { nextFn, isPreviewMode } = storeToRefs(useMineStore())
 
 const inputValue = ref('')
 

@@ -19,7 +19,8 @@
         {{ $t('info.perSubscriber') }}
       </div>
     </div>
-    <div class="flex cursor-pointer items-center space-x-5" @click="onBack">
+    <div class="flex cursor-pointer flex-row items-center space-x-10" @click="onBack">
+      <span class="text-base font-normal leading-lg text-white">{{ $t('info.exitPrvw') }}</span>
       <Icon name="closeWhite" size="15"></Icon>
     </div>
   </div>

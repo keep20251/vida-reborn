@@ -59,7 +59,7 @@ const { t: $t } = useI18n()
 const { userData } = storeToRefs(useAccountStore())
 
 const { dataList, isLoading, noMore, init, next, reload, revert } = useInfinite('Article.list', {
-  params: {},
+  params: { uuid: userData.value?.uuid },
 })
 
 const { mineCreatorArticles } = storeToRefs(useHydrationStore())
