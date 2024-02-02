@@ -17,7 +17,7 @@
               <div class="text-base font-bold leading-md">{{ $t('label.orderNumber') }}:</div>
               <div class="text-base font-normal leading-lg text-gray-57">{{ item.order_id }}</div>
             </div>
-            <div class="text-base font-normal leading-lg text-gray-57">{{ item.created_at }}</div>
+            <div class="text-base font-normal leading-lg text-gray-57">{{ formatDate(item.created_at) }}</div>
           </div>
         </div>
         <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
@@ -56,4 +56,8 @@ onMounted(() => setNextFn(next))
 onUnmounted(() => clearNextFn(next))
 onActivated(() => setNextFn(next))
 onDeactivated(() => clearNextFn(next))
+
+const formatDate = (date) => {
+  return date.slice(0, 16)
+}
 </script>
