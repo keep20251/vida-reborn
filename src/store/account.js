@@ -1,10 +1,10 @@
-import { computed, ref, watch } from 'vue'
+import { computed, readonly, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { defineStore, storeToRefs } from 'pinia'
 import { useDialogStore } from '@/store/dialog'
 import useRequest from '@use/request/index.js'
 import { useCookie } from '@use/utils/cookie'
-import { COOKIE_KEY } from '@const'
+import { AUTH_STATUS, COOKIE_KEY, USER_PERM } from '@const'
 
 export const useAccountStore = defineStore('account-store', () => {
   // 用來暫存 afterLoginAction 的待執行函式
@@ -21,6 +21,7 @@ export const useAccountStore = defineStore('account-store', () => {
   const uuidCookie = useCookie(COOKIE_KEY.UUID, { default: '' })
   const chatTokenCookie = useCookie(COOKIE_KEY.CHAT_TOKEN, { default: '' })
 
+  const role = ref(USER_PERM.VISITOR)
   const userData = ref(null)
 
   const isLogin = computed(() => !!tokenCookie.value && !!userData.value)
@@ -29,6 +30,11 @@ export const useAccountStore = defineStore('account-store', () => {
   const userId = computed(() => affCookie.value)
   const userUUID = computed(() => uuidCookie.value)
   const chatToken = computed(() => chatTokenCookie.value)
+
+  // 使用者角色
+  const isVisitor = computed(() => role.value === USER_PERM.VISITOR)
+  const isUser = computed(() => role.value === USER_PERM.USER)
+  const isCreator = computed(() => role.value === USER_PERM.CREAOR)
 
   // dialog 被關掉要復原 tempAction
   watch(authDialog, (isOpen) => {
@@ -114,10 +120,13 @@ export const useAccountStore = defineStore('account-store', () => {
       }
     }
     userData.value = { ...newData }
+
+    role.value = userData.value.auth_status === AUTH_STATUS.CREATOR ? USER_PERM.CREATOR : USER_PERM.USER
   }
 
   function clearUserData() {
     userData.value = null
+    role.value = USER_PERM.VISITOR
   }
 
   return {
@@ -128,6 +137,12 @@ export const useAccountStore = defineStore('account-store', () => {
     userUUID,
     chatToken,
     userData,
+
+    role: readonly(role),
+    isVisitor,
+    isUser,
+    isCreator,
+
     login,
     logout,
     afterLoginAction,

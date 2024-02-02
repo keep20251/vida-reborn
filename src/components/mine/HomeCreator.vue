@@ -42,7 +42,7 @@
 </template>
 
 <script setup>
-import { computed, onActivated, onDeactivated, onMounted, onUnmounted } from 'vue'
+import { onActivated, onDeactivated, onMounted, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
@@ -57,15 +57,6 @@ import { useInfinite } from '@use/request/infinite'
 
 const { t: $t } = useI18n()
 const { userData } = storeToRefs(useAccountStore())
-
-console.log('是2就是創作者', userData.value?.auth_status)
-const isPermission = computed(() => {
-  if (userData.value?.auth_status === 2) {
-    return true
-  } else {
-    return false
-  }
-})
 
 const { dataList, isLoading, noMore, init, next, reload, revert } = useInfinite('Article.list', {
   params: {},
