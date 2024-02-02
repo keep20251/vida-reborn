@@ -19,7 +19,7 @@
           </template>
         </List>
       </div>
-      <NoData v-else-if="error"></NoData>
+      <Error v-else-if="errMsg" :message="errMsg"></Error>
       <Loading v-else></Loading>
     </template>
   </Page>
@@ -34,7 +34,7 @@ import { useCreatorStore } from '@/store/creator'
 import { useFeedStore } from '@/store/feed'
 import { useHydrationStore } from '@/store/hydration'
 import List from '@comp/common/List.vue'
-import NoData from '@comp/info/NoData.vue'
+import Error from '@comp/info/Error.vue'
 import Feed from '@comp/main/Feed.vue'
 import SelfIntro from '@comp/main/SelfIntro.vue'
 import Head from '@comp/navigation/Head.vue'
@@ -59,14 +59,14 @@ const creatorStore = useCreatorStore()
 const { get: getCreator, revert: revertCreator } = creatorStore
 
 const creator = ref(null)
-const error = ref('')
+const errMsg = ref(null)
 async function loadNewCreator() {
   creator.value = null
   try {
     creator.value = await getCreator(route.params.username)
     await reload({ newParams: { uuid: creator.value.uuid } })
   } catch (e) {
-    error.value = e.message
+    errMsg.value = e.message
   }
 }
 function nextArticleList() {
@@ -94,12 +94,12 @@ onServerClientOnce(async (isSSR) => {
   if (isSSR) {
     creatorFromStore.value = creator.value
     creatorArticleList.value = items.value
-    creatorError.value = error.value
+    creatorError.value = errMsg.value
   }
 })
 onHydration(() => {
   creator.value = revertCreator(creatorFromStore.value)
   revert(creatorArticleList.value)
-  error.value = creatorError.value
+  errMsg.value = creatorError.value
 })
 </script>

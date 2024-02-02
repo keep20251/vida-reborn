@@ -1,5 +1,9 @@
 <template>
-  <div class="flex grow basis-full flex-row justify-start sm:basis-[540px] md:basis-[860px] xl:basis-[880px]">
+  <!--
+    min-w-0 沒設的話底下有文字區塊使用 line-clamp-${count} 做換行省略的可能都會跑版
+    參考連結: https://css-tricks.com/flexbox-truncated-text/
+  -->
+  <div class="flex min-w-0 grow basis-full flex-row justify-start sm:basis-[540px] md:basis-[860px] xl:basis-[880px]">
     <div class="w-full max-w-[540px] px-20 pb-60 sm:pb-0 md:mr-20 md:w-[540px] xl:mr-40">
       <main>
         <!-- main top -->

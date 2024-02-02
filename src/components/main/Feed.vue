@@ -1,12 +1,16 @@
 <template>
-  <div class="flex w-full flex-col space-y-10">
+  <div
+    class="flex w-full flex-col space-y-10"
+    :class="{ 'cursor-pointer': !disableToDetail }"
+    @click="() => disableToDetail || toFeed(item.user.username, item.id)"
+  >
     <!-- head -->
     <div class="flex h-30 w-full items-center">
-      <div class="cursor-pointer" @click="toCreator(item.user.username)">
+      <div class="cursor-pointer" @click.stop="toCreator(item.user.username)">
         <Avatar :radius="15" class="mr-5" :src="item.user?.thumb"></Avatar>
       </div>
       <div class="grow text-base font-bold leading-none">
-        <span class="cursor-pointer hover:underline" @click="toCreator(item.user.username)"
+        <span class="cursor-pointer hover:underline" @click.stop="toCreator(item.user.username)"
           >{{ item.user?.nickname }}
         </span>
       </div>
@@ -55,23 +59,33 @@
     <!-- content -->
     <div class="flex flex-col space-y-5">
       <div class="text-base font-bold leading-none">{{ item.title }}</div>
-      <div class="flex items-end space-x-5">
-        <div class="grow">
-          <div class="flex space-x-5">
-            <div v-for="(tag, i) in tags" :key="i" class="text-base leading-lg text-primary">#{{ tag }}</div>
-          </div>
-          <div class="break-words text-base leading-lg">
-            {{ item.content }}
-          </div>
+      <div>
+        <div class="flex space-x-5">
+          <div v-for="(tag, i) in tags" :key="i" class="text-base leading-lg text-primary">#{{ tag }}</div>
         </div>
-        <div class="text-base leading-lg text-gray-57">more</div>
+        <div
+          class="whitespace-pre-wrap break-words text-base leading-lg"
+          :class="{ 'line-clamp-2': contentFold }"
+          ref="content"
+          @click.stop="toggleContentFold"
+        >
+          {{ item.content }}
+        </div>
+        <div
+          v-if="showContentMore"
+          class="text-right text-base leading-lg text-gray-57"
+          @click.stop="toggleContentFold"
+        >
+          more
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
+import { useResizeObserver } from '@vueuse/core'
 import Avatar from '@comp/multimedia/Avatar.vue'
 import Video from '@comp/multimedia/Video.vue'
 import { useRouters } from '@use/routers'
@@ -79,11 +93,25 @@ import { MEDIA_TYPE } from '@const/publish'
 
 const props = defineProps({
   item: { type: Object, required: true },
+  disableToDetail: { type: Boolean, default: false },
+  disableContentFold: { type: Boolean, default: false },
 })
 
 const isVideo = computed(() => props.item.resource_type === MEDIA_TYPE.VIDEO)
 const isImage = computed(() => props.item.resource_type === MEDIA_TYPE.IMAGE)
 const tags = computed(() => (props.item.tags ? props.item.tags.split(',') : []))
 
-const { toCreator } = useRouters()
+const content = ref(null)
+const showContentMore = ref(false)
+useResizeObserver(content, () => (showContentMore.value = content.value.scrollHeight > content.value.clientHeight))
+
+const contentFold = ref(!props.disableContentFold)
+function toggleContentFold() {
+  if (props.disableContentFold) {
+    return
+  }
+  contentFold.value = !contentFold.value
+}
+
+const { toCreator, toFeed } = useRouters()
 </script>
