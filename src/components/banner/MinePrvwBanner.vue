@@ -20,15 +20,18 @@
       </div>
     </div>
     <div class="flex cursor-pointer flex-row items-center space-x-10" @click="onBack">
-      <span class="text-base font-normal leading-lg text-white">{{ $t('info.exitPrvw') }}</span>
+      <span v-if="isDesktop" class="text-base font-normal leading-lg text-white">{{ $t('info.exitPrvw') }}</span>
       <Icon name="closeWhite" size="15"></Icon>
     </div>
   </div>
 </template>
 <script setup>
 import { storeToRefs } from 'pinia'
+import { useAppStore } from '@/store/app'
 import { useMineStore } from '@/store/mine'
 import { useRouters } from '@use/routers'
+
+const { isDesktop } = storeToRefs(useAppStore())
 
 const mineStore = useMineStore()
 const { isPrvwActive } = storeToRefs(mineStore)
