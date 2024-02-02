@@ -43,7 +43,6 @@
 
 <script setup>
 import { onActivated, onDeactivated, onMounted, onUnmounted } from 'vue'
-import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useHydrationStore } from '@/store/hydration'
@@ -55,7 +54,6 @@ import SelfIntro from '@comp/main/SelfIntro.vue'
 import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import { useInfinite } from '@use/request/infinite'
 
-const { t: $t } = useI18n()
 const { userData } = storeToRefs(useAccountStore())
 
 const { dataList, isLoading, noMore, init, next, reload, revert } = useInfinite('Article.list', {
