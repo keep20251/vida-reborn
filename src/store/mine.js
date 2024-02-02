@@ -7,7 +7,16 @@ export const useMineStore = defineStore('mine-store', () => {
   const nickname = ref('')
   const username = ref('')
   const interested = ref([])
+
   const isPrvwActive = ref('isVisitor')
+  const isPreviewMode = ref(false)
+
+  function activatePreview() {
+    isPreviewMode.value = true
+  }
+  function deactivatePreview() {
+    isPreviewMode.value = false
+  }
 
   // Mine.vue 內的 Page 組件的 next 函式，由子層元件設定
   const nextFn = ref(null)
@@ -27,6 +36,10 @@ export const useMineStore = defineStore('mine-store', () => {
     username,
     interested,
     isPrvwActive,
+
+    isPreviewMode,
+    activatePreview,
+    deactivatePreview,
 
     nextFn,
     setNextFn,

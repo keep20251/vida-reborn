@@ -30,6 +30,7 @@ import { useMineStore } from '@/store/mine'
 import { useRouters } from '@use/routers'
 
 const mineStore = useMineStore()
+const { deactivatePreview } = mineStore
 const { isPrvwActive } = storeToRefs(mineStore)
 
 function setActive(role) {
@@ -40,6 +41,6 @@ const emits = defineEmits(['back'])
 
 const { back } = useRouters()
 function onBack() {
-  back().then(() => emits('back'))
+  back().then(() => [deactivatePreview(), emits('back')])
 }
 </script>

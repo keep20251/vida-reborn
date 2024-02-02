@@ -25,7 +25,8 @@
     </template>
     <template #aside>
       <ClientOnly>
-        <div class="m-15 grid space-y-20">
+        <div v-if="isPreviewMode" class="m-15 grid space-y-20">PreviewMode</div>
+        <div v-else class="m-15 grid space-y-20">
           <SetList />
           <div class="grid space-y-5">
             <Carousel :items="cats" interval-time></Carousel>
@@ -52,7 +53,7 @@ import InputWrap from '@comp/form/InputWrap.vue'
 import SetList from '@comp/mine/SetList.vue'
 import { MINE_TITLE } from '@const'
 
-const { nextFn } = storeToRefs(useMineStore())
+const { nextFn, isPreviewMode } = storeToRefs(useMineStore())
 
 const inputValue = ref('')
 
