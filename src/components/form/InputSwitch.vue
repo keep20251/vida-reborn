@@ -30,4 +30,3 @@ const isChecked = computed({
   set: (value) => emit('update:modelValue', value),
 })
 </script>
-<style lang="scss" scoped></style>

@@ -34,4 +34,3 @@ const handleChange = () => {
   emits('update:modelValue', props.value)
 }
 </script>
-<style lang="scss" scoped></style>

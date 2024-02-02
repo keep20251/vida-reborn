@@ -12,5 +12,3 @@
 <script setup>
 import ClientOnly from '@comp/common/ClientOnly'
 </script>
-
-<style lang="scss" scoped></style>
