@@ -163,6 +163,7 @@ export default {
     paid: "",
     scheduledRelease: "",
     time: "",
+    exitPrvw: "ออกจากตัวอย่าง",
   },
   content: {
     welcomeToVida: "ยินดีต้อนรับสู่ Vida, เข้าร่วมกับเรา!",
@@ -202,6 +203,10 @@ export default {
     unableRecover: "",
     delAcc: "",
     showMoreCreators: "",
+    subExpire: "",
+    error: "",
+    noData: "",
+    noNetwork: "",
   },
   month: {
     Jan: "มกราคม",

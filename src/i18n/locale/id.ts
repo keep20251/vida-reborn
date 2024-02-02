@@ -163,6 +163,7 @@ export default {
     paid: "",
     scheduledRelease: "",
     time: "",
+    exitPrvw: "Pratinjau Keluar",
   },
   content: {
     welcomeToVida: "Selamat datang di Vida, bergabunglah dengan kami!",
@@ -203,6 +204,10 @@ export default {
     unableRecover: "",
     delAcc: "",
     showMoreCreators: "",
+    subExpire: "",
+    error: "",
+    noData: "",
+    noNetwork: "",
   },
   month: {
     Jan: "Januari",

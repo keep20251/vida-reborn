@@ -9,5 +9,3 @@ import { useModalStore } from '@/store/modal'
 const modalStore = useModalStore()
 const { content } = storeToRefs(modalStore)
 </script>
-
-<style lang="scss" scoped></style>

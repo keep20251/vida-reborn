@@ -154,6 +154,7 @@ export default {
     paid: "已付款",
     scheduledRelease: "已排入定时发布",
     time: "",
+    exitPrvw: "退出预览",
   },
   content: {
     welcomeToVida: "欢迎加入Vida，成为我们的一员！",
@@ -193,6 +194,10 @@ export default {
     unableRecover: "无法复原",
     delAcc: "删除帐号",
     showMoreCreators: "显示更多创作者",
+    subExpire: "订阅将于{word}到期",
+    error: "",
+    noData: "",
+    noNetwork: "",
   },
   month: {
     Jan: "一月",

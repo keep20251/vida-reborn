@@ -163,6 +163,7 @@ export default {
     paid: "",
     scheduledRelease: "",
     time: "",
+    exitPrvw: "معاينة الخروج",
   },
   content: {
     welcomeToVida: "مرحبًا بك في Vida، انضم إلينا!",
@@ -201,6 +202,10 @@ export default {
     unableRecover: "",
     delAcc: "",
     showMoreCreators: "",
+    subExpire: "",
+    error: "",
+    noData: "",
+    noNetwork: "",
   },
   month: {
     Jan: "يناير",

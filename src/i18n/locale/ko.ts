@@ -158,6 +158,7 @@ export default {
     paid: "",
     scheduledRelease: "",
     time: "",
+    exitPrvw: "종료 미리보기",
   },
   content: {
     welcomeToVida: "Vida에 오신 것을 환영합니다, 함께해요!",
@@ -197,6 +198,10 @@ export default {
     unableRecover: "",
     delAcc: "",
     showMoreCreators: "",
+    subExpire: "",
+    error: "",
+    noData: "",
+    noNetwork: "",
   },
   month: {
     Jan: "1월",
