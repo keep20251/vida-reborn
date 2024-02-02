@@ -20,14 +20,15 @@
       {{ $t('content.allPosts') }} 85
     </div>
     <div class="overflow-x-hidden">
-      <List :items="items" item-key="id">
-        <template #default="{ last }">
-          <Feed class="py-20"></Feed>
+      <List :items="dataList" item-key="id">
+        <template #default="{ item, last }">
+          <Feed :item="item" class="py-20"></Feed>
           <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
         </template>
         <template #bottom>
           <div class="flex items-center justify-center py-8 text-gray-a3">
-            <Loading></Loading> {{ $t('common.loading') }}
+            <Loading v-if="isLoading">{{ $t('common.loading') }}</Loading>
+            <span v-if="noMore">{{ $t('common.noMore') }}</span>
           </div>
         </template>
       </List>
@@ -35,19 +36,38 @@
   </div>
 </template>
 <script setup>
-import { ref } from 'vue'
+import { onActivated, onDeactivated, onMounted, onUnmounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
+import { useHydrationStore } from '@/store/hydration'
 import { useMineStore } from '@/store/mine'
 import Button from '@comp/common/Button.vue'
 import List from '@comp/common/List.vue'
 import Feed from '@comp/main/Feed.vue'
 import SelfIntro from '@comp/main/SelfIntro.vue'
+import { onHydration, onServerClientOnce } from '@use/lifecycle'
+import { useInfinite } from '@use/request/infinite'
 
 const mineStore = useMineStore()
 const { isPrvwActive } = storeToRefs(mineStore)
 
 const { userData } = storeToRefs(useAccountStore())
 
-const items = ref([])
+const { dataList, isLoading, noMore, init, next, revert } = useInfinite('Article.list', {
+  params: { uuid: userData.value.uuid },
+})
+
+const { mineCreatorArticles } = storeToRefs(useHydrationStore())
+onServerClientOnce(async (isSSR) => {
+  await init()
+  if (isSSR) mineCreatorArticles.value = dataList.value
+})
+onHydration(() => revert(mineCreatorArticles.value))
+
+const { setNextFn, clearNextFn, activatePreview, deactivatePreview } = useMineStore()
+
+onMounted(() => [setNextFn(next), activatePreview()])
+onUnmounted(() => [clearNextFn(next), deactivatePreview()])
+onActivated(() => [setNextFn(next), activatePreview()])
+onDeactivated(() => [clearNextFn(next), deactivatePreview()])
 </script>

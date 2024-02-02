@@ -19,7 +19,8 @@
         {{ $t('info.perSubscriber') }}
       </div>
     </div>
-    <div class="flex cursor-pointer items-center space-x-5" @click="onBack">
+    <div class="flex cursor-pointer flex-row items-center space-x-10" @click="onBack">
+      <span class="text-base font-normal leading-lg text-white">{{ $t('info.exitPrvw') }}</span>
       <Icon name="closeWhite" size="15"></Icon>
     </div>
   </div>
@@ -30,7 +31,6 @@ import { useMineStore } from '@/store/mine'
 import { useRouters } from '@use/routers'
 
 const mineStore = useMineStore()
-const { deactivatePreview } = mineStore
 const { isPrvwActive } = storeToRefs(mineStore)
 
 function setActive(role) {
@@ -41,6 +41,6 @@ const emits = defineEmits(['back'])
 
 const { back } = useRouters()
 function onBack() {
-  back().then(() => [deactivatePreview(), emits('back')])
+  back().then(() => emits('back'))
 }
 </script>

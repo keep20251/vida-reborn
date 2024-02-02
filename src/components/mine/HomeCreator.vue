@@ -16,7 +16,7 @@
             <Button>{{ $t('info.subscribeSetting') }}</Button>
           </div>
           <router-link :to="{ name: 'mine-profile-prvw' }" class="w-3/12">
-            <Button contrast class="text-nowrap !px-0" @click="activatePreview">{{ $t('info.prvw') }}</Button>
+            <Button contrast class="text-nowrap !px-0">{{ $t('info.prvw') }}</Button>
           </router-link>
         </div>
       </template>
@@ -59,7 +59,7 @@ const { t: $t } = useI18n()
 const { userData } = storeToRefs(useAccountStore())
 
 const { dataList, isLoading, noMore, init, next, reload, revert } = useInfinite('Article.list', {
-  params: {},
+  params: { uuid: userData.value?.uuid },
 })
 
 const { mineCreatorArticles } = storeToRefs(useHydrationStore())
@@ -69,7 +69,7 @@ onServerClientOnce(async (isSSR) => {
 })
 onHydration(() => revert(mineCreatorArticles.value))
 
-const { setNextFn, clearNextFn, activatePreview } = useMineStore()
+const { setNextFn, clearNextFn } = useMineStore()
 
 onMounted(() => setNextFn(next))
 onUnmounted(() => clearNextFn(next))

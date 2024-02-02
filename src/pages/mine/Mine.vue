@@ -25,8 +25,10 @@
     </template>
     <template #aside>
       <ClientOnly>
-        <div v-if="isPreviewMode" class="m-15 grid space-y-20">PreviewMode</div>
-        <div v-else class="m-15 grid space-y-20">
+        <div v-show="isPreviewMode" class="m-15 grid space-y-20">
+          <SubscribeCard v-for="n in 3" :key="`subscribe-card-${n}`"></SubscribeCard>
+        </div>
+        <div v-show="!isPreviewMode" class="m-15 grid space-y-20">
           <SetList />
           <div class="grid space-y-5">
             <Carousel :items="cats" interval-time></Carousel>
@@ -47,6 +49,7 @@ import { onBeforeRouteUpdate, useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useHeadStore } from '@/store/head'
 import { useMineStore } from '@/store/mine'
+import SubscribeCard from '@comp/card/SubscribeCard.vue'
 import Carousel from '@comp/common/Carousel.vue'
 import ClientOnly from '@comp/common/ClientOnly'
 import InputWrap from '@comp/form/InputWrap.vue'
