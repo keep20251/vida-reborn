@@ -208,12 +208,18 @@ export default {
     unableRecover: "",
     delAcc: "",
     showMoreCreators: "",
+<<<<<<< HEAD
 
     subIn: "",
     expiration: "",
     renew: "",
     beExpired: "",
 
+=======
+    subIn: "",
+    expiration: "",
+    renew: "",
+>>>>>>> 0592491 (little thing...)
     error: "",
     noData: "",
     noNetwork: "",

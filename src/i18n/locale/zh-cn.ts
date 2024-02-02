@@ -196,12 +196,18 @@ export default {
     unableRecover: "无法复原",
     delAcc: "删除帐号",
     showMoreCreators: "显示更多创作者",
+<<<<<<< HEAD
 
     subIn: "订阅将于",
     expiration: "到期",
     renew: "续订",
     beExpired: "已到期",
 
+=======
+    subIn: "订阅将于",
+    expiration: "到期",
+    renew: "续约",
+>>>>>>> 0592491 (little thing...)
     error: "",
     noData: "",
     noNetwork: "",
