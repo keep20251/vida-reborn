@@ -44,41 +44,10 @@ export const MODAL_TYPE = {
   TEST: 999,
 }
 
-// 角色判斷顯示內容
-export const PERMISSION = {
-  VISITOR: {
-    avatar: false,
-    subscribers: false,
-    profile: false,
-    registerLogin: true,
-    postEarn: false,
-    buyCollect: false,
-    beCreator: true,
-    settings: false,
-    logout: false,
-  },
-  REGISTERED: {
-    avatar: true,
-    subscribers: false,
-    profile: false,
-    registerLogin: true, // 暫打開
-    postEarn: true, // 暫打開
-    buyCollect: true,
-    beCreator: true,
-    settings: true,
-    logout: true,
-  },
-  CREATOR: {
-    avatar: true,
-    subscribers: true,
-    profile: true,
-    registerLogin: true, // 暫打開
-    postEarn: true,
-    buyCollect: true,
-    beCreator: false,
-    settings: true,
-    logout: true,
-  },
+export const USER_PERM = {
+  VISITOR: 1,
+  USER: 2,
+  CREATOR: 3,
 }
 
 export const SEND_EMAIL_PURPOSE = {

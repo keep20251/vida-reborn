@@ -96,8 +96,6 @@ const tabOptions = ref([
   { label: 'tab.subscribe', value: TAB_TYPE.SUB },
 ])
 
-const searchValue = ref('')
-
 const hydrationStore = useHydrationStore()
 const { forYou } = storeToRefs(hydrationStore)
 onServerClientOnce(async (isSSR) => {
