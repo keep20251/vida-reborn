@@ -163,6 +163,7 @@ export default {
     paid: "",
     scheduledRelease: "",
     time: "",
+    exitPrvw: "निकास पूर्वावलोकन",
   },
   content: {
     welcomeToVida: "Vida में आपका स्वागत है, हमसे जुड़ें!",
@@ -202,6 +203,10 @@ export default {
     unableRecover: "",
     delAcc: "",
     showMoreCreators: "",
+    subExpire: "",
+    error: "",
+    noData: "",
+    noNetwork: "",
   },
   month: {
     Jan: "जनवरी",

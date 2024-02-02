@@ -52,6 +52,8 @@ export const useCreatorStore = defineStore('creator', () => {
    * @return creator in creatorsMap
    */
   function revert(data) {
+    if (!data) return data
+
     if (creatorsMap.has(data.username)) {
       throw new Error(`Creator '${data.username}' already exist, but you still revert it?`)
     }

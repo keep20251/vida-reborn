@@ -163,6 +163,7 @@ export default {
     paid: "",
     scheduledRelease: "",
     time: "",
+    exitPrvw: "Aperçu de la sortie",
   },
   content: {
     welcomeToVida: "Bienvenue chez Vida, rejoignez-nous !",
@@ -203,6 +204,10 @@ export default {
     unableRecover: "",
     delAcc: "",
     showMoreCreators: "",
+    subExpire: "",
+    error: "",
+    noData: "",
+    noNetwork: "",
   },
   month: {
     Jan: "Janvier",

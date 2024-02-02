@@ -165,6 +165,7 @@ export default {
     paid: "",
     scheduledRelease: "",
     time: "",
+    exitPrvw: "Bản xem trước thoát",
   },
   content: {
     welcomeToVida: "Chào mừng bạn đến với Vida, hãy gia nhập chúng tôi!",
@@ -205,6 +206,10 @@ export default {
     unableRecover: "",
     delAcc: "",
     showMoreCreators: "",
+    subExpire: "",
+    error: "",
+    noData: "",
+    noNetwork: "",
   },
   month: {
     Jan: "Tháng Một",

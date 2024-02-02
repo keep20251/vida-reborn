@@ -19,7 +19,7 @@
           </template>
         </List>
       </div>
-      <div v-else-if="error">{{ error }}</div>
+      <NoData v-else-if="error"></NoData>
       <Loading v-else></Loading>
     </template>
   </Page>
@@ -34,6 +34,7 @@ import { useCreatorStore } from '@/store/creator'
 import { useFeedStore } from '@/store/feed'
 import { useHydrationStore } from '@/store/hydration'
 import List from '@comp/common/List.vue'
+import NoData from '@comp/info/NoData.vue'
 import Feed from '@comp/main/Feed.vue'
 import SelfIntro from '@comp/main/SelfIntro.vue'
 import Head from '@comp/navigation/Head.vue'

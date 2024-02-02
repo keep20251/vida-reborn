@@ -163,6 +163,7 @@ export default {
     paid: "Paid",
     scheduledRelease: "Scheduled for release",
     time: "",
+    exitPrvw: "Exit preview",
   },
   content: {
     welcomeToVida: "Welcome to Vida, join us!",
@@ -203,6 +204,10 @@ export default {
     unableRecover: "It can’t be restored!",
     delAcc: "Delete account",
     showMoreCreators: "Show more creators",
+    subExpire: "Subscription will expire on {word}",
+    error: "",
+    noData: "",
+    noNetwork: "",
   },
   month: {
     Jan: "January",

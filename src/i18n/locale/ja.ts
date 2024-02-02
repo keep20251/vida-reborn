@@ -160,6 +160,7 @@ export default {
     paid: "",
     scheduledRelease: "",
     time: "",
+    exitPrvw: "プレビューを終了します",
   },
   content: {
     welcomeToVida: "Vidaへようこそ、私たちと一緒に！",
@@ -200,6 +201,10 @@ export default {
     unableRecover: "",
     delAcc: "",
     showMoreCreators: "",
+    subExpire: "",
+    error: "",
+    noData: "",
+    noNetwork: "",
   },
   month: {
     Jan: "1月",

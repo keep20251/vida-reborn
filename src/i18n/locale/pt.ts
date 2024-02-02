@@ -165,6 +165,7 @@ export default {
     paid: "",
     scheduledRelease: "",
     time: "",
+    exitPrvw: "Visualização de saída",
   },
   content: {
     welcomeToVida: "Bem-vindo ao Vida, junte-se a nós!",
@@ -205,6 +206,10 @@ export default {
     unableRecover: "",
     delAcc: "",
     showMoreCreators: "",
+    subExpire: "",
+    error: "",
+    noData: "",
+    noNetwork: "",
   },
   month: {
     Jan: "Janeiro",
