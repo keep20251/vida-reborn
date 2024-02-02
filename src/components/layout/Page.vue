@@ -73,15 +73,13 @@ const props = defineProps({
   mainTopToggleDisabled: { type: Boolean, default: false },
   infinite: { type: Boolean, default: false },
   infiniteDistance: { type: Number, default: 100 },
+  infiniteInterval: { type: Number, default: 1000 },
 })
 
 const emits = defineEmits(['load'])
 
 const appStore = useAppStore()
 const { isDesktop, isMobile } = storeToRefs(appStore)
-
-// component onActivated
-let active = true
 
 const main = ref(null)
 const aside = ref(null)
@@ -103,26 +101,19 @@ const asideStyle = computed(() => {
   }
   return {}
 })
-watch(asideHeight, () => {
+function onAsideHeight() {
   const diff = asideHeight.value - windowHeight.value
-  if (!active) {
-    return
-  }
   if (diff <= 0) {
     asidePosition.value = 'fixed'
     asideTop.value = 0
   } else {
     asideTop.value = diff
   }
-})
+}
 
 // 滾動事件是偵測最頂層 html
 let prevScrollTop = 0
 function onScroll() {
-  if (!active) {
-    return
-  }
-
   const scrollTop = document.documentElement.scrollTop
 
   if (prevScrollTop === 0) {
@@ -152,31 +143,37 @@ function onScroll() {
   prevScrollTop = scrollTop
 }
 
+let active
+let stopOnScroll
+let stopWatchAsideHeight
 onMounted(() => {
-  // 頂層 scroll
-  useEventListener('scroll', onScroll)
-
   // 無限滑動通知
   if (props.infinite) {
     useInfiniteScroll(
       window,
       () => {
-        if (!active) {
-          return
-        }
+        if (!active) return
         emits('load')
       },
-      { distance: props.infiniteDistance },
+      {
+        distance: props.infiniteDistance,
+        interval: props.infiniteInterval,
+      },
     )
   }
 })
-
-// 切換時要 scroll 回原本位置
 onActivated(() => {
-  window.scrollTo(0, prevScrollTop)
   active = true
+
+  window.scrollTo(0, prevScrollTop)
+
+  stopOnScroll = useEventListener('scroll', onScroll)
+  stopWatchAsideHeight = watch(asideHeight, onAsideHeight)
 })
 onDeactivated(() => {
   active = false
+
+  stopOnScroll()
+  stopWatchAsideHeight()
 })
 </script>
