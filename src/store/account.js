@@ -34,7 +34,7 @@ export const useAccountStore = defineStore('account-store', () => {
   // 使用者角色
   const isVisitor = computed(() => role.value === USER_PERM.VISITOR)
   const isUser = computed(() => role.value === USER_PERM.USER)
-  const isCreator = computed(() => role.value === USER_PERM.CREAOR)
+  const isCreator = computed(() => role.value === USER_PERM.CREATOR)
 
   // dialog 被關掉要復原 tempAction
   watch(authDialog, (isOpen) => {

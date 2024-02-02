@@ -16,10 +16,6 @@ export const useHydrationStore = defineStore('hydration', () => {
   // route search
   const relatedAuthors = ref([])
 
-  // route mine
-  const mineCreatorArticles = ref([])
-    const mineTransactionList = ref([])
-
   // route creator
   const creator = ref(null)
   const creatorArticleList = ref(null)
@@ -29,17 +25,19 @@ export const useHydrationStore = defineStore('hydration', () => {
   const feed = ref(null)
   const feedError = ref(null)
 
+  // route mine
+  const mineCreatorArticles = ref(null)
+  const mineTransactionList = ref(null)
+  const mineSubList = ref(null)
 
   const prodData = {
     appConfig,
     categories,
     userData,
 
-    forYou,
-
     relatedAuthors,
 
-    mineCreatorArticles,
+    forYou,
 
     creator,
     creatorArticleList,
@@ -51,6 +49,7 @@ export const useHydrationStore = defineStore('hydration', () => {
 
     mineCreatorArticles,
     mineTransactionList,
+    mineSubList,
   }
 
   return import.meta.env.DEV ? { devTest, ...prodData } : prodData
