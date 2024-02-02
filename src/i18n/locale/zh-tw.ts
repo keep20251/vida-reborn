@@ -194,13 +194,9 @@ export default {
     unableRecover: "無法復原！",
     delAcc: "刪除帳號",
     showMoreCreators: "顯示更多創作者",
-<<<<<<< HEAD
-    subExpire: "訂閱將於{word}",
-=======
     subIn: "訂閱將於",
     expiration: "到期",
     renew: "續約",
->>>>>>> a1514ae (調整 # 購買交易 useInfinite)
     error: "好像出錯了",
     noData: "這裡空空如也",
     noNetwork: "咦？網路不見了",

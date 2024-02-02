@@ -204,13 +204,9 @@ export default {
     unableRecover: "It can’t be restored!",
     delAcc: "Delete account",
     showMoreCreators: "Show more creators",
-<<<<<<< HEAD
-    subExpire: "Subscription will expire on {word}",
-=======
     subIn: "Subscription will expire on",
     expiration: "maturity",
     renew: "Renew contract",
->>>>>>> a1514ae (調整 # 購買交易 useInfinite)
     error: "",
     noData: "",
     noNetwork: "",

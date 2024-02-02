@@ -202,13 +202,9 @@ export default {
     unableRecover: "",
     delAcc: "",
     showMoreCreators: "",
-<<<<<<< HEAD
-    subExpire: "",
-=======
     subIn: "",
     expiration: "",
     renew: "",
->>>>>>> a1514ae (調整 # 購買交易 useInfinite)
     error: "",
     noData: "",
     noNetwork: "",
