@@ -1,5 +1,5 @@
 <template>
-  <Page :infinite="!!nextFn" @load="nextFn">
+  <Page infinite @load="nextFn">
     <template #main-top v-if="excludeRoutes.includes(route.name) === false && headerTitle">
       <div class="flex items-center justify-center border-b py-20">
         <div class="text-lg font-bold leading-5">

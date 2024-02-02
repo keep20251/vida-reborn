@@ -16,7 +16,7 @@ export const useMineStore = defineStore('mine-store', () => {
     nextFn.value = fn
   }
 
-  function clearNextFn(fn) {
+  function clearNextFn() {
     nextFn.value = null
   }
 
@@ -28,6 +28,7 @@ export const useMineStore = defineStore('mine-store', () => {
     interested,
     isPrvwActive,
 
+    nextFn,
     setNextFn,
     clearNextFn,
   }
