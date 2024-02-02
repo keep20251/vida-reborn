@@ -120,3 +120,16 @@ export const SEARCH_TAB = {
   AUTHOR: 1,
   POST: 2,
 }
+
+export const MINE_BUY_TAB = {
+  TRANSACTION: 1,
+  SUBSCRIPTION: 2,
+  PURCHASED_ARTICLE: 3,
+}
+
+// 我的購買 - 訂閱狀態
+export const SUB_STATUS = {
+  CANCEL_SUB: 1, // 「取消訂閱」:訂閱後都是自動續約狀態，若取消訂閱下期不會自動續約
+  RESTORE_SUB: 2, // 「自動續約」
+  RE_SUB: 3, // 「再次訂閱」:前端打付款介面，用戶要去付款，付款成功改回狀態 2
+}
