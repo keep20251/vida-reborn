@@ -6,7 +6,7 @@
           <span class="text-xl font-bold leading-xl">{{ props.item.price }}</span> /
           {{ $t('unit.day', { days: props.item.expire_days }) }}
         </div>
-        <div class="text-subscribe text-base font-bold leading-md">{{ props.item.name }}</div>
+        <div class="text-subscribe-orange text-base font-bold leading-md">{{ props.item.name }}</div>
       </div>
       <div class="h-[11.875rem]">
         <EncryptImage :src="props.item.picture" :borderRadius="15" cover></EncryptImage>
