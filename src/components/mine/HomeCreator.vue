@@ -22,17 +22,18 @@
       </template>
     </SelfIntro>
     <div class="flex h-36 w-full items-center bg-gray-f6 px-20 text-base font-bold leading-md">
-      {{ $t('content.allPosts') }} 85
+      {{ $t('content.allPosts') }} {{ userData.post_num }}
     </div>
     <div class="overflow-x-hidden">
-      <List :items="items" item-key="id">
-        <template #default="{ last }">
-          <Feed class="py-20"></Feed>
+      <List :items="dataList" item-key="id">
+        <template #default="{ item, last }">
+          <Feed class="py-20" :item="item"></Feed>
           <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
         </template>
         <template #bottom>
           <div class="flex items-center justify-center py-8 text-gray-a3">
-            <Loading></Loading> {{ $t('common.loading') }}
+            <Loading v-if="isLoading">{{ $t('common.loading') }}</Loading>
+            <span v-if="noMore">{{ $t('common.noMore') }}</span>
           </div>
         </template>
       </List>
@@ -41,14 +42,18 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, onActivated, onDeactivated, onMounted, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
+import { useHydrationStore } from '@/store/hydration'
+import { useMineStore } from '@/store/mine'
 import Button from '@comp/common/Button.vue'
 import List from '@comp/common/List.vue'
 import Feed from '@comp/main/Feed.vue'
 import SelfIntro from '@comp/main/SelfIntro.vue'
+import { onHydration, onServerClientOnce } from '@use/lifecycle'
+import { useInfinite } from '@use/request/infinite'
 
 const { t: $t } = useI18n()
 const { userData } = storeToRefs(useAccountStore())
@@ -62,5 +67,21 @@ const isPermission = computed(() => {
   }
 })
 
-const items = ref([])
+const { dataList, isLoading, noMore, init, next, reload, revert } = useInfinite('Article.list', {
+  params: {},
+})
+
+const { mineCreatorArticles } = storeToRefs(useHydrationStore())
+onServerClientOnce(async (isSSR) => {
+  await init()
+  if (isSSR) mineCreatorArticles.value = dataList.value
+})
+onHydration(() => revert(mineCreatorArticles.value))
+
+const { setNextFn, clearNextFn } = useMineStore()
+
+onMounted(() => setNextFn(next))
+onUnmounted(() => clearNextFn(next))
+onActivated(() => setNextFn(next))
+onDeactivated(() => clearNextFn(next))
 </script>

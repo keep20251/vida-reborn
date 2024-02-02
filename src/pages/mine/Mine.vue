@@ -1,5 +1,5 @@
 <template>
-  <Page>
+  <Page :infinite="!!nextFn" @load="nextFn">
     <template #main-top v-if="excludeRoutes.includes(route.name) === false && headerTitle">
       <div class="flex items-center justify-center border-b py-20">
         <div class="text-lg font-bold leading-5">
@@ -8,9 +8,7 @@
       </div>
     </template>
     <template #default>
-      <ClientOnly>
-        <router-view></router-view>
-      </ClientOnly>
+      <router-view></router-view>
     </template>
     <template #aside-top>
       <ClientOnly>
@@ -47,11 +45,14 @@ import { useI18n } from 'vue-i18n'
 import { onBeforeRouteUpdate, useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useHeadStore } from '@/store/head'
+import { useMineStore } from '@/store/mine'
 import Carousel from '@comp/common/Carousel.vue'
 import ClientOnly from '@comp/common/ClientOnly'
 import InputWrap from '@comp/form/InputWrap.vue'
 import SetList from '@comp/mine/SetList.vue'
 import { MINE_TITLE } from '@const'
+
+const { nextFn } = storeToRefs(useMineStore())
 
 const inputValue = ref('')
 
