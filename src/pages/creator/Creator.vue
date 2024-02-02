@@ -1,5 +1,5 @@
 <template>
-  <Page>
+  <Page infinite @load="nextArticleList">
     <template #main-top>
       <Head :title="creator?.nickname"></Head>
     </template>
@@ -67,6 +67,12 @@ async function loadNewCreator() {
   } catch (e) {
     error.value = e.message
   }
+}
+function nextArticleList() {
+  if (creator.value === null) {
+    return
+  }
+  next()
 }
 
 whenever(
