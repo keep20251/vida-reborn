@@ -56,11 +56,13 @@ export const useFeedStore = defineStore('feed', () => {
    * @return feed in feedsMap
    */
   function revert(data) {
+    if (!data) return data
+
     if (feedsMap.has(data.id)) {
       throw new Error(`Feed '${data.id}' already exist, but you still revert it?`)
     }
-    feedsMap.set(data.id, data)
-    return feedsMap.get(data.id)
+
+    return setupFeed(data.id, data)
   }
 
   function sync(feedOrFeedList) {
