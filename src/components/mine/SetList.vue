@@ -38,6 +38,7 @@
     </div>
     <div v-if="perm.beCreator" class="grid space-y-15 py-10">
       <router-link
+        v-if="isLogin"
         :to="`/${locale}/mine/creator`"
         :class="{ 'font-bold': $route.path === `/${locale}/mine/creator` }"
         class="flex cursor-pointer items-center space-x-18"
@@ -45,6 +46,10 @@
         <Icon name="mineBeCreator" size="20"></Icon>
         <span class="text-base">{{ $t('title.beCreator') }}</span>
       </router-link>
+      <div v-else @click="openAuthDialog()" class="flex cursor-pointer items-center space-x-18">
+        <Icon name="mineBeCreator" size="20"></Icon>
+        <span class="text-base">{{ $t('title.beCreator') }}</span>
+      </div>
     </div>
     <div v-if="perm.settings" class="grid space-y-15 py-10">
       <div class="flex cursor-pointer items-center justify-between pr-15" @click="accOpen = !accOpen">
@@ -174,13 +179,14 @@
 import { computed, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
+import { useAuthRouteStore } from '@/store/auth-route'
 import Dropdown from '@comp/form/Dropdown.vue'
 import { useLocale } from '@use/utils/locale'
 import { PERM_TABLE } from '@const/mine'
 import { locales } from '@/i18n'
 
 const accountStore = useAccountStore()
-const { role } = storeToRefs(accountStore)
+const { role, isLogin } = storeToRefs(accountStore)
 const perm = computed(() => PERM_TABLE[role.value])
 
 const accOpen = ref(false)
@@ -195,5 +201,6 @@ const transOptions = locales.map((lang) => ({
 const setRoutes = ['mine-account', 'mine-password', 'mine-preference', 'mine-block', 'mine-delete']
 const aboutRoutes = ['mine-tos', 'mine-pp', 'mine-cp', 'mine-dmca']
 
+const { open: openAuthDialog } = useAuthRouteStore()
 const { logout } = useAccountStore()
 </script>
