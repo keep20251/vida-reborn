@@ -14,7 +14,6 @@
             {{ $t('content.unblock') }}
           </div>
         </div>
-        <p @click="block">123</p>
       </template>
       <template #bottom>
         <div class="flex items-center justify-center py-20 text-gray-a3">
@@ -62,20 +61,6 @@ const unblock = async (blocked, index) => {
     await execute({
       aff_blocked: blocked,
       action_type: BLOCK_UPDATE.CANCEL_BLOCK,
-    })
-    console.log('成功囉')
-    await init()
-  } catch (e) {
-    console.error(e)
-  }
-}
-
-const block = async () => {
-  try {
-    const { execute } = useRequest('User.block')
-    await execute({
-      aff_blocked: 17,
-      action_type: BLOCK_UPDATE.ADD_BLOCK,
     })
     console.log('成功囉')
     await init()
