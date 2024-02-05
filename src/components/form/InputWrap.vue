@@ -8,6 +8,7 @@
       <div class="relative flex items-center">
         <input
           v-model="value"
+          ref="input"
           :type="type"
           :placeholder="placeholder"
           :disabled="disabled"
@@ -75,6 +76,7 @@
 </template>
 <script setup>
 import { computed, ref } from 'vue'
+import { whenever } from '@vueuse/core'
 
 const props = defineProps({
   label: { type: String },
@@ -94,6 +96,7 @@ const props = defineProps({
   maxLength: { type: Number },
   errMsg: { type: String, default: '' },
   typingAppend: { type: Boolean, default: false },
+  focus: { type: Boolean, default: false },
 })
 
 const emits = defineEmits(['update:modelValue', 'click:prepend', 'click:append', 'keypress:enter'])
@@ -110,4 +113,13 @@ const value = computed({
 const pwdHide = ref(true)
 const type = computed(() => (props.password && pwdHide.value ? 'password' : props.number ? 'number' : 'text'))
 const labelCenter = computed(() => (props.labelCenter ? 'text-center' : 'text-left'))
+
+const input = ref(null)
+whenever(
+  () => props.focus,
+  (v) => {
+    input.value.focus()
+  },
+  { immediate: true },
+)
 </script>

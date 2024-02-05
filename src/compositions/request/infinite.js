@@ -46,8 +46,8 @@ export function useInfinite(apiKey, { params = {}, limit = 10, transformer } = {
     return await init()
   }
 
-  function revert(src) {
-    reset()
+  function revert(src, { newParams = params, newLimit = limit } = {}) {
+    reset({ newParams, newLimit })
     dataList.value.push(...transformData(src))
     if (dataList.value.length % limit !== 0) {
       noMore.value = true

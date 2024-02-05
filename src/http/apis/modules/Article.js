@@ -14,17 +14,8 @@ export default {
   // 帖子詳情
   detail: { method: 'post', url: '/api/article/getDetail' },
 
-  // 對帖子進行評論
-  comment: { method: 'post', url: '/api/article/comment' },
-
-  // 取得帖子的評論列表
-  listComment: { method: 'post', url: '/api/article/getCommentList' },
-
   // 喜歡/不喜歡帖子
   toggleArticleLike: { method: 'post', url: '/api/article/likeUnlikeArticle' },
-
-  // 喜歡/不喜歡評論
-  toggleCommentLike: { method: 'post', url: '/api/article/likeUnlikeComment' },
 
   // 撈取帖子與創作者總數
   total: { method: 'post', url: '/api/article/totalCreatorAndArticle' },
