@@ -121,6 +121,7 @@ export const SEARCH_TAB = {
   POST: 2,
 }
 
+// 我的購買 - 頁籤
 export const MINE_BUY_TAB = {
   TRANSACTION: 1,
   SUBSCRIPTION: 2,
@@ -139,4 +140,10 @@ export const CANCEL_SUB_TYPE = {
   CANCEL_SUB: 0, // 「取消訂閱」為預設值
   RESTORE_SUB: 1, // 「恢復訂閱」
   RESUBSCRIBE: 2, // 「重新訂閱」
+}
+
+// 取得用戶自身帖子列表
+export const GET_ARTICLE_LIST = {
+  BOUGHT: 1, // 已購買
+  LICK: 2, // 按讚
 }
