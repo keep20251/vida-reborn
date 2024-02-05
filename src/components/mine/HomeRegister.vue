@@ -1,13 +1,6 @@
 <template>
   <div>
-    <SelfIntro :item="userData" show-all-info>
-      <template #topButton>
-        <div class="flex items-center space-x-10">
-          <Icon class="cursor-pointer" name="link" size="20"></Icon>
-          <Icon class="cursor-pointer" name="moreHorizontal" size="20"></Icon>
-        </div>
-      </template>
-    </SelfIntro>
+    <SelfIntro :item="userData" show-all-info> </SelfIntro>
 
     <Tab v-model="tab" :options="tabOptions" class="mt-20 !h-35"></Tab>
     <div v-show="tab === TAB_TYPE.REC">
@@ -51,6 +44,7 @@ import { useAccountStore } from '@/store/account'
 import { useFeedStore } from '@/store/feed'
 import { useHydrationStore } from '@/store/hydration'
 import { useMineStore } from '@/store/mine'
+import ViewSubscribeCard from '@comp/card/ViewSubscribeCard.vue'
 import List from '@comp/common/List.vue'
 import Feed from '@comp/main/Feed.vue'
 import SelfIntro from '@comp/main/SelfIntro.vue'
