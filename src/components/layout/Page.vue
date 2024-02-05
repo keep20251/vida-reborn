@@ -68,7 +68,7 @@
 </template>
 
 <script setup>
-import { computed, onActivated, onDeactivated, onMounted, ref, watch } from 'vue'
+import { computed, onActivated, onDeactivated, onMounted, ref } from 'vue'
 import { useElementSize, useEventListener, useInfiniteScroll, useWindowSize } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
@@ -96,24 +96,15 @@ const mainTopOpen = ref(true)
 
 // 側邊欄滑到底黏在最下方不再繼續往上滑
 const asidePosition = ref(null)
-const asideTop = ref(0)
+const asideHeightOverflow = computed(() => asideHeight.value - windowHeight.value)
 const asideStyle = computed(() => {
   const isAsideHeightLtMain = asideHeight.value < mainHeight.value
-  const [position, top] = [asidePosition.value, asideTop.value]
+  const [position, overflow] = [asidePosition.value, asideHeightOverflow.value]
   if (isAsideHeightLtMain && position) {
-    return { position, [top > 0 ? 'bottom' : 'top']: 0 }
+    return { position, [overflow > 0 ? 'bottom' : 'top']: 0 }
   }
   return {}
 })
-function onAsideHeight() {
-  const diff = asideHeight.value - windowHeight.value
-  if (diff <= 0) {
-    asidePosition.value = 'fixed'
-    asideTop.value = 0
-  } else {
-    asideTop.value = diff
-  }
-}
 
 // 滾動事件是偵測最頂層 html
 let prevScrollTop = 0
@@ -131,7 +122,7 @@ function onScroll() {
     if (scrollTop > 100 && !props.mainTopToggleDisabled) {
       mainTopOpen.value = false
     }
-    if (asideTop.value > 0 && asidePosition.value === null && scrollTop >= asideTop.value) {
+    if (asideHeightOverflow.value > 0 && asidePosition.value === null && scrollTop >= asideHeightOverflow.value) {
       asidePosition.value = 'fixed'
     }
   }
@@ -140,7 +131,7 @@ function onScroll() {
     if (!mainTopOpen.value) {
       mainTopOpen.value = true
     }
-    if (asideTop.value > 0 && asidePosition.value !== null && scrollTop < asideTop.value) {
+    if (asideHeightOverflow.value > 0 && asidePosition.value !== null && scrollTop < asideHeightOverflow.value) {
       asidePosition.value = null
     }
   }
@@ -149,7 +140,6 @@ function onScroll() {
 
 let active
 let stopOnScroll
-let stopWatchAsideHeight
 onMounted(() => {
   // 無限滑動通知
   if (props.infinite) {
@@ -172,12 +162,10 @@ onActivated(() => {
   window.scrollTo(0, prevScrollTop)
 
   stopOnScroll = useEventListener('scroll', onScroll)
-  stopWatchAsideHeight = watch(asideHeight, onAsideHeight)
 })
 onDeactivated(() => {
   active = false
 
   stopOnScroll()
-  stopWatchAsideHeight()
 })
 </script>

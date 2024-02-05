@@ -28,7 +28,7 @@ const DEFAULT_PUBLISH_PARAMS = {
   type: null,
   perm: FEED_PERM.SUB,
   subs: [SUB_ALL_VALUE],
-  price: null,
+  price: '',
 
   // 影片只會有一個，圖片會有多個(目前預定10個)
   url: [],
@@ -221,7 +221,7 @@ export const usePublishStore = defineStore('publish', () => {
   //   tags,
   //   attribute,
   //   visible,
-  //   money,
+  //   price,
   //   postTime = null,
   //   openPreview,
   //   imgPath,
@@ -239,7 +239,7 @@ export const usePublishStore = defineStore('publish', () => {
   //   publishParams.tags = tags ? tags.split(',').filter((t, i) => i !== 0 || t !== '') : []
   //   publishParams.attribute = attribute ? attribute.split(',').map((a) => parseInt(a)) : [INTERESTED_IN.STRAIGHT]
   //   publishParams.visible = visible
-  //   publishParams.money = money
+  //   publishParams.price = price
   //   publishParams.postTime = postTime
   //   publishParams.openPreview = openPreview
   //   publishParams.imgPath = imgPath

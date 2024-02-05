@@ -38,7 +38,15 @@ async function loadNewFeed() {
   feed.value = null
   errMsg.value = null
   try {
-    const feedData = await getFeed(route.params.feedId)
+    let id = route.params.feedId
+    if (/^\d+$/.test(id)) {
+      id = parseInt(id)
+    } else {
+      errMsg.value = $t('content.feedNotExist')
+      return
+    }
+
+    const feedData = await getFeed(id)
 
     // 帖子 username 與 route 參數的 username 不一致必須當成是錯的
     if (feedData.user.username !== route.params.username) {
