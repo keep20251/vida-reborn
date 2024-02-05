@@ -59,14 +59,14 @@
         <div class="flex space-x-5">
           <div v-for="(tag, i) in tags" :key="i" class="text-base leading-lg text-primary">#{{ tag }}</div>
         </div>
-        <div
+        <p
           class="whitespace-pre-wrap break-words text-base leading-lg"
           :class="{ 'line-clamp-2': contentFold }"
           ref="content"
           @click.stop="toggleContentFold"
         >
           {{ item.content }}
-        </div>
+        </p>
         <div
           v-if="showContentMore"
           class="text-right text-base leading-lg text-gray-57"
