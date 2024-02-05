@@ -68,7 +68,7 @@
 </template>
 
 <script setup>
-import { computed, onActivated, onDeactivated, onMounted, ref, watch } from 'vue'
+import { computed, onActivated, onDeactivated, onMounted, ref } from 'vue'
 import { useElementSize, useEventListener, useInfiniteScroll, useWindowSize } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
