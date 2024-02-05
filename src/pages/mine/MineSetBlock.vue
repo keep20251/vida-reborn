@@ -1,6 +1,6 @@
 <template>
   <div class="items-center border-t pt-10">
-    <List :items="items" item-key="aff_blocked">
+    <List :items="dataList" item-key="aff_blocked">
       <template #default="{ item, index }">
         <div class="flex items-center justify-between py-10">
           <div class="flex items-center">
@@ -14,43 +14,46 @@
             {{ $t('content.unblock') }}
           </div>
         </div>
+        <p @click="block">123</p>
       </template>
       <template #bottom>
-        <div class="flex items-center justify-center py-8 text-gray-a3">
-          <Loading></Loading>{{ $t('common.noMore') }}
+        <div class="flex items-center justify-center py-20 text-gray-a3">
+          <Loading v-if="isLoading">{{ $t('common.loading') }}</Loading>
+          <span v-if="noMore">{{ $t('common.noMore') }}</span>
         </div>
       </template>
     </List>
   </div>
 </template>
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onActivated, onDeactivated, onMounted, onUnmounted } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useHydrationStore } from '@/store/hydration'
+import { useMineStore } from '@/store/mine'
 import List from '@comp/common/List.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
+import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import useRequest from '@use/request/index.js'
+import { useInfinite } from '@use/request/infinite'
 import defaultAvatar from '@/assets/images/avatar.jpeg'
 import { BLOCK_UPDATE } from '@/constant/index.js'
 
-const items = ref(null)
-
-onMounted(() => {
-  blockList()
+const { dataList, isLoading, noMore, init, next, revert } = useInfinite('User.listBlock', {
+  params: {},
 })
 
-let data
-const blockList = async () => {
-  const { execute } = useRequest('User.listBlock')
-  try {
-    data = await execute({
-      page: 1,
-      limit: 10,
-    })
-    items.value = data.list
-    console.log('items.value是多少', items.value)
-  } catch (e) {
-    console.error(e)
-  }
-}
+const { mineBlockList } = storeToRefs(useHydrationStore())
+onServerClientOnce(async (isSSR) => {
+  await init()
+  if (isSSR) mineBlockList.value = dataList.value
+})
+onHydration(() => revert(mineBlockList.value))
+
+const { setNextFn, clearNextFn } = useMineStore()
+onMounted(() => setNextFn(next))
+onUnmounted(() => clearNextFn(next))
+onActivated(() => setNextFn(next))
+onDeactivated(() => clearNextFn(next))
 
 const unblock = async (blocked, index) => {
   console.log(`看看blocked和index`, blocked, index)
@@ -60,8 +63,22 @@ const unblock = async (blocked, index) => {
       aff_blocked: blocked,
       action_type: BLOCK_UPDATE.CANCEL_BLOCK,
     })
-    blockList()
     console.log('成功囉')
+    await init()
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+const block = async () => {
+  try {
+    const { execute } = useRequest('User.block')
+    await execute({
+      aff_blocked: 17,
+      action_type: BLOCK_UPDATE.ADD_BLOCK,
+    })
+    console.log('成功囉')
+    await init()
   } catch (e) {
     console.error(e)
   }
