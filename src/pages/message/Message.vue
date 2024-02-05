@@ -6,7 +6,11 @@
           <div v-if="isDesktop" class="px-20 text-lg font-bold leading-lg">Messages</div>
           <List :items="users" item-key="id">
             <template #default="{ item, last }">
-              <div class="flex cursor-pointer space-x-15 px-20 py-10 hover:bg-gray-f6" @click="messageTo(item.id)">
+              <div
+                class="flex cursor-pointer space-x-15 px-20 py-10 hover:bg-gray-f6"
+                :class="{ 'bg-gray-f6': item.id === toId }"
+                @click="messageTo(item.id)"
+              >
                 <div class="h-60 w-60 shrink-0 rounded-full bg-orange-200"></div>
                 <div class="grow">
                   <div>
@@ -26,7 +30,7 @@
         </div>
       </template>
       <template #room>
-        <Room></Room>
+        <Room :id="toId" @back="messageTo(null)"></Room>
       </template>
     </PageMessage>
   </ClientOnly>
@@ -34,19 +38,34 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import Badge from '@comp/common/Badge.vue'
 import List from '@comp/common/List.vue'
 import PageMessage from '@comp/layout/PageMessage.vue'
 import Room from '@comp/message/Room.vue'
+import { useRouters } from '@use/routers'
 
 const appStore = useAppStore()
 const { isDesktop } = storeToRefs(appStore)
 
-const toId = ref(null)
+const { updateParams } = useRouters()
+
+const route = useRoute()
+const toId = ref(processId())
+
+function processId() {
+  if (/^\d+$/.test(route.params.to)) {
+    return parseInt(route.params.to)
+  } else {
+    updateParams({ params: { to: '' } })
+    return null
+  }
+}
 
 function messageTo(id) {
+  updateParams({ params: { to: id || '' } })
   toId.value = id
 }
 

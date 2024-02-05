@@ -19,7 +19,7 @@ import searchRoutes from './routes/search'
 const routes = [
   { name: 'home', path: '/:lang', component: Home, meta: {} },
   { name: 'search', path: '/:lang/search', component: Search, meta: {}, children: searchRoutes },
-  { name: 'message', path: '/:lang/message', component: Message, meta: {} },
+  { name: 'message', path: '/:lang/message/:to?', component: Message, meta: {} },
   { name: 'mine', path: '/:lang/mine', component: Mine, meta: {}, children: mineRoutes },
   { name: 'publish', path: '/:lang/publish', component: Publish, meta: {} },
   { name: 'creator', path: '/:lang/:username', component: Creator, meta: {} },

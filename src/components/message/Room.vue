@@ -1,11 +1,11 @@
 <template>
-  <div class="flex h-full flex-col space-y-10">
+  <div v-if="id" class="flex h-full flex-col space-y-10">
     <div class="flex items-center justify-center space-x-10">
-      <div class="flex cursor-pointer">
+      <div class="flex cursor-pointer" @click="$emit('back')">
         <Icon name="back" size="20"></Icon>
       </div>
       <div class="h-40 w-40 shrink-0 rounded-full bg-orange-200"></div>
-      <div class="flex-grow text-base font-bold">Tommy</div>
+      <div class="flex-grow text-base font-bold">{{ id }}</div>
       <div class="flex cursor-pointer">
         <Icon name="moreHorizontal" size="20"></Icon>
       </div>
@@ -51,11 +51,18 @@ In Grid, it aligns the item inside the grid area. In Flexbox, it aligns the item
       <InputWrap v-model="input" class="grow" :appendIconBtn="'sendWhite'"></InputWrap>
     </div>
   </div>
+  <div v-else class="flex h-full items-center justify-center text-xl font-bold">選擇訊息</div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 import InputWrap from '@comp/form/InputWrap.vue'
+
+defineProps({
+  id: { type: Number },
+})
+
+defineEmits(['back'])
 
 const input = ref('')
 </script>
