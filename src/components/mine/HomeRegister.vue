@@ -12,14 +12,14 @@
     <Tab v-model="tab" :options="tabOptions" class="mt-20 !h-35"></Tab>
     <div v-show="tab === TAB_TYPE.REC">
       <div class="overflow-x-hidden">
-        <List :items="items" item-key="id">
+        <List :items="dataList" item-key="id">
           <template #default="{ item, last }">
             <Feed class="py-20" :item="item"></Feed>
             <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
           </template>
           <template #bottom>
             <div class="flex items-center justify-center py-8 text-gray-a3">
-              <Loading v-if="isLoading"></Loading>
+              <Loading v-if="isLoading">{{ $t('common.loading') }}</Loading>
               <span v-if="noMore">{{ $t('common.noMore') }}</span>
             </div>
           </template>
@@ -44,14 +44,19 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { onActivated, onDeactivated, onMounted, onUnmounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
+import { useFeedStore } from '@/store/feed'
+import { useHydrationStore } from '@/store/hydration'
+import { useMineStore } from '@/store/mine'
 import List from '@comp/common/List.vue'
 import Feed from '@comp/main/Feed.vue'
 import SelfIntro from '@comp/main/SelfIntro.vue'
 import Tab from '@comp/navigation/Tab.vue'
+import { onHydration, onServerClientOnce } from '@use/lifecycle'
+import { useInfinite } from '@use/request/infinite'
 import { TAB_TYPE } from '@const/home'
 
 const { t: $t } = useI18n()
@@ -63,5 +68,22 @@ const tabOptions = ref([
   { label: 'tab.subscribe', value: TAB_TYPE.SUB },
 ])
 
-const items = ref([])
+const feedStore = useFeedStore()
+const { dataList, isLoading, noMore, init, next, revert } = useInfinite('Article.list', {
+  transformer: feedStore.sync,
+})
+
+const { mineRegisterArticles } = storeToRefs(useHydrationStore())
+onServerClientOnce(async (isSSR) => {
+  await init()
+  if (isSSR) mineRegisterArticles.value = dataList.value
+})
+onHydration(() => revert(mineRegisterArticles.value))
+
+const { setNextFn, clearNextFn } = useMineStore()
+
+onMounted(() => setNextFn(next))
+onUnmounted(() => clearNextFn(next))
+onActivated(() => setNextFn(next))
+onDeactivated(() => clearNextFn(next))
 </script>
