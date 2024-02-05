@@ -133,3 +133,10 @@ export const SUB_STATUS = {
   CANCEL_SUB: 2, // 「取消訂閱」:訂閱後文案都是續定狀態，若按下取消訂閱下期不會自動續約，會回狀態 1
   RE_SUB: 3, // 「重新訂閱」:前端打付款介面，用戶要去付款，付款成功改回狀態 2
 }
+
+// 我的購買 - 取消訂閱的操作類型
+export const CANCEL_SUB_TYPE = {
+  CANCEL_SUB: 0, // 「取消訂閱」為預設值
+  RESTORE_SUB: 1, // 「恢復訂閱」
+  RESUBSCRIBE: 2, // 「重新訂閱」
+}

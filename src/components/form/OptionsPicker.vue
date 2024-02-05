@@ -11,7 +11,7 @@
       ]"
       @click="onClick(option[optionValue])"
     >
-      {{ option[optionLabel] }}
+      {{ $t(option[optionLabel]) }}
     </div>
   </div>
 </template>

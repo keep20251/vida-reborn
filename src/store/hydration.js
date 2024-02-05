@@ -29,6 +29,7 @@ export const useHydrationStore = defineStore('hydration', () => {
   const mineCreatorArticles = ref(null)
   const mineTransactionList = ref(null)
   const mineSubList = ref(null)
+  const mineBlockList = ref(null)
 
   const prodData = {
     appConfig,
@@ -49,6 +50,7 @@ export const useHydrationStore = defineStore('hydration', () => {
     mineCreatorArticles,
     mineTransactionList,
     mineSubList,
+    mineBlockList,
   }
 
   return import.meta.env.DEV ? { devTest, ...prodData } : prodData

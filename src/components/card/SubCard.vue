@@ -1,6 +1,6 @@
 <template>
   <div>
-    <List :items="items" item-key="id">
+    <List :items="dataList" item-key="id">
       <template #default="{ item, last }">
         <div class="border-gray-e5 pb-20 pt-20" :class="{ 'border-b': !last }">
           <div class="flex grow items-center justify-between space-x-10">
@@ -10,12 +10,14 @@
                 <div class="text-base font-bold leading-md">{{ item.nickname }}</div>
                 <div class="text-sm font-normal leading-3">@{{ item.username }}</div>
               </div>
-              <div class="flex items-end space-x-5">
+              <div class="flex items-center space-x-5">
                 <div class="text-sm font-normal leading-3 text-gray-57">
                   {{ item.subscriber_count }} {{ $t('content.subscribers') }}
                 </div>
                 <div class="text-sm font-normal leading-3 text-gray-57">•</div>
-                <div class="text-sm font-normal leading-3 text-gray-57">{{ item.posts }} {{ $t('content.view') }}</div>
+                <div class="text-sm font-normal leading-3 text-gray-57">
+                  {{ item.videos_count }} {{ $t('content.view') }}
+                </div>
               </div>
               <div class="text-sm font-normal leading-4 text-gray-a3">
                 {{ $t('content.subIn') }} {{ formatDate(item.expire_time) }}
@@ -38,9 +40,10 @@
                     item.nickname,
                     item.subscriber_price,
                     item.username,
-                    subscriber_id,
-                    subscriber_title,
+                    item.subscription_id,
+                    item.subscriber_title,
                     item.background,
+                    item.price,
                   )
                 "
                 :class="{
@@ -57,13 +60,14 @@
                       ? $t('common.restoreSubscribe')
                       : $t('common.reSubscribe')
                 }}</Button
-              >
+              >{{ item.subscription_id }}
             </div>
           </div>
         </div>
       </template>
       <template #bottom>
-        <div class="flex items-center justify-center py-8 text-gray-a3">
+        <div class="flex flex-col items-center justify-center py-8 text-gray-a3">
+          <div v-if="!!serverError" class="text-sm font-normal leading-md text-warning">{{ serverError }}</div>
           <Loading v-if="isLoading">{{ $t('common.loading') }}</Loading>
           <span v-if="noMore">{{ $t('common.noMore') }}</span>
         </div>
@@ -82,45 +86,25 @@ import Avatar from '@comp/multimedia/Avatar.vue'
 import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import useRequest from '@use/request/index.js'
 import { useInfinite } from '@use/request/infinite'
-import { SUB_STATUS } from '@const'
+import { CANCEL_SUB_TYPE, SUB_STATUS } from '@const'
 
-const items = ref(null)
-onMounted(() => {
-  blockList()
+const { dataList, isLoading, noMore, init, next, revert } = useInfinite('User.listSubs', {
+  params: {},
 })
-let data
-const blockList = async () => {
-  const { execute } = useRequest('User.listSubs')
-  try {
-    data = await execute({
-      page: 1,
-      limit: 10,
-    })
-    items.value = data
-    console.log('items.value是多少', items)
-  } catch (e) {
-    console.error(e)
-  }
-}
-
-// 等待後端將 list 補上
-// const { dataList, isLoading, noMore, init, next, revert } = useInfinite('User.listSubs', {
-//   params: {},
-// })
-// const { mineSubList } = storeToRefs(useHydrationStore())
-// onServerClientOnce(async (isSSR) => {
-//   await init()
-//   if (isSSR) mineSubList.value = dataList.value
-// })
-// onHydration(() => revert(mineSubList.value))
-// const { setNextFn, clearNextFn } = useMineStore()
-// onMounted(() => setNextFn(next))
-// onUnmounted(() => clearNextFn(next))
-// onActivated(() => setNextFn(next))
-// onDeactivated(() => clearNextFn(next))
+const { mineSubList } = storeToRefs(useHydrationStore())
+onServerClientOnce(async (isSSR) => {
+  await init()
+  if (isSSR) mineSubList.value = dataList.value
+})
+onHydration(() => revert(mineSubList.value))
+const { setNextFn, clearNextFn } = useMineStore()
+onMounted(() => setNextFn(next))
+onUnmounted(() => clearNextFn(next))
+onActivated(() => setNextFn(next))
+onDeactivated(() => clearNextFn(next))
 
 const formatDate = (date) => {
-  return date.slice(0, 10)
+  return date.slice(0, 16)
 }
 
 const onSubStatus = (
@@ -130,16 +114,63 @@ const onSubStatus = (
   nickname,
   subscriber_price,
   username,
-  subscriber_id,
+  subscription_id,
   subscriber_title,
   background,
 ) => {
   if (status === SUB_STATUS.CANCEL_SUB) {
+    console.log(subscription_id)
     console.log('你要取消訂閱齁！')
+    cancelSub(subscription_id)
   } else if (status === SUB_STATUS.RESTORE_SUB) {
     console.log('你要恢復訂閱齁！')
+    restoreSub(subscription_id)
   } else {
     console.log('你要重新訂閱齁！')
+    reSubscribe(subscription_id)
+  }
+}
+
+const serverError = ref('')
+async function cancelSub(subscription_id) {
+  const { execute } = useRequest('Payment.cancelSub')
+  try {
+    await execute({
+      type: CANCEL_SUB_TYPE.CANCEL_SUB,
+      userSubscriptionId: subscription_id,
+    })
+    console.log('成功取消訂閱囉')
+  } catch (e) {
+    serverError.value = e.message
+    console.error(e)
+  }
+}
+
+async function restoreSub(subscription_id) {
+  const { execute } = useRequest('Payment.cancelSub')
+  try {
+    await execute({
+      type: CANCEL_SUB_TYPE.RESTORE_SUB,
+      userSubscriptionId: subscription_id,
+    })
+    console.log('成功恢復訂閱囉')
+  } catch (e) {
+    serverError.value = e.message
+    console.error(e)
+  }
+}
+
+async function reSubscribe(subscription_id) {
+  const { execute } = useRequest('Payment.cancelSub')
+  try {
+    await execute({
+      type: CANCEL_SUB_TYPE.RESUBSCRIBE,
+      userSubscriptionId: subscription_id,
+    })
+    console.log('成功重新訂閱囉')
+  } catch (e) {
+    serverError.value = e.message
+    console.error(e)
   }
 }
 </script>
