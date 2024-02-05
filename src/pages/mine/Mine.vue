@@ -28,7 +28,7 @@
         <div v-show="isPreviewMode" class="m-15 grid space-y-20">
           <SubscribeCard v-for="n in 3" :key="`subscribe-card-${n}`"></SubscribeCard>
         </div>
-        <div v-show="!isPreviewMode" class="m-15 grid space-y-20">
+        <div v-show="!isPreviewMode" class="grid space-y-20">
           <SetList />
           <div class="grid space-y-5">
             <Carousel :items="cats" interval-time></Carousel>
