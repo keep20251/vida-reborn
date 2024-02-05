@@ -27,6 +27,8 @@ export const useHydrationStore = defineStore('hydration', () => {
 
   // route mine
   const mineCreatorArticles = ref(null)
+  const mineRegisterArticles = ref(null)
+  const mineBoughtArticles = ref(null)
   const mineTransactionList = ref(null)
   const mineSubList = ref(null)
   const mineBlockList = ref(null)
@@ -48,6 +50,8 @@ export const useHydrationStore = defineStore('hydration', () => {
     feedError,
 
     mineCreatorArticles,
+    mineRegisterArticles,
+    mineBoughtArticles,
     mineTransactionList,
     mineSubList,
     mineBlockList,
