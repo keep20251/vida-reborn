@@ -117,7 +117,7 @@
           :label="'Price'"
           :sublabel="'單位：美金'"
           :placeholder="'9.99'"
-          :err-msg="moneyError"
+          :err-msg="priceError"
           :append-text="'最高設置為90元'"
           :max-length="5"
         ></InputWrap>
@@ -128,7 +128,20 @@
             <label class="text-left text-base leading-md">排定發布</label>
             <InputSwitch v-model="publishTimeOpen"></InputSwitch>
           </div>
-          <InputWrap v-show="publishTimeOpen" v-model="postTimeModel" append-icon="calendar" disabled></InputWrap>
+          <InputWrap
+            v-show="publishTimeOpen"
+            v-model="postTimeModel"
+            append-icon="calendar"
+            disabled
+            @click:append="postTimeEditing = true"
+          ></InputWrap>
+          <DatePicker
+            class="self-end"
+            v-if="publishTimeOpen && postTimeEditing"
+            v-model="publishParams.postTime"
+            include-time
+            @close="postTimeEditing = false"
+          ></DatePicker>
         </div>
 
         <Button :loading="publishing" @click="publish">發布</Button>
@@ -144,6 +157,7 @@ import { useAppStore } from '@/store/app'
 import { useModalStore } from '@/store/modal'
 import { usePublishStore } from '@/store/publish'
 import Button from '@comp/common/Button.vue'
+import DatePicker from '@comp/form/DatePicker.vue'
 import Dropdown from '@comp/form/Dropdown.vue'
 import InputSwitch from '@comp/form/InputSwitch.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
@@ -154,8 +168,8 @@ import Head from '@comp/navigation/Head.vue'
 import useRequest from '@use/request'
 import { useRouters } from '@use/routers'
 import { useYup } from '@use/validator/yup.js'
+import { FEED_PERM, IMAGE_LIMIT_COUNT, SUB_ALL_VALUE, UPLOAD_STATUS } from '@const/publish'
 import { toDateTimeString } from '@/utils/string-helper'
-import { FEED_PERM, IMAGE_LIMIT_COUNT, SUB_ALL_VALUE, UPLOAD_STATUS } from '@/constant/publish'
 
 const publishStore = usePublishStore()
 const { uploadFiles, publishTimeOpen, isCreate, isUpdate, isVideo, isImage, isEditing } = storeToRefs(publishStore)
@@ -195,6 +209,7 @@ const permOptions = ref([
 
 const subOptions = ref([{ label: '全部', value: SUB_ALL_VALUE }])
 
+const postTimeEditing = ref(false)
 const postTimeModel = computed(() => {
   if (publishTimeOpen.value) {
     return toDateTimeString(publishParams.postTime).substring(0, 16)
@@ -267,7 +282,7 @@ function makeReqData() {
   }
 
   if (publishParams.perm === FEED_PERM.BUY) {
-    data.price = parseFloat(publishParams.money)
+    data.price = parseFloat(publishParams.price)
   }
 
   if (isVideo.value) {
@@ -280,6 +295,10 @@ function makeReqData() {
     data.content_height = uploadFiles.value.map((f) => f.height).join(',')
   }
 
+  if (publishTimeOpen.value) {
+    data.start_date = postTimeModel.value + ':00'
+  }
+
   return data
 }
 
@@ -289,8 +308,8 @@ const titleError = ref('')
 const contentSchema = Yup.string().required()
 const contentError = ref('')
 const tagError = ref('')
-const moneySchema = Yup.number().positive()
-const moneyError = ref('')
+const priceSchema = Yup.number().positive().max(90)
+const priceError = ref('')
 function validation() {
   let result = true
 
@@ -310,11 +329,12 @@ function validation() {
     result = false
   }
 
-  if (publishParams.visible === FEED_PERM.BUY) {
+  priceError.value = ''
+  if (publishParams.perm === FEED_PERM.BUY) {
     try {
-      moneySchema.validateSync(publishParams.money)
+      priceSchema.validateSync(publishParams.price)
     } catch (e) {
-      moneyError.value = parseError(e)
+      priceError.value = parseError(e)
       result = false
     }
   }

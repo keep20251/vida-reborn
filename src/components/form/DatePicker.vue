@@ -66,9 +66,9 @@
         :class="{ error: !!timeErr }"
       >
         <input
-          v-model="time"
           type="text"
           class="h-30 w-full grow outline-none"
+          :value="time"
           @click="onTimeFocus"
           @blur="onTimeBlur"
         />
