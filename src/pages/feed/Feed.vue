@@ -1,14 +1,14 @@
 <template>
   <Page infinite @load="nextComments">
     <template #main-top>
-      <Head title="貼文"></Head>
+      <Head title="貼文" @back="clearInput"></Head>
     </template>
     <template #default>
       <div v-if="feed" position="relative">
         <Feed class="mb-24" :item="feed" disable-to-detail disable-content-fold></Feed>
         <List :items="comments" item-key="id">
           <template #default="{ item }">
-            <Comment :item="item"></Comment>
+            <Comment :item="item" @reply="onReply"></Comment>
           </template>
           <template #bottom>
             <div class="flex items-center justify-center py-8 text-gray-a3">
@@ -18,7 +18,12 @@
           </template>
         </List>
         <div class="sticky bottom-0 w-full bg-white pb-16">
-          <InputWrap v-model="commentInput" append-icon-btn="sendWhite" @click:append="sendComment"></InputWrap>
+          <InputWrap
+            v-model="commentInput"
+            append-icon-btn="sendWhite"
+            :focus="!!replyTo"
+            @click:append="sendComment"
+          ></InputWrap>
         </div>
       </div>
       <Error v-else-if="errMsg" :message="errMsg"></Error>
@@ -28,7 +33,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 import { whenever } from '@vueuse/core'
@@ -118,26 +123,66 @@ onHydration(() => {
 })
 
 const commentInput = ref('')
+const replyTo = ref(null)
 const { isLoading: isSendCommentLoading, execute: execSendComment } = useRequest('Comment.add')
 async function sendComment() {
   if (isSendCommentLoading.value) {
     return
   }
 
-  const content = commentInput.value.trim()
+  const content = replyTo.value
+    ? commentInput.value.substring(getReplyTag(replyTo.value).length)
+    : commentInput.value.trim()
 
   if (!content) {
     return
   }
 
+  const reqData = {
+    article_id: feed.value.id,
+    content,
+  }
+
+  if (replyTo.value) {
+    reqData.reply_comment_id = replyTo.value.id
+  }
+
   try {
-    await execSendComment({ article_id: feed.value.id, content })
+    await execSendComment(reqData)
     await reloadComments({ newParams: { article_id: feed.value.id } })
-    commentInput.value = ''
+
+    clearInput()
 
     feed.value.comment += 1
   } catch (e) {
     console.error(e)
   }
+}
+function onReply(comment) {
+  if (replyTo.value) {
+    commentInput.value = `${getReplyTag(comment)}${commentInput.value.substring(
+      replyTo.value.author?.nickname.length + 2,
+    )}`
+    replyTo.value = null
+  } else {
+    commentInput.value = `${getReplyTag(comment)}${commentInput.value}`
+  }
+  requestAnimationFrame(() => (replyTo.value = comment))
+}
+watch(commentInput, (v) => {
+  if (replyTo.value) {
+    const replyTag = getReplyTag(replyTo.value)
+    if (!v.startsWith(replyTag)) {
+      commentInput.value = commentInput.value.substring(replyTag.length - 1)
+      replyTo.value = null
+    }
+  }
+})
+function getReplyTag(comment) {
+  return `@${comment.author?.nickname} `
+}
+function clearInput() {
+  commentInput.value = ''
+  replyTo.value = null
 }
 </script>
