@@ -50,10 +50,6 @@
         <Icon name="play" size="20"></Icon>
         <div class="text-sm font-medium leading-5">{{ item.view }}</div>
       </div>
-      <div class="flex grow space-x-10">
-        <Icon name="collection" size="20"></Icon>
-        <div class="text-sm font-medium leading-5">{{ item.package_items.length }}</div>
-      </div>
     </div>
 
     <!-- content -->
