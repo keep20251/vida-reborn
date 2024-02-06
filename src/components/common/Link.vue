@@ -12,7 +12,7 @@
 
 <script setup>
 import { computed } from 'vue'
-import { useLocaleReadonly } from '@use/utils/localeReadonly'
+import { useLocale } from '@use/utils/locale'
 
 const props = defineProps({
   href: { type: String },
@@ -21,8 +21,11 @@ const props = defineProps({
 
 defineEmits(['click'])
 
-const locale = useLocaleReadonly()
+const locale = useLocale()
 const localeHref = computed(() => {
+  if (!props.href) {
+    return `/${locale.value}`
+  }
   return props.href.startsWith('/') ? `/${locale.value}${props.href}` : `/${locale.value}/${props.href}`
 })
 </script>

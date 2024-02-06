@@ -111,7 +111,8 @@ function redirectToLangPath(req, res) {
     // 1. 預設先查 cookie
     // 2. cookie 沒設定過就用 http req head accept-language
     // 3. 最糟的情況直接使用 en
-    const defaultLang = cookieLang || req.get('accept-language').split(',')[0].split(';')[0].toLocaleLowerCase() || 'en'
+    const defaultLang =
+      cookieLang || req.get('accept-language')?.split(',')[0].split(';')[0].toLocaleLowerCase() || 'en'
 
     let path = `/${defaultLang}`
     if (firstPath) {

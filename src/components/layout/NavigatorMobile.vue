@@ -12,7 +12,7 @@
         <Icon v-else name="searchOutline" size="20"></Icon>
       </div>
     </router-link>
-    <Link class="grow" :href="`/${locale}/publish`" @click="onPublishClick">
+    <Link class="grow" href="/publish" @click="onPublishClick">
       <div class="flex items-center justify-center space-x-16 px-12 py-16">
         <Icon name="publish" size="16"></Icon>
       </div>

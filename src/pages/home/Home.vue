@@ -1,7 +1,7 @@
 <template>
   <Page infinite @load="next">
     <template v-if="isMobile" #app-top>
-      <TopSearchBar logo feature-icon="filter"></TopSearchBar>
+      <TopSearchBar logo feature-icon="filter" to-search></TopSearchBar>
     </template>
     <template #main-top>
       <Tab v-model="tab" :options="tabOptions"></Tab>
@@ -36,7 +36,7 @@
       </div>
     </template>
     <template #aside-top>
-      <TopSearchBar></TopSearchBar>
+      <TopSearchBar to-search></TopSearchBar>
     </template>
     <template #aside>
       <ClientOnly>
