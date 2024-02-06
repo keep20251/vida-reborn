@@ -1,7 +1,7 @@
 <template>
   <Tab v-model="tab" :options="tabOptions" class="!h-35"></Tab>
   <div v-show="tab === MINE_COLLECT_TAB.ALL">
-    <div class="pt-20 text-base font-bold leading-lg">{{ $t('content.allPosts') }} {{ allArticleList.length }}</div>
+    <div class="pt-20 text-base font-bold leading-lg">{{ $t('content.allPosts') }} {{ allArticleExtra?.total }}</div>
     <div class="overflow-x-hidden">
       <List :items="allArticleList" item-key="id" divider>
         <template #default="{ item }">
@@ -18,7 +18,7 @@
   </div>
   <div v-show="tab === MINE_COLLECT_TAB.UNLOCKED">
     <div class="pt-20 text-base font-bold leading-lg">
-      {{ $t('content.allPosts') }} {{ unlockedArticleList.length }}
+      {{ $t('content.allPosts') }} {{ unlockedArticleExtra?.total }}
     </div>
     <div class="overflow-x-hidden">
       <List :items="unlockedArticleList" item-key="id" divider>
@@ -36,7 +36,7 @@
   </div>
   <div v-show="tab === MINE_COLLECT_TAB.NOT_UNLOCKED">
     <div class="pt-20 text-base font-bold leading-lg">
-      {{ $t('content.allPosts') }} {{ notUnlockedArticleList.length }}
+      {{ $t('content.allPosts') }} {{ notUnlockedArticleExtra?.total }}
     </div>
     <div class="overflow-x-hidden">
       <List :items="notUnlockedArticleList" item-key="id" divider>
@@ -70,6 +70,7 @@ const tabOptions = ref([
 
 const {
   dataList: allArticleList,
+  dataExtra: allArticleExtra,
   isLoading: allArticleLoading,
   noMore: allArticleNoMore,
   init: allArticleInit,
@@ -80,6 +81,7 @@ const {
 
 const {
   dataList: unlockedArticleList,
+  dataExtra: unlockedArticleExtra,
   isLoading: unlockedArticleLoading,
   noMore: unlockedArticleNoMore,
   init: unlockedArticleInit,
@@ -90,6 +92,7 @@ const {
 
 const {
   dataList: notUnlockedArticleList,
+  dataExtra: notUnlockedArticleExtra,
   isLoading: notUnlockedArticleLoading,
   noMore: notUnlockedArticleNoMore,
   init: notUnlockedArticleInit,

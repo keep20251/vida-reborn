@@ -1,7 +1,6 @@
 <template>
   <div>
-    <SelfIntro :item="userData" show-all-info> </SelfIntro>
-
+    <SelfIntro :item="userData" show-all-info></SelfIntro>
     <Tab v-model="tab" :options="tabOptions" class="mt-20 !h-35"></Tab>
     <div v-show="tab === TAB_TYPE.REC">
       <div class="overflow-x-hidden">

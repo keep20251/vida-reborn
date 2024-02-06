@@ -7,7 +7,6 @@
           <router-link :to="{ name: 'mine-profile-set' }" class="flex items-center">
             <Icon class="cursor-pointer" name="setting" size="20"></Icon>
           </router-link>
-          <Icon class="cursor-pointer" name="moreHorizontal" size="20"></Icon>
         </div>
       </template>
       <template #bottomButton>
@@ -52,7 +51,7 @@ import { useInfinite } from '@use/request/infinite'
 
 const { userData } = storeToRefs(useAccountStore())
 
-const { dataList, isLoading, noMore, init, next, reload, revert } = useInfinite('Article.list', {
+const { dataList, dataExtra, isLoading, noMore, init, next, reload } = useInfinite('Article.list', {
   params: { uuid: userData.value?.uuid },
 })
 
@@ -65,6 +64,7 @@ onMounted(() => {
 onUnmounted(() => clearNextFn(next))
 onActivated(() => {
   init()
+  reload()
   setNextFn(next)
 })
 onDeactivated(() => clearNextFn(next))
