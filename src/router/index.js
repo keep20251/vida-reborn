@@ -11,14 +11,13 @@ import beforeGuard from './guards/before'
 import devRoutes from './routes/dev'
 import errorRoutes from './routes/error'
 import mineRoutes from './routes/mine'
-import searchRoutes from './routes/search'
 
 /**
  * @property checkLogin 用於判斷該頁面是否需要驗證登入狀態
  */
 const routes = [
   { name: 'home', path: '/:lang', component: Home, meta: {} },
-  { name: 'search', path: '/:lang/search', component: Search, meta: {}, children: searchRoutes },
+  { name: 'search', path: '/:lang/search', component: Search, meta: {} },
   { name: 'message', path: '/:lang/message/:to?', component: Message, meta: {} },
   { name: 'mine', path: '/:lang/mine', component: Mine, meta: {}, children: mineRoutes },
   { name: 'publish', path: '/:lang/publish', component: Publish, meta: {} },

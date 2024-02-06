@@ -7,8 +7,8 @@
         </template>
         <template #bottom>
           <div class="flex items-center justify-center py-8 text-gray-a3">
-            <Loading v-if="creatorLoading"></Loading>
-            <span v-if="creatorNoMore"> {{ $t('common.noMore') }}</span>
+            <Loading v-if="creatorFetcher.isLoading"></Loading>
+            <span v-if="creatorFetcher.noMore"> {{ $t('common.noMore') }}</span>
           </div>
         </template>
       </List>
@@ -20,8 +20,8 @@
         </template>
         <template #bottom>
           <div class="flex items-center justify-center py-8 text-gray-a3">
-            <Loading v-if="articleLoading"></Loading>
-            <span v-if="articleNoMore">{{ $t('common.noMore') }}</span>
+            <Loading v-if="articleFetcher.isLoading"></Loading>
+            <span v-if="articleFetcher.noMore">{{ $t('common.noMore') }}</span>
           </div>
         </template>
       </List>
@@ -30,58 +30,41 @@
 </template>
 <script setup>
 import { watch } from 'vue'
+import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useHydrationStore } from '@/store/hydration'
 import { useSearchStore } from '@/store/search'
 import SearchCreatorCard from '@comp/card/SearchCreatorCard.vue'
 import Feed from '@comp/main/Feed.vue'
 import { onHydration, onServerClientOnce } from '@use/lifecycle'
-import { useInfinite } from '@use/request/infinite'
 import { SEARCH_TAB } from '@const'
 
 const searchStore = useSearchStore()
-const { activeTab, nextAction, reloadAction } = storeToRefs(searchStore)
+const { keyword, activeTab, reloadAction, articleFetcher, creatorFetcher } = storeToRefs(searchStore)
 
-const {
-  dataList: articleList,
-  isLoading: articleLoading,
-  noMore: articleNoMore,
-  init: articleInit,
-  next: articleNext,
-  reload: articleReload,
-} = useInfinite('Article.list', {
-  params: {},
-})
-
-const {
-  dataList: creatorList,
-  isLoading: creatorLoading,
-  noMore: creatorNoMore,
-  init: creatorInit,
-  revert: creatorRevert,
-  next: creatorNext,
-  reload: creatorReload,
-} = useInfinite('User.searchCreator', {
-  params: {},
-})
-
+const route = useRoute()
 watch(
-  activeTab,
-  (v) => {
-    if (v === SEARCH_TAB.POST && articleList.value.length === 0) articleInit()
-    nextAction.value = v === SEARCH_TAB.AUTHOR ? creatorNext : articleNext
-    reloadAction.value = v === SEARCH_TAB.AUTHOR ? creatorReload : articleReload
+  () => route.query.q,
+  (newQ) => {
+    keyword.value = newQ
+    reloadAction.value({ newParams: { keyword: keyword.value } })
   },
-  { immediate: true },
 )
+watch(activeTab, () => reloadAction.value({ newParams: { keyword: keyword.value } }))
 
-const { relatedAuthors } = storeToRefs(useHydrationStore())
+const { relatedAuthors, keyword: hydrationKeyword } = storeToRefs(useHydrationStore())
 onServerClientOnce(async (isSSR) => {
-  await creatorInit()
-  if (isSSR) relatedAuthors.value = creatorList.value
+  keyword.value = route.query.q
+  if (!keyword.value) return
+  await creatorFetcher.value.reload({ newParams: { keyword: keyword.value } })
+  if (isSSR) {
+    hydrationKeyword.value = keyword.value
+    relatedAuthors.value = creatorFetcher.value.dataList
+  }
 })
 onHydration(() => {
-  creatorRevert(relatedAuthors.value)
-  console.log('relatedAuthors.value', relatedAuthors.value)
+  keyword.value = hydrationKeyword.value
+  if (!keyword.value) return
+  creatorFetcher.value.revert(relatedAuthors.value, { newParams: { keyword: keyword.value } })
 })
 </script>

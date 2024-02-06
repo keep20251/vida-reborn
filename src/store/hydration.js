@@ -15,6 +15,7 @@ export const useHydrationStore = defineStore('hydration', () => {
 
   // route search
   const relatedAuthors = ref([])
+  const keyword = ref('')
 
   // route creator
   const creator = ref(null)
@@ -32,6 +33,7 @@ export const useHydrationStore = defineStore('hydration', () => {
     userData,
 
     relatedAuthors,
+    keyword,
 
     forYou,
 
