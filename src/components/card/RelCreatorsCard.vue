@@ -42,7 +42,6 @@
 <script setup>
 import { ref } from 'vue'
 import Button from '@comp/common/Button.vue'
-import List from '@comp/common/List.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
 
 const creators = ref([

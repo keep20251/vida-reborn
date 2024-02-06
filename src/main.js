@@ -2,6 +2,7 @@ import { createHead } from '@unhead/vue'
 import { createSSRApp } from 'vue'
 import ClientOnly from '@comp/common/ClientOnly'
 import Icon from '@comp/common/Icon.vue'
+import List from '@comp/common/List.vue'
 import Loading from '@comp/common/Loading.vue'
 import Page from '@comp/layout/Page.vue'
 import EncryptImage from '@comp/multimedia/EncryptImage.vue'
@@ -22,6 +23,7 @@ export async function createApp() {
 
   app.component('Page', Page)
   app.component('Icon', Icon)
+  app.component('List', List)
   app.component('Loading', Loading)
   app.component('ClientOnly', ClientOnly)
   app.component('EncryptImage', EncryptImage)

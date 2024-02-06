@@ -27,7 +27,6 @@
 <script setup>
 import { onActivated, onDeactivated, onMounted, onUnmounted } from 'vue'
 import { useMineStore } from '@/store/mine'
-import List from '@comp/common/List.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
 import useRequest from '@use/request/index.js'
 import { useInfinite } from '@use/request/infinite'

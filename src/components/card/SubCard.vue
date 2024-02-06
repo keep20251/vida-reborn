@@ -79,7 +79,6 @@
 import { onActivated, onDeactivated, onMounted, onUnmounted, ref } from 'vue'
 import { useMineStore } from '@/store/mine'
 import Button from '@comp/common/Button.vue'
-import List from '@comp/common/List.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
 import useRequest from '@use/request/index.js'
 import { useInfinite } from '@use/request/infinite'

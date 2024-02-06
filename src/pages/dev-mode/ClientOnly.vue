@@ -8,7 +8,3 @@
     </ClientOnly>
   </Page>
 </template>
-
-<script setup>
-import ClientOnly from '@comp/common/ClientOnly'
-</script>
