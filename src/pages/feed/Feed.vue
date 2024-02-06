@@ -160,9 +160,7 @@ async function sendComment() {
 }
 function onReply(comment) {
   if (replyTo.value) {
-    commentInput.value = `${getReplyTag(comment)}${commentInput.value.substring(
-      replyTo.value.author?.nickname.length + 2,
-    )}`
+    commentInput.value = `${getReplyTag(comment)}${commentInput.value.substring(getReplyTag(replyTo.value).length)}`
     replyTo.value = null
   } else {
     commentInput.value = `${getReplyTag(comment)}${commentInput.value}`
