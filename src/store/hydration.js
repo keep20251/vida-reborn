@@ -26,15 +26,6 @@ export const useHydrationStore = defineStore('hydration', () => {
   const feedComments = ref(null)
   const feedError = ref(null)
 
-  // route mine
-  const mineCreatorArticles = ref(null)
-  const mineRegisterArticles = ref(null)
-  const mineBoughtArticles = ref(null)
-  const mineCollAllArticles = ref(null)
-  const mineTransactionList = ref(null)
-  const mineSubList = ref(null)
-  const mineBlockList = ref(null)
-
   const prodData = {
     appConfig,
     categories,
@@ -51,14 +42,6 @@ export const useHydrationStore = defineStore('hydration', () => {
     feed,
     feedComments,
     feedError,
-
-    mineCreatorArticles,
-    mineRegisterArticles,
-    mineBoughtArticles,
-    mineCollAllArticles,
-    mineTransactionList,
-    mineSubList,
-    mineBlockList,
   }
 
   return import.meta.env.DEV ? { devTest, ...prodData } : prodData

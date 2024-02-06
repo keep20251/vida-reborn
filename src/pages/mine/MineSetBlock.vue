@@ -26,12 +26,9 @@
 </template>
 <script setup>
 import { onActivated, onDeactivated, onMounted, onUnmounted } from 'vue'
-import { storeToRefs } from 'pinia'
-import { useHydrationStore } from '@/store/hydration'
 import { useMineStore } from '@/store/mine'
 import List from '@comp/common/List.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
-import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import useRequest from '@use/request/index.js'
 import { useInfinite } from '@use/request/infinite'
 import defaultAvatar from '@/assets/images/avatar.jpeg'
@@ -41,17 +38,16 @@ const { dataList, isLoading, noMore, init, next, revert } = useInfinite('User.li
   params: {},
 })
 
-const { mineBlockList } = storeToRefs(useHydrationStore())
-onServerClientOnce(async (isSSR) => {
-  await init()
-  if (isSSR) mineBlockList.value = dataList.value
-})
-onHydration(() => revert(mineBlockList.value))
-
 const { setNextFn, clearNextFn } = useMineStore()
-onMounted(() => setNextFn(next))
+onMounted(() => {
+  init()
+  setNextFn(next)
+})
 onUnmounted(() => clearNextFn(next))
-onActivated(() => setNextFn(next))
+onActivated(() => {
+  init()
+  setNextFn(next)
+})
 onDeactivated(() => clearNextFn(next))
 
 const unblock = async (blocked, index) => {

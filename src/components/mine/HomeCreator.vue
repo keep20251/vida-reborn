@@ -45,13 +45,11 @@
 import { onActivated, onDeactivated, onMounted, onUnmounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
-import { useHydrationStore } from '@/store/hydration'
 import { useMineStore } from '@/store/mine'
 import Button from '@comp/common/Button.vue'
 import List from '@comp/common/List.vue'
 import Feed from '@comp/main/Feed.vue'
 import SelfIntro from '@comp/main/SelfIntro.vue'
-import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import { useInfinite } from '@use/request/infinite'
 
 const { userData } = storeToRefs(useAccountStore())
@@ -60,17 +58,16 @@ const { dataList, isLoading, noMore, init, next, reload, revert } = useInfinite(
   params: { uuid: userData.value?.uuid },
 })
 
-const { mineCreatorArticles } = storeToRefs(useHydrationStore())
-onServerClientOnce(async (isSSR) => {
-  await init()
-  if (isSSR) mineCreatorArticles.value = dataList.value
-})
-onHydration(() => revert(mineCreatorArticles.value))
-
 const { setNextFn, clearNextFn } = useMineStore()
 
-onMounted(() => setNextFn(next))
+onMounted(() => {
+  init()
+  setNextFn(next)
+})
 onUnmounted(() => clearNextFn(next))
-onActivated(() => setNextFn(next))
+onActivated(() => {
+  init()
+  setNextFn(next)
+})
 onDeactivated(() => clearNextFn(next))
 </script>

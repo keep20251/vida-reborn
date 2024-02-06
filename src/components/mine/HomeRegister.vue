@@ -42,14 +42,12 @@ import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useFeedStore } from '@/store/feed'
-import { useHydrationStore } from '@/store/hydration'
 import { useMineStore } from '@/store/mine'
 import ViewSubscribeCard from '@comp/card/ViewSubscribeCard.vue'
 import List from '@comp/common/List.vue'
 import Feed from '@comp/main/Feed.vue'
 import SelfIntro from '@comp/main/SelfIntro.vue'
 import Tab from '@comp/navigation/Tab.vue'
-import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import { useInfinite } from '@use/request/infinite'
 import { TAB_TYPE } from '@const/home'
 
@@ -67,17 +65,16 @@ const { dataList, isLoading, noMore, init, next, revert } = useInfinite('Article
   transformer: feedStore.sync,
 })
 
-const { mineRegisterArticles } = storeToRefs(useHydrationStore())
-onServerClientOnce(async (isSSR) => {
-  await init()
-  if (isSSR) mineRegisterArticles.value = dataList.value
-})
-onHydration(() => revert(mineRegisterArticles.value))
-
 const { setNextFn, clearNextFn } = useMineStore()
 
-onMounted(() => setNextFn(next))
+onMounted(() => {
+  init()
+  setNextFn(next)
+})
 onUnmounted(() => clearNextFn(next))
-onActivated(() => setNextFn(next))
+onActivated(() => {
+  init()
+  setNextFn(next)
+})
 onDeactivated(() => clearNextFn(next))
 </script>

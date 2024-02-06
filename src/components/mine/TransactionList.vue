@@ -33,28 +33,24 @@
 </template>
 <script setup>
 import { onActivated, onDeactivated, onMounted, onUnmounted } from 'vue'
-import { storeToRefs } from 'pinia'
-import { useHydrationStore } from '@/store/hydration'
 import { useMineStore } from '@/store/mine'
 import List from '@comp/common/List.vue'
-import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import { useInfinite } from '@use/request/infinite'
 
 const { dataList, isLoading, noMore, init, next, revert } = useInfinite('Payment.history', {
   params: {},
 })
 
-const { mineTransactionList } = storeToRefs(useHydrationStore())
-onServerClientOnce(async (isSSR) => {
-  await init()
-  if (isSSR) mineTransactionList.value = dataList.value
-})
-onHydration(() => revert(mineTransactionList.value))
-
 const { setNextFn, clearNextFn } = useMineStore()
-onMounted(() => setNextFn(next))
+onMounted(() => {
+  init()
+  setNextFn(next)
+})
 onUnmounted(() => clearNextFn(next))
-onActivated(() => setNextFn(next))
+onActivated(() => {
+  init()
+  setNextFn(next)
+})
 onDeactivated(() => clearNextFn(next))
 
 const formatDate = (date) => {
