@@ -27,7 +27,6 @@
 import { onActivated, onDeactivated, onMounted, onUnmounted, ref } from 'vue'
 import { useMineStore } from '@/store/mine'
 import SubCard from '@comp/card/SubCard.vue'
-import List from '@comp/common/List.vue'
 import Feed from '@comp/main/Feed.vue'
 import TransactionList from '@comp/mine/TransactionList.vue'
 import Tab from '@comp/navigation/Tab.vue'

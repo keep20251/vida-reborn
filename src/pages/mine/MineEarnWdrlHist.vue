@@ -30,7 +30,6 @@
 import { computed, onActivated, onDeactivated, onMounted, onUnmounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useMineStore } from '@/store/mine'
-import List from '@comp/common/List.vue'
 import { useInfinite } from '@use/request/infinite'
 import { WITHDRAW_LIST_STATUS } from '@/constant/index.js'
 

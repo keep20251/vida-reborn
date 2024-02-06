@@ -56,8 +56,6 @@
 <script setup>
 import { onActivated, onDeactivated, onMounted, onUnmounted, ref } from 'vue'
 import { useMineStore } from '@/store/mine'
-import List from '@comp/common/List.vue'
-import Loading from '@comp/common/Loading.vue'
 import Feed from '@comp/main/Feed.vue'
 import Tab from '@comp/navigation/Tab.vue'
 import { useInfinite } from '@use/request/infinite'

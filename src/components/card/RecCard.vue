@@ -33,7 +33,6 @@
 </template>
 <script setup>
 import { ref } from 'vue'
-import List from '@comp/common/List.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
 
 defineProps({

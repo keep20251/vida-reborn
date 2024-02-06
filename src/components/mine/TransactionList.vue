@@ -33,7 +33,6 @@
 <script setup>
 import { onActivated, onDeactivated, onMounted, onUnmounted } from 'vue'
 import { useMineStore } from '@/store/mine'
-import List from '@comp/common/List.vue'
 import { useInfinite } from '@use/request/infinite'
 
 const { dataList, isLoading, noMore, init, next, revert } = useInfinite('Payment.history', {
