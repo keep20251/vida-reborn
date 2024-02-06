@@ -60,7 +60,7 @@
                       ? $t('common.restoreSubscribe')
                       : $t('common.reSubscribe')
                 }}</Button
-              >{{ item.subscription_id }}
+              >
             </div>
           </div>
         </div>
@@ -77,13 +77,10 @@
 </template>
 <script setup>
 import { onActivated, onDeactivated, onMounted, onUnmounted, ref } from 'vue'
-import { storeToRefs } from 'pinia'
-import { useHydrationStore } from '@/store/hydration'
 import { useMineStore } from '@/store/mine'
 import Button from '@comp/common/Button.vue'
 import List from '@comp/common/List.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
-import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import useRequest from '@use/request/index.js'
 import { useInfinite } from '@use/request/infinite'
 import { CANCEL_SUB_TYPE, SUB_STATUS } from '@const'
@@ -91,16 +88,17 @@ import { CANCEL_SUB_TYPE, SUB_STATUS } from '@const'
 const { dataList, isLoading, noMore, init, next, revert } = useInfinite('User.listSubs', {
   params: {},
 })
-const { mineSubList } = storeToRefs(useHydrationStore())
-onServerClientOnce(async (isSSR) => {
-  await init()
-  if (isSSR) mineSubList.value = dataList.value
-})
-onHydration(() => revert(mineSubList.value))
+
 const { setNextFn, clearNextFn } = useMineStore()
-onMounted(() => setNextFn(next))
+onMounted(() => {
+  init()
+  setNextFn(next)
+})
 onUnmounted(() => clearNextFn(next))
-onActivated(() => setNextFn(next))
+onActivated(() => {
+  init()
+  setNextFn(next)
+})
 onDeactivated(() => clearNextFn(next))
 
 const formatDate = (date) => {
