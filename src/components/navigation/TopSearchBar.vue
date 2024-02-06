@@ -24,7 +24,6 @@ import { useI18n } from 'vue-i18n'
 import Link from '@comp/common/Link.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
 import { useRouters } from '@use/routers'
-import { useLocale } from '@use/utils/locale'
 
 const { t: $t } = useI18n()
 
@@ -36,8 +35,6 @@ const props = defineProps({
 const emits = defineEmits(['feature', 'trigger:search', 'update:keyword'])
 
 const searchValue = ref('')
-
-const locale = useLocale()
 
 const { to } = useRouters()
 

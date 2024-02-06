@@ -75,6 +75,7 @@ const { isMobile } = storeToRefs(appStore)
 const feedStore = useFeedStore()
 const {
   dataList: items,
+  dataExtra,
   isLoading,
   noMore,
   init,
@@ -98,7 +99,7 @@ const { forYou } = storeToRefs(hydrationStore)
 onServerClientOnce(async (isSSR) => {
   await init()
   if (isSSR) {
-    forYou.value = items.value
+    forYou.value = { dataList: items.value, dataExtra: dataExtra.value }
   }
 })
 onHydration(() => {

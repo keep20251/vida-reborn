@@ -58,6 +58,7 @@ const { get: getFeed, revert: revertFeed } = feedStore
 
 const {
   dataList: comments,
+  dataExtra: commentsExtra,
   isLoading: isCommentsLoading,
   noMore: commentsNoMore,
   reload: reloadComments,
@@ -112,7 +113,7 @@ onServerClientOnce(async (isSSR) => {
 
   if (isSSR) {
     feedFromStore.value = feed.value
-    feedComments.value = comments.value
+    feedComments.value = { dataList: comments.value, dataExtra: commentsExtra.value }
     feedError.value = errMsg.value
   }
 })
