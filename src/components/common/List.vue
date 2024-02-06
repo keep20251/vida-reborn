@@ -1,7 +1,7 @@
 <template>
   <div v-for="(item, index) in items" :key="itemKey ? item[itemKey] : index">
     <slot v-bind="{ item, index, last: index === items.length - 1 }"></slot>
-    <div v-if="divider" class="h-1 bg-gray-e5"></div>
+    <div v-if="divider && index !== items.length - 1" class="h-1 bg-gray-e5"></div>
   </div>
   <div v-if="$slots['bottom']">
     <slot name="bottom"></slot>

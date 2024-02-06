@@ -1,8 +1,8 @@
 <template>
   <div>
-    <List :items="dataList" item-key="id">
-      <template #default="{ item, last }">
-        <div class="border-gray-e5 pb-20 pt-20" :class="{ 'border-b': !last }">
+    <List :items="dataList" item-key="id" divider>
+      <template #default="{ item }">
+        <div class="pb-20 pt-20">
           <div class="flex grow items-center justify-between space-x-10">
             <Avatar :radius="15" :src="item.thumb"></Avatar>
             <div class="flex grow flex-col space-y-5">
