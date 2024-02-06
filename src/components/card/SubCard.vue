@@ -84,7 +84,7 @@ import useRequest from '@use/request/index.js'
 import { useInfinite } from '@use/request/infinite'
 import { CANCEL_SUB_TYPE, SUB_STATUS } from '@const'
 
-const { dataList, isLoading, noMore, init, next, revert } = useInfinite('User.listSubs', {
+const { dataList, isLoading, noMore, init, next, reload } = useInfinite('User.listSubs', {
   params: {},
 })
 
@@ -137,6 +137,8 @@ async function cancelSub(subscription_id) {
       userSubscriptionId: subscription_id,
     })
     console.log('成功取消訂閱囉')
+    reload()
+    serverError.value = ''
   } catch (e) {
     serverError.value = e.message
     console.error(e)
@@ -151,6 +153,8 @@ async function restoreSub(subscription_id) {
       userSubscriptionId: subscription_id,
     })
     console.log('成功恢復訂閱囉')
+    reload()
+    serverError.value = ''
   } catch (e) {
     serverError.value = e.message
     console.error(e)
@@ -165,6 +169,8 @@ async function reSubscribe(subscription_id) {
       userSubscriptionId: subscription_id,
     })
     console.log('成功重新訂閱囉')
+    reload()
+    serverError.value = ''
   } catch (e) {
     serverError.value = e.message
     console.error(e)

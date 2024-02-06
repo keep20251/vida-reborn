@@ -5,7 +5,6 @@ export const PERM_TABLE = {
     avatar: false,
     subscribers: false,
     profile: false,
-    registerLogin: true,
     postEarn: false,
     buyCollect: false,
     beCreator: true,
@@ -16,7 +15,6 @@ export const PERM_TABLE = {
     avatar: true,
     subscribers: false,
     profile: false,
-    registerLogin: true, // 暫打開
     postEarn: true, // 暫打開
     buyCollect: true,
     beCreator: true,
@@ -27,7 +25,6 @@ export const PERM_TABLE = {
     avatar: true,
     subscribers: true,
     profile: true,
-    registerLogin: true, // 暫打開
     postEarn: true,
     buyCollect: true,
     beCreator: false,

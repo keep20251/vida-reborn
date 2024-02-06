@@ -7,13 +7,12 @@
           <router-link :to="{ name: 'mine-profile-set' }" class="flex items-center">
             <Icon class="cursor-pointer" name="setting" size="20"></Icon>
           </router-link>
-          <Icon class="cursor-pointer" name="moreHorizontal" size="20"></Icon>
         </div>
       </template>
       <template #bottomButton>
         <div class="ml-[20px] mr-[20px] flex w-full space-x-10 sm:ml-0 sm:mr-0 xl:ml-0 xl:mr-0">
           <div class="w-9/12">
-            <Button>{{ $t('info.subscribeSetting') }}</Button>
+            <Button @click="customModal(sm)">{{ $t('info.subscribeSetting') }}</Button>
           </div>
           <router-link :to="{ name: 'mine-profile-prvw' }" class="w-3/12">
             <Button contrast class="text-nowrap !px-0">{{ $t('info.prvw') }}</Button>
@@ -45,14 +44,28 @@ import { onActivated, onDeactivated, onMounted, onUnmounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useMineStore } from '@/store/mine'
+import { useModalStore } from '@/store/modal'
 import Button from '@comp/common/Button.vue'
 import Feed from '@comp/main/Feed.vue'
 import SelfIntro from '@comp/main/SelfIntro.vue'
 import { useInfinite } from '@use/request/infinite'
+import { MODAL_TYPE } from '@const'
+
+const modalStore = useModalStore()
+const { open } = modalStore
+
+function customModal(size) {
+  open(MODAL_TYPE.SUB_PLAN_LIST, {
+    size,
+    title: '訂閱方案設置',
+    showClose: true,
+    showConfirm: false,
+  })
+}
 
 const { userData } = storeToRefs(useAccountStore())
 
-const { dataList, isLoading, noMore, init, next, reload, revert } = useInfinite('Article.list', {
+const { dataList, dataExtra, isLoading, noMore, init, next, reload } = useInfinite('Article.list', {
   params: { uuid: userData.value?.uuid },
 })
 
@@ -65,6 +78,7 @@ onMounted(() => {
 onUnmounted(() => clearNextFn(next))
 onActivated(() => {
   init()
+  reload()
   setNextFn(next)
 })
 onDeactivated(() => clearNextFn(next))

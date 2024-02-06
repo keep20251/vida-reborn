@@ -7,7 +7,7 @@
     <SubCard></SubCard>
   </div>
   <div v-show="tab === MINE_BUY_TAB.PURCHASED_ARTICLE">
-    <div class="pt-20 text-base font-bold leading-lg">{{ $t('content.allPosts') }} {{ dataList.length }}</div>
+    <div class="pt-20 text-base font-bold leading-lg">{{ $t('content.allPosts') }} {{ dataExtra?.total }}</div>
     <div class="overflow-x-hidden">
       <List :items="dataList" item-key="id" divider>
         <template #default="{ item }">
@@ -40,7 +40,7 @@ const tabOptions = ref([
   { label: 'label.artPur', value: MINE_BUY_TAB.PURCHASED_ARTICLE },
 ])
 
-const { dataList, isLoading, noMore, init, next, revert } = useInfinite('User.listArticle', {
+const { dataList, dataExtra, isLoading, noMore, init, next, revert } = useInfinite('User.listArticle', {
   params: { type: GET_ARTICLE_LIST.BOUGHT },
 })
 

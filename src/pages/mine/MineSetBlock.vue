@@ -33,7 +33,7 @@ import { useInfinite } from '@use/request/infinite'
 import defaultAvatar from '@/assets/images/avatar.jpeg'
 import { BLOCK_UPDATE } from '@/constant/index.js'
 
-const { dataList, isLoading, noMore, init, next, revert } = useInfinite('User.listBlock', {
+const { dataList, isLoading, noMore, init, next, reload } = useInfinite('User.listBlock', {
   params: {},
 })
 
@@ -58,7 +58,7 @@ const unblock = async (blocked, index) => {
       action_type: BLOCK_UPDATE.CANCEL_BLOCK,
     })
     console.log('成功囉')
-    await init()
+    reload()
   } catch (e) {
     console.error(e)
   }
