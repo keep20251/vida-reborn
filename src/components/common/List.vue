@@ -1,13 +1,9 @@
 <template>
-  <div>
-    <div>
-      <div v-for="(item, index) in items" :key="itemKey ? item[itemKey] : index">
-        <slot v-bind="{ item, index, last: index === items.length - 1 }"></slot>
-      </div>
-    </div>
-    <div v-if="$slots['bottom']">
-      <slot name="bottom"></slot>
-    </div>
+  <div v-for="(item, index) in items" :key="itemKey ? item[itemKey] : index">
+    <slot v-bind="{ item, index, last: index === items.length - 1 }"></slot>
+  </div>
+  <div v-if="$slots['bottom']">
+    <slot name="bottom"></slot>
   </div>
 </template>
 
