@@ -14,8 +14,11 @@ export default {
   // 帖子詳情
   detail: { method: 'post', url: '/api/article/getDetail' },
 
-  // 喜歡/不喜歡帖子
-  toggleArticleLike: { method: 'post', url: '/api/article/likeUnlikeArticle' },
+  // 喜歡帖子
+  like: { method: 'post', url: '/api/article/like' },
+
+  // 不喜歡帖子
+  unlike: { method: 'post', url: '/api/article/unlike' },
 
   // 撈取帖子與創作者總數
   total: { method: 'post', url: '/api/article/totalCreatorAndArticle' },

@@ -79,10 +79,38 @@ export const useFeedStore = defineStore('feed', () => {
     })
   }
 
+  const { isLoading: isLikeLoading, execute: execLike } = useRequest('Article.like')
+  const { isLoading: isUnlikeLoading, execute: execUnlike } = useRequest('Article.unlike')
+  async function toggleLike(feed, isLike) {
+    if (!feedsMap.has(feed.id)) {
+      console.warn(`帖子 ${feed.id} 尚未存在是不能點讚的...`)
+      return
+    }
+
+    if (isLikeLoading.value || isUnlikeLoading.value) {
+      return
+    }
+
+    const target = feedsMap.get(feed.id)
+
+    const _isLike = typeof isLike === 'boolean' ? isLike : !target.is_like
+    const exec = _isLike ? execLike : execUnlike
+
+    target.is_like = _isLike
+    target.like += _isLike ? 1 : target.like > 0 ? -1 : 0
+    try {
+      await exec({ article_id: target.id })
+    } catch (e) {
+      console.error('帖子愛心給我出錯傻眼耶搞笑？', e)
+    }
+  }
+
   return {
     get,
     revert,
     sync,
     clear,
+
+    toggleLike,
   }
 })
