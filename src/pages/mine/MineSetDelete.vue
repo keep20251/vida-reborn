@@ -27,7 +27,7 @@ async function deleteAcc() {
   const { execute } = useRequest('User.deleteAccount')
   try {
     await execute({
-      old_password: nowPw.value,
+      password: nowPw.value,
     })
     console.log('成功囉！')
     setTimeout(() => {
