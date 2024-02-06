@@ -1,13 +1,14 @@
 <template>
   <Page infinite @load="nextAction">
     <template #app-top>
-      <TopSearchBar :logo="isMobile" @update:keyword="(v) => (keyword = v)" @trigger:search="onSearch"></TopSearchBar>
+      <TopSearchBar v-model="keyword" :logo="isMobile"></TopSearchBar>
     </template>
     <template #main-top>
-      <Tab v-if="router.name === 'search-result'" v-model="activeTab" :options="tabOptions"></Tab>
+      <Tab v-if="hasQuery" v-model="activeTab" :options="tabOptions"></Tab>
     </template>
     <template #default>
-      <router-view></router-view>
+      <SearchResult v-show="hasQuery"></SearchResult>
+      <SearchHistory v-show="!hasQuery"></SearchHistory>
     </template>
     <template #aside>
       <ClientOnly>
@@ -21,10 +22,11 @@
   </Page>
 </template>
 <script setup>
-import debounce from 'lodash/debounce'
-import { watch } from 'vue'
-import { useRouter } from 'vue-router'
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
+import SearchHistory from '@/pages/search/SearchHistory.vue'
+import SearchResult from '@/pages/search/SearchResult.vue'
 import { useAppStore } from '@/store/app'
 import { useSearchStore } from '@/store/search'
 import BulletinCard from '@comp/card/BulletinCard.vue'
@@ -34,29 +36,17 @@ import Tab from '@comp/navigation/Tab.vue'
 import TopSearchBar from '@comp/navigation/TopSearchBar.vue'
 import { SEARCH_TAB } from '@const'
 
-const router = useRouter()
+const route = useRoute()
+const hasQuery = computed(() => Object.keys(route.query).length > 0)
 
 const appStore = useAppStore()
 const { isMobile } = storeToRefs(appStore)
 
 const searchStore = useSearchStore()
-const { activeTab, nextAction, reloadAction, keyword } = storeToRefs(searchStore)
+const { activeTab, nextAction, keyword } = storeToRefs(searchStore)
 
 const tabOptions = [
   { label: 'tab.relatedAuthor', value: SEARCH_TAB.AUTHOR },
   { label: 'tab.relatedPost', value: SEARCH_TAB.POST },
 ]
-
-const onSearch = debounce(() => {
-  console.log('onSearch')
-  if (keyword.value === '') return
-  reloadAction.value({ newParams: { keyword: keyword.value } })
-}, 500)
-
-watch(
-  keyword,
-  debounce((v) => {
-    if (v === '') reloadAction.value({ newParams: {} })
-  }, 500),
-)
 </script>

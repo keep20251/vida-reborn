@@ -81,7 +81,7 @@ function useRequest(
   const isCanceled = ref(false)
 
   const [moduleName, fnName] = apiKey.split('.')
-  const controller = new AbortController()
+  let controller = new AbortController()
 
   function execute(execParams) {
     cancel()
@@ -137,6 +137,7 @@ function useRequest(
     if (!isLoading.value || isFinished.value) return
 
     controller.abort()
+    controller = new AbortController()
     isLoading.value = false
     isFinished.value = false
     isCanceled.value = true
