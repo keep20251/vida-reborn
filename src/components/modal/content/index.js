@@ -10,6 +10,8 @@ import SocialLink from './SocialLink.vue'
 import TermsOfService from './TermsOfService.vue'
 import Test from './Test.vue'
 import Text from './Text.vue'
+import SubPlanList from './SubPlanList.vue'
+import SubPlanSet from './SubPlanSet.vue'
 
 export default Object.freeze({
   [MODAL_TYPE.ALERT]: Text,
@@ -22,6 +24,9 @@ export default Object.freeze({
   [MODAL_TYPE.INTERESTED_PICK]: InterestedPick,
   [MODAL_TYPE.APPLY_CREATOR_CERT]: ApplyCreatorCert,
   [MODAL_TYPE.PHOTO_CAPTURE]: PhotoCapture,
+
+  [MODAL_TYPE.SUB_PLAN_LIST]: SubPlanList,
+  [MODAL_TYPE.SUB_PLAN_SET]: SubPlanSet,
 
   [MODAL_TYPE.PRIVACY_POLICY]: PrivacyPolicy,
   [MODAL_TYPE.TERMS_OF_SERVICE]: TermsOfService,
