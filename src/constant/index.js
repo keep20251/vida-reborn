@@ -145,7 +145,7 @@ export const CANCEL_SUB_TYPE = {
 // 取得用戶自身帖子列表
 export const GET_ARTICLE_LIST = {
   BOUGHT: 1, // 已購買
-  LICK: 2, // 按讚
+  LIKE: 2, // 按讚收藏
 }
 
 // 我的收藏 - 頁籤
@@ -153,4 +153,10 @@ export const MINE_COLLECT_TAB = {
   ALL: 1,
   UNLOCKED: 2,
   NOT_UNLOCKED: 3,
+}
+
+// 取得用戶自身帖子列表 - 按讚收藏解鎖狀態
+export const GET_ARTICLE_COLLECT = {
+  UNLOCKED: 0, 
+  NOT_UNLOCKED: 1,
 }
