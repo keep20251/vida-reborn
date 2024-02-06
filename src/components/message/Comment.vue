@@ -8,9 +8,9 @@
       </p>
       <div class="flex">
         <div class="mr-24 text-sm text-gray-57">{{ item.created_at }}</div>
-        <div class="cursor-pointer text-sm text-gray-57" @click="$emit('reply', item)">回覆</div>
-        <div class="flex grow justify-end">
-          <Icon :name="!!item.like ? 'like' : 'likeOutline'" size="15"></Icon>
+        <div class="cursor-pointer text-sm text-gray-57" @click="$emit('click:reply', item)">回覆</div>
+        <div class="flex grow cursor-pointer justify-end" @click="$emit('click:like', item)">
+          <Icon :name="!!item.liked ? 'like' : 'likeOutline'" size="15"></Icon>
         </div>
       </div>
 
@@ -25,8 +25,8 @@
           <div class="flex">
             <div class="mr-24 text-sm text-gray-57">{{ reply.created_at }}</div>
             <!-- <div class="cursor-pointer text-sm text-gray-57" @click="$emit('reply', item)">回覆</div> -->
-            <div class="flex grow justify-end">
-              <Icon :name="!!reply.like ? 'like' : 'likeOutline'" size="15"></Icon>
+            <div class="flex grow cursor-pointer justify-end" @click="$emit('click:like', reply)">
+              <Icon :name="!!reply.liked ? 'like' : 'likeOutline'" size="15"></Icon>
             </div>
           </div>
         </div>
@@ -52,11 +52,14 @@ const props = defineProps({
   item: { type: Object, required: true },
 })
 
-defineEmits(['reply'])
+defineEmits(['click:reply', 'click:like'])
 
 const {
   dataList: replys,
   isLoading: isReplysLoading,
   next: nextReplys,
-} = useInfinite('Comment.list', { params: { article_id: props.item.article_id, reply_comment_id: props.item.id } })
+} = useInfinite('Comment.list', {
+  params: { article_id: props.item.article_id, reply_comment_id: props.item.id },
+  readonly: false,
+})
 </script>
