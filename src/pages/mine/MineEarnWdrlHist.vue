@@ -1,6 +1,6 @@
 <template>
   <div class="pt-10">
-    <List :items="items" item-key="id" divider>
+    <List :items="dataList" item-key="id" divider>
       <template #default="{ item }">
         <div class="space-y-10 pb-10 pt-10 last:pb-0">
           <div class="flex items-center justify-between">
@@ -31,31 +31,8 @@ import { computed, onActivated, onDeactivated, onMounted, onUnmounted, ref } fro
 import { useI18n } from 'vue-i18n'
 import { useMineStore } from '@/store/mine'
 import List from '@comp/common/List.vue'
-import useRequest from '@use/request/index.js'
 import { useInfinite } from '@use/request/infinite'
 import { WITHDRAW_LIST_STATUS } from '@/constant/index.js'
-
-const items = ref(null)
-
-onMounted(() => {
-  wdrlHist()
-})
-
-let data
-const wdrlHist = async () => {
-  const { execute } = useRequest('User.listWithdraw')
-  try {
-    data = await execute({
-      page: 1,
-      limit: 10,
-    })
-    console.log('這個是data', data)
-    items.value = data.list
-    console.log('看一下data有沒有等於items', items.value)
-  } catch (e) {
-    console.error(e)
-  }
-}
 
 const { dataList, isLoading, noMore, init, next, revert } = useInfinite('User.listWithdraw', {
   params: {},
