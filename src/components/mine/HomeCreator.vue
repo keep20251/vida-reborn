@@ -21,7 +21,7 @@
         </div>
       </template>
     </SelfIntro>
-    <div class="flex h-36 w-full items-center bg-gray-f6 px-20 text-base font-bold leading-md">
+    <div class="sticky top-0 z-10 flex h-36 w-full items-center bg-gray-f6 px-20 text-base font-bold">
       {{ $t('content.allPosts') }} {{ userData.post_num }}
     </div>
     <div class="overflow-x-hidden">

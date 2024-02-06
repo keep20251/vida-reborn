@@ -5,7 +5,19 @@
     </template>
     <template #default>
       <div v-if="creator">
-        <SelfIntro :item="creator" show-bg-data show-all-info show-personal-info></SelfIntro>
+        <SelfIntro :item="creator" show-bg-data show-all-info show-personal-info>
+          <template #topButton>
+            <div class="flex items-center space-x-10">
+              <div class="cursor-pointer"><Icon name="comment" size="20"></Icon></div>
+              <div class="cursor-pointer"><Icon name="report" size="20"></Icon></div>
+              <div class="cursor-pointer"><Icon name="sharePage" size="20"></Icon></div>
+              <Button size="sm" primary>{{ $t('common.subscribe') }}</Button>
+            </div>
+          </template>
+        </SelfIntro>
+        <div class="sticky top-0 z-10 flex h-36 w-full items-center bg-gray-f6 px-20 text-base font-bold">
+          {{ $t('content.allPosts') }} {{ creator.post_num }}
+        </div>
         <List :items="items" item-key="id" divider>
           <template #default="{ item }">
             <Feed class="py-20" :item="item"></Feed>
@@ -32,6 +44,7 @@ import { storeToRefs } from 'pinia'
 import { useCreatorStore } from '@/store/creator'
 import { useFeedStore } from '@/store/feed'
 import { useHydrationStore } from '@/store/hydration'
+import Button from '@comp/common/Button.vue'
 import List from '@comp/common/List.vue'
 import Error from '@comp/info/Error.vue'
 import Feed from '@comp/main/Feed.vue'

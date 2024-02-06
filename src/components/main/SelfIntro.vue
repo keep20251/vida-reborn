@@ -51,7 +51,7 @@
           <div class="text-sm font-normal leading-3 text-gray-57">•</div>
           <div class="text-sm font-normal leading-3 text-gray-57">{{ item.view_count }} {{ $t('content.view') }}</div>
         </div>
-        <p class="text-base font-normal leading-lg">{{ item.descriptions }}</p>
+        <p class="text-base font-normal leading-lg">{{ item.description }}</p>
       </div>
     </div>
     <div v-if="$slots['bottomButton']" class="my-20 flex space-x-10">

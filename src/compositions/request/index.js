@@ -66,7 +66,10 @@ export default useRequest
  * @param {*} param1 optinos
  * @returns
  */
-function useRequest(apiKey, { params = {}, immediate = false, shallow = true, initialData = null } = {}) {
+function useRequest(
+  apiKey,
+  { params = {}, immediate = false, shallow = true, readonly: ro = true, initialData = null } = {},
+) {
   const guestIdCookie = useCookie(COOKIE_KEY.GUEST_ID, { default: uuidv4, readonly: true })
   const tokenCookie = useCookie(COOKIE_KEY.AUTH, { default: '' })
   const localeCookie = useLocaleReadonly()
@@ -143,7 +146,7 @@ function useRequest(apiKey, { params = {}, immediate = false, shallow = true, in
     return execute()
   } else {
     return {
-      data: readonly(data),
+      data: ro ? readonly(data) : data,
       error: readonly(error),
       isLoading: readonly(isLoading),
       isFinished: readonly(isFinished),

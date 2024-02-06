@@ -8,7 +8,7 @@
         <Feed class="mb-24" :item="feed" disable-to-detail disable-content-fold></Feed>
         <List :items="comments" item-key="id">
           <template #default="{ item }">
-            <Comment :item="item" @reply="onReply"></Comment>
+            <Comment :item="item" @click:reply="onCommentReply" @click:like="onCommentToggleLike"></Comment>
           </template>
           <template #bottom>
             <div class="flex items-center justify-center py-8 text-gray-a3">
@@ -64,7 +64,7 @@ const {
   reload: reloadComments,
   revert: revertComments,
   next: nextComments,
-} = useInfinite('Comment.list')
+} = useInfinite('Comment.list', { readonly: false })
 
 const feed = ref(null)
 const errMsg = ref(null)
@@ -126,6 +126,8 @@ onHydration(() => {
 const commentInput = ref('')
 const replyTo = ref(null)
 const { isLoading: isSendCommentLoading, execute: execSendComment } = useRequest('Comment.add')
+const { isLoading: isCommentLikeLoading, execute: execCommentLike } = useRequest('Comment.like')
+const { isLoading: isCommentUnlikeLoading, execute: execCommentUnlike } = useRequest('Comment.unlike')
 async function sendComment() {
   if (isSendCommentLoading.value) {
     return
@@ -159,7 +161,22 @@ async function sendComment() {
     console.error(e)
   }
 }
-function onReply(comment) {
+async function onCommentToggleLike(comment) {
+  if (isCommentLikeLoading.value || isCommentUnlikeLoading.value) {
+    return
+  }
+
+  const exec = comment.liked ? execCommentUnlike : execCommentLike
+
+  comment.liked = !comment.liked
+  comment.like += comment.liked ? 1 : comment.like > 0 ? -1 : 0
+  try {
+    await exec({ comment_id: comment.id })
+  } catch (e) {
+    console.error('評論愛心給我出錯傻眼耶搞笑？', e)
+  }
+}
+function onCommentReply(comment) {
   if (replyTo.value) {
     commentInput.value = `${getReplyTag(comment)}${commentInput.value.substring(getReplyTag(replyTo.value).length)}`
     replyTo.value = null
