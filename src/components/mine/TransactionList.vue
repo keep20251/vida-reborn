@@ -1,7 +1,7 @@
 <template>
   <div>
-    <List :items="dataList" item-key="id">
-      <template #default="{ item, last }">
+    <List :items="dataList" item-key="id" divider>
+      <template #default="{ item }">
         <div class="space-y-10 pb-20 pt-20 last:border-0 last:pb-0">
           <div class="flex justify-between">
             <div class="flex items-center space-x-5">
@@ -20,7 +20,6 @@
             <div class="text-base font-normal leading-lg text-gray-57">{{ formatDate(item.created_at) }}</div>
           </div>
         </div>
-        <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
       </template>
       <template #bottom>
         <div class="flex items-center justify-center py-20 text-gray-a3">

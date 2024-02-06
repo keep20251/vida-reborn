@@ -6,10 +6,9 @@
     <template #default>
       <div v-if="creator">
         <SelfIntro :item="creator" show-bg-data show-all-info show-personal-info></SelfIntro>
-        <List :items="items" item-key="id">
-          <template #default="{ item, last }">
+        <List :items="items" item-key="id" divider>
+          <template #default="{ item }">
             <Feed class="py-20" :item="item"></Feed>
-            <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
           </template>
           <template #bottom>
             <div class="flex items-center justify-center py-8 text-gray-a3">

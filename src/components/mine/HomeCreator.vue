@@ -25,10 +25,9 @@
       {{ $t('content.allPosts') }} {{ userData.post_num }}
     </div>
     <div class="overflow-x-hidden">
-      <List :items="dataList" item-key="id">
-        <template #default="{ item, last }">
+      <List :items="dataList" item-key="id" divider>
+        <template #default="{ item }">
           <Feed class="py-20" :item="item"></Feed>
-          <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
         </template>
         <template #bottom>
           <div class="flex items-center justify-center py-8 text-gray-a3">

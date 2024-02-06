@@ -1,10 +1,9 @@
 <template>
   <div>
     <div v-show="activeTab === SEARCH_TAB.AUTHOR" class="overflow-x-hidden">
-      <List :items="creatorList" item-key="id">
-        <template #default="{ item, last }">
+      <List :items="creatorList" item-key="id" divider>
+        <template #default="{ item }">
           <SearchCreatorCard :item="item" class="mt-20"></SearchCreatorCard>
-          <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
         </template>
         <template #bottom>
           <div class="flex items-center justify-center py-8 text-gray-a3">
@@ -15,10 +14,9 @@
       </List>
     </div>
     <div v-show="activeTab === SEARCH_TAB.POST" class="overflow-x-hidden">
-      <List :items="articleList" item-key="id">
-        <template #default="{ item, last }">
+      <List :items="articleList" item-key="id" divider>
+        <template #default="{ item }">
           <Feed class="py-20" :item="item"></Feed>
-          <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
         </template>
         <template #bottom>
           <div class="flex items-center justify-center py-8 text-gray-a3">

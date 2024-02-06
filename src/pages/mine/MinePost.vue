@@ -7,10 +7,9 @@
     </div>
     <div v-if="tabBtn === 1">
       <div class="overflow-x-hidden">
-        <List :items="items" item-key="id">
-          <template #default="{ last }">
+        <List :items="items" item-key="id" divider>
+          <template #default="{}">
             <Feed class="py-20"></Feed>
-            <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
           </template>
           <template #bottom>
             <div class="flex items-center justify-center py-8 text-gray-a3">
@@ -29,10 +28,9 @@
     </div>
     <div v-if="tabBtn === 1">
       <div class="overflow-x-hidden">
-        <List :items="items" item-key="id">
-          <template #default="{ last }">
+        <List :items="items" item-key="id" divider>
+          <template #default="{}">
             <Feed class="py-20"></Feed>
-            <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
           </template>
           <template #bottom>
             <div class="flex items-center justify-center py-8 text-gray-a3">
@@ -53,10 +51,9 @@
     </div>
     <div v-if="tabBtn === 1">
       <div class="overflow-x-hidden">
-        <List :items="items" item-key="id">
-          <template #default="{ last }">
+        <List :items="items" item-key="id" divider>
+          <template #default="{}">
             <Feed class="py-20"></Feed>
-            <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
           </template>
           <template #bottom>
             <div class="flex items-center justify-center py-8 text-gray-a3">
