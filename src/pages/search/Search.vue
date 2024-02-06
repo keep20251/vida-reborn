@@ -22,9 +22,8 @@
   </Page>
 </template>
 <script setup>
-import debounce from 'lodash/debounce'
 import { computed } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import SearchHistory from '@/pages/search/SearchHistory.vue'
 import SearchResult from '@/pages/search/SearchResult.vue'
@@ -38,7 +37,6 @@ import TopSearchBar from '@comp/navigation/TopSearchBar.vue'
 import { SEARCH_TAB } from '@const'
 
 const route = useRoute()
-const router = useRouter()
 const hasQuery = computed(() => Object.keys(route.query).length > 0)
 
 const appStore = useAppStore()
