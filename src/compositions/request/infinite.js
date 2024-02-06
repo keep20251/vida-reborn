@@ -1,4 +1,4 @@
-import { readonly, ref } from 'vue'
+import { readonly, ref, shallowRef } from 'vue'
 import useRequest from '.'
 
 /**
@@ -22,13 +22,16 @@ export function useInfinite(apiKey, { params = {}, limit = 10, transformer } = {
   // 請求資料清單
   const dataList = ref([])
 
+  // 清單之外的資料
+  const dataExtra = shallowRef(null)
+
   // 沒有更多了，當判斷到回傳資料數量小於 limit 就會被判定為沒有更多資料
   const noMore = ref(false)
 
   const { data, error, isLoading, execute, cancel } = useRequest(apiKey)
 
   async function init() {
-    if (!isLoading.value && !noMore.value && dataList.value.length === 0) {
+    if (!isLoading.value && !noMore.value && dataList.value.length === 0 && dataExtra.value === null) {
       return await next()
     }
   }
@@ -38,6 +41,7 @@ export function useInfinite(apiKey, { params = {}, limit = 10, transformer } = {
     params = newParams
     limit = newLimit
     dataList.value = []
+    dataExtra.value = null
     noMore.value = false
   }
 
@@ -46,11 +50,16 @@ export function useInfinite(apiKey, { params = {}, limit = 10, transformer } = {
     return await init()
   }
 
-  function revert(src, { newParams = params, newLimit = limit } = {}) {
+  function revert({ dataList: srcDataList, dataExtra: srcDataExtra }, { newParams = params, newLimit = limit } = {}) {
     reset({ newParams, newLimit })
-    dataList.value.push(...transformData(src))
+
+    dataList.value.push(...transformData(srcDataList))
     if (dataList.value.length % limit !== 0) {
       noMore.value = true
+    }
+
+    if (srcDataExtra) {
+      dataExtra.value = srcDataExtra
     }
   }
 
@@ -69,15 +78,14 @@ export function useInfinite(apiKey, { params = {}, limit = 10, transformer } = {
     try {
       await execute({ page, limit, ...params })
 
-      if (!Array.isArray(data.value.list)) {
-        throw new Error(`API ${apiKey} response data.list is not array...`)
-      }
-
       const newDataList = transformData(data.value.list)
       if (newDataList.length < limit) {
         noMore.value = true
       }
       dataList.value.push(...newDataList)
+
+      saveExtraData()
+
       return newDataList
     } catch (e) {
       console.error(e)
@@ -86,11 +94,26 @@ export function useInfinite(apiKey, { params = {}, limit = 10, transformer } = {
   }
 
   function transformData(data) {
-    return transformer ? transformer(data) : [...data]
+    if (Array.isArray(data)) {
+      return transformer ? transformer(data) : [...data]
+    }
+    console.warn(`${apiKey} data.list is not Array😳😳😳`, data)
+    return []
+  }
+
+  function saveExtraData() {
+    const extraDataKeys = Object.keys(data.value).filter((k) => k !== 'list')
+    if (extraDataKeys.length > 0) {
+      dataExtra.value = extraDataKeys.reduce((a, v) => {
+        a[v] = data.value[v]
+        return a
+      }, {})
+    }
   }
 
   return {
     dataList: readonly(dataList),
+    dataExtra: readonly(dataExtra),
     error,
     isLoading,
     noMore: readonly(noMore),

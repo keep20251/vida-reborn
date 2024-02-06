@@ -43,6 +43,7 @@ import { useInfinite } from '@use/request/infinite'
 const feedStore = useFeedStore()
 const {
   dataList: items,
+  dataExtra,
   isLoading,
   noMore,
   revert,
@@ -92,13 +93,13 @@ onServerClientOnce(async (isSSR) => {
 
   if (isSSR) {
     creatorFromStore.value = creator.value
-    creatorArticleList.value = items.value
+    creatorArticleList.value = { dataList: items.value, dataExtra: dataExtra.value }
     creatorError.value = errMsg.value
   }
 })
 onHydration(() => {
   creator.value = revertCreator(creatorFromStore.value)
-  revert(creatorArticleList.value)
+  revert(creatorArticleList.value, { newParams: { uuid: creator.value.uuid } })
   errMsg.value = creatorError.value
 })
 </script>

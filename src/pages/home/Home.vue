@@ -1,7 +1,7 @@
 <template>
   <Page infinite @load="next">
     <template v-if="isMobile" #app-top>
-      <TopSearchBar logo feature-icon="filter"></TopSearchBar>
+      <TopSearchBar logo feature-icon="filter" to-search></TopSearchBar>
     </template>
     <template #main-top>
       <Tab v-model="tab" :options="tabOptions"></Tab>
@@ -36,7 +36,7 @@
       </div>
     </template>
     <template #aside-top>
-      <TopSearchBar></TopSearchBar>
+      <TopSearchBar to-search></TopSearchBar>
     </template>
     <template #aside>
       <ClientOnly>
@@ -75,6 +75,7 @@ const { isMobile } = storeToRefs(appStore)
 const feedStore = useFeedStore()
 const {
   dataList: items,
+  dataExtra,
   isLoading,
   noMore,
   init,
@@ -98,7 +99,7 @@ const { forYou } = storeToRefs(hydrationStore)
 onServerClientOnce(async (isSSR) => {
   await init()
   if (isSSR) {
-    forYou.value = items.value
+    forYou.value = { dataList: items.value, dataExtra: dataExtra.value }
   }
 })
 onHydration(() => {
