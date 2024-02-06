@@ -3,10 +3,9 @@
   <div v-show="tab === MINE_COLLECT_TAB.ALL">
     <div class="pt-20 text-base font-bold leading-lg">{{ $t('content.allPosts') }} {{ dataList.length }}</div>
     <div class="overflow-x-hidden">
-      <List :items="dataList" item-key="id">
-        <template #default="{ item, last }">
+      <List :items="dataList" item-key="id" divider>
+        <template #default="{ item }">
           <Feed class="py-20" :item="item"></Feed>
-          <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
         </template>
         <template #bottom>
           <div class="flex items-center justify-center py-8 text-gray-a3">
@@ -20,10 +19,9 @@
   <div v-show="tab === MINE_COLLECT_TAB.UNLOCKED">
     <div class="pt-20 text-base font-bold leading-lg">{{ $t('content.allPosts') }} 13</div>
     <div class="overflow-x-hidden">
-      <List :items="items" item-key="id">
-        <template #default="{ last }">
+      <List :items="items" item-key="id" divider>
+        <template #default="{}">
           <Feed class="py-20"></Feed>
-          <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
         </template>
         <template #bottom>
           <div class="flex items-center justify-center py-8 text-gray-a3">
@@ -36,10 +34,9 @@
   <div v-show="tab === MINE_COLLECT_TAB.NOT_UNLOCKED">
     <div class="pt-20 text-base font-bold leading-lg">{{ $t('content.allPosts') }} 13</div>
     <div class="overflow-x-hidden">
-      <List :items="items" item-key="id">
-        <template #default="{ last }">
+      <List :items="items" item-key="id" divider>
+        <template #default="{}">
           <Feed class="py-20"></Feed>
-          <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
         </template>
         <template #bottom>
           <div class="flex items-center justify-center py-8 text-gray-a3">

@@ -1,7 +1,7 @@
 <template>
   <div class="pt-10">
-    <List :items="items" item-key="id">
-      <template #default="{ item, last }">
+    <List :items="items" item-key="id" divider>
+      <template #default="{ item }">
         <div class="space-y-10 pb-10 pt-10 last:pb-0">
           <div class="flex items-center justify-between">
             <div class="text-base font-bold leading-md">{{ $t('info.time') }}</div>
@@ -16,7 +16,6 @@
             <div class="text-base font-normal leading-lg">{{ statusShow(item.status) }}</div>
           </div>
         </div>
-        <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
       </template>
       <template #bottom>
         <div class="flex items-center justify-center py-20 text-gray-a3">

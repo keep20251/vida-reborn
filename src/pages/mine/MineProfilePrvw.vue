@@ -20,10 +20,9 @@
       {{ $t('content.allPosts') }} 85
     </div>
     <div class="overflow-x-hidden">
-      <List :items="dataList" item-key="id">
-        <template #default="{ item, last }">
+      <List :items="dataList" item-key="id" divider>
+        <template #default="{ item }">
           <Feed :item="item" class="py-20"></Feed>
-          <div v-if="!last" class="h-1 bg-black opacity-[0.15]"></div>
         </template>
         <template #bottom>
           <div class="flex items-center justify-center py-8 text-gray-a3">
