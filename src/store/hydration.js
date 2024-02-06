@@ -30,6 +30,7 @@ export const useHydrationStore = defineStore('hydration', () => {
   const mineCreatorArticles = ref(null)
   const mineRegisterArticles = ref(null)
   const mineBoughtArticles = ref(null)
+  const mineCollAllArticles = ref(null)
   const mineTransactionList = ref(null)
   const mineSubList = ref(null)
   const mineBlockList = ref(null)
@@ -54,6 +55,7 @@ export const useHydrationStore = defineStore('hydration', () => {
     mineCreatorArticles,
     mineRegisterArticles,
     mineBoughtArticles,
+    mineCollAllArticles,
     mineTransactionList,
     mineSubList,
     mineBlockList,

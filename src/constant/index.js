@@ -147,3 +147,10 @@ export const GET_ARTICLE_LIST = {
   BOUGHT: 1, // 已購買
   LICK: 2, // 按讚
 }
+
+// 我的收藏 - 頁籤
+export const MINE_COLLECT_TAB = {
+  ALL: 1,
+  UNLOCKED: 2,
+  NOT_UNLOCKED: 3,
+}

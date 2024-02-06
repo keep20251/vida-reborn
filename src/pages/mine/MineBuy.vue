@@ -39,7 +39,7 @@ import useRequest from '@use/request'
 import { useInfinite } from '@use/request/infinite'
 import { GET_ARTICLE_LIST, MINE_BUY_TAB } from '@const'
 
-const tab = ref(1)
+const tab = ref(MINE_BUY_TAB.TRANSACTION)
 const tabOptions = ref([
   { label: 'label.texn', value: MINE_BUY_TAB.TRANSACTION },
   { label: 'label.subs', value: MINE_BUY_TAB.SUBSCRIPTION },
