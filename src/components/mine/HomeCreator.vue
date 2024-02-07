@@ -12,7 +12,7 @@
       <template #bottomButton>
         <div class="ml-[20px] mr-[20px] flex w-full space-x-10 sm:ml-0 sm:mr-0 xl:ml-0 xl:mr-0">
           <div class="w-9/12">
-            <Button @click="customModal(sm)">{{ $t('info.subscribeSetting') }}</Button>
+            <Button @click="openSubPlanDialog()">{{ $t('info.subscribeSetting') }}</Button>
           </div>
           <router-link :to="{ name: 'mine-profile-prvw' }" class="w-3/12">
             <Button contrast class="text-nowrap !px-0">{{ $t('info.prvw') }}</Button>
@@ -44,24 +44,13 @@ import { onActivated, onDeactivated, onMounted, onUnmounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useMineStore } from '@/store/mine'
-import { useModalStore } from '@/store/modal'
+import { useSubPlanStore } from '@/store/sub-plan'
 import Button from '@comp/common/Button.vue'
 import Feed from '@comp/main/Feed.vue'
 import SelfIntro from '@comp/main/SelfIntro.vue'
 import { useInfinite } from '@use/request/infinite'
-import { MODAL_TYPE } from '@const'
 
-const modalStore = useModalStore()
-const { open } = modalStore
-
-function customModal(size) {
-  open(MODAL_TYPE.SUB_PLAN_LIST, {
-    size,
-    title: '訂閱方案設置',
-    showClose: true,
-    showConfirm: false,
-  })
-}
+const { open: openSubPlanDialog } = useSubPlanStore()
 
 const { userData } = storeToRefs(useAccountStore())
 

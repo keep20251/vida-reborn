@@ -1,12 +1,12 @@
 <template>
-  <div>
-    <div @click="customModal(lg)" class="text-center text-gray-57 pb-15 font-bold text-base leading-md cursor-pointer">
+  <div class="select-none">
+    <div @click="subPlanAdd(lg)" class="text-center text-gray-57 pb-15 font-bold text-base leading-md cursor-pointer">
       ＋ 点击新增订阅组
     </div>
-    <div class="overflow-y-scroll scrollbar-md max-h-[60vh] pt-15">
+    <div class="overflow-y-scroll scrollbar-md max-h-[60vh] pr-15">
       <List :items="dataList" item-key="id" divider>
         <template #default="{ item, index }">
-          <div class="grid space-y-20 py-20 pr-15">
+          <div class="grid space-y-15 py-15">
             <div class="grid space-y-10">
               <div class="flex justify-between">
                 <div class="flex items-end flex-row">
@@ -18,11 +18,11 @@
               <EncryptImage :src="item.picture" cover :borderRadius="10" :height="260"></EncryptImage>
               <div class="text-sm text-gray-57 leading-md">{{ item.content }}</div>
             </div>
-            <Button @click="unblock(dataList, index)" gradient>編輯</Button>
+            <Button @click="subPlanEdit(dataList, index)" gradient>編輯</Button>
           </div>
         </template>
         <template #bottom>
-          <div class="flex items-center justify-center py-20 text-gray-a3">
+          <div class="flex items-center justify-center text-gray-a3">
             <Loading v-if="isLoading">{{ $t('common.loading') }}</Loading>
             <span v-if="noMore">{{ $t('common.noMore') }}</span>
           </div>
@@ -44,10 +44,18 @@ import { MODAL_TYPE } from '@const'
 const modalStore = useModalStore()
 const { open } = modalStore
 
-function customModal(size) {
-  open(MODAL_TYPE.SUB_PLAN_EDIT, {
+function subPlanAdd(size) {
+  open(MODAL_TYPE.SUB_PLAN_SET, {
     size,
     title: '新增訂閱方案',
+    showClose: true,
+    showConfirm: false,
+  })
+}
+
+function subPlanEdit(dataList, index) {
+  open(MODAL_TYPE.SUB_PLAN_SET, {
+    title: '編輯訂閱方案',
     showClose: true,
     showConfirm: false,
   })

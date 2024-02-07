@@ -27,7 +27,7 @@
 import { useI18n } from 'vue-i18n'
 import { useAuthRouteStore } from '@/store/auth-route'
 import Button from '@comp/common/Button.vue'
-import { AUTH_ROUTES } from '@/constant'
+import { AUTH_ROUTES } from '@const'
 
 const { t: $t } = useI18n()
 const { open: openAuthDialog } = useAuthRouteStore()

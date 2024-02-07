@@ -10,6 +10,8 @@
       <CookieBanner></CookieBanner>
       <AuthDialog v-if="authDialog"></AuthDialog>
       <FileSelectDialog v-if="fileSelectDialog"></FileSelectDialog>
+      <SubPlanDialog v-if="subPlanDialog"></SubPlanDialog>
+
       <Modal></Modal>
       <MinePrvwBanner v-if="route.name === 'mine-profile-prvw'"></MinePrvwBanner
     ></ClientOnly>
@@ -28,6 +30,7 @@ import CookieBanner from '@comp/banner/CookieBanner.vue'
 import MinePrvwBanner from '@comp/banner/MinePrvwBanner.vue'
 import AuthDialog from '@comp/dialog/AuthDialog.vue'
 import FileSelectDialog from '@comp/dialog/FileSelectDialog.vue'
+import SubPlanDialog from '@comp/dialog/SubPlanDialog.vue'
 import Navigator from '@comp/layout/Navigator.vue'
 import NavigatorMobile from '@comp/layout/NavigatorMobile.vue'
 import Modal from '@comp/modal/index.vue'
@@ -41,7 +44,7 @@ const { isDesktop, isMobile } = storeToRefs(appStore)
 const { initAppConfig, setAppConfig, initCategories, setCategories } = appStore
 
 loadSeoHead()
-const { authDialog, fileSelectDialog } = storeToRefs(useDialogStore())
+const { authDialog, fileSelectDialog, subPlanDialog } = storeToRefs(useDialogStore())
 
 const accountStore = useAccountStore()
 const { resetUserData } = accountStore
