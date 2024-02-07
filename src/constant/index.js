@@ -19,6 +19,13 @@ export const AUTH_ROUTES = {
   SIGN_UP_SUCCESS: 6,
 }
 
+// 訂閱方案流程
+export const SUB_PLAN = {
+  MAIN_PAGE: 1,
+  LIST: 2,
+  SET: 3,
+}
+
 export const LOCAL_STORAGE_KEYS = {
   ACCOUNT_INFO: '__ACCOUNT_INFO',
   LOCALE: '__LOCALE',
@@ -37,9 +44,6 @@ export const MODAL_TYPE = {
   INTERESTED_PICK: 20,
   APPLY_CREATOR_CERT: 21,
   PHOTO_CAPTURE: 22,
-
-  SUB_PLAN_LIST: 30,
-  SUB_PLAN_SET: 31,
 
   PRIVACY_POLICY: 97,
   TERMS_OF_SERVICE: 98,
