@@ -54,7 +54,8 @@ export function useInfinite(apiKey, { params = {}, limit = 10, readonly: ro = tr
     reset({ newParams, newLimit })
 
     dataList.value.push(...transformData(srcDataList))
-    if (dataList.value.length % limit !== 0) {
+
+    if (dataList.value.length === 0 || dataList.value.length % limit !== 0) {
       noMore.value = true
     }
 
