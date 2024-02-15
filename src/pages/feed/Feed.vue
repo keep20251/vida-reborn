@@ -1,5 +1,5 @@
 <template>
-  <Page infinite @load="nextComments">
+  <Page infinite @load="nextComments" main-top-toggle-disabled>
     <template #main-top>
       <Head title="貼文" @back="clearInput"></Head>
     </template>

@@ -1,5 +1,5 @@
 <template>
-  <Page infinite @load="nextArticleList">
+  <Page infinite @load="nextArticleList" main-top-toggle-disabled>
     <template #main-top>
       <Head :title="creator?.nickname"></Head>
     </template>
@@ -15,7 +15,7 @@
             </div>
           </template>
         </SelfIntro>
-        <div class="sticky top-0 z-10 flex h-36 w-full items-center bg-gray-f6 px-20 text-base font-bold">
+        <div class="sticky top-52 z-10 flex h-36 w-full items-center bg-gray-f6 px-20 text-base font-bold">
           {{ $t('content.allPosts') }} {{ creator.post_num }}
         </div>
         <List :items="items" item-key="id" divider>
