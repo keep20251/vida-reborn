@@ -13,9 +13,10 @@ export default function (response) {
   // 错误处理
   if (processedData.status === 0) {
     return Promise.reject(new Error(processedData.msg))
+  }
 
-    // 未授權
-  } else if (processedData.status === 422) {
+  // 未授權
+  else if (processedData.status === 422) {
     return Promise.reject(new TokenInvalidError(processedData.msg))
   }
 
