@@ -1,11 +1,19 @@
 import { computed, ref } from 'vue'
+import { useLocalStorage } from '@vueuse/core'
 import { defineStore } from 'pinia'
+import useRequest from '@use/request'
 import { useInfinite } from '@use/request/infinite'
-import { SEARCH_TAB } from '@const'
+import { useRouters } from '@use/routers'
+import { LOCAL_STORAGE_KEYS, SEARCH_TAB } from '@const'
 
 export const useSearchStore = defineStore('search-store', () => {
   const activeTab = ref(SEARCH_TAB.AUTHOR)
   const keyword = ref('')
+
+  function reset() {
+    activeTab.value = SEARCH_TAB.AUTHOR
+    keyword.value = ''
+  }
 
   const articleFetcher = ref(
     useInfinite('Article.list', {
@@ -35,9 +43,29 @@ export const useSearchStore = defineStore('search-store', () => {
     activeTab.value === SEARCH_TAB.AUTHOR ? creatorFetcher.value.dataList : articleFetcher.value.dataList,
   )
 
+  const popularTags = ref([])
+
+  async function fetchPopularTags() {
+    const data = await useRequest('Article.hotKeywords', { immediate: true })
+    popularTags.value = data.list.map((tag) => ({ value: tag.name, label: tag.name }))
+  }
+
+  const historyTags = useLocalStorage(LOCAL_STORAGE_KEYS.HISTORY_TAGS, [])
+
+  function clearHistoryTags() {
+    historyTags.value = []
+  }
+
+  const { to } = useRouters()
+
+  function onSearch(q) {
+    to('search', { query: { q } })
+  }
+
   return {
     activeTab,
     keyword,
+    reset,
 
     nextAction,
     reloadAction,
@@ -46,5 +74,12 @@ export const useSearchStore = defineStore('search-store', () => {
 
     articleFetcher,
     creatorFetcher,
+
+    popularTags,
+    fetchPopularTags,
+    clearHistoryTags,
+    historyTags,
+
+    onSearch,
   }
 })

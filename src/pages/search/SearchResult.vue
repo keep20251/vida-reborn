@@ -43,6 +43,7 @@ const searchStore = useSearchStore()
 const { keyword, activeTab, reloadAction, articleFetcher, creatorFetcher } = storeToRefs(searchStore)
 
 const route = useRoute()
+
 watch(
   () => route.query.q,
   (newQ) => {
@@ -50,9 +51,11 @@ watch(
     reloadAction.value({ newParams: { keyword: keyword.value } })
   },
 )
+
 watch(activeTab, () => reloadAction.value({ newParams: { keyword: keyword.value } }))
 
 const { relatedAuthors, keyword: hydrationKeyword } = storeToRefs(useHydrationStore())
+
 onServerClientOnce(async (isSSR) => {
   keyword.value = route.query.q
   if (!keyword.value) return
@@ -65,6 +68,6 @@ onServerClientOnce(async (isSSR) => {
 onHydration(() => {
   keyword.value = hydrationKeyword.value
   if (!keyword.value) return
-  creatorFetcher.value.revert(relatedAuthors.value, { newParams: { keyword: keyword.value } })
+  creatorFetcher.value.revert({ dataList: relatedAuthors.value }, { newParams: { keyword: keyword.value } })
 })
 </script>
