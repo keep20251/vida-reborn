@@ -10,7 +10,7 @@
       <div @click="subPlanAdd()" class="text-center text-gray-57 pb-15 font-bold text-base leading-md cursor-pointer">
         ＋ 点击新增订阅组
       </div>
-      <div class="overflow-y-scroll scrollbar-md pr-15 max-h-[75vh]">
+      <div class="overflow-y-scroll scrollbar-md pr-15 max-h-[65vh]">
         <List :items="dataList" item-key="id" divider>
           <template #default="{ item, index }">
             <div class="grid space-y-15 py-15">
@@ -20,7 +20,7 @@
                     <div class="font-bold text-xl leading-xl pr-4">${{ item.price }}</div>
                     <div class="text-base leading-lg font-normal">/ {{ item.expire_days }}</div>
                   </div>
-                  <div class="text-subscribe-orange font-bold text-base leading-md">{{ item.name }}</div>
+                  <div class="text-primary font-bold text-base leading-md">{{ item.name }}</div>
                 </div>
                 <EncryptImage :src="item.picture" cover :borderRadius="10" :height="260"></EncryptImage>
                 <div class="text-sm text-gray-57 leading-md">{{ item.content }}</div>
@@ -41,6 +41,7 @@
 </template>
 <script setup>
 import { onActivated, onDeactivated, onMounted, onUnmounted } from 'vue'
+import { storeToRefs } from 'pinia'
 import { useMineStore } from '@/store/mine'
 import { useSubPlanStore } from '@/store/sub-plan'
 import Button from '@comp/common/Button.vue'
@@ -64,7 +65,26 @@ onActivated(() => {
 onDeactivated(() => clearNextFn(next))
 
 const { to, close } = useSubPlanStore()
+const { data, index: i, addSubPlan, subPlanName, subPlanContent, subPlanPrice } = storeToRefs(useSubPlanStore())
+
 function subPlanAdd() {
   to(SUB_PLAN.SET)
+  addSubPlan.value = true
+  console.log(addSubPlan.value, '看你是多少')
+  subPlanName.value = ''
+  subPlanContent.value = ''
+  subPlanPrice.value = ''
+}
+
+function subPlanEdit(dataList, index) {
+  to(SUB_PLAN.SET)
+  addSubPlan.value = false
+  data.value = dataList
+  i.value = index
+  console.log(addSubPlan.value, '看你是多少')
+  console.log(data.value, i.value, '看一下就好')
+  console.log('這是名字：', data.value[index].name)
+  console.log('這是內容：', data.value[index].content)
+  console.log('這是價格：', data.value[index].price)
 }
 </script>

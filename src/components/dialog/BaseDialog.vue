@@ -4,10 +4,10 @@
       <div class="flex h-full items-center justify-center" @click.self="$emit('click:around')">
         <div
           :class="{
-            'h-max-[80%] mx-24 px-20 py-30 sm:px-16 sm:py-24': !noPadding,
-            'h-max-[100%]': noPadding,
+            'mx-24 px-20 py-30 sm:px-16 sm:py-24': !noPadding,
+            'mx-20': noPadding,
           }"
-          class="bg-white w-full max-w-lg rounded-xl"
+          class="bg-white w-full max-w-lg rounded-xl h-max-[80%]"
         >
           <slot></slot>
         </div>
