@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-show="activeTab === SEARCH_TAB.AUTHOR" class="overflow-x-hidden">
-      <List :items="creatorList" item-key="id" divider>
+      <List :items="creatorFetcher.dataList" item-key="id" divider>
         <template #default="{ item }">
           <SearchCreatorCard :item="item" class="mt-20"></SearchCreatorCard>
         </template>
@@ -14,7 +14,7 @@
       </List>
     </div>
     <div v-show="activeTab === SEARCH_TAB.POST" class="overflow-x-hidden">
-      <List :items="articleList" item-key="id" divider>
+      <List :items="articleFetcher.dataList" item-key="id" divider>
         <template #default="{ item }">
           <Feed class="py-20" :item="item"></Feed>
         </template>
