@@ -13,6 +13,7 @@
 
 <script setup>
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { whenever } from '@vueuse/core'
 import Skeleton from '@comp/skeleton/index.vue'
 import { getDecryptDataBlob } from '@/utils/encrypt-img-store'
 import lazyloader from '@/utils/lazyloader'
@@ -34,6 +35,7 @@ const props = defineProps({
   cover: { type: Boolean, default: false },
   clickToFull: { type: Boolean, default: false },
 
+  active: { type: Boolean, default: true },
   disableLazy: { type: Boolean, default: false },
 })
 
@@ -91,8 +93,10 @@ watch(
   },
 )
 
+whenever(() => props.active, loadImage)
+
 async function loadImage() {
-  if (decryptedBlob.value !== null || loading.value) {
+  if (decryptedBlob.value !== null || loading.value || !props.active) {
     return
   }
 
