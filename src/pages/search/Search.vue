@@ -1,14 +1,14 @@
 <template>
   <Page infinite @load="nextAction">
     <template #app-top>
-      <TopSearchBar v-model="keyword" :logo="isMobile"></TopSearchBar>
+      <TopSearchBar v-model="keyword" :logo="isMobile" to-search></TopSearchBar>
     </template>
     <template #main-top>
       <Tab v-if="hasQuery" v-model="activeTab" :options="tabOptions"></Tab>
     </template>
     <template #default>
-      <SearchResult v-show="hasQuery"></SearchResult>
-      <SearchHistory v-show="!hasQuery"></SearchHistory>
+      <SearchResult v-if="hasQuery"></SearchResult>
+      <SearchHistory v-else></SearchHistory>
     </template>
     <template #aside>
       <ClientOnly>
@@ -22,7 +22,7 @@
   </Page>
 </template>
 <script setup>
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import SearchHistory from '@/pages/search/SearchHistory.vue'
@@ -43,10 +43,15 @@ const appStore = useAppStore()
 const { isMobile } = storeToRefs(appStore)
 
 const searchStore = useSearchStore()
+const { reset } = searchStore
 const { activeTab, nextAction, keyword } = storeToRefs(searchStore)
 
 const tabOptions = [
   { label: 'tab.relatedAuthor', value: SEARCH_TAB.AUTHOR },
   { label: 'tab.relatedPost', value: SEARCH_TAB.POST },
 ]
+
+watch(hasQuery, (v) => {
+  if (!v) reset()
+})
 </script>

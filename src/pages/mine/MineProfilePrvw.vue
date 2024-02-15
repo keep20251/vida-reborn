@@ -60,7 +60,7 @@ onServerClientOnce(async (isSSR) => {
   await init()
   if (isSSR) mineCreatorArticles.value = dataList.value
 })
-onHydration(() => revert(mineCreatorArticles.value))
+onHydration(() => revert({ dataList: mineCreatorArticles.value }))
 
 const { setNextFn, clearNextFn, activatePreview, deactivatePreview } = useMineStore()
 

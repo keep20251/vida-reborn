@@ -43,4 +43,9 @@ export default {
 
   // 取得用戶該時段的收益
   stats: { method: 'post', url: '/api/article/getArticleStatistic' },
+
+  /**
+   * 搜索
+   */
+  hotKeywords: { method: 'post', url: '/api/article/getHotKeywords' },
 }

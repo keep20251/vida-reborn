@@ -31,6 +31,7 @@ export const LOCAL_STORAGE_KEYS = {
   LOCALE: '__LOCALE',
   COOKIE_AGREEMENT: '__COOKIE_AGREEMENT',
   FEED_TAGS: '__FEED_TAGS',
+  HISTORY_TAGS: '__HISTORY_TAGS',
 }
 
 export const MODAL_TYPE = {
@@ -164,6 +165,6 @@ export const MINE_COLLECT_TAB = {
 
 // 取得用戶自身帖子列表 - 按讚收藏解鎖狀態
 export const GET_ARTICLE_COLLECT = {
-  UNLOCKED: 0, 
+  UNLOCKED: 0,
   NOT_UNLOCKED: 1,
 }
