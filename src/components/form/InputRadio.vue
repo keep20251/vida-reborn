@@ -36,12 +36,16 @@ const isChecked = ref(props.modelValue === props.value)
 const wrapValue = ref('')
 
 const handleChange = () => {
-  if (props.includeInputWrap && !isChecked.value) {
-    return
-  }
   emits('update:modelValue', props.value)
-}
 
+  // if (props.value === wrapValue.value && isChecked.value) {
+  //   emits('update:modelValue', wrapValue.value)
+  // } else if (props.value === props.value && isChecked.value) {
+  //   emits('update:modelValue', props.value)
+  // } else if (!isChecked.value) {
+  //   emits('update:modelValue', props.value)
+  // }
+}
 watch(wrapValue, (newValue) => {
   if (props.includeInputWrap) {
     emits('update:modelValue', newValue)
