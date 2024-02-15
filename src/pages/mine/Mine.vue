@@ -8,7 +8,11 @@
       </div>
     </template>
     <template #default>
-      <router-view></router-view>
+      <router-view v-slot="{ Component }">
+        <keep-alive>
+          <component :is="Component"></component>
+        </keep-alive>
+      </router-view>
     </template>
     <template #aside-top>
       <ClientOnly>

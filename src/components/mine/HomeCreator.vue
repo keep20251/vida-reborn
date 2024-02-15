@@ -60,15 +60,11 @@ const { dataList, dataExtra, isLoading, noMore, init, next, reload } = useInfini
 
 const { setNextFn, clearNextFn } = useMineStore()
 
-onMounted(() => {
-  init()
+onMounted(async () => {
+  await init()
   setNextFn(next)
 })
 onUnmounted(() => clearNextFn(next))
-onActivated(() => {
-  init()
-  reload()
-  setNextFn(next)
-})
+onActivated(() => setNextFn(next))
 onDeactivated(() => clearNextFn(next))
 </script>
