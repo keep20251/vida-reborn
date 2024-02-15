@@ -22,8 +22,7 @@ export const AUTH_ROUTES = {
 // 訂閱方案流程
 export const SUB_PLAN = {
   MAIN_PAGE: 1,
-  LIST: 2,
-  SET: 3,
+  SET: 2,
 }
 
 export const LOCAL_STORAGE_KEYS = {
