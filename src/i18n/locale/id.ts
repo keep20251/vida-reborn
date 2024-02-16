@@ -41,11 +41,13 @@ export default {
     cancelSubscribe: "berhenti berlangganan",
     restoreSubscribe: "",
     reSubscribe: "",
+    editPersonalPage: "Sunting profil",
   },
   title: {
     join: "Bergabung",
     login: "Masuk",
     logout: "Keluar",
+    mine: "milikku",
     buy: "Pembelian Saya",
     post: "Postingan Saya",
     collect: "Koleksi Saya",

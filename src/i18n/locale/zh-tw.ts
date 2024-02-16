@@ -36,11 +36,13 @@ export default {
     cancelSubscribe: "取消訂閱",
     restoreSubscribe: "恢復訂閱",
     reSubscribe: "重新訂閱",
+    editPersonalPage: "編輯個人主頁",
   },
   title: {
     join: "註冊",
     login: "登入",
     logout: "登出",
+    mine: "我的",
     buy: "我的購買",
     post: "我的帖子",
     collect: "我的收藏",

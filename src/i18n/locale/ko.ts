@@ -36,11 +36,13 @@ export default {
     cancelSubscribe: "구독 취소",
     restoreSubscribe: "",
     reSubscribe: "",
+    editPersonalPage: "프로필 수정",
   },
   title: {
     join: "가입하기",
     login: "로그인",
     logout: "로그아웃",
+    mine: "내 거",
     buy: "나의 구매",
     post: "나의 게시물",
     collect: "나의 컬렉션",

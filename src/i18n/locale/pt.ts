@@ -41,11 +41,13 @@ export default {
     cancelSubscribe: "Cancelar subscrição",
     restoreSubscribe: "",
     reSubscribe: "",
+    editPersonalPage: "Editar Perfil",
   },
   title: {
     join: "Junte-se",
     login: "Entrar",
     logout: "Sair",
+    mine: "meu",
     buy: "Minhas Compras",
     post: "Minhas Postagens",
     collect: "Minhas Coleções",

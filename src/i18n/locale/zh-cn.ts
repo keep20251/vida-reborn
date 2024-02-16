@@ -36,11 +36,13 @@ export default {
     cancelSubscribe: "取消订阅",
     restoreSubscribe: "恢复订阅",
     reSubscribe: "重新订阅",
+    editPersonalPage: "编辑个人主页",
   },
   title: {
     join: "注册",
     login: "登录",
     logout: "登出",
+    mine: "我的",
     buy: "我的购买",
     post: "我的帖子",
     collect: "我的收藏",
