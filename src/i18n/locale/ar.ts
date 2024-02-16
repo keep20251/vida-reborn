@@ -83,6 +83,7 @@ export default {
     username: "اسم المستخدم",
     description: "الوصف",
     edit: "تحرير",
+    add: "",
     submit: "يُقدِّم",
     nowPw: "",
     newPw: "",
@@ -166,6 +167,8 @@ export default {
     scheduledRelease: "",
     time: "",
     exitPrvw: "معاينة الخروج",
+    recFormat: "",
+    uploadCapacityLimit: "",
   },
   content: {
     welcomeToVida: "مرحبًا بك في Vida، انضم إلينا!",
@@ -212,6 +215,11 @@ export default {
     noData: "",
     noNetwork: "",
     feedNotExist: "",
+    month: "",
+    AddNewSubPlan: "",
+    subStyle: "",
+    customStyle: "",
+    subUnlockDayAfter: "",
   },
   month: {
     Jan: "يناير",

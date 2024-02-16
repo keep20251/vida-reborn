@@ -78,6 +78,7 @@ export default {
     username: "사용자 이름",
     description: "설명",
     edit: "편집",
+    add: "",
     submit: "제출하다",
     nowPw: "",
     newPw: "",
@@ -161,6 +162,8 @@ export default {
     scheduledRelease: "",
     time: "",
     exitPrvw: "종료 미리보기",
+    recFormat: "",
+    uploadCapacityLimit: "",
   },
   content: {
     welcomeToVida: "Vida에 오신 것을 환영합니다, 함께해요!",
@@ -208,6 +211,11 @@ export default {
     noData: "",
     noNetwork: "",
     feedNotExist: "",
+    month: "",
+    AddNewSubPlan: "",
+    subStyle: "",
+    customStyle: "",
+    subUnlockDayAfter: "",
   },
   month: {
     Jan: "1월",

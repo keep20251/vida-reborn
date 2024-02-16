@@ -78,6 +78,7 @@ export default {
     username: "用戶名",
     description: "個人簡介",
     edit: "編輯",
+    add: "新增",
     submit: "提交",
     nowPw: "目前的密碼",
     newPw: "新的密碼",
@@ -157,6 +158,8 @@ export default {
     scheduledRelease: "已排入定時發布",
     time: "時間",
     exitPrvw: "退出預覽",
+    recFormat: "支持JPG/PNG格式，建議尺寸為480x280",
+    uploadCapacityLimit: "每張不超過 1 MB",
   },
   content: {
     welcomeToVida: "歡迎你加入Vida成為我們的一員！",
@@ -204,6 +207,11 @@ export default {
     noData: "這裡空空如也",
     noNetwork: "咦？網路不見了",
     feedNotExist: "貼文不存在",
+    month: "月",
+    AddNewSubPlan: "點擊新增訂閱方案",
+    subStyle: "訂閱樣式",
+    customStyle: "自訂樣式",
+    subUnlockDayAfter: "解鎖允許自購買後過去幾天的作品？",
   },
   month: {
     Jan: "一月",

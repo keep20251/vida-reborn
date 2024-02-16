@@ -83,6 +83,7 @@ export default {
     username: "Benutzername",
     description: "Beschreibung",
     edit: "Bearbeiten",
+    add: "",
     submit: "Einreichen",
     nowPw: "",
     newPw: "",
@@ -168,6 +169,8 @@ export default {
     scheduledRelease: "",
     time: "",
     exitPrvw: "Vorschau beenden",
+    recFormat: "",
+    uploadCapacityLimit: "",
   },
   content: {
     welcomeToVida: "Willkommen bei Vida, treten Sie uns bei!",
@@ -216,6 +219,11 @@ export default {
     noData: "",
     noNetwork: "",
     feedNotExist: "",
+    month: "",
+    AddNewSubPlan: "",
+    subStyle: "",
+    customStyle: "",
+    subUnlockDayAfter: "",
   },
   month: {
     Jan: "Januar",

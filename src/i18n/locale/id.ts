@@ -83,6 +83,7 @@ export default {
     username: "Nama pengguna",
     description: "Deskripsi",
     edit: "Edit",
+    add: "",
     submit: "Kirim",
     nowPw: "",
     newPw: "",
@@ -166,6 +167,8 @@ export default {
     scheduledRelease: "",
     time: "",
     exitPrvw: "Pratinjau Keluar",
+    recFormat: "",
+    uploadCapacityLimit: "",
   },
   content: {
     welcomeToVida: "Selamat datang di Vida, bergabunglah dengan kami!",
@@ -214,6 +217,11 @@ export default {
     noData: "",
     noNetwork: "",
     feedNotExist: "",
+    month: "",
+    AddNewSubPlan: "",
+    subStyle: "",
+    customStyle: "",
+    subUnlockDayAfter: "",
   },
   month: {
     Jan: "Januari",

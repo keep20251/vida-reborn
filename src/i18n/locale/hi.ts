@@ -83,6 +83,7 @@ export default {
     username: "उपयोगकर्ता नाम",
     description: "विवरण",
     edit: "संपादित करें",
+    add: "",
     submit: "जमा करना",
     nowPw: "",
     newPw: "",
@@ -166,6 +167,8 @@ export default {
     scheduledRelease: "",
     time: "",
     exitPrvw: "निकास पूर्वावलोकन",
+    recFormat: "",
+    uploadCapacityLimit: "",
   },
   content: {
     welcomeToVida: "Vida में आपका स्वागत है, हमसे जुड़ें!",
@@ -213,6 +216,11 @@ export default {
     noData: "",
     noNetwork: "",
     feedNotExist: "",
+    month: "",
+    AddNewSubPlan: "",
+    subStyle: "",
+    customStyle: "",
+    subUnlockDayAfter: "",
   },
   month: {
     Jan: "जनवरी",

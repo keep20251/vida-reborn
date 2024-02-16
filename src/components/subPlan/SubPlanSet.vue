@@ -6,7 +6,9 @@
           <Icon name="back"></Icon>
         </button>
       </div>
-      <div class="text-lg font-bold leading-5">{{ addSubPlan ? '新增' : '編輯' }}訂閱設定</div>
+      <div class="text-lg font-bold leading-5">
+        {{ addSubPlan ? $t('label.add') : $t('label.edit') }}{{ $t('info.subscribeSetting') }}
+      </div>
       <button v-if="!addSubPlan" @click="delSubPlan" class="absolute right-0 pr-20 top-1/3 pt-4">
         <Icon name="bin"></Icon>
       </button>
@@ -14,16 +16,16 @@
     <div class="px-25 overflow-y-scroll scrollbar-md mr-15 max-h-[65vh]">
       <div class="flex flex-col space-y-10">
         <div class="flex flex-row items-start space-x-5">
-          <div class="text-base leading-md font-normal">訂閱樣式</div>
+          <div class="text-base leading-md font-normal">{{ $t('content.subStyle') }}</div>
           <div class="text-gray-57 text-sm">3/10</div>
         </div>
         <div class="flex justify-between items-center">
           <div class="flex flex-col text-gray-57 text-sm space-y-2">
-            <div class="leading-3">支持JPG/PNG格式，建議尺寸為480x280</div>
-            <div class="leading-3">每張不超过 1 MB</div>
+            <div class="leading-3">{{ $t('info.recFormat') }}</div>
+            <div class="leading-3">{{ $t('info.uploadCapacityLimit') }}</div>
           </div>
           <div>
-            <Button contrast size="md" class="w-max">自訂樣式</Button>
+            <Button contrast size="md" class="w-max">{{ $t('content.customStyle') }}</Button>
           </div>
         </div>
       </div>
@@ -39,7 +41,9 @@
           :maxLength="5"
         ></InputWrap>
         <div class="grid space-y-10">
-          <label class="text-base font-normal not-italic leading-md text-left">解锁允许自购买后过去几天的作品？</label>
+          <label class="text-base font-normal not-italic leading-md text-left">{{
+            $t('content.subUnlockDayAfter')
+          }}</label>
           <div class="flex flex-wrap space-y-5">
             <InputRadio
               v-model="selectedValue"
@@ -80,7 +84,7 @@
       </div>
     </div>
     <div class="py-30 px-25">
-      <Button @click="onSubmit" size="lg">{{ addSubPlan ? '立即發布' : '保存' }}</Button>
+      <Button @click="onSubmit" size="lg">{{ addSubPlan ? $t('label.submit') : $t('common.save') }}</Button>
     </div>
   </div>
 </template>
