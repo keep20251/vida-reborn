@@ -41,11 +41,13 @@ export default {
     cancelSubscribe: "सदस्यता रद्द",
     restoreSubscribe: "",
     reSubscribe: "",
+    editPersonalPage: "प्रोफ़ाइल संपादित करें",
   },
   title: {
     join: "शामिल हों",
     login: "लॉग इन करें",
     logout: "लॉग आउट करें",
+    mine: "मेरा",
     buy: "मेरी खरीदारी",
     post: "मेरे पोस्ट",
     collect: "मेरे संग्रह",

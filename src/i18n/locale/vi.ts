@@ -41,11 +41,13 @@ export default {
     cancelSubscribe: "Hủy đăng ký",
     restoreSubscribe: "",
     reSubscribe: "",
+    editPersonalPage: "Chỉnh sửa hồ sơ",
   },
   title: {
     join: "Tham gia",
     login: "Đăng nhập",
     logout: "Đăng xuất",
+    mine: "của tôi",
     buy: "Mua Của Tôi",
     post: "Bài Đăng Của Tôi",
     collect: "Bộ Sưu Tập Của Tôi",

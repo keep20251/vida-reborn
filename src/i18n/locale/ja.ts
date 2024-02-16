@@ -36,11 +36,13 @@ export default {
     cancelSubscribe: "登録解除",
     restoreSubscribe: "",
     reSubscribe: "",
+    editPersonalPage: "プロファイル編集",
   },
   title: {
     join: "参加する",
     login: "ログイン",
     logout: "ログアウト",
+    mine: "私の",
     buy: "私の購入",
     post: "私の投稿",
     collect: "私のコレクション",

@@ -41,11 +41,13 @@ export default {
     cancelSubscribe: "Отписаться",
     restoreSubscribe: "",
     reSubscribe: "",
+    editPersonalPage: "Редактировать профиль",
   },
   title: {
     join: "Присоединиться",
     login: "Войти",
     logout: "Выйти",
+    mine: "мой",
     buy: "Мои Покупки",
     post: "Мои Посты",
     collect: "Мои Коллекции",

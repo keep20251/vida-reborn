@@ -41,11 +41,13 @@ export default {
     cancelSubscribe: "إلغاء الاشتراك",
     restoreSubscribe: "",
     reSubscribe: "",
+    editPersonalPage: "تعديل الملف الشخصي",
   },
   title: {
     join: "انضمام",
     login: "تسجيل الدخول",
     logout: "تسجيل الخروج",
+    mine: "مِلكِي",
     buy: "مشترياتي",
     post: "منشوراتي",
     collect: "مجموعاتي",

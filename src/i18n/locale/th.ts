@@ -41,11 +41,13 @@ export default {
     cancelSubscribe: "ยกเลิกการสมัคร",
     restoreSubscribe: "",
     reSubscribe: "",
+    editPersonalPage: "แก้ไขโปรไฟล์",
   },
   title: {
     join: "เข้าร่วม",
     login: "เข้าสู่ระบบ",
     logout: "ออกจากระบบ",
+    mine: "ของฉัน",
     buy: "การซื้อของฉัน",
     post: "โพสต์ของฉัน",
     collect: "คอลเลกชันของฉัน",
