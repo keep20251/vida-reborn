@@ -13,4 +13,7 @@ export default {
 
   // 取得 uuid 的訂閱方案列表
   otherList: { method: 'post', url: '/api/subscription/listSubscriptionByUuid' },
+
+  // 刪除訂閱方案
+  bulkDel: { method: 'post', url: '/api/subscription/bulkDel'},
 }

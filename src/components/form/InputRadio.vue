@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import { defineEmits, ref, watch } from 'vue'
+import { computed, defineEmits, ref, watch } from 'vue'
 import InputWrap from '@comp/form/InputWrap.vue'
 
 const props = defineProps({
@@ -32,19 +32,11 @@ const props = defineProps({
 
 const emits = defineEmits(['update:modelValue'])
 
-const isChecked = ref(props.modelValue === props.value)
+const isChecked = computed(() => props.modelValue === props.value)
 const wrapValue = ref('')
 
 const handleChange = () => {
   emits('update:modelValue', props.value)
-
-  // if (props.value === wrapValue.value && isChecked.value) {
-  //   emits('update:modelValue', wrapValue.value)
-  // } else if (props.value === props.value && isChecked.value) {
-  //   emits('update:modelValue', props.value)
-  // } else if (!isChecked.value) {
-  //   emits('update:modelValue', props.value)
-  // }
 }
 watch(wrapValue, (newValue) => {
   if (props.includeInputWrap) {
