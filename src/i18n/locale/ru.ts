@@ -83,6 +83,7 @@ export default {
     username: "Имя пользователя",
     description: "Описание",
     edit: "Редактировать",
+    add: "",
     submit: "Представлять на рассмотрение",
     nowPw: "",
     newPw: "",
@@ -166,6 +167,8 @@ export default {
     scheduledRelease: "",
     time: "",
     exitPrvw: "Выход Предварительный просмотр",
+    recFormat: "",
+    uploadCapacityLimit: "",
   },
   content: {
     welcomeToVida: "Добро пожаловать в Vida, присоединяйтесь к нам!",
@@ -214,6 +217,11 @@ export default {
     noData: "",
     noNetwork: "",
     feedNotExist: "",
+    month: "",
+    AddNewSubPlan: "",
+    subStyle: "",
+    customStyle: "",
+    subUnlockDayAfter: "",
   },
   month: {
     Jan: "Январь",

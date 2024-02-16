@@ -1,31 +1,31 @@
 <template>
   <div class="flex h-full w-full flex-col">
     <div class="bg-primary text-white relative text-center py-15 px-20 rounded-t-xl">
-      <div class="text-lg font-bold leading-5">訂閱設定</div>
+      <div class="text-lg font-bold leading-5">{{ $t('info.subscribeSetting') }}</div>
       <button @click="close" class="absolute right-0 pr-20 top-1/3">
         <Icon name="closeWhite"></Icon>
       </button>
     </div>
     <div class="px-30 py-20 select-none">
-      <div @click="subPlanAdd()" class="text-center text-gray-57 pb-15 font-bold text-base leading-md cursor-pointer">
-        ＋ 点击新增订阅组
-      </div>
       <div class="overflow-y-scroll scrollbar-md pr-15 max-h-[65vh]">
+        <div @click="subPlanAdd()" class="text-center text-gray-57 font-bold text-base leading-md cursor-pointer">
+          ＋ {{ $t('content.AddNewSubPlan') }}
+        </div>
         <List :items="dataList" item-key="id" divider>
           <template #default="{ item, index }">
-            <div class="grid space-y-15 py-15">
+            <div class="grid space-y-30 py-30">
               <div class="grid space-y-10">
                 <div class="flex justify-between items-end">
                   <div class="flex items-end flex-row">
                     <div class="font-bold text-xl leading-xl pr-4">${{ item.price }}</div>
-                    <div class="text-base leading-lg font-normal">/ {{ item.expire_days }}</div>
+                    <div class="text-base leading-lg font-normal">/{{ $t('content.month') }}</div>
                   </div>
                   <div class="text-primary font-bold text-base leading-md">{{ item.name }}</div>
                 </div>
                 <EncryptImage :src="item.picture" cover :borderRadius="10" :height="260"></EncryptImage>
                 <div class="text-sm text-gray-57 leading-md">{{ item.content }}</div>
+                <Button class="mt-10" @click="subPlanEdit(dataList, index)" gradient>{{ $t('label.edit') }}</Button>
               </div>
-              <Button @click="subPlanEdit(dataList, index)" gradient>編輯</Button>
             </div>
           </template>
           <template #bottom>

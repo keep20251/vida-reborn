@@ -83,6 +83,7 @@ export default {
     username: "ชื่อผู้ใช้",
     description: "คำอธิบาย",
     edit: "แก้ไข",
+    add: "",
     submit: "ส่ง",
     nowPw: "",
     newPw: "",
@@ -166,6 +167,8 @@ export default {
     scheduledRelease: "",
     time: "",
     exitPrvw: "ออกจากตัวอย่าง",
+    recFormat: "",
+    uploadCapacityLimit: "",
   },
   content: {
     welcomeToVida: "ยินดีต้อนรับสู่ Vida, เข้าร่วมกับเรา!",
@@ -213,6 +216,11 @@ export default {
     noData: "",
     noNetwork: "",
     feedNotExist: "",
+    month: "",
+    AddNewSubPlan: "",
+    subStyle: "",
+    customStyle: "",
+    subUnlockDayAfter: "",
   },
   month: {
     Jan: "มกราคม",

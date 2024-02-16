@@ -83,6 +83,7 @@ export default {
     username: "Username",
     description: "Description",
     edit: "Edit",
+    add: "Add",
     submit: "Submit",
     nowPw: "Current password",
     newPw: "New password",
@@ -166,6 +167,8 @@ export default {
     scheduledRelease: "Scheduled for release",
     time: "",
     exitPrvw: "Exit preview",
+    recFormat: "Supports JPG/PNG format, recommended size is 480x280",
+    uploadCapacityLimit: "No more than 1 MB each",
   },
   content: {
     welcomeToVida: "Welcome to Vida, join us!",
@@ -214,6 +217,11 @@ export default {
     noData: "",
     noNetwork: "",
     feedNotExist: "",
+    month: "month",
+    AddNewSubPlan: "Click to add a new subscription plan",
+    subStyle: "Subscription style",
+    customStyle: "Custom style",
+    subUnlockDayAfter: "Does unlocking allow the past few days since purchase?",
   },
   month: {
     Jan: "January",

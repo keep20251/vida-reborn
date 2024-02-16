@@ -78,6 +78,7 @@ export default {
     username: "用户名",
     description: "个人简介",
     edit: "编辑",
+    add: "新增",
     submit: "提交",
     nowPw: "目前的密码",
     newPw: "新的密码",
@@ -157,6 +158,8 @@ export default {
     scheduledRelease: "已排入定时发布",
     time: "",
     exitPrvw: "退出预览",
+    recFormat: "支持JPG/PNG格式，建议尺寸为480x280",
+    uploadCapacityLimit: "每张不超过 1 MB",
   },
   content: {
     welcomeToVida: "欢迎加入Vida，成为我们的一员！",
@@ -204,6 +207,11 @@ export default {
     noData: "",
     noNetwork: "",
     feedNotExist: "",
+    month: "月",
+    AddNewSubPlan: "点击新增订阅组",
+    subStyle: "订阅样式",
+    customStyle: "自订样式",
+    subUnlockDayAfter: "解锁允许自购买后过去几天的作品？",
   },
   month: {
     Jan: "一月",

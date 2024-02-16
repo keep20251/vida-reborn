@@ -78,6 +78,7 @@ export default {
     username: "ユーザー名",
     description: "説明",
     edit: "編集",
+    add: "",
     submit: "提出する",
     nowPw: "",
     newPw: "",
@@ -163,6 +164,8 @@ export default {
     scheduledRelease: "",
     time: "",
     exitPrvw: "プレビューを終了します",
+    recFormat: "",
+    uploadCapacityLimit: "",
   },
   content: {
     welcomeToVida: "Vidaへようこそ、私たちと一緒に！",
@@ -211,6 +214,11 @@ export default {
     noData: "",
     noNetwork: "",
     feedNotExist: "",
+    month: "",
+    AddNewSubPlan: "",
+    subStyle: "",
+    customStyle: "",
+    subUnlockDayAfter: "",
   },
   month: {
     Jan: "1月",

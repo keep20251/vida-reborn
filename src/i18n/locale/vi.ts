@@ -83,6 +83,7 @@ export default {
     username: "Tên người dùng",
     description: "Mô tả",
     edit: "Chỉnh sửa",
+    add: "",
     submit: "Nộp",
     nowPw: "",
     newPw: "",
@@ -168,6 +169,8 @@ export default {
     scheduledRelease: "",
     time: "",
     exitPrvw: "Bản xem trước thoát",
+    recFormat: "",
+    uploadCapacityLimit: "",
   },
   content: {
     welcomeToVida: "Chào mừng bạn đến với Vida, hãy gia nhập chúng tôi!",
@@ -216,6 +219,11 @@ export default {
     noData: "",
     noNetwork: "",
     feedNotExist: "",
+    month: "",
+    AddNewSubPlan: "",
+    subStyle: "",
+    customStyle: "",
+    subUnlockDayAfter: "",
   },
   month: {
     Jan: "Tháng Một",
