@@ -1,7 +1,7 @@
 <template>
   <Page infinite @load="nextAction">
     <template #app-top>
-      <TopSearchBar v-model="keyword" :logo="isMobile" to-search></TopSearchBar>
+      <TopSearchBar :logo="isMobile" to-search @search="(v) => (keyword = v)"></TopSearchBar>
     </template>
     <template #main-top>
       <Tab v-if="hasQuery" v-model="activeTab" :options="tabOptions"></Tab>

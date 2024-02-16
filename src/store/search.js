@@ -1,11 +1,11 @@
 import { computed, ref } from 'vue'
 import { useLocalStorage } from '@vueuse/core'
 import { defineStore } from 'pinia'
+import { useFeedStore } from '@/store/feed'
 import useRequest from '@use/request'
 import { useInfinite } from '@use/request/infinite'
 import { useRouters } from '@use/routers'
 import { LOCAL_STORAGE_KEYS, SEARCH_TAB } from '@const'
-import { useFeedStore } from '@/store/feed'
 
 export const useSearchStore = defineStore('search-store', () => {
   const activeTab = ref(SEARCH_TAB.AUTHOR)
