@@ -1,11 +1,11 @@
 <template>
   <transition
     enter-active-class="transition duration-300 ease-out"
-    enter-from-class="transform translate-y-n-full"
+    enter-from-class="transform -translate-y-full"
     enter-to-class="transform translate-y-0"
     leave-active-class="transition duration-300 ease-out"
     leave-from-class="transform translate-y-0"
-    leave-to-class="transform translate-y-n-full"
+    leave-to-class="transform -translate-y-full"
   >
     <div
       v-if="show"
