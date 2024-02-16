@@ -1,9 +1,9 @@
 <template>
   <div class="flex w-full flex-col space-y-30">
     <PhotoContainer
-      title="1. 证件资讯正面照片"
-      picture-info="My Picture"
-      button-text="開始拍攝【證件資訊正面照片】"
+      :title="$t('beCreator.title.id')"
+      :picture-info="$t('beCreator.content.minePic')"
+      :button-text="$t('beCreator.btn.takePicId')"
       :err-msg="validator.idPhotoData.error"
       @change:file="
         (file) => {
@@ -13,9 +13,9 @@
       "
     ></PhotoContainer>
     <PhotoContainer
-      title="2. 用户脸部与证件资讯正面照片"
-      picture-info="My Picture"
-      button-text="开始拍摄【用户脸部与证件资讯正面照片】"
+      :title="$t('beCreator.title.face')"
+      :picture-info="$t('beCreator.content.minePic')"
+      :button-text="$t('beCreator.btn.takePicFace')"
       :err-msg="validator.facePhotoData.error"
       @change:file="
         (file) => {
@@ -27,9 +27,13 @@
     <div v-if="validator.identity.error">{{ $t(validator.identity.error) }}</div>
     <div v-if="validator.country.error">{{ $t(validator.country.error) }}</div>
     <div>
-      <div class="mb-10 text-center text-base font-normal leading-md">确认照片后送出资料</div>
-      <Button @click="validate">送出申請資料</Button>
-      <div v-if="errorMsg" class=""></div>
+      <div class="mb-10 text-center text-base font-normal leading-md">
+        {{ $t('beCreator.content.sendAfterConfirmPic') }}
+      </div>
+      <Button @click="validate">{{ $t('beCreator.btn.submit') }}</Button>
+      <div v-if="serverErrorMsg" class="text-warning">
+        {{ serverErrorMsg }}
+      </div>
     </div>
   </div>
 </template>
@@ -87,9 +91,9 @@ async function validate() {
 
 function openConfirm() {
   open(MODAL_TYPE.CONFIRM, {
-    title: '再次確認',
+    title: $t('beCreator.title.reConfirm'),
     size: 'sm',
-    content: '请问您是否确认要送出资料？',
+    content: $t('beCreator.content.confirmSend'),
     confirmText: $t('common.confirm'),
     confirmAction: uploadPicture,
     cancelText: $t('common.cancel'),
@@ -128,9 +132,9 @@ async function submit() {
     userData.value.auth_status = AUTH_STATUS.VERIFIED
 
     open(MODAL_TYPE.CONFIRM, {
-      title: '提出申请成功',
+      title: $t('beCreator.title.submitSuccess'),
       size: 'sm',
-      content: '太棒了！相关资料已成功送出，我们将会在七天内尽快完成您的审核，结果将以信息的方式通知您。感谢您的耐心！',
+      content: $t('beCreator.content.submitSuccess'),
       confirmText: $t('common.confirm'),
       confirmAction: () => to('mine-home'),
     })
@@ -138,7 +142,7 @@ async function submit() {
     console.error(e)
     serverErrorMsg.value = e.message
     open(MODAL_TYPE.CONFIRM, {
-      title: '提出申请失敗',
+      title: $t('beCreator.title.submitFailed'),
       size: 'sm',
       content: e.message,
       confirmText: $t('common.confirm'),

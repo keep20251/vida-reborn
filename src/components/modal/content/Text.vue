@@ -1,6 +1,6 @@
 <template>
   <div class="mb-20 text-center text-sm font-normal leading-lg text-gray-57">
-    {{ $t(content ?? 'content.default') }}
+    {{ content }}
   </div>
 </template>
 
