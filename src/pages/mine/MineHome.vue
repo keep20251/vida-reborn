@@ -1,20 +1,15 @@
 <template>
-  <div>
-    <div v-if="isLogin">
-      <HomeCreator v-if="isCreator"></HomeCreator>
-      <HomeRegister v-else></HomeRegister>
-    </div>
-    <div v-else>
-      <HomeVisitor></HomeVisitor>
-    </div>
-  </div>
+  <Client-Only>
+    <MineMain v-if="wideEnough"></MineMain>
+    <MineSetList v-else></MineSetList>
+  </Client-Only>
 </template>
 <script setup>
-import { storeToRefs } from 'pinia'
-import { useAccountStore } from '@/store/account'
-import HomeCreator from '@comp/mine/HomeCreator.vue'
-import HomeRegister from '@comp/mine/HomeRegister.vue'
-import HomeVisitor from '@comp/mine/HomeVisitor.vue'
+import { computed } from 'vue'
+import { useWindowSize } from '@vueuse/core'
+import MineMain from '@/pages/mine/MineMain.vue'
+import MineSetList from '@/pages/mine/MineSetList.vue'
 
-const { isLogin, isCreator } = storeToRefs(useAccountStore())
+const { width } = useWindowSize()
+const wideEnough = computed(() => width.value > 958)
 </script>

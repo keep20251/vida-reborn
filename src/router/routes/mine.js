@@ -9,6 +9,7 @@ import MineEarn from '@/pages/mine/MineEarn.vue'
 import MineEarnWdrlHist from '@/pages/mine/MineEarnWdrlHist.vue'
 import MineEarnWdrlReq from '@/pages/mine/MineEarnWdrlReq.vue'
 import MineHome from '@/pages/mine/MineHome.vue'
+import MineMain from '@/pages/mine/MineMain.vue'
 import MinePost from '@/pages/mine/MinePost.vue'
 import MineProfilePrvw from '@/pages/mine/MineProfilePrvw.vue'
 import MineProfileSet from '@/pages/mine/MineProfileSet.vue'
@@ -25,6 +26,7 @@ const prefix = 'mine'
 
 export default [
   { name: `${prefix}-home`, path: '', component: MineHome, meta: {} },
+  { name: `${prefix}-main`, path: 'main', component: MineMain, meta: {} },
   { name: `${prefix}-profile-set`, path: `profile-set`, component: MineProfileSet, meta: {} },
   { name: `${prefix}-profile-prvw`, path: `profile-prvw`, component: MineProfilePrvw, meta: {} },
   { name: `${prefix}-earn`, path: `earn`, component: MineEarn, meta: {} },
