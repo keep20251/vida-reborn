@@ -25,7 +25,6 @@ export const useSubPlanStore = defineStore('subPlan', () => {
   const subPlanName = ref('')  // 必傳
   const subPlanContent = ref('')
   const subPlanPrice = ref('')  // 必傳
-  const subExpireDays = ref(30)
   const subUnlockDayAfter = ref('')// 必傳(解鎖Ｎ天前的內榮)
   const subId = ref('')  // 必傳
   const subPicture = ref('')
@@ -69,7 +68,6 @@ export const useSubPlanStore = defineStore('subPlan', () => {
     subPlanName,
     subPlanContent,
     subPlanPrice,
-    subExpireDays,
     subUnlockDayAfter,
     subId,
     subPicture,

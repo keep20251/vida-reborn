@@ -40,7 +40,8 @@
           :appendText="'最高设置为90元'"
           :maxLength="5"
         ></InputWrap>
-        <div class="grid space-y-10">
+        <InputWrap v-model="subUnlockDayAfter" :label="$t('content.subUnlockDayAfter')" :placeholder="'30'"></InputWrap>
+        <!-- <div class="grid space-y-10">
           <label class="text-base font-normal not-italic leading-md text-left">{{
             $t('content.subUnlockDayAfter')
           }}</label>
@@ -80,7 +81,7 @@
               @update:modelValue="handleUpdate"
             />
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="py-30 px-25">
@@ -100,33 +101,22 @@ import useRequest from '@use/request'
 
 const subPlanStore = useSubPlanStore()
 const { back, close } = subPlanStore
-const {
-  history,
-  data,
-  index,
-  addSubPlan,
-  subPlanName,
-  subPlanContent,
-  subPlanPrice,
-  subUnlockDayAfter,
-  subId,
-  subExpireDays,
-} = storeToRefs(subPlanStore)
+const { history, data, index, addSubPlan, subPlanName, subPlanContent, subPlanPrice, subUnlockDayAfter, subId } =
+  storeToRefs(subPlanStore)
 const showBack = computed(() => history.value.length > 0)
 
-const selectedValue = ref(0)
-const wrapValue = ref(0)
-
-const handleUpdate = (value) => {
-  if (value === 'custom' && wrapValue.value !== '') {
-    console.log(selectedValue.value, wrapValue.value)
-  }
-}
-watch(wrapValue, (newValue) => {
-  if (newValue) {
-    wrapValue.value = newValue
-  }
-})
+// const selectedValue = ref(0)
+// const wrapValue = ref(0)
+// const handleUpdate = (value) => {
+//   if (value === 'custom' && wrapValue.value !== '') {
+//     console.log(selectedValue.value, wrapValue.value)
+//   }
+// }
+// watch(wrapValue, (newValue) => {
+//   if (newValue) {
+//     wrapValue.value = newValue
+//   }
+// })
 
 onMounted(() => {
   subPlanName.value = data.value[index.value]?.name
@@ -134,9 +124,6 @@ onMounted(() => {
   subPlanPrice.value = data.value[index.value]?.price
   subUnlockDayAfter.value = data.value[index.value]?.unlock_day_after_subscribe
   subId.value = data.value[index.value]?.id
-  subExpireDays.value = data.value[index.value]?.expire_days
-  selectedValue.value = subExpireDays.value
-  console.log(subExpireDays.value, selectedValue.value)
 })
 
 watch(index, (newIndex) => {
@@ -149,8 +136,19 @@ watch(index, (newIndex) => {
   }
 })
 
-const delSubPlan = () => {
+const delSubPlan = async () => {
   console.log('刪除這篇訂閱方案')
+  const { execute: subPlanDel } = useRequest('Subscription.bulkDel')
+  const payload = {
+    ids: subId.value,
+  }
+  try {
+    await subPlanDel(payload)
+    console.log('成功囉！')
+    close()
+  } catch (e) {
+    console.error(e)
+  }
 }
 
 const onSubmit = async () => {
@@ -171,7 +169,7 @@ const onSubmit = async () => {
       console.error(e)
     }
   } else {
-    console.log(selectedValue.value)
+    console.log('啊吧')
   }
 }
 </script>
