@@ -4,7 +4,7 @@
       <Head title="貼文" @back="clearInput"></Head>
     </template>
     <template #default>
-      <div v-if="feed" position="relative">
+      <div v-if="feed">
         <Feed class="mb-24" :item="feed" disable-to-detail disable-content-fold></Feed>
         <List :items="comments" item-key="id">
           <template #default="{ item }">
