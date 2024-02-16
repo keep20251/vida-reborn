@@ -10,6 +10,7 @@ export const iconMap = {
   publish: 'navigation/publish',
   publish2: 'navigation/publish2',
 
+  mineAddOutline: 'mine/add-outline',
   minePost: 'mine/post',
   mineEarn: 'mine/earn',
   mineBuy: 'mine/buy',
