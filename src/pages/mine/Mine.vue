@@ -1,11 +1,7 @@
 <template>
   <Page infinite @load="nextFn">
-    <template #main-top v-if="excludeRoutes.includes(route.name) === false && headerTitle">
-      <div class="flex items-center justify-center border-b py-20">
-        <div class="text-lg font-bold leading-5">
-          {{ headerTitle.includes('.') ? $t(headerTitle) : headerTitle }}
-        </div>
-      </div>
+    <template #app-top v-if="!excludeRoutes.includes(route.name) && headerTitle">
+      <Head :title="headerTitle.includes('.') ? $t(headerTitle) : headerTitle"></Head>
     </template>
     <template #default>
       <router-view v-slot="{ Component }">
@@ -57,6 +53,7 @@ import SubscribeCard from '@comp/card/SubscribeCard.vue'
 import Carousel from '@comp/common/Carousel.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
 import SetList from '@comp/mine/SetList.vue'
+import Head from '@comp/navigation/Head.vue'
 import { MINE_TITLE } from '@const'
 
 const { nextFn, isPreviewMode } = storeToRefs(useMineStore())

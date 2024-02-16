@@ -1,5 +1,7 @@
 <template>
-  <Tab v-model="tab" :options="tabOptions" class="!h-35"></Tab>
+  <div class="sticky top-52 z-10 h-35 bg-white">
+    <Tab v-model="tab" :options="tabOptions"></Tab>
+  </div>
   <div v-if="tab === 1">
     <div class="flex justify-between pt-20">
       <div class="text-base font-bold leading-md">{{ $t('content.allPosts') }}{{ allPosts }}</div>

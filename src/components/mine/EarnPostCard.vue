@@ -1,8 +1,8 @@
 <template>
-  <div class="select-none px-20" :class="[{ 'mb-10': isActive, 'mb-30': !isActive }]">
+  <div class="select-none" :class="[{ 'mb-10': isActive, 'mb-30': !isActive }]">
     <div
       @click="() => (isActive = !isActive)"
-      class="relative z-10 flex cursor-pointer space-x-10 rounded-xl bg-white px-20 py-15 shadow-[0_0_3px_0_rgba(0,0,0,0.15)]"
+      class="relative flex cursor-pointer space-x-10 rounded-xl bg-white px-20 py-15 shadow-[0_0_3px_0_rgba(0,0,0,0.15)]"
     >
       <div class="w-100">
         <img :src="media.img" class="h-full w-full rounded object-cover" alt="" />
@@ -31,7 +31,7 @@
     </div>
     <div
       :class="[{ 'max-h-[200px]': isActive, 'max-h-0 !p-0': !isActive }]"
-      class="z-0 mt-[-1rem] grid w-full space-y-30 rounded-b-lg bg-gray-f6 p-30 pt-40"
+      class="-mt-16 grid w-full space-y-30 rounded-b-lg bg-gray-f6 p-30 pt-40"
     >
       <div :class="[{ flex: isActive, hidden: !isActive }]" class="flex space-x-15">
         <div class="grid w-3/12 space-y-10">
