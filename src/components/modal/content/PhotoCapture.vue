@@ -19,7 +19,9 @@
             <div class="rounded-full">
               <Icon size="80" name="focal"></Icon>
             </div>
-            <div class="rounded-sm bg-gray-a3 bg-opacity-50 px-10 py-6 text-white">Center your document</div>
+            <div class="rounded-sm bg-gray-a3 bg-opacity-50 px-10 py-6 text-white">
+              {{ $t('beCreator.title.centerId') }}
+            </div>
           </div>
           <div class="absolute bottom-0 flex w-full items-end justify-between px-30 pb-45">
             <button class="h-20 w-20">

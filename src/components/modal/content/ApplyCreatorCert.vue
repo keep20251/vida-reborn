@@ -1,7 +1,9 @@
 <template>
   <div class="space-y-20 border-t">
     <div class="mt-20">
-      <div class="mb-10">Select country/region</div>
+      <div class="mb-10">
+        {{ $t('beCreator.title.selectCountry') }}
+      </div>
       <Dropdown
         v-model="country"
         :options="countries"
@@ -12,7 +14,7 @@
       ></Dropdown>
     </div>
     <div class="text-center text-base font-normal leading-md text-gray-57">
-      Choose a document and start verification
+      {{ $t('beCreator.title.chooseIdToStart') }}
     </div>
     <div class="space-y-10">
       <div
@@ -22,7 +24,7 @@
         @click="onIdentitySelected(item.value)"
       >
         <Icon :name="item.icon" size="50"></Icon>
-        <div class="font-base font-normal leading-md">{{ item.label }}</div>
+        <div class="font-base font-normal leading-md">{{ $t(item.label) }}</div>
       </div>
     </div>
   </div>
@@ -44,9 +46,9 @@ const emit = defineEmits(['component:confirm'])
 
 const countries = useI18nPack('select', 'about', [])
 const identities = [
-  { label: 'Passport', icon: 'passport', value: BECOME_CREATOR_IDENTITY.PASSPORT },
-  { label: 'Identity Card', icon: 'identityCard', value: BECOME_CREATOR_IDENTITY.IDENTITY_CARD },
-  { label: 'Driver License', icon: 'driverLicense', value: BECOME_CREATOR_IDENTITY.DRIVER_LICENSE },
+  { label: 'beCreator.id.passport', icon: 'passport', value: BECOME_CREATOR_IDENTITY.PASSPORT },
+  { label: 'beCreator.id.idCard', icon: 'identityCard', value: BECOME_CREATOR_IDENTITY.IDENTITY_CARD },
+  { label: 'beCreator.id.driverLicense', icon: 'driverLicense', value: BECOME_CREATOR_IDENTITY.DRIVER_LICENSE },
 ]
 
 const { identity, country } = storeToRefs(useBecomeCreatorStore())

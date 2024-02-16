@@ -70,6 +70,8 @@ export default {
     editSocialLink: "Chỉnh sửa liên kết xã hội",
     earnWdrlReq: "",
     earnWdrlHist: "",
+    clearSearchHistory: "Xóa hồ sơ tìm kiếm",
+    search: { history: "Tìm kiếm lịch sử", clear: "tìm kiếm phổ biến", popular: "Trống" },
   },
   label: {
     account: "Tên người dùng",
@@ -175,6 +177,7 @@ export default {
     uploadCapacityLimit: "",
   },
   content: {
+    default: "Đặt trước, không nên được hiển thị ở bất cứ đâu",
     welcomeToVida: "Chào mừng bạn đến với Vida, hãy gia nhập chúng tôi!",
     verifyAccount:
       "Hãy nhanh chóng xác minh hộp thư của bạn! Đi đến 【Tài khoản của tôi>Cài đặt tài khoản】 để hoàn thành xác minh",
@@ -227,6 +230,7 @@ export default {
     customStyle: "",
     subUnlockDayAfter: "",
     tokenExpired: "Phiên đăng nhập đã hết hạn, vui lòng đăng nhập lại.",
+    clearSearchHistory: "Bạn có chắc là bạn muốn xóa lịch sử?",
   },
   month: {
     Jan: "Tháng Một",

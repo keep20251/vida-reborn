@@ -70,6 +70,8 @@ export default {
     editSocialLink: "Edit Social Link",
     earnWdrlReq: "Withdrawal application",
     earnWdrlHist: "Withdrawals record",
+    clearSearchHistory: "Clear search record",
+    search: { history: "Historical search", clear: "popular searches", popular: "Empty" },
   },
   label: {
     account: "Username",
@@ -173,6 +175,7 @@ export default {
     uploadCapacityLimit: "No more than 1 MB each",
   },
   content: {
+    default: "Preset, should not be displayed anywhere",
     welcomeToVida: "Welcome to Vida, join us!",
     verifyAccount: "Hurry to verify your mailbox! Go to 【My>Account Settings】 to complete the verification",
     termsDeclaration:
@@ -225,6 +228,7 @@ export default {
     customStyle: "Custom style",
     subUnlockDayAfter: "Does unlocking allow the past few days since purchase?",
     tokenExpired: "登录时效已过期，请重新登录。",
+    clearSearchHistory: "Are you sure you want to clear history?",
   },
   month: {
     Jan: "January",

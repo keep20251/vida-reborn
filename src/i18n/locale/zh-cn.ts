@@ -65,6 +65,8 @@ export default {
     editSocialLink: "编辑社交链接",
     earnWdrlReq: "提领申请",
     earnWdrlHist: "提现记录",
+    clearSearchHistory: "清除搜索记录",
+    search: { history: "历史搜索", clear: "热门搜索", popular: "清空" },
   },
   label: {
     account: "用户名",
@@ -164,6 +166,7 @@ export default {
     uploadCapacityLimit: "每张不超过 1 MB",
   },
   content: {
+    default: "预设，不应该显示在任何地方",
     welcomeToVida: "欢迎加入Vida，成为我们的一员！",
     verifyAccount: "赶紧去认证邮箱吧！至【我的>账户设置】即可完成认证",
     termsDeclaration: "继续操作，即表示您确认您已年满18岁，并同意Vida的{tos}，并已阅读VIDA的{pp}。",
@@ -215,6 +218,7 @@ export default {
     customStyle: "自订样式",
     subUnlockDayAfter: "解锁允许自购买后过去几天的作品？",
     tokenExpired: "Login session has expired, please log in again.",
+    clearSearchHistory: "确定要清空搜寻历史吗？",
   },
   month: {
     Jan: "一月",

@@ -70,6 +70,8 @@ export default {
     editSocialLink: "Edit tautan sosial",
     earnWdrlReq: "",
     earnWdrlHist: "",
+    clearSearchHistory: "CLEAR RECORD Pencarian",
+    search: { history: "Pencarian Sejarah", clear: "Pencarian Populer", popular: "Kosong" },
   },
   label: {
     account: "Nama pengguna",
@@ -173,6 +175,7 @@ export default {
     uploadCapacityLimit: "",
   },
   content: {
+    default: "Preset, tidak boleh ditampilkan di mana pun",
     welcomeToVida: "Selamat datang di Vida, bergabunglah dengan kami!",
     verifyAccount:
       "Segera verifikasi kotak surat Anda! Pergi ke 【Akun Saya>Pengaturan Akun】 untuk menyelesaikan verifikasi",
@@ -225,6 +228,7 @@ export default {
     customStyle: "",
     subUnlockDayAfter: "",
     tokenExpired: "Sesi login telah berakhir, silakan login kembali.",
+    clearSearchHistory: "Apakah Anda yakin ingin menghapus sejarah?",
   },
   month: {
     Jan: "Januari",

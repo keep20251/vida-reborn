@@ -1,40 +1,41 @@
 <template>
   <div class="w-full">
     <div class="flex flex-col space-y-20 text-base font-normal leading-lg">
-      <div>您选择了使用护照来身份验证</div>
+      <div>{{ $t('beCreator.idAgreement.1') }}</div>
       <div class="text-gray-57">
         <ul class="flex list-inside list-decimal flex-col space-y-20">
           <li>
-            我們將會需要您拍攝2張照片：
+            {{ $t('beCreator.idAgreement.2') }}
             <ul class="ml-35 list-lower-alpha">
-              <li>證件資訊正面照片</li>
-              <li>用戶臉部與證件資訊正面照片</li>
+              <li>{{ $t('beCreator.idAgreement.3') }}</li>
+              <li>{{ $t('beCreator.idAgreement.4') }}</li>
             </ul>
           </li>
           <li>
-            請確保拍攝過程中：
+            {{ $t('beCreator.idAgreement.5') }}
             <ul class="ml-35 list-lower-alpha">
-              <li>照片清晰可見</li>
-              <li>在光線明亮的環境下進行拍攝</li>
-              <li>不遮擋臉部，清晰的面部識別</li>
+              <li>{{ $t('beCreator.idAgreement.6') }}</li>
+              <li>{{ $t('beCreator.idAgreement.7') }}</li>
+              <li>{{ $t('beCreator.idAgreement.8') }}</li>
             </ul>
           </li>
         </ul>
       </div>
-      <div class="text-gray-57">所有拍攝資料將嚴格保密，僅用於身份驗證之用</div>
-      <div class="text-gray-57">以上說明了解後，點選下方開始即可開始拍照</div>
+      <div class="text-gray-57">
+        {{ $t('beCreator.idAgreement.9') }}
+      </div>
+      <div class="text-gray-57">
+        {{ $t('beCreator.idAgreement.10') }}
+      </div>
       <div class="text-center text-gray-a3">
+        <div>{{ $t('beCreator.idAgreement.11') }}</div>
         <div>
-          If something went wrong during this process you will be able to restart or continue verification from this
-          page.
-        </div>
-        <div>
-          You can also contact support by sending an email to
+          {{ $t('beCreator.idAgreement.12') }}
           <span class="text-black"><a href="mailto:support@vida.pub">support@vida.pub</a></span>
         </div>
       </div>
       <router-link :to="{ name: 'mine-creator-take-picture' }">
-        <Button>開始拍照</Button>
+        <Button>{{ $t('beCreator.btn.startTakePic') }}</Button>
       </router-link>
     </div>
   </div>

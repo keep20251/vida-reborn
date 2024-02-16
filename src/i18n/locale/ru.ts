@@ -70,6 +70,8 @@ export default {
     editSocialLink: "Редактировать социальную ссылку",
     earnWdrlReq: "",
     earnWdrlHist: "",
+    clearSearchHistory: "Очистить запись поиска",
+    search: { history: "Исторический поиск", clear: "Популярные поиски", popular: "Пустой" },
   },
   label: {
     account: "Имя пользователя",
@@ -173,6 +175,7 @@ export default {
     uploadCapacityLimit: "",
   },
   content: {
+    default: "Предустановка, нигде не следует отображать",
     welcomeToVida: "Добро пожаловать в Vida, присоединяйтесь к нам!",
     verifyAccount:
       "Спешите проверить свой почтовый ящик! Перейдите в 【Мой аккаунт>Настройки аккаунта】 для завершения верификации",
@@ -225,6 +228,7 @@ export default {
     customStyle: "",
     subUnlockDayAfter: "",
     tokenExpired: "Срок сеанса входа истек, пожалуйста, войдите снова.",
+    clearSearchHistory: "Вы уверены, что хотите очистить историю?",
   },
   month: {
     Jan: "Январь",

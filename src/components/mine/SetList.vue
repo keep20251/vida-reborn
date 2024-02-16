@@ -1,5 +1,15 @@
 <template>
   <div class="flex select-none flex-col divide-y">
+    <div v-if="!isLogin" class="grid gap-y-5 py-10">
+      <div class="flex cursor-pointer items-center space-x-18" @click="openAuthDialog(AUTH_ROUTES.SIGN_UP)">
+        <Icon name="mineAddOutline" size="20"></Icon>
+        <span class="text-base">{{ $t('title.join') }}</span>
+      </div>
+      <div class="flex cursor-pointer items-center space-x-18" @click="openAuthDialog()">
+        <Icon name="mineSetAcc" size="20"></Icon>
+        <span class="text-base">{{ $t('title.login') }}</span>
+      </div>
+    </div>
     <div v-if="perm.postEarn" class="grid space-y-15 py-10">
       <router-link
         :to="{ name: 'mine-earn' }"
@@ -64,7 +74,7 @@
       </div>
       <div class="pl-20 transition-all" :class="{ hidden: !accOpen }">
         <div
-          class="flex w-full flex-col space-y-10 transition-all delay-1000 divide-y py-5"
+          class="flex w-full flex-col space-y-10 divide-y py-5 transition-all delay-1000"
           :class="{ hidden: !accOpen }"
         >
           <router-link
@@ -109,7 +119,7 @@
       <div class="flex items-center space-x-18">
         <Icon name="mineLang" size="20"></Icon>
       </div>
-      <Dropdown class="w-full text-base pl-3" shadow-none v-model="locale" :options="transOptions"></Dropdown>
+      <Dropdown class="w-full pl-3 text-base" shadow-none v-model="locale" :options="transOptions"></Dropdown>
     </div>
     <div class="grid space-y-10 py-10">
       <div class="flex cursor-pointer items-center justify-between pr-15" @click="aboutOpen = !aboutOpen">
@@ -129,7 +139,7 @@
       </div>
       <div class="pl-20 transition-all" :class="{ hidden: !aboutOpen }">
         <div
-          class="flex w-full flex-col space-y-10 transition-all delay-1000 divide-y py-5"
+          class="flex w-full flex-col space-y-10 divide-y py-5 transition-all delay-1000"
           :class="{ hidden: !aboutOpen }"
         >
           <router-link
@@ -160,7 +170,7 @@
           >
             <Icon name="mineAboutDmca" size="20"></Icon><span class="text-base">DMCA</span>
           </router-link>
-          <div class="items-center space-x-18 flex pt-10">
+          <div class="flex items-center space-x-18 pt-10">
             <Icon name="mineAboutVersion" size="20"></Icon><span class="text-base">V1.0.0</span>
           </div>
         </div>
@@ -182,6 +192,7 @@ import { useAccountStore } from '@/store/account'
 import { useAuthRouteStore } from '@/store/auth-route'
 import Dropdown from '@comp/form/Dropdown.vue'
 import { useLocale } from '@use/utils/locale'
+import { AUTH_ROUTES } from '@const'
 import { PERM_TABLE } from '@const/mine'
 import { locales } from '@/i18n'
 

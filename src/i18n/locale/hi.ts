@@ -70,6 +70,8 @@ export default {
     editSocialLink: "सामाजिक लिंक संपादित करें",
     earnWdrlReq: "",
     earnWdrlHist: "",
+    clearSearchHistory: "स्पष्ट खोज अभिलेख",
+    search: { history: "ऐतिहासिक खोज", clear: "लोकप्रिय खोजें", popular: "खाली" },
   },
   label: {
     account: "उपयोगकर्ता नाम",
@@ -173,6 +175,7 @@ export default {
     uploadCapacityLimit: "",
   },
   content: {
+    default: "प्रीसेट, कहीं भी प्रदर्शित नहीं किया जाना चाहिए",
     welcomeToVida: "Vida में आपका स्वागत है, हमसे जुड़ें!",
     verifyAccount: "अपने मेलबॉक्स को जल्दी से सत्यापित करें! 【मेरा>खाता सेटिंग्स】 पर जाकर सत्यापन पूरा करें",
     termsDeclaration:
@@ -224,6 +227,7 @@ export default {
     customStyle: "",
     subUnlockDayAfter: "",
     tokenExpired: "लॉगिन सत्र समाप्त हो गया है, कृपया पुनः लॉग इन करें।",
+    clearSearchHistory: "क्या आप सुनिश्चित हैं कि आप इतिहास को साफ करना चाहते हैं?",
   },
   month: {
     Jan: "जनवरी",

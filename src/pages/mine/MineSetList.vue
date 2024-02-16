@@ -7,15 +7,17 @@
         </div>
         <div class="py-20">{{ $t('title.mine') }}</div>
       </div>
-      <div class="flex flex-row space-x-10">
+      <div v-if="isUser || isCreator" class="flex flex-row space-x-10">
         <Avatar :src="userData.thumb" :radius="35"></Avatar>
         <div class="flex flex-col justify-center space-y-5">
           <div class="text-lg font-bold leading-lg">{{ userData.nickname }}</div>
           <div class="text-sm font-normal leading-3">@{{ userData.username }}</div>
-          <div class="text-sm font-normal leading-3">{{ userData.view_count }} {{ $t('content.view') }}</div>
+          <div v-if="isCreator" class="text-sm font-normal leading-3">
+            {{ userData.subscriber_count }} {{ $t('common.subscribe') }}
+          </div>
         </div>
       </div>
-      <Link href="/mine/main">
+      <Link v-if="isCreator" href="/mine/main">
         <Button @click="to('mine-main')">{{ $t('common.editPersonalPage') }}</Button>
       </Link>
       <SetList></SetList>
@@ -31,6 +33,6 @@ import SetList from '@comp/mine/SetList.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
 import { useRouters } from '@use/routers'
 
-const { userData } = storeToRefs(useAccountStore())
+const { userData, isCreator, isUser } = storeToRefs(useAccountStore())
 const { to } = useRouters()
 </script>

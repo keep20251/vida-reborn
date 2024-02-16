@@ -70,6 +70,8 @@ export default {
     editSocialLink: "تحرير الرابط الاجتماعي",
     earnWdrlReq: "",
     earnWdrlHist: "",
+    clearSearchHistory: "سجل بحث واضح",
+    search: { history: "البحث التاريخي", clear: "عمليات البحث الشعبية", popular: "فارغ" },
   },
   label: {
     account: "اسم المستخدم",
@@ -173,6 +175,7 @@ export default {
     uploadCapacityLimit: "",
   },
   content: {
+    default: "مسبقًا ، لا ينبغي عرضه في أي مكان",
     welcomeToVida: "مرحبًا بك في Vida، انضم إلينا!",
     verifyAccount: "سارع للتحقق من صندوق البريد الخاص بك! اذهب إلى 【حسابي>إعدادات الحساب】 لإكمال التحقق",
     termsDeclaration: "باستمرارك، تؤكد أنك تبلغ من العمر 18 عامًا أو أكثر، وتوافق على {tos} Vida، وقرأت {pp} VIDA.",
@@ -223,6 +226,7 @@ export default {
     customStyle: "",
     subUnlockDayAfter: "",
     tokenExpired: "انتهت صلاحية جلسة تسجيل الدخول، يرجى تسجيل الدخول مرة أخرى.",
+    clearSearchHistory: "هل أنت متأكد أنك تريد مسح التاريخ؟",
   },
   month: {
     Jan: "يناير",
