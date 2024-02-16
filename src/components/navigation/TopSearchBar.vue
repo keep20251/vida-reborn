@@ -5,10 +5,9 @@
     </Link>
     <InputWrap
       class="grow"
-      v-model="modelValue"
+      v-model="input"
       :placeholder="$t('placeholder.search')"
       append-icon="search2"
-      @update:modelValue="emits('update:keyword', modelValue)"
       @click:append="triggerSearch"
       @keypress:enter="triggerSearch"
     ></InputWrap>
@@ -20,7 +19,7 @@
 
 <script setup>
 import debounce from 'lodash/debounce'
-import { computed } from 'vue'
+import { ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useSearchStore } from '@/store/search'
@@ -30,29 +29,30 @@ import InputWrap from '@comp/form/InputWrap.vue'
 const { t: $t } = useI18n()
 
 const props = defineProps({
-  modelValue: { type: String, default: '' },
+  inputValue: { type: String, default: '' },
   logo: { type: Boolean, default: false },
   featureIcon: { type: String },
   toSearch: { type: Boolean, default: false },
 })
-const emits = defineEmits(['feature', 'trigger:search', 'update:keyword', 'update:modelValue'])
+const emits = defineEmits(['feature', 'search'])
 
-const modelValue = computed({
-  get: () => props.modelValue,
-  set: (v) => emits('update:modelValue', v),
-})
+const input = ref(props.inputValue)
+watch(
+  () => props.inputValue,
+  (v) => (input.value = v),
+)
 
 const searchStore = useSearchStore()
 const { historyTags } = storeToRefs(searchStore)
 const { onSearch } = searchStore
 
 const triggerSearch = debounce(() => {
-  emits('trigger:search')
-  if (modelValue.value && props.toSearch) {
-    onSearch(modelValue.value)
+  emits('search', input.value)
+  if (input.value && props.toSearch) {
+    onSearch(input.value)
 
-    if (historyTags.value.find((tag) => tag.value === modelValue.value)) return
-    historyTags.value.push({ value: modelValue.value, label: modelValue.value })
+    if (historyTags.value.find((tag) => tag.value === input.value)) return
+    historyTags.value.push({ value: input.value, label: input.value })
   }
 }, 500)
 </script>

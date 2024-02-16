@@ -11,5 +11,5 @@ import MineMain from '@/pages/mine/MineMain.vue'
 import MineSetList from '@/pages/mine/MineSetList.vue'
 
 const { width } = useWindowSize()
-const wideEnough = computed(() => width.value > 958)
+const wideEnough = computed(() => width.value >= 958)
 </script>

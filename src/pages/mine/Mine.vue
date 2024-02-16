@@ -11,17 +11,7 @@
       </router-view>
     </template>
     <template #aside-top>
-      <ClientOnly>
-        <div class="flex h-full items-center">
-          <InputWrap
-            class="grow"
-            v-model="inputValue"
-            :placeholder="'搜索...'"
-            appendIcon="search2"
-            @click:append="console.log('appendIcon')"
-          ></InputWrap>
-        </div>
-      </ClientOnly>
+      <TopSearchBar to-search></TopSearchBar>
     </template>
     <template #aside>
       <ClientOnly>
@@ -51,14 +41,12 @@ import { useHeadStore } from '@/store/head'
 import { useMineStore } from '@/store/mine'
 import SubscribeCard from '@comp/card/SubscribeCard.vue'
 import Carousel from '@comp/common/Carousel.vue'
-import InputWrap from '@comp/form/InputWrap.vue'
 import SetList from '@comp/mine/SetList.vue'
 import Head from '@comp/navigation/Head.vue'
+import TopSearchBar from '@comp/navigation/TopSearchBar.vue'
 import { MINE_TITLE } from '@const'
 
 const { nextFn, isPreviewMode } = storeToRefs(useMineStore())
-
-const inputValue = ref('')
 
 const cats = ref([
   { img: 'https://i.postimg.cc/3RTHR6kh/4edca499dd436a67fa25e5fbf3cb5582.png' },

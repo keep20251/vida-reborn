@@ -6,8 +6,8 @@
       </Link>
       <router-link :to="`/${locale}`">
         <div class="flex items-center justify-center space-x-20 px-12 py-10 hover:bg-gray-f6 xl:justify-start">
-          <Icon v-if="atHome" name="home" size="20"></Icon>
-          <Icon v-else name="homeOutline" size="20"></Icon>
+          <Icon v-if="atHome" name="home" size="30"></Icon>
+          <Icon v-else name="homeOutline" size="30"></Icon>
           <div class="hidden text-base xl:block" :class="[atHome ? 'font-bold' : 'font-normal']">
             {{ $t('nav.home') }}
           </div>
@@ -15,8 +15,8 @@
       </router-link>
       <router-link :to="`/${locale}/search`">
         <div class="flex items-center justify-center space-x-20 px-12 py-10 hover:bg-gray-f6 xl:justify-start">
-          <Icon v-if="atSearch" name="search" size="20"></Icon>
-          <Icon v-else name="searchOutline" size="20"></Icon>
+          <Icon v-if="atSearch" name="search" size="30"></Icon>
+          <Icon v-else name="searchOutline" size="30"></Icon>
           <div class="hidden text-base xl:block" :class="[atSearch ? 'font-bold' : 'font-normal']">
             {{ $t('nav.search') }}
           </div>
@@ -24,8 +24,8 @@
       </router-link>
       <router-link :to="`/${locale}/message`">
         <div class="flex items-center justify-center space-x-20 px-12 py-10 hover:bg-gray-f6 xl:justify-start">
-          <Icon v-if="atMessage" name="message" size="20"></Icon>
-          <Icon v-else name="messageOutline" size="20"></Icon>
+          <Icon v-if="atMessage" name="message" size="30"></Icon>
+          <Icon v-else name="messageOutline" size="30"></Icon>
           <div class="hidden text-base xl:block" :class="[atMessage ? 'font-bold' : 'font-normal']">
             {{ $t('nav.message') }}
           </div>
@@ -33,8 +33,8 @@
       </router-link>
       <router-link :to="`/${locale}/mine`">
         <div class="flex items-center justify-center space-x-20 px-12 py-10 hover:bg-gray-f6 xl:justify-start">
-          <Icon v-if="atMine" name="mine" size="20"></Icon>
-          <Icon v-else name="mineOutline" size="20"></Icon>
+          <Icon v-if="atMine" name="mine" size="30"></Icon>
+          <Icon v-else name="mineOutline" size="30"></Icon>
           <div class="hidden text-base xl:block" :class="[atMine ? 'font-bold' : 'font-normal']">
             {{ $t('nav.mine') }}
           </div>
@@ -42,7 +42,7 @@
       </router-link>
       <Link href="/publish" @click="onPublishClick">
         <div class="flex items-center justify-center space-x-20 px-12 py-10 hover:bg-gray-f6 xl:justify-start">
-          <Icon name="publish2" size="20"></Icon>
+          <Icon name="publish2" size="30"></Icon>
           <div class="hidden text-base font-normal xl:block">
             {{ $t('nav.publish') }}
           </div>
