@@ -43,6 +43,7 @@
 import { onActivated, onDeactivated, onMounted, onUnmounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
+import { useFeedStore } from '@/store/feed'
 import { useMineStore } from '@/store/mine'
 import { useSubPlanStore } from '@/store/sub-plan'
 import Button from '@comp/common/Button.vue'
@@ -54,8 +55,10 @@ const { open: openSubPlanDialog } = useSubPlanStore()
 
 const { userData } = storeToRefs(useAccountStore())
 
+const feedStore = useFeedStore()
 const { dataList, dataExtra, isLoading, noMore, init, next, reload } = useInfinite('Article.list', {
   params: { uuid: userData.value?.uuid },
+  transformer: feedStore.sync,
 })
 
 const { setNextFn, clearNextFn } = useMineStore()

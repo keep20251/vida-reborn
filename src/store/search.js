@@ -5,6 +5,7 @@ import useRequest from '@use/request'
 import { useInfinite } from '@use/request/infinite'
 import { useRouters } from '@use/routers'
 import { LOCAL_STORAGE_KEYS, SEARCH_TAB } from '@const'
+import { useFeedStore } from '@/store/feed'
 
 export const useSearchStore = defineStore('search-store', () => {
   const activeTab = ref(SEARCH_TAB.AUTHOR)
@@ -15,9 +16,11 @@ export const useSearchStore = defineStore('search-store', () => {
     keyword.value = ''
   }
 
+  const feedStore = useFeedStore()
   const articleFetcher = ref(
     useInfinite('Article.list', {
       params: {},
+      transformer: feedStore.sync,
     }),
   )
 
