@@ -170,7 +170,7 @@ export default {
     },
     notLoggedYet: "您还尚未登入，赶快加入我们吧！",
     joinVida: "赶快加入VIDA吧！更多奇幻的特色内容正在等着你！",
-    useObey: "所有使用过程中须遵守",
+    useObey: "所有使用过程中须遵守{tos}",
     allPosts: "全部贴文",
     currentEarn: "目前收益",
     withdrawalHistory: "提款记录",
