@@ -38,6 +38,7 @@
 import { onActivated, onDeactivated, onMounted, onUnmounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
+import { useFeedStore } from '@/store/feed'
 import { useHydrationStore } from '@/store/hydration'
 import { useMineStore } from '@/store/mine'
 import Button from '@comp/common/Button.vue'
@@ -51,8 +52,10 @@ const { isPrvwActive } = storeToRefs(mineStore)
 
 const { userData } = storeToRefs(useAccountStore())
 
+const feedStore = useFeedStore()
 const { dataList, isLoading, noMore, init, next, revert } = useInfinite('Article.list', {
   params: { uuid: userData.value.uuid },
+  transformer: feedStore.sync,
 })
 
 const { mineCreatorArticles } = storeToRefs(useHydrationStore())
