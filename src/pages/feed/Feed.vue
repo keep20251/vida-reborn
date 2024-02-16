@@ -17,7 +17,7 @@
             </div>
           </template>
         </List>
-        <div class="sticky bottom-0 w-full bg-white pb-16">
+        <div class="sticky bottom-0 w-full bg-white pb-16 pt-8">
           <div v-if="replyTo" class="flex items-center bg-gray-f6 px-20 py-4">
             <div class="grow text-sm text-gray-a3">{{ `回覆給@${replyTo.author?.nickname}` }}</div>
             <div class="cursor-pointer" @click="replyTo = null">
@@ -39,13 +39,14 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { onActivated, onDeactivated, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 import { whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useFeedStore } from '@/store/feed'
 import { useHydrationStore } from '@/store/hydration'
+import { useNavStore } from '@/store/nav'
 import InputWrap from '@comp/form/InputWrap.vue'
 import Error from '@comp/info/Error.vue'
 import Feed from '@comp/main/Feed.vue'
@@ -57,6 +58,11 @@ import { useInfinite } from '@use/request/infinite'
 
 const { t: $t } = useI18n()
 const route = useRoute()
+
+const navStore = useNavStore()
+const { show, hide } = navStore
+onActivated(hide)
+onDeactivated(show)
 
 const feedStore = useFeedStore()
 const { get: getFeed, revert: revertFeed } = feedStore

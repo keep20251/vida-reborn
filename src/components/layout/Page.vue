@@ -4,7 +4,10 @@
     參考連結: https://css-tricks.com/flexbox-truncated-text/
   -->
   <div class="flex min-w-0 grow basis-full flex-row justify-start sm:basis-[540px] md:basis-[860px] xl:basis-[880px]">
-    <div class="w-full max-w-[540px] px-20 pb-60 sm:pb-0 md:mr-20 md:w-[540px] xl:mr-40">
+    <div
+      class="w-full max-w-[540px] px-20 pb-60 sm:pb-0 md:mr-20 md:w-[540px] xl:mr-40"
+      :class="{ '!pb-0': isMobile && !isNavShow }"
+    >
       <main>
         <!-- main top -->
         <div
@@ -72,6 +75,7 @@ import { computed, onActivated, onDeactivated, onMounted, ref } from 'vue'
 import { useElementSize, useEventListener, useInfiniteScroll, useWindowSize } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
+import { useNavStore } from '@/store/nav'
 
 const props = defineProps({
   mainTopToggleDisabled: { type: Boolean, default: false },
@@ -84,6 +88,9 @@ const emits = defineEmits(['load'])
 
 const appStore = useAppStore()
 const { isDesktop, isMobile } = storeToRefs(appStore)
+
+const navStore = useNavStore()
+const { isShow: isNavShow } = storeToRefs(navStore)
 
 const main = ref(null)
 const aside = ref(null)

@@ -21,7 +21,7 @@
         'w-[600px]': wideEnough,
         'w-full max-w-[600px]': !wideEnough,
         'mr-20 rounded-md border border-gray-e5 py-30 pl-20 pr-50 lg:pl-50': isDesktop,
-        'px-20 pb-60 pt-10': isMobile,
+        'px-20 py-10': isMobile,
       }"
     >
       <slot name="room"></slot>

@@ -1,5 +1,8 @@
 <template>
-  <nav class="fixed bottom-0 flex h-60 w-full items-center bg-white shadow-nav">
+  <nav
+    class="fixed bottom-0 flex h-60 w-full items-center bg-white shadow-bottom transition-transform"
+    :class="{ 'translate-y-full': !isShow }"
+  >
     <router-link class="grow" :to="`/${locale}`">
       <div class="flex items-center justify-center space-x-16 px-12 py-16">
         <Icon v-if="atHome" name="home" size="30"></Icon>
@@ -37,6 +40,7 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useDialogStore } from '@/store/dialog'
+import { useNavStore } from '@/store/nav'
 import { usePublishStore } from '@/store/publish'
 import Link from '@comp/common/Link.vue'
 import { useRouters } from '@use/routers'
@@ -47,6 +51,9 @@ const atHome = computed(() => route.name === 'home')
 const atSearch = computed(() => route.name === 'search')
 const atMessage = computed(() => route.name === 'message')
 const atMine = computed(() => route.name.includes('mine'))
+
+const navStore = useNavStore()
+const { isShow } = storeToRefs(navStore)
 
 const locale = useLocale()
 

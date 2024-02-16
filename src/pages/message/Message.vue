@@ -2,8 +2,8 @@
   <ClientOnly>
     <PageMessage :messaging="toId !== null">
       <template #default>
-        <div class="flex flex-col space-y-20">
-          <div v-if="isDesktop" class="px-20 text-lg font-bold leading-lg">Messages</div>
+        <div class="flex flex-col">
+          <div v-if="isDesktop" class="mb-20 px-20 text-lg font-bold leading-lg">Messages</div>
           <List :items="users" item-key="id">
             <template #default="{ item, last }">
               <div
@@ -37,10 +37,11 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
+import { useNavStore } from '@/store/nav'
 import Badge from '@comp/common/Badge.vue'
 import PageMessage from '@comp/layout/PageMessage.vue'
 import Room from '@comp/message/Room.vue'
@@ -49,10 +50,21 @@ import { useRouters } from '@use/routers'
 const appStore = useAppStore()
 const { isDesktop } = storeToRefs(appStore)
 
+const navStore = useNavStore()
+const { show, hide } = navStore
+
 const { updateParams } = useRouters()
 
 const route = useRoute()
 const toId = ref(processId())
+
+watch(
+  toId,
+  (v) => {
+    v === null ? show() : hide()
+  },
+  { immediate: true },
+)
 
 function processId() {
   if (/^\d+$/.test(route.params.to)) {
