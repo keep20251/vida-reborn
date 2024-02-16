@@ -180,7 +180,7 @@ export default {
     },
     notLoggedYet: "You haven't logged in yet, join us now!",
     joinVida: "Hurry up and join VIDA! More fantasy features are waiting for you!",
-    useObey: "All use must comply with",
+    useObey: "All use must comply with {tos}",
     allPosts: "All posts",
     currentEarn: "Current earn",
     withdrawalHistory: "Withdrawal history",

@@ -1,13 +1,13 @@
 <template>
   <div class="flex h-full w-full flex-col">
     <div class="relative text-center py-30 rounded-t-xl">
-      <div class="absolute left-0 top-1/3 pl-20">
+      <div class="absolute left-0 top-1/3 pl-20 pt-4">
         <button @click="back" :history="history" :show-back="showBack">
           <Icon name="back"></Icon>
         </button>
       </div>
       <div class="text-lg font-bold leading-5">{{ addSubPlan ? '新增' : '編輯' }}訂閱設定</div>
-      <button @click="delSubPlan" class="absolute right-0 pr-20 top-1/3">
+      <button v-if="!addSubPlan" @click="delSubPlan" class="absolute right-0 pr-20 top-1/3 pt-4">
         <Icon name="bin"></Icon>
       </button>
     </div>
