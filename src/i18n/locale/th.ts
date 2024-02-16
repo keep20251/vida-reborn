@@ -221,6 +221,7 @@ export default {
     subStyle: "",
     customStyle: "",
     subUnlockDayAfter: "",
+    tokenExpired: "เซสชั่นการเข้าสู่ระบบหมดอายุแล้ว กรุณาเข้าสู่ระบบอีกครั้ง",
   },
   month: {
     Jan: "มกราคม",

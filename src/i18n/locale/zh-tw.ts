@@ -212,6 +212,7 @@ export default {
     subStyle: "訂閱樣式",
     customStyle: "自訂樣式",
     subUnlockDayAfter: "解鎖允許自購買後過去幾天的作品？",
+    tokenExpired: "登入時效已過期，請重新登入",
   },
   month: {
     Jan: "一月",

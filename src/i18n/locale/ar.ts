@@ -220,6 +220,7 @@ export default {
     subStyle: "",
     customStyle: "",
     subUnlockDayAfter: "",
+    tokenExpired: "انتهت صلاحية جلسة تسجيل الدخول، يرجى تسجيل الدخول مرة أخرى.",
   },
   month: {
     Jan: "يناير",

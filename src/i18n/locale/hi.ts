@@ -221,6 +221,7 @@ export default {
     subStyle: "",
     customStyle: "",
     subUnlockDayAfter: "",
+    tokenExpired: "लॉगिन सत्र समाप्त हो गया है, कृपया पुनः लॉग इन करें।",
   },
   month: {
     Jan: "जनवरी",

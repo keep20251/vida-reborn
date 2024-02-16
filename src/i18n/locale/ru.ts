@@ -222,6 +222,7 @@ export default {
     subStyle: "",
     customStyle: "",
     subUnlockDayAfter: "",
+    tokenExpired: "Срок сеанса входа истек, пожалуйста, войдите снова.",
   },
   month: {
     Jan: "Январь",

@@ -224,6 +224,7 @@ export default {
     subStyle: "",
     customStyle: "",
     subUnlockDayAfter: "",
+    tokenExpired: "Phiên đăng nhập đã hết hạn, vui lòng đăng nhập lại.",
   },
   month: {
     Jan: "Tháng Một",

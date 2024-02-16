@@ -222,6 +222,7 @@ export default {
     subStyle: "",
     customStyle: "",
     subUnlockDayAfter: "",
+    tokenExpired: "La session de connexion a expiré, veuillez vous reconnecter.",
   },
   month: {
     Jan: "Janvier",

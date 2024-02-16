@@ -212,6 +212,7 @@ export default {
     subStyle: "订阅样式",
     customStyle: "自订样式",
     subUnlockDayAfter: "解锁允许自购买后过去几天的作品？",
+    tokenExpired: "Login session has expired, please log in again.",
   },
   month: {
     Jan: "一月",

@@ -5,7 +5,9 @@
         <div v-if="showClose" class="absolute right-20 top-20 cursor-pointer" @click="close">
           <Icon name="close" size="20"></Icon>
         </div>
-        <div class="mb-20 text-center font-bold leading-lg" :class="[titleFontSize]">{{ title }}</div>
+        <div class="mb-20 text-center font-bold leading-lg" :class="[titleFontSize]">
+          {{ title !== null ? $t(title) : '' }}
+        </div>
         <div class="mb-20">
           <keep-alive :max="5">
             <component :is="component" @component:confirm="checkCustomContentData"></component>
