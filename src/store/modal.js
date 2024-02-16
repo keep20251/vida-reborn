@@ -36,7 +36,7 @@ export const useModalStore = defineStore('modal', () => {
     confirmText,
     cancelAction = () => {},
     cancelText,
-    otherAction = () => {},
+    otherAction,
     otherText,
     showClose = false,
     showConfirm = true,

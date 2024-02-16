@@ -70,6 +70,8 @@ export default {
     editSocialLink: "Editar enlace social",
     earnWdrlReq: "",
     earnWdrlHist: "",
+    clearSearchHistory: "Registro de búsqueda claro",
+    search: { history: "Búsqueda histórica", clear: "Búsquedas populares", popular: "Vacío" },
   },
   label: {
     account: "Nombre de usuario",
@@ -173,6 +175,7 @@ export default {
     uploadCapacityLimit: "",
   },
   content: {
+    default: "Preestablecido, no debe mostrarse en ningún lado",
     welcomeToVida: "¡Bienvenido a Vida, únete a nosotros!",
     verifyAccount:
       "¡Apresúrate a verificar tu buzón! Ve a 【Mi cuenta>Configuración de la cuenta】 para completar la verificación",
@@ -225,6 +228,7 @@ export default {
     customStyle: "",
     subUnlockDayAfter: "",
     tokenExpired: "La sesión de inicio de sesión ha caducado, inicie sesión nuevamente.",
+    clearSearchHistory: "¿Estás seguro de que quieres limpiar la historia?",
   },
   month: {
     Jan: "Enero",

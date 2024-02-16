@@ -65,6 +65,8 @@ export default {
     editSocialLink: "ソーシャルリンクを編集します",
     earnWdrlReq: "",
     earnWdrlHist: "",
+    clearSearchHistory: "検索レコードをクリアします",
+    search: { history: "歴史的検索", clear: "人気のある検索", popular: "空の" },
   },
   label: {
     account: "ユーザー名",
@@ -170,6 +172,7 @@ export default {
     uploadCapacityLimit: "",
   },
   content: {
+    default: "プリセット、どこにも表示しないでください",
     welcomeToVida: "Vidaへようこそ、私たちと一緒に！",
     verifyAccount:
       "急いでメールボックスを確認してください！【マイアカウント>アカウント設定】に移動して認証を完了してください",
@@ -222,6 +225,7 @@ export default {
     customStyle: "",
     subUnlockDayAfter: "",
     tokenExpired: "ログインセッションの有効期限が切れました。再度ログインしてください。",
+    clearSearchHistory: "歴史を明確にしたいですか？",
   },
   month: {
     Jan: "1月",

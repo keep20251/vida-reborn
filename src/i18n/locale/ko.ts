@@ -65,6 +65,8 @@ export default {
     editSocialLink: "소셜 링크 편집",
     earnWdrlReq: "",
     earnWdrlHist: "",
+    clearSearchHistory: "명확한 검색 기록",
+    search: { history: "역사적 검색", clear: "인기있는 검색", popular: "비어 있는" },
   },
   label: {
     account: "사용자 이름",
@@ -168,6 +170,7 @@ export default {
     uploadCapacityLimit: "",
   },
   content: {
+    default: "사전 설정, 아무데도 표시해서는 안됩니다",
     welcomeToVida: "Vida에 오신 것을 환영합니다, 함께해요!",
     verifyAccount: "메일함을 서둘러 인증하세요! 【내 계정>계정 설정】으로 이동하여 인증을 완료하세요",
     termsDeclaration:
@@ -219,6 +222,7 @@ export default {
     customStyle: "",
     subUnlockDayAfter: "",
     tokenExpired: "로그인 세션이 만료되었습니다. 다시 로그인해 주세요.",
+    clearSearchHistory: "역사를 깨끗하게하고 싶습니까?",
   },
   month: {
     Jan: "1월",

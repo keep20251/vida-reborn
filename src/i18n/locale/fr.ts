@@ -70,6 +70,8 @@ export default {
     editSocialLink: "Modifier le lien social",
     earnWdrlReq: "",
     earnWdrlHist: "",
+    clearSearchHistory: "Enregistrement de recherche claire",
+    search: { history: "Recherche historique", clear: "Recherches populaires", popular: "Vide" },
   },
   label: {
     account: "Nom d’utilisateur",
@@ -173,6 +175,7 @@ export default {
     uploadCapacityLimit: "",
   },
   content: {
+    default: "Préréglé, ne doit être affiché nulle part",
     welcomeToVida: "Bienvenue chez Vida, rejoignez-nous !",
     verifyAccount:
       "Dépêchez-vous de vérifier votre boîte aux lettres ! Allez à 【Mon compte>Paramètres du compte】 pour compléter la vérification",
@@ -225,6 +228,7 @@ export default {
     customStyle: "",
     subUnlockDayAfter: "",
     tokenExpired: "La session de connexion a expiré, veuillez vous reconnecter.",
+    clearSearchHistory: "Êtes-vous sûr de vouloir effacer l'histoire?",
   },
   month: {
     Jan: "Janvier",

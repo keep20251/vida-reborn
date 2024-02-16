@@ -70,6 +70,8 @@ export default {
     editSocialLink: "Social Link bearbeiten",
     earnWdrlReq: "",
     earnWdrlHist: "",
+    clearSearchHistory: "Suchdatensatz löschen",
+    search: { history: "Historische Suche", clear: "beliebte Suchanfragen", popular: "Leer" },
   },
   label: {
     account: "Benutzername",
@@ -175,6 +177,7 @@ export default {
     uploadCapacityLimit: "",
   },
   content: {
+    default: "Preset, sollte nirgendwo angezeigt werden",
     welcomeToVida: "Willkommen bei Vida, treten Sie uns bei!",
     verifyAccount:
       "Überprüfen Sie schnell Ihren Posteingang! Gehen Sie zu 【Mein Konto>Kontoeinstellungen】 um die Verifizierung abzuschließen",
@@ -227,6 +230,7 @@ export default {
     customStyle: "",
     subUnlockDayAfter: "",
     tokenExpired: "Die Anmeldesitzung ist abgelaufen. Bitte melden Sie sich erneut an.",
+    clearSearchHistory: "Sind Sie sicher, dass Sie die Geschichte löschen möchten?",
   },
   month: {
     Jan: "Januar",
