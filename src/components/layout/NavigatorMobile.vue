@@ -1,15 +1,15 @@
 <template>
-  <nav class="fixed bottom-0 flex h-60 w-full bg-white shadow-nav">
+  <nav class="fixed bottom-0 flex h-60 w-full items-center bg-white shadow-nav">
     <router-link class="grow" :to="`/${locale}`">
       <div class="flex items-center justify-center space-x-16 px-12 py-16">
-        <Icon v-if="atHome" name="home" size="20"></Icon>
-        <Icon v-else name="homeOutline" size="20"></Icon>
+        <Icon v-if="atHome" name="home" size="30"></Icon>
+        <Icon v-else name="homeOutline" size="30"></Icon>
       </div>
     </router-link>
     <router-link class="grow" :to="`/${locale}/search`">
       <div class="flex items-center justify-center space-x-16 px-12 py-16">
-        <Icon v-if="atSearch" name="search" size="20"></Icon>
-        <Icon v-else name="searchOutline" size="20"></Icon>
+        <Icon v-if="atSearch" name="search" size="30"></Icon>
+        <Icon v-else name="searchOutline" size="30"></Icon>
       </div>
     </router-link>
     <Link class="grow" href="/publish" @click="onPublishClick">
@@ -19,14 +19,14 @@
     </Link>
     <router-link class="grow" :to="`/${locale}/message`">
       <div class="flex items-center justify-center space-x-16 px-12 py-16">
-        <Icon v-if="atMessage" name="message" size="20"></Icon>
-        <Icon v-else name="messageOutline" size="20"></Icon>
+        <Icon v-if="atMessage" name="message" size="30"></Icon>
+        <Icon v-else name="messageOutline" size="30"></Icon>
       </div>
     </router-link>
     <router-link class="grow" :to="`/${locale}/mine`">
       <div class="flex items-center justify-center space-x-16 px-12 py-16">
-        <Icon v-if="atMine" name="mine" size="20"></Icon>
-        <Icon v-else name="mineOutline" size="20"></Icon>
+        <Icon v-if="atMine" name="mine" size="30"></Icon>
+        <Icon v-else name="mineOutline" size="30"></Icon>
       </div>
     </router-link>
   </nav>
