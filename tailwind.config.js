@@ -34,6 +34,14 @@ export default {
       semibold: '600',
       bold: '700',
     },
+    boxShadow: {
+      input: 'inset 0 -0.0625rem 0.5rem 0 rgba(0,0,0,0.1)',
+      nav: '0 -0.125rem 0.5625rem 0 rgba(0,0,0,0.1)',
+      sm: '0 0 0.1875rem 0 rgba(0,0,0,0.1)', // 0 0 3px
+      md: '0.0625rem 0.0625rem 0.25rem rgba(0,0,0,0.1)', // 1px 1px 4px
+      lg: '0.0625rem 0.0625rem 0.3125rem rgba(0,0,0,0.1)', // 1px 1px 5px
+      none: '0 0 #000',
+    },
     extend: {
       gridTemplateColumns: {
         'auto-fit': 'repeat(auto-fit, minmax(250px, 1fr))',

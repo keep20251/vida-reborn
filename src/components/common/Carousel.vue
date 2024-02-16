@@ -16,20 +16,6 @@
         ></li>
       </ul>
     </div>
-    <div v-if="navigator" class="absolute top-[50%] flex w-full justify-between px-10">
-      <button
-        class="cursor-poimages.value-center flex h-25 w-25 justify-around rounded-full bg-[#ffffffb8] shadow-[0_0_3px_0_rgba(0,0,0,0.3)] outline-none"
-        @click="showPrev"
-      >
-        <Icon name="back" size="16"></Icon>
-      </button>
-      <button
-        class="cursor-poimages.value-center flex h-25 w-25 rotate-180 justify-around rounded-full bg-[#ffffffb8] shadow-[0_0_3px_0_rgba(0,0,0,0.3)] outline-none"
-        @click="showNext"
-      >
-        <Icon name="back" size="16"></Icon>
-      </button>
-    </div>
   </div>
 </template>
 
@@ -38,10 +24,6 @@ import { onActivated, onBeforeUnmount, onDeactivated, onMounted, ref } from 'vue
 
 const props = defineProps({
   intervalTime: {
-    type: Boolean,
-    default: false,
-  },
-  navigator: {
     type: Boolean,
     default: false,
   },

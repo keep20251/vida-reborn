@@ -2,7 +2,7 @@
   <div class="select-none" :class="[{ 'mb-10': isActive, 'mb-30': !isActive }]">
     <div
       @click="() => (isActive = !isActive)"
-      class="relative flex cursor-pointer space-x-10 rounded-xl bg-white px-20 py-15 shadow-[0_0_3px_0_rgba(0,0,0,0.15)]"
+      class="relative flex cursor-pointer space-x-10 rounded-xl bg-white px-20 py-15 shadow-sm"
     >
       <div class="w-100">
         <img :src="media.img" class="h-full w-full rounded object-cover" alt="" />

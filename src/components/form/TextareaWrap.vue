@@ -10,7 +10,7 @@
         :placeholder="placeholder"
         :disabled="disabled"
         :style="{ height }"
-        class="w-full shrink-0 resize-none divide-solid rounded-md border-gray-cc bg-white px-20 py-[0.75rem] text-sm font-normal not-italic leading-3 text-gray-57 shadow-[0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)inset] outline-none placeholder:text-gray-a3"
+        class="w-full shrink-0 resize-none appearance-none divide-solid rounded-md border-gray-cc bg-white px-20 py-[0.75rem] text-sm font-normal not-italic leading-3 text-gray-57 shadow-input outline-none placeholder:text-gray-a3"
       ></textarea>
       <div v-if="errMsg" class="text-left text-sm font-normal not-italic leading-md text-warning">
         {{ errMsg }}

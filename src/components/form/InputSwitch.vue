@@ -6,7 +6,7 @@
       :class="{ 'bg-primary': isChecked, 'bg-gray-e5': !isChecked, 'bg-gray-a3': disabled }"
     >
       <span
-        class="dot h-14 w-14 rounded-full bg-white drop-shadow-[1px_1px_4px_rgba(0,0,0,0.25)] duration-200"
+        class="dot h-14 w-14 rounded-full bg-white shadow-md duration-200"
         :class="{ 'translate-x-15': isChecked }"
       ></span>
     </span>

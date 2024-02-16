@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="flex h-74 w-full items-center justify-between rounded-xl px-20 py-18 shadow-[0_0_0.375rem_0_rgba(0,0,0,0.15)inset]"
-  >
+  <div class="flex h-74 w-full items-center justify-between rounded-xl px-20 py-18 shadow-lg">
     <div class="flex flex-col">
       <p class="pa-0">{{ item.name }}</p>
       <p class="pa-0">
