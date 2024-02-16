@@ -19,7 +19,7 @@
 
 <script setup>
 import debounce from 'lodash/debounce'
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useSearchStore } from '@/store/search'
@@ -29,14 +29,18 @@ import InputWrap from '@comp/form/InputWrap.vue'
 const { t: $t } = useI18n()
 
 const props = defineProps({
-  modelValue: { type: String, default: '' },
+  inputValue: { type: String, default: '' },
   logo: { type: Boolean, default: false },
   featureIcon: { type: String },
   toSearch: { type: Boolean, default: false },
 })
 const emits = defineEmits(['feature', 'search'])
 
-const input = ref('')
+const input = ref(props.inputValue)
+watch(
+  () => props.inputValue,
+  (v) => (input.value = v),
+)
 
 const searchStore = useSearchStore()
 const { historyTags } = storeToRefs(searchStore)
