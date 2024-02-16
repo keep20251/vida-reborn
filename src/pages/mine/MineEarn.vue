@@ -14,7 +14,9 @@
   </router-link>
   <div class="mt-30 text-base font-bold leading-md">{{ $t('content.dataDashboard') }}</div>
 
-  <Tab v-model="tab" :options="tabOptions" class="!h-35"> </Tab>
+  <div class="sticky top-52 z-10 h-35 bg-white">
+    <Tab v-model="tab" :options="tabOptions"></Tab>
+  </div>
   <div v-if="tab === 1">
     <div class="grid space-y-40">
       <div class="mt-20 flex items-center justify-center space-x-20 px-20">
@@ -63,13 +65,13 @@
   <div v-else-if="tab === 2">
     <div class="mb-10 mt-20 flex items-center justify-center space-x-20 px-20">
       <div
-        class="flex w-full cursor-pointer items-center justify-center rounded-full bg-gray-f6 py-6 text-base font-normal leading-md"
+        class="flex cursor-pointer items-center justify-center rounded-full bg-gray-f6 px-32 py-6 text-base font-normal leading-md"
       >
         2023-12-31
       </div>
       <div><Icon name="calendar" size="20"></Icon></div>
       <div
-        class="flex w-full cursor-pointer items-center justify-center rounded-full bg-gray-f6 py-6 text-base font-normal leading-md"
+        class="flex cursor-pointer items-center justify-center rounded-full bg-gray-f6 px-32 py-6 text-base font-normal leading-md"
       >
         2023-12-31
       </div>
@@ -92,6 +94,54 @@ const tabOptions = ref([
 ])
 
 const medias = ref([
+  {
+    img: 'https://i.postimg.cc/tJZ8B7tL/3fa5f2a5d3f7f8ba457f2376adc2b5ba.jpg',
+    title: 'New season! Welcome to my channel!',
+    comment: 289,
+    like: 113,
+    share: 94,
+    numberViews: 999,
+    watchDaily: 198,
+    collect: 3029,
+    numberPurchases: 1359,
+    periodIncome: 83030,
+  },
+  {
+    img: 'https://i.postimg.cc/tJZ8B7tL/3fa5f2a5d3f7f8ba457f2376adc2b5ba.jpg',
+    title: 'New season! Welcome to my channel!',
+    comment: 289,
+    like: 113,
+    share: 94,
+    numberViews: 999,
+    watchDaily: 198,
+    collect: 3029,
+    numberPurchases: 1359,
+    periodIncome: 83030,
+  },
+  {
+    img: 'https://i.postimg.cc/tJZ8B7tL/3fa5f2a5d3f7f8ba457f2376adc2b5ba.jpg',
+    title: 'New season! Welcome to my channel!',
+    comment: 289,
+    like: 113,
+    share: 94,
+    numberViews: 999,
+    watchDaily: 198,
+    collect: 3029,
+    numberPurchases: 1359,
+    periodIncome: 83030,
+  },
+  {
+    img: 'https://i.postimg.cc/tJZ8B7tL/3fa5f2a5d3f7f8ba457f2376adc2b5ba.jpg',
+    title: 'New season! Welcome to my channel!',
+    comment: 289,
+    like: 113,
+    share: 94,
+    numberViews: 999,
+    watchDaily: 198,
+    collect: 3029,
+    numberPurchases: 1359,
+    periodIncome: 83030,
+  },
   {
     img: 'https://i.postimg.cc/tJZ8B7tL/3fa5f2a5d3f7f8ba457f2376adc2b5ba.jpg',
     title: 'New season! Welcome to my channel!',

@@ -1,5 +1,7 @@
 <template>
-  <Tab v-model="tab" :options="tabOptions" class="!h-35"></Tab>
+  <div class="sticky top-52 z-10 h-35 bg-white">
+    <Tab v-model="tab" :options="tabOptions"></Tab>
+  </div>
   <div v-show="tab === MINE_BUY_TAB.TRANSACTION">
     <TransactionList></TransactionList>
   </div>
