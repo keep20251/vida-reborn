@@ -4,7 +4,7 @@
       <Head title="貼文" @back="clearInput"></Head>
     </template>
     <template #default>
-      <div v-if="feed" position="relative">
+      <div v-if="feed">
         <Feed class="mb-24" :item="feed" disable-to-detail disable-content-fold></Feed>
         <List :items="comments" item-key="id">
           <template #default="{ item }">
@@ -18,6 +18,12 @@
           </template>
         </List>
         <div class="sticky bottom-0 w-full bg-white pb-16">
+          <div v-if="replyTo" class="flex items-center bg-gray-f6 px-20 py-4">
+            <div class="grow text-sm text-gray-a3">{{ `回覆給@${replyTo.author?.nickname}` }}</div>
+            <div class="cursor-pointer" @click="replyTo = null">
+              <Icon name="close" size="12"></Icon>
+            </div>
+          </div>
           <InputWrap
             v-model="commentInput"
             append-icon-btn="sendWhite"
@@ -33,7 +39,7 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 import { whenever } from '@vueuse/core'
@@ -132,9 +138,7 @@ async function sendComment() {
     return
   }
 
-  const content = replyTo.value
-    ? commentInput.value.substring(getReplyTag(replyTo.value).length)
-    : commentInput.value.trim()
+  const content = commentInput.value.trim()
 
   if (!content) {
     return
@@ -176,25 +180,7 @@ async function onCommentToggleLike(comment) {
   }
 }
 function onCommentReply(comment) {
-  if (replyTo.value) {
-    commentInput.value = `${getReplyTag(comment)}${commentInput.value.substring(getReplyTag(replyTo.value).length)}`
-    replyTo.value = null
-  } else {
-    commentInput.value = `${getReplyTag(comment)}${commentInput.value}`
-  }
-  requestAnimationFrame(() => (replyTo.value = comment))
-}
-watch(commentInput, (v) => {
-  if (replyTo.value) {
-    const replyTag = getReplyTag(replyTo.value)
-    if (!v.startsWith(replyTag)) {
-      commentInput.value = commentInput.value.substring(replyTag.length - 1)
-      replyTo.value = null
-    }
-  }
-})
-function getReplyTag(comment) {
-  return `@${comment.author?.nickname} `
+  replyTo.value = comment
 }
 function clearInput() {
   commentInput.value = ''
