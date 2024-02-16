@@ -22,7 +22,7 @@
             'pr-52': !!appendIconBtn,
             'pr-48': !!password,
           }"
-          class="h-35 w-full shrink-0 divide-solid rounded-2xl border-gray-cc bg-white px-20 py-12 text-sm font-normal not-italic leading-3 text-gray-57 shadow-[inset_0_-0.0625rem_0.5rem_0_rgba(0,0,0,0.1)] outline-none placeholder:text-sm placeholder:text-gray-a3"
+          class="h-35 w-full shrink-0 appearance-none divide-solid rounded-2xl border-gray-cc bg-white px-20 py-12 text-sm font-normal not-italic leading-3 text-gray-57 shadow-input outline-none placeholder:text-sm placeholder:text-gray-a3"
           @keypress.enter="emits('keypress:enter')"
         />
         <Icon
@@ -55,7 +55,7 @@
         </div>
         <div
           v-if="!!appendIconBtn"
-          class="absolute right-5 flex h-30 w-40 cursor-pointer items-center justify-center rounded-xl bg-primary px-6 py-10 text-center text-base font-bold leading-md text-white shadow-[0_0.125rem_0.25rem_0_rgba(0,0,0,0.25)]"
+          class="absolute right-5 flex h-30 w-40 cursor-pointer items-center justify-center rounded-xl bg-primary px-6 py-10 text-center text-base font-bold leading-md text-white shadow-md"
           @click="emits('click:append')"
         >
           <Icon size="20" :name="appendIconBtn" class="text-white"></Icon>

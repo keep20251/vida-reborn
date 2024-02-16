@@ -8,7 +8,7 @@
     </div>
     <div
       v-bind="containerProps"
-      class="scrollbar absolute z-10 flex max-h-[300px] w-full flex-col overflow-auto rounded-xl bg-white shadow-[1px_1px_5px_0px_rgba(0,0,0,0.1)] transition-transform"
+      class="scrollbar absolute z-10 flex max-h-[300px] w-full flex-col overflow-auto rounded-xl bg-white shadow-lg transition-transform"
       :class="[{ 'scale-y-0': !open, 'scale-y-100': open }, optionStyle]"
     >
       <div v-bind="wrapperProps">
@@ -47,12 +47,12 @@ const emits = defineEmits(['update:modelValue'])
 
 const style = computed(() => {
   if (props.inset) {
-    return 'h-36 px-20 py-12 rounded-2xl border-gray-cc shadow-[inset_0_-1px_8px_0_rgba(0,0,0,0.1)]'
+    return 'h-36 px-20 py-12 rounded-2xl border-gray-cc shadow-input appearance-none'
   }
   if (props.shadowNone) {
     return 'px-15 py-5 rounded-xl shadow-none'
   }
-  return `py-5 rounded-xl shadow-[0_0_3px_0_rgba(0,0,0,0.1)]`
+  return `py-5 rounded-xl shadow-sm`
 })
 
 const dropdown = ref(null)
