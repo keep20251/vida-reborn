@@ -222,6 +222,7 @@ export default {
     subStyle: "",
     customStyle: "",
     subUnlockDayAfter: "",
+    tokenExpired: "La sesión de inicio de sesión ha caducado, inicie sesión nuevamente.",
   },
   month: {
     Jan: "Enero",

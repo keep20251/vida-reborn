@@ -222,6 +222,7 @@ export default {
     subStyle: "",
     customStyle: "",
     subUnlockDayAfter: "",
+    tokenExpired: "Sesi login telah berakhir, silakan login kembali.",
   },
   month: {
     Jan: "Januari",

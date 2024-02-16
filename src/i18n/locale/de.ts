@@ -224,6 +224,7 @@ export default {
     subStyle: "",
     customStyle: "",
     subUnlockDayAfter: "",
+    tokenExpired: "Die Anmeldesitzung ist abgelaufen. Bitte melden Sie sich erneut an.",
   },
   month: {
     Jan: "Januar",

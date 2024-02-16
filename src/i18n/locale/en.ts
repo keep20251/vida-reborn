@@ -222,6 +222,7 @@ export default {
     subStyle: "Subscription style",
     customStyle: "Custom style",
     subUnlockDayAfter: "Does unlocking allow the past few days since purchase?",
+    tokenExpired: "登录时效已过期，请重新登录。",
   },
   month: {
     Jan: "January",

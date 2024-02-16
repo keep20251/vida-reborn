@@ -224,6 +224,7 @@ export default {
     subStyle: "",
     customStyle: "",
     subUnlockDayAfter: "",
+    tokenExpired: "A sessão de login expirou, faça login novamente.",
   },
   month: {
     Jan: "Janeiro",

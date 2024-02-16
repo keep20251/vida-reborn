@@ -219,6 +219,7 @@ export default {
     subStyle: "",
     customStyle: "",
     subUnlockDayAfter: "",
+    tokenExpired: "ログインセッションの有効期限が切れました。再度ログインしてください。",
   },
   month: {
     Jan: "1月",

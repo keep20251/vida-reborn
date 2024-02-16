@@ -1,3 +1,5 @@
+import { useAccountStore } from '@/store/account'
+import { useModalStore } from '@/store/modal'
 import { Decrypt } from '@/utils/crypto-data'
 import TokenInvalidError from '@/errors/TokenInvalidError'
 
@@ -17,6 +19,10 @@ export default function (response) {
 
   // 未授權
   else if (processedData.status === 422) {
+    if (!import.meta.env.SSR) {
+      useAccountStore().logout()
+      useModalStore().alert({ title: 'content.tokenExpired' })
+    }
     return Promise.reject(new TokenInvalidError(processedData.msg))
   }
 

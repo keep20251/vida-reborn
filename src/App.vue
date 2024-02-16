@@ -47,7 +47,7 @@ loadSeoHead()
 const { authDialog, fileSelectDialog, subPlanDialog } = storeToRefs(useDialogStore())
 
 const accountStore = useAccountStore()
-const { resetUserData } = accountStore
+const { resetUserData, logout } = accountStore
 const { token } = storeToRefs(accountStore)
 
 const hydrationStore = useHydrationStore()
@@ -74,7 +74,7 @@ const execTable = {
 onServerClientOnce(async (isSSR) => {
   const executors = token.value ? [...execTable.base, ...execTable.login] : [...execTable.base]
   try {
-    const datas = await Promise.all(executors.map((e) => e.fetcher()))
+    const datas = await Promise.allSettled(executors.map((e) => e.fetcher()))
     if (isSSR) {
       executors.forEach(({ hydrationTarget }, i) => {
         hydrationTarget.value = datas[i]
@@ -86,9 +86,16 @@ onServerClientOnce(async (isSSR) => {
 })
 onHydration(() => {
   const executors = token.value ? [...execTable.base, ...execTable.login] : [...execTable.base]
-  executors.forEach(({ name, hydrationAction, hydrationTarget }, i) => {
-    hydrationAction(hydrationTarget.value)
-    console.log('[Hydration]', name, 'is reverted', hydrationTarget.value)
-  })
+  for (const { name, hydrationAction, hydrationTarget } of executors) {
+    const { status, value, reason } = hydrationTarget.value
+    if (status === 'fulfilled') {
+      hydrationAction(value)
+      console.log('[Hydration]', name, 'is reverted', value)
+    } else {
+      logout()
+      console.log('[Hydration]', name, 'is rejected', reason)
+      break
+    }
+  }
 })
 </script>
