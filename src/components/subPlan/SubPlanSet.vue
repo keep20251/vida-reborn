@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-full w-full flex-col">
-    <div class="relative text-center py-30 rounded-t-xl">
+    <div class="relative rounded-t-xl py-30 text-center">
       <div class="absolute left-0 top-1/3 pl-20 pt-4">
         <button @click="back" :history="history" :show-back="showBack">
           <Icon name="back"></Icon>
@@ -9,23 +9,51 @@
       <div class="text-lg font-bold leading-5">
         {{ addSubPlan ? $t('label.add') : $t('label.edit') }}{{ $t('info.subscribeSetting') }}
       </div>
-      <button v-if="!addSubPlan" @click="delSubPlan" class="absolute right-0 pr-20 top-1/3 pt-4">
+      <button v-if="!addSubPlan" @click="delSubPlan" class="absolute right-0 top-1/3 pr-20 pt-4">
         <Icon name="bin"></Icon>
       </button>
     </div>
-    <div class="px-25 overflow-y-scroll scrollbar-md mr-15 max-h-[65vh]">
+    <div class="scrollbar-md mr-15 max-h-[65vh] overflow-y-scroll px-25">
       <div class="flex flex-col space-y-10">
         <div class="flex flex-row items-start space-x-5">
-          <div class="text-base leading-md font-normal">{{ $t('content.subStyle') }}</div>
-          <div class="text-gray-57 text-sm">3/10</div>
+          <div class="text-base font-normal leading-md">{{ $t('content.subStyle') }}</div>
+          <div class="text-sm text-gray-57">3/10</div>
         </div>
-        <div class="flex justify-between items-center">
-          <div class="flex flex-col text-gray-57 text-sm space-y-2">
+        <div class="flex items-center justify-between">
+          <div class="flex flex-col space-y-2 text-sm text-gray-57">
             <div class="leading-3">{{ $t('info.recFormat') }}</div>
             <div class="leading-3">{{ $t('info.uploadCapacityLimit') }}</div>
           </div>
           <div>
-            <Button contrast size="md" class="w-max">{{ $t('content.customStyle') }}</Button>
+            <Button @click="() => inputImage.click()" contrast size="md" class="w-max">{{
+              $t('content.customStyle')
+            }}</Button>
+            <input
+              ref="inputImage"
+              type="file"
+              accept="image/jpg, image/jpeg, image/png, image/gif"
+              @change="(event) => handleFileUpload(event)"
+              hidden
+              multiple
+            />
+          </div>
+        </div>
+        <div class="grid grid-cols-3 gap-10">
+          <div v-for="(item, index) in uploadFiles" class="relative overflow-hidden rounded-sm pb-[64%]" :key="index">
+            <div class="absolute top-0 h-full w-full">
+              <EncryptImage :src="item" cover="true"></EncryptImage>
+              <!-- <img :src="item" class="h-full w-full rounded-sm object-cover" /> -->
+            </div>
+            <!-- <div
+              class="absolute top-0 h-full w-full origin-right bg-white opacity-60 will-change-transform"
+              :style="{ transform: `scaleX(${1 - file.progress})` }"
+            ></div> -->
+            <div
+              class="absolute right-10 top-10 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-white"
+              @click="removeUploadFile(file.id)"
+            >
+              <Icon name="close" size="10"></Icon>
+            </div>
           </div>
         </div>
       </div>
@@ -84,7 +112,7 @@
         </div> -->
       </div>
     </div>
-    <div class="py-30 px-25">
+    <div class="px-25 py-30">
       <Button @click="onSubmit" size="lg">{{ addSubPlan ? $t('label.submit') : $t('common.save') }}</Button>
     </div>
   </div>
@@ -93,17 +121,44 @@
 <script setup>
 import { computed, onMounted, ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
+import { useAppStore } from '@/store/app'
 import { useSubPlanStore } from '@/store/sub-plan'
 import Button from '@comp/common/Button.vue'
-import InputRadio from '@comp/form/InputRadio.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
 import useRequest from '@use/request'
+import uploadImage from '@/http/upload/uploadImage'
+
+const inputImage = ref(null)
+const { appConfig } = useAppStore()
+const uploadFiles = ref([])
+
+const handleFileUpload = async (event) => {
+  const files = event.target.files
+  if (!files || files.length === 0) return
+
+  for (const file of files) {
+    try {
+      const url = await uploadImage(file, (progress) => {
+        console.log('上傳圖片:', progress)
+      })
+      uploadFiles.value.push(appConfig.config.img_url + url)
+    } catch (error) {
+      console.error('上傳錯誤', error)
+    }
+  }
+}
 
 const subPlanStore = useSubPlanStore()
 const { back, close } = subPlanStore
 const { history, data, index, addSubPlan, subPlanName, subPlanContent, subPlanPrice, subUnlockDayAfter, subId } =
   storeToRefs(subPlanStore)
 const showBack = computed(() => history.value.length > 0)
+
+// const uploadFiles = ref([
+//   { id: 1, result: 'https://i.postimg.cc/PJjSTDM3/sub-Style-1.png', progress: 100 },
+//   { id: 2, result: 'https://i.postimg.cc/PJjSTDM3/sub-Style-2.png', progress: 100 },
+//   { id: 3, result: 'https://i.postimg.cc/PJjSTDM3/sub-Style-3.png', progress: 100 },
+// ])
 
 // const selectedValue = ref(0)
 // const wrapValue = ref(0)
