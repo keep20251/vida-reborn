@@ -17,7 +17,9 @@
       <div class="flex flex-col space-y-10">
         <div class="flex flex-row items-start space-x-5">
           <div class="text-base font-normal leading-md">{{ $t('content.subStyle') }}</div>
-          <div class="text-sm text-gray-57">3/10</div>
+          <div class="text-sm text-gray-57">
+            {{ `${uploadFiles.length + 3}/${IMAGE_LIMIT_COUNT}` }}
+          </div>
         </div>
         <div class="flex items-center justify-between">
           <div class="flex flex-col space-y-2 text-sm text-gray-57">
@@ -39,18 +41,39 @@
           </div>
         </div>
         <div class="grid grid-cols-3 gap-10">
-          <div v-for="(item, index) in uploadFiles" class="relative overflow-hidden rounded-sm pb-[64%]" :key="index">
-            <div class="absolute top-0 h-full w-full">
-              <EncryptImage :src="item" cover="true"></EncryptImage>
-              <!-- <img :src="item" class="h-full w-full rounded-sm object-cover" /> -->
+          <div
+            v-for="(item, index) in defaultImg"
+            :key="index"
+            :class="[
+              { ' border-primary shadow-xl': selDefaultItem === item, 'border-transparent': selDefaultItem !== item },
+            ]"
+            class="relative overflow-hidden rounded-sm border-2 pb-[64%]"
+          >
+            <div @click="selDefaultImg(item)" class="absolute top-0 h-full w-full cursor-pointer">
+              <img :src="item" class="h-full w-full object-cover" />
             </div>
-            <!-- <div
+          </div>
+          <div
+            v-for="(item, index) in uploadFiles"
+            :key="index"
+            :class="[
+              {
+                ' border-primary shadow-xl': selUploadItem === item.result,
+                'border-transparent': selUploadItem !== item.result,
+              },
+            ]"
+            class="relative overflow-hidden rounded-sm border-2 pb-[64%]"
+          >
+            <div @click="selUploadImg(item)" class="absolute top-0 h-full w-full cursor-pointer">
+              <EncryptImage :src="item.result" cover rounded></EncryptImage>
+            </div>
+            <div
               class="absolute top-0 h-full w-full origin-right bg-white opacity-60 will-change-transform"
-              :style="{ transform: `scaleX(${1 - file.progress})` }"
-            ></div> -->
+              :style="{ transform: `scaleX(${1 - item.progress})` }"
+            ></div>
             <div
               class="absolute right-10 top-10 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-white"
-              @click="removeUploadFile(file.id)"
+              @click="removeUploadFile(index)"
             >
               <Icon name="close" size="10"></Icon>
             </div>
@@ -126,39 +149,14 @@ import { useSubPlanStore } from '@/store/sub-plan'
 import Button from '@comp/common/Button.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
 import useRequest from '@use/request'
+import { IMAGE_LIMIT_COUNT } from '@const/publish'
 import uploadImage from '@/http/upload/uploadImage'
-
-const inputImage = ref(null)
-const { appConfig } = useAppStore()
-const uploadFiles = ref([])
-
-const handleFileUpload = async (event) => {
-  const files = event.target.files
-  if (!files || files.length === 0) return
-
-  for (const file of files) {
-    try {
-      const url = await uploadImage(file, (progress) => {
-        console.log('上傳圖片:', progress)
-      })
-      uploadFiles.value.push(appConfig.config.img_url + url)
-    } catch (error) {
-      console.error('上傳錯誤', error)
-    }
-  }
-}
 
 const subPlanStore = useSubPlanStore()
 const { back, close } = subPlanStore
 const { history, data, index, addSubPlan, subPlanName, subPlanContent, subPlanPrice, subUnlockDayAfter, subId } =
   storeToRefs(subPlanStore)
 const showBack = computed(() => history.value.length > 0)
-
-// const uploadFiles = ref([
-//   { id: 1, result: 'https://i.postimg.cc/PJjSTDM3/sub-Style-1.png', progress: 100 },
-//   { id: 2, result: 'https://i.postimg.cc/PJjSTDM3/sub-Style-2.png', progress: 100 },
-//   { id: 3, result: 'https://i.postimg.cc/PJjSTDM3/sub-Style-3.png', progress: 100 },
-// ])
 
 // const selectedValue = ref(0)
 // const wrapValue = ref(0)
@@ -190,6 +188,62 @@ watch(index, (newIndex) => {
     subId.value = data.value[index.value].id
   }
 })
+
+// 等待 UI 圖片整理完成
+const defaultImg = ref([
+  'https://images.pexels.com/photos/764368/pexels-photo-764368.jpeg',
+  'https://images.pexels.com/photos/3782766/pexels-photo-3782766.jpeg',
+  'https://images.pexels.com/photos/3226837/pexels-photo-3226837.jpeg',
+])
+const inputImage = ref(null)
+const { appConfig } = useAppStore()
+const uploadFiles = ref([])
+const selDefaultItem = ref(defaultImg.value[0])
+const selUploadItem = ref(null)
+
+const selDefaultImg = (item) => {
+  selDefaultItem.value = item
+  if (selUploadItem.value !== null) {
+    selUploadItem.value = null
+  }
+  console.log('你選了', selDefaultItem.value)
+}
+const selUploadImg = (item) => {
+  selUploadItem.value = item.result
+  if (selDefaultItem.value !== null) {
+    selDefaultItem.value = null
+  }
+  console.log('你選了', selUploadItem.value)
+}
+
+const handleFileUpload = async (event) => {
+  const files = event.target.files
+  if (!files || files.length === 0) return
+
+  const totalFiles = uploadFiles.value.length + files.length
+
+  if (totalFiles > 7) {
+    alert('最多上傳10張圖')
+    return
+  }
+
+  for (const file of files) {
+    try {
+      const progress = ref(0)
+      const url = await uploadImage(file, (p) => {
+        progress.value = p
+      })
+      uploadFiles.value.push({ result: appConfig.config.img_url + url, progress })
+      console.log(uploadFiles.value, '小次郎')
+    } catch (error) {
+      console.error('上傳錯誤', error)
+    }
+  }
+}
+
+const removeUploadFile = (index) => {
+  uploadFiles.value.splice(index, 1)
+}
 
 const delSubPlan = async () => {
   console.log('刪除這篇訂閱方案')
