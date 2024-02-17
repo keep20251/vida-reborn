@@ -1,6 +1,6 @@
 export default {
   // 訂閱創作者方案
-  sub: { method: 'post', url: '/api/payment/subscriptionCreator' },
+  sub: { method: 'post', url: '/api/payment/subscriptionCreater' },
 
   // 購買帖子
   buy: { method: 'post', url: '/api/payment/buyPost' },

@@ -29,7 +29,8 @@ import { storeToRefs } from 'pinia'
 import { useModalStore } from '@/store/modal'
 import { useSubsciptionStore } from '@/store/subscription'
 import SubscribeCard from '@comp/card/SubscribeCard.vue'
-import { MODAL_TYPE } from '@const'
+import { usePayment } from '@use/payment'
+import { CONSUME_TYPE, MODAL_TYPE } from '@const'
 import BaseDialog from './BaseDialog.vue'
 
 const store = useSubsciptionStore()
@@ -45,6 +46,16 @@ function openSubscribeDialog(item) {
     imageTitle: item.picture,
     content: item,
     confirmText: $t('common.subscribe'),
+    confirmAction: async (data) => {
+      const { pay } = usePayment()
+      await pay({
+        api: 'Payment.sub',
+        data: { item_id: item.id },
+        newWindow: data.window,
+        paymentType: CONSUME_TYPE.SUBSCRIBE,
+        amount: 0,
+      })
+    },
     showClose: true,
     gradientConfirm: true,
   })

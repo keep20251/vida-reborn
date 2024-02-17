@@ -170,3 +170,11 @@ export const GET_ARTICLE_COLLECT = {
   UNLOCKED: 0,
   NOT_UNLOCKED: 1,
 }
+
+// 消費類型
+export const CONSUME_TYPE = {
+  REWARD: 1,
+  SUBSCRIBE: 5,
+  SHOP_BUY: 10,
+  UNLOCK: 15,
+}

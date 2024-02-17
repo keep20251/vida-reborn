@@ -109,3 +109,14 @@ export const getCurrentDate = () => {
   const today = new Date()
   return today.toISOString().split('T')[0]
 }
+
+/**
+ * 傳入一個物件，根據 key-value 拼湊成 query string
+ * @param {object} obj
+ * @returns
+ */
+export const toQueryString = (obj) => {
+  const params = new URLSearchParams()
+  Object.keys(obj).forEach((key) => params.append(key, obj[key]))
+  return params.toString()
+}
