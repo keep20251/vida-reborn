@@ -1,17 +1,18 @@
-import { ref } from 'vue'
-import { useI18n } from 'vue-i18n'
-import { usePopupDialogStore } from '@/store/popup-dialog'
-import { usePopupMessageStore } from '@/store/popup-message'
-import { CONSUME_TYPE } from '@const'
-import { notifyBuy, notifyCampaign, notifySub } from '@/utils/state-broadcast'
-import { trackEvent } from '@/gtm'
+import { reactive, ref } from 'vue'
+import { useModalStore } from '@/store/modal'
+// import { notifyBuy, notifyCampaign, notifySub } from '@/utils/state-broadcast'
+import { toQueryString } from '@/utils/string-helper'
+import useRequest from '@/compositions/request'
+import { CONSUME_TYPE } from '@/constant'
+// import { trackEvent } from '@/gtm'
 import API from '@/http'
-import { sendDonateMessage } from '@/ws'
+
+// import { $t } from '@/i18n'
+
+// import { sendDonateMessage } from '@/ws'
 
 export function usePayment() {
-  const { t: $t } = useI18n()
-  const { open } = usePopupMessageStore()
-  const { close } = usePopupDialogStore()
+  const { close } = useModalStore()
 
   const frequency = 5000 // 5 秒輪詢一次
   const timeout = 1000 * 60 * 5 // 5 分鐘
@@ -20,41 +21,66 @@ export function usePayment() {
   const isContinue = ref(true)
   let window
 
+  const actions = reactive({
+    onSuccess: null,
+    onFailure: null,
+    onCancel: null,
+  })
+
   /**
    * 支付程序
-   * @param {Function} api
+   * @param {String} api apiKey
    * @param {Object} data Payload
    * @param {String} paymentType 打賞: 1, 訂閱: 5, 購買項目: 10
    */
-  async function pay(api, data, paymentType, newWindow, userUUID, amount, callback = null) {
+  async function pay({
+    api,
+    data,
+    paymentType,
+    newWindow,
+    userUUID = null,
+    amount,
+    onSuccess = null,
+    onFailure = null,
+    onCancel = null,
+  } = {}) {
     try {
       window = newWindow
-      const response = await api({ data })
+      actions.onSuccess = onSuccess
+      actions.onFailure = onFailure
+      actions.onCancel = onCancel
+
+      const response = await useRequest(api, { params: data, immediate: true })
       console.log('create payment response:', response)
-      if (response.order_no && response.pay_url) {
-        window.location = response.pay_url
-        const key = getGtmKey(paymentType)
-        const meta = getMeta(paymentType, data)
-        const gtmData = { value: amount, meta }
-        trackEvent({ key, ...gtmData })
-        fetchPollingResult(
-          getPollingAPI(paymentType),
-          response.order_no,
-          data,
-          paymentType,
-          userUUID,
-          gtmData,
-          callback,
-        )
-      } else {
+      if (!response.order_no || !response.pay_url) {
         throw new Error('Order number or payment callback url is missing')
       }
+
+      window.location = response.post_data
+        ? `/payment.html?${toQueryString({ ...response.post_data, POST_URL: encodeURIComponent(response.pay_url) })}`
+        : response.pay_url
+
+      // const key = getGtmKey(paymentType)
+      // const meta = getMeta(paymentType, data)
+      // const gtmData = { value: amount, meta }
+      // trackEvent({ key, ...gtmData })
+
+      // TODO 後端的輪詢API還沒好，暫時先註解掉
+      // isContinue.value = true
+      // fetchPollingResult({
+      //   api: getPollingAPI(paymentType),
+      //   orderNo: response.order_no,
+      //   payload: data,
+      //   paymentType,
+      //   userUUID,
+      //   // gtmData,
+      // })
     } catch (e) {
       console.error('[Payment Error]', e)
       setTimeout(() => {
         window.close()
         close()
-        open($t('message.payment.failed') + e)
+        console.error(e)
       }, 1500)
     }
   }
@@ -64,63 +90,78 @@ export function usePayment() {
    * @param {Function} api
    * @param {String} orderNo 訂單編號
    */
-  const fetchPollingResult = async (api, orderNo, payload, paymentType, userUUID, gtmData, callback = null) => {
+  const fetchPollingResult = async ({ api, orderNo, payload, paymentType, userUUID, gtmData = null } = {}) => {
+    console.log('[fetchPollingResult] isContinue.value', isContinue.value)
     if (!isContinue.value) {
-      console.log('Continue is false, stop polling')
+      console.log('[fetchPollingResult] Continue is false, stop polling')
       isContinue.value = true
       return
     }
-    console.log('Continue is true, polling...')
+    console.log('[fetchPollingResult] Continue is true, polling...')
     try {
       if (tick >= timeout) {
         setTimeout(() => {
           close()
-          open($t('message.payment.failed'))
-          trackEvent({ key: 48, ...gtmData })
+          // trackEvent({ key: 48, ...gtmData })
         }, 1500)
         return
       }
       const response = await api({ data: { order_no: orderNo } })
-      console.log('Polling Result', response)
+      console.log('[fetchPollingResult] Polling Result', response)
+      console.log('[fetchPollingResult] MODE', import.meta.env.MODE)
 
-      if (response.success || import.meta.env.DEV) {
+      if (response.success) {
         close()
-        open($t('message.payment.success'))
-        trackEvent({ key: 47, ...gtmData })
+        actions.onSuccess && actions.onSuccess()
+        // trackEvent({ key: 47, ...gtmData })
 
-        if (callback) callback()
-
+        // TODO 暫時先註解掉，還沒走到同步資料的階段
         // 廣播通知
-        switch (paymentType) {
-          case CONSUME_TYPE.REWARD:
-            sendDonateMessage(payload.message, userUUID, payload.aff, payload.amount)
-            break
-          case CONSUME_TYPE.SUBSCRIBE:
-            notifySub(payload.author_aff)
-            break
-          case CONSUME_TYPE.SHOP_BUY:
-            notifyBuy(payload.id)
-            break
-          case CONSUME_TYPE.UNLOCK:
-            notifyCampaign()
-            break
-          default:
-            throw new Error('Payment Type Error')
-        }
+        // switch (paymentType) {
+        //   case CONSUME_TYPE.REWARD:
+        //     sendDonateMessage(
+        //       payload.message ?? import.meta.env.VITE_DONATE_DEFAULT_MESSAGE,
+        //       userUUID,
+        //       payload.aff,
+        //       payload.amount,
+        //     )
+        //     break
+        //   case CONSUME_TYPE.SUBSCRIBE:
+        //     notifySub(payload.author_aff)
+        //     break
+        //   case CONSUME_TYPE.SHOP_BUY:
+        //     notifyBuy(payload.id)
+        //     break
+        //   case CONSUME_TYPE.UNLOCK:
+        //     notifyCampaign()
+        //     break
+        //   default:
+        //     throw new Error('Payment Type Error')
+        // }
       } else {
-        console.log('Polling Pending...')
+        console.log('[fetchPollingResult] Polling Pending...')
         setTimeout(() => {
-          fetchPollingResult(api, orderNo)
+          fetchPollingResult({
+            api,
+            orderNo,
+            payload,
+            paymentType,
+            userUUID,
+            gtmData,
+          })
           tick += frequency
         }, frequency)
       }
-
-      // case PAYMENT_STATUS.FAILED:
-      // open($t('message.payment.failed'))
-      // trackEvent({ key: 48, ...gtmData })
     } catch (e) {
-      trackEvent({ key: 48, ...gtmData })
-      console.error('Polling Failed...', e)
+      // trackEvent({ key: 48, ...gtmData })
+      actions.onFailure && actions.onFailure()
+      console.error('[fetchPollingResult] Polling Failed...', e)
+      isContinue.value = false
+      setTimeout(() => {
+        window.close()
+        close()
+        console.error(e)
+      }, 1500)
     }
   }
 
@@ -130,7 +171,6 @@ export function usePayment() {
    * @returns
    */
   const getPollingAPI = (paymentType) => {
-    console.log('paymentType', paymentType)
     switch (paymentType) {
       case CONSUME_TYPE.REWARD:
         return API.Home.rewardCheck
@@ -178,7 +218,7 @@ export function usePayment() {
   const cancel = () => {
     isContinue.value = false
     if (window) window.close()
-    open($t('message.payment.cancel'))
+    actions.onCancel && actions.onCancel()
   }
 
   return { pay, cancel }

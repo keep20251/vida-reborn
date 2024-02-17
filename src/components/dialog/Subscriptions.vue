@@ -14,7 +14,7 @@
           <div class="scrollbar-md max-h-[65vh] overflow-y-scroll">
             <div class="flex flex-col divide-y pr-25">
               <div v-for="(item, index) in items" :key="`subscribe-card-${index}`" class="py-20">
-                <SubscribeCard :item="item" @click="openSubscribeDialog"></SubscribeCard>
+                <SubscribeCard :item="item" @click="subscribe(item)"></SubscribeCard>
               </div>
             </div>
           </div>
@@ -24,29 +24,15 @@
   </BaseDialog>
 </template>
 <script setup>
-import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
-import { useModalStore } from '@/store/modal'
 import { useSubsciptionStore } from '@/store/subscription'
 import SubscribeCard from '@comp/card/SubscribeCard.vue'
-import { MODAL_TYPE } from '@const'
+import { useDialog } from '@use/modal'
 import BaseDialog from './BaseDialog.vue'
 
 const store = useSubsciptionStore()
 const { close } = store
 const { items } = storeToRefs(store)
 
-const { open } = useModalStore()
-const { t: $t } = useI18n()
-
-function openSubscribeDialog(item) {
-  open(MODAL_TYPE.SUBSCRIBE, {
-    size: 'sm',
-    imageTitle: item.picture,
-    content: item,
-    confirmText: $t('common.subscribe'),
-    showClose: true,
-    gradientConfirm: true,
-  })
-}
+const { subscribe } = useDialog()
 </script>

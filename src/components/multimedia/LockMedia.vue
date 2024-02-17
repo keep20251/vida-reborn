@@ -9,7 +9,7 @@
     </div>
     <div class="absolute top-0 flex h-full w-full items-center justify-center rounded-inherit">
       <div class="w-3/5">
-        <Button>{{ btnText }}</Button>
+        <Button @click="() => console.log('帖子的資料', item)">{{ btnText }}</Button>
       </div>
     </div>
   </div>
@@ -17,8 +17,10 @@
 
 <script setup>
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import Button from '@comp/common/Button.vue'
 import { FEED_PERM, MEDIA_TYPE } from '@const/publish'
+import { useDialog } from '../../compositions/modal'
 
 const props = defineProps({
   item: { type: Object, required: true },
@@ -44,14 +46,19 @@ const count = computed(() => {
   }
   return ''
 })
+
+const { t: $t } = useI18n()
 const btnText = computed(() => {
-  if (props.item.article_type === FEED_PERM.SUB) {
-    return '訂閱'
-  }
-  if (props.item.article_type === FEED_PERM.BUY) {
-    return '付費'
-  }
-  return ''
+  if (props.item.article_type === FEED_PERM.SUB) return $t('common.subscribe')
+  if (props.item.article_type === FEED_PERM.BUY) return $t('common.shopBuy')
+  throw new Error('未知的帖子類型')
+})
+
+const { subscribe, shopBuy } = useDialog()
+const clickAction = computed(() => {
+  if (props.item.article_type === FEED_PERM.SUB) return subscribe
+  if (props.item.article_type === FEED_PERM.BUY) return shopBuy
+  throw new Error('未知的帖子類型')
 })
 const icon = computed(() => (isVideo.value ? 'videoWhite' : isImage.value ? 'cameraWhite' : ''))
 </script>
