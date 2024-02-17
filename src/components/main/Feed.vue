@@ -22,8 +22,9 @@
     <div class="relative inline-block w-full rounded-md">
       <div class="mt-[60%]"></div>
       <div class="absolute left-0 top-0 h-full w-full rounded-inherit">
-        <VideoWrap v-if="isVideo" :urls="item.url"></VideoWrap>
-        <PhotoSwiper v-if="isImage" :imgs="item.url"></PhotoSwiper>
+        <LockMedia v-if="isLock" :item="item"></LockMedia>
+        <VideoWrap v-if="!isLock && isVideo" :urls="item.url"></VideoWrap>
+        <PhotoSwiper v-if="!isLock && isImage" :imgs="item.url"></PhotoSwiper>
       </div>
     </div>
 
@@ -87,6 +88,7 @@ import { useResizeObserver } from '@vueuse/core'
 import { useFeedStore } from '@/store/feed'
 import Link from '@comp/common/Link.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
+import LockMedia from '@comp/multimedia/LockMedia.vue'
 import PhotoSwiper from '@comp/multimedia/PhotoSwiper.vue'
 import VideoWrap from '@comp/multimedia/VideoWrap.vue'
 import { useRouters } from '@use/routers'
@@ -98,6 +100,8 @@ const props = defineProps({
   disableContentFold: { type: Boolean, default: false },
 })
 
+const isLock = computed(() => !props.item.unlock)
+// const isLock = computed(() => false) // 把鎖拿掉 debug 用
 const isVideo = computed(() => props.item.resource_type === MEDIA_TYPE.VIDEO)
 const isImage = computed(() => props.item.resource_type === MEDIA_TYPE.IMAGE)
 const tags = computed(() => (props.item.tags ? props.item.tags.split(',') : []))
