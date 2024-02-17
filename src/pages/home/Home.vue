@@ -81,9 +81,7 @@ const {
   revert,
   next,
 } = useInfinite('Article.list', {
-  // params: { user_interested: 1, include_my_article: 1 },
-  // params: { filter_by: 2 },
-  // params: { uuid: '2fc10c06ebb3baea2af5524fa3e1ba32' },
+  params: { filter_by: 0, user_interested: 1, include_my_article: 1 },
   transformer: feedStore.sync,
 })
 

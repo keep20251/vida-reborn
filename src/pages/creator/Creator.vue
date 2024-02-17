@@ -80,7 +80,7 @@ async function loadNewCreator() {
   creator.value = null
   try {
     creator.value = await getCreator(route.params.username)
-    await reload({ newParams: { uuid: creator.value.uuid } })
+    await reload({ newParams: { uuid: creator.value.uuid, filter_by: 0 } })
   } catch (e) {
     errMsg.value = e.message
   }

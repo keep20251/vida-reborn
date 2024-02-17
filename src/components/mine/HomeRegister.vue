@@ -59,6 +59,7 @@ const tabOptions = ref([
 
 const feedStore = useFeedStore()
 const { dataList, isLoading, noMore, init, next, revert } = useInfinite('Article.list', {
+  params: { filter_by: 0, user_interested: 1, include_my_article: 1 },
   transformer: feedStore.sync,
 })
 
