@@ -1,29 +1,29 @@
 <template>
   <div class="flex h-full w-full flex-col">
-    <div class="bg-primary text-white relative text-center py-15 px-20 rounded-t-xl">
+    <div class="relative rounded-t-xl bg-primary px-20 py-15 text-center text-white">
       <div class="text-lg font-bold leading-5">{{ $t('info.subscribeSetting') }}</div>
-      <button @click="close" class="absolute right-0 pr-20 top-1/3">
+      <button @click="close" class="absolute right-0 top-1/3 pr-20">
         <Icon name="closeWhite"></Icon>
       </button>
     </div>
-    <div class="px-30 py-20 select-none">
-      <div class="overflow-y-scroll scrollbar-md pr-15 max-h-[65vh]">
-        <div @click="subPlanAdd()" class="text-center text-gray-57 font-bold text-base leading-md cursor-pointer">
+    <div class="select-none px-30 py-20">
+      <div class="scrollbar-md max-h-[65vh] overflow-y-scroll pr-15">
+        <div @click="subPlanAdd()" class="cursor-pointer text-center text-base font-bold leading-md text-gray-57">
           ＋ {{ $t('content.AddNewSubPlan') }}
         </div>
         <List :items="dataList" item-key="id" divider>
           <template #default="{ item, index }">
             <div class="grid space-y-30 py-30">
               <div class="grid space-y-10">
-                <div class="flex justify-between items-end">
-                  <div class="flex items-end flex-row">
-                    <div class="font-bold text-xl leading-xl pr-4">${{ item.price }}</div>
-                    <div class="text-base leading-lg font-normal">/{{ $t('content.month') }}</div>
+                <div class="flex items-end justify-between">
+                  <div class="flex flex-row items-end">
+                    <div class="pr-4 text-xl font-bold leading-xl">${{ item.price }}</div>
+                    <div class="text-base font-normal leading-lg">/{{ $t('content.month') }}</div>
                   </div>
-                  <div class="text-primary font-bold text-base leading-md">{{ item.name }}</div>
+                  <div class="text-base font-bold leading-md text-primary">{{ item.name }}</div>
                 </div>
                 <EncryptImage :src="item.picture" cover :borderRadius="10" :height="260"></EncryptImage>
-                <div class="text-sm text-gray-57 leading-md">{{ item.content }}</div>
+                <div class="text-sm leading-md text-gray-57">{{ item.content }}</div>
                 <Button class="mt-10" @click="subPlanEdit(dataList, index)" gradient>{{ $t('label.edit') }}</Button>
               </div>
             </div>
@@ -40,7 +40,7 @@
   </div>
 </template>
 <script setup>
-import { onActivated, onDeactivated, onMounted, onUnmounted } from 'vue'
+import { onActivated, onDeactivated, onMounted, onUnmounted, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useMineStore } from '@/store/mine'
 import { useSubPlanStore } from '@/store/sub-plan'
@@ -65,26 +65,37 @@ onActivated(() => {
 onDeactivated(() => clearNextFn(next))
 
 const { to, close } = useSubPlanStore()
-const { data, index: i, addSubPlan, subPlanName, subPlanContent, subPlanPrice } = storeToRefs(useSubPlanStore())
+const {
+  data,
+  index: i,
+  addSubPlan,
+  subPlanName,
+  subPlanContent,
+  subPlanPrice,
+  subPicture,
+  subUnlockDayAfter,
+  uploadFiles,
+} = storeToRefs(useSubPlanStore())
 
 function subPlanAdd() {
   to(SUB_PLAN.SET)
   addSubPlan.value = true
-  console.log(addSubPlan.value, '看你是多少')
   subPlanName.value = ''
   subPlanContent.value = ''
   subPlanPrice.value = ''
+  subPicture.value = ''
+  subUnlockDayAfter.value = ''
 }
 
+const lastIndex = ref(null)
 function subPlanEdit(dataList, index) {
   to(SUB_PLAN.SET)
   addSubPlan.value = false
   data.value = dataList
   i.value = index
-  console.log(addSubPlan.value, '看你是多少')
-  console.log(data.value, i.value, '看一下就好')
-  console.log('這是名字：', data.value[index].name)
-  console.log('這是內容：', data.value[index].content)
-  console.log('這是價格：', data.value[index].price)
+  if (lastIndex.value !== null && lastIndex.value === index) {
+    uploadFiles.value.push({ result: data.value[i.value].picture, progress: 1 })
+  }
+  lastIndex.value = index
 }
 </script>
