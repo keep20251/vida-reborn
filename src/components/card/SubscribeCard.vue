@@ -13,17 +13,19 @@
       </div>
       <div>
         <div class="relative text-sm font-medium leading-normal text-gray-a3" @click="() => (fold = !fold)">
-          <p :class="{ 'line-clamp-3': fold, 'pr-[5%]': fold }">{{ props.item.content }}</p>
-          <span v-show="fold" class="absolute bottom-0 right-0 cursor-pointer text-black">{{ $t('common.more') }}</span>
+          <p :class="{ 'line-clamp-3': fold }">{{ props.item.content }}</p>
+          <div v-show="fold" class="absolute bottom-0 right-0 cursor-pointer text-black">{{ $t('common.more') }}</div>
         </div>
       </div>
     </div>
-    <Button gradient>{{ $t('common.subscribe') }}</Button>
+    <Button gradient @click="emit('click', props.item)">{{ $t('common.subscribe') }}</Button>
   </div>
 </template>
 <script setup>
 import { ref } from 'vue'
 import Button from '@comp/common/Button.vue'
+
+const emit = defineEmits(['click'])
 
 const props = defineProps({
   item: {

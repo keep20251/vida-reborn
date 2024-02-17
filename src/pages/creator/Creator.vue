@@ -11,7 +11,7 @@
               <div class="cursor-pointer"><Icon name="comment" size="20"></Icon></div>
               <div class="cursor-pointer"><Icon name="report" size="20"></Icon></div>
               <div class="cursor-pointer"><Icon name="sharePage" size="20"></Icon></div>
-              <Button size="sm" primary>{{ $t('common.subscribe') }}</Button>
+              <Button size="sm" primary @click="open(creator.subscription_list)">{{ $t('common.subscribe') }}</Button>
             </div>
           </template>
         </SelfIntro>
@@ -42,8 +42,10 @@ import { useRoute } from 'vue-router'
 import { whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useCreatorStore } from '@/store/creator'
+import { useDialogStore } from '@/store/dialog'
 import { useFeedStore } from '@/store/feed'
 import { useHydrationStore } from '@/store/hydration'
+import { useSubsciptionStore } from '@/store/subscription'
 import Button from '@comp/common/Button.vue'
 import Error from '@comp/info/Error.vue'
 import Feed from '@comp/main/Feed.vue'
@@ -51,6 +53,8 @@ import SelfIntro from '@comp/main/SelfIntro.vue'
 import Head from '@comp/navigation/Head.vue'
 import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import { useInfinite } from '@use/request/infinite'
+
+const { open } = useSubsciptionStore()
 
 const feedStore = useFeedStore()
 const {

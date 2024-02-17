@@ -38,6 +38,7 @@ export const iconMap = {
   close: 'function/close',
   closeWhite: 'function/close-white',
   collection: 'function/collection',
+  checkPrimary: 'function/check-primary',
   draft: 'function/draft',
   drop: 'function/drop',
   dropdown: 'function/dropdown',

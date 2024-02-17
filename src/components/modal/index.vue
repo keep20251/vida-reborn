@@ -1,26 +1,42 @@
 <template>
   <div v-show="isOpen" class="fixed top-0 z-50 h-full w-full overflow-hidden bg-black bg-opacity-70">
     <div class="flex h-full items-center justify-center">
-      <div class="relative m-100 mx-20 w-full rounded-xl bg-white px-36 py-30" :class="[modalSize]">
+      <div
+        class="relative m-100 mx-20 flex w-full flex-col items-center rounded-xl bg-white px-36 py-30"
+        :class="[modalSize]"
+      >
+        <div v-if="!!title" class="mb-20 text-center font-bold leading-lg" :class="[titleFontSize]">
+          {{ title !== null ? $t(title) : '' }}
+        </div>
+        <div v-if="!!imageTitle" class="absolute -top-50 flex w-full items-center justify-center">
+          <div class="max-w-[180px]">
+            <EncryptImage :src="imageTitle" :border-radius="15"></EncryptImage>
+          </div>
+        </div>
+        <div v-if="!!avatarTitle" class="absolute -top-50 flex w-full items-center justify-center">
+          <EncryptImage :src="avatarTitle" :radius="60" cover></EncryptImage>
+        </div>
         <div v-if="showClose" class="absolute right-20 top-20 cursor-pointer" @click="close">
           <Icon name="close" size="20"></Icon>
         </div>
-        <div class="mb-20 text-center font-bold leading-lg" :class="[titleFontSize]">
-          {{ title !== null ? $t(title) : '' }}
-        </div>
-        <div class="mb-20">
+        <div class="mb-20" :class="{ 'mt-50': !!imageTitle || !!avatarTitle }">
           <keep-alive :max="5">
             <component :is="component" @component:confirm="checkCustomContentData"></component>
           </keep-alive>
         </div>
-        <div class="flex space-x-8">
+        <div class="flex w-full space-x-8">
           <Button v-if="cancelAction" @click="tryExecute(cancelAction)" cancel :disabled="confirming">
             {{ cancelText || $t('common.cancel') }}
           </Button>
           <Button v-if="otherAction" @click="tryExecute(otherAction)" contrast :disabled="confirming">
             {{ otherText || $t('common.getAround') }}
           </Button>
-          <Button v-if="showConfirm" @click="checkCustomContentData" :loading="confirming">
+          <Button
+            v-if="showConfirm"
+            @click="checkCustomContentData"
+            :loading="confirming"
+            :gradient="!!gradientConfirm"
+          >
             {{ confirmText || $t('common.confirm') }}
           </Button>
         </div>
@@ -46,6 +62,8 @@ const {
   type,
   size,
   title,
+  imageTitle,
+  avatarTitle,
   confirmAction,
   confirmText,
   cancelAction,
@@ -54,6 +72,7 @@ const {
   otherText,
   showClose,
   showConfirm,
+  gradientConfirm,
 } = storeToRefs(modalStore)
 const { close, setConfirmData } = modalStore
 
