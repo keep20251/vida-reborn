@@ -1,13 +1,13 @@
 <template>
-  <div class="relative h-full w-full overflow-hidden rounded-inherit">
+  <div class="relative h-full w-full rounded-inherit">
     <EncryptImage :src="url" :border-radius="10" cover></EncryptImage>
-    <div class="absolute top-0 h-full w-full bg-[rgba(0,0,0,0.5)] backdrop-blur">
+    <div class="absolute top-0 h-full w-full rounded-inherit bg-[rgba(0,0,0,0.5)] backdrop-blur">
       <div class="absolute bottom-20 right-20 flex space-x-5">
         <Icon v-if="icon" :name="icon" size="20"></Icon>
         <span class="text-base text-white">{{ count }}</span>
       </div>
     </div>
-    <div class="absolute top-0 flex h-full w-full items-center justify-center">
+    <div class="absolute top-0 flex h-full w-full items-center justify-center rounded-inherit">
       <div class="w-3/5">
         <Button>{{ btnText }}</Button>
       </div>
