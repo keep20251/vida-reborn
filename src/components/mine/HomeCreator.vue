@@ -57,7 +57,7 @@ const { userData } = storeToRefs(useAccountStore())
 
 const feedStore = useFeedStore()
 const { dataList, dataExtra, isLoading, noMore, init, next, reload } = useInfinite('Article.list', {
-  params: { uuid: userData.value?.uuid },
+  params: { uuid: userData.value?.uuid, filter_by: 0 },
   transformer: feedStore.sync,
 })
 

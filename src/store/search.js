@@ -19,7 +19,7 @@ export const useSearchStore = defineStore('search-store', () => {
   const feedStore = useFeedStore()
   const articleFetcher = ref(
     useInfinite('Article.list', {
-      params: {},
+      params: { filter_by: 0, user_interested: 1, include_my_article: 1 },
       transformer: feedStore.sync,
     }),
   )

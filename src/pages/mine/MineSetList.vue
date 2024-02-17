@@ -1,27 +1,25 @@
 <template>
-  <div class="px-20">
-    <div class="flex flex-col space-y-20">
-      <div class="relative flex items-center justify-center border-b">
-        <div class="absolute left-0 flex">
-          <Icon class="-rotate-90" name="back" size="20"></Icon>
-        </div>
-        <div class="py-20">{{ $t('title.mine') }}</div>
+  <div class="flex flex-col space-y-20">
+    <div class="relative flex items-center justify-center border-b">
+      <div class="absolute left-0 flex">
+        <Icon class="-rotate-90" name="back" size="20"></Icon>
       </div>
-      <div v-if="isUser || isCreator" class="flex flex-row space-x-10">
-        <Avatar :src="userData.thumb" :radius="35"></Avatar>
-        <div class="flex flex-col justify-center space-y-5">
-          <div class="text-lg font-bold leading-lg">{{ userData.nickname }}</div>
-          <div class="text-sm font-normal leading-3">@{{ userData.username }}</div>
-          <div v-if="isCreator" class="text-sm font-normal leading-3">
-            {{ userData.subscriber_count }} {{ $t('common.subscribe') }}
-          </div>
-        </div>
-      </div>
-      <Link v-if="isCreator" href="/mine/main">
-        <Button @click="to('mine-main')">{{ $t('common.editPersonalPage') }}</Button>
-      </Link>
-      <SetList></SetList>
+      <div class="py-20">{{ $t('title.mine') }}</div>
     </div>
+    <div v-if="isUser || isCreator" class="flex flex-row space-x-10">
+      <Avatar :src="userData.thumb" :radius="35"></Avatar>
+      <div class="flex flex-col justify-center space-y-5">
+        <div class="text-lg font-bold leading-lg">{{ userData.nickname }}</div>
+        <div class="text-sm font-normal leading-3">@{{ userData.username }}</div>
+        <div v-if="isCreator" class="text-sm font-normal leading-3">
+          {{ userData.subscriber_count }} {{ $t('common.subscribe') }}
+        </div>
+      </div>
+    </div>
+    <Link v-if="isCreator" href="/mine/main">
+      <Button @click="to('mine-main')">{{ $t('common.editPersonalPage') }}</Button>
+    </Link>
+    <SetList></SetList>
   </div>
 </template>
 <script setup>
