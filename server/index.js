@@ -51,6 +51,12 @@ async function createServer(root = process.cwd(), hmrPort = 6173) {
     app.use('/', (await import('serve-static')).default(resolve(`../${resolvePath}/client`), { index: false }))
   }
 
+  app.get('/clear-cache', async (req, res) => {
+    const clear = (await vite.ssrLoadModule('/src/utils/server-config-cache.js')).clear
+    clear()
+    res.send('Clear success!')
+  })
+
   app.use('*', async (req, res, next) => {
     if (redirectToLangPath(req, res)) {
       return
