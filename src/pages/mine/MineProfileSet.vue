@@ -4,8 +4,16 @@
       :item="userData"
       camera-icon
       show-bg-upload
-      @file:avatar="async (file) => (profile.thumb = await uploadImageDialog(file))"
-      @file:background="async (file) => (profile.background = await uploadImageDialog(file))"
+      :cover-avatar="coverImage.thumb"
+      :cover-bg="coverImage.background"
+      @file:avatar="
+        async (file) =>
+          (profile.thumb = await uploadImageDialog(file, (v) => (coverImage.thumb = concatImageSource(v))))
+      "
+      @file:background="
+        async (file) =>
+          (profile.background = await uploadImageDialog(file, (v) => (coverImage.background = concatImageSource(v))))
+      "
     ></SelfIntro>
     <div class="flex flex-col space-y-20 pl-4">
       <InputWrap
@@ -135,6 +143,11 @@ const profile = reactive({
   background: '',
 })
 
+const coverImage = reactive({
+  thumb: null,
+  background: null,
+})
+
 const subscriptions = ref([])
 const originSubscription = ref([])
 const compareSubscription = computed(() =>
@@ -142,6 +155,10 @@ const compareSubscription = computed(() =>
     originSubscription.value.some((originItem) => item.id === originItem.id && item.status !== originItem.status),
   ),
 )
+
+function concatImageSource(value) {
+  return appConfig.config.img_url + value
+}
 
 async function fetchSubscriptions() {
   const { data, execute } = useRequest('Subscription.list')
@@ -195,7 +212,7 @@ const onSave = async () => {
         return
       }
       if (key === 'thumb' || key === 'background') {
-        userData.value[key] = appConfig.config.img_url + value
+        userData.value[key] = concatImageSource(value)
         console.log(`userData.value[key]`, userData.value[key])
         return
       }

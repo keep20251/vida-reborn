@@ -6,7 +6,7 @@ import uploadImage from '@/http/upload/uploadImage'
 export function useDialog() {
   const { open, close } = useModalStore()
 
-  async function uploadImageDialog(file) {
+  async function uploadImageDialog(file, callback = null) {
     try {
       const progress = ref(0)
       open(MODAL_TYPE.PROGRESS, {
@@ -18,7 +18,9 @@ export function useDialog() {
         showClose: false,
         showConfirm: false,
       })
-      return await uploadImage(file, (p) => (progress.value = p * 100))
+      const result = await uploadImage(file, (p) => (progress.value = p * 100))
+      callback && callback(result)
+      return result
     } catch (e) {
       console.error(e)
     } finally {

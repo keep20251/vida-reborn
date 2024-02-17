@@ -1,7 +1,7 @@
 <template>
   <div class="ml-[-20px] mr-[-20px] sm:ml-0 sm:mr-0 xl:ml-0 xl:mr-0">
     <div class="relative mb-35 flex h-[180px] w-full bg-gray-57 bg-cover bg-center bg-no-repeat">
-      <EncryptImage :src="item.background" cover></EncryptImage>
+      <EncryptImage :src="coverBg || item.background" cover></EncryptImage>
       <div
         v-if="showBgUpload"
         class="absolute left-1/2 top-1/2 w-full translate-x-[-50%] translate-y-[-50%] cursor-pointer"
@@ -27,7 +27,7 @@
       <div class="absolute bottom-[-35px] flex h-70 w-full px-20">
         <Avatar
           :radius="35"
-          :src="item.thumb"
+          :src="coverAvatar || item.thumb"
           :cameraIcon="cameraIcon"
           @click:camera="() => inputAvatar.click()"
         ></Avatar>
@@ -86,6 +86,10 @@ defineProps({
   showPersonalInfo: { type: Boolean, default: false },
   showAllInfo: { type: Boolean, default: false },
   cameraIcon: { type: Boolean, default: false },
+
+  // 用於上傳圖片暫時取代原本的圖片
+  coverBg: { type: String, default: null },
+  coverAvatar: { type: String, default: null },
 })
 
 const inputAvatar = ref(null)
