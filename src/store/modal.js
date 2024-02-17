@@ -6,26 +6,46 @@ export const useModalStore = defineStore('modal', () => {
   const type = ref(null)
   const size = ref('lg')
   const title = ref(null)
+  const imageTitle = ref(null)
+  const avatarTitle = ref(null)
   const content = ref(null)
+
   const confirmAction = ref(null)
   const confirmText = ref(null)
   const cancelAction = ref(null)
   const cancelText = ref(null)
+
   const otherAction = ref(null)
   const otherText = ref(null)
+
   const showClose = ref(false)
   const showConfirm = ref(true)
+
+  // 漸層色的確認按鈕
+  const gradientConfirm = ref(false)
 
   const confirmData = ref(null)
 
   const isOpen = computed(() => type.value !== null)
 
-  function alert(
-    { size = 'sm', title, content, confirmAction = () => {}, confirmText } = {},
+  function alert({
+    size = 'sm',
+    title,
+    content,
+    confirmAction = () => {},
+    confirmText,
     showClose = false,
     showConfirm = true,
-  ) {
-    open(MODAL_TYPE.ALERT, { size, title, content, confirmAction, confirmText, showClose, showConfirm })
+  } = {}) {
+    open(MODAL_TYPE.ALERT, {
+      size,
+      title,
+      content,
+      confirmAction,
+      confirmText,
+      showClose,
+      showConfirm,
+    })
   }
 
   function confirm({
@@ -59,7 +79,9 @@ export const useModalStore = defineStore('modal', () => {
   function open(t, options) {
     type.value = t
     size.value = options.size || 'lg'
-    title.value = options.title
+    title.value = options.title || null
+    imageTitle.value = options.imageTitle || null
+    avatarTitle.value = options.avatarTitle || null
     content.value = options.content
     confirmAction.value = options.confirmAction
     confirmText.value = options.confirmText
@@ -68,13 +90,16 @@ export const useModalStore = defineStore('modal', () => {
     otherAction.value = options.otherAction
     otherText.value = options.otherText
     showClose.value = options.showClose
-    showConfirm.value = options.showConfirm ?? true
+    showConfirm.value = options.showConfirm || true
+    gradientConfirm.value = options.gradientConfirm || false
   }
 
   function close() {
     type.value = null
     size.value = 'lg'
     title.value = null
+    imageTitle.value = null
+    avatarTitle.value = null
     content.value = null
     confirmAction.value = null
     confirmText.value = null
@@ -85,6 +110,7 @@ export const useModalStore = defineStore('modal', () => {
     confirmData.value = null
     showClose.value = false
     showConfirm.value = true
+    gradientConfirm.value = false
   }
 
   function setConfirmData(action) {
@@ -95,18 +121,25 @@ export const useModalStore = defineStore('modal', () => {
     type,
     size,
     title,
+    imageTitle,
+    avatarTitle,
     content,
+
     confirmAction,
     confirmText,
     cancelAction,
     cancelText,
+
     otherAction,
     otherText,
+
     confirmData,
 
     isOpen,
     showClose,
     showConfirm,
+
+    gradientConfirm,
 
     alert,
     confirm,
