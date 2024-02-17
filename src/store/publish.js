@@ -41,15 +41,6 @@ const DEFAULT_PUBLISH_PARAMS = {
   postTime: null,
 }
 
-/**
- * 1. 使用者選擇檔案後會呼叫 setFile(fils, service)
- *
- * 2. UploadStatus.vue 有 watch(onFileInput, () => {})
- *    會得知有新的檔案被選擇
- *    會執行 startUpload 開始做檔案處理(處理過程相關資料會放在 uploadFiles)然後上傳
- *
- * 3. 若使用者離開上傳頁面(透過取消按鈕或上一頁)就會呼叫 clear()
- */
 export const usePublishStore = defineStore('publish', () => {
   const idMaker = (function* () {
     let id = 0

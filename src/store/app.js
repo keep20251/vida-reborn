@@ -3,6 +3,7 @@ import { useEventListener } from '@vueuse/core'
 import { defineStore } from 'pinia'
 import useRequest from '@use/request'
 import { isMobile as checkMobile } from '@/utils/device'
+import { cacheAppConfig, cacheCategories, getAppConfig, getCategories } from '@/utils/server-config-cache'
 
 const DESKTOP = 'desktop'
 const MOBILE = 'mobile'
@@ -19,7 +20,11 @@ export const useAppStore = defineStore('app', () => {
   // 後端提供的全域參數
   const appConfig = reactive({})
   async function initAppConfig() {
-    const data = await useRequest('App.config', { params: { version: '1.0' }, immediate: true })
+    let data = getAppConfig()
+    if (data === null) {
+      data = await useRequest('App.config', { params: { version: '1.0' }, immediate: true })
+      cacheAppConfig(data)
+    }
     setAppConfig(data)
     return data
   }
@@ -34,8 +39,12 @@ export const useAppStore = defineStore('app', () => {
 
   const categories = ref([])
   async function initCategories() {
-    const data = await useRequest('Article.categories', { immediate: true })
-    const categories = Object.keys(data.list).map((k) => ({ label: `category.${k}`, value: k }))
+    let categories = getCategories()
+    if (categories === null) {
+      const data = await useRequest('Article.categories', { immediate: true })
+      categories = Object.keys(data.list).map((k) => ({ label: `category.${k}`, value: k }))
+      cacheCategories(categories)
+    }
     setCategories(categories)
     return categories
   }

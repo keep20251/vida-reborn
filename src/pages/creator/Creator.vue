@@ -15,7 +15,10 @@
             </div>
           </template>
         </SelfIntro>
-        <div class="sticky top-52 z-10 flex h-36 w-full items-center bg-gray-f6 px-20 text-base font-bold">
+        <div
+          class="sticky z-10 flex h-36 w-full items-center bg-gray-f6 px-20 text-base font-bold"
+          :class="{ 'top-44': isMobile, 'top-52': isDesktop }"
+        >
           {{ $t('content.allPosts') }} {{ creator.post_num }}
         </div>
         <List :items="items" item-key="id" divider>
@@ -41,8 +44,8 @@ import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
+import { useAppStore } from '@/store/app'
 import { useCreatorStore } from '@/store/creator'
-import { useDialogStore } from '@/store/dialog'
 import { useFeedStore } from '@/store/feed'
 import { useHydrationStore } from '@/store/hydration'
 import { useSubsciptionStore } from '@/store/subscription'
@@ -53,6 +56,9 @@ import SelfIntro from '@comp/main/SelfIntro.vue'
 import Head from '@comp/navigation/Head.vue'
 import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import { useInfinite } from '@use/request/infinite'
+
+const appStore = useAppStore()
+const { isDesktop, isMobile } = storeToRefs(appStore)
 
 const { open } = useSubsciptionStore()
 

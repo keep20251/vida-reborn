@@ -246,7 +246,7 @@ function publish() {
     .then(() => {
       alert({
         title: '發布成功',
-        confirm: onClose,
+        confirmAction: onClose,
         fromCenter: true,
       })
     })
