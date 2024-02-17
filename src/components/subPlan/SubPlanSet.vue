@@ -154,8 +154,20 @@ import uploadImage from '@/http/upload/uploadImage'
 
 const subPlanStore = useSubPlanStore()
 const { back, close } = subPlanStore
-const { history, data, index, addSubPlan, subPlanName, subPlanContent, subPlanPrice, subUnlockDayAfter, subId } =
-  storeToRefs(subPlanStore)
+const {
+  history,
+  data,
+  index,
+  addSubPlan,
+  subPlanName,
+  subPlanContent,
+  subPlanPrice,
+  subUnlockDayAfter,
+  subId,
+  subPicture,
+  uploadFiles,
+  defaultImg,
+} = storeToRefs(subPlanStore)
 const showBack = computed(() => history.value.length > 0)
 
 // const selectedValue = ref(0)
@@ -171,14 +183,16 @@ const showBack = computed(() => history.value.length > 0)
 //   }
 // })
 
-onMounted(() => {
+onMounted(async () => {
   subPlanName.value = data.value[index.value]?.name
   subPlanContent.value = data.value[index.value]?.content
   subPlanPrice.value = data.value[index.value]?.price
   subUnlockDayAfter.value = data.value[index.value]?.unlock_day_after_subscribe
   subId.value = data.value[index.value]?.id
+  subPicture.value = data.value[index.value]?.picture
 })
 
+// 重新進入任一設定頁，會監聽數據是否改變了
 watch(index, (newIndex) => {
   if (newIndex !== null && data.value[newIndex]) {
     subPlanName.value = data.value[newIndex].name
@@ -186,18 +200,23 @@ watch(index, (newIndex) => {
     subPlanPrice.value = data.value[newIndex].price
     subUnlockDayAfter.value = data.value[index.value].unlock_day_after_subscribe
     subId.value = data.value[index.value].id
+    subPicture.value = data.value[index.value]?.picture
   }
 })
 
-// 等待 UI 圖片整理完成
-const defaultImg = ref([
-  'https://images.pexels.com/photos/764368/pexels-photo-764368.jpeg',
-  'https://images.pexels.com/photos/3782766/pexels-photo-3782766.jpeg',
-  'https://images.pexels.com/photos/3226837/pexels-photo-3226837.jpeg',
-])
+watch(subPicture, (newSubPicture) => {
+  if (newSubPicture) {
+    selDefaultItem.value = null
+    selUploadItem.value = subPicture.value
+    uploadFiles.value.push({ result: newSubPicture, progress: 1 })
+  }
+  if (addSubPlan.value) {
+    selDefaultItem.value = defaultImg.value[0]
+  }
+})
+
 const inputImage = ref(null)
 const { appConfig } = useAppStore()
-const uploadFiles = ref([])
 const selDefaultItem = ref(defaultImg.value[0])
 const selUploadItem = ref(null)
 
@@ -206,14 +225,12 @@ const selDefaultImg = (item) => {
   if (selUploadItem.value !== null) {
     selUploadItem.value = null
   }
-  console.log('你選了', selDefaultItem.value)
 }
 const selUploadImg = (item) => {
   selUploadItem.value = item.result
   if (selDefaultItem.value !== null) {
     selDefaultItem.value = null
   }
-  console.log('你選了', selUploadItem.value)
 }
 
 const handleFileUpload = async (event) => {
@@ -234,7 +251,6 @@ const handleFileUpload = async (event) => {
         progress.value = p
       })
       uploadFiles.value.push({ result: appConfig.config.img_url + url, progress })
-      console.log(uploadFiles.value, '小次郎')
     } catch (error) {
       console.error('上傳錯誤', error)
     }
@@ -246,14 +262,14 @@ const removeUploadFile = (index) => {
 }
 
 const delSubPlan = async () => {
-  console.log('刪除這篇訂閱方案')
+  alert('刪除這篇訂閱方案')
   const { execute: subPlanDel } = useRequest('Subscription.bulkDel')
   const payload = {
     ids: subId.value,
   }
   try {
     await subPlanDel(payload)
-    console.log('成功囉！')
+    alert('成功囉！')
     close()
   } catch (e) {
     console.error(e)
@@ -261,24 +277,46 @@ const delSubPlan = async () => {
 }
 
 const onSubmit = async () => {
+  const data = makeReqData()
+  const { execute: subPlanUpdate } = useRequest('Subscription.update')
+  const { execute: subPlanCreate } = useRequest('Subscription.create')
+
   if (addSubPlan) {
-    const { execute: subPlanUpdate } = useRequest('Subscription.update')
-    const payload = {
-      id: subId.value,
-      name: subPlanName.value,
-      content: subPlanContent.value,
-      price: subPlanPrice.value,
-      unlock_day_after_subscribe: subUnlockDayAfter.value,
-    }
     try {
-      await subPlanUpdate(payload)
-      console.log('成功囉！')
+      await subPlanUpdate(data)
+      alert('成功囉！')
       close()
     } catch (e) {
       console.error(e)
     }
   } else {
-    console.log('啊吧')
+    try {
+      await subPlanCreate(data)
+      alert('成功囉！')
+      close()
+    } catch (e) {
+      console.error(e)
+      back()
+    }
   }
+}
+
+function makeReqData() {
+  const data = {
+    name: subPlanName.value,
+    content: subPlanContent.value,
+    price: subPlanPrice.value,
+    unlock_day_after_subscribe: subUnlockDayAfter.value,
+  }
+  if (subId.value) {
+    data.id = subId.value
+  }
+  if (subPlanContent.value) {
+    data.content = subPlanContent.value
+  }
+  if (selDefaultItem.value || selUploadItem.value) {
+    data.picture = selDefaultItem.value || selUploadItem.value
+  }
+  return data
 }
 </script>
