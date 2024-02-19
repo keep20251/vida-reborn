@@ -437,7 +437,7 @@ export default {
       17: "Plus d'informations et contacts",
       18: "Plus d'informations sur la façon dont VIDA traite vos données personnelles peuvent être trouvées dans la Politique de Confidentialité de VIDA (ici) et sur la page «Respect de votre vie privée» au Centre de Sécurité et de Transparence de VIDA (ici).",
       19: "Vous pouvez trouver plus d'informations sur pourquoi VIDA doit effectuer ces vérifications d'identification et d'authentification sur la page «Vérification de l'âge et de l'identité» de notre Centre de sécurité et de transparence en ligne (ici).",
-      20: "Si vous avez des questions, veuillez contacter privacy@VIDA.com.",
+      20: "Si vous avez des questions, veuillez contacter la confidentialité {'@'} vida.com.",
       21: "Votre consentement",
       22: "En cliquant sur \"[Je suis d'accord]\", vous comprenez et acceptez que : Vous consentez à la collecte et au traitement de vos données biométriques faciales (c'est-à-dire les faire correspondre à la photo de votre document d'identité) dans le seul but de vérifier votre âge, et de vérifier et authentifier votre identité. Vous avez lu et compris les informations contenues dans cet avis.",
       23: "Vous avez au moins 18 ans.",

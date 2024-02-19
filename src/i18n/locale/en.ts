@@ -435,7 +435,7 @@ export default {
       17: "More information and contacts",
       18: "More information about how VIDA processes your personal data can be found in VIDA’s Privacy Policy (here) and the “Respecting Your Privacy” page on VIDA’s Safety and Transparency Centre (here).",
       19: "You can find out more information on why VIDA needs to carry out these identity verification and authentication checks on the “Age & Identity Verification” page on our online Safety and Transparency Centre (here).",
-      20: "If you have any questions, please contact privacy@VIDA.com.",
+      20: "If you have any questions, please contact Privacy {'@'} vida.com.",
       21: "Your consent",
       22: "By clicking “[I agree]” you understand and agree that: You consent to the collection and processing of your biometric facial data (i.e. matching this against the photo from your identity document) for the sole purpose of verifying your age, and verifying and authenticating your identity. You have read and understood the information contained in this notice.",
       23: "You are at least 18 years of age.",

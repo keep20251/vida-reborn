@@ -438,7 +438,7 @@ export default {
       17: "Thêm thông tin và liên hệ",
       18: "Thông tin chi tiết về cách VIDA xử lý dữ liệu cá nhân của bạn có thể được tìm thấy trong Chính sách Bảo mật của VIDA (tại đây) và trang “Tôn trọng Quyền Riêng tư của Bạn” tại Trung tâm An toàn và Minh bạch của VIDA (tại đây).",
       19: 'Bạn có thể tìm hiểu thêm thông tin về lý do tại sao VIDA cần thực hiện các kiểm tra xác minh và xác thực danh tính này trên trang "Xác minh Tuổi và Danh tính" tại Trung tâm An toàn và Minh bạch trực tuyến của chúng tôi (tại đây).',
-      20: "Nếu bạn có bất kỳ câu hỏi nào, vui lòng liên hệ privacy@VIDA.com.",
+      20: "Nếu bạn có bất kỳ câu hỏi nào, vui lòng liên hệ với Privacy {'@'} Vida.com.",
       21: "Sự đồng ý của bạn",
       22: 'Bằng cách nhấp vào "[Tôi đồng ý]" bạn hiểu và đồng ý rằng: Bạn đồng ý với việc thu thập và xử lý dữ liệu sinh trắc học khuôn mặt của bạn (tức là khớp với ảnh từ giấy tờ tùy thân của bạn) với mục đích duy nhất là xác minh tuổi của bạn, và xác minh và xác thực danh tính của bạn. Bạn đã đọc và hiểu thông tin được nêu trong thông báo này.',
       23: "Bạn ít nhất 18 tuổi.",

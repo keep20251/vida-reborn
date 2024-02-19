@@ -438,7 +438,7 @@ export default {
       17: "Weitere Informationen und Kontakte",
       18: "Weitere Informationen darüber, wie VIDA Ihre personenbezogenen Daten verarbeitet, finden Sie in der Datenschutzrichtlinie von VIDA (hier) und auf der Seite „Respektieren Ihrer Privatsphäre“ im Sicherheits- und Transparenzzentrum von VIDA (hier).",
       19: "Weitere Informationen darüber, warum VIDA diese Identitätsüberprüfungs- und Authentifizierungsprüfungen durchführen muss, finden Sie auf der Seite „Alters- und Identitätsverifizierung“ in unserem Online-Sicherheits- und Transparenzzentrum (hier).",
-      20: "Wenn Sie Fragen haben, kontaktieren Sie bitte privacy@VIDA.com.",
+      20: "Wenn Sie Fragen haben, wenden Sie sich bitte an die Privatsphäre {'@'} vida.com.",
       21: "Ihre Zustimmung",
       22: "Indem Sie auf „[Ich stimme zu]“ klicken, verstehen und akzeptieren Sie, dass: Sie der Erfassung und Verarbeitung Ihrer biometrischen Gesichtsdaten zustimmen (d.h. diese mit dem Foto auf Ihrem Identitätsdokument abgleichen), ausschließlich zum Zweck der Überprüfung Ihres Alters und der Überprüfung und Authentifizierung Ihrer Identität. Sie haben die in dieser Mitteilung enthaltenen Informationen gelesen und verstanden.",
       23: "Sie sind mindestens 18 Jahre alt.",

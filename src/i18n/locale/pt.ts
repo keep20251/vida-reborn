@@ -439,7 +439,7 @@ export default {
       17: "Mais informações e contatos",
       18: 'Mais informações sobre como a VIDA processa seus dados pessoais podem ser encontradas na Política de Privacidade da VIDA (aqui) e na página "Respeitando sua Privacidade" no Centro de Segurança e Transparência da VIDA (aqui).',
       19: 'Você pode encontrar mais informações sobre por que a VIDA precisa realizar essas verificações de verificação e autenticação de identidade na página "Verificação de Idade e Identidade" no nosso Centro de Segurança e Transparência online (aqui).',
-      20: "Se você tiver alguma dúvida, por favor contate privacy@VIDA.com.",
+      20: "Se você tiver alguma dúvida, entre em contato com a privacidade {'@'} vida.com.",
       21: "Seu consentimento",
       22: 'Ao clicar em "[Eu concordo]" você entende e concorda que: Você consente com a coleta e processamento de seus dados biométricos faciais (ou seja, correspondendo isso com a foto do seu documento de identidade) com o único propósito de verificar sua idade, e verificar e autenticar sua identidade. Você leu e entendeu as informações contidas neste aviso.',
       23: "Você tem pelo menos 18 anos de idade.",
