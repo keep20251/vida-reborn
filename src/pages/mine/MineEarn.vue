@@ -18,21 +18,35 @@
     <Tab v-model="tab" :options="tabOptions"></Tab>
   </div>
   <div v-if="tab === 1">
-    <div class="grid space-y-40">
-      <div class="mt-20 flex items-center justify-center space-x-20 px-20">
+    <div class="grid space-y-30">
+      <div class="relative mt-20 flex w-full items-center justify-center space-x-10 px-20 md:px-0 lg:px-0 xl:px-0">
         <div
-          class="flex w-full cursor-pointer items-center justify-center rounded-full bg-gray-f6 py-6 text-base font-normal leading-md"
+          @click="onStartDate"
+          class="flex w-full cursor-pointer select-none items-center justify-center rounded-full bg-gray-f6 py-6 text-base font-normal leading-md"
         >
-          2023-12-31
+          {{ startDateValue.toLocaleString().substring(0, 9) }}
         </div>
+        <DatePicker
+          v-show="showStartDate"
+          v-model="startDateValue"
+          :class="{ 'absolute left-0 top-36 z-10': showStartDate, relative: !showStartDate }"
+          @close="showStartDate = false"
+        ></DatePicker>
         <div><Icon name="calendar" size="20"></Icon></div>
         <div
-          class="flex w-full cursor-pointer items-center justify-center rounded-full bg-gray-f6 py-6 text-base font-normal leading-md"
+          @click="onEndDate"
+          class="flex w-full cursor-pointer select-none items-center justify-center rounded-full bg-gray-f6 py-6 text-base font-normal leading-md"
         >
-          2023-12-31
+          {{ endDateValue.toLocaleString().substring(0, 9) }}
         </div>
+        <DatePicker
+          v-show="showEndDate"
+          v-model="endDateValue"
+          :class="{ 'absolute right-0 top-36 z-10': showEndDate, relative: !showEndDate }"
+          @close="showEndDate = false"
+        ></DatePicker>
       </div>
-      <div class="flex select-none space-x-30 px-20">
+      <div class="flex select-none space-x-30 px-20 md:px-0 lg:px-0 xl:px-0">
         <div class="flex w-4/12 flex-col space-y-10">
           <div class="text-base font-normal leading-md">{{ $t('content.totEntries') }}</div>
           <div class="text-lg font-bold leading-lg">1000</div>
@@ -46,7 +60,7 @@
           <div class="text-lg font-bold leading-lg">27.5k</div>
         </div>
       </div>
-      <div class="flex space-x-30 px-20">
+      <div class="flex space-x-30 px-20 md:px-0 lg:px-0 xl:px-0">
         <div class="flex w-4/12 flex-col space-y-10">
           <div class="text-base font-normal leading-md">{{ $t('content.purchases') }}</div>
           <div class="text-lg font-bold leading-lg">2000</div>
@@ -63,20 +77,34 @@
     </div>
   </div>
   <div v-else-if="tab === 2">
-    <div class="mb-10 mt-20 flex items-center justify-center space-x-20 px-20">
+    <div class="relative mt-20 flex w-full items-center justify-center space-x-10 px-20 md:px-0 lg:px-0 xl:px-0">
       <div
-        class="flex cursor-pointer items-center justify-center rounded-full bg-gray-f6 px-32 py-6 text-base font-normal leading-md"
+        @click="onStartDate"
+        class="flex w-full cursor-pointer select-none items-center justify-center rounded-full bg-gray-f6 py-6 text-base font-normal leading-md"
       >
-        2023-12-31
+        {{ startDateValue.toLocaleString().substring(0, 9) }}
       </div>
+      <DatePicker
+        v-show="showStartDate"
+        v-model="startDateValue"
+        :class="{ 'absolute left-0 top-36 z-10': showStartDate, relative: !showStartDate }"
+        @close="showStartDate = false"
+      ></DatePicker>
       <div><Icon name="calendar" size="20"></Icon></div>
       <div
-        class="flex cursor-pointer items-center justify-center rounded-full bg-gray-f6 px-32 py-6 text-base font-normal leading-md"
+        @click="onEndDate"
+        class="flex w-full cursor-pointer select-none items-center justify-center rounded-full bg-gray-f6 py-6 text-base font-normal leading-md"
       >
-        2023-12-31
+        {{ endDateValue.toLocaleString().substring(0, 9) }}
       </div>
+      <DatePicker
+        v-show="showEndDate"
+        v-model="endDateValue"
+        :class="{ 'absolute right-0 top-36 z-10': showEndDate, relative: !showEndDate }"
+        @close="showEndDate = false"
+      ></DatePicker>
     </div>
-    <div v-for="(media, index) in medias" :key="`earn-media-info-${index}`">
+    <div class="mt-20" v-for="(media, index) in medias" :key="`earn-media-info-${index}`">
       <EarnPostCard :media="media"></EarnPostCard>
     </div>
   </div>
@@ -84,6 +112,7 @@
 <script setup>
 import { ref } from 'vue'
 import Button from '@comp/common/Button.vue'
+import DatePicker from '@comp/form/DatePicker.vue'
 import EarnPostCard from '@comp/mine/EarnPostCard.vue'
 import Tab from '@comp/navigation/Tab.vue'
 
@@ -179,4 +208,18 @@ const medias = ref([
     periodIncome: 83030,
   },
 ])
+
+const showStartDate = ref(false)
+const onStartDate = () => {
+  showStartDate.value = !showStartDate.value
+  showEndDate.value = false
+}
+const startDateValue = ref(new Date())
+
+const showEndDate = ref(false)
+const onEndDate = () => {
+  showEndDate.value = !showEndDate.value
+  showStartDate.value = false
+}
+const endDateValue = ref(new Date())
 </script>
