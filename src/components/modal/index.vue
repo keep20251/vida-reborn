@@ -73,6 +73,7 @@ const {
   showClose,
   showConfirm,
   gradientConfirm,
+  nextAction,
 } = storeToRefs(modalStore)
 const { close, setConfirmData } = modalStore
 
@@ -122,6 +123,8 @@ async function confirm(data) {
   confirmFailMsg.value = null
 
   const fn = confirmAction?.value
+  let actionResult = false
+
   if (fn) {
     confirming.value = true
     try {
@@ -130,9 +133,9 @@ async function confirm(data) {
         confirmFailMsg.value = confirmResult
         return
       }
+      actionResult = true
     } catch (e) {
       console.warn(e)
-      return
     } finally {
       confirming.value = false
     }
@@ -140,16 +143,22 @@ async function confirm(data) {
     confirming.value = false
   }
   close()
+
+  if (actionResult) {
+    nextAction.value && (await nextAction.value())
+    nextAction.value = null
+  }
 }
 
-function tryExecute(fn) {
-  if (fn) {
-    const result = fn()
-    if (typeof result === 'boolean' && !result) {
-      return
-    }
+async function tryExecute(fn) {
+  if (!fn) return
+  try {
+    await fn()
+  } catch (e) {
+    console.warn(e)
+  } finally {
+    close()
   }
-  close()
 }
 
 let html = null

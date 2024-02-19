@@ -7,7 +7,7 @@ import uploadImage from '@/http/upload/uploadImage'
 
 export function useDialog() {
   const { t: $t } = useI18n()
-  const { pay } = usePayment()
+  const { pay, cancel } = usePayment()
   const { open, close } = useModalStore()
 
   async function uploadImageDialog(file, callback = null) {
@@ -32,7 +32,16 @@ export function useDialog() {
     }
   }
 
-  function subscribe(item) {
+  function paying() {
+    open(MODAL_TYPE.PAYING, {
+      title: 'modal.paying.title',
+      size: 'sm',
+      confirmText: $t('common.cancel'),
+      confirmAction: () => cancel(),
+    })
+  }
+
+  async function subscribe(item) {
     open(MODAL_TYPE.SUBSCRIBE, {
       size: 'sm',
       imageTitle: item.picture,
@@ -49,6 +58,7 @@ export function useDialog() {
       },
       showClose: true,
       gradientConfirm: true,
+      nextAction: paying,
     })
   }
 
@@ -58,6 +68,8 @@ export function useDialog() {
 
   return {
     uploadImageDialog,
+
+    paying,
     subscribe,
     shopBuy,
   }

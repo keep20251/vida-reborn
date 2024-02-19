@@ -26,6 +26,9 @@ export const useModalStore = defineStore('modal', () => {
 
   const confirmData = ref(null)
 
+  // 接著 Close 之後要執行的動作
+  const nextAction = ref(null)
+
   const isOpen = computed(() => type.value !== null)
 
   function alert({
@@ -92,6 +95,7 @@ export const useModalStore = defineStore('modal', () => {
     showClose.value = options.showClose
     showConfirm.value = options.showConfirm || true
     gradientConfirm.value = options.gradientConfirm || false
+    nextAction.value = options.nextAction || null
   }
 
   function close() {
@@ -140,6 +144,7 @@ export const useModalStore = defineStore('modal', () => {
     showConfirm,
 
     gradientConfirm,
+    nextAction,
 
     alert,
     confirm,

@@ -47,6 +47,7 @@ export const MODAL_TYPE = {
 
   // 支付相關
   SUBSCRIBE: 30,
+  PAYING: 31,
 
   PRIVACY_POLICY: 97,
   TERMS_OF_SERVICE: 98,
