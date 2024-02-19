@@ -20,7 +20,7 @@
                 </div>
               </div>
             </div>
-            <Link :href="item?.username" :title="item?.nickname" to-creator>
+            <Link :href="item?.username" :title="item?.nickname" @click="toCreator(item?.username)">
               <button
                 class="flex items-center justify-center rounded-full bg-contrast px-14 py-6 text-sm font-normal leading-3 text-white"
               >
@@ -38,6 +38,9 @@ import { onMounted, ref } from 'vue'
 import Link from '@comp/common/Link.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
 import useRequest from '@use/request'
+import { useRouters } from '@use/routers'
+
+const { toCreator } = useRouters()
 
 const items = ref([])
 async function fetchCreators() {

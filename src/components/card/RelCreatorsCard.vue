@@ -30,7 +30,7 @@
                   </div>
                 </div>
               </div>
-              <Link :href="item?.username" :title="item?.nickname" to-creator>
+              <Link :href="item?.username" :title="item?.nickname" @click="toCreator(item?.username)">
                 <Button class="!h-24 !px-18 !py-6 !text-sm !leading-3">{{ $t('common.check') }}</Button>
               </Link>
             </div>
@@ -64,6 +64,9 @@ import Button from '@comp/common/Button.vue'
 import Link from '@comp/common/Link.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
 import { useInfinite } from '@use/request/infinite'
+import { useRouters } from '@use/routers'
+
+const { toCreator } = useRouters()
 
 const { dataList, isLoading, noMore, init, next } = useInfinite('User.searchCreator', { limit: 3 })
 
