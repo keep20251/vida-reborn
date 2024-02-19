@@ -436,7 +436,7 @@ export default {
       17: "Informasi lebih lanjut dan kontak",
       18: 'Informasi lebih lanjut tentang bagaimana VIDA memproses data pribadi Anda dapat ditemukan di Kebijakan Privasi VIDA (di sini) dan halaman "Menghormati Privasi Anda" di Pusat Keamanan dan Transparansi VIDA (di sini).',
       19: 'Anda dapat menemukan informasi lebih lanjut mengenai mengapa VIDA perlu melakukan pemeriksaan verifikasi dan autentikasi identitas ini di halaman "Verifikasi Usia & Identitas" di Pusat Keamanan dan Transparansi online kami (di sini).',
-      20: "Jika Anda memiliki pertanyaan, silakan hubungi privacy@VIDA.com.",
+      20: "Jika Anda memiliki pertanyaan, silakan hubungi Privacy {'@'} vida.com.",
       21: "Persetujuan Anda",
       22: 'Dengan mengklik "[Saya setuju]" Anda memahami dan setuju bahwa: Anda menyetujui pengumpulan dan pengolahan data biometrik wajah Anda (yaitu mencocokkan ini dengan foto dari dokumen identitas Anda) untuk tujuan tunggal memverifikasi usia Anda, dan memverifikasi dan mengautentikasi identitas Anda. Anda telah membaca dan memahami informasi yang terkandung dalam pemberitahuan ini.',
       23: "Anda setidaknya berusia 18 tahun.",
