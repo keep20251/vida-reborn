@@ -38,6 +38,19 @@
       <Error v-else-if="errMsg" :message="errMsg"></Error>
       <Loading v-else></Loading>
     </template>
+    <template #aside-top>
+      <TopSearchBar to-search></TopSearchBar>
+    </template>
+    <template #aside>
+      <div v-if="creator">
+        <div class="text-lg font-bold">{{ $t('title.subscription') }}</div>
+        <List :items="creator.subscription_list" item-key="id" divider>
+          <template #default="{ item }">
+            <SubscribeCard class="py-20" :item="item"></SubscribeCard>
+          </template>
+        </List>
+      </div>
+    </template>
   </Page>
 </template>
 
@@ -50,11 +63,13 @@ import { useAppStore } from '@/store/app'
 import { useCreatorStore } from '@/store/creator'
 import { useFeedStore } from '@/store/feed'
 import { useHydrationStore } from '@/store/hydration'
+import SubscribeCard from '@comp/card/SubscribeCard.vue'
 import Button from '@comp/common/Button.vue'
 import Error from '@comp/info/Error.vue'
 import Feed from '@comp/main/Feed.vue'
 import SelfIntro from '@comp/main/SelfIntro.vue'
 import Head from '@comp/navigation/Head.vue'
+import TopSearchBar from '@comp/navigation/TopSearchBar.vue'
 import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import { useDialog } from '@use/modal'
 import { useInfinite } from '@use/request/infinite'

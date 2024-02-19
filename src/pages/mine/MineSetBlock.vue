@@ -30,8 +30,8 @@ import { useMineStore } from '@/store/mine'
 import Avatar from '@comp/multimedia/Avatar.vue'
 import useRequest from '@use/request/index.js'
 import { useInfinite } from '@use/request/infinite'
+import { BLOCK_ACTION } from '@const'
 import defaultAvatar from '@/assets/images/avatar.jpeg'
-import { BLOCK_UPDATE } from '@/constant/index.js'
 
 const { dataList, isLoading, noMore, init, next, reload } = useInfinite('User.listBlock', {
   params: {},
@@ -55,7 +55,7 @@ const unblock = async (blocked, index) => {
     const { execute } = useRequest('User.block')
     await execute({
       aff_blocked: blocked,
-      action_type: BLOCK_UPDATE.CANCEL_BLOCK,
+      action_type: BLOCK_ACTION.UNBLOCK,
     })
     console.log('成功囉')
     reload()

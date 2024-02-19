@@ -98,9 +98,9 @@ export const EMAIL_VALIDATION = {
 }
 
 // 封鎖或解除封鎖 - 操作
-export const BLOCK_UPDATE = {
-  ADD_BLOCK: 1, // 添加封鎖
-  CANCEL_BLOCK: 2, // 解除封鎖
+export const BLOCK_ACTION = {
+  BLOCK: 1, // 添加封鎖
+  UNBLOCK: 2, // 解除封鎖
 }
 
 // userData 作者狀態
