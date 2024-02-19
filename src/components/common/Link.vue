@@ -3,7 +3,7 @@
     class="block cursor-pointer text-inherit no-underline"
     :href="localeHref"
     :title="title"
-    @click="(evt) => $emit('click', evt)"
+    @click="onClick"
     @click.capture.prevent
   >
     <slot></slot>
@@ -12,14 +12,20 @@
 
 <script setup>
 import { computed } from 'vue'
+import { useRouters } from '@use/routers'
 import { useLocale } from '@use/utils/locale'
+
+const { toCreator: redirectToCreator, to: redirectTo, toFeed: redirectToFeed } = useRouters()
 
 const props = defineProps({
   href: { type: String },
   title: { type: String },
+  toRoute: { type: Boolean, default: false },
+  toCreator: { type: Boolean, default: false },
+  toFeed: { type: Boolean, default: false },
 })
 
-defineEmits(['click'])
+const emit = defineEmits(['click'])
 
 const locale = useLocale()
 const localeHref = computed(() => {
@@ -28,4 +34,12 @@ const localeHref = computed(() => {
   }
   return props.href.startsWith('/') ? `/${locale.value}${props.href}` : `/${locale.value}/${props.href}`
 })
+
+function onClick(evt) {
+  evt.preventDefault()
+  emit('click')
+  if (props.toRoute) redirectTo(props.href)
+  if (props.toCreator) redirectToCreator(props.href)
+  if (props.toFeed) redirectToFeed(props.href)
+}
 </script>
