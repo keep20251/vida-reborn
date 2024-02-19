@@ -34,6 +34,7 @@ export const iconMap = {
   analysis: 'function/analysis',
   attach: 'function/attach',
   back: 'function/back',
+  block: 'function/block',
   calendar: 'function/calendar',
   close: 'function/close',
   closeWhite: 'function/close-white',

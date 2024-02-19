@@ -18,7 +18,7 @@ import useRequest from '.'
  * @returns {Function} infinite.revert 還原資料
  * @returns {Function} infinite.next 後續觸發請求
  */
-export function useInfinite(apiKey, { params = {}, limit = 10, readonly: ro = true, transformer } = {}) {
+export function useInfinite(apiKey, { params = {}, limit = 10, transformer } = {}) {
   // 請求資料清單
   const dataList = ref([])
 
@@ -28,7 +28,7 @@ export function useInfinite(apiKey, { params = {}, limit = 10, readonly: ro = tr
   // 沒有更多了，當判斷到回傳資料數量小於 limit 就會被判定為沒有更多資料
   const noMore = ref(false)
 
-  const { data, error, isLoading, execute, cancel } = useRequest(apiKey, { readonly: ro })
+  const { data, error, isLoading, execute, cancel } = useRequest(apiKey, { readonly: false })
 
   async function init() {
     if (!isLoading.value && !noMore.value && dataList.value.length === 0 && dataExtra.value === null) {
@@ -113,8 +113,8 @@ export function useInfinite(apiKey, { params = {}, limit = 10, readonly: ro = tr
   }
 
   return {
-    dataList: ro ? readonly(dataList) : dataList,
-    dataExtra: ro ? readonly(dataExtra) : dataExtra,
+    dataList,
+    dataExtra,
     error,
     isLoading,
     noMore: readonly(noMore),

@@ -15,7 +15,9 @@
         </Link>
       </div>
       <div class="grow text-right text-sm font-medium leading-5 text-gray-57">{{ item.created_at }}</div>
-      <Icon name="moreVertical" size="20"></Icon>
+      <div class="flex cursor-pointer items-center" @click.stop="dissSomeone(item)">
+        <Icon name="moreVertical" size="20"></Icon>
+      </div>
     </div>
 
     <!-- media -->
@@ -85,6 +87,7 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { useResizeObserver } from '@vueuse/core'
+import { useDialogStore } from '@/store/dialog'
 import { useFeedStore } from '@/store/feed'
 import Link from '@comp/common/Link.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
@@ -100,7 +103,7 @@ const props = defineProps({
   disableContentFold: { type: Boolean, default: false },
 })
 
-const isLock = computed(() => !props.item.unlock)
+const isLock = computed(() => props.item.user.is_block || !props.item.unlock)
 // const isLock = computed(() => false) // 把鎖拿掉 debug 用
 const isVideo = computed(() => props.item.resource_type === MEDIA_TYPE.VIDEO)
 const isImage = computed(() => props.item.resource_type === MEDIA_TYPE.IMAGE)
@@ -121,4 +124,6 @@ function toggleContentFold() {
 const { to, toCreator, toFeed } = useRouters()
 
 const { toggleLike } = useFeedStore()
+
+const { dissSomeone } = useDialogStore()
 </script>

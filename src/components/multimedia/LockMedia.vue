@@ -8,7 +8,11 @@
       </div>
     </div>
     <div class="absolute top-0 flex h-full w-full items-center justify-center rounded-inherit">
-      <div class="w-3/5">
+      <div v-if="item.user.is_block" class="flex flex-col items-center space-y-20">
+        <Icon name="block" size="60"></Icon>
+        <div class="bg-gray-57 px-20 py-10 font-bold text-white">{{ `已封鎖 ${item.user.nickname}` }}</div>
+      </div>
+      <div v-else class="w-3/5">
         <Button @click="() => console.log('帖子的資料', item)">{{ btnText }}</Button>
       </div>
     </div>
@@ -19,8 +23,8 @@
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import Button from '@comp/common/Button.vue'
+import { useDialog } from '@use/modal'
 import { FEED_PERM, MEDIA_TYPE } from '@const/publish'
-import { useDialog } from '../../compositions/modal'
 
 const props = defineProps({
   item: { type: Object, required: true },
