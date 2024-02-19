@@ -42,7 +42,7 @@
         </div>
         <div class="grid grid-cols-3 gap-10">
           <div
-            v-for="(item, index) in defaultImg"
+            v-for="(item, index) in appConfig.subscription_images"
             :key="index"
             :class="[
               { ' border-primary shadow-xl': selDefaultItem === item, 'border-transparent': selDefaultItem !== item },
@@ -50,7 +50,7 @@
             class="relative overflow-hidden rounded-sm border-2 pb-[64%]"
           >
             <div @click="selDefaultImg(item)" class="absolute top-0 h-full w-full cursor-pointer">
-              <img :src="item" class="h-full w-full object-cover" />
+              <EncryptImage :src="item" cover rounded></EncryptImage>
             </div>
           </div>
           <div
@@ -166,7 +166,6 @@ const {
   subId,
   subPicture,
   uploadFiles,
-  defaultImg,
 } = storeToRefs(subPlanStore)
 const showBack = computed(() => history.value.length > 0)
 
@@ -211,13 +210,13 @@ watch(subPicture, (newSubPicture) => {
     uploadFiles.value.push({ result: newSubPicture, progress: 1 })
   }
   if (addSubPlan.value) {
-    selDefaultItem.value = defaultImg.value[0]
+    selDefaultItem.value = appConfig.subscription_images[0]
   }
 })
 
 const inputImage = ref(null)
 const { appConfig } = useAppStore()
-const selDefaultItem = ref(defaultImg.value[0])
+const selDefaultItem = ref(appConfig.subscription_images[0])
 const selUploadItem = ref(null)
 
 const selDefaultImg = (item) => {
