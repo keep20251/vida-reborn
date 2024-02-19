@@ -42,7 +42,7 @@
       <ClientOnly>
         <div>
           <BulletinCard class="mt-20"></BulletinCard>
-          <RecCard class="mt-10" :items="recommandCreators"></RecCard>
+          <RecCard class="mt-10"></RecCard>
           <Carousel class="mt-20" interval-time></Carousel>
         </div>
       </ClientOnly>
