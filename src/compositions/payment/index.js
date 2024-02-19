@@ -18,7 +18,7 @@ export function usePayment() {
   const timeout = 1000 * 60 * 5 // 5 分鐘
   let tick = 0
 
-  const isContinue = ref(true)
+  const isContinue = ref(false)
   let window
 
   const actions = reactive({
@@ -216,6 +216,11 @@ export function usePayment() {
   }
 
   const cancel = () => {
+    if (!isContinue.value) {
+      console.warn('哭啊，支付根本沒啟動是在取消什麼啊')
+      throw new Error('Payment is not in progress, should not cancel')
+    }
+
     isContinue.value = false
     if (window) window.close()
     actions.onCancel && actions.onCancel()
