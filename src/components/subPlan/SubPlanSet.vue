@@ -280,10 +280,9 @@ const onSubmit = async () => {
   const data = makeReqData()
   const { execute: subPlanUpdate } = useRequest('Subscription.update')
   const { execute: subPlanCreate } = useRequest('Subscription.create')
-
-  if (addSubPlan) {
+  if (addSubPlan.value) {
     try {
-      await subPlanUpdate(data)
+      await subPlanCreate(data)
       alert('成功囉！')
       close()
     } catch (e) {
@@ -291,7 +290,7 @@ const onSubmit = async () => {
     }
   } else {
     try {
-      await subPlanCreate(data)
+      await subPlanUpdate(data)
       alert('成功囉！')
       close()
     } catch (e) {
