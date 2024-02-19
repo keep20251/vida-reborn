@@ -1,5 +1,6 @@
 import { computed, ref } from 'vue'
 import { defineStore, storeToRefs } from 'pinia'
+import { useAppStore } from '@/store/app'
 import { useDialogStore } from '@/store/dialog'
 import MainPage from '@comp/subPlan/MainPage.vue'
 import SubPlanSet from '@comp/subPlan/SubPlanSet.vue'
@@ -7,6 +8,7 @@ import { SUB_PLAN } from '@const'
 
 export const useSubPlanStore = defineStore('subPlan', () => {
   const { subPlanDialog } = storeToRefs(useDialogStore())
+  const { appConfig } = useAppStore()
 
   const routes = [
     { value: SUB_PLAN.MAIN_PAGE, component: MainPage },
@@ -21,13 +23,19 @@ export const useSubPlanStore = defineStore('subPlan', () => {
   const addSubPlan = ref(false)
   const data = ref('')
   const index = ref('')
+  const lastIndex = ref(null)
+
   const subPlanName = ref('') // 必傳
   const subPlanContent = ref('')
   const subPlanPrice = ref('') // 必傳
   const subUnlockDayAfter = ref('') // 必傳(解鎖Ｎ天前的內榮)
   const subId = ref('') // 必傳
+  const status = ref('')
+
   const subPicture = ref('')
   const uploadFiles = ref([])
+  const selDefaultItem = ref(appConfig.subscription_images[0])
+  const selUploadItem = ref(null)
 
   function to(value) {
     history.value.push(now.value)
@@ -38,8 +46,6 @@ export const useSubPlanStore = defineStore('subPlan', () => {
     if (history.value.length <= 0) {
       throw new Error('[Auth Route Error] History is empty, you shoud not call back()')
     }
-
-    console.log(subPicture.value, '你是說少')
     uploadFiles.value = []
     now.value = history.value.pop()
   }
@@ -66,6 +72,8 @@ export const useSubPlanStore = defineStore('subPlan', () => {
     addSubPlan,
     data,
     index,
+    lastIndex,
+    status,
     subPlanName,
     subPlanContent,
     subPlanPrice,
@@ -73,5 +81,7 @@ export const useSubPlanStore = defineStore('subPlan', () => {
     subId,
     subPicture,
     uploadFiles,
+    selDefaultItem,
+    selUploadItem,
   }
 })

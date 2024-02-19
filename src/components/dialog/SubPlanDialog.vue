@@ -1,5 +1,5 @@
 <template>
-  <BaseDialog noPadding="true" @click:around="subPlanDialog = false">
+  <BaseDialog noPadding @click:around="subPlanDialog = false">
     <template #default>
       <keep-alive>
         <component :is="subPlanComponent"></component>
