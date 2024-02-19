@@ -29,13 +29,6 @@ export const useSubPlanStore = defineStore('subPlan', () => {
   const subPicture = ref('')
   const uploadFiles = ref([])
 
-  // 等待 UI 圖片整理完成
-  const defaultImg = ref([
-    'https://images.pexels.com/photos/764368/pexels-photo-764368.jpeg',
-    'https://images.pexels.com/photos/3782766/pexels-photo-3782766.jpeg',
-    'https://images.pexels.com/photos/3226837/pexels-photo-3226837.jpeg',
-  ])
-
   function to(value) {
     history.value.push(now.value)
     now.value = value
@@ -80,6 +73,5 @@ export const useSubPlanStore = defineStore('subPlan', () => {
     subId,
     subPicture,
     uploadFiles,
-    defaultImg,
   }
 })
