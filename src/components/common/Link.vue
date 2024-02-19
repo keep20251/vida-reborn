@@ -15,8 +15,6 @@ import { computed } from 'vue'
 import { useRouters } from '@use/routers'
 import { useLocale } from '@use/utils/locale'
 
-const { toCreator: redirectToCreator, to: redirectTo, toFeed: redirectToFeed } = useRouters()
-
 const props = defineProps({
   href: { type: String },
   title: { type: String },
@@ -34,6 +32,8 @@ const localeHref = computed(() => {
   }
   return props.href.startsWith('/') ? `/${locale.value}${props.href}` : `/${locale.value}/${props.href}`
 })
+
+const { toCreator: redirectToCreator, to: redirectTo, toFeed: redirectToFeed } = useRouters()
 
 function onClick(evt) {
   evt.preventDefault()
