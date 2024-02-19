@@ -51,7 +51,7 @@
 </template>
 
 <script setup>
-import { onActivated, onMounted, onServerPrefetch, ref } from 'vue'
+import { onActivated, onServerPrefetch, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useFeedStore } from '@/store/feed'
@@ -65,7 +65,6 @@ import Feed from '@comp/main/Feed.vue'
 import Tab from '@comp/navigation/Tab.vue'
 import TopSearchBar from '@comp/navigation/TopSearchBar.vue'
 import { onHydration, onServerClientOnce } from '@use/lifecycle'
-import useRequest from '@use/request'
 import { useInfinite } from '@use/request/infinite'
 import { TAB_TYPE } from '@const/home'
 
@@ -107,13 +106,4 @@ onHydration(() => {
 const { reset: resetHeadStore } = useHeadStore()
 onServerPrefetch(resetHeadStore)
 onActivated(resetHeadStore)
-
-const recommandCreators = ref([])
-async function fetchCreators() {
-  const response = await useRequest('User.searchCreator', { params: { page: 1, limit: 3 }, immediate: true })
-  return response.list
-}
-onMounted(async () => {
-  recommandCreators.value = await fetchCreators()
-})
 </script>

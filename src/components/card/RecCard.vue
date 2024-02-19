@@ -34,26 +34,20 @@
   </div>
 </template>
 <script setup>
+import { onMounted, ref } from 'vue'
 import Link from '@comp/common/Link.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
+import useRequest from '@use/request'
 import { useRouters } from '@use/routers'
 
 const { toCreator } = useRouters()
 
-defineProps({
-  items: {
-    type: Array,
-    default: () => [
-      {
-        background: null,
-        thumb: null,
-        nickname: 'Angelababy',
-        username: '@angelababy',
-        description: `🇩🇪/🇺🇸 - 19 years😇 check my link to get to know me <3, I'm convinced.`,
-        subscriber_count: 10,
-        view_count: 10,
-      },
-    ],
-  },
+const items = ref([])
+async function fetchCreators() {
+  const response = await useRequest('User.searchCreator', { params: { page: 1, limit: 3 }, immediate: true })
+  return response.list
+}
+onMounted(async () => {
+  items.value = await fetchCreators()
 })
 </script>
