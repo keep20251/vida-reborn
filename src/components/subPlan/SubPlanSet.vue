@@ -45,7 +45,10 @@
             v-for="(item, index) in appConfig.subscription_images"
             :key="index"
             :class="[
-              { ' border-primary shadow-xl': selDefaultItem === item, 'border-transparent': selDefaultItem !== item },
+              {
+                ' border-primary shadow-xl': selDefaultItem === item,
+                'border-transparent': selDefaultItem !== item,
+              },
             ]"
             class="relative overflow-hidden rounded-sm border-2 pb-[64%]"
           >
@@ -158,6 +161,7 @@ const {
   history,
   data,
   index,
+  status,
   addSubPlan,
   subPlanName,
   subPlanContent,
@@ -166,6 +170,8 @@ const {
   subId,
   subPicture,
   uploadFiles,
+  selDefaultItem,
+  selUploadItem,
 } = storeToRefs(subPlanStore)
 const showBack = computed(() => history.value.length > 0)
 
@@ -189,6 +195,18 @@ onMounted(async () => {
   subUnlockDayAfter.value = data.value[index.value]?.unlock_day_after_subscribe
   subId.value = data.value[index.value]?.id
   subPicture.value = data.value[index.value]?.picture
+  status.value = data.value[index.value]?.status
+  if (addSubPlan.value && subPicture.value === undefined) {
+    uploadFiles.value = []
+    selUploadItem.value = null
+    selDefaultItem.value = appConfig.subscription_images[0]
+  }
+  if (!addSubPlan.value && subPicture.value) {
+    selDefaultItem.value = null
+    uploadFiles.value = []
+    uploadFiles.value.push({ result: subPicture.value, progress: 1 })
+    selUploadItem.value = subPicture.value
+  }
 })
 
 // 重新進入任一設定頁，會監聽數據是否改變了
@@ -203,21 +221,33 @@ watch(index, (newIndex) => {
   }
 })
 
-watch(subPicture, (newSubPicture) => {
-  if (newSubPicture) {
-    selDefaultItem.value = null
-    selUploadItem.value = subPicture.value
-    uploadFiles.value.push({ result: newSubPicture, progress: 1 })
-  }
-  if (addSubPlan.value) {
+watch(addSubPlan, (newAddSubPlan) => {
+  if (newAddSubPlan) {
+    uploadFiles.value = []
+    selUploadItem.value = null
     selDefaultItem.value = appConfig.subscription_images[0]
+  } else {
+    if (subPicture.value) {
+      selDefaultItem.value = null
+      uploadFiles.value = []
+      uploadFiles.value.push({ result: subPicture.value, progress: 1 })
+    }
+    selDefaultItem.value = null
+    selUploadItem.value = data.value[index.value].picture
+  }
+})
+
+watch(subPicture, (newSubPicture) => {
+  if (!addSubPlan.value && newSubPicture) {
+    selDefaultItem.value = null
+    selUploadItem.value = newSubPicture
+    uploadFiles.value = []
+    uploadFiles.value.push({ result: newSubPicture, progress: 1 })
   }
 })
 
 const inputImage = ref(null)
 const { appConfig } = useAppStore()
-const selDefaultItem = ref(appConfig.subscription_images[0])
-const selUploadItem = ref(null)
 
 const selDefaultImg = (item) => {
   selDefaultItem.value = item
@@ -250,6 +280,8 @@ const handleFileUpload = async (event) => {
         progress.value = p
       })
       uploadFiles.value.push({ result: appConfig.config.img_url + url, progress })
+      selUploadItem.value = appConfig.config.img_url + url
+      selDefaultItem.value = null
     } catch (error) {
       console.error('上傳錯誤', error)
     }
@@ -283,6 +315,11 @@ const onSubmit = async () => {
     try {
       await subPlanCreate(data)
       alert('成功囉！')
+      uploadFiles.value = []
+      subPlanName.value = ''
+      subPlanContent.value = ''
+      subPlanPrice.value = ''
+      subUnlockDayAfter.value = ''
       close()
     } catch (e) {
       console.error(e)
@@ -314,6 +351,11 @@ function makeReqData() {
   }
   if (selDefaultItem.value || selUploadItem.value) {
     data.picture = selDefaultItem.value || selUploadItem.value
+  }
+  if (status.value === 0) {
+    status.value = 0
+  } else if (status.value === 1) {
+    status.value = 1
   }
   return data
 }
