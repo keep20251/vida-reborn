@@ -19,7 +19,8 @@ export const useAccountStore = defineStore('account-store', () => {
   const usernameCookie = useCookie(COOKIE_KEY.USERNAME, { default: '' })
   const affCookie = useCookie(COOKIE_KEY.AFF, { default: '' })
   const uuidCookie = useCookie(COOKIE_KEY.UUID, { default: '' })
-  const chatTokenCookie = useCookie(COOKIE_KEY.CHAT_TOKEN, { default: '' })
+
+  const chatToken = ref(null)
 
   const role = ref(USER_PERM.VISITOR)
   const userData = ref(null)
@@ -29,7 +30,6 @@ export const useAccountStore = defineStore('account-store', () => {
   const token = computed(() => tokenCookie.value)
   const userId = computed(() => affCookie.value)
   const userUUID = computed(() => uuidCookie.value)
-  const chatToken = computed(() => chatTokenCookie.value)
 
   // 使用者角色
   const isVisitor = computed(() => role.value === USER_PERM.VISITOR)
@@ -81,7 +81,7 @@ export const useAccountStore = defineStore('account-store', () => {
     tokenCookie.value = ''
     affCookie.value = ''
     uuidCookie.value = ''
-    chatTokenCookie.value = ''
+    chatToken.value = null
     clearUserData()
 
     router.replace({ name: 'mine-home' })
@@ -116,7 +116,7 @@ export const useAccountStore = defineStore('account-store', () => {
   function setUserData(newData) {
     for (const [k, v] of Object.entries(newData)) {
       if (k === 'chat_token') {
-        chatTokenCookie.value = v
+        chatToken.value = v
       }
     }
     userData.value = { ...newData }
@@ -135,7 +135,7 @@ export const useAccountStore = defineStore('account-store', () => {
     token,
     userId,
     userUUID,
-    chatToken,
+    chatToken: readonly(chatToken),
     userData,
 
     role: readonly(role),
