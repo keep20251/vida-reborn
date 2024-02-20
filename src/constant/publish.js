@@ -18,6 +18,13 @@ export const UPLOAD_STATUS = {
   SAVE: 6,
 }
 
+export const FEED_STATUS = {
+  REVIEW: 1,
+  PUBLISHED: 2,
+  PASS: 3,
+  REJECT: 5,
+}
+
 export const IMAGE_LIMIT_COUNT = 10
 
 export const SUB_ALL_VALUE = -1
