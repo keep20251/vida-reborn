@@ -105,6 +105,14 @@ export const useFeedStore = defineStore('feed', () => {
     }
   }
 
+  function toggleBlock(aff, isBlock) {
+    for (const feed of feedsMap.values()) {
+      if (feed.aff === aff) {
+        feed.user.is_block = isBlock
+      }
+    }
+  }
+
   return {
     get,
     revert,
@@ -112,5 +120,6 @@ export const useFeedStore = defineStore('feed', () => {
     clear,
 
     toggleLike,
+    toggleBlock,
   }
 })

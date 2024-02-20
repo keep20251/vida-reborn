@@ -1,4 +1,4 @@
-import { readonly, ref, shallowRef } from 'vue'
+import { ref, shallowRef } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useDialogStore = defineStore('dialog-store', () => {
@@ -16,14 +16,14 @@ export const useDialogStore = defineStore('dialog-store', () => {
 
   // 舉報/封鎖 選項
   const reportBlockDialog = ref(false)
-  const reportBlockFeed = shallowRef(null)
+  const reportBlockUser = shallowRef(null)
   function dissSomeone(item) {
     reportBlockDialog.value = true
-    reportBlockFeed.value = item
+    reportBlockUser.value = item
   }
   function closeDiss() {
     reportBlockDialog.value = false
-    reportBlockFeed.value = null
+    reportBlockUser.value = null
   }
 
   return {
@@ -33,7 +33,7 @@ export const useDialogStore = defineStore('dialog-store', () => {
     subscriptionDialog,
 
     reportBlockDialog,
-    reportBlockFeed,
+    reportBlockUser,
     dissSomeone,
     closeDiss,
   }

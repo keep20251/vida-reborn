@@ -17,6 +17,9 @@ export default {
   // 取得用戶自身帖子清單
   listArticle: { method: 'post', url: '/api/user/getArticleList' },
 
+  // 檢舉原因取得
+  listReportReasons: { method: 'post', url: '/api/user/reportreason' },
+
   // 檢舉用戶
   report: { method: 'post', url: '/api/user/report' },
 

@@ -1,13 +1,13 @@
 <template>
   <Page>
     <template #main-top>
-      <Head :title="'發布帖子'" feature-icon="close" @feature="onClose"></Head>
+      <Head :title="$t('title.publish')" feature-icon="close" @feature="onClose"></Head>
     </template>
     <template #default>
       <div class="flex flex-col space-y-20 pb-30">
         <!-- 選擇主題 -->
         <div class="flex flex-col space-y-10">
-          <label class="text-left text-base leading-md">選擇主題</label>
+          <label class="text-left text-base leading-md">{{ $t('label.pickCaterory') }}</label>
           <Dropdown v-model="publishParams.category" :options="categories" inset></Dropdown>
         </div>
 
@@ -15,10 +15,10 @@
         <div v-if="isVideo" class="flex flex-col">
           <div class="mb-10 flex">
             <div class="flex grow flex-col space-y-10">
-              <label class="text-left text-base leading-md">上傳視頻</label>
-              <span class="text-left text-sm text-gray-57">支持mp4/mov格式，不超過 100 MB</span>
+              <label class="text-left text-base leading-md">{{ $t('label.uploadVideo') }}</label>
+              <span class="text-left text-sm text-gray-57">{{ $t('info.videoFormat') }}</span>
             </div>
-            <Button class="self-end" size="md" @click="() => inputVideo.click()">重新選擇</Button>
+            <Button class="self-end" size="md" @click="() => inputVideo.click()">{{ $t('common.reSelect') }}</Button>
             <input
               type="file"
               class="hidden"
@@ -34,7 +34,7 @@
               v-if="uploadFiles[0].status !== UPLOAD_STATUS.DONE"
               class="absolute top-0 h-full w-full bg-black p-20 text-right text-white opacity-70"
             >
-              {{ `上傳進度 ${Math.floor(uploadFiles[0].progress * 100)}%` }}
+              {{ $t('info.uploadProgress', { progress: Math.floor(uploadFiles[0].progress * 100) }) }}
             </div>
           </div>
         </div>
@@ -44,14 +44,14 @@
           <div class="flex">
             <div class="flex grow flex-col space-y-10">
               <label class="text-left text-base leading-md"
-                >上傳圖片
+                >{{ $t('label.uploadImage') }}
                 <span class="text-left text-sm text-gray-57">{{
                   `${uploadFiles.filter((f) => f.status === UPLOAD_STATUS.DONE).length}/${IMAGE_LIMIT_COUNT}`
                 }}</span></label
               >
-              <span class="text-left text-sm text-gray-57">支持JPG/PNG格式，每张不超過1MB</span>
+              <span class="text-left text-sm text-gray-57">{{ $t('info.imageFormat') }}</span>
             </div>
-            <Button class="self-end" size="md" @click="() => inputImage.click()">添加</Button>
+            <Button class="self-end" size="md" @click="() => inputImage.click()">{{ $t('common.append') }}</Button>
             <input
               type="file"
               class="hidden"
@@ -81,13 +81,12 @@
         </div>
 
         <!-- 標題 -->
-        <InputWrap v-model="publishParams.title" :label="'標題'" :err-msg="titleError"></InputWrap>
+        <InputWrap v-model="publishParams.title" :label="$t('label.title')" :err-msg="titleError"></InputWrap>
 
         <!-- 內文 -->
         <TextareaWrap
           v-model="publishParams.content"
-          :label="'內文'"
-          :placeholder="'填寫内文'"
+          :label="$t('label.content')"
           :err-msg="contentError"
           :line="6"
         ></TextareaWrap>
@@ -98,15 +97,15 @@
         <!-- 誰可以看到 -->
         <div class="flex flex-col space-y-10">
           <label class="text-left text-base leading-md">
-            誰可以看到
-            <span class="text-sm leading-3 text-gray-57">允許特定訂閱方案查看</span>
+            {{ $t('label.pickPerm') }}
+            <span class="text-sm leading-3 text-gray-57">{{ $t('label.pickPermSub') }}</span>
           </label>
           <OptionsPicker v-model="publishParams.perm" :options="permOptions"></OptionsPicker>
         </div>
 
         <!-- 指定訂閱組 -->
         <div v-if="publishParams.perm === FEED_PERM.SUB" class="flex flex-col space-y-10">
-          <label class="text-left text-base leading-md">指定訂閱組</label>
+          <label class="text-left text-base leading-md">{{ $t('label.pickSub') }}</label>
           <OptionsPicker v-model="publishParams.subs" :options="subOptions"></OptionsPicker>
         </div>
 
@@ -114,18 +113,18 @@
         <InputWrap
           v-if="publishParams.perm === FEED_PERM.BUY"
           v-model="publishParams.price"
-          :label="'Price'"
-          :sublabel="'單位：美金'"
+          :label="$t('label.price')"
+          :sublabel="$t('label.priceSub')"
           :placeholder="'9.99'"
           :err-msg="priceError"
-          :append-text="'最高設置為90元'"
+          :append-text="$t('label.priceTip', { price: 90 })"
           :max-length="5"
         ></InputWrap>
 
         <!-- 排定發布 -->
         <div class="flex flex-col space-y-10">
           <div class="flex justify-between">
-            <label class="text-left text-base leading-md">排定發布</label>
+            <label class="text-left text-base leading-md">{{ $t('label.schedule') }}</label>
             <InputSwitch v-model="publishTimeOpen"></InputSwitch>
           </div>
           <InputWrap
@@ -144,7 +143,7 @@
           ></DatePicker>
         </div>
 
-        <Button :loading="publishing" @click="publish">發布</Button>
+        <Button :loading="publishing" @click="publish">{{ $t('common.publish') }}</Button>
       </div>
     </template>
   </Page>
@@ -152,7 +151,9 @@
 
 <script setup>
 import { computed, ref, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
+import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
 import { useModalStore } from '@/store/modal'
 import { usePublishStore } from '@/store/publish'
@@ -170,6 +171,8 @@ import { useRouters } from '@use/routers'
 import { useYup } from '@use/validator/yup.js'
 import { FEED_PERM, IMAGE_LIMIT_COUNT, SUB_ALL_VALUE, UPLOAD_STATUS } from '@const/publish'
 import { toDateTimeString } from '@/utils/string-helper'
+
+const { t: $t } = useI18n()
 
 const publishStore = usePublishStore()
 const { uploadFiles, publishTimeOpen, isCreate, isUpdate, isVideo, isImage, isEditing } = storeToRefs(publishStore)
@@ -203,11 +206,35 @@ const appStore = useAppStore()
 const { categories } = storeToRefs(appStore)
 
 const permOptions = ref([
-  { label: '訂閱者', value: FEED_PERM.SUB },
-  { label: '商店販售', value: FEED_PERM.BUY },
+  { label: $t('label.sub'), value: FEED_PERM.SUB },
+  { label: $t('label.buy'), value: FEED_PERM.BUY },
+  { label: $t('label.private'), value: FEED_PERM.PRI },
 ])
 
-const subOptions = ref([{ label: '全部', value: SUB_ALL_VALUE }])
+const accountStore = useAccountStore()
+const { userData } = storeToRefs(accountStore)
+
+const subOptions = ref([
+  { label: $t('label.all'), value: SUB_ALL_VALUE },
+  ...userData.value.subscription_list.map((sub) => ({ label: sub.name, value: sub.id })),
+])
+watch(
+  () => publishParams.subs,
+  (n, o) => {
+    if (n.includes(SUB_ALL_VALUE) && o.includes(SUB_ALL_VALUE)) {
+      if (n.length > 1) {
+        publishParams.subs.shift()
+      }
+      return
+    }
+
+    if (n.includes(SUB_ALL_VALUE) && !o.includes(SUB_ALL_VALUE)) {
+      if (n.length > 1) {
+        publishParams.subs = [SUB_ALL_VALUE]
+      }
+    }
+  },
+)
 
 const postTimeEditing = ref(false)
 const postTimeModel = computed(() => {
@@ -245,14 +272,14 @@ function publish() {
   useRequest('Article.publish', { params: data, immediate: true })
     .then(() => {
       alert({
-        title: '發布成功',
+        title: 'title.publishSuccess',
         confirmAction: onClose,
         fromCenter: true,
       })
     })
     .catch((e) => {
       alert({
-        title: '發布失敗',
+        title: 'title.publishFail',
         content: e.message,
       })
     })
