@@ -9,8 +9,8 @@ export default function (response) {
     return response
   }
 
-  const { data, status, config, headers, request, statusText, crypt } = response
-  const processedData = crypt ? Decrypt(data.data) : data
+  const { data, status, config, headers, request, statusText } = response
+  const processedData = import.meta.env.DEV ? data : Decrypt(data.data)
 
   // 错误处理
   if (processedData.status === 0) {
@@ -26,7 +26,7 @@ export default function (response) {
     return Promise.reject(new TokenInvalidError(processedData.msg))
   }
 
-  if (import.meta.env.DEV) console.log(`[response]${config.url}`, processedData.data)
+  console.log(`[response]${config.url}`, processedData.data)
 
   return Promise.resolve(processedData)
 }
