@@ -10,14 +10,18 @@ export const useSubsciptionStore = defineStore('subscription-store', () => {
 
   const _items = ref([])
 
-  function open(items) {
+  const _creator = ref(null)
+
+  function open({ items, creator }) {
     console.log('useSubsciptionStore.open', items)
     _items.value = items
+    _creator.value = creator
     subscriptionDialog.value = true
   }
 
   function close() {
     _items.value = []
+    _creator.value = null
     subscriptionDialog.value = false
   }
 
