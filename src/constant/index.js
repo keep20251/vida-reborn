@@ -181,3 +181,9 @@ export const CONSUME_TYPE = {
   SHOP_BUY: 10,
   UNLOCK: 15,
 }
+
+// 訂閱方案的狀態
+export const SUB_PLAN_STATUS = {
+  DISABLE: 0,
+  ENABLE: 1,
+}
