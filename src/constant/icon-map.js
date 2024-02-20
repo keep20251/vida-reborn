@@ -47,6 +47,7 @@ export const iconMap = {
   filter: 'function/filter',
   gif: 'function/gif',
   location: 'function/location',
+  messagePrimary: 'function/message-primary',
   moreHorizontal: 'function/more-horizontal',
   moreVertical: 'function/more-vertical',
   picture: 'function/picture',
