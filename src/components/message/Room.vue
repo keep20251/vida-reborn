@@ -51,7 +51,7 @@ In Grid, it aligns the item inside the grid area. In Flexbox, it aligns the item
       <InputWrap v-model="input" class="grow" :appendIconBtn="'sendWhite'"></InputWrap>
     </div>
   </div>
-  <div v-else class="flex h-full items-center justify-center text-xl font-bold">選擇訊息</div>
+  <div v-else class="flex h-full items-center justify-center text-xl font-bold">{{ $t('info.pickMessage') }}</div>
 </template>
 
 <script setup>

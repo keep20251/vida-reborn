@@ -17,7 +17,7 @@
         class="flex cursor-pointer items-center space-x-18"
       >
         <Icon name="mineEarn" size="20"></Icon>
-        <span class="text-base">{{ $t('title.earn') }}</span>
+        <span class="text-base">{{ $t('title.mineEarn') }}</span>
       </router-link>
       <router-link
         :to="{ name: 'mine-post' }"
@@ -25,7 +25,7 @@
         class="flex cursor-pointer items-center space-x-18"
       >
         <Icon name="minePost" size="20"></Icon>
-        <span class="text-base">{{ $t('title.post') }}</span>
+        <span class="text-base">{{ $t('title.minePost') }}</span>
       </router-link>
     </div>
     <div v-if="perm.buyCollect" class="grid space-y-15 py-10">
@@ -35,7 +35,7 @@
         class="flex cursor-pointer items-center space-x-18"
       >
         <Icon name="mineBuy" size="20"></Icon>
-        <span class="text-base">{{ $t('title.buy') }}</span>
+        <span class="text-base">{{ $t('title.mineBuy') }}</span>
       </router-link>
       <router-link
         :to="{ name: 'mine-collect' }"
@@ -43,7 +43,7 @@
         class="flex cursor-pointer items-center space-x-18"
       >
         <Icon name="mineCollect" size="20"></Icon>
-        <span class="text-base">{{ $t('title.collect') }}</span>
+        <span class="text-base">{{ $t('title.mineCollect') }}</span>
       </router-link>
     </div>
     <div v-if="perm.beCreator" class="grid space-y-15 py-10">

@@ -8,7 +8,9 @@
       </p>
       <div class="flex">
         <div class="mr-24 text-sm text-gray-57">{{ item.created_at }}</div>
-        <div class="cursor-pointer text-sm text-gray-57" @click="$emit('click:reply', item)">回覆</div>
+        <div class="cursor-pointer text-sm text-gray-57" @click="$emit('click:reply', item)">
+          {{ $t('label.reply') }}
+        </div>
         <div class="flex grow cursor-pointer justify-end" @click="$emit('click:like', item)">
           <Icon :name="!!item.liked ? 'like' : 'likeOutline'" size="15"></Icon>
         </div>
@@ -37,7 +39,7 @@
         class="mb-16 cursor-pointer text-base text-gray-57"
         @click="nextReplys"
       >
-        {{ `查看${item.reply_num - replys.length}則回覆` }}
+        {{ $t('content.viewReplies', { count: item.reply_num - replys.length }) }}
       </div>
       <Loading v-else-if="isReplysLoading"></Loading>
     </div>

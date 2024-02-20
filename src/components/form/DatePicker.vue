@@ -62,7 +62,7 @@
     <div v-if="includeTime">
       <div class="h-1 bg-gray-a3"></div>
       <div
-        class="gap-row-8 shadow-input mt-16 flex h-36 grow appearance-none items-center divide-solid rounded-2xl border-gray-cc bg-white px-20 py-12 text-sm font-normal not-italic leading-3 text-gray-57 placeholder:text-gray-a3"
+        class="gap-row-8 mt-16 flex h-36 grow appearance-none items-center divide-solid rounded-2xl border-gray-cc bg-white px-20 py-12 text-sm font-normal not-italic leading-3 text-gray-57 shadow-input placeholder:text-gray-a3"
         :class="{ error: !!timeErr }"
       >
         <input
@@ -79,8 +79,8 @@
       </div>
     </div>
     <div class="flex h-56 justify-end space-x-8 px-8 py-12">
-      <div class="weight-medium cursor-pointer px-10 py-12 text-base" @click="cancel">Cancel</div>
-      <div class="weight-medium cursor-pointer px-10 py-12 text-base" @click="confirm">OK</div>
+      <div class="weight-medium cursor-pointer px-10 py-12 text-base" @click="cancel">{{ $t('common.cancel') }}</div>
+      <div class="weight-medium cursor-pointer px-10 py-12 text-base" @click="confirm">{{ $t('common.confirm') }}</div>
     </div>
   </div>
 </template>

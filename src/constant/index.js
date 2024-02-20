@@ -71,12 +71,12 @@ export const SEND_EMAIL_PURPOSE = {
 // 用來 Mapping路由名稱與title
 export const MINE_TITLE = {
   'mine-home': 'title.mine',
-  'mine-earn': 'title.earn',
+  'mine-earn': 'title.mineEarn',
   'mine-earn-wdrl-req': 'title.earnWdrlReq',
   'mine-earn-wdrl-hist': 'title.earnWdrlHist',
-  'mine-buy': 'title.buy',
-  'mine-post': 'title.post',
-  'mine-collect': 'title.collect',
+  'mine-buy': 'title.mineBuy',
+  'mine-post': 'title.minePost',
+  'mine-collect': 'title.mineCollect',
   'mine-creator': 'title.beCreator',
   'mine-creator-agreement': 'title.beCreator',
   'mine-creator-identity-agreement': 'title.beCreator',
