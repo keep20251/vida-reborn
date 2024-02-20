@@ -104,7 +104,7 @@ export function useDialog() {
       size: 'sm',
       title: 'modal.title.paySuc',
       content: creator,
-      confirmText: '前往創作者頁面',
+      confirmText: $t('modal.subscribeSuc.confirm'),
       confirmAction: () => toCreator(creator.username),
       showClose: true,
     })
@@ -115,7 +115,7 @@ export function useDialog() {
       size: 'sm',
       title: 'modal.title.paySuc',
       content: {},
-      confirmText: '前往帖子',
+      confirmText: $t('modal.shopBuySuc.confirm'),
       confirmAction: () => toFeed(feed.user.username, feed.id),
       showClose: true,
     })

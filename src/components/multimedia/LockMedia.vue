@@ -22,6 +22,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useAccountStore } from '@/store/account'
 import Button from '@comp/common/Button.vue'
 import { useDialog } from '@use/modal'
 import { FEED_PERM, MEDIA_TYPE } from '@const/publish'
@@ -59,11 +60,11 @@ const btnText = computed(() => {
 })
 
 const { subscribe, shopBuy } = useDialog()
+const { afterLoginAction } = useAccountStore()
 
 const clickAction = computed(() => {
-  console.log('帖子的資料', props.item)
-  if (props.item.article_type === FEED_PERM.SUB) return subscribe
-  if (props.item.article_type === FEED_PERM.BUY) return shopBuy
+  if (props.item.article_type === FEED_PERM.SUB) return afterLoginAction(subscribe)
+  if (props.item.article_type === FEED_PERM.BUY) return afterLoginAction(shopBuy)
   throw new Error('未知的帖子類型')
 })
 
