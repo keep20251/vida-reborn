@@ -19,7 +19,9 @@
         </List>
         <div class="sticky bottom-0 w-full bg-white pb-16 pt-8">
           <div v-if="replyTo" class="flex items-center bg-gray-f6 px-20 py-4">
-            <div class="grow text-sm text-gray-a3">{{ $t('content.replyTo', { name: replyTo.author?.nickname }) }}</div>
+            <div class="grow text-sm text-gray-a3">
+              {{ $t('content.replyTo', { name: `@${replyTo.author?.nickname}` }) }}
+            </div>
             <div class="cursor-pointer" @click="replyTo = null">
               <Icon name="close" size="12"></Icon>
             </div>

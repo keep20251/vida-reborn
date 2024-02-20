@@ -275,8 +275,8 @@ export default {
     onlyAddImage: "Chỉ được thêm hình ảnh",
     uploadFail: "Tải lên thất bại",
     processFail: "Xử lý thất bại",
-    replyTo: "Trả lời cho @{name}",
-    viewReplies: "",
+    replyTo: "Trả lời cho {name}",
+    viewReplies: "Xem {count} bình luận",
   },
   month: {
     Jan: "Tháng Một",

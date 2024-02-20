@@ -270,8 +270,8 @@ export default {
     onlyAddImage: "画像のみ追加可能",
     uploadFail: "アップロード失敗",
     processFail: "処理に失敗しました",
-    replyTo: "@{name} への返信",
-    viewReplies: "",
+    replyTo: "{name} への返信",
+    viewReplies: "{count}件の返信を見る",
   },
   month: {
     Jan: "1月",

@@ -271,8 +271,8 @@ export default {
     onlyAddImage: "เพิ่มได้เฉพาะรูปภาพ",
     uploadFail: "อัปโหลดไม่สำเร็จ",
     processFail: "การประมวลผลไม่สำเร็จ",
-    replyTo: "ตอบกลับ @{name}",
-    viewReplies: "",
+    replyTo: "ตอบกลับ {name}",
+    viewReplies: "ดูคำตอบ {count} ข้อ",
   },
   month: {
     Jan: "มกราคม",
