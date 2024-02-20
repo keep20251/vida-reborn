@@ -6,6 +6,7 @@ export const MEDIA_TYPE = {
 export const FEED_PERM = {
   SUB: 1,
   BUY: 2,
+  PRI: 3,
 }
 
 export const UPLOAD_STATUS = {
