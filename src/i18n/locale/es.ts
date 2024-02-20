@@ -418,7 +418,24 @@ export default {
       2: "Puede enviar información directamente al creador",
       3: "Interacción más cercana",
       4: "Usted puede cancelar su suscripción en cualquier momento",
+      confirm: "Mes {'$'} {price} ir al pago",
     },
+    shopBuy: {
+      1: "Desbloqueará {nickname} el contenido de trabajo del departamento",
+      2: "{nickname} recibirá su pago en su totalidad",
+      confirm: "Desbloquear ahora ({'$'} {price})",
+    },
+    subscribeSuc: {
+      1: "¡maravilloso! ¡Suscrito con éxito a {nickname}!",
+      2: "¡Elige ir a la página de inicio del Creador o permanecer en la pantalla original!",
+      confirm: "Ir a la página del creador",
+    },
+    shopBuySuc: {
+      1: "¡maravilloso! Pago exitoso para desbloquear la publicación",
+      2: "¡Elija la publicación para ver, o permanecer en la pantalla original!",
+      confirm: "Ir a la publicación",
+    },
+    title: { paySuc: "Ha pagado con éxito" },
     paying: { title: "Procesando pago" },
   },
   beCreator: {

@@ -418,7 +418,24 @@ export default {
       2: "Peut envoyer des informations directement au créateur",
       3: "Interaction plus étroite",
       4: "Vous pouvez annuler votre abonnement à tout moment",
+      confirm: "Mois {'$'} {price} Aller au paiement",
     },
+    shopBuy: {
+      1: "Déverrouillera {nickname} le contenu de travail du département",
+      2: "{nickname} recevra votre paiement en totalité",
+      confirm: "Déverrouiller maintenant ({'$'} {price})",
+    },
+    subscribeSuc: {
+      1: "merveilleux! Abonné avec succès à {nickname}!",
+      2: "Choisissez d'aller sur la page d'accueil du Créateur ou de rester sur l'écran d'origine!",
+      confirm: "Aller sur la page Créateur",
+    },
+    shopBuySuc: {
+      1: "merveilleux! Paiement réussi pour déverrouiller le message",
+      2: "Choisissez le message pour regarder ou rester dans l'écran d'origine!",
+      confirm: "Aller au poste",
+    },
+    title: { paySuc: "A réussi à payer" },
     paying: { title: "Traitement des paiements" },
   },
   beCreator: {

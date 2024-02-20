@@ -411,7 +411,24 @@ export default {
       2: "정보를 제작자에게 직접 보낼 수 있습니다",
       3: "더 가까운 -스텝 상호 작용",
       4: "언제든지 구독을 취소 할 수 있습니다",
+      confirm: "Month { '$'} {price} 결제로 이동",
     },
+    shopBuy: {
+      1: "{nickname} 부서의 작업 내용을 잠금 해제합니다.",
+      2: "{nickname}은 전액 지불을받습니다",
+      confirm: "지금 잠금 해제 ({ '$'} {price})",
+    },
+    subscribeSuc: {
+      1: "기이! {nickname}에 성공적으로 구독했습니다!",
+      2: "Creator Homepage로 이동하거나 원래 화면에 머물기로 선택하십시오!",
+      confirm: "Creator 페이지로 이동하십시오",
+    },
+    shopBuySuc: {
+      1: "기이! 게시물을 잠금 해제하기위한 성공적인 결제",
+      2: "게시물을 선택하거나 원래 화면을 유지하십시오!",
+      confirm: "게시물로 이동하십시오",
+    },
+    title: { paySuc: "성공적으로 지불했습니다" },
     paying: { title: "지불 처리" },
   },
   beCreator: {

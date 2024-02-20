@@ -10,4 +10,6 @@ export default {
 
   // 購買歷史紀錄
   history: { method: 'post', url: '/api/payment/orderHistory' },
+
+  check: { method: 'post', url: '/api/payment/checkOrderStatus' },
 }

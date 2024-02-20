@@ -7,9 +7,12 @@ import PhotoCapture from './PhotoCapture.vue'
 import PrivacyPolicy from './PrivacyPolicy.vue'
 import Progress from './Progress.vue'
 import Report from './Report.vue'
+import ShopBuy from './ShopBuy.vue'
+import ShopBuySuccess from './ShopBuySuccess.vue'
 import SignUpSuccess from './SignUpSuccess.vue'
 import SocialLink from './SocialLink.vue'
 import Subscribe from './Subscribe.vue'
+import SubscribeSuccess from './SubscribeSuccess.vue'
 import TermsOfService from './TermsOfService.vue'
 import Test from './Test.vue'
 import Text from './Text.vue'
@@ -28,7 +31,10 @@ export default Object.freeze({
   [MODAL_TYPE.PHOTO_CAPTURE]: PhotoCapture,
 
   [MODAL_TYPE.SUBSCRIBE]: Subscribe,
+  [MODAL_TYPE.SHOP_BUY]: ShopBuy,
   [MODAL_TYPE.PAYING]: Paying,
+  [MODAL_TYPE.SUBSCRIBE_SUCCESS]: SubscribeSuccess,
+  [MODAL_TYPE.SHOP_BUY_SUCCESS]: ShopBuySuccess,
 
   [MODAL_TYPE.PRIVACY_POLICY]: PrivacyPolicy,
   [MODAL_TYPE.TERMS_OF_SERVICE]: TermsOfService,
