@@ -273,8 +273,8 @@ export default {
     onlyAddImage: "Только добавить изображения",
     uploadFail: "Загрузка не удалась",
     processFail: "Обработка не удалась",
-    replyTo: "Ответить @{name}",
-    viewReplies: "",
+    replyTo: "Ответить {name}",
+    viewReplies: "Посмотреть {count} ответов",
   },
   month: {
     Jan: "Январь",

@@ -272,8 +272,8 @@ export default {
     onlyAddImage: "केवल छवियाँ जोड़ें",
     uploadFail: "अपलोड विफल",
     processFail: "प्रक्रिया विफल",
-    replyTo: "@{name} को उत्तर दें",
-    viewReplies: "",
+    replyTo: "{name} को उत्तर दें",
+    viewReplies: "देखें {count} उत्तर",
   },
   month: {
     Jan: "जनवरी",

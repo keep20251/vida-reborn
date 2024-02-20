@@ -273,8 +273,8 @@ export default {
     onlyAddImage: "Hanya menambahkan gambar",
     uploadFail: "Pengunggahan gagal",
     processFail: "Pengolahan gagal",
-    replyTo: "Balas ke @{name}",
-    viewReplies: "",
+    replyTo: "Balas ke {name}",
+    viewReplies: "Lihat {count} balasan",
   },
   month: {
     Jan: "Januari",

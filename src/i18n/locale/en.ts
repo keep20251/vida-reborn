@@ -140,7 +140,7 @@ export default {
     sub: "Subscribers",
     buy: "Shop Sale",
     private: "Only Me",
-    reply: "回复",
+    reply: "Replay",
   },
   placeholder: {
     account: "Please enter username",
@@ -272,8 +272,8 @@ export default {
     onlyAddImage: "Only add images",
     uploadFail: "Upload failed",
     processFail: "Processing failed",
-    replyTo: "Reply to @{name}",
-    viewReplies: "",
+    replyTo: "Reply to {name}",
+    viewReplies: "View {count} replies",
   },
   month: {
     Jan: "January",

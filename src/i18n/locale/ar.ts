@@ -271,8 +271,8 @@ export default {
     onlyAddImage: "أضف صورًا فقط",
     uploadFail: "فشل التحميل",
     processFail: "فشل المعالجة",
-    replyTo: "الرد على @{name}",
-    viewReplies: "",
+    replyTo: "الرد على {name}",
+    viewReplies: "عرض {count} ردود",
   },
   month: {
     Jan: "يناير",

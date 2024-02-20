@@ -275,8 +275,8 @@ export default {
     onlyAddImage: "Adicionar apenas imagens",
     uploadFail: "Falha no upload",
     processFail: "Falha no processamento",
-    replyTo: "Responder para @{name}",
-    viewReplies: "",
+    replyTo: "Responder para {name}",
+    viewReplies: "Ver {count} respostas",
   },
   month: {
     Jan: "Janeiro",

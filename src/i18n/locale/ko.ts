@@ -267,8 +267,8 @@ export default {
     onlyAddImage: "이미지만 추가 가능",
     uploadFail: "업로드 실패",
     processFail: "처리 실패",
-    replyTo: "@{name}에게 답장",
-    viewReplies: "",
+    replyTo: "{name}에게 답장",
+    viewReplies: "{count}개의 답글 보기",
   },
   month: {
     Jan: "1월",
