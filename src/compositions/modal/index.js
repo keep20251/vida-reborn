@@ -2,6 +2,7 @@ import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useModalStore } from '@/store/modal'
 import { usePayment } from '@use/payment'
+import { useRouters } from '@use/routers'
 import { CONSUME_TYPE, MODAL_TYPE } from '@const'
 import uploadImage from '@/http/upload/uploadImage'
 
@@ -9,6 +10,7 @@ export function useDialog() {
   const { t: $t } = useI18n()
   const { pay, cancel } = usePayment()
   const { open, close } = useModalStore()
+  const { toCreator, toFeed } = useRouters()
 
   async function uploadImageDialog(file, callback = null) {
     try {
@@ -41,19 +43,28 @@ export function useDialog() {
     })
   }
 
-  async function subscribe(item) {
+  async function subscribe(creator) {
+    const lowestSub = creator?.subscription_list?.reduce((acc, cur) =>
+      Number(acc.price) < Number(cur.price) ? acc : cur,
+    )
+
     open(MODAL_TYPE.SUBSCRIBE, {
       size: 'sm',
-      imageTitle: item.picture,
-      content: item,
-      confirmText: $t('common.subscribe'),
+      imageTitle: lowestSub.picture,
+      content: lowestSub,
+      confirmText: $t('modal.subscribe.confirm', { price: lowestSub.price }),
       confirmAction: async (data) => {
         await pay({
-          api: 'Payment.sub',
-          data: { item_id: item.id },
+          apiKey: 'Payment.sub',
+          data: { item_id: lowestSub.id },
           newWindow: data.window,
           paymentType: CONSUME_TYPE.SUBSCRIBE,
           amount: 0,
+          onSuccess: () => () => {
+            subscribeSuccess(creator)
+          },
+          onFailure: () => console.log('付款失敗啦'),
+          onCancel: () => console.log('取消付款啦'),
         })
       },
       showClose: true,
@@ -62,8 +73,52 @@ export function useDialog() {
     })
   }
 
-  function shopBuy() {
-    console.log('購買還沒做好喔嘻嘻')
+  function shopBuy(feed) {
+    open(MODAL_TYPE.SHOP_BUY, {
+      size: 'sm',
+      avatarTitle: feed.user.thumb,
+      content: feed,
+      confirmText: $t('modal.shopBuy.confirm', { price: feed.price }),
+      confirmAction: async (data) => {
+        await pay({
+          apiKey: 'Payment.buy',
+          data: { item_id: feed.id },
+          newWindow: data.window,
+          paymentType: CONSUME_TYPE.SHOP_BUY,
+          amount: 0,
+          onSuccess: () => {
+            shopBuySuccess(feed)
+          },
+          onFailure: () => console.log('付款失敗啦'),
+          onCancel: () => console.log('取消付款啦'),
+        })
+      },
+      showClose: true,
+      gradientConfirm: true,
+      nextAction: paying,
+    })
+  }
+
+  function subscribeSuccess(creator) {
+    open(MODAL_TYPE.SUBSCRIBE_SUCCESS, {
+      size: 'sm',
+      title: 'modal.title.paySuc',
+      content: creator,
+      confirmText: '前往創作者頁面',
+      confirmAction: () => toCreator(creator.username),
+      showClose: true,
+    })
+  }
+
+  function shopBuySuccess(feed) {
+    open(MODAL_TYPE.SHOP_BUY_SUCCESS, {
+      size: 'sm',
+      title: 'modal.title.paySuc',
+      content: {},
+      confirmText: '前往帖子',
+      confirmAction: () => toFeed(feed.user.username, feed.id),
+      showClose: true,
+    })
   }
 
   return {
@@ -72,5 +127,7 @@ export function useDialog() {
     paying,
     subscribe,
     shopBuy,
+    subscribeSuccess,
+    shopBuySuccess,
   }
 }
