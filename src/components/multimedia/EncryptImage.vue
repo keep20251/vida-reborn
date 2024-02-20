@@ -8,6 +8,7 @@
       class="h-full w-full rounded-inherit"
       :class="{ 'object-contain': !cover, 'object-cover': cover }"
     />
+    <div v-else class="h-full w-full rounded-inherit bg-gray-f6"></div>
   </div>
 </template>
 
@@ -17,7 +18,6 @@ import { whenever } from '@vueuse/core'
 import Skeleton from '@comp/skeleton/index.vue'
 import { getDecryptDataBlob } from '@/utils/encrypt-img-store'
 import lazyloader from '@/utils/lazyloader'
-import defaultBgImage from '@/assets/images/creator-bg.jpg'
 
 const props = defineProps({
   src: { type: String },
@@ -64,7 +64,7 @@ const fail = ref(false)
 const decryptedBlob = ref(null)
 const url = computed(() => {
   if (fail.value) {
-    return props.failSrc || defaultBgImage
+    return props.failSrc
   } else if (decryptedBlob.value !== null) {
     return decryptedBlob.value
   } else {
