@@ -13,7 +13,7 @@
         <div class="bg-gray-57 px-20 py-10 font-bold text-white">{{ `已封鎖 ${item.user.nickname}` }}</div>
       </div>
       <div v-else class="w-3/5">
-        <Button @click="() => console.log('帖子的資料', item)">{{ btnText }}</Button>
+        <Button @click="clickAction(actionParams)">{{ btnText }}</Button>
       </div>
     </div>
   </div>
@@ -59,10 +59,19 @@ const btnText = computed(() => {
 })
 
 const { subscribe, shopBuy } = useDialog()
+
 const clickAction = computed(() => {
+  console.log('帖子的資料', props.item)
   if (props.item.article_type === FEED_PERM.SUB) return subscribe
   if (props.item.article_type === FEED_PERM.BUY) return shopBuy
   throw new Error('未知的帖子類型')
 })
+
+const actionParams = computed(() => {
+  if (props.item.article_type === FEED_PERM.SUB) return props.item.user
+  if (props.item.article_type === FEED_PERM.BUY) return props.item
+  throw new Error('未知的帖子類型')
+})
+
 const icon = computed(() => (isVideo.value ? 'videoWhite' : isImage.value ? 'cameraWhite' : ''))
 </script>
