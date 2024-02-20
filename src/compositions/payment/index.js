@@ -15,7 +15,9 @@ export function usePayment() {
   const { close } = useModalStore()
 
   const frequency = 5000 // 5 秒輪詢一次
-  const timeout = 1000 * 60 * 5 // 5 分鐘
+
+  // 開發環境 12 秒，正式環境 5 分鐘
+  const timeout = import.meta.env.DEV ? 12 * 1000 : 5 * 60 * 1000
   let tick = 0
 
   const isContinue = ref(false)
@@ -25,16 +27,17 @@ export function usePayment() {
     onSuccess: null,
     onFailure: null,
     onCancel: null,
+    onTimeout: null,
   })
 
   /**
    * 支付程序
-   * @param {String} api apiKey
+   * @param {String} apiKey apiKey
    * @param {Object} data Payload
    * @param {String} paymentType 打賞: 1, 訂閱: 5, 購買項目: 10
    */
   async function pay({
-    api,
+    apiKey,
     data,
     paymentType,
     newWindow,
@@ -43,54 +46,54 @@ export function usePayment() {
     onSuccess = null,
     onFailure = null,
     onCancel = null,
+    onTimeout = null,
   } = {}) {
     try {
       window = newWindow
       actions.onSuccess = onSuccess
       actions.onFailure = onFailure
       actions.onCancel = onCancel
+      actions.onTimeout = onTimeout
 
-      const response = await useRequest(api, { params: data, immediate: true })
+      const response = await useRequest(apiKey, { params: data, immediate: true })
       console.log('create payment response:', response)
-      if (!response.order_no || !response.pay_url) {
+      if (!response.order_id || !response.url) {
         throw new Error('Order number or payment callback url is missing')
       }
 
       window.location = response.post_data
-        ? `/payment.html?${toQueryString({ ...response.post_data, POST_URL: encodeURIComponent(response.pay_url) })}`
-        : response.pay_url
+        ? `/payment.html?${toQueryString({ ...response.post_data, POST_URL: encodeURIComponent(response.url) })}`
+        : response.url
 
       // const key = getGtmKey(paymentType)
       // const meta = getMeta(paymentType, data)
       // const gtmData = { value: amount, meta }
       // trackEvent({ key, ...gtmData })
 
-      // TODO 後端的輪詢API還沒好，暫時先註解掉
-      // isContinue.value = true
-      // fetchPollingResult({
-      //   api: getPollingAPI(paymentType),
-      //   orderNo: response.order_no,
-      //   payload: data,
-      //   paymentType,
-      //   userUUID,
-      //   // gtmData,
-      // })
+      isContinue.value = true
+      fetchPollingResult({
+        apiKey: 'Payment.check',
+        orderId: response.order_id,
+        payload: data,
+        paymentType,
+        userUUID,
+        // gtmData,
+      })
     } catch (e) {
       console.error('[Payment Error]', e)
-      setTimeout(() => {
-        window.close()
-        close()
-        console.error(e)
-      }, 1500)
+      setTimeout(
+        onFailed(() => actions.onFailure && actions.onFailure()),
+        1500,
+      )
     }
   }
 
   /**
    * 輪詢支付結果
-   * @param {Function} api
-   * @param {String} orderNo 訂單編號
+   * @param {Function} apiKey
+   * @param {String} orderId 訂單編號
    */
-  const fetchPollingResult = async ({ api, orderNo, payload, paymentType, userUUID, gtmData = null } = {}) => {
+  const fetchPollingResult = async ({ apiKey, orderId, payload, paymentType, userUUID, gtmData = null } = {}) => {
     console.log('[fetchPollingResult] isContinue.value', isContinue.value)
     if (!isContinue.value) {
       console.log('[fetchPollingResult] Continue is false, stop polling')
@@ -100,13 +103,13 @@ export function usePayment() {
     console.log('[fetchPollingResult] Continue is true, polling...')
     try {
       if (tick >= timeout) {
-        setTimeout(() => {
-          close()
-          // trackEvent({ key: 48, ...gtmData })
-        }, 1500)
+        setTimeout(
+          onFailed(() => actions.onTimeout && actions.onTimeout()),
+          1500,
+        )
         return
       }
-      const response = await api({ data: { order_no: orderNo } })
+      const response = await useRequest(apiKey, { params: { order_id: orderId }, immediate: true })
       console.log('[fetchPollingResult] Polling Result', response)
       console.log('[fetchPollingResult] MODE', import.meta.env.MODE)
 
@@ -142,8 +145,8 @@ export function usePayment() {
         console.log('[fetchPollingResult] Polling Pending...')
         setTimeout(() => {
           fetchPollingResult({
-            api,
-            orderNo,
+            apiKey,
+            orderId,
             payload,
             paymentType,
             userUUID,
@@ -154,15 +157,19 @@ export function usePayment() {
       }
     } catch (e) {
       // trackEvent({ key: 48, ...gtmData })
-      actions.onFailure && actions.onFailure()
       console.error('[fetchPollingResult] Polling Failed...', e)
       isContinue.value = false
-      setTimeout(() => {
-        window.close()
-        close()
-        console.error(e)
-      }, 1500)
+      setTimeout(
+        onFailed(() => actions.onFailure && actions.onFailure()),
+        1500,
+      )
     }
+  }
+
+  function onFailed(fn = null) {
+    window.close()
+    close()
+    fn && fn()
   }
 
   /**
@@ -217,7 +224,7 @@ export function usePayment() {
 
   const cancel = () => {
     if (!isContinue.value) {
-      console.warn('哭啊，支付根本沒啟動是在取消什麼啊')
+      console.warn('哭啊，支付輪詢根本沒啟動是在取消什麼啊')
       throw new Error('Payment is not in progress, should not cancel')
     }
 
