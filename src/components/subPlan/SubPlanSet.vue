@@ -165,6 +165,7 @@ const {
   data,
   index,
   status,
+  subList,
   addSubPlan,
   subPlanName,
   subPlanContent,
@@ -199,11 +200,6 @@ onMounted(async () => {
   subId.value = data.value[index.value]?.id
   subPicture.value = data.value[index.value]?.picture
   status.value = data.value[index.value]?.status
-  if (addSubPlan.value && subPicture.value === undefined) {
-    uploadFiles.value = []
-    selUploadItem.value = null
-    selDefaultItem.value = appConfig.subscription_images[0]
-  }
   if (!addSubPlan.value && subPicture.value) {
     selDefaultItem.value = null
     uploadFiles.value = []
@@ -228,6 +224,7 @@ watch(index, (newIndex) => {
     subId.value = data.value[index.value].id
     subPicture.value = data.value[index.value]?.picture
     selUploadItem.value = data.value[index.value]?.picture
+    status.value = data.value[index.value]?.status
   }
 })
 
@@ -317,6 +314,7 @@ const delSubPlan = async () => {
     alert({
       title: '刪除成功',
     })
+    subList.value = subList.value.filter((item) => item.id !== subId.value)
     close()
   } catch (e) {
     console.error(e)
@@ -333,6 +331,7 @@ const onSubmit = async () => {
       alert({
         title: '發布成功',
       })
+      subList.value.unshift(data)
       uploadFiles.value = []
       subPlanName.value = ''
       subPlanContent.value = ''
@@ -345,9 +344,13 @@ const onSubmit = async () => {
   } else {
     try {
       await subPlanUpdate(data)
+      const index = subList.value.findIndex((item) => item.id === data.id)
       alert({
         title: '更新成功',
       })
+      if (index !== -1) {
+        subList.value[index] = data
+      }
       close()
     } catch (e) {
       console.error(e)
@@ -373,9 +376,9 @@ function makeReqData() {
     data.picture = selDefaultItem.value || selUploadItem.value
   }
   if (status.value === SUB_PLAN_STATUS.DISABLE) {
-    data.status = status.value = SUB_PLAN_STATUS.DISABLE
+    data.status = SUB_PLAN_STATUS.DISABLE
   } else if (status.value === SUB_PLAN_STATUS.ENABLE) {
-    data.status = status.value = SUB_PLAN_STATUS.ENABLE
+    data.status = SUB_PLAN_STATUS.ENABLE
   }
 
   return data
