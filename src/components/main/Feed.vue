@@ -28,6 +28,12 @@
         <VideoWrap v-if="!isLock && isVideo" :urls="item.url"></VideoWrap>
         <PhotoSwiper v-if="!isLock && isImage" :imgs="item.url"></PhotoSwiper>
       </div>
+      <div
+        v-if="![FEED_STATUS.PUBLISHED, FEED_STATUS.REJECT].includes(item.status)"
+        class="absolute left-20 top-20 text-base font-bold text-white"
+      >
+        {{ $t('content.autoPublishAt', { datetime: item.display_at }) }}
+      </div>
     </div>
 
     <!-- feature -->
@@ -95,7 +101,7 @@ import LockMedia from '@comp/multimedia/LockMedia.vue'
 import PhotoSwiper from '@comp/multimedia/PhotoSwiper.vue'
 import VideoWrap from '@comp/multimedia/VideoWrap.vue'
 import { useRouters } from '@use/routers'
-import { MEDIA_TYPE } from '@const/publish'
+import { FEED_STATUS, MEDIA_TYPE } from '@const/publish'
 
 const props = defineProps({
   item: { type: Object, required: true },

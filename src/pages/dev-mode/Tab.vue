@@ -4,7 +4,7 @@
       <div>
         <p class="mb-20">{{ content }}</p>
         <div class="flex w-full justify-end">
-          <Tab v-model="tabBtn" :options="tabBtnOptions" isBtnTab :isBasicTab="false"></Tab>
+          <ButtonTab v-model="tabBtn" :options="tabBtnOptions" btn-style></ButtonTab>
         </div>
         <p>{{ tabBtnContent }}</p>
       </div>
@@ -17,6 +17,7 @@
 
 <script setup>
 import { computed, ref } from 'vue'
+import ButtonTab from '@comp/navigation/ButtonTab.vue'
 import Tab from '@comp/navigation/Tab.vue'
 
 const tab = ref(1)

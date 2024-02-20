@@ -2,90 +2,134 @@
   <div class="sticky top-52 z-10 h-35 bg-white">
     <Tab v-model="tab" :options="tabOptions"></Tab>
   </div>
-  <div v-if="tab === 1">
-    <div class="flex justify-between pt-20">
-      <div class="text-base font-bold leading-md">{{ $t('content.allPosts') }}{{ allPosts }}</div>
-      <Tab v-model="tabBtn" :options="tabBtnOptions" isBtnTab :isBasicTab="false"></Tab>
+  <div>
+    <div class="flex justify-end pt-20">
+      <ButtonTab v-model="tabBtn" :options="tabBtnOptions"></ButtonTab>
     </div>
-    <div v-if="tabBtn === 1">
-      <div class="overflow-x-hidden">
-        <List :items="items" item-key="id" divider>
-          <template #default="{}">
-            <Feed class="py-20"></Feed>
-          </template>
-          <template #bottom>
-            <div class="flex items-center justify-center py-8 text-gray-a3">
-              <Loading></Loading>{{ $t('common.noMore') }}
-            </div>
-          </template>
-        </List>
-      </div>
-    </div>
-    <div v-if="tabBtn === 2">{{ $t('info.video') }}</div>
-  </div>
-  <div v-else-if="tab === 2">
-    <div class="flex justify-between pt-20">
-      <div class="text-base font-bold leading-md">{{ $t('content.allPosts') }}{{ allPosts }}</div>
-      <Tab v-model="tabBtn" :options="tabBtnOptions" isBtnTab :isBasicTab="false"></Tab>
-    </div>
-    <div v-if="tabBtn === 1">
-      <div class="overflow-x-hidden">
-        <List :items="items" item-key="id" divider>
-          <template #default="{}">
-            <Feed class="py-20"></Feed>
-          </template>
-          <template #bottom>
-            <div class="flex items-center justify-center py-8 text-gray-a3">
-              <Loading></Loading>{{ $t('common.noMore') }}
-            </div>
-          </template>
-        </List>
-      </div>
-    </div>
-    <div v-if="tabBtn === 2">{{ $t('info.video') }}</div>
-  </div>
-  <div v-else-if="tab === 3">
-    <div class="flex justify-between pt-20">
-      <!-- 審核通過會放入『# 已排入定時發佈』 $t('info.scheduledRelease')-->
-      <!-- 審核失敗會放處 『# 審核失敗』 $t('info.auditFailure') -->
-      <div class="text-base font-bold leading-md">#{{ $t('info.underReview') }}</div>
-      <Tab v-model="tabBtn" :options="tabBtnOptions" isBtnTab :isBasicTab="false"></Tab>
-    </div>
-    <div v-if="tabBtn === 1">
-      <div class="overflow-x-hidden">
-        <List :items="items" item-key="id" divider>
-          <template #default="{}">
-            <Feed class="py-20"></Feed>
-          </template>
-          <template #bottom>
-            <div class="flex items-center justify-center py-8 text-gray-a3">
-              <Loading></Loading>{{ $t('common.noMore') }}
-            </div>
-          </template>
-        </List>
-      </div>
-    </div>
-    <div v-if="tabBtn === 2">{{ $t('info.video') }}</div>
+    <List :items="items" item-key="id" divider>
+      <template #default="{ item }">
+        <div class="py-20 text-base font-bold">#{{ status(item) }}</div>
+        <Feed class="pb-10" :item="item"></Feed>
+        <Button class="mb-20">{{ $t('label.edit') }}</Button>
+      </template>
+      <template #bottom>
+        <div class="flex items-center justify-center py-8 text-gray-a3">
+          <Loading v-if="isLoading"></Loading>
+          <span v-if="noMore">{{ $t('common.noMore') }}</span>
+        </div>
+      </template>
+    </List>
   </div>
 </template>
 <script setup>
-import { ref } from 'vue'
+import { computed, reactive, ref, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
+import Button from '@comp/common/Button.vue'
 import Feed from '@comp/main/Feed.vue'
+import ButtonTab from '@comp/navigation/ButtonTab.vue'
 import Tab from '@comp/navigation/Tab.vue'
+import { useInfinite } from '@use/request/infinite'
+import { FEED_STATUS, MEDIA_TYPE } from '@const/publish'
 
-const tab = ref(1)
+const TAB_TYPE = { SUB: 1, BUY: 2, SCH: 3, PRI: 4 }
+
+const tab = ref(TAB_TYPE.SUB)
 const tabOptions = ref([
-  { label: 'common.subscribe', value: 1 },
-  { label: 'label.sale', value: 2 },
-  { label: 'label.scheduledRelease', value: 3 },
+  { label: 'common.subscribe', value: TAB_TYPE.SUB },
+  { label: 'label.sale', value: TAB_TYPE.BUY },
+  { label: 'label.scheduledRelease', value: TAB_TYPE.SCH },
+  { label: 'label.private', value: TAB_TYPE.PRI },
 ])
 
-const tabBtn = ref(1)
+const tabBtnValues = reactive({
+  [TAB_TYPE.SUB]: MEDIA_TYPE.IMAGE,
+  [TAB_TYPE.BUY]: MEDIA_TYPE.IMAGE,
+  [TAB_TYPE.SCH]: MEDIA_TYPE.IMAGE,
+  [TAB_TYPE.PRI]: MEDIA_TYPE.IMAGE,
+})
+const tabBtn = computed({
+  get() {
+    return tabBtnValues[tab.value]
+  },
+  set(v) {
+    tabBtnValues[tab.value] = v
+  },
+})
 const tabBtnOptions = ref([
-  { label: 'info.img', value: 1 },
-  { label: 'info.video', value: 2 },
+  { label: 'info.image', value: MEDIA_TYPE.IMAGE },
+  { label: 'info.video', value: MEDIA_TYPE.VIDEO },
 ])
-const items = ref([])
 
-const allPosts = ref(123)
+const pages = {
+  [`${TAB_TYPE.SUB}${MEDIA_TYPE.IMAGE}`]: {
+    inited: false,
+    infinite: useInfinite('Article.listManagement', {
+      params: { article_type: 1, pre_display: 0, resource_type: MEDIA_TYPE.IMAGE },
+    }),
+  },
+  [`${TAB_TYPE.SUB}${MEDIA_TYPE.VIDEO}`]: {
+    inited: false,
+    infinite: useInfinite('Article.listManagement', {
+      params: { article_type: 1, pre_display: 0, resource_type: MEDIA_TYPE.VIDEO },
+    }),
+  },
+  [`${TAB_TYPE.BUY}${MEDIA_TYPE.IMAGE}`]: {
+    inited: false,
+    infinite: useInfinite('Article.listManagement', {
+      params: { article_type: 2, pre_display: 0, resource_type: MEDIA_TYPE.IMAGE },
+    }),
+  },
+  [`${TAB_TYPE.BUY}${MEDIA_TYPE.VIDEO}`]: {
+    inited: false,
+    infinite: useInfinite('Article.listManagement', {
+      params: { article_type: 2, pre_display: 0, resource_type: MEDIA_TYPE.VIDEO },
+    }),
+  },
+  [`${TAB_TYPE.SCH}${MEDIA_TYPE.IMAGE}`]: {
+    inited: false,
+    infinite: useInfinite('Article.listManagement', {
+      params: { article_type: 0, pre_display: 1, resource_type: MEDIA_TYPE.IMAGE },
+    }),
+  },
+  [`${TAB_TYPE.SCH}${MEDIA_TYPE.VIDEO}`]: {
+    inited: false,
+    infinite: useInfinite('Article.listManagement', {
+      params: { article_type: 0, pre_display: 1, resource_type: MEDIA_TYPE.VIDEO },
+    }),
+  },
+  [`${TAB_TYPE.PRI}${MEDIA_TYPE.IMAGE}`]: {
+    inited: false,
+    infinite: useInfinite('Article.listManagement', {
+      params: { article_type: 3, pre_display: 0, resource_type: MEDIA_TYPE.IMAGE },
+    }),
+  },
+  [`${TAB_TYPE.PRI}${MEDIA_TYPE.VIDEO}`]: {
+    inited: false,
+    infinite: useInfinite('Article.listManagement', {
+      params: { article_type: 3, pre_display: 0, resource_type: MEDIA_TYPE.VIDEO },
+    }),
+  },
+}
+const items = computed(() => pages[`${tab.value}${tabBtn.value}`].infinite.dataList.value)
+const isLoading = computed(() => pages[`${tab.value}${tabBtn.value}`].infinite.isLoading.value)
+const noMore = computed(() => pages[`${tab.value}${tabBtn.value}`].infinite.noMore.value)
+watch(
+  [tab, tabBtn],
+  ([tab, tabBtn]) => {
+    const page = pages[`${tab}${tabBtn}`]
+    if (!page.inited) {
+      page.inited = true
+      page.infinite.init()
+    }
+  },
+  { immediate: true },
+)
+
+const { t: $t } = useI18n()
+function status(item) {
+  if (item.status === FEED_STATUS.REVIEW) return $t('info.underReview')
+  if (item.status === FEED_STATUS.REJECT) return $t('info.auditFailure')
+  if (item.status === FEED_STATUS.PASS) return $t('info.scheduledRelease')
+  if (item.status === FEED_STATUS.PUBLISHED) return $t('info.published')
+}
 </script>
