@@ -187,3 +187,9 @@ export const SUB_PLAN_STATUS = {
   DISABLE: 0,
   ENABLE: 1,
 }
+
+// 我的收益 - 頁籤
+export const MINE_EARN_TAB = {
+  OVERALL_PREF: 1,
+  POST_PREF: 2,
+}

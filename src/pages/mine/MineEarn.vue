@@ -6,8 +6,8 @@
     </router-link>
   </div>
   <div class="flex items-end justify-center space-x-5 py-35">
-    <div class="text-base font-bold leading-md">$</div>
-    <div class="text-xl font-bold leading-xl">5,000,000</div>
+    <div @click="refreshOverallData" class="text-base font-bold leading-md">$</div>
+    <div class="text-xl font-bold leading-xl">{{ overallData?.total_income }}</div>
   </div>
   <router-link :to="{ name: 'mine-earn-wdrl-req' }">
     <Button>{{ $t('content.withdrawalApply') }}</Button>
@@ -17,91 +17,95 @@
   <div class="sticky top-52 z-10 h-35 bg-white">
     <Tab v-model="tab" :options="tabOptions"></Tab>
   </div>
-  <div v-if="tab === 1">
+  <div v-show="tab === MINE_EARN_TAB.OVERALL_PREF">
     <div class="grid space-y-30">
       <div class="relative mt-20 flex w-full items-center justify-center space-x-10 px-20 md:px-0 lg:px-0 xl:px-0">
         <div
           @click="onStartDate"
           class="flex w-full cursor-pointer select-none items-center justify-center rounded-full bg-gray-f6 py-6 text-base font-normal leading-md"
         >
-          {{ startDateValue.toLocaleString().substring(0, 9) }}
+          {{ startDateModel.toLocaleString().substring(0, 9) }}
         </div>
         <DatePicker
           v-show="showStartDate"
-          v-model="startDateValue"
+          v-model="startDateModel"
           :class="{ 'absolute left-0 top-36 z-10': showStartDate, relative: !showStartDate }"
           @close="showStartDate = false"
+          @confirm="startHandleConfirm"
         ></DatePicker>
         <div><Icon name="calendar" size="20"></Icon></div>
         <div
           @click="onEndDate"
           class="flex w-full cursor-pointer select-none items-center justify-center rounded-full bg-gray-f6 py-6 text-base font-normal leading-md"
         >
-          {{ endDateValue.toLocaleString().substring(0, 9) }}
+          {{ endDateModel.toLocaleString().substring(0, 9) }}
         </div>
         <DatePicker
           v-show="showEndDate"
-          v-model="endDateValue"
+          v-model="endDateModel"
           :class="{ 'absolute right-0 top-36 z-10': showEndDate, relative: !showEndDate }"
           @close="showEndDate = false"
+          @confirm="endHandleConfirm"
         ></DatePicker>
       </div>
       <div class="flex select-none space-x-30 px-20 md:px-0 lg:px-0 xl:px-0">
         <div class="flex w-4/12 flex-col space-y-10">
           <div class="text-base font-normal leading-md">{{ $t('content.totEntries') }}</div>
-          <div class="text-lg font-bold leading-lg">1000</div>
+          <div class="text-lg font-bold leading-lg">{{ overallData?.total_click }}</div>
         </div>
         <div class="flex w-4/12 flex-col space-y-10">
           <div class="text-base font-normal leading-md">{{ $t('content.totSubs') }}</div>
-          <div class="text-lg font-bold leading-lg">29k</div>
+          <div class="text-lg font-bold leading-lg">{{ overallData?.total_subscription }}</div>
         </div>
         <div class="flex w-4/12 flex-col space-y-10">
           <div class="text-base font-normal leading-md">{{ $t('content.totViews') }}</div>
-          <div class="text-lg font-bold leading-lg">27.5k</div>
+          <div class="text-lg font-bold leading-lg">{{ overallData?.total_view }}</div>
         </div>
       </div>
       <div class="flex space-x-30 px-20 md:px-0 lg:px-0 xl:px-0">
         <div class="flex w-4/12 flex-col space-y-10">
           <div class="text-base font-normal leading-md">{{ $t('content.purchases') }}</div>
-          <div class="text-lg font-bold leading-lg">2000</div>
+          <div class="text-lg font-bold leading-lg">{{ overallData?.total_buyer }}</div>
         </div>
         <div class="flex w-4/12 flex-col space-y-10">
           <div class="text-base font-normal leading-md">{{ $t('content.periodIncome') }}</div>
-          <div class="text-lg font-bold leading-lg">$9999</div>
+          <div class="text-lg font-bold leading-lg">${{ overallData?.total_income }}</div>
         </div>
         <div class="flex w-4/12 flex-col justify-start space-y-10">
           <div class="text-base font-normal leading-md">{{ $t('content.unsubscribers') }}</div>
-          <div class="text-lg font-bold leading-lg">30</div>
+          <div class="text-lg font-bold leading-lg">{{ overallData?.total_unsubscription }}</div>
         </div>
       </div>
     </div>
   </div>
-  <div v-else-if="tab === 2">
+  <div v-show="tab === MINE_EARN_TAB.POST_PREF">
     <div class="relative mt-20 flex w-full items-center justify-center space-x-10 px-20 md:px-0 lg:px-0 xl:px-0">
       <div
         @click="onStartDate"
         class="flex w-full cursor-pointer select-none items-center justify-center rounded-full bg-gray-f6 py-6 text-base font-normal leading-md"
       >
-        {{ startDateValue.toLocaleString().substring(0, 9) }}
+        {{ startDateModel.toLocaleString().substring(0, 9) }}
       </div>
       <DatePicker
         v-show="showStartDate"
-        v-model="startDateValue"
+        v-model="startDateModel"
         :class="{ 'absolute left-0 top-36 z-10': showStartDate, relative: !showStartDate }"
         @close="showStartDate = false"
+        @confirm="startHandleConfirm"
       ></DatePicker>
       <div><Icon name="calendar" size="20"></Icon></div>
       <div
         @click="onEndDate"
         class="flex w-full cursor-pointer select-none items-center justify-center rounded-full bg-gray-f6 py-6 text-base font-normal leading-md"
       >
-        {{ endDateValue.toLocaleString().substring(0, 9) }}
+        {{ endDateModel.toLocaleString().substring(0, 9) }}
       </div>
       <DatePicker
         v-show="showEndDate"
-        v-model="endDateValue"
+        v-model="endDateModel"
         :class="{ 'absolute right-0 top-36 z-10': showEndDate, relative: !showEndDate }"
         @close="showEndDate = false"
+        @confirm="endHandleConfirm"
       ></DatePicker>
     </div>
     <div class="mt-20" v-for="(media, index) in medias" :key="`earn-media-info-${index}`">
@@ -110,17 +114,51 @@
   </div>
 </template>
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useEarnStore } from '@/store/earn'
 import Button from '@comp/common/Button.vue'
 import DatePicker from '@comp/form/DatePicker.vue'
 import EarnPostCard from '@comp/mine/EarnPostCard.vue'
 import Tab from '@comp/navigation/Tab.vue'
+// import useRequest from '@use/request'
+import { MINE_EARN_TAB } from '@const'
 
-const tab = ref(1)
+const earnStore = useEarnStore()
+const { refreshOverallData } = earnStore
+const { overallData, startDate, endDate } = storeToRefs(earnStore)
+
+onMounted(refreshOverallData)
+
+const tab = ref(MINE_EARN_TAB.OVERALL_PREF)
 const tabOptions = ref([
-  { label: 'label.overallPerf', value: 1 },
-  { label: 'label.postPerf', value: 2 },
+  { label: 'label.overallPerf', value: MINE_EARN_TAB.OVERALL_PREF },
+  { label: 'label.postPerf', value: MINE_EARN_TAB.POST_PREF },
 ])
+
+const startDateModel = ref(startDate.value)
+async function startHandleConfirm() {
+  startDate.value = startDateModel.value
+  console.log('你設定的start', startDate.value)
+  await refreshOverallData()
+}
+const endDateModel = ref(endDate.value)
+async function endHandleConfirm() {
+  endDate.value = endDateModel.value
+  console.log('你設定的end', endDate.value)
+  await refreshOverallData()
+}
+
+const showStartDate = ref(false)
+const onStartDate = () => {
+  showStartDate.value = !showStartDate.value
+  showEndDate.value = false
+}
+const showEndDate = ref(false)
+const onEndDate = () => {
+  showEndDate.value = !showEndDate.value
+  showStartDate.value = false
+}
 
 const medias = ref([
   {
@@ -208,18 +246,4 @@ const medias = ref([
     periodIncome: 83030,
   },
 ])
-
-const showStartDate = ref(false)
-const onStartDate = () => {
-  showStartDate.value = !showStartDate.value
-  showEndDate.value = false
-}
-const startDateValue = ref(new Date())
-
-const showEndDate = ref(false)
-const onEndDate = () => {
-  showEndDate.value = !showEndDate.value
-  showStartDate.value = false
-}
-const endDateValue = ref(new Date())
 </script>
