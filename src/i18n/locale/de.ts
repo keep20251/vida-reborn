@@ -417,9 +417,26 @@ export default {
     subscribe: {
       1: "Besuchen Sie alle Werke der Vergangenheit {days} Tag",
       2: "Kann Informationen direkt an den Ersteller senden",
-      3: "Näher -stufe Interaktion",
+      3: "Näher -stufe -Interaktion",
       4: "Sie können Ihr Abonnement jederzeit stornieren",
+      confirm: "Monat {'$'} {price} zur Zahlung gehen",
     },
+    shopBuy: {
+      1: "Entsperren {nickname} den Arbeitsinhalt der Abteilung",
+      2: "{nickname} erhält Ihre Zahlung vollständig",
+      confirm: "Jetzt entsperren ({'$'} {price})",
+    },
+    subscribeSuc: {
+      1: "fabelhaft! Erfolgreich abonniert {nickname}!",
+      2: "Wählen Sie, um zur Homepage für die Schöpfer zu gehen oder auf dem Originalbildschirm zu bleiben!",
+      confirm: "Gehen Sie zur Schöpferseite",
+    },
+    shopBuySuc: {
+      1: "fabelhaft! Erfolgreiche Zahlung zum Entsperren des Beitrags",
+      2: "Wählen Sie zum Beitrag, um sie zu beobachten oder im Originalbildschirm zu bleiben!",
+      confirm: "In den Posten gehen",
+    },
+    title: { paySuc: "Hat erfolgreich bezahlt" },
     paying: { title: "Zahlungsabwicklung" },
   },
   beCreator: {

@@ -397,7 +397,20 @@ export default {
       2: "能够直接发信息给创作者",
       3: "更近一步的互动",
       4: "随时可以取消您的订阅",
+      confirm: "每月 {'$'}{price} 前往支付",
     },
+    shopBuy: {
+      1: "将解锁{nickname}的该部作品内容",
+      2: "{nickname}将全额收到您的付款",
+      confirm: "立即解锁 ({'$'}{price})",
+    },
+    subscribeSuc: {
+      1: "太棒了！已成功订阅{nickname}！",
+      2: "选择前往该创作者首页，或者留在原画面逛逛吧！",
+      confirm: "前往创作者页面",
+    },
+    shopBuySuc: { 1: "太棒了！已成功付款解锁帖子", 2: "选择前往帖子观赏，或者留在原画面逛逛吧！", confirm: "前往帖子" },
+    title: { paySuc: "已成功付款" },
     paying: { title: "付款处理中" },
   },
   beCreator: {

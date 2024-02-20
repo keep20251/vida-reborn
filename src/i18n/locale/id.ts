@@ -417,7 +417,24 @@ export default {
       2: "Dapat mengirim informasi langsung ke pencipta",
       3: "Interaksi lebih dekat",
       4: "Anda dapat membatalkan langganan Anda setiap saat",
+      confirm: "Bulan {'$'} {price} Pergi ke pembayaran",
     },
+    shopBuy: {
+      1: "Akan Membuka Kunci {nickname} Konten Kerja Departemen",
+      2: "{nickname} akan menerima pembayaran Anda secara lengkap",
+      confirm: "Buka Kunci Sekarang ({'$'} {price})",
+    },
+    subscribeSuc: {
+      1: "menakjubkan! Berhasil berlangganan {nickname}!",
+      2: "Pilih untuk pergi ke beranda pencipta, atau tetap di layar asli!",
+      confirm: "Pergi ke halaman Pencipta",
+    },
+    shopBuySuc: {
+      1: "menakjubkan! Pembayaran berhasil untuk membuka kunci pos",
+      2: "Pilih ke pos untuk ditonton, atau tetap di layar asli!",
+      confirm: "Pergi ke pos",
+    },
+    title: { paySuc: "Telah berhasil dibayar" },
     paying: { title: "Proses pembayaran" },
   },
   beCreator: {

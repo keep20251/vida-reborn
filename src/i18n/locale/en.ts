@@ -416,7 +416,24 @@ export default {
       2: "Can send information directly to the creator",
       3: "Closer -step interaction",
       4: "You can cancel your subscription at any time",
+      confirm: "Month {'$'} {price} Go to payment",
     },
+    shopBuy: {
+      1: "Will unlock {nickname} The work content of the department",
+      2: "{nickname} will receive your payment in full",
+      confirm: "Unlock now ({'$'} {price})",
+    },
+    subscribeSuc: {
+      1: "marvelous! Successfully subscribed to {nickname}!",
+      2: "Choose to go to the creator homepage, or stay on the original screen!",
+      confirm: "Go to the creator page",
+    },
+    shopBuySuc: {
+      1: "marvelous! Successful payment to unlock the post",
+      2: "Choose to the post to watch, or stay in the original screen!",
+      confirm: "Go to the post",
+    },
+    title: { paySuc: "Has successfully paid" },
     paying: { title: "Payment processing" },
   },
   beCreator: {

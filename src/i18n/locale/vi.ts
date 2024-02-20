@@ -415,11 +415,28 @@ export default {
   },
   modal: {
     subscribe: {
-      1: "Ghé thăm hoàn toàn tất cả các tác phẩm của ngày {days} trong quá khứ",
+      1: "Hoàn toàn ghé thăm tất cả các tác phẩm của ngày {days} đã qua",
       2: "Có thể gửi thông tin trực tiếp cho người tạo",
       3: "Tương tác gần hơn",
       4: "Bạn có thể hủy đăng ký của mình bất cứ lúc nào",
+      confirm: "Tháng {'$'} {price} Chuyển đến thanh toán",
     },
+    shopBuy: {
+      1: "Sẽ mở khóa {nickname} nội dung công việc của bộ phận",
+      2: "{nickname} sẽ nhận đầy đủ thanh toán của bạn",
+      confirm: "Mở khóa ngay bây giờ ({'$'} {price})",
+    },
+    subscribeSuc: {
+      1: "Marvelous! Đã đăng ký thành công {nickname}!",
+      2: "Chọn đi đến trang chủ của người tạo, hoặc ở trên màn hình gốc!",
+      confirm: "Truy cập trang Creator",
+    },
+    shopBuySuc: {
+      1: "Marvelous! Thanh toán thành công để mở khóa bài",
+      2: "Chọn bài đăng để xem, hoặc ở trong màn hình gốc!",
+      confirm: "Đi đến bài viết",
+    },
+    title: { paySuc: "Đã trả tiền thành công" },
     paying: { title: "Xử lý thanh toán" },
   },
   beCreator: {
