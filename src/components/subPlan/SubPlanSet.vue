@@ -148,20 +148,24 @@
 import { computed, onMounted, ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
+import { useModalStore } from '@/store/modal'
 import { useSubPlanStore } from '@/store/sub-plan'
 import Button from '@comp/common/Button.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
 import useRequest from '@use/request'
+import { SUB_PLAN_STATUS } from '@const'
 import { IMAGE_LIMIT_COUNT } from '@const/publish'
 import uploadImage from '@/http/upload/uploadImage'
 
 const subPlanStore = useSubPlanStore()
+const { alert } = useModalStore()
 const { back, close } = subPlanStore
 const {
   history,
   data,
   index,
   status,
+  subList,
   addSubPlan,
   subPlanName,
   subPlanContent,
@@ -196,16 +200,17 @@ onMounted(async () => {
   subId.value = data.value[index.value]?.id
   subPicture.value = data.value[index.value]?.picture
   status.value = data.value[index.value]?.status
-  if (addSubPlan.value && subPicture.value === undefined) {
-    uploadFiles.value = []
-    selUploadItem.value = null
-    selDefaultItem.value = appConfig.subscription_images[0]
-  }
   if (!addSubPlan.value && subPicture.value) {
     selDefaultItem.value = null
     uploadFiles.value = []
     uploadFiles.value.push({ result: subPicture.value, progress: 1 })
     selUploadItem.value = subPicture.value
+  }
+  if (addSubPlan.value) {
+    subPlanName.value = ''
+    subPlanContent.value = ''
+    subPlanPrice.value = ''
+    subUnlockDayAfter.value = ''
   }
 })
 
@@ -218,6 +223,8 @@ watch(index, (newIndex) => {
     subUnlockDayAfter.value = data.value[index.value].unlock_day_after_subscribe
     subId.value = data.value[index.value].id
     subPicture.value = data.value[index.value]?.picture
+    selUploadItem.value = data.value[index.value]?.picture
+    status.value = data.value[index.value]?.status
   }
 })
 
@@ -226,6 +233,11 @@ watch(addSubPlan, (newAddSubPlan) => {
     uploadFiles.value = []
     selUploadItem.value = null
     selDefaultItem.value = appConfig.subscription_images[0]
+    subPlanName.value = ''
+    subPlanContent.value = ''
+    subPlanPrice.value = ''
+    subUnlockDayAfter.value = ''
+    subPicture.value = ''
   } else {
     if (subPicture.value) {
       selDefaultItem.value = null
@@ -246,9 +258,6 @@ watch(subPicture, (newSubPicture) => {
   }
 })
 
-const inputImage = ref(null)
-const { appConfig } = useAppStore()
-
 const selDefaultImg = (item) => {
   selDefaultItem.value = item
   if (selUploadItem.value !== null) {
@@ -262,6 +271,8 @@ const selUploadImg = (item) => {
   }
 }
 
+const inputImage = ref(null)
+const { appConfig } = useAppStore()
 const handleFileUpload = async (event) => {
   const files = event.target.files
   if (!files || files.length === 0) return
@@ -269,7 +280,9 @@ const handleFileUpload = async (event) => {
   const totalFiles = uploadFiles.value.length + files.length
 
   if (totalFiles > 7) {
-    alert('最多上傳10張圖')
+    alert({
+      title: '最多上傳10張圖',
+    })
     return
   }
 
@@ -287,20 +300,21 @@ const handleFileUpload = async (event) => {
     }
   }
 }
-
 const removeUploadFile = (index) => {
   uploadFiles.value.splice(index, 1)
 }
 
 const delSubPlan = async () => {
-  alert('刪除這篇訂閱方案')
   const { execute: subPlanDel } = useRequest('Subscription.bulkDel')
   const payload = {
     ids: subId.value,
   }
   try {
     await subPlanDel(payload)
-    alert('成功囉！')
+    alert({
+      title: '刪除成功',
+    })
+    subList.value = subList.value.filter((item) => item.id !== subId.value)
     close()
   } catch (e) {
     console.error(e)
@@ -314,7 +328,10 @@ const onSubmit = async () => {
   if (addSubPlan.value) {
     try {
       await subPlanCreate(data)
-      alert('成功囉！')
+      alert({
+        title: '發布成功',
+      })
+      subList.value.unshift(data)
       uploadFiles.value = []
       subPlanName.value = ''
       subPlanContent.value = ''
@@ -327,7 +344,13 @@ const onSubmit = async () => {
   } else {
     try {
       await subPlanUpdate(data)
-      alert('成功囉！')
+      const index = subList.value.findIndex((item) => item.id === data.id)
+      alert({
+        title: '更新成功',
+      })
+      if (index !== -1) {
+        subList.value[index] = data
+      }
       close()
     } catch (e) {
       console.error(e)
@@ -352,11 +375,12 @@ function makeReqData() {
   if (selDefaultItem.value || selUploadItem.value) {
     data.picture = selDefaultItem.value || selUploadItem.value
   }
-  if (status.value === 0) {
-    status.value = 0
-  } else if (status.value === 1) {
-    status.value = 1
+  if (status.value === SUB_PLAN_STATUS.DISABLE) {
+    data.status = SUB_PLAN_STATUS.DISABLE
+  } else if (status.value === SUB_PLAN_STATUS.ENABLE) {
+    data.status = SUB_PLAN_STATUS.ENABLE
   }
+
   return data
 }
 </script>

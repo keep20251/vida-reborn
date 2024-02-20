@@ -1,5 +1,6 @@
 import { computed, ref } from 'vue'
 import { defineStore, storeToRefs } from 'pinia'
+import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
 import { useDialogStore } from '@/store/dialog'
 import MainPage from '@comp/subPlan/MainPage.vue'
@@ -9,6 +10,7 @@ import { SUB_PLAN } from '@const'
 export const useSubPlanStore = defineStore('subPlan', () => {
   const { subPlanDialog } = storeToRefs(useDialogStore())
   const { appConfig } = useAppStore()
+  const { userData } = storeToRefs(useAccountStore())
 
   const routes = [
     { value: SUB_PLAN.MAIN_PAGE, component: MainPage },
@@ -20,6 +22,7 @@ export const useSubPlanStore = defineStore('subPlan', () => {
   const historyProxy = computed(() => history.value)
   const subPlanComponent = computed(() => routes.find((route) => route.value === now.value).component)
 
+  const subList = ref(userData.value.subscription_list)
   const addSubPlan = ref(false)
   const data = ref('')
   const index = ref('')
@@ -72,6 +75,7 @@ export const useSubPlanStore = defineStore('subPlan', () => {
     addSubPlan,
     data,
     index,
+    subList,
     lastIndex,
     status,
     subPlanName,
