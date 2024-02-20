@@ -34,7 +34,7 @@
               v-if="uploadFiles[0].status !== UPLOAD_STATUS.DONE"
               class="absolute top-0 h-full w-full bg-black p-20 text-right text-white opacity-70"
             >
-              {{ `上傳進度 ${Math.floor(uploadFiles[0].progress * 100)}%` }}
+              {{ $t('info.uploadProgress', { progress: Math.floor(uploadFiles[0].progress * 100) }) }}
             </div>
           </div>
         </div>
