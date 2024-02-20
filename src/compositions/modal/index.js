@@ -43,20 +43,16 @@ export function useDialog() {
     })
   }
 
-  async function subscribe(creator) {
-    const lowestSub = creator?.subscription_list?.reduce((acc, cur) =>
-      Number(acc.price) < Number(cur.price) ? acc : cur,
-    )
-
+  async function subscribe({ item, creator }) {
     open(MODAL_TYPE.SUBSCRIBE, {
       size: 'sm',
-      imageTitle: lowestSub.picture,
-      content: lowestSub,
-      confirmText: $t('modal.subscribe.confirm', { price: lowestSub.price }),
+      imageTitle: item.picture,
+      content: item,
+      confirmText: $t('modal.subscribe.confirm', { price: item.price }),
       confirmAction: async (data) => {
         await pay({
           apiKey: 'Payment.sub',
-          data: { item_id: lowestSub.id },
+          data: { item_id: item.id },
           newWindow: data.window,
           paymentType: CONSUME_TYPE.SUBSCRIBE,
           amount: 0,

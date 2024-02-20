@@ -11,9 +11,17 @@
               <div class="cursor-pointer"><Icon name="comment" size="20"></Icon></div>
               <div class="cursor-pointer"><Icon name="report" size="20"></Icon></div>
               <div class="cursor-pointer"><Icon name="sharePage" size="20"></Icon></div>
-              <Button size="sm" primary @click="subscribe(lowestSub)">
+              <Button size="sm" primary @click="subscribe({ item: lowestSub, creator })">
                 {{ $t('common.subscribe') }}
               </Button>
+            </div>
+          </template>
+          <template #bottomButton>
+            <div class="flex w-full flex-row items-center space-x-12">
+              <Button primary @click="open({ items: creator?.subscription_list, creator })">
+                {{ $t('common.viewSubscribePlan') }}
+              </Button>
+              <Icon name="messagePrimary" size="36"></Icon>
             </div>
           </template>
         </SelfIntro>
@@ -46,7 +54,7 @@
         <div class="text-lg font-bold">{{ $t('title.subscription') }}</div>
         <List :items="creator.subscription_list" item-key="id" divider>
           <template #default="{ item }">
-            <SubscribeCard class="py-20" :item="item"></SubscribeCard>
+            <SubscribeCard class="py-20" :item="item" @click="subscribe({ item, creator })"></SubscribeCard>
           </template>
         </List>
       </div>
@@ -63,6 +71,7 @@ import { useAppStore } from '@/store/app'
 import { useCreatorStore } from '@/store/creator'
 import { useFeedStore } from '@/store/feed'
 import { useHydrationStore } from '@/store/hydration'
+import { useSubsciptionStore } from '@/store/subscription'
 import SubscribeCard from '@comp/card/SubscribeCard.vue'
 import Button from '@comp/common/Button.vue'
 import Error from '@comp/info/Error.vue'
@@ -114,6 +123,7 @@ function nextArticleList() {
 }
 
 const { subscribe } = useDialog()
+const { open } = useSubsciptionStore()
 const lowestSub = computed(() =>
   creator.value?.subscription_list?.reduce((acc, cur) => (Number(acc.price) < Number(cur.price) ? acc : cur)),
 )

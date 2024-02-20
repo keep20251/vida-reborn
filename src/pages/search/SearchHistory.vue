@@ -4,14 +4,14 @@
       <div class="flex flex-col space-y-10">
         <div class="flex justify-between text-base font-normal leading-md">
           <div>{{ $t('title.search.history') }}</div>
-          <div class="cursor-pointer" @click="openClearConfirm">{{ $t('title.search.clear') }}</div>
+          <div class="cursor-pointer" @click="openClearConfirm">{{ $t('title.search.popular') }}</div>
         </div>
         <ClientOnly>
           <TagGroup v-model="selectedHistory" :items="historyTags" @update:modelValue="onSearch"></TagGroup>
         </ClientOnly>
       </div>
       <div class="flex flex-col space-y-10">
-        <div class="text-base font-normal leading-md">{{ $t('title.search.popular') }}</div>
+        <div class="text-base font-normal leading-md">{{ $t('title.search.clear') }}</div>
         <TagGroup v-model="selectedPopular" :items="popularTags" @update:modelValue="onSearch"></TagGroup>
       </div>
     </div>

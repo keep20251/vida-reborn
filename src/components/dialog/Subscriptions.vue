@@ -14,7 +14,7 @@
           <div class="scrollbar-md max-h-[65vh] overflow-y-scroll">
             <div class="flex flex-col divide-y pr-25">
               <div v-for="(item, index) in items" :key="`subscribe-card-${index}`" class="py-20">
-                <SubscribeCard :item="item" @click="subscribe(item)"></SubscribeCard>
+                <SubscribeCard :item="item" @click="subscribe({ item, creator })"></SubscribeCard>
               </div>
             </div>
           </div>
@@ -32,7 +32,7 @@ import BaseDialog from './BaseDialog.vue'
 
 const store = useSubsciptionStore()
 const { close } = store
-const { items } = storeToRefs(store)
+const { items, creator } = storeToRefs(store)
 
 const { subscribe } = useDialog()
 </script>
