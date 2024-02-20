@@ -3,13 +3,13 @@
     <template #default>
       <div class="flex cursor-pointer items-center space-x-10 px-36 pb-20 pt-30" @click="report">
         <Icon name="report" size="20"></Icon>
-        <span class="font-bold">Report</span>
+        <span class="font-bold">{{ $t('label.report') }}</span>
       </div>
       <div class="mx-26 h-1 bg-gray-e5"></div>
       <div class="flex cursor-pointer items-center space-x-10 px-36 pb-30 pt-20" @click="block">
         <Icon name="mineSetBlock" size="20"></Icon>
-        <span class="font-bold">{{ isBlocked ? $t('content.unblock') : $t('title.blockAcc') }}</span>
-        <Loading v-if="isLoading"></Loading>
+        <span class="font-bold">{{ isBlocked ? $t('content.unblock') : $t('label.block') }}</span>
+        <Loading v-if="isLoadingBlock"></Loading>
       </div>
     </template>
   </BaseDialog>
@@ -19,31 +19,55 @@
 import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useDialogStore } from '@/store/dialog'
+import { useFeedStore } from '@/store/feed'
+import { useModalStore } from '@/store/modal'
 import BaseDialog from '@comp/dialog/BaseDialog.vue'
 import useRequest from '@use/request'
-import { BLOCK_ACTION } from '@const'
+import { BLOCK_ACTION, MODAL_TYPE } from '@const'
 
 const dialogStore = useDialogStore()
-const { reportBlockDialog, reportBlockFeed } = storeToRefs(dialogStore)
+const { reportBlockDialog, reportBlockUser } = storeToRefs(dialogStore)
 const { closeDiss } = dialogStore
 
-const isBlocked = computed(() => reportBlockFeed.value.user.is_block)
+const modalStore = useModalStore()
+const { open } = modalStore
 
-const { isLoading, execute } = useRequest('User.block')
+const feedStore = useFeedStore()
+const { toggleBlock } = feedStore
 
-function report() {}
+const isBlocked = computed(() => reportBlockUser.value.is_block)
 
+const { isLoading: isReportLoading, execute: execReport } = useRequest('User.report')
+function report() {
+  if (isReportLoading.value) return
+
+  open(MODAL_TYPE.REPORT, {
+    title: 'label.report',
+    size: 'lg',
+    confirmAction: async (data) => {
+      try {
+        await execReport({ ...data, uuid: reportBlockUser.value.uuid })
+        closeDiss()
+      } catch (e) {
+        return e.message
+      }
+    },
+    cancelAction: closeDiss,
+  })
+}
+
+const { isLoading: isLoadingBlock, execute: execBlock } = useRequest('User.block')
 function block() {
-  if (isLoading.value) return
+  if (isLoadingBlock.value) return
 
   const reqData = {
-    aff_blocked: reportBlockFeed.value.user.aff,
+    aff_blocked: reportBlockUser.value.aff,
     action_type: isBlocked.value ? BLOCK_ACTION.UNBLOCK : BLOCK_ACTION.BLOCK,
   }
 
-  execute(reqData)
+  execBlock(reqData)
     .then(() => {
-      reportBlockFeed.value.user.is_block = !reportBlockFeed.value.user.is_block
+      toggleBlock(reqData.aff_blocked, !isBlocked.value)
       closeDiss()
     })
     .catch((e) => console.error(e))

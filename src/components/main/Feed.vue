@@ -15,7 +15,7 @@
         </Link>
       </div>
       <div class="grow text-right text-sm font-medium leading-5 text-gray-57">{{ item.created_at }}</div>
-      <div class="flex cursor-pointer items-center" @click.stop="dissSomeone(item)">
+      <div class="flex cursor-pointer items-center" @click.stop="dissSomeone(item.user)">
         <Icon name="moreVertical" size="20"></Icon>
       </div>
     </div>

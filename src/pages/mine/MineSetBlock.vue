@@ -1,16 +1,13 @@
 <template>
   <div class="items-center border-t pt-10">
     <List :items="dataList" item-key="aff_blocked">
-      <template #default="{ item, index }">
+      <template #default="{ item }">
         <div class="flex items-center justify-between py-10">
           <div class="flex items-center">
-            <Avatar class="mr-10" :radius="15" :src="item.thumb || defaultAvatar"></Avatar>
+            <Avatar class="mr-10" :radius="15" :src="item.thumb"></Avatar>
             <div class="text-base font-bold leading-md">{{ item.nickname }}</div>
           </div>
-          <div
-            @click="unblock(item.aff_blocked, index)"
-            class="cursor-pointer text-base font-bold leading-lg text-gray-57"
-          >
+          <div @click="unblock(item.aff_blocked)" class="cursor-pointer text-base font-bold leading-lg text-gray-57">
             {{ $t('content.unblock') }}
           </div>
         </div>
@@ -25,39 +22,34 @@
   </div>
 </template>
 <script setup>
-import { onActivated, onDeactivated, onMounted, onUnmounted } from 'vue'
+import { onActivated, onDeactivated, onMounted } from 'vue'
+import { useFeedStore } from '@/store/feed'
 import { useMineStore } from '@/store/mine'
 import Avatar from '@comp/multimedia/Avatar.vue'
 import useRequest from '@use/request/index.js'
 import { useInfinite } from '@use/request/infinite'
 import { BLOCK_ACTION } from '@const'
-import defaultAvatar from '@/assets/images/avatar.jpeg'
+
+const feedStore = useFeedStore()
+const { toggleBlock } = feedStore
 
 const { dataList, isLoading, noMore, init, next, reload } = useInfinite('User.listBlock', {
   params: {},
 })
 
 const { setNextFn, clearNextFn } = useMineStore()
-onMounted(() => {
-  init()
-  setNextFn(next)
-})
-onUnmounted(() => clearNextFn(next))
-onActivated(() => {
-  init()
-  setNextFn(next)
-})
+onMounted(init)
+onActivated(() => setNextFn(next))
 onDeactivated(() => clearNextFn(next))
 
-const unblock = async (blocked, index) => {
-  console.log(`看看blocked和index`, blocked, index)
+async function unblock(aff_blocked) {
   try {
     const { execute } = useRequest('User.block')
     await execute({
-      aff_blocked: blocked,
+      aff_blocked,
       action_type: BLOCK_ACTION.UNBLOCK,
     })
-    console.log('成功囉')
+    toggleBlock(aff_blocked, false)
     reload()
   } catch (e) {
     console.error(e)

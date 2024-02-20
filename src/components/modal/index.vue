@@ -19,7 +19,7 @@
         <div v-if="showClose" class="absolute right-20 top-20 cursor-pointer" @click="close">
           <Icon name="close" size="20"></Icon>
         </div>
-        <div class="mb-20" :class="{ 'mt-50': !!imageTitle || !!avatarTitle }">
+        <div class="mb-20 w-full" :class="{ 'mt-50': !!imageTitle || !!avatarTitle }">
           <keep-alive :max="5">
             <component :is="component" @component:confirm="checkCustomContentData"></component>
           </keep-alive>

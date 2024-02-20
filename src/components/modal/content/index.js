@@ -6,6 +6,7 @@ import Paying from './Paying.vue'
 import PhotoCapture from './PhotoCapture.vue'
 import PrivacyPolicy from './PrivacyPolicy.vue'
 import Progress from './Progress.vue'
+import Report from './Report.vue'
 import SignUpSuccess from './SignUpSuccess.vue'
 import SocialLink from './SocialLink.vue'
 import Subscribe from './Subscribe.vue'
@@ -20,6 +21,7 @@ export default Object.freeze({
 
   [MODAL_TYPE.SOCIAL_LINK]: SocialLink,
   [MODAL_TYPE.SIGN_UP_SUCCESS]: SignUpSuccess,
+  [MODAL_TYPE.REPORT]: Report,
 
   [MODAL_TYPE.INTERESTED_PICK]: InterestedPick,
   [MODAL_TYPE.APPLY_CREATOR_CERT]: ApplyCreatorCert,
