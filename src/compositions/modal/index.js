@@ -1,5 +1,6 @@
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useAccountStore } from '@/store/account'
 import { useModalStore } from '@/store/modal'
 import { usePayment } from '@use/payment'
 import { useRouters } from '@use/routers'
@@ -11,6 +12,7 @@ export function useDialog() {
   const { pay, cancel } = usePayment()
   const { open, close } = useModalStore()
   const { toCreator, toFeed } = useRouters()
+  const { afterLoginAction } = useAccountStore()
 
   async function uploadImageDialog(file, callback = null) {
     try {
@@ -121,8 +123,8 @@ export function useDialog() {
     uploadImageDialog,
 
     paying,
-    subscribe,
-    shopBuy,
+    subscribe: afterLoginAction(subscribe),
+    shopBuy: afterLoginAction(shopBuy),
     subscribeSuccess,
     shopBuySuccess,
   }
