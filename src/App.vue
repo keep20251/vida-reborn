@@ -15,8 +15,9 @@
       <ReportBlockPicker v-if="reportBlockDialog"></ReportBlockPicker>
 
       <Modal></Modal>
-      <MinePrvwBanner v-if="route.name === 'mine-profile-prvw'"></MinePrvwBanner
-    ></ClientOnly>
+      <MinePrvwBanner v-if="route.name === 'mine-profile-prvw'"></MinePrvwBanner>
+      <PopupMessage></PopupMessage>
+    </ClientOnly>
   </div>
   <NavigatorMobile v-if="isMobile"></NavigatorMobile>
 </template>
@@ -32,6 +33,7 @@ import CookieBanner from '@comp/banner/CookieBanner.vue'
 import MinePrvwBanner from '@comp/banner/MinePrvwBanner.vue'
 import AuthDialog from '@comp/dialog/AuthDialog.vue'
 import FileSelectDialog from '@comp/dialog/FileSelectDialog.vue'
+import PopupMessage from '@comp/dialog/PopupMessage.vue'
 import ReportBlockPicker from '@comp/dialog/ReportBlockPicker.vue'
 import SubPlanDialog from '@comp/dialog/SubPlanDialog.vue'
 import Subscriptions from '@comp/dialog/Subscriptions.vue'
