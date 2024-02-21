@@ -81,6 +81,7 @@ export default {
     subscription: "План подписки",
     publishSuccess: "Успешная публикация",
     publishFail: "Публикация не удалась",
+    delSuccess: "",
   },
   label: {
     account: "Имя пользователя",
@@ -92,6 +93,7 @@ export default {
     sendMailCode: "Отправить код проверки",
     resend: "Переслать",
     upload: "Загрузка",
+    uploadErr: "",
     displayName: "Отображаемое имя",
     username: "Имя пользователя",
     description: "Описание",
@@ -141,6 +143,8 @@ export default {
     buy: "Продажа в магазине",
     private: "Только я",
     reply: "Отвечать",
+    subPlanName: "",
+    subPlanCtn: "",
   },
   placeholder: {
     account: "Пожалуйста, введите имя пользователя",
@@ -154,9 +158,14 @@ export default {
     newPw: "Пожалуйста, введите новый пароль",
     newPwCfm: "Пожалуйста, введите новый пароль еще раз",
     wdrlAmount: "Пожалуйста, введите сумму для вывода",
+    subPlanName: "",
+    subPlanCtn: "",
     search: "поиск...",
   },
-  message: { payment: { failed: "Оплата не прошла", success: "Оплата прошла успешно", cancel: "Оплата отменена" } },
+  message: {
+    payment: { failed: "Оплата не прошла", success: "Оплата прошла успешно", cancel: "Оплата отменена" },
+    error: { subscribeSelf: "Не могу подписаться на себя", shopBuySelf: "Не могу купить свои собственные продукты" },
+  },
   copy: { link: "Скопировать ссылку", fail: "Копирование не удалось" },
   info: {
     bindThirdPartyLogin: "Свяжите стороннее логин",
@@ -209,6 +218,7 @@ export default {
     pickMessage: "Выбрать сообщение",
     popularCreator: "",
     subscribeToView: "",
+    upToTen: "",
   },
   content: {
     default: "Предустановка, его не следует отображать нигде",

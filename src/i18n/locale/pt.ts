@@ -81,6 +81,7 @@ export default {
     subscription: "Plano de assinatura",
     publishSuccess: "Publicação Bem-sucedida",
     publishFail: "Falha na Publicação",
+    delSuccess: "",
   },
   label: {
     account: "Nome de usuário",
@@ -92,6 +93,7 @@ export default {
     sendMailCode: "Envie o código de verificação",
     resend: "Reenviar",
     upload: "Carregando",
+    uploadErr: "",
     displayName: "Nome de exibição",
     username: "Nome de usuário",
     description: "Descrição",
@@ -141,6 +143,8 @@ export default {
     buy: "Venda na Loja",
     private: "Somente Eu",
     reply: "Responder",
+    subPlanName: "",
+    subPlanCtn: "",
   },
   placeholder: {
     account: "Por favor, insira o nome de usuário",
@@ -154,10 +158,16 @@ export default {
     newPw: "Por favor, insira uma nova senha",
     newPwCfm: "Por favor, insira a nova senha novamente",
     wdrlAmount: "Por favor, insira o valor do saque",
+    subPlanName: "",
+    subPlanCtn: "",
     search: "procurar...",
   },
   message: {
     payment: { failed: "Pagamento falhou", success: "Pagamento bem-sucedido", cancel: "Pagamento cancelado" },
+    error: {
+      subscribeSelf: "Não posso se inscrever para você",
+      shopBuySelf: "Não posso comprar seus próprios produtos",
+    },
   },
   copy: { link: "Copiar link", fail: "Cópia falhou" },
   info: {
@@ -211,6 +221,7 @@ export default {
     pickMessage: "Escolher uma mensagem",
     popularCreator: "",
     subscribeToView: "",
+    upToTen: "",
   },
   content: {
     default: "Predefinido, não deve ser exibido em nenhum lugar",

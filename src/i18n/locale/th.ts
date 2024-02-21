@@ -81,6 +81,7 @@ export default {
     subscription: "แผนการสมัครสมาชิก",
     publishSuccess: "เผยแพร่สำเร็จ",
     publishFail: "เผยแพร่ไม่สำเร็จ",
+    delSuccess: "",
   },
   label: {
     account: "ชื่อผู้ใช้",
@@ -92,6 +93,7 @@ export default {
     sendMailCode: "ส่งรหัสการยืนยัน",
     resend: "ส่งอีกครั้ง",
     upload: "กำลังอัปโหลด",
+    uploadErr: "",
     displayName: "ชื่อที่แสดง",
     username: "ชื่อผู้ใช้",
     description: "คำอธิบาย",
@@ -141,6 +143,8 @@ export default {
     buy: "ขายในร้านค้า",
     private: "แค่ฉัน",
     reply: "ตอบ",
+    subPlanName: "",
+    subPlanCtn: "",
   },
   placeholder: {
     account: "กรุณาใส่ชื่อผู้ใช้",
@@ -154,9 +158,14 @@ export default {
     newPw: "กรุณาใส่รหัสผ่านใหม่",
     newPwCfm: "กรุณาใส่รหัสผ่านใหม่อีกครั้ง",
     wdrlAmount: "กรุณาใส่จำนวนเงินที่ต้องการถอน",
+    subPlanName: "",
+    subPlanCtn: "",
     search: "ค้นหา...",
   },
-  message: { payment: { failed: "การชำระเงินล้มเหลว", success: "การชำระเงินสำเร็จ", cancel: "การชำระเงินถูกยกเลิก" } },
+  message: {
+    payment: { failed: "การชำระเงินล้มเหลว", success: "การชำระเงินสำเร็จ", cancel: "การชำระเงินถูกยกเลิก" },
+    error: { subscribeSelf: "ไม่สามารถสมัครสมาชิกตัวเองได้", shopBuySelf: "ไม่สามารถซื้อผลิตภัณฑ์ของคุณเองได้" },
+  },
   copy: { link: "คัดลอกลิงค์", fail: "คัดลอกไม่สำเร็จ" },
   info: {
     bindThirdPartyLogin: "ผูกเข้าสู่ระบบของบุคคลที่สาม",
@@ -209,6 +218,7 @@ export default {
     pickMessage: "เลือกข้อความ",
     popularCreator: "",
     subscribeToView: "",
+    upToTen: "",
   },
   content: {
     default: "ที่ตั้งไว้ล่วงหน้าไม่ควรแสดงทุกที่",

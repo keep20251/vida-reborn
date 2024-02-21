@@ -76,6 +76,7 @@ export default {
     subscription: "订阅方案",
     publishSuccess: "发布成功",
     publishFail: "发布失败",
+    delSuccess: "删除成功",
   },
   label: {
     account: "用户名",
@@ -87,6 +88,7 @@ export default {
     sendMailCode: "送出验证码",
     resend: "重新发送",
     upload: "上传中",
+    uploadErr: "上传错误",
     displayName: "显示名称",
     username: "用户名",
     description: "个人简介",
@@ -136,6 +138,8 @@ export default {
     buy: "商店销售",
     private: "仅限自己",
     reply: "回复",
+    subPlanName: "订阅方案名称",
+    subPlanCtn: "订阅方案内容",
   },
   placeholder: {
     account: "请输入用户名",
@@ -149,9 +153,14 @@ export default {
     newPw: "请输入新密码",
     newPwCfm: "请再输入一次新密码",
     wdrlAmount: "请输入提领金额",
+    subPlanName: "",
+    subPlanCtn: "",
     search: "搜索...",
   },
-  message: { payment: { failed: "付款失败", success: "付款成功", cancel: "付款取消" } },
+  message: {
+    payment: { failed: "付款失败", success: "付款成功", cancel: "付款取消" },
+    error: { subscribeSelf: "不能订阅自己", shopBuySelf: "不能购买自己的商品" },
+  },
   copy: { link: "复制链接", fail: "复制失败" },
   info: {
     bindThirdPartyLogin: "绑定第三方登入",
@@ -200,6 +209,7 @@ export default {
     pickMessage: "选择信息",
     popularCreator: "",
     subscribeToView: "",
+    upToTen: "最多10张",
   },
   content: {
     default: "预设，不应该显示在任何地方",

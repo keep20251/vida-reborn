@@ -81,6 +81,7 @@ export default {
     subscription: "Plan d'abonnement",
     publishSuccess: "Publication Réussie",
     publishFail: "Publication Échouée",
+    delSuccess: "",
   },
   label: {
     account: "Nom d’utilisateur",
@@ -92,6 +93,7 @@ export default {
     sendMailCode: "Envoyer le code de vérification",
     resend: "Renvoyer",
     upload: "Téléchargement",
+    uploadErr: "",
     displayName: "Nom d’affichage",
     username: "Nom d’utilisateur",
     description: "Description",
@@ -141,6 +143,8 @@ export default {
     buy: "Vente en Magasin",
     private: "Moi uniquement",
     reply: "Répondre",
+    subPlanName: "",
+    subPlanCtn: "",
   },
   placeholder: {
     account: "Veuillez entrer le nom d’utilisateur",
@@ -154,9 +158,17 @@ export default {
     newPw: "Veuillez entrer un nouveau mot de passe",
     newPwCfm: "Veuillez entrer à nouveau le nouveau mot de passe",
     wdrlAmount: "Veuillez entrer le montant du retrait",
+    subPlanName: "",
+    subPlanCtn: "",
     search: "recherche...",
   },
-  message: { payment: { failed: "Paiement échoué", success: "Paiement réussi", cancel: "Paiement annulé" } },
+  message: {
+    payment: { failed: "Paiement échoué", success: "Paiement réussi", cancel: "Paiement annulé" },
+    error: {
+      subscribeSelf: "Je ne peux pas vous abonner à vous-même",
+      shopBuySelf: "Impossible d'acheter vos propres produits",
+    },
+  },
   copy: { link: "Copier le lien", fail: "Copie échouée" },
   info: {
     bindThirdPartyLogin: "Lier la connexion tierce",
@@ -209,6 +221,7 @@ export default {
     pickMessage: "Choisir un message",
     popularCreator: "",
     subscribeToView: "",
+    upToTen: "",
   },
   content: {
     default: "Préréglage, il ne doit être affiché nulle part",

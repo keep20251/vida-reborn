@@ -81,6 +81,7 @@ export default {
     subscription: "सदस्यता योजना",
     publishSuccess: "प्रकाशन सफल",
     publishFail: "प्रकाशन विफल",
+    delSuccess: "",
   },
   label: {
     account: "उपयोगकर्ता नाम",
@@ -92,6 +93,7 @@ export default {
     sendMailCode: "सत्यापन कोड भेजें",
     resend: "पुनः भेजें",
     upload: "अपलोड हो रहा है",
+    uploadErr: "",
     displayName: "प्रदर्शित नाम",
     username: "उपयोगकर्ता नाम",
     description: "विवरण",
@@ -141,6 +143,8 @@ export default {
     buy: "दुकान की बिक्री",
     private: "केवल मैं",
     reply: "जवाब",
+    subPlanName: "",
+    subPlanCtn: "",
   },
   placeholder: {
     account: "कृपया उपयोगकर्ता नाम दर्ज करें",
@@ -154,9 +158,14 @@ export default {
     newPw: "कृपया एक नया पासवर्ड दर्ज करें",
     newPwCfm: "कृपया नया पासवर्ड फिर से दर्ज करें",
     wdrlAmount: "कृपया निकासी राशि दर्ज करें",
+    subPlanName: "",
+    subPlanCtn: "",
     search: "खोज...",
   },
-  message: { payment: { failed: "भुगतान असफल", success: "भुगतान सफल", cancel: "भुगतान रद्द" } },
+  message: {
+    payment: { failed: "भुगतान असफल", success: "भुगतान सफल", cancel: "भुगतान रद्द" },
+    error: { subscribeSelf: "अपनी सदस्यता नहीं ले सकते", shopBuySelf: "अपने उत्पादों को खरीद नहीं सकते" },
+  },
   copy: { link: "लिंक कॉपी करें", fail: "कॉपी विफल" },
   info: {
     bindThirdPartyLogin: "तीसरे पक्ष को लॉगिन करें",
@@ -209,6 +218,7 @@ export default {
     pickMessage: "एक संदेश चुनें",
     popularCreator: "",
     subscribeToView: "",
+    upToTen: "",
   },
   content: {
     default: "प्रीसेट, इसे कहीं भी प्रदर्शित नहीं किया जाना चाहिए",
