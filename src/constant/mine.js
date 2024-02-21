@@ -15,7 +15,7 @@ export const PERM_TABLE = {
     avatar: true,
     subscribers: false,
     profile: false,
-    postEarn: true, // 暫打開
+    postEarn: false,
     buyCollect: true,
     beCreator: true,
     settings: true,
