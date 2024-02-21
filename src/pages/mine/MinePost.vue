@@ -154,7 +154,7 @@ function onEdit(item) {
     tags: item.tags,
     type: item.resource_type,
     perm: item.article_type,
-    subs: item.subscription_ids,
+    subs: item.user.subscription_list.map((sub) => sub.id),
     price: item.price,
     postTime: toDate(item.display_at),
     urls: item.url,

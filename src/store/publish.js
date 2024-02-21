@@ -3,7 +3,7 @@ import { computed, reactive, readonly, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { defineStore, storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
-import { FEED_PERM, IMAGE_LIMIT_COUNT, MEDIA_TYPE, SUB_ALL_VALUE, UPLOAD_STATUS } from '@/constant/publish'
+import { FEED_PERM, IMAGE_LIMIT_COUNT, MEDIA_TYPE, UPLOAD_STATUS } from '@/constant/publish'
 import uploadImage from '@/http/upload/uploadImage'
 import uploadVideo from '@/http/upload/uploadVideo'
 
@@ -27,7 +27,7 @@ const DEFAULT_PUBLISH_PARAMS = {
   tags: [],
   type: null,
   perm: FEED_PERM.SUB,
-  subs: [SUB_ALL_VALUE],
+  subs: [],
   price: '',
 
   // 排定發布時間
@@ -205,8 +205,8 @@ export const usePublishStore = defineStore('publish', () => {
     publishParams.tags = tags ? tags.split(',').filter((t, i) => i !== 0 || t !== '') : []
     publishParams.type = type
     publishParams.perm = perm
-    publishParams.subs =
-      subs === 'all' ? [SUB_ALL_VALUE] : subs ? subs.split(',').filter((t, i) => i !== 0 || t !== '') : []
+    // publishParams.subs = subs ? subs.split(',').filter((t, i) => i !== 0 || t !== '') : []
+    publishParams.subs = subs
     publishParams.price = price
     publishParams.postTime = postTime
 
