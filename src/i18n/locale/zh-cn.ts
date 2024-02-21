@@ -189,7 +189,7 @@ export default {
     auditFailure: "审核失败",
     paid: "已付款",
     scheduledRelease: "已排入定时发布",
-    published: "",
+    published: "已发布",
     time: "时间",
     exitPrvw: "退出预览",
     recFormat: "支持JPG/PNG格式，建议尺寸为480x280",
@@ -197,7 +197,7 @@ export default {
     videoFormat: "支持mp4/mov格式，不超过 100 MB",
     imageFormat: "支持JPG/PNG格式，每张不超过1MB",
     uploadProgress: "上传进度 {progress}%",
-    pickMessage: "",
+    pickMessage: "选择信息",
   },
   content: {
     default: "预设，不应该显示在任何地方",
@@ -262,7 +262,10 @@ export default {
     processFail: "处理失败",
     replyTo: "回复给{name}",
     viewReplies: "查看{count}则回复",
-    autoPublishAt: "",
+    autoPublishAt: "将于{datetime}自动发布",
+    wdrlAtLeast: "提款金额须至少100美金以上。",
+    wdrlNotMoreNumNow: "数字不可大于目前收益。",
+    wdrlReview: "提出后将于24小时内审核，审核结果将于提交纪录中展示。",
   },
   month: {
     Jan: "一月",
@@ -414,6 +417,7 @@ export default {
     shopBuySuc: { 1: "太棒了！已成功付款解锁帖子", 2: "选择前往帖子观赏，或者留在原画面逛逛吧！", confirm: "前往帖子" },
     title: { paySuc: "已成功付款" },
     paying: { title: "付款处理中" },
+    confirmAmount: "请问您提交金额{'$'}{amount}是否正确?",
   },
   beCreator: {
     id: { passport: "护照", idCard: "身份证", driverLicense: "驾照" },

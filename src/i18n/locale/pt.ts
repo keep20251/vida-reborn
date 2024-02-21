@@ -200,7 +200,7 @@ export default {
     auditFailure: "Falha na auditoria",
     paid: "Pago",
     scheduledRelease: "Agendado para lançamento",
-    published: "",
+    published: "Publicado",
     time: "Tempo",
     exitPrvw: "Visualização de saída",
     recFormat: "Suporta formato JPG/PNG, tamanho recomendado é 480x280",
@@ -208,7 +208,7 @@ export default {
     videoFormat: "Suporta formato mp4/mov, não excedendo 100 MB",
     imageFormat: "Suporta formato JPG/PNG, cada um não excedendo 1MB",
     uploadProgress: "Progresso do Upload {progress}%",
-    pickMessage: "",
+    pickMessage: "Escolher uma mensagem",
   },
   content: {
     default: "Predefinir, não deve ser exibido em nenhum lugar",
@@ -278,7 +278,10 @@ export default {
     processFail: "Falha no processamento",
     replyTo: "Responder para {name}",
     viewReplies: "Ver {count} respostas",
-    autoPublishAt: "",
+    autoPublishAt: "Será publicado automaticamente em {datetime}",
+    wdrlAtLeast: "",
+    wdrlNotMoreNumNow: "",
+    wdrlReview: "",
   },
   month: {
     Jan: "Janeiro",
@@ -441,6 +444,7 @@ export default {
     },
     title: { paySuc: "Pagou com sucesso" },
     paying: { title: "Processo de pagamento" },
+    confirmAmount: "",
   },
   beCreator: {
     id: { passport: "Passaporte", idCard: "Cartão de Identidade", driverLicense: "Carteira de Motorista" },

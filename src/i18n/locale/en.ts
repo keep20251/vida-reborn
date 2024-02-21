@@ -198,7 +198,7 @@ export default {
     auditFailure: "Audit failure",
     paid: "Paid",
     scheduledRelease: "Scheduled for release",
-    published: "",
+    published: "Published",
     time: "Time",
     exitPrvw: "Exit preview",
     recFormat: "Supports JPG/PNG format, recommended size is 480x280",
@@ -206,7 +206,7 @@ export default {
     videoFormat: "Supports mp4/mov format, not exceeding 100 MB",
     imageFormat: "Supports JPG/PNG format, each not exceeding 1MB",
     uploadProgress: "Upload Progress {progress}%",
-    pickMessage: "",
+    pickMessage: "Pick a message",
   },
   content: {
     default: "Preset, should not be displayed anywhere",
@@ -275,7 +275,11 @@ export default {
     processFail: "Processing failed",
     replyTo: "Reply to {name}",
     viewReplies: "View {count} replies",
-    autoPublishAt: "",
+    autoPublishAt: "Will auto-publish at {datetime}",
+    wdrlAtLeast: "The withdrawal amount must be at least US$100.",
+    wdrlNotMoreNumNow: "The number cannot be greater than the current revenue.",
+    wdrlReview:
+      "It will be reviewed within 24 hours after submission, and the review results will be displayed in the submission record.",
   },
   month: {
     Jan: "January",
@@ -437,6 +441,7 @@ export default {
     },
     title: { paySuc: "Has successfully paid" },
     paying: { title: "Payment processing" },
+    confirmAmount: "Is the amount {'$'}{amount} you submitted correct?",
   },
   beCreator: {
     id: { passport: "Passport", idCard: "ID Card", driverLicense: "Driver's License" },

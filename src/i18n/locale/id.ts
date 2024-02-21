@@ -198,7 +198,7 @@ export default {
     auditFailure: "Kegagalan audit",
     paid: "Sudah dibayar",
     scheduledRelease: "Dijadwalkan untuk rilis",
-    published: "",
+    published: "Telah dipublikasikan",
     time: "Waktu",
     exitPrvw: "Pratinjau Keluar",
     recFormat: "Mendukung format JPG/PNG, ukuran disarankan adalah 480x280",
@@ -206,7 +206,7 @@ export default {
     videoFormat: "Mendukung format mp4/mov, tidak melebihi 100 MB",
     imageFormat: "Mendukung format JPG/PNG, masing-masing tidak melebihi 1MB",
     uploadProgress: "Kemajuan Unggah {progress}%",
-    pickMessage: "",
+    pickMessage: "Pilih pesan",
   },
   content: {
     default: "Preset, tidak boleh ditampilkan di mana pun",
@@ -276,7 +276,10 @@ export default {
     processFail: "Pengolahan gagal",
     replyTo: "Balas ke {name}",
     viewReplies: "Lihat {count} balasan",
-    autoPublishAt: "",
+    autoPublishAt: "Akan dipublikasikan secara otomatis pada {datetime}",
+    wdrlAtLeast: "",
+    wdrlNotMoreNumNow: "",
+    wdrlReview: "",
   },
   month: {
     Jan: "Januari",
@@ -438,6 +441,7 @@ export default {
     },
     title: { paySuc: "Telah berhasil dibayar" },
     paying: { title: "Proses pembayaran" },
+    confirmAmount: "",
   },
   beCreator: {
     id: { passport: "Paspor", idCard: "Kartu Identitas", driverLicense: "Surat Izin Mengemudi" },

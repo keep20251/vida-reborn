@@ -198,7 +198,7 @@ export default {
     auditFailure: "ऑडिट विफलता",
     paid: "भुगतान किया गया",
     scheduledRelease: "रिलीज के लिए निर्धारित",
-    published: "",
+    published: "प्रकाशित हुआ",
     time: "समय",
     exitPrvw: "निकास पूर्वावलोकन",
     recFormat: "JPG/PNG प्रारूप का समर्थन करता है, अनुशंसित आकार 480x280 है",
@@ -206,7 +206,7 @@ export default {
     videoFormat: "mp4/mov प्रारूप का समर्थन करता है, 100 MB से अधिक नहीं",
     imageFormat: "JPG/PNG प्रारूप का समर्थन करता है, प्रत्येक 1MB से अधिक नहीं",
     uploadProgress: "अपलोड प्रगति {progress}%",
-    pickMessage: "",
+    pickMessage: "एक संदेश चुनें",
   },
   content: {
     default: "प्रीसेट, को कहीं भी प्रदर्शित नहीं किया जाना चाहिए",
@@ -275,7 +275,10 @@ export default {
     processFail: "प्रक्रिया विफल",
     replyTo: "{name} को उत्तर दें",
     viewReplies: "देखें {count} उत्तर",
-    autoPublishAt: "",
+    autoPublishAt: "{datetime} पर स्वतः प्रकाशित होगा",
+    wdrlAtLeast: "",
+    wdrlNotMoreNumNow: "",
+    wdrlReview: "",
   },
   month: {
     Jan: "जनवरी",
@@ -422,6 +425,7 @@ export default {
     },
     title: { paySuc: "सफलतापूर्वक भुगतान किया है" },
     paying: { title: "भुगतान प्रक्रिया" },
+    confirmAmount: "",
   },
   beCreator: {
     id: { passport: "पासपोर्ट", idCard: "पहचान पत्र", driverLicense: "ड्राइवर का लाइसेंस" },

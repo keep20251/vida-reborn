@@ -200,7 +200,7 @@ export default {
     auditFailure: "Kiểm duyệt thất bại",
     paid: "Đã thanh toán",
     scheduledRelease: "Đã lên lịch phát hành",
-    published: "",
+    published: "Đã xuất bản",
     time: "Thời gian",
     exitPrvw: "Bản xem trước thoát",
     recFormat: "Hỗ trợ định dạng JPG/PNG, kích thước đề nghị là 480x280",
@@ -208,7 +208,7 @@ export default {
     videoFormat: "Hỗ trợ định dạng mp4/mov, không vượt quá 100 MB",
     imageFormat: "Hỗ trợ định dạng JPG/PNG, mỗi ảnh không vượt quá 1MB",
     uploadProgress: "Tiến trình tải lên {progress}%",
-    pickMessage: "",
+    pickMessage: "Chọn một tin nhắn",
   },
   content: {
     default: "Đặt trước, không nên được hiển thị ở bất cứ đâu",
@@ -278,7 +278,10 @@ export default {
     processFail: "Xử lý thất bại",
     replyTo: "Trả lời cho {name}",
     viewReplies: "Xem {count} bình luận",
-    autoPublishAt: "",
+    autoPublishAt: "Sẽ tự động xuất bản vào {datetime}",
+    wdrlAtLeast: "",
+    wdrlNotMoreNumNow: "",
+    wdrlReview: "",
   },
   month: {
     Jan: "Tháng Một",
@@ -440,6 +443,7 @@ export default {
     },
     title: { paySuc: "Đã trả tiền thành công" },
     paying: { title: "Xử lý thanh toán" },
+    confirmAmount: "",
   },
   beCreator: {
     id: { passport: "Hộ chiếu", idCard: "Thẻ căn cước", driverLicense: "Giấy phép lái xe" },

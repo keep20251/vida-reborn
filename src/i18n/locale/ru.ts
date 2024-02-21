@@ -198,7 +198,7 @@ export default {
     auditFailure: "Аудит не пройден",
     paid: "Оплачено",
     scheduledRelease: "Запланирован к выпуску",
-    published: "",
+    published: "Опубликовано",
     time: "Время",
     exitPrvw: "Выход Предварительный просмотр",
     recFormat: "Поддерживает формат JPG/PNG, рекомендуемый размер 480x280",
@@ -206,7 +206,7 @@ export default {
     videoFormat: "Поддерживает формат mp4/mov, не превышающий 100 МБ",
     imageFormat: "Поддерживает формат JPG/PNG, каждый не превышающий 1 МБ",
     uploadProgress: "Прогресс загрузки {progress}%",
-    pickMessage: "",
+    pickMessage: "Выбрать сообщение",
   },
   content: {
     default: "Предустановка, нигде не следует отображать",
@@ -276,7 +276,10 @@ export default {
     processFail: "Обработка не удалась",
     replyTo: "Ответить {name}",
     viewReplies: "Посмотреть {count} ответов",
-    autoPublishAt: "",
+    autoPublishAt: "Будет автоматически опубликовано {datetime}",
+    wdrlAtLeast: "",
+    wdrlNotMoreNumNow: "",
+    wdrlReview: "",
   },
   month: {
     Jan: "Январь",
@@ -439,6 +442,7 @@ export default {
     },
     title: { paySuc: "Успешно заплатил" },
     paying: { title: "Процесс оплаты" },
+    confirmAmount: "",
   },
   beCreator: {
     id: { passport: "Паспорт", idCard: "Удостоверение личности", driverLicense: "Водительские права" },
