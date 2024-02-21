@@ -1,7 +1,7 @@
 <template>
   <Page>
     <template #main-top>
-      <Head :title="$t('title.publish')" feature-icon="close" @feature="onClose"></Head>
+      <Head :title="$t('title.publish')" feature-icon="close" @back="clear" @feature="onClose"></Head>
     </template>
     <template #default>
       <div class="flex flex-col space-y-20 pb-30">
@@ -64,7 +64,8 @@
           <div class="grid grid-cols-3 gap-10">
             <div v-for="file in uploadFiles" class="relative overflow-hidden rounded-sm pb-[64%]" :key="file.id">
               <div class="absolute top-0 h-full w-full">
-                <img :src="file.result" class="h-full w-full rounded-sm object-cover" />
+                <EncryptImage v-if="file.status === UPLOAD_STATUS.SAVE" :src="file.url" cover></EncryptImage>
+                <img v-else :src="file.result" class="h-full w-full rounded-sm object-cover" />
               </div>
               <div
                 class="absolute top-0 h-full w-full origin-right bg-white opacity-60 will-change-transform"
@@ -169,7 +170,7 @@ import Head from '@comp/navigation/Head.vue'
 import useRequest from '@use/request'
 import { useRouters } from '@use/routers'
 import { useYup } from '@use/validator/yup.js'
-import { FEED_PERM, IMAGE_LIMIT_COUNT, SUB_ALL_VALUE, UPLOAD_STATUS } from '@const/publish'
+import { FEED_PERM, IMAGE_LIMIT_COUNT, UPLOAD_STATUS } from '@const/publish'
 import { toDateTimeString } from '@/utils/string-helper'
 
 const { t: $t } = useI18n()
@@ -179,6 +180,9 @@ const { uploadFiles, publishTimeOpen, isCreate, isUpdate, isVideo, isImage, isEd
 const { publishParams, startUpload, clear, changeVideoFile, addImageFile, removeUploadFile } = publishStore
 
 const { alert, confirm } = useModalStore()
+
+const accountStore = useAccountStore()
+const { userData } = storeToRefs(accountStore)
 
 const { back } = useRouters()
 
@@ -190,8 +194,11 @@ const video = ref(null)
 watch(
   isEditing,
   async (v) => {
-    if (v) {
+    if (v && isCreate.value) {
       try {
+        if (userData.value.subscription_list.length > 0) {
+          publishParams.subs.push(userData.value.subscription_list[0].id)
+        }
         await startUpload(video)
       } catch (e) {
         console.error(e)
@@ -211,30 +218,7 @@ const permOptions = ref([
   { label: $t('label.private'), value: FEED_PERM.PRI },
 ])
 
-const accountStore = useAccountStore()
-const { userData } = storeToRefs(accountStore)
-
-const subOptions = ref([
-  { label: $t('label.all'), value: SUB_ALL_VALUE },
-  ...userData.value.subscription_list.map((sub) => ({ label: sub.name, value: sub.id })),
-])
-watch(
-  () => publishParams.subs,
-  (n, o) => {
-    if (n.includes(SUB_ALL_VALUE) && o.includes(SUB_ALL_VALUE)) {
-      if (n.length > 1) {
-        publishParams.subs.shift()
-      }
-      return
-    }
-
-    if (n.includes(SUB_ALL_VALUE) && !o.includes(SUB_ALL_VALUE)) {
-      if (n.length > 1) {
-        publishParams.subs = [SUB_ALL_VALUE]
-      }
-    }
-  },
-)
+const subOptions = computed(() => userData.value.subscription_list.map((sub) => ({ label: sub.name, value: sub.id })))
 
 const postTimeEditing = ref(false)
 const postTimeModel = computed(() => {
@@ -274,7 +258,6 @@ function publish() {
       alert({
         title: 'title.publishSuccess',
         confirmAction: onClose,
-        fromCenter: true,
       })
     })
     .catch((e) => {
@@ -301,11 +284,7 @@ function makeReqData() {
   }
 
   if (publishParams.perm === FEED_PERM.SUB) {
-    if (publishParams.subs.includes(SUB_ALL_VALUE)) {
-      data.subscription_ids = 'all'
-    } else {
-      data.subscription_ids = publishParams.subs.join(',')
-    }
+    data.subscription_ids = publishParams.subs.join(',')
   }
 
   if (publishParams.perm === FEED_PERM.BUY) {

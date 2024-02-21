@@ -192,12 +192,13 @@ export default {
     subscribeSetting: "Настройки подписки",
     prvw: "Предпросмотр",
     video: "Видео",
-    img: "Изображение",
+    image: "Изображение",
     notReviewed: "Еще не рассмотрено",
     underReview: "На рассмотрении",
     auditFailure: "Аудит не пройден",
     paid: "Оплачено",
     scheduledRelease: "Запланирован к выпуску",
+    published: "",
     time: "Время",
     exitPrvw: "Выход Предварительный просмотр",
     recFormat: "Поддерживает формат JPG/PNG, рекомендуемый размер 480x280",
@@ -262,7 +263,7 @@ export default {
     customStyle: "Пользовательский стиль",
     subUnlockDayAfter: "Разблокировка позволяет за последние несколько дней с момента покупки?",
     tokenExpired: "Срок сеанса входа истек, пожалуйста, войдите снова.",
-    clearSearchHistory: "Вы уверены, что хотите прояснить историю?",
+    clearSearchHistory: "Вы уверены, что хотите очистить историю?",
     uploadVideoLimit: {
       format:
         "Загруженный в данный момент формат видео ({format}) не поддерживается. Пожалуйста, преобразуйте его в формат .mp4 или .mov и повторите попытку.",
@@ -275,6 +276,7 @@ export default {
     processFail: "Обработка не удалась",
     replyTo: "Ответить {name}",
     viewReplies: "Посмотреть {count} ответов",
+    autoPublishAt: "",
   },
   month: {
     Jan: "Январь",

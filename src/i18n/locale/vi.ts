@@ -194,12 +194,13 @@ export default {
     subscribeSetting: "Cài đặt đăng ký",
     prvw: "Xem trước",
     video: "Video",
-    img: "Hình ảnh",
+    image: "Hình ảnh",
     notReviewed: "Chưa được đánh giá",
     underReview: "Đang được xem xét",
     auditFailure: "Kiểm duyệt thất bại",
     paid: "Đã thanh toán",
     scheduledRelease: "Đã lên lịch phát hành",
+    published: "",
     time: "Thời gian",
     exitPrvw: "Bản xem trước thoát",
     recFormat: "Hỗ trợ định dạng JPG/PNG, kích thước đề nghị là 480x280",
@@ -277,6 +278,7 @@ export default {
     processFail: "Xử lý thất bại",
     replyTo: "Trả lời cho {name}",
     viewReplies: "Xem {count} bình luận",
+    autoPublishAt: "",
   },
   month: {
     Jan: "Tháng Một",
@@ -415,7 +417,7 @@ export default {
   },
   modal: {
     subscribe: {
-      1: "Hoàn toàn ghé thăm tất cả các tác phẩm của ngày {days} đã qua",
+      1: "Ghé thăm hoàn toàn tất cả các tác phẩm của ngày {days} trong quá khứ",
       2: "Có thể gửi thông tin trực tiếp cho người tạo",
       3: "Tương tác gần hơn",
       4: "Bạn có thể hủy đăng ký của mình bất cứ lúc nào",

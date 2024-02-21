@@ -34,7 +34,7 @@ function onClick(v) {
     if (index === -1) {
       r.push(v)
       r.sort((a, b) => a - b)
-    } else {
+    } else if (r.length > 1) {
       r.splice(index, 1)
     }
     emits('update:modelValue', r)

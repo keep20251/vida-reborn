@@ -3,7 +3,7 @@ import { computed, reactive, readonly, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { defineStore, storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
-import { FEED_PERM, IMAGE_LIMIT_COUNT, MEDIA_TYPE, SUB_ALL_VALUE, UPLOAD_STATUS } from '@/constant/publish'
+import { FEED_PERM, IMAGE_LIMIT_COUNT, MEDIA_TYPE, UPLOAD_STATUS } from '@/constant/publish'
 import uploadImage from '@/http/upload/uploadImage'
 import uploadVideo from '@/http/upload/uploadVideo'
 
@@ -27,15 +27,8 @@ const DEFAULT_PUBLISH_PARAMS = {
   tags: [],
   type: null,
   perm: FEED_PERM.SUB,
-  subs: [SUB_ALL_VALUE],
+  subs: [],
   price: '',
-
-  // 影片只會有一個，圖片會有多個(目前預定10個)
-  url: [],
-
-  // 影片不使用，圖片就是對應 url 索引的寬高值
-  imgWidth: [],
-  imgHeight: [],
 
   // 排定發布時間
   postTime: null,
@@ -204,53 +197,34 @@ export const usePublishStore = defineStore('publish', () => {
     }
   }
 
-  // function setPublishParams({
-  //   id,
-  //   type,
-  //   shape,
-  //   content,
-  //   tags,
-  //   attribute,
-  //   visible,
-  //   price,
-  //   postTime = null,
-  //   openPreview,
-  //   imgPath,
-  //   imgWidth,
-  //   imgHeight,
-  //   imgMore,
-  //   videoPath,
-  //   videoTime,
-  //   slice,
-  // }) {
-  //   publishParams.id = id
-  //   publishParams.type = type
-  //   publishParams.shape = shape
-  //   publishParams.content = content
-  //   publishParams.tags = tags ? tags.split(',').filter((t, i) => i !== 0 || t !== '') : []
-  //   publishParams.attribute = attribute ? attribute.split(',').map((a) => parseInt(a)) : [INTERESTED_IN.STRAIGHT]
-  //   publishParams.visible = visible
-  //   publishParams.price = price
-  //   publishParams.postTime = postTime
-  //   publishParams.openPreview = openPreview
-  //   publishParams.imgPath = imgPath
-  //   publishParams.videoPath = videoPath
-  //   publishParams.videoTime = videoTime
-  //   publishParams.slice = slice
+  function toUpdate({ id, category, title, content, tags, type, perm, subs, price, postTime, urls }) {
+    publishParams.id = id
+    publishParams.category = category
+    publishParams.title = title
+    publishParams.content = content
+    publishParams.tags = tags ? tags.split(',').filter((t, i) => i !== 0 || t !== '') : []
+    publishParams.type = type
+    publishParams.perm = perm
+    // publishParams.subs = subs ? subs.split(',').filter((t, i) => i !== 0 || t !== '') : []
+    publishParams.subs = subs
+    publishParams.price = price
+    publishParams.postTime = postTime
 
-  //   if (type === MEDIA_TYPE.VIDEO) {
-  //     pushSavedFile(imgPath)
-  //   }
+    if (type === MEDIA_TYPE.VIDEO) {
+      const { url, width, height } = urls[0]
+      pushSavedFile(url, width, height)
+    }
 
-  //   if (type === MEDIA_TYPE.IMAGE) {
-  //     pushSavedFile(imgPath, imgWidth, imgHeight)
-  //     if (imgMore) {
-  //       for (const { url, width, height } of imgMore) {
-  //         pushSavedFile(url, width, height)
-  //       }
-  //     }
-  //   }
-  // }
+    if (type === MEDIA_TYPE.IMAGE) {
+      for (const { url, width, height } of urls) {
+        pushSavedFile(url, width, height)
+      }
+    }
+
+    startEditTimestamp.value = new Date().getTime()
+    // console.log(publishParams)
+    // console.log(uploadFiles)
+  }
 
   function getUploadPayload() {
     return {
@@ -321,7 +295,7 @@ export const usePublishStore = defineStore('publish', () => {
     publishTimeOpen,
 
     setFile,
-    // setPublishParams,
+    toUpdate,
     getUploadPayload,
     startUpload,
     changeVideoFile,
