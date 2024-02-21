@@ -5,7 +5,7 @@
       class="h-[400px] w-full rounded-md bg-cover bg-center bg-no-repeat p-10"
       :style="{ backgroundImage: `url(${images[activeSlide].img})` }"
     ></div>
-    <div class="absolute bottom-[10px] left-[50%] translate-x-[-50%] translate-y-[-50%] overflow-hidden">
+    <div class="absolute bottom-10 left-2/4 -translate-x-2/4 -translate-y-2/4 overflow-hidden">
       <ul class="flex justify-center space-x-10">
         <li
           class="h-6 w-6 cursor-pointer rounded-full bg-[#D9D9D9]"

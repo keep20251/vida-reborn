@@ -4,7 +4,7 @@
       <div class="text-base leading-md">
         {{ props.disableI18n ? selectedOptionLabel : $t(selectedOptionLabel) }}
       </div>
-      <Icon name="dropdown" size="8" class="transition-transform" :class="{ 'rotate-180': open }"></Icon>
+      <Icon name="dropdown" size="20" class="transition-transform" :class="{ 'rotate-180': open }"></Icon>
     </div>
     <div
       v-bind="containerProps"

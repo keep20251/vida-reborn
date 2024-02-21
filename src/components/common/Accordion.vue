@@ -18,7 +18,7 @@
           </div>
           <Icon
             name="dropdown"
-            size="6"
+            size="20"
             class="transition-transform"
             :class="{ 'rotate-180': subItem.open, hidden: !section.open }"
           ></Icon>
