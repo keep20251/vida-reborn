@@ -1,7 +1,7 @@
 <template>
   <Page infinite @load="onPageEnd">
     <template v-if="isMobile" #app-top>
-      <TopSearchBar logo feature-icon="filter" to-search></TopSearchBar>
+      <TopSearchBar logo feature-icon="filter" to-search @feature="onReload"></TopSearchBar>
     </template>
     <template #main-top>
       <Tab v-model="tab" :options="tabOptions"></Tab>
@@ -23,7 +23,7 @@
       <div v-show="tab === TAB_TYPE.SUB">
         <div class="flex justify-between pt-20">
           <div class="text-base font-bold leading-md">{{ $t('info.popularCreator') }}</div>
-          <Icon name="filter" size="20" class="cursor-pointer" @click="creatorsReload"></Icon>
+          <Icon v-if="isDesktop" name="filter" size="20" class="cursor-pointer" @click="creatorsReload"></Icon>
         </div>
         <div class="pt-10 text-base font-normal leading-md">{{ $t('info.subscribeToView') }}</div>
         <List :items="creators" item-key="aff">
@@ -74,7 +74,7 @@ import { useInfinite } from '@use/request/infinite'
 import { TAB_TYPE } from '@const/home'
 
 const appStore = useAppStore()
-const { isMobile } = storeToRefs(appStore)
+const { isDesktop, isMobile } = storeToRefs(appStore)
 
 const feedStore = useFeedStore()
 const {
@@ -85,6 +85,7 @@ const {
   init,
   revert,
   next,
+  reload,
 } = useInfinite('Article.list', {
   params: { filter_by: 0, user_interested: 1, include_my_article: 1 },
   transformer: feedStore.sync,
@@ -132,6 +133,15 @@ function onPageEnd() {
   }
   if (tab.value === TAB_TYPE.SUB) {
     creatorsNext()
+  }
+}
+
+function onReload() {
+  if (tab.value === TAB_TYPE.REC) {
+    reload()
+  }
+  if (tab.value === TAB_TYPE.SUB) {
+    creatorsReload()
   }
 }
 </script>
