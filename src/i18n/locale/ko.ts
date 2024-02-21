@@ -271,6 +271,7 @@ export default {
     replyTo: "{name}에게 답장",
     viewReplies: "{count}개의 답글 보기",
     autoPublishAt: "{datetime}에 자동 게시될 예정입니다",
+    blocked: "",
     wdrlAtLeast: "",
     wdrlNotMoreNumNow: "",
     wdrlReview: "",

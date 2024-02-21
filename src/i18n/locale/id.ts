@@ -277,6 +277,7 @@ export default {
     replyTo: "Balas ke {name}",
     viewReplies: "Lihat {count} balasan",
     autoPublishAt: "Akan dipublikasikan secara otomatis pada {datetime}",
+    blocked: "",
     wdrlAtLeast: "",
     wdrlNotMoreNumNow: "",
     wdrlReview: "",

@@ -276,6 +276,7 @@ export default {
     replyTo: "{name} को उत्तर दें",
     viewReplies: "देखें {count} उत्तर",
     autoPublishAt: "{datetime} पर स्वतः प्रकाशित होगा",
+    blocked: "",
     wdrlAtLeast: "",
     wdrlNotMoreNumNow: "",
     wdrlReview: "",

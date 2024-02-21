@@ -279,6 +279,7 @@ export default {
     replyTo: "Trả lời cho {name}",
     viewReplies: "Xem {count} bình luận",
     autoPublishAt: "Sẽ tự động xuất bản vào {datetime}",
+    blocked: "",
     wdrlAtLeast: "",
     wdrlNotMoreNumNow: "",
     wdrlReview: "",

@@ -277,6 +277,7 @@ export default {
     replyTo: "Ответить {name}",
     viewReplies: "Посмотреть {count} ответов",
     autoPublishAt: "Будет автоматически опубликовано {datetime}",
+    blocked: "",
     wdrlAtLeast: "",
     wdrlNotMoreNumNow: "",
     wdrlReview: "",
