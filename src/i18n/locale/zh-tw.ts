@@ -263,6 +263,7 @@ export default {
     replyTo: "回覆給{name}",
     viewReplies: "查看{count}則回覆",
     autoPublishAt: "將於{datetime}自動發布",
+    blocked: "已封鎖 {name}",
     wdrlAtLeast: "提款金額須至少100美金以上。",
     wdrlNotMoreNumNow: "數字不可大於目前收益。",
     wdrlReview: "提出後將於24小時內審核，審核結果將於提交紀錄中展示。",

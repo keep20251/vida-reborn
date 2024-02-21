@@ -276,6 +276,7 @@ export default {
     replyTo: "Reply to {name}",
     viewReplies: "View {count} replies",
     autoPublishAt: "Will auto-publish at {datetime}",
+    blocked: "",
     wdrlAtLeast: "The withdrawal amount must be at least US$100.",
     wdrlNotMoreNumNow: "The number cannot be greater than the current revenue.",
     wdrlReview:

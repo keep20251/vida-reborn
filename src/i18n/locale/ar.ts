@@ -275,6 +275,7 @@ export default {
     replyTo: "الرد على {name}",
     viewReplies: "عرض {count} ردود",
     autoPublishAt: "سيتم النشر تلقائيًا في {datetime}",
+    blocked: "",
     wdrlAtLeast: "",
     wdrlNotMoreNumNow: "",
     wdrlReview: "",

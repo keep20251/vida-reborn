@@ -275,6 +275,7 @@ export default {
     replyTo: "ตอบกลับ {name}",
     viewReplies: "ดูคำตอบ {count} ข้อ",
     autoPublishAt: "จะเผยแพร่อัตโนมัติในวันที่ {datetime}",
+    blocked: "",
     wdrlAtLeast: "",
     wdrlNotMoreNumNow: "",
     wdrlReview: "",

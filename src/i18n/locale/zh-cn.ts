@@ -263,6 +263,7 @@ export default {
     replyTo: "回复给{name}",
     viewReplies: "查看{count}则回复",
     autoPublishAt: "将于{datetime}自动发布",
+    blocked: "",
     wdrlAtLeast: "提款金额须至少100美金以上。",
     wdrlNotMoreNumNow: "数字不可大于目前收益。",
     wdrlReview: "提出后将于24小时内审核，审核结果将于提交纪录中展示。",

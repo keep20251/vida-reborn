@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useLocalStorage } from '@vueuse/core'
 import InputWrap from '@comp/form/InputWrap.vue'
 import OptionsPicker from '@comp/form/OptionsPicker.vue'
@@ -63,4 +63,19 @@ function addTag() {
   tags.value.push(tag)
   tagInput.value = ''
 }
+
+watch(
+  () => props.modelValue,
+  (v) => {
+    v.forEach((tag) => {
+      if (!tagOptions.value.some((t) => t.value === tag)) {
+        if (tagOptions.value.length === 10) {
+          tagOptions.value.pop()
+        }
+        tagOptions.value.unshift({ label: tag, value: tag })
+      }
+    })
+  },
+  { immediate: true },
+)
 </script>

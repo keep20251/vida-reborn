@@ -274,6 +274,7 @@ export default {
     replyTo: "{name} への返信",
     viewReplies: "{count}件の返信を見る",
     autoPublishAt: "{datetime}に自動的に公開されます",
+    blocked: "",
     wdrlAtLeast: "",
     wdrlNotMoreNumNow: "",
     wdrlReview: "",

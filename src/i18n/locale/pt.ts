@@ -279,6 +279,7 @@ export default {
     replyTo: "Responder para {name}",
     viewReplies: "Ver {count} respostas",
     autoPublishAt: "Será publicado automaticamente em {datetime}",
+    blocked: "",
     wdrlAtLeast: "",
     wdrlNotMoreNumNow: "",
     wdrlReview: "",
