@@ -198,6 +198,8 @@ export default {
     imageFormat: "支援JPG/PNG格式，每張不超過1MB",
     uploadProgress: "上傳進度 {progress}%",
     pickMessage: "選擇訊息",
+    popularCreator: "熱門創作者",
+    subscribeToView: "訂閱某個帳號，以查看其最新帖子",
   },
   content: {
     default: "預設，不應該顯示在任何地方",

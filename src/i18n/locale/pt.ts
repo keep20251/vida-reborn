@@ -76,7 +76,7 @@ export default {
     editSocialLink: "Edite Link Social",
     earnWdrlReq: "Solicitação de retirada",
     earnWdrlHist: "Registro de retiradas",
-    clearSearchHistory: "Clear Search Record",
+    clearSearchHistory: "Recorde de pesquisa claro",
     search: { history: "Pesquisa histórica", clear: "Pesquisas populares", popular: "Vazio" },
     subscription: "Plano de assinatura",
     publishSuccess: "Publicação Bem-sucedida",
@@ -209,9 +209,11 @@ export default {
     imageFormat: "Suporta formato JPG/PNG, cada um não excedendo 1MB",
     uploadProgress: "Progresso do Upload {progress}%",
     pickMessage: "Escolher uma mensagem",
+    popularCreator: "",
+    subscribeToView: "",
   },
   content: {
-    default: "Predefinir, não deve ser exibido em nenhum lugar",
+    default: "Predefinido, não deve ser exibido em nenhum lugar",
     welcomeToVida: "Bem-vindo ao Vida, junte-se a nós!",
     verifyAccount:
       "Corra para verificar sua caixa de correio! Vá para 【Minha conta>Configurações de conta】 para concluir a verificação",

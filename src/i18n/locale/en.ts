@@ -207,9 +207,11 @@ export default {
     imageFormat: "Supports JPG/PNG format, each not exceeding 1MB",
     uploadProgress: "Upload Progress {progress}%",
     pickMessage: "Pick a message",
+    popularCreator: "Popular creators",
+    subscribeToView: "",
   },
   content: {
-    default: "Preset, should not be displayed anywhere",
+    default: "Preset, it should not be displayed anywhere",
     welcomeToVida: "Welcome to Vida, join us!",
     verifyAccount: "Hurry to verify your mailbox! Go to 【My>Account Settings】 to complete the verification",
     termsDeclaration:

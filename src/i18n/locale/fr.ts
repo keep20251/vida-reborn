@@ -207,9 +207,11 @@ export default {
     imageFormat: "Prend en charge le format JPG/PNG, chacun ne dépassant pas 1MB",
     uploadProgress: "Progression du Téléchargement {progress}%",
     pickMessage: "Choisir un message",
+    popularCreator: "",
+    subscribeToView: "",
   },
   content: {
-    default: "Préréglage, ne doit être affiché nulle part",
+    default: "Préréglage, il ne doit être affiché nulle part",
     welcomeToVida: "Bienvenue chez Vida, rejoignez-nous !",
     verifyAccount:
       "Dépêchez-vous de vérifier votre boîte aux lettres ! Allez à 【Mon compte>Paramètres du compte】 pour compléter la vérification",

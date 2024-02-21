@@ -204,6 +204,8 @@ export default {
     imageFormat: "JPG/PNG形式をサポート、各画像1MBを超えない",
     uploadProgress: "アップロード進行状況 {progress}%",
     pickMessage: "メッセージを選択",
+    popularCreator: "",
+    subscribeToView: "",
   },
   content: {
     default: "プリセット、どこにも表示しないでください",
@@ -419,7 +421,7 @@ export default {
       1: "過去のすべての作品を完全に訪れます{days}日",
       2: "作成者に直接情報を送信できます",
       3: "より近いステップ相互作用",
-      4: "サブスクリプションをいつでもキャンセルできます",
+      4: "いつでもサブスクリプションをキャンセルできます",
       confirm: "月{'$'} {price}支払いに移動します",
     },
     shopBuy: {

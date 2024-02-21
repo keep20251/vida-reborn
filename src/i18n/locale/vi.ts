@@ -209,9 +209,11 @@ export default {
     imageFormat: "Hỗ trợ định dạng JPG/PNG, mỗi ảnh không vượt quá 1MB",
     uploadProgress: "Tiến trình tải lên {progress}%",
     pickMessage: "Chọn một tin nhắn",
+    popularCreator: "",
+    subscribeToView: "",
   },
   content: {
-    default: "Đặt trước, không nên được hiển thị ở bất cứ đâu",
+    default: "Đặt trước, nó không nên được hiển thị ở bất cứ đâu",
     welcomeToVida: "Chào mừng bạn đến với Vida, hãy gia nhập chúng tôi!",
     verifyAccount:
       "Hãy nhanh chóng xác minh hộp thư của bạn! Đi đến 【Tài khoản của tôi>Cài đặt tài khoản】 để hoàn thành xác minh",
@@ -421,7 +423,7 @@ export default {
   },
   modal: {
     subscribe: {
-      1: "Ghé thăm hoàn toàn tất cả các tác phẩm của ngày {days} trong quá khứ",
+      1: "Hoàn toàn ghé thăm tất cả các tác phẩm của ngày {days} đã qua",
       2: "Có thể gửi thông tin trực tiếp cho người tạo",
       3: "Tương tác gần hơn",
       4: "Bạn có thể hủy đăng ký của mình bất cứ lúc nào",

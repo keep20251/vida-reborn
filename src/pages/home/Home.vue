@@ -1,5 +1,5 @@
 <template>
-  <Page infinite @load="next">
+  <Page infinite @load="onPageEnd">
     <template v-if="isMobile" #app-top>
       <TopSearchBar logo feature-icon="filter" to-search></TopSearchBar>
     </template>
@@ -22,17 +22,21 @@
       </div>
       <div v-show="tab === TAB_TYPE.SUB">
         <div class="flex justify-between pt-20">
-          <div class="text-base font-bold leading-md">Popular Creator</div>
-          <Icon name="filter" size="20" class="cursor-pointer"></Icon>
+          <div class="text-base font-bold leading-md">{{ $t('info.popularCreator') }}</div>
+          <Icon name="filter" size="20" class="cursor-pointer" @click="creatorsReload"></Icon>
         </div>
-        <div class="pt-10 text-base font-normal leading-md">订阅某个账号，以查看其最新帖子</div>
-        <div class="flex flex-col justify-center space-y-10 pt-30">
-          <ViewSubscribeCard
-            v-for="index in 3"
-            :key="`creator-card-${index}`"
-            :theme="(index + 2) % 3"
-          ></ViewSubscribeCard>
-        </div>
+        <div class="pt-10 text-base font-normal leading-md">{{ $t('info.subscribeToView') }}</div>
+        <List :items="creators" item-key="aff">
+          <template #default="{ item, index }">
+            <ViewSubscribeCard class="my-5" :item="item" :theme="(index + 2) % 3"></ViewSubscribeCard>
+          </template>
+          <template #bottom>
+            <div class="flex items-center justify-center py-8 text-gray-a3">
+              <Loading v-if="creatorsIsLoading"></Loading>
+              <span v-if="creatorsNoMore">{{ $t('common.noMore') }}</span>
+            </div>
+          </template>
+        </List>
       </div>
     </template>
     <template #aside-top>
@@ -52,6 +56,7 @@
 
 <script setup>
 import { onActivated, onServerPrefetch, ref } from 'vue'
+import { watchOnce } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useFeedStore } from '@/store/feed'
@@ -106,4 +111,27 @@ onHydration(() => {
 const { reset: resetHeadStore } = useHeadStore()
 onServerPrefetch(resetHeadStore)
 onActivated(resetHeadStore)
+
+const {
+  dataList: creators,
+  isLoading: creatorsIsLoading,
+  noMore: creatorsNoMore,
+  init: creatorsInit,
+  next: creatorsNext,
+  reload: creatorsReload,
+} = useInfinite('User.searchCreator')
+watchOnce(tab, (tab) => {
+  if (tab === TAB_TYPE.SUB) {
+    creatorsInit()
+  }
+})
+
+function onPageEnd() {
+  if (tab.value === TAB_TYPE.REC) {
+    next()
+  }
+  if (tab.value === TAB_TYPE.SUB) {
+    creatorsNext()
+  }
+}
 </script>

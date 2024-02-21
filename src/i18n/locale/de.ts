@@ -209,9 +209,11 @@ export default {
     imageFormat: "Unterstützt JPG/PNG-Format, jedes nicht überschreitend 1MB",
     uploadProgress: "Upload-Fortschritt {progress}%",
     pickMessage: "Eine Nachricht auswählen",
+    popularCreator: "",
+    subscribeToView: "",
   },
   content: {
-    default: "Preset, sollte nirgendwo angezeigt werden",
+    default: "Voreinstellung sollte es nirgendwo angezeigt werden",
     welcomeToVida: "Willkommen bei Vida, treten Sie uns bei!",
     verifyAccount:
       "Überprüfen Sie schnell Ihren Posteingang! Gehen Sie zu 【Mein Konto>Kontoeinstellungen】 um die Verifizierung abzuschließen",
@@ -423,7 +425,7 @@ export default {
     subscribe: {
       1: "Besuchen Sie alle Werke der Vergangenheit {days} Tag",
       2: "Kann Informationen direkt an den Ersteller senden",
-      3: "Näher -stufe Interaktion",
+      3: "Näher -stufe -Interaktion",
       4: "Sie können Ihr Abonnement jederzeit stornieren",
       confirm: "Monat {'$'} {price} zur Zahlung gehen",
     },
