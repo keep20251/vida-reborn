@@ -195,7 +195,7 @@ export default {
     auditFailure: "監査失敗",
     paid: "支払済み",
     scheduledRelease: "リリース予定",
-    published: "",
+    published: "公開済み",
     time: "時間",
     exitPrvw: "プレビューを終了します",
     recFormat: "JPG/PNG形式をサポート、推奨サイズは480x280",
@@ -203,7 +203,7 @@ export default {
     videoFormat: "mp4/mov形式をサポート、100MBを超えない",
     imageFormat: "JPG/PNG形式をサポート、各画像1MBを超えない",
     uploadProgress: "アップロード進行状況 {progress}%",
-    pickMessage: "",
+    pickMessage: "メッセージを選択",
   },
   content: {
     default: "プリセット、どこにも表示しないでください",
@@ -273,7 +273,10 @@ export default {
     processFail: "処理に失敗しました",
     replyTo: "{name} への返信",
     viewReplies: "{count}件の返信を見る",
-    autoPublishAt: "",
+    autoPublishAt: "{datetime}に自動的に公開されます",
+    wdrlAtLeast: "",
+    wdrlNotMoreNumNow: "",
+    wdrlReview: "",
   },
   month: {
     Jan: "1月",
@@ -435,6 +438,7 @@ export default {
     },
     title: { paySuc: "正常に支払われました" },
     paying: { title: "支払い手続き" },
+    confirmAmount: "",
   },
   beCreator: {
     id: { passport: "パスポート", idCard: "身分証明書", driverLicense: "運転免許証" },

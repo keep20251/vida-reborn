@@ -198,7 +198,7 @@ export default {
     auditFailure: "การตรวจสอบไม่ผ่าน",
     paid: "จ่ายแล้ว",
     scheduledRelease: "กำหนดไว้สำหรับการเผยแพร่",
-    published: "",
+    published: "ได้รับการเผยแพร่",
     time: "เวลา",
     exitPrvw: "ออกจากตัวอย่าง",
     recFormat: "รองรับรูปแบบ JPG/PNG, ขนาดแนะนำคือ 480x280",
@@ -206,7 +206,7 @@ export default {
     videoFormat: "รองรับรูปแบบ mp4/mov ไม่เกิน 100 MB",
     imageFormat: "รองรับรูปแบบ JPG/PNG ไม่เกิน 1MB ต่อภาพ",
     uploadProgress: "ความคืบหน้าในการอัปโหลด {progress}%",
-    pickMessage: "",
+    pickMessage: "เลือกข้อความ",
   },
   content: {
     default: "ที่ตั้งไว้ไม่ควรแสดงทุกที่",
@@ -274,7 +274,10 @@ export default {
     processFail: "การประมวลผลไม่สำเร็จ",
     replyTo: "ตอบกลับ {name}",
     viewReplies: "ดูคำตอบ {count} ข้อ",
-    autoPublishAt: "",
+    autoPublishAt: "จะเผยแพร่อัตโนมัติในวันที่ {datetime}",
+    wdrlAtLeast: "",
+    wdrlNotMoreNumNow: "",
+    wdrlReview: "",
   },
   month: {
     Jan: "มกราคม",
@@ -433,6 +436,7 @@ export default {
     },
     title: { paySuc: "จ่ายสำเร็จแล้ว" },
     paying: { title: "การประมวลผลการชำระเงิน" },
+    confirmAmount: "",
   },
   beCreator: {
     id: { passport: "หนังสือเดินทาง", idCard: "บัตรประชาชน", driverLicense: "ใบขับขี่" },

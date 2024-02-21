@@ -193,7 +193,7 @@ export default {
     auditFailure: "감사 실패",
     paid: "지불됨",
     scheduledRelease: "출시 예정",
-    published: "",
+    published: "게시됨",
     time: "시간",
     exitPrvw: "종료 미리보기",
     recFormat: "JPG/PNG 형식 지원, 권장 사이즈는 480x280",
@@ -201,7 +201,7 @@ export default {
     videoFormat: "mp4/mov 형식 지원, 100 MB를 초과하지 않음",
     imageFormat: "JPG/PNG 형식 지원, 각 이미지 1MB를 초과하지 않음",
     uploadProgress: "업로드 진행률 {progress}%",
-    pickMessage: "",
+    pickMessage: "메시지 선택",
   },
   content: {
     default: "사전 설정, 아무데도 표시해서는 안됩니다",
@@ -270,7 +270,10 @@ export default {
     processFail: "처리 실패",
     replyTo: "{name}에게 답장",
     viewReplies: "{count}개의 답글 보기",
-    autoPublishAt: "",
+    autoPublishAt: "{datetime}에 자동 게시될 예정입니다",
+    wdrlAtLeast: "",
+    wdrlNotMoreNumNow: "",
+    wdrlReview: "",
   },
   month: {
     Jan: "1월",
@@ -432,6 +435,7 @@ export default {
     },
     title: { paySuc: "성공적으로 지불했습니다" },
     paying: { title: "지불 처리" },
+    confirmAmount: "",
   },
   beCreator: {
     id: { passport: "여권", idCard: "신분증", driverLicense: "운전 면허증" },

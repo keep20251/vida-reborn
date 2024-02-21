@@ -198,7 +198,7 @@ export default {
     auditFailure: "فشل التدقيق",
     paid: "تم الدفع",
     scheduledRelease: "مجدول للإصدار",
-    published: "",
+    published: "تم النشر",
     time: "الوقت",
     exitPrvw: "معاينة الخروج",
     recFormat: "يدعم تنسيق JPG/PNG، الحجم الموصى به هو 480x280",
@@ -206,7 +206,7 @@ export default {
     videoFormat: "يدعم تنسيق mp4/mov، لا يتجاوز 100 ميغابايت",
     imageFormat: "يدعم تنسيق JPG/PNG، كل منها لا يتجاوز 1 ميغابايت",
     uploadProgress: "تقدم الرفع {progress}%",
-    pickMessage: "",
+    pickMessage: "اختر رسالة",
   },
   content: {
     default: "مسبقًا ، لا ينبغي عرضه في أي مكان",
@@ -274,7 +274,10 @@ export default {
     processFail: "فشل المعالجة",
     replyTo: "الرد على {name}",
     viewReplies: "عرض {count} ردود",
-    autoPublishAt: "",
+    autoPublishAt: "سيتم النشر تلقائيًا في {datetime}",
+    wdrlAtLeast: "",
+    wdrlNotMoreNumNow: "",
+    wdrlReview: "",
   },
   month: {
     Jan: "يناير",
@@ -433,6 +436,7 @@ export default {
     },
     title: { paySuc: "دفعت بنجاح" },
     paying: { title: "معالجة الدفع" },
+    confirmAmount: "",
   },
   beCreator: {
     id: { passport: "جواز سفر", idCard: "بطاقة هوية", driverLicense: "رخصة القيادة" },

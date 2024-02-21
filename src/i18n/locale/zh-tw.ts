@@ -263,6 +263,9 @@ export default {
     replyTo: "回覆給{name}",
     viewReplies: "查看{count}則回覆",
     autoPublishAt: "將於{datetime}自動發布",
+    wdrlAtLeast: "提款金額須至少100美金以上。",
+    wdrlNotMoreNumNow: "數字不可大於目前收益。",
+    wdrlReview: "提出後將於24小時內審核，審核結果將於提交紀錄中展示。",
   },
   month: {
     Jan: "一月",
@@ -414,6 +417,7 @@ export default {
     shopBuySuc: { 1: "太棒了！已成功付款解鎖帖子", 2: "選擇前往帖子觀賞，或者留在原畫面逛逛吧！", confirm: "前往帖子" },
     title: { paySuc: "已成功付款" },
     paying: { title: "付款處理中" },
+    confirmAmount: "請問您提交金額{'$'}{amount}是否正確?",
   },
   beCreator: {
     id: { passport: "護照", idCard: "身份證", driverLicense: "駕照" },
