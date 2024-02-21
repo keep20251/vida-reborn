@@ -51,7 +51,7 @@
         <p class="text-base font-normal leading-lg">{{ item.description }}</p>
       </div>
     </div>
-    <div v-if="$slots['bottomButton']" class="my-20 flex space-x-10">
+    <div v-if="$slots['bottomButton']" class="mx-20 my-20 flex space-x-10">
       <slot name="bottomButton"></slot>
     </div>
     <input
