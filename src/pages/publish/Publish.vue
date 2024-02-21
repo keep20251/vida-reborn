@@ -144,7 +144,7 @@
           ></DatePicker>
         </div>
 
-        <Button :loading="publishing" @click="publish">{{ $t('common.publish') }}</Button>
+        <Button :loading="publishing" :disabled="isUploading" @click="publish">{{ $t('common.publish') }}</Button>
       </div>
     </template>
   </Page>
@@ -176,7 +176,8 @@ import { toDateTimeString } from '@/utils/string-helper'
 const { t: $t } = useI18n()
 
 const publishStore = usePublishStore()
-const { uploadFiles, publishTimeOpen, isCreate, isUpdate, isVideo, isImage, isEditing } = storeToRefs(publishStore)
+const { uploadFiles, publishTimeOpen, isCreate, isUpdate, isVideo, isImage, isEditing, isUploading } =
+  storeToRefs(publishStore)
 const { publishParams, startUpload, clear, changeVideoFile, addImageFile, removeUploadFile } = publishStore
 
 const { alert, confirm } = useModalStore()

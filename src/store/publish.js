@@ -77,6 +77,9 @@ export const usePublishStore = defineStore('publish', () => {
   const isImage = computed(() => publishParams.type === MEDIA_TYPE.IMAGE)
 
   const isEditing = computed(() => startEditTimestamp.value !== null)
+  const isUploading = computed(() =>
+    uploadFiles.value.some((f) => f.status !== UPLOAD_STATUS.DONE && f.status !== UPLOAD_STATUS.SAVE),
+  )
 
   const publishTimeOpen = computed({
     get() {
@@ -292,6 +295,7 @@ export const usePublishStore = defineStore('publish', () => {
     isVideo,
     isImage,
     isEditing,
+    isUploading,
     publishTimeOpen,
 
     setFile,

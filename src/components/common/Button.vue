@@ -2,7 +2,7 @@
   <button
     class="flex items-center justify-center rounded-full text-white"
     :class="[bg, height, font, padding, { 'w-full': size === 'lg' }]"
-    :disabled="loading"
+    :disabled="loading || disabled"
     @click="$emit('click')"
   >
     <div v-if="loading" class="flex flex-row space-x-4">
@@ -23,6 +23,7 @@ const props = defineProps({
   gradient: { type: Boolean, default: false },
   size: { type: String, default: 'lg' }, // lg | md | sm
   loading: { type: Boolean, default: false },
+  disabled: { type: Boolean, default: false },
 })
 
 defineEmits(['click'])
