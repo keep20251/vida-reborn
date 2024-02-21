@@ -62,5 +62,6 @@ const {
   next: nextReplys,
 } = useInfinite('Comment.list', {
   params: { article_id: props.item.article_id, reply_comment_id: props.item.id },
+  readonly: false,
 })
 </script>

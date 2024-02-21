@@ -77,7 +77,7 @@ const {
   reload: reloadComments,
   revert: revertComments,
   next: nextComments,
-} = useInfinite('Comment.list')
+} = useInfinite('Comment.list', { readonly: false })
 
 const feed = ref(null)
 const errMsg = ref(null)
