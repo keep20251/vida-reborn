@@ -1,5 +1,5 @@
 <template>
-  <div class="ml-[-20px] mr-[-20px] sm:ml-0 sm:mr-0 xl:ml-0 xl:mr-0">
+  <div class="-mx-20 sm:ml-0 sm:mr-0 xl:ml-0 xl:mr-0">
     <div class="relative mb-35 flex h-[180px] w-full bg-gray-57 bg-cover bg-center bg-no-repeat">
       <EncryptImage :src="coverBg || item.background" cover></EncryptImage>
       <div
@@ -24,7 +24,7 @@
           </div>
         </div>
       </div>
-      <div class="absolute bottom-[-35px] flex h-70 w-full px-20">
+      <div class="absolute -bottom-35 flex h-70 w-full px-20">
         <Avatar
           :radius="35"
           :src="coverAvatar || item.thumb"
@@ -32,11 +32,11 @@
           @click:camera="() => inputAvatar.click()"
         ></Avatar>
       </div>
-      <div class="absolute bottom-[-50px] right-0 mr-[20px] flex w-full justify-end sm:mr-0 xl:mr-0">
+      <div class="absolute -bottom-50 right-0 mr-20 flex w-full justify-end sm:mr-0 xl:mr-0">
         <slot name="topButton"></slot>
       </div>
     </div>
-    <div v-if="showAllInfo" class="ml-[20px] mr-[20px] grid space-y-10 pt-30 sm:ml-0 sm:mr-0 xl:ml-0 xl:mr-0">
+    <div v-if="showAllInfo" class="mx-20 grid space-y-10 pt-30 sm:ml-0 sm:mr-0 xl:ml-0 xl:mr-0">
       <div class="flex items-end justify-between">
         <div class="flex items-end space-x-5">
           <div class="text-lg font-bold leading-lg">{{ item.nickname }}</div>
@@ -51,7 +51,7 @@
         <p class="text-base font-normal leading-lg">{{ item.description }}</p>
       </div>
     </div>
-    <div v-if="$slots['bottomButton']" class="mx-20 my-20 flex space-x-10">
+    <div v-if="$slots['bottomButton']" class="my-20 flex space-x-10" :class="{ 'mx-20': isMobile }">
       <slot name="bottomButton"></slot>
     </div>
     <input
@@ -72,6 +72,8 @@
 </template>
 <script setup>
 import { ref } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useAppStore } from '@/store/app'
 import Avatar from '@comp/multimedia/Avatar.vue'
 
 const emits = defineEmits(['file:avatar', 'file:background'])
@@ -91,4 +93,7 @@ defineProps({
 
 const inputAvatar = ref(null)
 const inputBackground = ref(null)
+
+const appStore = useAppStore()
+const { isMobile } = storeToRefs(appStore)
 </script>
