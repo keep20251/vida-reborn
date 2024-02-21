@@ -28,12 +28,6 @@
               </div>
             </div>
           </template>
-          <template #bottom>
-            <div class="flex items-center justify-center text-gray-a3">
-              <Loading v-if="isLoading">{{ $t('common.loading') }}</Loading>
-              <span v-if="noMore">{{ $t('common.noMore') }}</span>
-            </div>
-          </template>
         </List>
       </div>
     </div>

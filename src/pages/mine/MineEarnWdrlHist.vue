@@ -33,20 +33,14 @@ import { useMineStore } from '@/store/mine'
 import { useInfinite } from '@use/request/infinite'
 import { WITHDRAW_LIST_STATUS } from '@/constant/index.js'
 
-const { dataList, isLoading, noMore, init, next, revert } = useInfinite('User.listWithdraw', {
+const { dataList, isLoading, noMore, init, next } = useInfinite('User.listWithdraw', {
   params: {},
 })
 
 const { setNextFn, clearNextFn } = useMineStore()
-onMounted(() => {
-  init()
-  setNextFn(next)
-})
+onMounted(() => init())
 onUnmounted(() => clearNextFn(next))
-onActivated(() => {
-  init()
-  setNextFn(next)
-})
+onActivated(() => setNextFn(next))
 onDeactivated(() => clearNextFn(next))
 
 const { t: $t } = useI18n()
