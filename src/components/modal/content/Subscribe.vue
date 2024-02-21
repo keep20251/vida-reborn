@@ -29,7 +29,7 @@ const { content } = storeToRefs(useModalStore())
 
 const { t: $t } = useI18n()
 const documents = [
-  computed(() => $t('modal.subscribe.1', { days: content.value?.expire_days })),
+  computed(() => $t('modal.subscribe.1', { days: content.value?.unlock_day_after_subscribe })),
   computed(() => $t('modal.subscribe.2')),
   computed(() => $t('modal.subscribe.3')),
   computed(() => $t('modal.subscribe.4')),
