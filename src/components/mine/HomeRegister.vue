@@ -65,14 +65,8 @@ const { dataList, isLoading, noMore, init, next, revert } = useInfinite('Article
 
 const { setNextFn, clearNextFn } = useMineStore()
 
-onMounted(() => {
-  init()
-  setNextFn(next)
-})
+onMounted(() => init())
 onUnmounted(() => clearNextFn(next))
-onActivated(() => {
-  init()
-  setNextFn(next)
-})
+onActivated(() => setNextFn(next))
 onDeactivated(() => clearNextFn(next))
 </script>

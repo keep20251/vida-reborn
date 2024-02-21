@@ -19,6 +19,7 @@ export const useEarnStore = defineStore('earn', () => {
     const { execute: getOverallData } = useRequest('User.stats')
     try {
       overallData.value = await getOverallData(data)
+      console.log('你送出refreshOverallData')
     } catch (e) {
       console.error(e)
     }

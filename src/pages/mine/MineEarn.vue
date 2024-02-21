@@ -108,26 +108,37 @@
         @confirm="endHandleConfirm"
       ></DatePicker>
     </div>
-    <div class="mt-20" v-for="(media, index) in medias" :key="`earn-media-info-${index}`">
-      <EarnPostCard :media="media"></EarnPostCard>
+    <div class="mt-20">
+      <List :items="dataList" item-key="id">
+        <template #default="{ item }">
+          <EarnPostCard :item="item"></EarnPostCard>
+        </template>
+        <template #bottom>
+          <div class="flex items-center justify-center py-8 text-gray-a3">
+            <Loading v-if="isLoading">{{ $t('common.loading') }}</Loading>
+            <span v-if="noMore">{{ $t('common.noMore') }}</span>
+          </div>
+        </template>
+      </List>
     </div>
   </div>
 </template>
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onActivated, onDeactivated, onMounted, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useEarnStore } from '@/store/earn'
+import { useMineStore } from '@/store/mine'
 import Button from '@comp/common/Button.vue'
 import DatePicker from '@comp/form/DatePicker.vue'
 import EarnPostCard from '@comp/mine/EarnPostCard.vue'
 import Tab from '@comp/navigation/Tab.vue'
+import { useInfinite } from '@use/request/infinite'
 import { MINE_EARN_TAB } from '@const'
+import { toDateYmd } from '@/utils/string-helper'
 
 const earnStore = useEarnStore()
 const { refreshOverallData } = earnStore
 const { overallData, startDate, endDate } = storeToRefs(earnStore)
-
-onMounted(refreshOverallData)
 
 const tab = ref(MINE_EARN_TAB.OVERALL_PREF)
 const tabOptions = ref([
@@ -138,14 +149,16 @@ const tabOptions = ref([
 const startDateModel = ref(startDate.value)
 async function startHandleConfirm() {
   startDate.value = startDateModel.value
-  console.log('你設定的start', startDate.value)
   await refreshOverallData()
+  params.start_time = toDateYmd(startDate.value)
+  await reload()
 }
 const endDateModel = ref(endDate.value)
 async function endHandleConfirm() {
   endDate.value = endDateModel.value
-  console.log('你設定的end', endDate.value)
   await refreshOverallData()
+  params.end_time = toDateYmd(endDate.value)
+  await reload()
 }
 
 const showStartDate = ref(false)
@@ -159,90 +172,21 @@ const onEndDate = () => {
   showStartDate.value = false
 }
 
-const medias = ref([
-  {
-    img: 'https://i.postimg.cc/tJZ8B7tL/3fa5f2a5d3f7f8ba457f2376adc2b5ba.jpg',
-    title: 'New season! Welcome to my channel!',
-    comment: 289,
-    like: 113,
-    share: 94,
-    numberViews: 999,
-    watchDaily: 198,
-    collect: 3029,
-    numberPurchases: 1359,
-    periodIncome: 83030,
-  },
-  {
-    img: 'https://i.postimg.cc/tJZ8B7tL/3fa5f2a5d3f7f8ba457f2376adc2b5ba.jpg',
-    title: 'New season! Welcome to my channel!',
-    comment: 289,
-    like: 113,
-    share: 94,
-    numberViews: 999,
-    watchDaily: 198,
-    collect: 3029,
-    numberPurchases: 1359,
-    periodIncome: 83030,
-  },
-  {
-    img: 'https://i.postimg.cc/tJZ8B7tL/3fa5f2a5d3f7f8ba457f2376adc2b5ba.jpg',
-    title: 'New season! Welcome to my channel!',
-    comment: 289,
-    like: 113,
-    share: 94,
-    numberViews: 999,
-    watchDaily: 198,
-    collect: 3029,
-    numberPurchases: 1359,
-    periodIncome: 83030,
-  },
-  {
-    img: 'https://i.postimg.cc/tJZ8B7tL/3fa5f2a5d3f7f8ba457f2376adc2b5ba.jpg',
-    title: 'New season! Welcome to my channel!',
-    comment: 289,
-    like: 113,
-    share: 94,
-    numberViews: 999,
-    watchDaily: 198,
-    collect: 3029,
-    numberPurchases: 1359,
-    periodIncome: 83030,
-  },
-  {
-    img: 'https://i.postimg.cc/tJZ8B7tL/3fa5f2a5d3f7f8ba457f2376adc2b5ba.jpg',
-    title: 'New season! Welcome to my channel!',
-    comment: 289,
-    like: 113,
-    share: 94,
-    numberViews: 999,
-    watchDaily: 198,
-    collect: 3029,
-    numberPurchases: 1359,
-    periodIncome: 83030,
-  },
-  {
-    img: 'https://i.postimg.cc/tJZ8B7tL/3fa5f2a5d3f7f8ba457f2376adc2b5ba.jpg',
-    title: 'New season! Welcome to my channel!',
-    comment: 289,
-    like: 113,
-    share: 94,
-    numberViews: 999,
-    watchDaily: 198,
-    collect: 3029,
-    numberPurchases: 1359,
-    periodIncome: 83030,
-  },
-  {
-    img: 'https://i.postimg.cc/tJZ8B7tL/3fa5f2a5d3f7f8ba457f2376adc2b5ba.jpg',
-    title: 'New season! Welcome to my channel!',
-    comment: 289,
-    like: 113,
-    share: 94,
-    numberViews: 999,
-    watchDaily: 198,
-    collect: 3029,
-    numberPurchases: 1359,
-    periodIncome: 83030,
-  },
-])
+const params = {
+  start_time: toDateYmd(startDate.value),
+  end_time: toDateYmd(endDate.value),
+}
+
+const { dataList, init, next, reload, isLoading, noMore } = useInfinite('Article.stats', {
+  params,
+})
+
+const { setNextFn, clearNextFn } = useMineStore()
+
+onMounted(() => {
+  refreshOverallData()
+  init()
+})
+onActivated(() => setNextFn(next))
+onDeactivated(() => clearNextFn(next))
 </script>
