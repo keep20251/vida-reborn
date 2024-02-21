@@ -46,9 +46,6 @@
       </div>
       <div v-if="showPersonalInfo" class="grid space-y-10">
         <div class="flex items-end space-x-5">
-          <div class="text-sm font-normal leading-3">{{ $t('info.myLink') }}</div>
-          <div class="text-sm font-normal leading-3 text-gray-57">{{ item.link }}</div>
-          <div class="text-sm font-normal leading-3 text-gray-57">•</div>
           <div class="text-sm font-normal leading-3 text-gray-57">{{ item.view_count }} {{ $t('content.view') }}</div>
         </div>
         <p class="text-base font-normal leading-lg">{{ item.description }}</p>

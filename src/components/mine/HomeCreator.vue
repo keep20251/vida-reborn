@@ -2,11 +2,20 @@
   <div>
     <SelfIntro :item="userData" show-bg-data show-personal-info show-all-info>
       <template #topButton>
-        <div class="flex items-center space-x-10">
-          <Icon class="cursor-pointer" name="link" size="20"></Icon>
-          <router-link :to="{ name: 'mine-profile-set' }" class="flex items-center">
-            <Icon class="cursor-pointer" name="setting" size="20"></Icon>
-          </router-link>
+        <div class="flex w-full items-center justify-between pl-100">
+          <div class="flex items-center space-x-10">
+            <SocialIcon name="instagram" :url="userData?.facebook_link" size="15"></SocialIcon>
+            <SocialIcon name="facebook" :url="userData?.instagram_link" size="15"></SocialIcon>
+            <SocialIcon name="twitter" :url="userData?.twitter_link" size="15"></SocialIcon>
+            <SocialIcon name="youtube" :url="userData?.youtube_link" size="15"></SocialIcon>
+            <SocialIcon name="tiktok" :url="userData?.tiktok_link" size="15"></SocialIcon>
+          </div>
+          <div class="flex items-center space-x-10">
+            <Icon class="cursor-pointer" name="link" size="20"></Icon>
+            <router-link :to="{ name: 'mine-profile-set' }" class="flex items-center">
+              <Icon class="cursor-pointer" name="setting" size="20"></Icon>
+            </router-link>
+          </div>
         </div>
       </template>
       <template #bottomButton>
@@ -47,6 +56,7 @@ import { useFeedStore } from '@/store/feed'
 import { useMineStore } from '@/store/mine'
 import { useSubPlanStore } from '@/store/sub-plan'
 import Button from '@comp/common/Button.vue'
+import SocialIcon from '@comp/common/SocialIcon.vue'
 import Feed from '@comp/main/Feed.vue'
 import SelfIntro from '@comp/main/SelfIntro.vue'
 import { useInfinite } from '@use/request/infinite'
