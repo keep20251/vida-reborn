@@ -96,4 +96,19 @@ export const iconMap = {
   socialTwitter: 'social/twitter',
   socialYoutube: 'social/youtube',
   socialTiktok: 'social/tiktok',
+
+  instagramActive: 'social/instagram-active',
+  instagramDeactive: 'social/instagram-deactive',
+
+  facebookActive: 'social/facebook-active',
+  facebookDeactive: 'social/facebook-deactive',
+
+  twitterActive: 'social/twitter-active',
+  twitterDeactive: 'social/twitter-deactive',
+
+  youtubeActive: 'social/youtube-active',
+  youtubeDeactive: 'social/youtube-deactive',
+
+  tiktokActive: 'social/tiktok-active',
+  tiktokDeactive: 'social/tiktok-deactive',
 }
