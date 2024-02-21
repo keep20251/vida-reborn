@@ -70,7 +70,7 @@
           <Icon name="mineSet" size="20"></Icon>
           <span class="text-base">{{ $t('title.setting') }}</span>
         </div>
-        <Icon name="dropdown" size="8" class="transition-transform" :class="{ 'rotate-180': accOpen === true }"></Icon>
+        <Icon name="dropdown" size="20" class="transition-transform" :class="{ 'rotate-180': accOpen === true }"></Icon>
       </div>
       <div class="pl-20 transition-all" :class="{ hidden: !accOpen }">
         <div
@@ -132,7 +132,7 @@
         </div>
         <Icon
           name="dropdown"
-          size="8"
+          size="20"
           class="transition-transform"
           :class="{ 'rotate-180': aboutOpen === true }"
         ></Icon>
