@@ -4,14 +4,14 @@
     <Tab v-model="tab" :options="tabOptions" class="mt-20 !h-35"></Tab>
     <div v-show="tab === TAB_TYPE.REC">
       <div class="overflow-x-hidden">
-        <List :items="dataList" item-key="id" divider>
+        <List :items="recPosts" item-key="id" divider>
           <template #default="{ item }">
             <Feed class="py-20" :item="item"></Feed>
           </template>
           <template #bottom>
             <div class="flex items-center justify-center py-8 text-gray-a3">
-              <Loading v-if="isLoading">{{ $t('common.loading') }}</Loading>
-              <span v-if="noMore">{{ $t('common.noMore') }}</span>
+              <Loading v-if="recPostsIsLoading">{{ $t('common.loading') }}</Loading>
+              <span v-if="recPostsNoMore">{{ $t('common.noMore') }}</span>
             </div>
           </template>
         </List>
@@ -24,11 +24,17 @@
       </div>
       <div class="pt-10 text-base font-normal leading-md">订阅某个账号，以查看其最新帖子</div>
       <div class="flex flex-col justify-center space-y-10 pt-30">
-        <ViewSubscribeCard
-          v-for="index in 3"
-          :key="`creator-card-${index}`"
-          :theme="(index + 2) % 3"
-        ></ViewSubscribeCard>
+        <List :items="creators" item-key="aff">
+          <template #default="{ item, index }">
+            <ViewSubscribeCard class="my-5" :item="item" :theme="(index + 2) % 3"></ViewSubscribeCard>
+          </template>
+          <template #bottom>
+            <div class="flex items-center justify-center py-8 text-gray-a3">
+              <Loading v-if="creatorsIsLoading"></Loading>
+              <span v-if="creatorsNoMore">{{ $t('common.noMore') }}</span>
+            </div>
+          </template>
+        </List>
       </div>
     </div>
   </div>
@@ -57,16 +63,34 @@ const tabOptions = ref([
   { label: 'tab.subscribe', value: TAB_TYPE.SUB },
 ])
 
+const {
+  dataList: creators,
+  isLoading: creatorsIsLoading,
+  noMore: creatorsNoMore,
+  init: creatorsInit,
+  next: creatorsNext,
+  reload: creatorsReload,
+} = useInfinite('User.searchCreator')
+
 const feedStore = useFeedStore()
-const { dataList, isLoading, noMore, init, next, revert } = useInfinite('Article.list', {
+const {
+  dataList: recPosts,
+  isLoading: recPostsIsLoading,
+  noMore: recPostsNoMore,
+  init: recPostsInit,
+  next: recPostsNext,
+} = useInfinite('Article.list', {
   params: { filter_by: 0, user_interested: 1, include_my_article: 1 },
   transformer: feedStore.sync,
 })
 
 const { setNextFn, clearNextFn } = useMineStore()
 
-onMounted(() => init())
-onUnmounted(() => clearNextFn(next))
-onActivated(() => setNextFn(next))
-onDeactivated(() => clearNextFn(next))
+onMounted(() => {
+  recPostsInit()
+  creatorsInit()
+})
+onUnmounted(() => clearNextFn(recPostsNext, creatorsNext))
+onActivated(() => setNextFn(recPostsNext, creatorsNext))
+onDeactivated(() => clearNextFn(recPostsNext, creatorsNext))
 </script>
