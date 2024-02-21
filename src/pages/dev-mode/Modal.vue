@@ -1,18 +1,25 @@
 <template>
   <Page>
-    <div @click="alertModal('xs')">xs</div>
-    <div @click="confirmModal('sm')">sm</div>
-    <div @click="confirmModal('md')">md</div>
-    <div @click="customModal('lg')">lg</div>
+    <div class="mt-16 flex w-1/2 flex-col space-y-10">
+      <Button @click="alertModal('xs')">xs</Button>
+      <Button @click="confirmModal('sm')">sm</Button>
+      <Button @click="confirmModal('md')">md</Button>
+      <Button @click="customModal('lg')">lg</Button>
+      <Button @click="openMessage('測試')">popupMessage</Button>
+    </div>
   </Page>
 </template>
 
 <script setup>
 import { useModalStore } from '@/store/modal'
+import { usePopupMessageStore } from '@/store/popup-message'
+import Button from '@comp/common/Button.vue'
 import { MODAL_TYPE } from '@const'
 
 const modalStore = useModalStore()
 const { alert, confirm, open } = modalStore
+
+const { open: openMessage } = usePopupMessageStore()
 
 function alertModal(size) {
   alert({
