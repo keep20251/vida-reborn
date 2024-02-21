@@ -81,6 +81,7 @@ export default {
     subscription: "Kế hoạch đăng ký",
     publishSuccess: "Đăng thành công",
     publishFail: "Đăng thất bại",
+    delSuccess: "",
   },
   label: {
     account: "Tên người dùng",
@@ -92,6 +93,7 @@ export default {
     sendMailCode: "Gửi mã xác minh",
     resend: "Gửi lại",
     upload: "Đang tải lên",
+    uploadErr: "",
     displayName: "Tên hiển thị",
     username: "Tên người dùng",
     description: "Mô tả",
@@ -141,6 +143,8 @@ export default {
     buy: "Bán hàng trong cửa hàng",
     private: "Chỉ mình tôi",
     reply: "Hồi đáp",
+    subPlanName: "",
+    subPlanCtn: "",
   },
   placeholder: {
     account: "Vui lòng nhập tên người dùng",
@@ -154,10 +158,13 @@ export default {
     newPw: "Vui lòng nhập mật khẩu mới",
     newPwCfm: "Vui lòng nhập lại mật khẩu mới",
     wdrlAmount: "Vui lòng nhập số tiền muốn rút",
+    subPlanName: "",
+    subPlanCtn: "",
     search: "tìm kiếm...",
   },
   message: {
     payment: { failed: "Thanh toán thất bại", success: "Thanh toán thành công", cancel: "Thanh toán đã hủy" },
+    error: { subscribeSelf: "Không thể đăng ký cho chính mình", shopBuySelf: "Không thể mua sản phẩm của riêng bạn" },
   },
   copy: { link: "Sao chép liên kết", fail: "Sao chép thất bại" },
   info: {
@@ -211,6 +218,7 @@ export default {
     pickMessage: "Chọn một tin nhắn",
     popularCreator: "",
     subscribeToView: "",
+    upToTen: "",
   },
   content: {
     default: "Đặt trước, nó không nên được hiển thị ở bất cứ đâu",

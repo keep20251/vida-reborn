@@ -81,6 +81,7 @@ export default {
     subscription: "خطة الاشتراك",
     publishSuccess: "النشر بنجاح",
     publishFail: "فشل النشر",
+    delSuccess: "",
   },
   label: {
     account: "اسم المستخدم",
@@ -92,6 +93,7 @@ export default {
     sendMailCode: "أرسل رمز التحقق",
     resend: "إعادة إرسال",
     upload: "جارِ التحميل",
+    uploadErr: "",
     displayName: "اسم العرض",
     username: "اسم المستخدم",
     description: "الوصف",
@@ -141,6 +143,8 @@ export default {
     buy: "بيع المتجر",
     private: "أنا فقط",
     reply: "رد",
+    subPlanName: "",
+    subPlanCtn: "",
   },
   placeholder: {
     account: "الرجاء إدخال اسم المستخدم",
@@ -154,9 +158,14 @@ export default {
     newPw: "الرجاء إدخال كلمة المرور الجديدة",
     newPwCfm: "الرجاء إعادة إدخال كلمة المرور الجديدة",
     wdrlAmount: "الرجاء إدخال مبلغ السحب",
+    subPlanName: "",
+    subPlanCtn: "",
     search: "يبحث...",
   },
-  message: { payment: { failed: "فشل الدفع", success: "الدفع ناجح", cancel: "تم إلغاء الدفع" } },
+  message: {
+    payment: { failed: "فشل الدفع", success: "الدفع ناجح", cancel: "تم إلغاء الدفع" },
+    error: { subscribeSelf: "لا يمكنك الاشتراك في نفسك", shopBuySelf: "لا يمكنك شراء منتجاتك الخاصة" },
+  },
   copy: { link: "نسخ الرابط", fail: "فشل النسخ" },
   info: {
     bindThirdPartyLogin: "ربط تسجيل الدخول إلى الطرف الثالث",
@@ -209,6 +218,7 @@ export default {
     pickMessage: "اختر رسالة",
     popularCreator: "",
     subscribeToView: "",
+    upToTen: "",
   },
   content: {
     default: "مسبقًا ، لا ينبغي عرضه في أي مكان",

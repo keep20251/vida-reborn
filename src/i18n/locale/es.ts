@@ -81,6 +81,7 @@ export default {
     subscription: "Plan de suscripción",
     publishSuccess: "Publicación Exitosa",
     publishFail: "Publicación Fallida",
+    delSuccess: "",
   },
   label: {
     account: "Nombre de usuario",
@@ -92,6 +93,7 @@ export default {
     sendMailCode: "Enviar el código de verificación",
     resend: "Reenviar",
     upload: "Subiendo",
+    uploadErr: "",
     displayName: "Nombre visible",
     username: "Nombre de usuario",
     description: "Descripción",
@@ -141,6 +143,8 @@ export default {
     buy: "Venta en Tienda",
     private: "Solo Yo",
     reply: "Responder",
+    subPlanName: "",
+    subPlanCtn: "",
   },
   placeholder: {
     account: "Por favor, ingrese nombre de usuario",
@@ -154,9 +158,14 @@ export default {
     newPw: "Por favor, ingrese una nueva contraseña",
     newPwCfm: "Por favor, ingrese de nuevo la nueva contraseña",
     wdrlAmount: "Por favor, ingrese el monto del retiro",
+    subPlanName: "",
+    subPlanCtn: "",
     search: "buscar...",
   },
-  message: { payment: { failed: "Pago fallido", success: "Pago exitoso", cancel: "Pago cancelado" } },
+  message: {
+    payment: { failed: "Pago fallido", success: "Pago exitoso", cancel: "Pago cancelado" },
+    error: { subscribeSelf: "No puedo suscribirte a ti mismo", shopBuySelf: "No puedo comprar tus propios productos" },
+  },
   copy: { link: "Copiar enlace", fail: "Copia fallida" },
   info: {
     bindThirdPartyLogin: "Bind Iniciar sesión en terceros",
@@ -209,6 +218,7 @@ export default {
     pickMessage: "Elegir un mensaje",
     popularCreator: "",
     subscribeToView: "",
+    upToTen: "",
   },
   content: {
     default: "Preestablecido, no debe mostrarse en ningún lado",

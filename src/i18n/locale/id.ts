@@ -81,6 +81,7 @@ export default {
     subscription: "Rencana Langganan",
     publishSuccess: "Penerbitan Berhasil",
     publishFail: "Penerbitan Gagal",
+    delSuccess: "",
   },
   label: {
     account: "Nama pengguna",
@@ -92,6 +93,7 @@ export default {
     sendMailCode: "Kirim kode verifikasi",
     resend: "Kirim ulang",
     upload: "Mengunggah",
+    uploadErr: "",
     displayName: "Nama tampilan",
     username: "Nama pengguna",
     description: "Deskripsi",
@@ -141,6 +143,8 @@ export default {
     buy: "Penjualan Toko",
     private: "Hanya Saya",
     reply: "Membalas",
+    subPlanName: "",
+    subPlanCtn: "",
   },
   placeholder: {
     account: "Silakan masukkan nama pengguna",
@@ -154,9 +158,17 @@ export default {
     newPw: "Silakan masukkan kata sandi baru",
     newPwCfm: "Silakan masukkan kata sandi baru lagi",
     wdrlAmount: "Silakan masukkan jumlah penarikan",
+    subPlanName: "",
+    subPlanCtn: "",
     search: "mencari...",
   },
-  message: { payment: { failed: "Pembayaran gagal", success: "Pembayaran berhasil", cancel: "Pembayaran dibatalkan" } },
+  message: {
+    payment: { failed: "Pembayaran gagal", success: "Pembayaran berhasil", cancel: "Pembayaran dibatalkan" },
+    error: {
+      subscribeSelf: "Tidak bisa berlangganan diri sendiri",
+      shopBuySelf: "Tidak dapat membeli produk Anda sendiri",
+    },
+  },
   copy: { link: "Salin tautan", fail: "Salinan gagal" },
   info: {
     bindThirdPartyLogin: "Mengikat login pihak ketiga",
@@ -209,6 +221,7 @@ export default {
     pickMessage: "Pilih pesan",
     popularCreator: "",
     subscribeToView: "",
+    upToTen: "",
   },
   content: {
     default: "Preset, itu tidak boleh ditampilkan di mana pun",

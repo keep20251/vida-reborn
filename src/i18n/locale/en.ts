@@ -81,6 +81,7 @@ export default {
     subscription: "Subscription plan",
     publishSuccess: "Publish Successful",
     publishFail: "Publish Failed",
+    delSuccess: "Successfully deleted",
   },
   label: {
     account: "Username",
@@ -92,6 +93,7 @@ export default {
     sendMailCode: "Send the verification code",
     resend: "Resend",
     upload: "Uploading",
+    uploadErr: "Upload error",
     displayName: "Display name",
     username: "Username",
     description: "Description",
@@ -141,6 +143,8 @@ export default {
     buy: "Shop Sale",
     private: "Only Me",
     reply: "Replay",
+    subPlanName: "Subscription plan name",
+    subPlanCtn: "Subscription plan content",
   },
   placeholder: {
     account: "Please enter username",
@@ -154,9 +158,14 @@ export default {
     newPw: "Please enter a new password",
     newPwCfm: "Please enter new password again",
     wdrlAmount: "Please enter the withdrawal amount",
+    subPlanName: "",
+    subPlanCtn: "",
     search: "search...",
   },
-  message: { payment: { failed: "Payment Failed", success: "Payment Successful", cancel: "Payment Cancelled" } },
+  message: {
+    payment: { failed: "Payment Failed", success: "Payment Successful", cancel: "Payment Cancelled" },
+    error: { subscribeSelf: "Can't subscribe to yourself", shopBuySelf: "Can't buy your own products" },
+  },
   copy: { link: "Copy Link", fail: "Copy Failed" },
   info: {
     bindThirdPartyLogin: "Bind third party login",
@@ -209,6 +218,7 @@ export default {
     pickMessage: "Pick a message",
     popularCreator: "Popular creators",
     subscribeToView: "",
+    upToTen: "Maximum 10 pictures",
   },
   content: {
     default: "Preset, it should not be displayed anywhere",

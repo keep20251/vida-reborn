@@ -76,6 +76,7 @@ export default {
     subscription: "구독 계획",
     publishSuccess: "게시 성공",
     publishFail: "게시 실패",
+    delSuccess: "",
   },
   label: {
     account: "사용자 이름",
@@ -87,6 +88,7 @@ export default {
     sendMailCode: "확인 코드를 보냅니다",
     resend: "재전송",
     upload: "업로드 중",
+    uploadErr: "",
     displayName: "표시 이름",
     username: "사용자 이름",
     description: "설명",
@@ -136,6 +138,8 @@ export default {
     buy: "상점 판매",
     private: "나만",
     reply: "회신하다",
+    subPlanName: "",
+    subPlanCtn: "",
   },
   placeholder: {
     account: "사용자 이름을 입력하세요",
@@ -149,9 +153,14 @@ export default {
     newPw: "새 비밀번호를 입력해주세요",
     newPwCfm: "새 비밀번호를 다시 입력해주세요",
     wdrlAmount: "출금액을 입력해주세요",
+    subPlanName: "",
+    subPlanCtn: "",
     search: "찾다...",
   },
-  message: { payment: { failed: "결제 실패", success: "결제 성공", cancel: "결제 취소" } },
+  message: {
+    payment: { failed: "결제 실패", success: "결제 성공", cancel: "결제 취소" },
+    error: { subscribeSelf: "자신을 구독 할 수 없습니다", shopBuySelf: "자신의 제품을 살 수 없습니다" },
+  },
   copy: { link: "링크 복사하기", fail: "복사 실패" },
   info: {
     bindThirdPartyLogin: "제 3 자 로그인 바인드",
@@ -204,6 +213,7 @@ export default {
     pickMessage: "메시지 선택",
     popularCreator: "",
     subscribeToView: "",
+    upToTen: "",
   },
   content: {
     default: "사전 설정, 아무데도 표시해서는 안됩니다",

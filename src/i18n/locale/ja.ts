@@ -76,6 +76,7 @@ export default {
     subscription: "サブスクリプションプラン",
     publishSuccess: "公開成功",
     publishFail: "公開失敗",
+    delSuccess: "",
   },
   label: {
     account: "ユーザー名",
@@ -87,6 +88,7 @@ export default {
     sendMailCode: "確認コードを送信します",
     resend: "再送信",
     upload: "アップロード中",
+    uploadErr: "",
     displayName: "表示名",
     username: "ユーザー名",
     description: "説明",
@@ -136,6 +138,8 @@ export default {
     buy: "ショップ販売",
     private: "私だけ",
     reply: "返事",
+    subPlanName: "",
+    subPlanCtn: "",
   },
   placeholder: {
     account: "ユーザー名を入力してください",
@@ -149,10 +153,13 @@ export default {
     newPw: "新しいパスワードを入力してください",
     newPwCfm: "新しいパスワードをもう一度入力してください",
     wdrlAmount: "引き出し額を入力してください",
+    subPlanName: "",
+    subPlanCtn: "",
     search: "検索...",
   },
   message: {
     payment: { failed: "支払いに失敗しました", success: "支払い成功", cancel: "支払いがキャンセルされました" },
+    error: { subscribeSelf: "自分を購読することはできません", shopBuySelf: "独自の製品を購入できません" },
   },
   copy: { link: "リンクをコピーする", fail: "コピーに失敗しました" },
   info: {
@@ -206,6 +213,7 @@ export default {
     pickMessage: "メッセージを選択",
     popularCreator: "",
     subscribeToView: "",
+    upToTen: "",
   },
   content: {
     default: "プリセット、どこにも表示しないでください",
