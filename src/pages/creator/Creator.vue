@@ -7,13 +7,22 @@
       <div v-if="creator">
         <SelfIntro :item="creator" show-bg-data show-all-info show-personal-info>
           <template #topButton>
-            <div class="flex items-center space-x-10">
-              <div class="cursor-pointer"><Icon name="comment" size="20"></Icon></div>
-              <div class="cursor-pointer"><Icon name="report" size="20"></Icon></div>
-              <div class="cursor-pointer"><Icon name="sharePage" size="20"></Icon></div>
-              <Button size="sm" primary @click="subscribe({ item: lowestSub, creator })">
-                {{ $t('common.subscribe') }}
-              </Button>
+            <div class="flex w-full items-center justify-between pl-100">
+              <div class="flex items-center space-x-10">
+                <SocialIcon name="instagram" :url="creator?.facebook_link" size="15"></SocialIcon>
+                <SocialIcon name="facebook" :url="creator?.instagram_link" size="15"></SocialIcon>
+                <SocialIcon name="twitter" :url="creator?.twitter_link" size="15"></SocialIcon>
+                <SocialIcon name="youtube" :url="creator?.youtube_link" size="15"></SocialIcon>
+                <SocialIcon name="tiktok" :url="creator?.tiktok_link" size="15"></SocialIcon>
+              </div>
+              <div class="flex items-center space-x-10">
+                <div class="flex cursor-pointer items-center"><Icon name="comment" size="20"></Icon></div>
+                <div class="flex cursor-pointer items-center"><Icon name="report" size="20"></Icon></div>
+                <div class="flex cursor-pointer items-center"><Icon name="sharePage" size="20"></Icon></div>
+                <Button size="sm" primary @click="subscribe({ item: lowestSub, creator })">
+                  {{ $t('common.subscribe') }}
+                </Button>
+              </div>
             </div>
           </template>
           <template #bottomButton>
@@ -74,6 +83,7 @@ import { useHydrationStore } from '@/store/hydration'
 import { useSubsciptionStore } from '@/store/subscription'
 import SubscribeCard from '@comp/card/SubscribeCard.vue'
 import Button from '@comp/common/Button.vue'
+import SocialIcon from '@comp/common/SocialIcon.vue'
 import Error from '@comp/info/Error.vue'
 import Feed from '@comp/main/Feed.vue'
 import SelfIntro from '@comp/main/SelfIntro.vue'
