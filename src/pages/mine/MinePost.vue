@@ -10,7 +10,7 @@
       <template #default="{ item }">
         <div class="py-20 text-base font-bold">#{{ status(item) }}</div>
         <Feed class="pb-10" :item="item"></Feed>
-        <Button class="mb-20">{{ $t('label.edit') }}</Button>
+        <Button class="mb-20" @click="onEdit(item)">{{ $t('label.edit') }}</Button>
       </template>
       <template #bottom>
         <div class="flex items-center justify-center py-8 text-gray-a3">
@@ -22,14 +22,20 @@
   </div>
 </template>
 <script setup>
-import { computed, reactive, ref, watch } from 'vue'
+import { computed, onActivated, onDeactivated, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useMineStore } from '@/store/mine'
+import { usePublishStore } from '@/store/publish'
 import Button from '@comp/common/Button.vue'
 import Feed from '@comp/main/Feed.vue'
 import ButtonTab from '@comp/navigation/ButtonTab.vue'
 import Tab from '@comp/navigation/Tab.vue'
 import { useInfinite } from '@use/request/infinite'
+import { useRouters } from '@use/routers'
 import { FEED_STATUS, MEDIA_TYPE } from '@const/publish'
+import { toDate } from '@/utils/string-helper'
+
+const { setNextFn, clearNextFn } = useMineStore()
 
 const TAB_TYPE = { SUB: 1, BUY: 2, SCH: 3, PRI: 4 }
 
@@ -121,9 +127,12 @@ watch(
       page.inited = true
       page.infinite.init()
     }
+    setNextFn(page.infinite.next)
   },
   { immediate: true },
 )
+onActivated(() => setNextFn(pages[`${tab.value}${tabBtn.value}`].infinite.next))
+onDeactivated(() => clearNextFn(pages[`${tab.value}${tabBtn.value}`].infinite.next))
 
 const { t: $t } = useI18n()
 function status(item) {
@@ -131,5 +140,26 @@ function status(item) {
   if (item.status === FEED_STATUS.REJECT) return $t('info.auditFailure')
   if (item.status === FEED_STATUS.PASS) return $t('info.scheduledRelease')
   if (item.status === FEED_STATUS.PUBLISHED) return $t('info.published')
+}
+
+const { to } = useRouters()
+const publishStore = usePublishStore()
+const { toUpdate } = publishStore
+function onEdit(item) {
+  toUpdate({
+    id: item.id,
+    category: item.category + '',
+    title: item.title,
+    content: item.content,
+    tags: item.tags,
+    type: item.resource_type,
+    perm: item.article_type,
+    subs: item.subscription_ids,
+    price: item.price,
+    postTime: toDate(item.display_at),
+    urls: item.url,
+  })
+
+  to('publish')
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <Page>
     <template #main-top>
-      <Head :title="$t('title.publish')" feature-icon="close" @feature="onClose"></Head>
+      <Head :title="$t('title.publish')" feature-icon="close" @back="clear" @feature="onClose"></Head>
     </template>
     <template #default>
       <div class="flex flex-col space-y-20 pb-30">
@@ -64,7 +64,8 @@
           <div class="grid grid-cols-3 gap-10">
             <div v-for="file in uploadFiles" class="relative overflow-hidden rounded-sm pb-[64%]" :key="file.id">
               <div class="absolute top-0 h-full w-full">
-                <img :src="file.result" class="h-full w-full rounded-sm object-cover" />
+                <EncryptImage v-if="file.status === UPLOAD_STATUS.SAVE" :src="file.url" cover></EncryptImage>
+                <img v-else :src="file.result" class="h-full w-full rounded-sm object-cover" />
               </div>
               <div
                 class="absolute top-0 h-full w-full origin-right bg-white opacity-60 will-change-transform"
@@ -190,7 +191,7 @@ const video = ref(null)
 watch(
   isEditing,
   async (v) => {
-    if (v) {
+    if (v && isCreate.value) {
       try {
         await startUpload(video)
       } catch (e) {
@@ -274,7 +275,6 @@ function publish() {
       alert({
         title: 'title.publishSuccess',
         confirmAction: onClose,
-        fromCenter: true,
       })
     })
     .catch((e) => {
