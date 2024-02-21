@@ -1,7 +1,9 @@
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useModalStore } from '@/store/modal'
+import { usePopupMessageStore } from '@/store/popup-message'
 import { usePayment } from '@use/payment'
 import { useRouters } from '@use/routers'
 import { CONSUME_TYPE, MODAL_TYPE } from '@const'
@@ -12,7 +14,12 @@ export function useDialog() {
   const { pay, cancel } = usePayment()
   const { open, close } = useModalStore()
   const { toCreator, toFeed } = useRouters()
-  const { afterLoginAction } = useAccountStore()
+
+  const accountStore = useAccountStore()
+  const { afterLoginAction } = accountStore
+  const { userData } = storeToRefs(accountStore)
+
+  const { open: openMessage } = usePopupMessageStore()
 
   async function uploadImageDialog(file, callback = null) {
     try {
@@ -46,6 +53,12 @@ export function useDialog() {
   }
 
   async function subscribe({ item, creator }) {
+    if (userData.value.aff === creator.aff) {
+      openMessage($t('message.error.subscribeSelf'))
+      close()
+      return
+    }
+
     open(MODAL_TYPE.SUBSCRIBE, {
       size: 'sm',
       imageTitle: item.picture,
@@ -72,6 +85,12 @@ export function useDialog() {
   }
 
   function shopBuy(feed) {
+    if (userData.value.aff === feed.user.aff) {
+      openMessage($t('message.error.shopBuySelf'))
+      close()
+      return
+    }
+
     open(MODAL_TYPE.SHOP_BUY, {
       size: 'sm',
       avatarTitle: feed.user.thumb,
