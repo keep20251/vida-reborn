@@ -6,8 +6,8 @@
     </router-link>
   </div>
   <div class="flex items-end justify-center space-x-5 py-35">
-    <div @click="refreshOverallData" class="text-base font-bold leading-md">$</div>
-    <div class="text-xl font-bold leading-xl">{{ overallData?.total_income }}</div>
+    <div class="text-base font-bold leading-md">$</div>
+    <div class="text-xl font-bold leading-xl">{{ overallData?.total_income || 0 }}</div>
   </div>
   <router-link :to="{ name: 'mine-earn-wdrl-req' }">
     <Button>{{ $t('content.withdrawalApply') }}</Button>
@@ -51,29 +51,29 @@
       <div class="flex select-none space-x-30 px-20 md:px-0 lg:px-0 xl:px-0">
         <div class="flex w-4/12 flex-col space-y-10">
           <div class="text-base font-normal leading-md">{{ $t('content.totEntries') }}</div>
-          <div class="text-lg font-bold leading-lg">{{ overallData?.total_click }}</div>
+          <div class="text-lg font-bold leading-lg">{{ overallData?.total_click || 0 }}</div>
         </div>
         <div class="flex w-4/12 flex-col space-y-10">
           <div class="text-base font-normal leading-md">{{ $t('content.totSubs') }}</div>
-          <div class="text-lg font-bold leading-lg">{{ overallData?.total_subscription }}</div>
+          <div class="text-lg font-bold leading-lg">{{ overallData?.total_subscription || 0 }}</div>
         </div>
         <div class="flex w-4/12 flex-col space-y-10">
           <div class="text-base font-normal leading-md">{{ $t('content.totViews') }}</div>
-          <div class="text-lg font-bold leading-lg">{{ overallData?.total_view }}</div>
+          <div class="text-lg font-bold leading-lg">{{ overallData?.total_view || 0 }}</div>
         </div>
       </div>
       <div class="flex space-x-30 px-20 md:px-0 lg:px-0 xl:px-0">
         <div class="flex w-4/12 flex-col space-y-10">
           <div class="text-base font-normal leading-md">{{ $t('content.purchases') }}</div>
-          <div class="text-lg font-bold leading-lg">{{ overallData?.total_buyer }}</div>
+          <div class="text-lg font-bold leading-lg">{{ overallData?.total_buyer || 0 }}</div>
         </div>
         <div class="flex w-4/12 flex-col space-y-10">
           <div class="text-base font-normal leading-md">{{ $t('content.periodIncome') }}</div>
-          <div class="text-lg font-bold leading-lg">${{ overallData?.total_income }}</div>
+          <div class="text-lg font-bold leading-lg">${{ overallData?.total_income || 0 }}</div>
         </div>
         <div class="flex w-4/12 flex-col justify-start space-y-10">
           <div class="text-base font-normal leading-md">{{ $t('content.unsubscribers') }}</div>
-          <div class="text-lg font-bold leading-lg">{{ overallData?.total_unsubscription }}</div>
+          <div class="text-lg font-bold leading-lg">{{ overallData?.total_unsubscription || 0 }}</div>
         </div>
       </div>
     </div>
@@ -121,7 +121,6 @@ import Button from '@comp/common/Button.vue'
 import DatePicker from '@comp/form/DatePicker.vue'
 import EarnPostCard from '@comp/mine/EarnPostCard.vue'
 import Tab from '@comp/navigation/Tab.vue'
-// import useRequest from '@use/request'
 import { MINE_EARN_TAB } from '@const'
 
 const earnStore = useEarnStore()
