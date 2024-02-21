@@ -207,9 +207,11 @@ export default {
     imageFormat: "รองรับรูปแบบ JPG/PNG ไม่เกิน 1MB ต่อภาพ",
     uploadProgress: "ความคืบหน้าในการอัปโหลด {progress}%",
     pickMessage: "เลือกข้อความ",
+    popularCreator: "",
+    subscribeToView: "",
   },
   content: {
-    default: "ที่ตั้งไว้ไม่ควรแสดงทุกที่",
+    default: "ที่ตั้งไว้ล่วงหน้าไม่ควรแสดงทุกที่",
     welcomeToVida: "ยินดีต้อนรับสู่ Vida, เข้าร่วมกับเรา!",
     verifyAccount: "รีบไปยืนยันกล่องจดหมายของคุณ! ไปที่ 【บัญชีของฉัน>การตั้งค่าบัญชี】 เพื่อทำการยืนยัน",
     termsDeclaration:

@@ -202,6 +202,8 @@ export default {
     imageFormat: "JPG/PNG 형식 지원, 각 이미지 1MB를 초과하지 않음",
     uploadProgress: "업로드 진행률 {progress}%",
     pickMessage: "메시지 선택",
+    popularCreator: "",
+    subscribeToView: "",
   },
   content: {
     default: "사전 설정, 아무데도 표시해서는 안됩니다",
@@ -431,7 +433,7 @@ export default {
     },
     shopBuySuc: {
       1: "기이! 게시물을 잠금 해제하기위한 성공적인 결제",
-      2: "포스트를 선택하여 시청하거나 원래 화면에 머물러 있습니다!",
+      2: "게시물을 선택하거나 원래 화면을 유지하십시오!",
       confirm: "게시물로 이동하십시오",
     },
     title: { paySuc: "성공적으로 지불했습니다" },

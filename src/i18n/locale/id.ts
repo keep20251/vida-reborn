@@ -207,9 +207,11 @@ export default {
     imageFormat: "Mendukung format JPG/PNG, masing-masing tidak melebihi 1MB",
     uploadProgress: "Kemajuan Unggah {progress}%",
     pickMessage: "Pilih pesan",
+    popularCreator: "",
+    subscribeToView: "",
   },
   content: {
-    default: "Preset, tidak boleh ditampilkan di mana pun",
+    default: "Preset, itu tidak boleh ditampilkan di mana pun",
     welcomeToVida: "Selamat datang di Vida, bergabunglah dengan kami!",
     verifyAccount:
       "Segera verifikasi kotak surat Anda! Pergi ke 【Akun Saya>Pengaturan Akun】 untuk menyelesaikan verifikasi",

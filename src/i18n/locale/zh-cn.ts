@@ -198,6 +198,8 @@ export default {
     imageFormat: "支持JPG/PNG格式，每张不超过1MB",
     uploadProgress: "上传进度 {progress}%",
     pickMessage: "选择信息",
+    popularCreator: "",
+    subscribeToView: "",
   },
   content: {
     default: "预设，不应该显示在任何地方",

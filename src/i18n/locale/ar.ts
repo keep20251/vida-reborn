@@ -207,6 +207,8 @@ export default {
     imageFormat: "يدعم تنسيق JPG/PNG، كل منها لا يتجاوز 1 ميغابايت",
     uploadProgress: "تقدم الرفع {progress}%",
     pickMessage: "اختر رسالة",
+    popularCreator: "",
+    subscribeToView: "",
   },
   content: {
     default: "مسبقًا ، لا ينبغي عرضه في أي مكان",

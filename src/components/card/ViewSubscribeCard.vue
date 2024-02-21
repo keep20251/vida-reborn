@@ -1,27 +1,28 @@
 <template>
   <div class="relative h-[11rem]">
-    <div v-if="props.item.background" class="h-full w-full rounded-xl bg-no-repeat object-cover">
+    <div v-if="props.item.background" class="h-full w-full">
       <EncryptImage :src="props.item.background" :border-radius="15" cover></EncryptImage>
     </div>
-    <div class="absolute top-0 h-full w-full flex-shrink-0 rounded-xl opacity-80" :class="colorTheme"></div>
-    <div class="absolute top-0 h-full w-full px-20 py-30">
-      <div class="flex h-full flex-row">
-        <Avatar :radius="35" class="mr-10" :src="props.item.thumb" :alt="props.item.username"></Avatar>
-        <div class="flex flex-col space-y-10">
-          <div>
-            <div class="text-lg font-bold leading-5 text-white">{{ props.item.nickname }}</div>
-            <div class="text-sm font-normal leading-3 text-white">{{ props.item.username }}</div>
+    <div class="absolute top-0 h-full w-full rounded-xl opacity-80" :class="colorTheme">
+      <div class="h-full w-full cursor-pointer px-20 py-30" @click="toCreator(item.username)">
+        <div class="flex h-full space-x-10">
+          <Avatar :radius="35" :src="props.item.thumb" :alt="props.item.username"></Avatar>
+          <div class="flex grow flex-col space-y-10">
+            <div>
+              <div class="text-lg font-bold leading-5">{{ props.item.nickname }}</div>
+              <div class="text-sm font-normal leading-3 text-gray-57">@{{ props.item.username }}</div>
+            </div>
+            <div class="text-base font-normal leading-5">
+              {{ props.item?.description }}
+            </div>
           </div>
-          <div class="w-[14.375rem] text-base font-normal leading-5 text-white">
-            {{ props.item?.description }}
+          <div class="flex-shrink-0 self-end">
+            <Button>{{ $t('common.viewSubscribePlan') }}</Button>
           </div>
         </div>
-        <div class="ml-auto flex items-end">
-          <Button class="!px-10">{{ $t('common.viewSubscribePlan') }}</Button>
+        <div class="absolute right-20 top-20 cursor-pointer">
+          <Icon name="closeWhite" size="20"></Icon>
         </div>
-      </div>
-      <div class="absolute right-20 top-20 cursor-pointer">
-        <Icon name="closeWhite" size="20"></Icon>
       </div>
     </div>
   </div>
@@ -30,17 +31,11 @@
 import { computed } from 'vue'
 import Button from '@comp/common/Button.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
+import { useRouters } from '@use/routers'
 
 const props = defineProps({
   item: {
     type: Object,
-    default: () => ({
-      background: null,
-      thumb: null,
-      nickname: 'Angelababy',
-      username: '@angelababy',
-      description: `🇩🇪/🇺🇸 - 19 years😇 check my link to get to know me <3, I'm convinced your massive dick will help me get to the spread, daddy💦💦`,
-    }),
   },
   theme: {
     type: Number,
@@ -59,4 +54,6 @@ const colorTheme = computed(() => {
       return 'bg-gradient-to-b from-gray-purple from-[6.82%] to-gray-orange to-[98.84%]'
   }
 })
+
+const { toCreator } = useRouters()
 </script>

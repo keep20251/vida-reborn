@@ -207,6 +207,8 @@ export default {
     imageFormat: "Soporta formato JPG/PNG, cada uno no excediendo 1MB",
     uploadProgress: "Progreso de Carga {progress}%",
     pickMessage: "Elegir un mensaje",
+    popularCreator: "",
+    subscribeToView: "",
   },
   content: {
     default: "Preestablecido, no debe mostrarse en ningún lado",
@@ -433,12 +435,12 @@ export default {
     },
     subscribeSuc: {
       1: "¡maravilloso! ¡Suscrito con éxito a {nickname}!",
-      2: "¡Elija ir a la página de inicio del Creador, o permanecer en la pantalla original!",
+      2: "¡Elige ir a la página de inicio del Creador o permanecer en la pantalla original!",
       confirm: "Ir a la página del creador",
     },
     shopBuySuc: {
       1: "¡maravilloso! Pago exitoso para desbloquear la publicación",
-      2: "¡Elija la publicación para mirar o permanecer en la pantalla original!",
+      2: "¡Elija la publicación para ver, o permanecer en la pantalla original!",
       confirm: "Ir a la publicación",
     },
     title: { paySuc: "Ha pagado con éxito" },
