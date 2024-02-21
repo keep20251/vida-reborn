@@ -19,7 +19,7 @@
         </div>
       </template>
       <template #bottomButton>
-        <div class="ml-[20px] mr-[20px] flex w-full space-x-10 sm:ml-0 sm:mr-0 xl:ml-0 xl:mr-0">
+        <div class="flex w-full space-x-10 sm:ml-0 sm:mr-0 xl:ml-0 xl:mr-0">
           <div class="w-9/12">
             <Button @click="openSubPlanDialog()">{{ $t('info.subscribeSetting') }}</Button>
           </div>
