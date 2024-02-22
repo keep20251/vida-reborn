@@ -109,7 +109,7 @@ const props = defineProps({
   disableContentFold: { type: Boolean, default: false },
 })
 
-const isLock = computed(() => props.item.user.is_block || !props.item.unlock)
+const isLock = computed(() => props.item.user.is_block || !props.item.is_unlock)
 // const isLock = computed(() => false) // 把鎖拿掉 debug 用
 const isVideo = computed(() => props.item.resource_type === MEDIA_TYPE.VIDEO)
 const isImage = computed(() => props.item.resource_type === MEDIA_TYPE.IMAGE)
