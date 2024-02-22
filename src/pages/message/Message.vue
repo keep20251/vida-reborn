@@ -17,7 +17,7 @@
                     <span class="text-base font-bold">{{ item.nickname }}</span>
                     <span class="text-sm"> @{{ item.username }}</span>
                   </div>
-                  <div class="line-clamp-2 text-base leading-lg">
+                  <div class="line-clamp-2 text-base leading-lg" :style="{ 'word-break': 'break-word' }">
                     {{
                       item.messages.length === 0
                         ? ''
@@ -28,7 +28,16 @@
                   </div>
                 </div>
                 <div class="flex flex-col items-end justify-between">
-                  <div class="text-sm text-primary">{{ item.messages[item.messages.length - 1]?.timestamp }}</div>
+                  <div class="text-sm text-primary">
+                    {{
+                      item.messages[item.messages.length - 1]
+                        ? toDateTimeString(new Date(item.messages[item.messages.length - 1].timestamp)).substring(
+                            11,
+                            16,
+                          )
+                        : ''
+                    }}
+                  </div>
                   <Badge v-if="item.messages.filter((m) => m.unread).length > 0">{{
                     item.messages.filter((m) => m.unread).length
                   }}</Badge>
@@ -59,6 +68,7 @@ import PageMessage from '@comp/layout/PageMessage.vue'
 import Room from '@comp/message/Room.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
 import { useRouters } from '@use/routers'
+import { toDateTimeString } from '@/utils/string-helper'
 
 const appStore = useAppStore()
 const { isDesktop } = storeToRefs(appStore)

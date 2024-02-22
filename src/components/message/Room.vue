@@ -1,6 +1,7 @@
 <template>
   <div v-if="errMsg" class="flex h-full items-center justify-center text-warning">{{ errMsg }}</div>
-  <div v-else-if="loading" class="flex h-full items-center justify-center"><Loading></Loading></div>
+  <div v-else-if="isClose" class="flex h-full items-center justify-center">X_X!</div>
+  <div v-else-if="loading || isConnecting" class="flex h-full items-center justify-center"><Loading></Loading></div>
   <div v-else-if="user === null" class="flex h-full items-center justify-center text-xl font-bold">
     {{ $t('info.pickMessage') }}
   </div>
@@ -36,7 +37,7 @@ import { useChatStore } from '@/store/chat'
 import InputWrap from '@comp/form/InputWrap.vue'
 import MessageBox from '@comp/message/MessageBox.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
-import { sendTextMessage } from '@/ws'
+import { isClose, isConnecting, sendTextMessage } from '@/ws'
 
 const props = defineProps({
   uuid: { type: String },
