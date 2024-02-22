@@ -80,6 +80,7 @@ export default {
     search: { history: "Исторический поиск", clear: "Популярные поиски", popular: "Пустой" },
     subscription: "План подписки",
     publishSuccess: "Успешная публикация",
+    updateSuccess: "",
     publishFail: "Публикация не удалась",
     delSuccess: "",
   },
@@ -165,6 +166,9 @@ export default {
   message: {
     payment: { failed: "Оплата не прошла", success: "Оплата прошла успешно", cancel: "Оплата отменена" },
     error: { subscribeSelf: "Не могу подписаться на себя", shopBuySelf: "Не могу купить свои собственные продукты" },
+    sending: "Отправка",
+    failure: "Неуспешный",
+    imageSended: "Изображение отправлено",
   },
   copy: { link: "Скопировать ссылку", fail: "Копирование не удалось" },
   info: {
@@ -219,9 +223,11 @@ export default {
     popularCreator: "",
     subscribeToView: "",
     upToTen: "",
+    whetherLogin: "",
+    whetherChangePw: "",
   },
   content: {
-    default: "Предустановка, его не следует отображать нигде",
+    default: "Предустановка, нигде не следует отображать",
     welcomeToVida: "Добро пожаловать в Vida, присоединяйтесь к нам!",
     verifyAccount:
       "Спешите проверить свой почтовый ящик! Перейдите в 【Мой аккаунт>Настройки аккаунта】 для завершения верификации",
@@ -275,7 +281,7 @@ export default {
     customStyle: "Пользовательский стиль",
     subUnlockDayAfter: "Разблокировка позволяет за последние несколько дней с момента покупки?",
     tokenExpired: "Срок сеанса входа истек, пожалуйста, войдите снова.",
-    clearSearchHistory: "Вы уверены, что хотите прояснить историю?",
+    clearSearchHistory: "Вы уверены, что хотите очистить историю?",
     uploadVideoLimit: {
       format:
         "Загруженный в данный момент формат видео ({format}) не поддерживается. Пожалуйста, преобразуйте его в формат .mp4 или .mov и повторите попытку.",
@@ -455,7 +461,7 @@ export default {
     },
     title: { paySuc: "Успешно заплатил" },
     paying: { title: "Процесс оплаты" },
-    confirmAmount: "",
+    confirmAmount: "Могу я попросить вас отправить сумму {'$'} {price} перейти к платежу",
   },
   beCreator: {
     id: { passport: "Паспорт", idCard: "Удостоверение личности", driverLicense: "Водительские права" },

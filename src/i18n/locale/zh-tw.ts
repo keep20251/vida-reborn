@@ -75,6 +75,7 @@ export default {
     search: { history: "歷史搜尋", clear: "熱門搜尋", popular: "清空" },
     subscription: "訂閱方案",
     publishSuccess: "發布成功",
+    updateSuccess: "更新失敗",
     publishFail: "發布失敗",
     delSuccess: "刪除成功",
   },
@@ -160,6 +161,9 @@ export default {
   message: {
     payment: { failed: "付款失敗", success: "付款成功", cancel: "付款取消" },
     error: { subscribeSelf: "不能訂閱自己", shopBuySelf: "不能購買自己的商品" },
+    sending: "傳送中",
+    failure: "失敗",
+    imageSended: "圖片已傳送",
   },
   copy: { link: "複製連結", fail: "複製失敗" },
   info: {
@@ -210,6 +214,8 @@ export default {
     popularCreator: "熱門創作者",
     subscribeToView: "訂閱某個帳號，以查看其最新帖子",
     upToTen: "最多10張",
+    whetherLogin: "您是否確認要登出？",
+    whetherChangePw: "您是否確認要變更密碼？",
   },
   content: {
     default: "預設，不應該顯示在任何地方",
@@ -430,7 +436,7 @@ export default {
     shopBuySuc: { 1: "太棒了！已成功付款解鎖帖子", 2: "選擇前往帖子觀賞，或者留在原畫面逛逛吧！", confirm: "前往帖子" },
     title: { paySuc: "已成功付款" },
     paying: { title: "付款處理中" },
-    confirmAmount: "請問您提交金額{'$'}{amount}是否正確?",
+    confirmAmount: "請問您提交金額 {'$'}{price} 是否正確?",
   },
   beCreator: {
     id: { passport: "護照", idCard: "身份證", driverLicense: "駕照" },

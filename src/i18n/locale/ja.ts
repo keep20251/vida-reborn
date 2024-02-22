@@ -75,6 +75,7 @@ export default {
     search: { history: "歴史的検索", clear: "人気のある検索", popular: "空の" },
     subscription: "サブスクリプションプラン",
     publishSuccess: "公開成功",
+    updateSuccess: "",
     publishFail: "公開失敗",
     delSuccess: "",
   },
@@ -160,6 +161,9 @@ export default {
   message: {
     payment: { failed: "支払いに失敗しました", success: "支払い成功", cancel: "支払いがキャンセルされました" },
     error: { subscribeSelf: "自分を購読することはできません", shopBuySelf: "独自の製品を購入できません" },
+    sending: "送信",
+    failure: "失敗した",
+    imageSended: "画像を送信しました",
   },
   copy: { link: "リンクをコピーする", fail: "コピーに失敗しました" },
   info: {
@@ -214,6 +218,8 @@ export default {
     popularCreator: "",
     subscribeToView: "",
     upToTen: "",
+    whetherLogin: "",
+    whetherChangePw: "",
   },
   content: {
     default: "プリセット、どこにも表示しないでください",
@@ -270,7 +276,7 @@ export default {
     customStyle: "カスタムスタイル",
     subUnlockDayAfter: "購入後数日間の作品のロックを解除することはできますか？",
     tokenExpired: "ログインセッションの有効期限が切れました。再度ログインしてください。",
-    clearSearchHistory: "歴史をクリアしたいですか？",
+    clearSearchHistory: "歴史を明確にしたいですか？",
     uploadVideoLimit: {
       format:
         "現在アップロードされているビデオ形式 ({format}) はサポートされていません。 .mp4 または .mov 形式に変換して、もう一度試してください。",
@@ -429,12 +435,12 @@ export default {
       1: "過去のすべての作品を完全に訪れます{days}日",
       2: "作成者に直接情報を送信できます",
       3: "より近いステップ相互作用",
-      4: "いつでもサブスクリプションをキャンセルできます",
+      4: "サブスクリプションをいつでもキャンセルできます",
       confirm: "月{'$'} {price}支払いに移動します",
     },
     shopBuy: {
       1: "{nickname}部門の作業コンテンツのロックを解除します",
-      2: "{nickname}はお支払いを全額受け取ります",
+      2: "{nickname}はあなたの支払いを全額受け取ります",
       confirm: "今すぐロック解除（{'$'} {price}）",
     },
     subscribeSuc: {
@@ -449,7 +455,7 @@ export default {
     },
     title: { paySuc: "正常に支払われました" },
     paying: { title: "支払い手続き" },
-    confirmAmount: "",
+    confirmAmount: "{'$'} {price}の金額を送信するようお願いします。",
   },
   beCreator: {
     id: { passport: "パスポート", idCard: "身分証明書", driverLicense: "運転免許証" },

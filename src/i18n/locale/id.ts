@@ -80,6 +80,7 @@ export default {
     search: { history: "Pencarian Sejarah", clear: "Pencarian Populer", popular: "Kosong" },
     subscription: "Rencana Langganan",
     publishSuccess: "Penerbitan Berhasil",
+    updateSuccess: "",
     publishFail: "Penerbitan Gagal",
     delSuccess: "",
   },
@@ -168,6 +169,9 @@ export default {
       subscribeSelf: "Tidak bisa berlangganan diri sendiri",
       shopBuySelf: "Tidak dapat membeli produk Anda sendiri",
     },
+    sending: "Mengirim",
+    failure: "Gagal",
+    imageSended: "Gambar terkirim",
   },
   copy: { link: "Salin tautan", fail: "Salinan gagal" },
   info: {
@@ -222,9 +226,11 @@ export default {
     popularCreator: "",
     subscribeToView: "",
     upToTen: "",
+    whetherLogin: "",
+    whetherChangePw: "",
   },
   content: {
-    default: "Preset, itu tidak boleh ditampilkan di mana pun",
+    default: "Preset, tidak boleh ditampilkan di mana pun",
     welcomeToVida: "Selamat datang di Vida, bergabunglah dengan kami!",
     verifyAccount:
       "Segera verifikasi kotak surat Anda! Pergi ke 【Akun Saya>Pengaturan Akun】 untuk menyelesaikan verifikasi",
@@ -457,7 +463,7 @@ export default {
     },
     title: { paySuc: "Telah berhasil dibayar" },
     paying: { title: "Proses pembayaran" },
-    confirmAmount: "",
+    confirmAmount: "Bolehkah saya meminta Anda untuk mengirimkan jumlah {'$'} {price} Pergi ke pembayaran",
   },
   beCreator: {
     id: { passport: "Paspor", idCard: "Kartu Identitas", driverLicense: "Surat Izin Mengemudi" },

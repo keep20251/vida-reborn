@@ -1,68 +1,105 @@
 <template>
-  <div v-if="id" class="flex h-full flex-col space-y-10">
+  <div v-if="errMsg" class="flex h-full items-center justify-center text-warning">{{ errMsg }}</div>
+  <div v-else-if="isClose" class="flex h-full items-center justify-center">X_X!</div>
+  <div v-else-if="loading || isConnecting" class="flex h-full items-center justify-center"><Loading></Loading></div>
+  <div v-else-if="user === null" class="flex h-full items-center justify-center text-xl font-bold">
+    {{ $t('info.pickMessage') }}
+  </div>
+  <div v-else class="flex h-full flex-col space-y-10">
     <div class="flex items-center justify-center space-x-10">
       <div class="flex cursor-pointer" @click="$emit('back')">
         <Icon name="back" size="20"></Icon>
       </div>
-      <div class="h-40 w-40 shrink-0 rounded-full bg-orange-200"></div>
-      <div class="flex-grow text-base font-bold">{{ id }}</div>
+      <Avatar :radius="20" :src="user.avatar"></Avatar>
+      <div class="flex-grow text-base font-bold">{{ user.nickname }}</div>
       <div class="flex cursor-pointer">
         <Icon name="moreHorizontal" size="20"></Icon>
       </div>
     </div>
     <div class="h-1 bg-gray-e5"></div>
     <div class="scrollbar-md flex grow flex-col space-y-15 overflow-auto md:w-[calc(100%+30px)]">
-      <!-- 對方 -->
-      <div
-        v-for="(_, i) in 3"
-        :key="i"
-        class="relative flex max-w-[80%] space-x-8 self-start rounded-3xl bg-gray-f6 px-16 py-10 text-base leading-lg text-black before:absolute before:-left-2 before:bottom-0 before:h-16 before:rounded-br-lg before:border-l-[1rem] before:border-solid before:border-l-gray-f6 after:absolute after:-left-8 after:bottom-0 after:h-16 after:w-10 after:rounded-br-md after:bg-white md:max-w-[65%]"
-      >
-        <p class="grow whitespace-pre-wrap text-justify" :style="{ 'word-break': 'break-word' }">
-          {{
-            `The align-self CSS property overrides a grid or flex item's align-items value.
-            
-In Grid, it aligns the item inside the grid area. In Flexbox, it aligns the item on the cross axis.`
-          }}
-        </p>
-        <div class="shrink-0 self-end text-sm text-gray-a3">12:05</div>
-      </div>
-
-      <!-- 自己 -->
-      <div
-        v-for="(_, i) in 6"
-        :key="i"
-        class="relative mr-8 flex max-w-[80%] space-x-8 self-end rounded-3xl bg-primary px-16 py-10 text-base leading-lg text-white before:absolute before:-right-2 before:bottom-0 before:h-16 before:rounded-bl-lg before:border-r-[1rem] before:border-solid before:border-r-primary after:absolute after:-right-8 after:bottom-0 after:h-16 after:w-10 after:rounded-bl-md after:bg-white md:mr-24 md:max-w-[65%]"
-      >
-        <p class="grow whitespace-pre-wrap text-justify" :style="{ 'word-break': 'break-word' }">
-          {{
-            `在 HTTP 协议中，重定向操作由服务器向请求发送特殊的重定向响应而触发。重定向响应包含以 3 开头的状态码，以及 Location 标头，其保存着重定向的 URL。
-
-浏览器在接收到重定向时，它们会立刻加载 Location 标头中提供的新 URL。除了额外的往返操作中会有一小部分性能损失之外，重定向操作对于用户来说是不可见的。`
-          }}
-        </p>
-        <div class="shrink-0 self-end text-sm text-white">12:05</div>
-      </div>
+      <MessageBox v-for="m in user.messages" :item="m" :key="m.id"></MessageBox>
     </div>
     <div class="flex items-center justify-center space-x-10">
       <div class="flex cursor-pointer">
         <Icon name="attach" size="20"></Icon>
       </div>
-      <InputWrap v-model="input" class="grow" :appendIconBtn="'sendWhite'"></InputWrap>
+      <InputWrap v-model="input" class="grow" :appendIconBtn="'sendWhite'" @click:append="send"></InputWrap>
     </div>
   </div>
-  <div v-else class="flex h-full items-center justify-center text-xl font-bold">{{ $t('info.pickMessage') }}</div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, shallowRef, watch } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useAccountStore } from '@/store/account'
+import { useChatStore } from '@/store/chat'
 import InputWrap from '@comp/form/InputWrap.vue'
+import MessageBox from '@comp/message/MessageBox.vue'
+import Avatar from '@comp/multimedia/Avatar.vue'
+import { isClose, isConnecting, sendTextMessage } from '@/ws'
 
-defineProps({
-  id: { type: Number },
+const props = defineProps({
+  uuid: { type: String },
 })
 
 defineEmits(['back'])
 
+const accountStore = useAccountStore()
+const { isLogin, isCreator } = storeToRefs(accountStore)
+
+const chatStore = useChatStore()
+const { ready } = storeToRefs(chatStore)
+const { getUser } = chatStore
+
+const loading = ref(false)
+const errMsg = ref('')
+const user = shallowRef(null)
+watch(
+  [ready, () => props.uuid],
+  async ([ready, uuid], _, onCleanup) => {
+    if (!uuid || !isLogin.value || !ready) {
+      loading.value = false
+      errMsg.value = ''
+      user.value = null
+      return
+    }
+
+    let cleanup = false
+    onCleanup(() => (cleanup = true))
+
+    loading.value = true
+    errMsg.value = ''
+    user.value = null
+    try {
+      const newUser = await getUser(uuid)
+      if (cleanup) return
+      user.value = newUser
+      // checkNewMessage()
+      // loadNextHistory(user.value.id, true)
+    } catch (e) {
+      errMsg.value = e.message
+    } finally {
+      loading.value = false
+    }
+  },
+  { immediate: true },
+)
+
 const input = ref('')
+function send() {
+  const message = input.value.trim()
+
+  if (!message) return
+
+  const toUUID = user.value.uuid
+
+  try {
+    sendTextMessage(message, toUUID)
+
+    input.value = ''
+  } catch (e) {
+    console.error(e)
+  }
+}
 </script>

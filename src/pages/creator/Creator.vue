@@ -16,7 +16,9 @@
                 <SocialIcon name="tiktok" :url="creator?.tiktok_link" size="15"></SocialIcon>
               </div>
               <div class="flex items-center space-x-10">
-                <div class="flex cursor-pointer items-center"><Icon name="comment" size="20"></Icon></div>
+                <div class="flex cursor-pointer items-center" @click="toMessage(creator?.username)">
+                  <Icon name="comment" size="20"></Icon>
+                </div>
                 <div class="flex cursor-pointer items-center"><Icon name="report" size="20"></Icon></div>
                 <div class="flex cursor-pointer items-center"><Icon name="sharePage" size="20"></Icon></div>
                 <Button size="sm" primary @click="subscribe({ item: lowestSub, creator })">
@@ -30,7 +32,9 @@
               <Button primary @click="open({ items: creator?.subscription_list, creator })">
                 {{ $t('common.viewSubscribePlan') }}
               </Button>
-              <Icon name="messagePrimary" size="36"></Icon>
+              <div class="cursor-pointer" @click="toMessage(creator?.username)">
+                <Icon name="messagePrimary" size="36"></Icon>
+              </div>
             </div>
           </template>
         </SelfIntro>
@@ -92,6 +96,7 @@ import TopSearchBar from '@comp/navigation/TopSearchBar.vue'
 import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import { useDialog } from '@use/modal'
 import { useInfinite } from '@use/request/infinite'
+import { useRouters } from '@use/routers'
 
 const appStore = useAppStore()
 const { isDesktop, isMobile } = storeToRefs(appStore)
@@ -137,6 +142,8 @@ const { open } = useSubsciptionStore()
 const lowestSub = computed(() =>
   creator.value?.subscription_list?.reduce((acc, cur) => (Number(acc.price) < Number(cur.price) ? acc : cur)),
 )
+
+const { toMessage } = useRouters()
 
 whenever(
   () => route.name === 'creator',

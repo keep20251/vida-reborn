@@ -26,6 +26,14 @@ export function useRouters() {
     return router.push({ name, params, query })
   }
 
+  function toMessage(username) {
+    if (username === $username.value) {
+      console.warn('你確定你可以跟自己聊天？？')
+      return
+    }
+    return to('message', { params: { to: username } })
+  }
+
   function toCreator(username) {
     if (username === $username.value) {
       return to('mine')
@@ -44,6 +52,7 @@ export function useRouters() {
   return {
     back,
     to,
+    toMessage,
     toCreator,
     toFeed,
     updateParams,

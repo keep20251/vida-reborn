@@ -5,17 +5,16 @@ import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
 import { useChatStore } from '@/store/chat'
-import { useOauth } from '@use/utils/oauth'
 import { DecryptIm, EncryptIm } from '@/utils/crypto-data'
-import ChatToSelfError from '@/errors/ChatToSelfError'
 import uploadImage from '@/http/upload/uploadImage'
 
 const RECONNECT_DELAY = 3000
 const HEARTBEAT_INTERVAL = 8000
 
+let oauth
+
 let token
 let via
-let uuid
 
 const _status = ref('CLOSED')
 let _send
@@ -24,14 +23,16 @@ export const isOpen = computed(() => _status.value === 'OPEN')
 export const isConnecting = computed(() => _status.value === 'CONNECTING')
 export const isClose = computed(() => _status.value === 'CLOSED')
 
-export function init() {
+export function init({ oauthId, oauthType = 'pwa' } = {}) {
+  oauth = { id: oauthId, type: oauthType }
+
   const { appConfig } = useAppStore()
-  const { im_url: imUrl, via: chatVia } = appConfig
+  const { im_url: imUrl, via: chatVia, chat_token: chatToken } = appConfig
 
   const url = imUrl[Math.floor(Math.random() * imUrl.length)]
 
   const accountStore = useAccountStore()
-  const { isLogin, userUUID, chatToken } = storeToRefs(accountStore)
+  const { isLogin /* , chatToken */ } = storeToRefs(accountStore)
 
   const { status, data, send, open, close } = useWebSocket(url, {
     immediate: false,
@@ -69,12 +70,10 @@ export function init() {
     (login) => {
       if (login) {
         // token 和 uuid 會在每次登入都被更新
-        token = chatToken.value
-        uuid = userUUID.value
+        token = chatToken
         open()
       } else {
         token = null
-        uuid = null
         close()
       }
     },
@@ -82,22 +81,19 @@ export function init() {
   )
 }
 
-export function sendTextMessage(content, toUUID, toAff, customExt = {}) {
+export function sendTextMessage(content, toUUID) {
   if (typeof content !== 'string' || content === '') {
     throw new Error('Send text content error: ', content)
   }
   if (!toUUID) {
     throw new Error("Receiver's uuid is required...")
   }
-  if (!toAff || toAff === 0) {
-    throw new Error("Receiver's aff is required...")
-  }
 
   const accountStore = useAccountStore()
-  const { userId } = storeToRefs(accountStore)
+  const { userUUID } = storeToRefs(accountStore)
 
-  if (toAff === userId.value) {
-    throw new ChatToSelfError('You can not chat to self...')
+  if (toUUID === userUUID.value) {
+    throw new Error('You can not chat to self...')
   }
 
   const microtime = +new Date()
@@ -109,11 +105,6 @@ export function sendTextMessage(content, toUUID, toAff, customExt = {}) {
     content,
     microtime,
     sign: ackId,
-    ext: JSON.stringify({
-      fromAff: userId.value,
-      toAff,
-      ...customExt,
-    }),
   }
 
   sendMessage('chat/chat', data, ackId)
@@ -123,7 +114,7 @@ export function sendTextMessage(content, toUUID, toAff, customExt = {}) {
   pushSelfMessage({ ...data })
 }
 
-export function sendPhotoMessage(file, toUUID, toAff) {
+export function sendPhotoMessage(file, toUUID) {
   if (!(file instanceof File)) {
     throw new Error('Not file interface...')
   }
@@ -133,15 +124,12 @@ export function sendPhotoMessage(file, toUUID, toAff) {
   if (!toUUID) {
     throw new Error("Receiver's uuid is required...")
   }
-  if (!toAff || toAff === 0) {
-    throw new Error("Receiver's aff is required...")
-  }
 
   const accountStore = useAccountStore()
-  const { userId } = storeToRefs(accountStore)
+  const { userUUID } = storeToRefs(accountStore)
 
-  if (toAff === userId.value) {
-    throw new ChatToSelfError('You can not chat to self...')
+  if (toUUID === userUUID.value) {
+    throw new Error('You can not chat to self...')
   }
 
   const chatStore = useChatStore()
@@ -157,40 +145,12 @@ export function sendPhotoMessage(file, toUUID, toAff) {
     sign: ackId,
   }
 
-  new Promise((resolve) => {
-    const fr = new FileReader()
-    fr.onload = function () {
-      const temp = new Image()
-      temp.src = fr.result
-      temp.onload = () => {
-        resolve({ width: temp.width, height: temp.height })
-      }
-    }
-    fr.readAsDataURL(file)
+  pushSelfMessage({ ...data })
+  uploadImage(file, () => {}).then((url) => {
+    data.content = url
+    sendMessage('chat/chat', data, ackId)
+    selfPhotoUploaded(data.sign, data.content)
   })
-    .then(({ width, height }) => {
-      data.ext = JSON.stringify({
-        fromAff: userId.value,
-        toAff,
-        width,
-        height,
-      })
-      pushSelfMessage({ ...data })
-    })
-    .then(() => uploadImage(file, () => {}))
-    .then((url) => {
-      const { appConfig } = useAppStore()
-      const { img_url: imgHost } = appConfig.config
-
-      data.content = `${imgHost}${url}`
-      sendMessage('chat/chat', data, ackId)
-
-      selfPhotoUploaded(data.sign, data.content)
-    })
-}
-
-export function sendDonateMessage(content, toUUID, toAff, donateAmount) {
-  sendTextMessage(content, toUUID, toAff, { donateAmount })
 }
 
 function sendMessage(route, data, ackId) {
@@ -227,18 +187,17 @@ function sendMessage(route, data, ackId) {
 }
 
 function initUser() {
-  const { oauthId, oauthType } = useOauth()
   const accountStore = useAccountStore()
-  const { userData } = storeToRefs(accountStore)
+  const { userUUID, userData } = storeToRefs(accountStore)
 
   sendMessage('chat/initUser', {
-    uuid,
+    uuid: userUUID.value,
     phone: userData.value.phone || '1234', // 請教某位後端高人，他說沒有隨便亂傳也可以
     nickname: userData.value.nickname,
     avatar: userData.value.avatar,
-    oauth_id: oauthId.value,
-    oauth_ads_id: oauthId.value,
-    oauth_type: oauthType.value,
+    oauth_id: oauth.id,
+    oauth_ads_id: oauth.id,
+    oauth_type: oauth.type,
   })
 }
 

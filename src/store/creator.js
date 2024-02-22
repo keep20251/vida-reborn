@@ -13,6 +13,10 @@ export const useCreatorStore = defineStore('creator', () => {
    */
   const creatorsMap = reactive(new Map())
 
+  // 某些情境下會出現只有使用者 uuid 而取不到 username(私訊)
+  // 提供一個 uuid 對應 username 的表
+  const uuidToUsername = {}
+
   const inRequesting = {}
 
   async function get(username) {
@@ -38,11 +42,27 @@ export const useCreatorStore = defineStore('creator', () => {
     }
   }
 
+  async function getByUUID(uuid) {
+    const username = uuidToUsername[uuid]
+
+    if (!username) {
+      const data = await useRequest('User.otherInfo', { params: { uuid }, immediate: true })
+      return setupCreator(data.username, data)
+    } else {
+      return await get(username)
+    }
+  }
+
   function setupCreator(username, data) {
     if (!creatorsMap.has(username)) {
-      creatorsMap.set(username, data)
+      put(username, data)
     }
     return creatorsMap.get(username)
+  }
+
+  function put(username, data) {
+    creatorsMap.set(username, data)
+    uuidToUsername[data.uuid] = username
   }
 
   /**
@@ -57,18 +77,19 @@ export const useCreatorStore = defineStore('creator', () => {
     if (creatorsMap.has(data.username)) {
       throw new Error(`Creator '${data.username}' already exist, but you still revert it?`)
     }
-    creatorsMap.set(data.username, data)
-    return creatorsMap.get(data.username)
+    return setupCreator(data.username, data)
   }
 
   function clear() {
     Promise.all(Object.values(inRequesting).map((r) => r.promise)).then(() => {
       creatorsMap.clear()
+      for (const k in uuidToUsername) delete uuidToUsername[k]
     })
   }
 
   return {
     get,
+    getByUUID,
     revert,
     clear,
   }

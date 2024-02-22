@@ -20,9 +20,19 @@
     </ClientOnly>
   </div>
   <NavigatorMobile v-if="isMobile"></NavigatorMobile>
+
+  <!-- IM 連線狀態 -->
+  <div
+    v-if="isDev"
+    class="fixed bottom-4 left-4 z-50 h-12 w-12 cursor-pointer rounded-full"
+    :class="{ 'bg-emerald-500': isOpen, 'bg-red-500': isClose, 'bg-amber-500': isConnecting }"
+    :title="isOpen ? '連線成功' : isClose ? '未連線' : isConnecting ? '連線中...' : ''"
+  ></div>
 </template>
 
 <script setup>
+import { v4 as uuidv4 } from 'uuid'
+import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
@@ -42,7 +52,12 @@ import NavigatorMobile from '@comp/layout/NavigatorMobile.vue'
 import Modal from '@comp/modal/index.vue'
 import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import useRequest from '@use/request'
+import { useCookie } from '@use/utils/cookie'
+import { COOKIE_KEY } from '@const'
 import { loadSeoHead } from '@/utils/init'
+import { init, isClose, isConnecting, isOpen } from '@/ws'
+
+const isDev = ref(import.meta.env.DEV)
 
 const route = useRoute()
 const appStore = useAppStore()
@@ -105,4 +120,8 @@ onHydration(() => {
     }
   }
 })
+
+// IM 模組初始化
+const guestId = useCookie(COOKIE_KEY.GUEST_ID, { default: uuidv4, readonly: true })
+onMounted(() => init({ oauthId: guestId.value }))
 </script>
