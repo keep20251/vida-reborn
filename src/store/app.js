@@ -3,7 +3,7 @@ import { useEventListener } from '@vueuse/core'
 import { defineStore } from 'pinia'
 import useRequest from '@use/request'
 import { isMobile as checkMobile } from '@/utils/device'
-import { cacheAppConfig, cacheCategories, getAppConfig, getCategories } from '@/utils/server-config-cache'
+import { cacheCategories, getCategories } from '@/utils/server-config-cache'
 
 const DESKTOP = 'desktop'
 const MOBILE = 'mobile'
@@ -20,11 +20,7 @@ export const useAppStore = defineStore('app', () => {
   // 後端提供的全域參數
   const appConfig = reactive({})
   async function initAppConfig() {
-    let data = getAppConfig()
-    if (data === null) {
-      data = await useRequest('App.config', { params: { version: '1.0' }, immediate: true })
-      cacheAppConfig(data)
-    }
+    const data = await useRequest('App.config', { params: { version: '1.0' }, immediate: true })
     setAppConfig(data)
     return data
   }

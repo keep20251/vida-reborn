@@ -1,27 +1,37 @@
 <template>
   <ClientOnly>
-    <PageMessage :messaging="toId !== null">
+    <PageMessage :messaging="msgingUUID !== null">
       <template #default>
         <div class="flex flex-col">
           <div v-if="isDesktop" class="mb-20 px-20 text-lg font-bold leading-lg">Messages</div>
-          <List :items="users" item-key="id">
+          <List :items="sortedUsers" item-key="uuid">
             <template #default="{ item, last }">
               <div
                 class="flex cursor-pointer space-x-15 px-20 py-10 hover:bg-gray-f6"
-                :class="{ 'bg-gray-f6': item.id === toId }"
-                @click="messageTo(item.id)"
+                :class="{ 'bg-gray-f6': item.uuid === msgingUUID }"
+                @click="messageTo(item)"
               >
-                <div class="h-60 w-60 shrink-0 rounded-full bg-orange-200"></div>
+                <Avatar :radius="30" :src="item.avatar"></Avatar>
                 <div class="grow">
                   <div>
                     <span class="text-base font-bold">{{ item.nickname }}</span>
                     <span class="text-sm"> @{{ item.username }}</span>
                   </div>
-                  <div class="text-base leading-lg">{{ item.message }}</div>
+                  <div class="line-clamp-2 text-base leading-lg">
+                    {{
+                      item.messages.length === 0
+                        ? ''
+                        : item.messages[item.messages.length - 1].contentType === 'photos'
+                          ? $t('message.imageSended')
+                          : item.messages[item.messages.length - 1].content
+                    }}
+                  </div>
                 </div>
                 <div class="flex flex-col items-end justify-between">
-                  <div class="text-sm text-primary">{{ item.time }}</div>
-                  <Badge v-if="item.unread > 0">{{ item.unread }}</Badge>
+                  <div class="text-sm text-primary">{{ item.messages[item.messages.length - 1]?.timestamp }}</div>
+                  <Badge v-if="item.messages.filter((m) => m.unread).length > 0">{{
+                    item.messages.filter((m) => m.unread).length
+                  }}</Badge>
                 </div>
               </div>
               <div v-if="!last" class="h-1 w-[calc(100%-115px)] translate-x-95 bg-gray-e5"></div>
@@ -30,21 +40,24 @@
         </div>
       </template>
       <template #room>
-        <Room :id="toId" @back="messageTo(null)"></Room>
+        <Room :uuid="msgingUUID" @back="messageTo(null)"></Room>
       </template>
     </PageMessage>
   </ClientOnly>
 </template>
 
 <script setup>
-import { ref, watch } from 'vue'
+import { onActivated, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
+import { useChatStore } from '@/store/chat'
+import { useCreatorStore } from '@/store/creator'
 import { useNavStore } from '@/store/nav'
 import Badge from '@comp/common/Badge.vue'
 import PageMessage from '@comp/layout/PageMessage.vue'
 import Room from '@comp/message/Room.vue'
+import Avatar from '@comp/multimedia/Avatar.vue'
 import { useRouters } from '@use/routers'
 
 const appStore = useAppStore()
@@ -53,121 +66,42 @@ const { isDesktop } = storeToRefs(appStore)
 const navStore = useNavStore()
 const { show, hide } = navStore
 
+const chatStore = useChatStore()
+const { sortedUsers } = storeToRefs(chatStore)
+
 const { updateParams } = useRouters()
 
-const route = useRoute()
-const toId = ref(processId())
+const msgingUUID = ref(null)
 
 watch(
-  toId,
+  msgingUUID,
   (v) => {
     v === null ? show() : hide()
   },
   { immediate: true },
 )
 
-function processId() {
-  if (/^\d+$/.test(route.params.to)) {
-    return parseInt(route.params.to)
+const route = useRoute()
+const creatorStore = useCreatorStore()
+const { get: getCreator } = creatorStore
+onActivated(async () => {
+  const username = route.params.to
+
+  if (username && username !== '') {
+    const creator = await getCreator(username)
+    msgingUUID.value = creator.uuid
   } else {
+    messageTo(null)
+  }
+})
+
+function messageTo(user) {
+  if (user === null) {
     updateParams({ params: { to: '' } })
-    return null
+    msgingUUID.value = null
+  } else {
+    updateParams({ params: { to: user.username } })
+    msgingUUID.value = user.uuid
   }
 }
-
-function messageTo(id) {
-  updateParams({ params: { to: id || '' } })
-  toId.value = id
-}
-
-const users = ref([
-  {
-    id: 1,
-    nickname: 'Tommy',
-    username: 'tommy',
-    time: '13:01',
-    message: '[Photo]',
-    unread: 0,
-  },
-  {
-    id: 2,
-    nickname: 'Charlie',
-    username: 'tommy',
-    time: '13:01',
-    message: '[Video]',
-    unread: 1,
-  },
-  {
-    id: 3,
-    nickname: 'Tommy',
-    username: 'tommy',
-    time: '13:01',
-    message: '[Photo]',
-    unread: 999,
-  },
-  {
-    id: 4,
-    nickname: 'Sophie',
-    username: 'sophie',
-    time: '13:01',
-    message: 'Can’t believe you blocked me! What’s wrong with you???',
-    unread: 5,
-  },
-  {
-    id: 5,
-    nickname: 'Tommy',
-    username: 'tommy',
-    time: '13:01',
-    message: '[Photo]',
-    unread: 0,
-  },
-  {
-    id: 6,
-    nickname: 'Charlie',
-    username: 'tommy',
-    time: '13:01',
-    message: '[Video]',
-    unread: 0,
-  },
-  {
-    id: 7,
-    nickname: 'Tommy',
-    username: 'tommy',
-    time: '13:01',
-    message: '[Photo]',
-    unread: 5,
-  },
-  {
-    id: 8,
-    nickname: 'Charlie',
-    username: 'tommy',
-    time: '13:01',
-    message: '[Video]',
-    unread: 5,
-  },
-  {
-    id: 9,
-    nickname: 'Charlie',
-    username: 'tommy',
-    time: '13:01',
-    message: '[Video]',
-    unread: 5,
-  },
-  {
-    id: 10,
-    nickname: 'Charlie',
-    username: 'tommy',
-    time: '13:01',
-    message: '[Video]',
-    unread: 5,
-  },
-  {
-    id: 11,
-    nickname: 'Charlie',
-    username: 'tommy',
-    time: '13:01',
-    message: '[Video]',
-    unread: 50,
-  },
-])
 </script>

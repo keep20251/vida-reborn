@@ -46,7 +46,7 @@ export const useCreatorStore = defineStore('creator', () => {
     const username = uuidToUsername[uuid]
 
     if (!username) {
-      const data = await useRequest('User.otherInfo', { params: { uuid }, immediat: true })
+      const data = await useRequest('User.otherInfo', { params: { uuid }, immediate: true })
       return setupCreator(data.username, data)
     } else {
       return await get(username)
