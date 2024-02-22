@@ -46,7 +46,7 @@
             :key="index"
             :class="[
               {
-                ' border-primary shadow-xl': selDefaultItem === item,
+                ' shadow-xl border-primary': selDefaultItem === item,
                 'border-transparent': selDefaultItem !== item,
               },
             ]"
@@ -61,7 +61,7 @@
             :key="index"
             :class="[
               {
-                ' border-primary shadow-xl': selUploadItem === item.result,
+                ' shadow-xl border-primary': selUploadItem === item.result,
                 'border-transparent': selUploadItem !== item.result,
               },
             ]"
@@ -84,14 +84,22 @@
         </div>
       </div>
       <div class="mt-30 flex flex-col space-y-20">
-        <InputWrap v-model="subPlanName" :label="'訂閱方案名稱'" :placeholder="'請輸入訂閱方案名稱'"></InputWrap>
-        <InputWrap v-model="subPlanContent" :label="'訂閱方案內容'" :placeholder="'請輸入訂閱方案內容'"></InputWrap>
+        <InputWrap
+          v-model="subPlanName"
+          :label="$t('label.subPlanName')"
+          :placeholder="$t('placeholder.subPlanName')"
+        ></InputWrap>
+        <InputWrap
+          v-model="subPlanContent"
+          :label="$t('label.subPlanCtn')"
+          :placeholder="$t('placeholder.subPlanCtn')"
+        ></InputWrap>
         <InputWrap
           v-model="subPlanPrice"
-          :label="'價格'"
-          :sublabel="'单位：美金'"
+          :label="$t('label.price')"
+          :sublabel="$t('label.priceSub')"
           :placeholder="'9.99'"
-          :appendText="'最高设置为90元'"
+          :append-text="$t('label.priceTip', { price: 90 })"
           :maxLength="5"
         ></InputWrap>
         <InputWrap v-model="subUnlockDayAfter" :label="$t('content.subUnlockDayAfter')" :placeholder="'30'"></InputWrap>
@@ -281,7 +289,7 @@ const handleFileUpload = async (event) => {
 
   if (totalFiles > 7) {
     alert({
-      title: '最多上傳10張圖',
+      title: 'info.upToTen',
     })
     return
   }
@@ -296,7 +304,7 @@ const handleFileUpload = async (event) => {
       selUploadItem.value = appConfig.config.img_url + url
       selDefaultItem.value = null
     } catch (error) {
-      console.error('上傳錯誤', error)
+      console.error('label.uploadErr', error)
     }
   }
 }
@@ -312,7 +320,7 @@ const delSubPlan = async () => {
   try {
     await subPlanDel(payload)
     alert({
-      title: '刪除成功',
+      title: 'title.delSuccess',
     })
     subList.value = subList.value.filter((item) => item.id !== subId.value)
     close()
@@ -329,7 +337,7 @@ const onSubmit = async () => {
     try {
       await subPlanCreate(data)
       alert({
-        title: '發布成功',
+        title: 'title.publishSuccess',
       })
       subList.value.unshift(data)
       uploadFiles.value = []
@@ -346,7 +354,7 @@ const onSubmit = async () => {
       await subPlanUpdate(data)
       const index = subList.value.findIndex((item) => item.id === data.id)
       alert({
-        title: '更新成功',
+        title: 'title.publishSuccess',
       })
       if (index !== -1) {
         subList.value[index] = data
