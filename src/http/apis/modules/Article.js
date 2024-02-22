@@ -44,8 +44,12 @@ export default {
   // 取得用戶該時段的收益
   stats: { method: 'post', url: '/api/article/getArticleStatistic' },
 
-  /**
-   * 搜索
-   */
+  // 搜索
   hotKeywords: { method: 'post', url: '/api/article/getHotKeywords' },
+
+  // 取得新的帖子視頻地址
+  newVideoPath: { method: 'post', url: '/api/article/getVideoPath' },
+
+  // 根據訂閱組Id取得帖子列表跟完整視頻地址
+  newVideoPathBySub: { method: 'post', url: '/api/article/getVideoRealPath' },
 }
