@@ -32,20 +32,7 @@
             </div>
             <div>
               <Button
-                @click="
-                  onSubStatus(
-                    item.uuid,
-                    item.status,
-                    item.thumb,
-                    item.nickname,
-                    item.subscriber_price,
-                    item.username,
-                    item.subscription_id,
-                    item.subscriber_title,
-                    item.background,
-                    item.price,
-                  )
-                "
+                @click="onSubStatus({ item })"
                 :class="{
                   'bg-gray-a3': item.status === SUB_STATUS.CANCEL_SUB,
                   'bg-contrast': item.status === SUB_STATUS.RESTORE_SUB,
@@ -80,61 +67,67 @@ import { onActivated, onDeactivated, onMounted, onUnmounted, ref } from 'vue'
 import { useMineStore } from '@/store/mine'
 import Button from '@comp/common/Button.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
+import { useDialog } from '@use/modal'
 import useRequest from '@use/request/index.js'
 import { useInfinite } from '@use/request/infinite'
 import { CANCEL_SUB_TYPE, SUB_STATUS } from '@const'
+
+const { subscribe } = useDialog()
 
 const { dataList, isLoading, noMore, init, next, reload } = useInfinite('User.listSubs', {
   params: {},
 })
 
 const { setNextFn, clearNextFn } = useMineStore()
-onMounted(() => {
-  init()
-  setNextFn(next)
-})
+onMounted(() => init())
 onUnmounted(() => clearNextFn(next))
-onActivated(() => {
-  init()
-  setNextFn(next)
-})
+onActivated(() => setNextFn(next))
 onDeactivated(() => clearNextFn(next))
 
 const formatDate = (date) => {
   return date.slice(0, 16)
 }
 
-const onSubStatus = (
-  uuid,
-  status,
-  thumb,
-  nickname,
-  subscriber_price,
-  username,
-  subscription_id,
-  subscriber_title,
-  background,
-) => {
-  if (status === SUB_STATUS.CANCEL_SUB) {
-    console.log(subscription_id)
+const onSubStatus = ({ item }) => {
+  if (item.status === SUB_STATUS.CANCEL_SUB) {
     console.log('你要取消訂閱齁！')
-    cancelSub(subscription_id)
-  } else if (status === SUB_STATUS.RESTORE_SUB) {
+    console.log(item.subscription_id)
+    cancelSub(item)
+  } else if (item.status === SUB_STATUS.RESTORE_SUB) {
     console.log('你要恢復訂閱齁！')
-    restoreSub(subscription_id)
+    console.log(item.subscription_id)
+    restoreSub(item)
   } else {
     console.log('你要重新訂閱齁！')
-    reSubscribe(subscription_id)
+    const i = {
+      ...item,
+      picture: item.background,
+      id: item.subscription_id,
+    }
+    const creator = {
+      aff: item.aff,
+      username: item.username,
+    }
+    try {
+      const result = subscribe({ i, creator })
+      if (result.success) {
+        reSubscribe(item)
+      } else {
+        console.log('訂閱失敗', result.error)
+      }
+    } catch (e) {
+      console.error('訂閱失敗', e)
+    }
   }
 }
 
 const serverError = ref('')
-async function cancelSub(subscription_id) {
+async function cancelSub(item) {
   const { execute } = useRequest('Payment.cancelSub')
   try {
     await execute({
       type: CANCEL_SUB_TYPE.CANCEL_SUB,
-      userSubscriptionId: subscription_id,
+      userSubscriptionId: item.subscription_id,
     })
     console.log('成功取消訂閱囉')
     reload()
@@ -145,12 +138,12 @@ async function cancelSub(subscription_id) {
   }
 }
 
-async function restoreSub(subscription_id) {
+async function restoreSub(item) {
   const { execute } = useRequest('Payment.cancelSub')
   try {
     await execute({
       type: CANCEL_SUB_TYPE.RESTORE_SUB,
-      userSubscriptionId: subscription_id,
+      userSubscriptionId: item.subscription_id,
     })
     console.log('成功恢復訂閱囉')
     reload()
@@ -161,12 +154,12 @@ async function restoreSub(subscription_id) {
   }
 }
 
-async function reSubscribe(subscription_id) {
+async function reSubscribe(item) {
   const { execute } = useRequest('Payment.cancelSub')
   try {
     await execute({
-      type: CANCEL_SUB_TYPE.RESUBSCRIBE,
-      userSubscriptionId: subscription_id,
+      type: CANCEL_SUB_TYPE.RE_SUB,
+      userSubscriptionId: item.subscription_id,
     })
     console.log('成功重新訂閱囉')
     reload()

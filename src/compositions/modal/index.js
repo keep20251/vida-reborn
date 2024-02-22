@@ -54,7 +54,7 @@ export function useDialog() {
 
   async function subscribe({ item, creator }) {
     if (userData.value.aff === creator.aff) {
-      openMessage($t('message.error.subscribeSelf'))
+      openMessage('message.error.subscribeSelf')
       close()
       return
     }

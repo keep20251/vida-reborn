@@ -39,12 +39,14 @@
 </template>
 <script setup>
 import { computed, reactive, ref } from 'vue'
+import { useModalStore } from '@/store/modal'
 import Button from '@comp/common/Button.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
 import PasswordValidation from '@comp/form/PasswordValidation.vue'
 import useRequest from '@use/request/index.js'
 import { useYup } from '@use/validator/yup.js'
 
+const { confirm } = useModalStore()
 const { Yup, validate } = useYup()
 const { string } = Yup
 const credential = reactive({
@@ -99,12 +101,15 @@ async function submit() {
     ])
 
     if (passwordValidation.value === false) return
-    if (credential.newPw.value === credential.newPwCfm.value) {
-      console.log(credential.newPw.value === credential.newPwCfm.value, '確認一樣你們有沒有長的一樣樣')
-    } else {
-      console.log('我們不一樣')
-    }
-    changePw()
+
+    confirm({
+      size: 'sm',
+      title: 'beCreator.title.reConfirm',
+      content: 'info.whetherChangePw',
+      confirmAction: () => {
+        changePw()
+      },
+    })
   } catch (e) {
     console.error(e)
   } finally {
@@ -122,7 +127,6 @@ async function changePw() {
       new_password_confirm: credential.newPwCfm.value,
     })
     serverError.value = ''
-    console.log('成功囉！')
   } catch (e) {
     serverError.value = e.message
     console.error(e)

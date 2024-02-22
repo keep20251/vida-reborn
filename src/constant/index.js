@@ -146,13 +146,15 @@ export const SUB_STATUS = {
   RESTORE_SUB: 1, // 「恢復訂閱」:取消訂閱後，但尚未到期的狀態，若按下恢復訂閱回狀態 2
   CANCEL_SUB: 2, // 「取消訂閱」:訂閱後文案都是續定狀態，若按下取消訂閱下期不會自動續約，會回狀態 1
   RE_SUB: 3, // 「重新訂閱」:前端打付款介面，用戶要去付款，付款成功改回狀態 2
+  SUB_IN_ADVANCE: 4, // 「提前續訂」:如果第三方支付判定用戶只能單次買斷一個月，就會有狀態 4
 }
 
 // 我的購買 - 取消訂閱的操作類型
 export const CANCEL_SUB_TYPE = {
   CANCEL_SUB: 0, // 「取消訂閱」為預設值
   RESTORE_SUB: 1, // 「恢復訂閱」
-  RESUBSCRIBE: 2, // 「重新訂閱」
+  RE_SUB: 2, // 「重新訂閱」
+  SUB_IN_ADVANCE: 4, // 「提前續訂」
 }
 
 // 取得用戶自身帖子列表

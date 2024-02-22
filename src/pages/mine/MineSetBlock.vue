@@ -25,10 +25,15 @@
 import { onActivated, onDeactivated, onMounted } from 'vue'
 import { useFeedStore } from '@/store/feed'
 import { useMineStore } from '@/store/mine'
+import { useModalStore } from '@/store/modal'
+import { usePopupMessageStore } from '@/store/popup-message'
 import Avatar from '@comp/multimedia/Avatar.vue'
 import useRequest from '@use/request/index.js'
 import { useInfinite } from '@use/request/infinite'
 import { BLOCK_ACTION } from '@const'
+
+const { open: openMessage } = usePopupMessageStore()
+const { open } = useModalStore() // 解構出 open 方法
 
 const feedStore = useFeedStore()
 const { toggleBlock } = feedStore
@@ -49,10 +54,12 @@ async function unblock(aff_blocked) {
       aff_blocked,
       action_type: BLOCK_ACTION.UNBLOCK,
     })
+    openMessage('content.unblock')
     toggleBlock(aff_blocked, false)
     reload()
   } catch (e) {
     console.error(e)
+    openMessage('title.updateFail')
   }
 }
 </script>
