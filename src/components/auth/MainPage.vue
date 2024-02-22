@@ -8,7 +8,7 @@
     <div class="flex items-center justify-center">
       <img class="h-[5rem] w-[9rem]" src="@/assets/logo.svg?url" alt="VIDA" />
     </div>
-    <div class="text-lg font-bold leading-5">{{ $t('info.loginOrRegister') }}</div>
+    <div class="text-lg font-bold leading-5">{{ $t('info.loginOr') }}{{ $t('info.quickRegister') }}</div>
     <div class="flex w-full flex-col justify-center space-y-10 px-20">
       <InputWrap
         v-model="email"
@@ -20,7 +20,10 @@
       ></InputWrap>
       <Button :loading="isLoading" @click="next">{{ $t('common.next') }}</Button>
     </div>
-    <div class="text-center text-base font-normal leading-3">{{ $t('info.loginOrRegister') }}</div>
+    <div class="text-center text-base font-normal leading-3">
+      {{ $t('info.loginOr')
+      }}<span class="cursor-pointer text-primary" @click="to(AUTH_ROUTES.SIGN_UP)">{{ $t('info.quickRegister') }}</span>
+    </div>
     <div class="flex w-full flex-col justify-center space-y-16 px-45 md:px-60 lg:px-90">
       <button
         v-for="(option, index) in loginOptions"

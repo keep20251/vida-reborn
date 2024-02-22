@@ -1,6 +1,7 @@
 import { reactive } from 'vue'
 import { defineStore } from 'pinia'
 import useRequest from '@use/request'
+import { MEDIA_TYPE } from '@const/publish'
 
 export const useFeedStore = defineStore('feed', () => {
   /**
@@ -113,6 +114,39 @@ export const useFeedStore = defineStore('feed', () => {
     }
   }
 
+  /**
+   * 解鎖單篇帖子
+   * @param {Number} feedId 帖子Id
+   */
+  async function unlockFeed(feedId) {
+    if (!feedsMap.has(feedId)) throw new Error(`找不到這篇帖子那你是怎麼進來的？`)
+
+    const feed = feedsMap.get(feedId)
+    feed.is_unlock = 1
+    if (feed.resource_type === MEDIA_TYPE.VIDEO) await updateSingleVideoPath(feed)
+  }
+
+  /**
+   * 解鎖訂閱的帖子
+   * @param {Number} subId 訂閱方案Id
+   */
+  async function unlockSubscribe(subId) {
+    const response = await useRequest('Article.newVideoPathBySub', { params: { sub_id: subId }, immediate: true })
+    console.log('response', response)
+  }
+
+  /**
+   * 更新單篇影片路徑
+   * @param {Feed} feed
+   */
+  async function updateSingleVideoPath(feed) {
+    const params = { ids: [feed.id].join(',') }
+    const response = await useRequest('Article.newVideoPath', { params, immediate: true })
+    Object.entries(response).forEach(([feedId, arr]) => {
+      if (feed.id === feedId) feed.url[0].url = arr[0].url
+    })
+  }
+
   return {
     get,
     revert,
@@ -121,5 +155,7 @@ export const useFeedStore = defineStore('feed', () => {
 
     toggleLike,
     toggleBlock,
+    unlockFeed,
+    unlockSubscribe,
   }
 })

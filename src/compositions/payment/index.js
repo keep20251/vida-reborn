@@ -1,4 +1,5 @@
 import { reactive, ref } from 'vue'
+import { useFeedStore } from '@/store/feed'
 import { useModalStore } from '@/store/modal'
 // import { notifyBuy, notifyCampaign, notifySub } from '@/utils/state-broadcast'
 import { toQueryString } from '@/utils/string-helper'
@@ -116,31 +117,23 @@ export function usePayment() {
       if (response.success) {
         close()
         actions.onSuccess && actions.onSuccess()
+
         // trackEvent({ key: 47, ...gtmData })
 
-        // TODO 暫時先註解掉，還沒走到同步資料的階段
-        // 廣播通知
-        // switch (paymentType) {
-        //   case CONSUME_TYPE.REWARD:
-        //     sendDonateMessage(
-        //       payload.message ?? import.meta.env.VITE_DONATE_DEFAULT_MESSAGE,
-        //       userUUID,
-        //       payload.aff,
-        //       payload.amount,
-        //     )
-        //     break
-        //   case CONSUME_TYPE.SUBSCRIBE:
-        //     notifySub(payload.author_aff)
-        //     break
-        //   case CONSUME_TYPE.SHOP_BUY:
-        //     notifyBuy(payload.id)
-        //     break
-        //   case CONSUME_TYPE.UNLOCK:
-        //     notifyCampaign()
-        //     break
-        //   default:
-        //     throw new Error('Payment Type Error')
-        // }
+        const { unlockFeed, unlockSubscribe } = useFeedStore()
+
+        switch (paymentType) {
+          case CONSUME_TYPE.SUBSCRIBE:
+            console.log('解鎖訂閱, 訂閱方案:', payload.item_id)
+            await unlockSubscribe(payload.item_id)
+            break
+          case CONSUME_TYPE.SHOP_BUY:
+            console.log('解鎖單篇帖子', payload.item_id)
+            await unlockFeed(payload.item_id)
+            break
+          default:
+            throw new Error('Payment Type Error')
+        }
       } else {
         console.log('[fetchPollingResult] Polling Pending...')
         setTimeout(() => {
