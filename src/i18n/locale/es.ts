@@ -80,6 +80,7 @@ export default {
     search: { history: "Búsqueda histórica", clear: "Búsquedas populares", popular: "Vacío" },
     subscription: "Plan de suscripción",
     publishSuccess: "Publicación Exitosa",
+    updateSuccess: "",
     publishFail: "Publicación Fallida",
     delSuccess: "",
   },
@@ -165,6 +166,9 @@ export default {
   message: {
     payment: { failed: "Pago fallido", success: "Pago exitoso", cancel: "Pago cancelado" },
     error: { subscribeSelf: "No puedo suscribirte a ti mismo", shopBuySelf: "No puedo comprar tus propios productos" },
+    sending: "Enviando",
+    failure: "Fallido",
+    imageSended: "Imagen enviada",
   },
   copy: { link: "Copiar enlace", fail: "Copia fallida" },
   info: {
@@ -219,9 +223,11 @@ export default {
     popularCreator: "",
     subscribeToView: "",
     upToTen: "",
+    whetherLogin: "",
+    whetherChangePw: "",
   },
   content: {
-    default: "Preestablecido, no debe mostrarse en ningún lado",
+    default: "Preset, no debe mostrarse en ningún lado",
     welcomeToVida: "¡Bienvenido a Vida, únete a nosotros!",
     verifyAccount:
       "¡Apresúrate a verificar tu buzón! Ve a 【Mi cuenta>Configuración de la cuenta】 para completar la verificación",
@@ -445,17 +451,17 @@ export default {
     },
     subscribeSuc: {
       1: "¡maravilloso! ¡Suscrito con éxito a {nickname}!",
-      2: "¡Elige ir a la página de inicio del Creador o permanecer en la pantalla original!",
+      2: "¡Elija ir a la página de inicio del Creador, o permanecer en la pantalla original!",
       confirm: "Ir a la página del creador",
     },
     shopBuySuc: {
       1: "¡maravilloso! Pago exitoso para desbloquear la publicación",
-      2: "¡Elija la publicación para ver, o permanecer en la pantalla original!",
+      2: "¡Elija la publicación para mirar o permanecer en la pantalla original!",
       confirm: "Ir a la publicación",
     },
     title: { paySuc: "Ha pagado con éxito" },
     paying: { title: "Procesando pago" },
-    confirmAmount: "",
+    confirmAmount: "¿Puedo pedirle que envíe la cantidad {'$'} {price} Vaya al pago",
   },
   beCreator: {
     id: { passport: "Pasaporte", idCard: "Tarjeta de Identidad", driverLicense: "Licencia de Conducir" },

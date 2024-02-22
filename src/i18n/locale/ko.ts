@@ -75,6 +75,7 @@ export default {
     search: { history: "역사적 검색", clear: "인기있는 검색", popular: "비어 있는" },
     subscription: "구독 계획",
     publishSuccess: "게시 성공",
+    updateSuccess: "",
     publishFail: "게시 실패",
     delSuccess: "",
   },
@@ -160,6 +161,9 @@ export default {
   message: {
     payment: { failed: "결제 실패", success: "결제 성공", cancel: "결제 취소" },
     error: { subscribeSelf: "자신을 구독 할 수 없습니다", shopBuySelf: "자신의 제품을 살 수 없습니다" },
+    sending: "배상",
+    failure: "실패한",
+    imageSended: "이미지 전송됨",
   },
   copy: { link: "링크 복사하기", fail: "복사 실패" },
   info: {
@@ -214,6 +218,8 @@ export default {
     popularCreator: "",
     subscribeToView: "",
     upToTen: "",
+    whetherLogin: "",
+    whetherChangePw: "",
   },
   content: {
     default: "사전 설정, 아무데도 표시해서는 안됩니다",
@@ -443,12 +449,12 @@ export default {
     },
     shopBuySuc: {
       1: "기이! 게시물을 잠금 해제하기위한 성공적인 결제",
-      2: "게시물을 선택하거나 원래 화면을 유지하십시오!",
+      2: "포스트를 선택하여 시청하거나 원래 화면에 머물러 있습니다!",
       confirm: "게시물로 이동하십시오",
     },
     title: { paySuc: "성공적으로 지불했습니다" },
     paying: { title: "지불 처리" },
-    confirmAmount: "",
+    confirmAmount: "금액 { '$'} {price} 금액을 제출하도록 요청할 수 있습니다.",
   },
   beCreator: {
     id: { passport: "여권", idCard: "신분증", driverLicense: "운전 면허증" },

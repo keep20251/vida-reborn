@@ -80,6 +80,7 @@ export default {
     search: { history: "Historische Suche", clear: "beliebte Suchanfragen", popular: "Leer" },
     subscription: "Abonnementplan",
     publishSuccess: "Veröffentlichung erfolgreich",
+    updateSuccess: "",
     publishFail: "Veröffentlichung fehlgeschlagen",
     delSuccess: "",
   },
@@ -168,6 +169,9 @@ export default {
       subscribeSelf: "Ich kann mich nicht abonnieren",
       shopBuySelf: "Sie können Ihre eigenen Produkte nicht kaufen",
     },
+    sending: "Senden",
+    failure: "Fehlgeschlagen",
+    imageSended: "Bild gesendet",
   },
   copy: { link: "Link kopieren", fail: "Kopieren fehlgeschlagen" },
   info: {
@@ -222,9 +226,11 @@ export default {
     popularCreator: "",
     subscribeToView: "",
     upToTen: "",
+    whetherLogin: "",
+    whetherChangePw: "",
   },
   content: {
-    default: "Voreinstellung sollte es nirgendwo angezeigt werden",
+    default: "Preset, sollte nirgendwo angezeigt werden",
     welcomeToVida: "Willkommen bei Vida, treten Sie uns bei!",
     verifyAccount:
       "Überprüfen Sie schnell Ihren Posteingang! Gehen Sie zu 【Mein Konto>Kontoeinstellungen】 um die Verifizierung abzuschließen",
@@ -457,7 +463,7 @@ export default {
     },
     title: { paySuc: "Hat erfolgreich bezahlt" },
     paying: { title: "Zahlungsabwicklung" },
-    confirmAmount: "",
+    confirmAmount: "Darf ich Sie bitten, den Betrag {'$'} {price} zur Zahlung einzulegen",
   },
   beCreator: {
     id: { passport: "Reisepass", idCard: "Personalausweis", driverLicense: "Führerschein" },

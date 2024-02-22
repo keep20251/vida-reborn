@@ -80,6 +80,7 @@ export default {
     search: { history: "البحث التاريخي", clear: "عمليات البحث الشعبية", popular: "فارغ" },
     subscription: "خطة الاشتراك",
     publishSuccess: "النشر بنجاح",
+    updateSuccess: "",
     publishFail: "فشل النشر",
     delSuccess: "",
   },
@@ -165,6 +166,9 @@ export default {
   message: {
     payment: { failed: "فشل الدفع", success: "الدفع ناجح", cancel: "تم إلغاء الدفع" },
     error: { subscribeSelf: "لا يمكنك الاشتراك في نفسك", shopBuySelf: "لا يمكنك شراء منتجاتك الخاصة" },
+    sending: "إرسال",
+    failure: "فشل",
+    imageSended: "تم إرسال الصورة",
   },
   copy: { link: "نسخ الرابط", fail: "فشل النسخ" },
   info: {
@@ -219,6 +223,8 @@ export default {
     popularCreator: "",
     subscribeToView: "",
     upToTen: "",
+    whetherLogin: "",
+    whetherChangePw: "",
   },
   content: {
     default: "مسبقًا ، لا ينبغي عرضه في أي مكان",
@@ -449,7 +455,7 @@ export default {
     },
     title: { paySuc: "دفعت بنجاح" },
     paying: { title: "معالجة الدفع" },
-    confirmAmount: "",
+    confirmAmount: "هل لي أن أطلب منك إرسال المبلغ {'$'} {price} انتقل إلى الدفع",
   },
   beCreator: {
     id: { passport: "جواز سفر", idCard: "بطاقة هوية", driverLicense: "رخصة القيادة" },

@@ -80,6 +80,7 @@ export default {
     search: { history: "Historical search", clear: "popular searches", popular: "Empty" },
     subscription: "Subscription plan",
     publishSuccess: "Publish Successful",
+    updateSuccess: "Uupdate Failed",
     publishFail: "Publish Failed",
     delSuccess: "Successfully deleted",
   },
@@ -165,6 +166,9 @@ export default {
   message: {
     payment: { failed: "Payment Failed", success: "Payment Successful", cancel: "Payment Cancelled" },
     error: { subscribeSelf: "Can't subscribe to yourself", shopBuySelf: "Can't buy your own products" },
+    sending: "发送中",
+    failure: "失败",
+    imageSended: "图片已发送",
   },
   copy: { link: "Copy Link", fail: "Copy Failed" },
   info: {
@@ -219,9 +223,11 @@ export default {
     popularCreator: "Popular creators",
     subscribeToView: "",
     upToTen: "Maximum 10 pictures",
+    whetherLogin: "",
+    whetherChangePw: "",
   },
   content: {
-    default: "Preset, it should not be displayed anywhere",
+    default: "Preset, should not be displayed anywhere",
     welcomeToVida: "Welcome to Vida, join us!",
     verifyAccount: "Hurry to verify your mailbox! Go to 【My>Account Settings】 to complete the verification",
     termsDeclaration:
@@ -454,7 +460,7 @@ export default {
     },
     title: { paySuc: "Has successfully paid" },
     paying: { title: "Payment processing" },
-    confirmAmount: "Is the amount {'$'}{amount} you submitted correct?",
+    confirmAmount: "May I ask you to submit the amount {'$'} {price} Go to the payment",
   },
   beCreator: {
     id: { passport: "Passport", idCard: "ID Card", driverLicense: "Driver's License" },

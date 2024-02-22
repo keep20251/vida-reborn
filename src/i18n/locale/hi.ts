@@ -80,6 +80,7 @@ export default {
     search: { history: "ऐतिहासिक खोज", clear: "लोकप्रिय खोजें", popular: "खाली" },
     subscription: "सदस्यता योजना",
     publishSuccess: "प्रकाशन सफल",
+    updateSuccess: "",
     publishFail: "प्रकाशन विफल",
     delSuccess: "",
   },
@@ -165,6 +166,9 @@ export default {
   message: {
     payment: { failed: "भुगतान असफल", success: "भुगतान सफल", cancel: "भुगतान रद्द" },
     error: { subscribeSelf: "अपनी सदस्यता नहीं ले सकते", shopBuySelf: "अपने उत्पादों को खरीद नहीं सकते" },
+    sending: "भेजना",
+    failure: "असफल",
+    imageSended: "छवि भेजी गई",
   },
   copy: { link: "लिंक कॉपी करें", fail: "कॉपी विफल" },
   info: {
@@ -219,9 +223,11 @@ export default {
     popularCreator: "",
     subscribeToView: "",
     upToTen: "",
+    whetherLogin: "",
+    whetherChangePw: "",
   },
   content: {
-    default: "प्रीसेट, इसे कहीं भी प्रदर्शित नहीं किया जाना चाहिए",
+    default: "प्रीसेट, को कहीं भी प्रदर्शित नहीं किया जाना चाहिए",
     welcomeToVida: "Vida में आपका स्वागत है, हमसे जुड़ें!",
     verifyAccount: "अपने मेलबॉक्स को जल्दी से सत्यापित करें! 【मेरा>खाता सेटिंग्स】 पर जाकर सत्यापन पूरा करें",
     termsDeclaration:
@@ -417,7 +423,7 @@ export default {
     subscribe: {
       1: "पूरी तरह से पिछले {days} दिन के सभी कार्यों पर जाएँ",
       2: "सीधे निर्माता को जानकारी भेज सकते हैं",
-      3: "क्लोजर -स्टेप इंटरेक्शन",
+      3: "क्लोजर -स्टेप इंटरैक्शन",
       4: "आप किसी भी समय अपना सब्सक्रिप्शन रद्द कर सकते हैं",
       confirm: "माह {'$'} {price} भुगतान पर जाएं",
     },
@@ -438,7 +444,7 @@ export default {
     },
     title: { paySuc: "सफलतापूर्वक भुगतान किया है" },
     paying: { title: "भुगतान प्रक्रिया" },
-    confirmAmount: "",
+    confirmAmount: "क्या मैं आपसे {'$'} {price} राशि जमा करने के लिए कह सकता हूं",
   },
   beCreator: {
     id: { passport: "पासपोर्ट", idCard: "पहचान पत्र", driverLicense: "ड्राइवर का लाइसेंस" },

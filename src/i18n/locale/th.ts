@@ -80,6 +80,7 @@ export default {
     search: { history: "การค้นหาประวัติศาสตร์", clear: "การค้นหายอดนิยม", popular: "ว่างเปล่า" },
     subscription: "แผนการสมัครสมาชิก",
     publishSuccess: "เผยแพร่สำเร็จ",
+    updateSuccess: "",
     publishFail: "เผยแพร่ไม่สำเร็จ",
     delSuccess: "",
   },
@@ -165,6 +166,9 @@ export default {
   message: {
     payment: { failed: "การชำระเงินล้มเหลว", success: "การชำระเงินสำเร็จ", cancel: "การชำระเงินถูกยกเลิก" },
     error: { subscribeSelf: "ไม่สามารถสมัครสมาชิกตัวเองได้", shopBuySelf: "ไม่สามารถซื้อผลิตภัณฑ์ของคุณเองได้" },
+    sending: "การส่ง",
+    failure: "ล้มเหลว",
+    imageSended: "ส่งรูปภาพแล้ว",
   },
   copy: { link: "คัดลอกลิงค์", fail: "คัดลอกไม่สำเร็จ" },
   info: {
@@ -219,9 +223,11 @@ export default {
     popularCreator: "",
     subscribeToView: "",
     upToTen: "",
+    whetherLogin: "",
+    whetherChangePw: "",
   },
   content: {
-    default: "ที่ตั้งไว้ล่วงหน้าไม่ควรแสดงทุกที่",
+    default: "ที่ตั้งไว้ไม่ควรแสดงทุกที่",
     welcomeToVida: "ยินดีต้อนรับสู่ Vida, เข้าร่วมกับเรา!",
     verifyAccount: "รีบไปยืนยันกล่องจดหมายของคุณ! ไปที่ 【บัญชีของฉัน>การตั้งค่าบัญชี】 เพื่อทำการยืนยัน",
     termsDeclaration:
@@ -449,7 +455,7 @@ export default {
     },
     title: { paySuc: "จ่ายสำเร็จแล้ว" },
     paying: { title: "การประมวลผลการชำระเงิน" },
-    confirmAmount: "",
+    confirmAmount: "ฉันขอให้คุณส่งจำนวน {'$'} {price} ไปที่การชำระเงิน",
   },
   beCreator: {
     id: { passport: "หนังสือเดินทาง", idCard: "บัตรประชาชน", driverLicense: "ใบขับขี่" },

@@ -80,6 +80,7 @@ export default {
     search: { history: "Tìm kiếm lịch sử", clear: "tìm kiếm phổ biến", popular: "Trống" },
     subscription: "Kế hoạch đăng ký",
     publishSuccess: "Đăng thành công",
+    updateSuccess: "",
     publishFail: "Đăng thất bại",
     delSuccess: "",
   },
@@ -165,6 +166,9 @@ export default {
   message: {
     payment: { failed: "Thanh toán thất bại", success: "Thanh toán thành công", cancel: "Thanh toán đã hủy" },
     error: { subscribeSelf: "Không thể đăng ký cho chính mình", shopBuySelf: "Không thể mua sản phẩm của riêng bạn" },
+    sending: "Gửi",
+    failure: "Thất bại",
+    imageSended: "Đã gửi hình ảnh",
   },
   copy: { link: "Sao chép liên kết", fail: "Sao chép thất bại" },
   info: {
@@ -219,9 +223,11 @@ export default {
     popularCreator: "",
     subscribeToView: "",
     upToTen: "",
+    whetherLogin: "",
+    whetherChangePw: "",
   },
   content: {
-    default: "Đặt trước, nó không nên được hiển thị ở bất cứ đâu",
+    default: "Đặt trước, không nên được hiển thị ở bất cứ đâu",
     welcomeToVida: "Chào mừng bạn đến với Vida, hãy gia nhập chúng tôi!",
     verifyAccount:
       "Hãy nhanh chóng xác minh hộp thư của bạn! Đi đến 【Tài khoản của tôi>Cài đặt tài khoản】 để hoàn thành xác minh",
@@ -454,7 +460,7 @@ export default {
     },
     title: { paySuc: "Đã trả tiền thành công" },
     paying: { title: "Xử lý thanh toán" },
-    confirmAmount: "",
+    confirmAmount: "Tôi có thể yêu cầu bạn gửi số tiền {'$'} {price} Truy cập thanh toán",
   },
   beCreator: {
     id: { passport: "Hộ chiếu", idCard: "Thẻ căn cước", driverLicense: "Giấy phép lái xe" },
