@@ -57,8 +57,8 @@ async function submit() {
   await validate(credential.wdrlAmount.schema, credential.wdrlAmount)
   confirm({
     size: 'sm',
-    title: 'title.reconfirm',
-    content: ('modal.confirmAmount', { amount: credential.wdrlAmount.value }),
+    title: $t('beCreator.title.reConfirm'),
+    content: ($t('modal.confirmAmount'), { price: credential.wdrlAmount.value }),
     confirmAction: () => {
       onWithdraw()
     },
