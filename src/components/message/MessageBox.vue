@@ -4,13 +4,20 @@
       {{ item.content }}
     </p>
     <div class="shrink-0 self-end text-sm" :class="{ 'text-white': item.self, 'text-gray-a3': !item.self }">
-      {{ toDateTimeString(new Date(item.timestamp)).substring(11, 16) }}
+      {{
+        item.status === SEND_STATUS.SUCCESS
+          ? toDateTimeString(new Date(item.timestamp)).substring(11, 16)
+          : item.status === SEND_STATUS.SENDING
+            ? $t('message.sending')
+            : $t('message.failure')
+      }}
     </div>
   </div>
 </template>
 
 <script setup>
 import { computed } from 'vue'
+import { SEND_STATUS } from '@const/chat'
 import { toDateTimeString } from '@/utils/string-helper'
 
 const props = defineProps({

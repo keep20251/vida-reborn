@@ -1,6 +1,9 @@
-import { computed, reactive, readonly, ref } from 'vue'
-import { defineStore } from 'pinia'
+import { computed, reactive, readonly, ref, watch } from 'vue'
+import { defineStore, storeToRefs } from 'pinia'
+import { useAccountStore } from '@/store/account'
 import { useCreatorStore } from '@/store/creator'
+import useRequest from '@use/request'
+import { useInfinite } from '@use/request/infinite'
 import { SEND_STATUS } from '@const/chat'
 
 export const useChatStore = defineStore('chat', () => {
@@ -34,7 +37,24 @@ export const useChatStore = defineStore('chat', () => {
   const sendingMessagesMap = new Map()
 
   // 歷史聊天記錄表同步是否完成
-  const ready = ref(true)
+  const ready = ref(false)
+
+  const accountStore = useAccountStore()
+  const { isLogin } = storeToRefs(accountStore)
+
+  if (!import.meta.env.SSR) {
+    watch(
+      isLogin,
+      (login) => {
+        if (login) {
+          syncHistory()
+        } else {
+          clearALL()
+        }
+      },
+      { immediate: true },
+    )
+  }
 
   const sortedUsers = computed(() => {
     const r = Array.from(userMap.values())
@@ -119,6 +139,29 @@ export const useChatStore = defineStore('chat', () => {
       const creator = await getByUUID(uuid)
       initUser(uuid, creator.thumb, creator.username, creator.nickname)
     }
+  }
+
+  function syncHistory() {
+    if (userMap.size > 0 || sendingMessagesMap.size > 0) {
+      throw new Error('You cannot syncHistory, userMap or sendingMessagesMap still have data...')
+    }
+
+    ready.value = false
+    useRequest('Chat.contactList', { immediate: true })
+      .then((d) => {
+        console.log(d)
+      })
+      .catch((e) => console.error(e))
+      .finally(() => (ready.value = true))
+
+    const { dataList, init } = useInfinite('Chat.history', {
+      params: { from_uuid: '562bd541c366d6d64e946b453b34ed35' },
+    })
+    init()
+      .then(() => {
+        console.log(dataList.value)
+      })
+      .catch((e) => console.error(e))
   }
 
   function initUser(uuid, avatar, username, nickname, messages = []) {
