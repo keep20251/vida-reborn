@@ -178,7 +178,7 @@
     </div>
 
     <div v-if="perm.logout" class="grid space-y-15 py-10">
-      <div class="flex cursor-pointer items-center space-x-18 active:font-bold" @click="logout">
+      <div class="flex cursor-pointer items-center space-x-18 active:font-bold" @click="onLogout">
         <Icon name="mineLogout" size="20"></Icon>
         <span class="text-base">{{ $t('title.logout') }}</span>
       </div>
@@ -190,6 +190,7 @@ import { computed, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAuthRouteStore } from '@/store/auth-route'
+import { useModalStore } from '@/store/modal'
 import Dropdown from '@comp/form/Dropdown.vue'
 import { useLocale } from '@use/utils/locale'
 import { AUTH_ROUTES } from '@const'
@@ -213,5 +214,17 @@ const setRoutes = ['mine-account', 'mine-password', 'mine-preference', 'mine-blo
 const aboutRoutes = ['mine-tos', 'mine-pp', 'mine-cp', 'mine-dmca']
 
 const { open: openAuthDialog } = useAuthRouteStore()
+const { confirm } = useModalStore()
 const { logout } = useAccountStore()
+
+function onLogout() {
+  confirm({
+    size: 'sm',
+    title: 'title.logout',
+    content: 'info.whetherLogin',
+    confirmAction: () => {
+      logout()
+    },
+  })
+}
 </script>

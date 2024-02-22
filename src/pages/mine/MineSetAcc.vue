@@ -86,6 +86,8 @@ import { onMounted, ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useMineStore } from '@/store/mine'
+import { useModalStore } from '@/store/modal'
+import { usePopupMessageStore } from '@/store/popup-message'
 import Button from '@comp/common/Button.vue'
 import InputEmailCode from '@comp/form/InputEmailCode.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
@@ -96,10 +98,10 @@ import { useYup } from '@use/validator/yup'
 import { EMAIL_VALIDATION, SEND_EMAIL_PURPOSE } from '@const'
 
 const { twitterLogin, googleLogin } = useThirdPartyAuth()
-
+const { open: openMessage } = usePopupMessageStore()
+const { open } = useModalStore()
 const accountStore = useAccountStore()
 const { userData } = accountStore
-
 const edit = ref(false)
 const mineStore = useMineStore()
 const { email, verifyCode, nickname, username } = storeToRefs(mineStore)
@@ -145,10 +147,10 @@ async function accountValidationEmail() {
       email: email.value,
       code: verifyCode.value,
     })
-    console.log('成功囉！')
+    openMessage('title.updateSuccess')
   } catch (e) {
     serverError.value = e.message
-    console.error(e)
+    openMessage('title.updateFail')
   }
 }
 
@@ -175,10 +177,10 @@ async function saveUserName() {
       nickname: nickname.value,
       username: username.value,
     })
-    console.log('成功囉！')
+    openMessage('title.updateSuccess')
   } catch (e) {
     nameServerError.value = e.message
-    console.error(e)
+    openMessage('title.updateFail')
   }
 }
 </script>

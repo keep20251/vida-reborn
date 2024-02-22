@@ -14,9 +14,14 @@ import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
 import { useMineStore } from '@/store/mine'
+import { useModalStore } from '@/store/modal'
+import { usePopupMessageStore } from '@/store/popup-message'
 import Button from '@comp/common/Button.vue'
 import OptionsPicker from '@comp/form/OptionsPicker.vue'
 import useRequest from '@use/request/index.js'
+
+const { open: openMessage } = usePopupMessageStore()
+const { open } = useModalStore() // 解構出 open 方法
 
 const appStore = useAppStore()
 const { categories } = storeToRefs(appStore)
@@ -38,10 +43,10 @@ async function savePref() {
     await execute({
       interested: interested.value.join(','), // 陣列轉回字串
     })
-    console.log('成功囉！')
+    openMessage('title.updateSuccess')
   } catch (e) {
     serverError.value = e.message
-    console.error(e)
+    openMessage('title.updateFail')
   }
 }
 </script>
