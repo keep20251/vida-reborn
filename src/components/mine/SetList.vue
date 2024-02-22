@@ -1,6 +1,6 @@
 <template>
-  <div class="flex select-none flex-col divide-y">
-    <div v-if="!isLogin" class="grid gap-y-5 py-10">
+  <div class="flex select-none flex-col divide-y" :class="{ 'relative bottom-20': !isLogin }">
+    <div v-if="!isLogin" class="grid space-y-15 py-10">
       <div class="flex cursor-pointer items-center space-x-18" @click="openAuthDialog(AUTH_ROUTES.SIGN_UP)">
         <Icon name="mineAddOutline" size="20"></Icon>
         <span class="text-base">{{ $t('title.join') }}</span>
@@ -115,11 +115,11 @@
         </div>
       </div>
     </div>
-    <div class="flex justify-between space-y-5 py-10">
+    <div class="flex justify-between space-y-5 py-3">
       <div class="flex items-center space-x-18">
         <Icon name="mineLang" size="20"></Icon>
       </div>
-      <Dropdown class="w-full pl-3 text-base" shadow-none v-model="locale" :options="transOptions"></Dropdown>
+      <Dropdown class="bottom-2 w-full pl-3 text-base" shadow-none v-model="locale" :options="transOptions"></Dropdown>
     </div>
     <div class="grid space-y-10 py-10">
       <div class="flex cursor-pointer items-center justify-between pr-15" @click="aboutOpen = !aboutOpen">

@@ -19,10 +19,10 @@
     </div>
     <div v-show="tab === TAB_TYPE.SUB">
       <div class="flex justify-between pt-20">
-        <div class="text-base font-bold leading-md">Popular Creator</div>
-        <Icon name="filter" size="20" class="cursor-pointer"></Icon>
+        <div class="text-base font-bold leading-md">{{ $t('info.popularCreator') }}</div>
+        <Icon @click="creatorsReload" name="filter" size="20" class="cursor-pointer"></Icon>
       </div>
-      <div class="pt-10 text-base font-normal leading-md">订阅某个账号，以查看其最新帖子</div>
+      <div class="pt-10 text-base font-normal leading-md">{{ $t('info.subscribeToView') }}</div>
       <div class="flex flex-col justify-center space-y-10 pt-30">
         <List :items="creators" item-key="aff">
           <template #default="{ item, index }">

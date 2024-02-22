@@ -4,23 +4,23 @@
       <EncryptImage :src="coverBg || item.background" cover></EncryptImage>
       <div
         v-if="showBgUpload"
-        class="absolute left-1/2 top-1/2 w-full translate-x-[-50%] translate-y-[-50%] cursor-pointer"
+        class="absolute left-1/2 top-1/2 w-full -translate-x-2/4 -translate-y-2/4 cursor-pointer"
         @click="() => inputBackground.click()"
       >
         <div class="flex justify-center">
           <div class="text-sm font-normal leading-3 text-white">{{ $t('info.clickToUploadBg') }}</div>
         </div>
       </div>
-      <div v-if="showBgData" class="absolute left-1/2 top-1/2 w-full translate-x-[-50%] translate-y-[-50%]">
+      <div v-if="showBgData" class="absolute left-1/2 top-1/2 w-full -translate-x-2/4 -translate-y-2/4">
         <div class="flex justify-around">
           <div class="flex w-[175px] flex-col items-center space-y-5">
-            <p class="text-xl font-bold leading-xl text-white">{{ item.subscriber_count }}</p>
-            <p class="text-sm font-normal leading-3 text-white opacity-50">{{ $t('info.perSubscriber') }}</p>
+            <p class="text-xl font-bold leading-xl text-white drop-shadow-lg">{{ item.subscriber_count }}</p>
+            <p class="text-sm font-normal leading-3 text-white drop-shadow-lg">{{ $t('info.perSubscriber') }}</p>
           </div>
           <div class="h-25 w-1 bg-[#DCDCDC]"></div>
           <div class="flex w-[175px] flex-col items-center space-y-5">
-            <p class="text-xl font-bold leading-xl text-white">{{ item.post_num }}</p>
-            <p class="text-sm font-normal leading-3 text-white opacity-50">{{ $t('info.perPost') }}</p>
+            <p class="text-xl font-bold leading-xl text-white drop-shadow-lg">{{ item.post_num }}</p>
+            <p class="text-sm font-normal leading-3 text-white drop-shadow-lg">{{ $t('info.perPost') }}</p>
           </div>
         </div>
       </div>
