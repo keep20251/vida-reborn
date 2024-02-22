@@ -10,12 +10,12 @@ export function useCopyToClipboard() {
       navigator.clipboard
         .writeText(value)
         .then(() => {
-          openMessage($t('copy.link'))
+          openMessage('copy.link')
           console.log('Text copied to clipboard...', value)
         })
         .catch((e) => {
           console.warn('Something went wrong', e)
-          openMessage($t('copy.fail'))
+          openMessage('copy.fail')
         })
     } else {
       console.warn("目前無法使用 navigator.clipboard，改用替帶方案 document.execCommand('copy')", value)
@@ -30,10 +30,10 @@ export function useCopyToClipboard() {
 
       try {
         document.execCommand('copy')
-        openMessage($t('copy.link'))
+        openMessage('copy.link')
       } catch (error) {
         console.error("document.execCommand('copy')發生錯誤", error)
-        openMessage($t('copy.fail'))
+        openMessage('copy.fail')
       } finally {
         textArea.remove()
       }

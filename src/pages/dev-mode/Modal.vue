@@ -5,7 +5,7 @@
       <Button @click="confirmModal('sm')">sm</Button>
       <Button @click="confirmModal('md')">md</Button>
       <Button @click="customModal('lg')">lg</Button>
-      <Button @click="openMessage('測試')">popupMessage</Button>
+      <Button @click="openMessage('common.confirm')">popupMessage</Button>
     </div>
   </Page>
 </template>

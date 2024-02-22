@@ -15,7 +15,7 @@
         'bottom-70': isShow,
       }"
     >
-      {{ message }}
+      {{ $t(message) }}
     </div>
   </transition>
 </template>
