@@ -53,6 +53,12 @@ export function useDialog() {
   }
 
   async function subscribe({ item, creator }) {
+    if (!item) {
+      openMessage('message.error.subscriptionNotFound')
+      close()
+      return
+    }
+
     if (userData.value.aff === creator.aff) {
       openMessage('message.error.subscribeSelf')
       close()

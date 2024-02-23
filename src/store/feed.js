@@ -131,13 +131,33 @@ export const useFeedStore = defineStore('feed', () => {
    * @param {Number} subId 訂閱方案Id
    */
   async function unlockSubscribe(subId) {
-    const response = await useRequest('Article.newVideoPathBySub', { params: { sub_id: subId }, immediate: true })
-    console.log('response', response)
+    feedsMap.forEach((feed) => {
+      if (feed.subscription_list.some((sub) => sub.id === subId)) feed.is_unlock = 1
+    })
+    await updateMultiVideoPath(subId)
+  }
+
+  /**
+   * 更新多篇影片路徑
+   * @param {Number} subId 訂閱方案Id
+   * @returns
+   */
+  async function updateMultiVideoPath(subId) {
+    const response = await useRequest('Article.newVideoPathBySub', {
+      params: { subscription_id: subId },
+      immediate: true,
+    })
+    if (!response) return
+    Object.values(response).forEach((element) => {
+      if (!feedsMap.has(element.id)) return
+      const feed = feedsMap.get(element.id)
+      feed.url[0] = element.video_url[0]
+    })
   }
 
   /**
    * 更新單篇影片路徑
-   * @param {Feed} feed
+   * @param {Feed} feed 單篇帖子
    */
   async function updateSingleVideoPath(feed) {
     const params = { ids: [feed.id].join(',') }

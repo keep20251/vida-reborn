@@ -94,6 +94,7 @@ async function loadNewFeed() {
     }
 
     const feedData = await getFeed(id)
+    console.log('loadNewFeed.feedData', feedData)
 
     // 帖子 username 與 route 參數的 username 不一致必須當成是錯的
     if (feedData.user.username !== route.params.username) {

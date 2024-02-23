@@ -68,9 +68,10 @@ const clickAction = computed(() => {
   throw new Error('未知的帖子類型')
 })
 
-const lowestSub = computed(() =>
-  props.item?.subscription_list?.reduce((acc, cur) => (Number(acc.price) < Number(cur.price) ? acc : cur)),
-)
+const lowestSub = computed(() => {
+  if (props.item?.subscription_list?.length === 0) return null
+  return props.item?.subscription_list?.reduce((acc, cur) => (Number(acc.price) < Number(cur.price) ? acc : cur))
+})
 
 const actionParams = computed(() => {
   if (props.item.article_type === FEED_PERM.SUB) return { item: lowestSub.value, creator: props.item.user }
