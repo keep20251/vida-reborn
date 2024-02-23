@@ -166,12 +166,12 @@ function sendMessage(route, data, ackId) {
     route,
     via,
     token,
-    encrypt: '',
+    encrypt: 'self',
   }
 
   if (data) {
-    // const encryptData = EncryptIm({ ...data })
-    const encryptData = { ...data }
+    const encryptData = EncryptIm({ ...data })
+    // const encryptData = { ...data }
     message.data = encryptData
 
     if (ackId) {
@@ -214,7 +214,7 @@ function onMessage(ws, { data }) {
   const { selfMessageSendSuccess, pushOtherMessage } = chatStore
   switch (type) {
     case 'chatMessage':
-      pushOtherMessage(messageData)
+      pushOtherMessage(DecryptIm(messageData))
       break
     case 'ackMessage':
       selfMessageSendSuccess(ackId)
