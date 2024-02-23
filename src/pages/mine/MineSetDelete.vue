@@ -48,7 +48,7 @@ async function submit() {
   confirm({
     size: 'sm',
     title: 'beCreator.title.reConfirm',
-    content: 'info.whetherDelAcc',
+    content: $t('info.whetherDelAcc'),
     confirmAction: () => {
       deleteAcc()
     },
