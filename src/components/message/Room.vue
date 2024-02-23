@@ -28,13 +28,25 @@
         <Loading v-if="user.loading"></Loading>
         <span v-if="user.noMore">{{ $t('common.noMore') }}</span>
       </div>
-      <MessageBox v-for="m in user.messages" :item="m" :key="m.id"></MessageBox>
+      <MessageBox v-for="m in user.messages" :item="m" :key="m.id" @intersect="m.unread = false"></MessageBox>
     </div>
-    <div class="flex items-center justify-center space-x-10">
-      <div class="flex cursor-pointer">
+    <div class="flex items-end justify-center space-x-10">
+      <div class="flex h-36 cursor-pointer items-center">
         <Icon name="attach" size="20"></Icon>
       </div>
-      <InputWrap v-model="input" class="grow" :appendIconBtn="'sendWhite'" @click:append="send"></InputWrap>
+      <TextareaWrap
+        v-model="input"
+        class="grow"
+        :line="inputLine"
+        disable-enter-new-line
+        @keypress:enter="send"
+        @keypress:alt:enter="input += '\n'"
+      ></TextareaWrap>
+      <div class="flex h-36 items-center">
+        <div class="flex h-30 w-40 cursor-pointer items-center justify-center rounded-xl bg-primary" @click="send">
+          <Icon name="sendWhite" size="20"></Icon>
+        </div>
+      </div>
     </div>
   </div>
   <div
@@ -48,12 +60,12 @@
 
 <script setup>
 import { debounce } from 'lodash'
-import { onBeforeUpdate, onUpdated, ref, shallowRef, watch } from 'vue'
+import { computed, onBeforeUpdate, onUpdated, ref, shallowRef, watch } from 'vue'
 import { useInfiniteScroll } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useChatStore } from '@/store/chat'
-import InputWrap from '@comp/form/InputWrap.vue'
+import TextareaWrap from '@comp/form/TextareaWrap.vue'
 import MessageBox from '@comp/message/MessageBox.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
 import { isClose, isConnecting, sendTextMessage } from '@/ws'
@@ -106,6 +118,7 @@ watch(
 )
 
 const input = ref('')
+const inputLine = computed(() => Math.min(input.value.split('\n').length, 5))
 function send() {
   const message = input.value.trim()
 

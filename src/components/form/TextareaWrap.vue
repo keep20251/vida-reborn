@@ -11,6 +11,7 @@
         :disabled="disabled"
         :style="{ height }"
         class="w-full shrink-0 resize-none appearance-none divide-solid rounded-md border-gray-cc bg-white px-20 py-[0.75rem] text-sm font-normal not-italic leading-3 text-gray-57 shadow-input outline-none placeholder:text-gray-a3"
+        @keypress.enter="onEnterPress"
       ></textarea>
       <div v-if="errMsg" class="text-left text-sm font-normal not-italic leading-md text-warning">
         {{ errMsg }}
@@ -29,8 +30,9 @@ const props = defineProps({
   disabled: { type: Boolean, default: false },
   line: { type: Number, default: 3 },
   errMsg: { type: String, default: '' },
+  disableEnterNewLine: { type: Boolean, default: false },
 })
-const emits = defineEmits(['update:modelValue'])
+const emits = defineEmits(['update:modelValue', 'keypress:enter', 'keypress:alt:enter'])
 const value = computed({
   get() {
     return props.modelValue
@@ -44,4 +46,11 @@ const height = computed(() => {
   // 12px(padding-top) + 12(padding-bottom) / 16(轉成rem) = 1.5
   return `${props.line * 0.75 + 1.5}rem`
 })
+
+function onEnterPress(evt) {
+  if (props.disableEnterNewLine && !evt.altKey) {
+    evt.preventDefault()
+  }
+  emits(evt.altKey ? 'keypress:alt:enter' : 'keypress:enter')
+}
 </script>

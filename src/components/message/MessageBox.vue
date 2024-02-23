@@ -1,5 +1,5 @@
 <template>
-  <div :class="style">
+  <div :class="style" ref="root">
     <p class="grow whitespace-pre-wrap text-justify" :style="{ 'word-break': 'break-word' }">
       {{ item.content }}
     </p>
@@ -16,17 +16,43 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { SEND_STATUS } from '@const/chat'
 import { toDateTimeString } from '@/utils/string-helper'
 
 const props = defineProps({
   item: { type: Object, requried: true },
 })
+const emits = defineEmits(['intersect'])
 
 const style = computed(() =>
   props.item.self
     ? 'relative mr-8 flex max-w-[80%] space-x-8 self-end rounded-3xl bg-primary px-16 py-10 text-base leading-lg text-white before:absolute before:-right-2 before:bottom-0 before:h-16 before:rounded-bl-lg before:border-r-[1rem] before:border-solid before:border-r-primary after:absolute after:-right-9 after:bottom-0 after:h-16 after:w-10 after:rounded-bl-md after:bg-white md:mr-24 md:max-w-[65%]'
     : 'relative flex max-w-[80%] space-x-8 self-start rounded-3xl bg-gray-f6 px-16 py-10 text-base leading-lg text-black before:absolute before:-left-2 before:bottom-0 before:h-16 before:rounded-br-lg before:border-l-[1rem] before:border-solid before:border-l-gray-f6 after:absolute after:-left-8 after:bottom-0 after:h-16 after:w-10 after:rounded-br-md after:bg-white md:max-w-[65%]',
 )
+
+const root = ref(null)
+let observer
+onMounted(() => {
+  observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          emits('intersect')
+          observer.unobserve(root.value)
+        }
+      })
+    },
+    {
+      root: root.value.parentNode,
+      threshold: 0.95,
+    },
+  )
+  observer.observe(root.value)
+})
+onBeforeUnmount(() => {
+  if (observer) {
+    observer.disconnect()
+  }
+})
 </script>
