@@ -33,6 +33,7 @@ export default {
     cookie: "接受，不要再显示此消息",
     check: "查看",
     subscribe: "订阅",
+    subscribed: "已订阅",
     shopBuy: "付费",
     cancelSubscribe: "取消订阅",
     restoreSubscribe: "恢复订阅",

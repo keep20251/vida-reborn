@@ -16,12 +16,16 @@
                 <SocialIcon name="tiktok" :url="creator?.tiktok_link" size="15"></SocialIcon>
               </div>
               <div class="flex items-center space-x-10">
-                <div class="flex cursor-pointer items-center" @click="toMessage(creator?.username)">
+                <!-- 暫時先把TopButton的聊天Icon關起來，搞不好又會改回來XD -->
+                <!-- <div class="flex cursor-pointer items-center" @click="toMessage(creator?.username)">
                   <Icon name="comment" size="20"></Icon>
-                </div>
+                </div> -->
                 <div class="flex cursor-pointer items-center"><Icon name="report" size="20"></Icon></div>
-                <div class="flex cursor-pointer items-center"><Icon name="sharePage" size="20"></Icon></div>
-                <Button size="sm" primary @click="subscribe({ item: lowestSub, creator })">
+                <div class="flex cursor-pointer items-center"><Icon name="link" size="20"></Icon></div>
+                <Button v-if="creator?.is_subscribed" size="sm" bg-light border text-dark>
+                  {{ $t('common.subscribed') }}
+                </Button>
+                <Button v-else size="sm" bg-light border text-dark @click="subscribe({ item: lowestSub, creator })">
                   {{ $t('common.subscribe') }}
                 </Button>
               </div>
@@ -125,6 +129,8 @@ async function loadNewCreator() {
   creator.value = null
   try {
     creator.value = await getCreator(route.params.username)
+    console.log('loadNewCreator.value', creator.value)
+
     await reload({ newParams: { uuid: creator.value.uuid, filter_by: 0 } })
   } catch (e) {
     errMsg.value = e.message

@@ -38,6 +38,7 @@ export default {
     cookie: "Terima dan jangan tunjukkan pesan ini lagi",
     check: "Periksa",
     subscribe: "berlangganan",
+    subscribed: "Berlangganan",
     shopBuy: "Membayar",
     cancelSubscribe: "Batalkan langganan",
     restoreSubscribe: "Mengembalikan langganan",

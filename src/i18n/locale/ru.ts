@@ -38,6 +38,7 @@ export default {
     cookie: "Примите и не показывайте это сообщение снова",
     check: "Проверить",
     subscribe: "подписка",
+    subscribed: "Подписаться",
     shopBuy: "Платить",
     cancelSubscribe: "Отменить подписку",
     restoreSubscribe: "Возобновить подписку",

@@ -38,6 +38,7 @@ export default {
     cookie: "Chấp nhận và don lồng hiển thị lại tin nhắn này",
     check: "Kiểm tra",
     subscribe: "đăng ký",
+    subscribed: "Đăng ký",
     shopBuy: "Chi trả",
     cancelSubscribe: "Hủy đăng ký",
     restoreSubscribe: "Khôi phục đăng ký",

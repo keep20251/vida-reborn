@@ -38,6 +38,7 @@ export default {
     cookie: "Accept and don’t show this message again",
     check: "Check",
     subscribe: "subscription",
+    subscribed: "Subscribe to",
     shopBuy: "Pay",
     cancelSubscribe: "Cancel",
     restoreSubscribe: "Resume",

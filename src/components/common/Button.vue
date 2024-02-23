@@ -1,7 +1,13 @@
 <template>
   <button
     class="flex items-center justify-center rounded-full text-white"
-    :class="[bg, height, font, padding, { 'w-full': size === 'lg' }]"
+    :class="[
+      bg,
+      height,
+      font,
+      padding,
+      { 'w-full': size === 'lg', 'border-[1.5px] border-gray-57': !!border, '!text-black': !!textDark },
+    ]"
     :disabled="loading || disabled"
     @click="$emit('click')"
   >
@@ -19,11 +25,14 @@ import { computed } from 'vue'
 
 const props = defineProps({
   contrast: { type: Boolean, default: false },
+  bgLight: { type: Boolean, default: false },
   cancel: { type: Boolean, default: false },
   gradient: { type: Boolean, default: false },
   size: { type: String, default: 'lg' }, // lg | md | sm
   loading: { type: Boolean, default: false },
   disabled: { type: Boolean, default: false },
+  textDark: { type: Boolean, default: false },
+  border: { type: Boolean, default: false },
 })
 
 defineEmits(['click'])
@@ -31,11 +40,13 @@ defineEmits(['click'])
 const bg = computed(() => {
   return props.contrast
     ? 'bg-contrast'
-    : props.cancel
-      ? 'bg-gray-a3'
-      : props.gradient
-        ? 'bg-gradient-to-r from-primary to-contrast'
-        : 'bg-primary'
+    : props.bgLight
+      ? 'bg-gray-f6'
+      : props.cancel
+        ? 'bg-gray-a3'
+        : props.gradient
+          ? 'bg-gradient-to-r from-primary to-contrast'
+          : 'bg-primary'
 })
 
 const height = computed(() => {
