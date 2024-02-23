@@ -2,7 +2,7 @@
   <ClientOnly>
     <PageMessage :messaging="msgingUUID !== null">
       <template #default>
-        <div class="flex flex-col">
+        <div v-if="ready" class="flex flex-col">
           <div v-if="isDesktop" class="mb-20 px-20 text-lg font-bold leading-lg">Messages</div>
           <List :items="sortedUsers" item-key="uuid">
             <template #default="{ item, last }">
@@ -47,6 +47,7 @@
             </template>
           </List>
         </div>
+        <div v-else class="flex h-full items-center justify-center"><Loading></Loading></div>
       </template>
       <template #room>
         <Room :uuid="msgingUUID" @back="messageTo(null)"></Room>
@@ -77,7 +78,7 @@ const navStore = useNavStore()
 const { show, hide } = navStore
 
 const chatStore = useChatStore()
-const { sortedUsers } = storeToRefs(chatStore)
+const { ready, sortedUsers } = storeToRefs(chatStore)
 
 const { updateParams } = useRouters()
 

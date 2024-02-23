@@ -32,6 +32,7 @@ export const useChatStore = defineStore('chat', () => {
    * }
    */
   const userMap = reactive(new Map())
+  const userHistoryFetcherMap = new Map()
 
   // 傳送成功只會通知你 sign id，我只好用這個來暫存 sign id 對應到的 toUUID，才能直接從 userMap 查到
   const sendingMessagesMap = new Map()
@@ -40,7 +41,9 @@ export const useChatStore = defineStore('chat', () => {
   const ready = ref(false)
 
   const accountStore = useAccountStore()
-  const { isLogin } = storeToRefs(accountStore)
+  const { isLogin, userUUID } = storeToRefs(accountStore)
+
+  const { isLoading: syncingHistory, execute: execSyncHistory } = useRequest('Chat.contactList')
 
   if (!import.meta.env.SSR) {
     watch(
@@ -146,22 +149,67 @@ export const useChatStore = defineStore('chat', () => {
       throw new Error('You cannot syncHistory, userMap or sendingMessagesMap still have data...')
     }
 
+    if (syncingHistory.value) {
+      return
+    }
+
     ready.value = false
-    useRequest('Chat.contactList', { immediate: true })
+    execSyncHistory()
       .then((d) => {
-        console.log(d)
+        for (const { user, message } of d.list) {
+          // 這是聊天對象的資訊
+          const { uuid, thumb, username, nickname } = user
+          initUser(uuid, thumb, username, nickname, [makeHistoryMessage(message)])
+        }
       })
       .catch((e) => console.error(e))
       .finally(() => (ready.value = true))
+  }
 
-    const { dataList, init } = useInfinite('Chat.history', {
-      params: { from_uuid: '562bd541c366d6d64e946b453b34ed35' },
-    })
-    init()
-      .then(() => {
-        console.log(dataList.value)
+  async function loadNextHistory(otherUUID) {
+    await checkUserMapExists(otherUUID)
+
+    const { next, isLoading, noMore } = userHistoryFetcherMap.get(otherUUID)
+    if (isLoading.value || noMore.value) {
+      return
+    }
+
+    const user = userMap.get(otherUUID)
+    const userMessages = user.messages
+
+    try {
+      user.loading = true
+
+      // 讀取歷史訊息後放入 user.messages 中
+      const historyMessages = await next()
+      historyMessages.forEach((hm, i) => {
+        // 一開始 getContactList 會有第一筆，然後接下去的第一次 getHistory 的第一筆應該會是相同的，這時候要跳過
+        if (i === 0 && userMessages[0] && userMessages[0].id === hm.sign) {
+          return
+        }
+        userMessages.unshift(makeHistoryMessage(hm))
       })
-      .catch((e) => console.error(e))
+
+      user.noMore = noMore.value
+    } catch (e) {
+      console.error(e)
+    } finally {
+      user.loading = false
+    }
+  }
+
+  function makeHistoryMessage(message) {
+    const self = message.from_uuid === userUUID.value
+    return {
+      _id: message.id, // 這才是後端產生的真正訊息id，但我當初發送的時候只能用發送端的 sign 當成他的 id，所以還是保留這種情況
+      id: message.sign,
+      timestamp: message.created_at * 1000, // 後端傳來的沒有毫秒...XD
+      content: message.content,
+      contentType: message.content_type || 'text', // 據說如果是 text 的話後端可能會傳空字串
+      self,
+      status: SEND_STATUS.SUCCESS,
+      unread: !self && !!message.need_send, // need_send 0已讀 1未讀
+    }
   }
 
   function initUser(uuid, avatar, username, nickname, messages = []) {
@@ -174,18 +222,12 @@ export const useChatStore = defineStore('chat', () => {
       loading: false,
       noMore: false,
     })
-    // userHistoryFetcherMap.set(
-    //   id,
-    //   useInfinite({
-    //     request: API.Chat.getHistory,
-    //     params: { from_uuid: uuid },
-    //     limit: 20,
-    //   }),
-    // )
+    userHistoryFetcherMap.set(uuid, useInfinite('Chat.history', { params: { from_uuid: uuid }, limit: 20 }))
   }
 
   function clearALL() {
     userMap.clear()
+    userHistoryFetcherMap.clear()
     sendingMessagesMap.clear()
   }
 
@@ -198,5 +240,6 @@ export const useChatStore = defineStore('chat', () => {
     selfMessageSendSuccess,
     selfPhotoUploaded,
     pushOtherMessage,
+    loadNextHistory,
   }
 })
