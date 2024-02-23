@@ -51,6 +51,7 @@ export default {
         contrast: '#7FE2D3',
         warning: '#FF1D00',
         'subscribe-pink': '#FB47FF',
+        'subscribe-light-pink': '#FF6ACC',
         'subscribe-orange': '#FF8947',
         'subscribe-red': '#FF4747',
         'subscribe-yellow': '#FFCB47',
