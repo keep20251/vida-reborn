@@ -174,6 +174,7 @@ export default {
     sending: "إرسال",
     failure: "فشل",
     imageSended: "تم إرسال الصورة",
+    newMessage: "",
   },
   copy: { link: "نسخ الرابط", fail: "فشل النسخ" },
   info: {
@@ -462,6 +463,10 @@ export default {
     },
     title: { paySuc: "دفعت بنجاح" },
     paying: { title: "معالجة الدفع" },
+    payFailed: {
+      title: "فشلت عملية الدفع",
+      content: "سبب مفصل: {reason}. يرجى المحاولة مرة أخرى ، أو الاتصال بموظفي خدمة العملاء",
+    },
     confirmAmount: "هل لي أن أطلب منك إرسال المبلغ {'$'} {price} انتقل إلى الدفع",
   },
   beCreator: {

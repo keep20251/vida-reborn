@@ -174,6 +174,7 @@ export default {
     sending: "Gửi",
     failure: "Thất bại",
     imageSended: "Đã gửi hình ảnh",
+    newMessage: "",
   },
   copy: { link: "Sao chép liên kết", fail: "Sao chép thất bại" },
   info: {
@@ -467,6 +468,10 @@ export default {
     },
     title: { paySuc: "Đã trả tiền thành công" },
     paying: { title: "Xử lý thanh toán" },
+    payFailed: {
+      title: "Thanh toán thất bại",
+      content: "Lý do chi tiết: {reason}. Vui lòng thử lại hoặc liên hệ với nhân viên dịch vụ khách hàng",
+    },
     confirmAmount: "Tôi có thể yêu cầu bạn gửi số tiền {'$'} {price} Truy cập thanh toán",
   },
   beCreator: {

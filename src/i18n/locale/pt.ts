@@ -174,6 +174,7 @@ export default {
     sending: "Enviando",
     failure: "Fracassado",
     imageSended: "Imagem enviada",
+    newMessage: "",
   },
   copy: { link: "Copiar link", fail: "Cópia falhou" },
   info: {
@@ -469,6 +470,10 @@ export default {
     },
     title: { paySuc: "Pagou com sucesso" },
     paying: { title: "Processo de pagamento" },
+    payFailed: {
+      title: "Falha de pagamento",
+      content: "Motivo detalhado: {reason}. Tente novamente ou entre em contato com a equipe de atendimento ao cliente",
+    },
     confirmAmount: "Posso pedir que você envie o valor {'$'} {price} vá para o pagamento",
   },
   beCreator: {

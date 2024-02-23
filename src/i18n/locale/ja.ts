@@ -169,6 +169,7 @@ export default {
     sending: "送信",
     failure: "失敗した",
     imageSended: "画像を送信しました",
+    newMessage: "",
   },
   copy: { link: "リンクをコピーする", fail: "コピーに失敗しました" },
   info: {
@@ -462,6 +463,10 @@ export default {
     },
     title: { paySuc: "正常に支払われました" },
     paying: { title: "支払い手続き" },
+    payFailed: {
+      title: "支払いは失敗します",
+      content: "詳細な理由：{reason}。もう一度やり直すか、カスタマーサービススタッフに連絡してください",
+    },
     confirmAmount: "{'$'} {price}の金額を送信するようお願いします。",
   },
   beCreator: {

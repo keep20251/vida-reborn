@@ -174,6 +174,7 @@ export default {
     sending: "Mengirim",
     failure: "Gagal",
     imageSended: "Gambar terkirim",
+    newMessage: "",
   },
   copy: { link: "Salin tautan", fail: "Salinan gagal" },
   info: {
@@ -468,6 +469,10 @@ export default {
     },
     title: { paySuc: "Telah berhasil dibayar" },
     paying: { title: "Proses pembayaran" },
+    payFailed: {
+      title: "Pembayaran gagal",
+      content: "Alasan terperinci: {reason}. Silakan coba lagi, atau hubungi staf layanan pelanggan",
+    },
     confirmAmount: "Bolehkah saya meminta Anda untuk mengirimkan jumlah {'$'} {price} Pergi ke pembayaran",
   },
   beCreator: {

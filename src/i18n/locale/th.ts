@@ -174,6 +174,7 @@ export default {
     sending: "การส่ง",
     failure: "ล้มเหลว",
     imageSended: "ส่งรูปภาพแล้ว",
+    newMessage: "",
   },
   copy: { link: "คัดลอกลิงค์", fail: "คัดลอกไม่สำเร็จ" },
   info: {
@@ -462,6 +463,10 @@ export default {
     },
     title: { paySuc: "จ่ายสำเร็จแล้ว" },
     paying: { title: "การประมวลผลการชำระเงิน" },
+    payFailed: {
+      title: "การชำระเงินล้มเหลว",
+      content: "เหตุผลโดยละเอียด: {reason} โปรดลองอีกครั้งหรือติดต่อเจ้าหน้าที่ฝ่ายบริการลูกค้า",
+    },
     confirmAmount: "ฉันขอให้คุณส่งจำนวน {'$'} {price} ไปที่การชำระเงิน",
   },
   beCreator: {
