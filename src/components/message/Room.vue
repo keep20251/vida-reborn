@@ -36,7 +36,7 @@
     </div>
     <div class="flex items-end justify-center space-x-10">
       <div class="flex h-36 items-center">
-        <label class="cursor-pointer">
+        <label class="flex cursor-pointer items-center">
           <Icon name="attach" size="20"></Icon>
           <input
             class="hidden"
@@ -72,7 +72,7 @@
 </template>
 
 <script setup>
-import { debounce } from 'lodash'
+import debounce from 'lodash/debounce'
 import { computed, onBeforeUpdate, onUpdated, ref, shallowRef, watch } from 'vue'
 import { useInfiniteScroll } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
@@ -123,7 +123,9 @@ watch(
       if (cleanup) return
       user.value = newUser
       checkNewMessage()
-      loadNextHistory(user.value.uuid)
+      if (user.value.messages.length === 1) {
+        loadNextHistory(user.value.uuid)
+      }
     } catch (e) {
       errMsg.value = e.message
     } finally {

@@ -13,11 +13,14 @@
               >
                 <Avatar :radius="30" :src="item.avatar"></Avatar>
                 <div class="grow">
-                  <div>
-                    <span class="text-base font-bold">{{ item.nickname }}</span>
-                    <span class="text-sm"> @{{ item.username }}</span>
+                  <div class="flex items-center space-x-5">
+                    <div class="line-clamp-1 text-base font-bold">{{ item.nickname }}</div>
+                    <div class="text-sm">@{{ item.username }}</div>
                   </div>
-                  <div class="line-clamp-2 text-base leading-lg" :style="{ 'word-break': 'break-word' }">
+                  <div
+                    class="line-clamp-2 whitespace-pre-line text-base leading-lg"
+                    :style="{ 'word-break': 'break-word' }"
+                  >
                     {{
                       item.messages.length === 0
                         ? ''
