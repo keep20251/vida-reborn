@@ -1,35 +1,36 @@
 <template>
-  <div class="relative h-full select-none rounded-md bg-gray-f6">
-    <div class="h-full w-full px-20 py-30">
-      <div class="flex h-full flex-row items-center">
-        <Avatar :radius="35" class="mr-10" :src="props.item?.thumb" :alt="props.item?.username"></Avatar>
-        <div class="flex flex-col space-y-10">
-          <Link
-            :href="`/${props.item?.username}`"
-            :title="props.item?.nickname"
-            @click="toCreator(props.item?.username)"
-          >
+  <Link
+    class="cursor-pointer"
+    :href="`/${props.item?.username}`"
+    :title="props.item?.nickname"
+    @click="toCreator(props.item?.username)"
+  >
+    <div class="relative h-full select-none rounded-md bg-gray-f6">
+      <div class="h-full w-full px-20 py-30">
+        <div class="flex h-full flex-row items-center">
+          <Avatar :radius="35" class="mr-10" :src="props.item?.thumb" :alt="props.item?.username"></Avatar>
+          <div class="flex flex-col space-y-10">
             <div class="flex cursor-pointer flex-row items-center space-x-5">
               <div class="text-lg font-bold leading-5 text-black">{{ props.item?.nickname }}</div>
               <div class="text-sm font-normal leading-3 text-black">@{{ props.item?.username }}</div>
             </div>
-          </Link>
-          <div class="text-sm font-normal leading-3 text-black">
-            {{ $t('content.posts') }} {{ props.item?.post_num }}
-            <span class="text-center"><Icon name="ellipse" size="3"></Icon></span>
-            {{ viewCount }} {{ $t('content.view') }}
-          </div>
-          <div class="text-base font-normal leading-5 text-black">
-            {{ props.item?.description }}
+            <div class="text-sm font-normal leading-3 text-black">
+              {{ $t('content.posts') }} {{ props.item?.post_num }}
+              <span class="text-center"><Icon name="ellipse" size="3"></Icon></span>
+              {{ viewCount }} {{ $t('content.view') }}
+            </div>
+            <div class="text-base font-normal leading-5 text-black">
+              {{ props.item?.description }}
+            </div>
           </div>
         </div>
       </div>
+      <!-- 這是豆腐遙遠的夢想，他想要跟Facebook一樣，可以刪除不想看到的創作者，減少曝光度，先不要刪掉 -->
+      <div v-show="false" class="absolute right-20 top-20 cursor-pointer">
+        <Icon name="close" size="20"></Icon>
+      </div>
     </div>
-    <!-- 這是豆腐遙遠的夢想，他想要跟Facebook一樣，可以刪除不想看到的創作者，減少曝光度，先不要刪掉 -->
-    <div v-show="false" class="absolute right-20 top-20 cursor-pointer">
-      <Icon name="close" size="20"></Icon>
-    </div>
-  </div>
+  </Link>
 </template>
 <script setup>
 import { computed } from 'vue'

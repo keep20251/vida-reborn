@@ -187,6 +187,7 @@
 </template>
 <script setup>
 import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAuthRouteStore } from '@/store/auth-route'
@@ -217,11 +218,12 @@ const { open: openAuthDialog } = useAuthRouteStore()
 const { confirm } = useModalStore()
 const { logout } = useAccountStore()
 
+const { t: $t } = useI18n()
 function onLogout() {
   confirm({
     size: 'sm',
     title: 'title.logout',
-    content: 'info.whetherLogin',
+    content: $t('info.whetherLogin'),
     confirmAction: () => {
       logout()
     },
