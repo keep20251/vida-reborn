@@ -38,6 +38,7 @@ export default {
     cookie: "اقبل ولا تظهر هذه الرسالة مرة أخرى",
     check: "تحقق",
     subscribe: "الاشتراك",
+    subscribed: "الاشتراك في",
     shopBuy: "يدفع",
     cancelSubscribe: "إلغاء الاشتراك",
     restoreSubscribe: "استئناف الاشتراك",

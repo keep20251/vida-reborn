@@ -33,6 +33,7 @@ export default {
     cookie: "このメッセージを受け入れて見ないでください",
     check: "確認する",
     subscribe: "サブスクリプション",
+    subscribed: "申し込む",
     shopBuy: "支払う",
     cancelSubscribe: "キャンセル",
     restoreSubscribe: "再開",

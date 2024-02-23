@@ -33,6 +33,7 @@ export default {
     cookie: "이 메시지를 다시 수락하고 다시 보여주지 마십시오",
     check: "확인하기",
     subscribe: "신청",
+    subscribed: "구독하십시오",
     shopBuy: "지불하다",
     cancelSubscribe: "구독 취소",
     restoreSubscribe: "구독 재개",

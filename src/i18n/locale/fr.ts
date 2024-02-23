@@ -38,6 +38,7 @@ export default {
     cookie: "Acceptez et ne montrez plus ce message",
     check: "Vérifier",
     subscribe: "abonnement",
+    subscribed: "S'abonner à",
     shopBuy: "Payer",
     cancelSubscribe: "Annuler",
     restoreSubscribe: "Reprendre",

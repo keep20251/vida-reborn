@@ -38,6 +38,7 @@ export default {
     cookie: "स्वीकार करें और इस संदेश को फिर से न दिखाएं",
     check: "जाँचें",
     subscribe: "अंशदान",
+    subscribed: "सहमत होना",
     shopBuy: "वेतन",
     cancelSubscribe: "सदस्यता रद्द करें",
     restoreSubscribe: "सदस्यता फिर से शुरू करें",
