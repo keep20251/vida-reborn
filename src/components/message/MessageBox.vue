@@ -12,7 +12,7 @@
             : $t('message.failure')
       }}
     </div>
-    <div v-if="isPhoto" class="relative z-10" :class="{ 'h-[150px] w-[300px]': item.status === SEND_STATUS.SENDING }">
+    <div v-if="isPhoto" class="relative" :class="{ 'h-[150px] w-[300px]': item.status === SEND_STATUS.SENDING }">
       <EncryptImage :src="photoUrl" :border-radius="24" cover></EncryptImage>
       <div
         class="absolute bottom-10 right-10 shrink-0 self-end text-sm"

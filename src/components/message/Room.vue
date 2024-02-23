@@ -12,11 +12,15 @@
       <div class="flex cursor-pointer" @click="$emit('back')">
         <Icon name="back" size="20"></Icon>
       </div>
-      <Avatar :radius="20" :src="user.avatar"></Avatar>
-      <div class="flex-grow text-base font-bold">{{ user.nickname }}</div>
-      <div class="flex cursor-pointer">
-        <Icon name="moreHorizontal" size="20"></Icon>
+      <div class="cursor-pointer" @click="toCreator(user.username)">
+        <Avatar :radius="20" :src="user.avatar"></Avatar>
       </div>
+      <div class="flex-grow text-base font-bold">
+        <span class="cursor-pointer" @click="toCreator(user.username)">{{ user.nickname }}</span>
+      </div>
+      <!-- <div class="flex cursor-pointer">
+        <Icon name="moreHorizontal" size="20"></Icon>
+      </div> -->
     </div>
     <div class="h-1 bg-gray-e5"></div>
     <div
@@ -77,6 +81,7 @@ import { useChatStore } from '@/store/chat'
 import TextareaWrap from '@comp/form/TextareaWrap.vue'
 import MessageBox from '@comp/message/MessageBox.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
+import { useRouters } from '@use/routers'
 import { isClose, isConnecting, sendPhotoMessage, sendTextMessage } from '@/ws'
 
 const props = defineProps({
@@ -91,6 +96,8 @@ const { isLogin, isCreator } = storeToRefs(accountStore)
 const chatStore = useChatStore()
 const { ready } = storeToRefs(chatStore)
 const { getUser, loadNextHistory } = chatStore
+
+const { toCreator } = useRouters()
 
 const loading = ref(false)
 const errMsg = ref('')
