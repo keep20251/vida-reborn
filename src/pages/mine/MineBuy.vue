@@ -42,7 +42,7 @@ const tabOptions = ref([
   { label: 'label.artPur', value: MINE_BUY_TAB.PURCHASED_ARTICLE },
 ])
 
-const { dataList, dataExtra, isLoading, noMore, init, next, revert } = useInfinite('User.listArticle', {
+const { dataList, dataExtra, isLoading, noMore, init, next } = useInfinite('User.listArticle', {
   params: { type: GET_ARTICLE_LIST.BOUGHT },
 })
 

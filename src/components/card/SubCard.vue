@@ -29,14 +29,16 @@
                       : $t('content.beExpired')
                 }}
               </div>
+              <div class="text-sm font-semibold leading-normal text-primary">{{ item.subscription_title }}</div>
             </div>
             <div>
               <Button
-                @click="onSubStatus({ item })"
+                @click="onSubStatus(item)"
                 :class="{
                   'bg-gray-a3': item.status === SUB_STATUS.CANCEL_SUB,
                   'bg-contrast': item.status === SUB_STATUS.RESTORE_SUB,
                   'bg-primary': item.status === SUB_STATUS.RE_SUB,
+                  'bg-subscribe-blue': item.status === SUB_STATUS.SUB_IN_ADVANCE,
                 }"
                 contrast
                 size="sm"
@@ -45,7 +47,9 @@
                     ? $t('common.cancelSubscribe')
                     : item.status === SUB_STATUS.RESTORE_SUB
                       ? $t('common.restoreSubscribe')
-                      : $t('common.reSubscribe')
+                      : item.status === SUB_STATUS.RE_SUB
+                        ? $t('common.reSubscribe')
+                        : '提前續訂'
                 }}</Button
               >
             </div>
@@ -65,6 +69,8 @@
 <script setup>
 import { onActivated, onDeactivated, onMounted, onUnmounted, ref } from 'vue'
 import { useMineStore } from '@/store/mine'
+import { useModalStore } from '@/store/modal'
+import { usePopupMessageStore } from '@/store/popup-message'
 import Button from '@comp/common/Button.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
 import { useDialog } from '@use/modal'
@@ -72,8 +78,9 @@ import useRequest from '@use/request/index.js'
 import { useInfinite } from '@use/request/infinite'
 import { CANCEL_SUB_TYPE, SUB_STATUS } from '@const'
 
+const { open, confirm } = useModalStore()
+const { open: openMessage } = usePopupMessageStore()
 const { subscribe } = useDialog()
-
 const { dataList, isLoading, noMore, init, next, reload } = useInfinite('User.listSubs', {
   params: {},
 })
@@ -84,52 +91,59 @@ onUnmounted(() => clearNextFn(next))
 onActivated(() => setNextFn(next))
 onDeactivated(() => clearNextFn(next))
 
-const formatDate = (date) => {
-  return date.slice(0, 16)
-}
-
-const onSubStatus = ({ item }) => {
+const onSubStatus = (item) => {
+  const i = ref({
+    ...item,
+    picture: item.background,
+    id: item.subscription_id,
+  })
+  const creator = ref({
+    aff: item.aff,
+    username: item.username,
+  })
   if (item.status === SUB_STATUS.CANCEL_SUB) {
-    console.log('你要取消訂閱齁！')
-    console.log(item.subscription_id)
-    cancelSub(item)
+    confirm({
+      size: 'sm',
+      title: '再次確認',
+      content: '你確定要取消訂閱嗎？',
+      confirmAction: () => {
+        handleSubscription(CANCEL_SUB_TYPE.CANCEL_SUB, item.subscription_id)
+      },
+    })
   } else if (item.status === SUB_STATUS.RESTORE_SUB) {
-    console.log('你要恢復訂閱齁！')
-    console.log(item.subscription_id)
-    restoreSub(item)
-  } else {
-    console.log('你要重新訂閱齁！')
-    const i = {
-      ...item,
-      picture: item.background,
-      id: item.subscription_id,
-    }
-    const creator = {
-      aff: item.aff,
-      username: item.username,
-    }
+    confirm({
+      size: 'sm',
+      title: '再次確認',
+      content: '你確定要取消訂閱嗎？',
+      confirmAction: () => {
+        handleSubscription(CANCEL_SUB_TYPE.RESTORE_SUB, item.subscription_id)
+      },
+    })
+  } else if (item.status === SUB_STATUS.RE_SUB) {
     try {
-      const result = subscribe({ i, creator })
-      if (result.success) {
-        reSubscribe(item)
-      } else {
-        console.log('訂閱失敗', result.error)
-      }
+      subscribe({ item: i.value, creator: creator.value })
+      handleSubscription(CANCEL_SUB_TYPE.RESTORE_SUB, item.subscription_id)
     } catch (e) {
-      console.error('訂閱失敗', e)
+      openMessage('重新訂閱失敗', e)
+    }
+  } else {
+    try {
+      subscribe({ item: i.value, creator: creator.value })
+      handleSubscription(CANCEL_SUB_TYPE.SUB_IN_ADVANCE, item.subscription_id)
+    } catch (e) {
+      openMessage('提前續訂失敗', e)
     }
   }
 }
 
 const serverError = ref('')
-async function cancelSub(item) {
+async function handleSubscription(type, userSubscriptionId) {
   const { execute } = useRequest('Payment.cancelSub')
   try {
     await execute({
-      type: CANCEL_SUB_TYPE.CANCEL_SUB,
-      userSubscriptionId: item.subscription_id,
+      type: type,
+      userSubscriptionId: userSubscriptionId,
     })
-    console.log('成功取消訂閱囉')
     reload()
     serverError.value = ''
   } catch (e) {
@@ -138,35 +152,7 @@ async function cancelSub(item) {
   }
 }
 
-async function restoreSub(item) {
-  const { execute } = useRequest('Payment.cancelSub')
-  try {
-    await execute({
-      type: CANCEL_SUB_TYPE.RESTORE_SUB,
-      userSubscriptionId: item.subscription_id,
-    })
-    console.log('成功恢復訂閱囉')
-    reload()
-    serverError.value = ''
-  } catch (e) {
-    serverError.value = e.message
-    console.error(e)
-  }
-}
-
-async function reSubscribe(item) {
-  const { execute } = useRequest('Payment.cancelSub')
-  try {
-    await execute({
-      type: CANCEL_SUB_TYPE.RE_SUB,
-      userSubscriptionId: item.subscription_id,
-    })
-    console.log('成功重新訂閱囉')
-    reload()
-    serverError.value = ''
-  } catch (e) {
-    serverError.value = e.message
-    console.error(e)
-  }
+const formatDate = (date) => {
+  return date.slice(0, 16)
 }
 </script>

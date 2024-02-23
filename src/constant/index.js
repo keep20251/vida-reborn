@@ -154,7 +154,7 @@ export const CANCEL_SUB_TYPE = {
   CANCEL_SUB: 0, // 「取消訂閱」為預設值
   RESTORE_SUB: 1, // 「恢復訂閱」
   RE_SUB: 2, // 「重新訂閱」
-  SUB_IN_ADVANCE: 4, // 「提前續訂」
+  SUB_IN_ADVANCE: 3, // 「提前續訂」
 }
 
 // 取得用戶自身帖子列表
