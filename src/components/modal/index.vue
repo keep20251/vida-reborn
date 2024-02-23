@@ -9,9 +9,7 @@
           {{ title !== null ? $t(title) : '' }}
         </div>
         <div v-if="!!imageTitle" class="absolute -top-50 flex w-full items-center justify-center">
-          <div class="max-w-[180px]">
-            <EncryptImage :src="imageTitle" :border-radius="15"></EncryptImage>
-          </div>
+          <EncryptImage :src="imageTitle" :border-radius="15" :width="180" :height="120" cover></EncryptImage>
         </div>
         <div v-if="!!avatarTitle" class="absolute -top-50 flex w-full items-center justify-center">
           <EncryptImage :src="avatarTitle" :radius="60" cover></EncryptImage>
@@ -128,7 +126,8 @@ async function confirm(data) {
   if (fn) {
     confirming.value = true
     try {
-      const confirmResult = await fn(data)
+      const isAsync = fn.constructor.name === 'AsyncFunction'
+      const confirmResult = isAsync ? await fn(data) : fn(data)
       if (typeof confirmResult === 'string') {
         confirmFailMsg.value = confirmResult
         return
