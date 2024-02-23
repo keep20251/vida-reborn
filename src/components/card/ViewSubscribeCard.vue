@@ -17,7 +17,7 @@
             </div>
           </div>
           <div class="flex-shrink-0 self-end">
-            <Button>{{ $t('common.viewSubscribePlan') }}</Button>
+            <Button :size="size">{{ $t('common.viewSubscribePlan') }}</Button>
           </div>
         </div>
         <div class="absolute right-20 top-20 cursor-pointer">
@@ -29,6 +29,8 @@
 </template>
 <script setup>
 import { computed } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useAppStore } from '@/store/app'
 import Button from '@comp/common/Button.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
 import { useRouters } from '@use/routers'
@@ -54,6 +56,9 @@ const colorTheme = computed(() => {
       return 'bg-gradient-to-b from-gray-purple from-[6.82%] to-gray-orange to-[98.84%]'
   }
 })
+
+const { isMobile } = storeToRefs(useAppStore())
+const size = computed(() => (isMobile.value ? 'md' : 'lg'))
 
 const { toCreator } = useRouters()
 </script>
