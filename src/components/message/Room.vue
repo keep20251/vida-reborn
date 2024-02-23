@@ -31,19 +31,28 @@
       <MessageBox v-for="m in user.messages" :item="m" :key="m.id" @intersect="m.unread = false"></MessageBox>
     </div>
     <div class="flex items-end justify-center space-x-10">
-      <div class="flex h-36 cursor-pointer items-center">
-        <Icon name="attach" size="20"></Icon>
+      <div class="flex h-36 items-center">
+        <label class="cursor-pointer">
+          <Icon name="attach" size="20"></Icon>
+          <input
+            class="hidden"
+            ref="photoInput"
+            type="file"
+            accept="image/jpg, image/jpeg, image/png, image/gif"
+            @change="sendPhoto"
+          />
+        </label>
       </div>
       <TextareaWrap
         v-model="input"
         class="grow"
         :line="inputLine"
         disable-enter-new-line
-        @keypress:enter="send"
+        @keypress:enter="sendText"
         @keypress:alt:enter="input += '\n'"
       ></TextareaWrap>
       <div class="flex h-36 items-center">
-        <div class="flex h-30 w-40 cursor-pointer items-center justify-center rounded-xl bg-primary" @click="send">
+        <div class="flex h-30 w-40 cursor-pointer items-center justify-center rounded-xl bg-primary" @click="sendText">
           <Icon name="sendWhite" size="20"></Icon>
         </div>
       </div>
@@ -68,7 +77,7 @@ import { useChatStore } from '@/store/chat'
 import TextareaWrap from '@comp/form/TextareaWrap.vue'
 import MessageBox from '@comp/message/MessageBox.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
-import { isClose, isConnecting, sendTextMessage } from '@/ws'
+import { isClose, isConnecting, sendPhotoMessage, sendTextMessage } from '@/ws'
 
 const props = defineProps({
   uuid: { type: String },
@@ -119,7 +128,7 @@ watch(
 
 const input = ref('')
 const inputLine = computed(() => Math.min(input.value.split('\n').length, 5))
-function send() {
+function sendText() {
   const message = input.value.trim()
 
   if (!message) return
@@ -133,6 +142,22 @@ function send() {
   } catch (e) {
     console.error(e)
   }
+}
+
+const photoInput = ref(null)
+function sendPhoto(evt) {
+  const file = evt.target.files[0]
+  if (file) {
+    const uuid = user.value.uuid
+
+    try {
+      sendPhotoMessage(file, uuid)
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
+  photoInput.value.value = null
 }
 
 const messages = ref(null)
