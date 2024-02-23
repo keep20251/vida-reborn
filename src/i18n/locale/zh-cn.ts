@@ -169,6 +169,7 @@ export default {
     sending: "Sending",
     failure: "Failed",
     imageSended: "Image sent",
+    newMessage: "",
   },
   copy: { link: "复制链接", fail: "复制失败" },
   info: {
@@ -443,6 +444,7 @@ export default {
     shopBuySuc: { 1: "太棒了！已成功付款解锁帖子", 2: "选择前往帖子观赏，或者留在原画面逛逛吧！", confirm: "前往帖子" },
     title: { paySuc: "已成功付款" },
     paying: { title: "付款处理中" },
+    payFailed: { title: "付款失败", content: "详细原因：{reason}。请再试一次，或者联系客服人员" },
     confirmAmount: "请问您提交金额 {'$'}{price} 前往支付",
   },
   beCreator: {

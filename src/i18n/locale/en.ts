@@ -174,6 +174,7 @@ export default {
     sending: "发送中",
     failure: "失败",
     imageSended: "图片已发送",
+    newMessage: "",
   },
   copy: { link: "Copy Link", fail: "Copy Failed" },
   info: {
@@ -467,6 +468,10 @@ export default {
     },
     title: { paySuc: "Has successfully paid" },
     paying: { title: "Payment processing" },
+    payFailed: {
+      title: "Payment Fail",
+      content: "Detailed reason: {reason}. Please try again, or contact customer service staff",
+    },
     confirmAmount: "May I ask you to submit the amount {'$'} {price} Go to the payment",
   },
   beCreator: {

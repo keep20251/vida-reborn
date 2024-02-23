@@ -174,6 +174,7 @@ export default {
     sending: "भेजना",
     failure: "असफल",
     imageSended: "छवि भेजी गई",
+    newMessage: "",
   },
   copy: { link: "लिंक कॉपी करें", fail: "कॉपी विफल" },
   info: {
@@ -451,6 +452,10 @@ export default {
     },
     title: { paySuc: "सफलतापूर्वक भुगतान किया है" },
     paying: { title: "भुगतान प्रक्रिया" },
+    payFailed: {
+      title: "अदायगी विफल",
+      content: "विस्तृत कारण: {reason}। कृपया पुनः प्रयास करें, या ग्राहक सेवा कर्मचारियों से संपर्क करें",
+    },
     confirmAmount: "क्या मैं आपसे {'$'} {price} राशि जमा करने के लिए कह सकता हूं",
   },
   beCreator: {

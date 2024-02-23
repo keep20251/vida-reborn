@@ -169,6 +169,7 @@ export default {
     sending: "배상",
     failure: "실패한",
     imageSended: "이미지 전송됨",
+    newMessage: "",
   },
   copy: { link: "링크 복사하기", fail: "복사 실패" },
   info: {
@@ -461,6 +462,10 @@ export default {
     },
     title: { paySuc: "성공적으로 지불했습니다" },
     paying: { title: "지불 처리" },
+    payFailed: {
+      title: "결제 실패",
+      content: "자세한 이유 : {reason}. 다시 시도하거나 고객 서비스 직원에게 문의하십시오",
+    },
     confirmAmount: "금액 { '$'} {price} 금액을 제출하도록 요청할 수 있습니다.",
   },
   beCreator: {
