@@ -1,9 +1,9 @@
 <template>
-  <div class="flex flex-wrap space-x-10">
+  <div class="flex flex-wrap">
     <div
       v-for="(tag, index) in props.items"
       :key="`history-tag-${index}`"
-      class="mt-10 flex cursor-pointer items-center justify-center whitespace-nowrap rounded-xl bg-gray-f6 px-18 py-6 text-sm font-normal leading-3"
+      class="ml-10 mt-10 flex cursor-pointer items-center justify-start whitespace-nowrap rounded-xl bg-gray-f6 px-18 py-6 text-sm font-normal leading-3"
       @click="() => (modelValue = tag[`${props.itemValue}`])"
     >
       {{ tag[`${props.itemLabel}`] }}
