@@ -19,6 +19,7 @@
 </template>
 <script setup>
 import { onActivated, onMounted, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useHydrationStore } from '@/store/hydration'
 import { useModalStore } from '@/store/modal'
@@ -53,11 +54,12 @@ onHydration(() => {
 })
 
 const { confirm } = useModalStore()
+const { t: $t } = useI18n()
 function openClearConfirm() {
   confirm({
     size: 'sm',
     title: 'title.clearSearchHistory',
-    content: 'content.clearSearchHistory',
+    content: $t('content.clearSearchHistory'),
     confirmAction: clearHistoryTags,
   })
 }
