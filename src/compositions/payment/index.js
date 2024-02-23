@@ -83,7 +83,7 @@ export function usePayment() {
     } catch (e) {
       console.error('[Payment Error]', e)
       setTimeout(
-        onFailed(() => actions.onFailure && actions.onFailure()),
+        onFailed(() => actions.onFailure && actions.onFailure(e.message)),
         1500,
       )
     }
@@ -153,7 +153,7 @@ export function usePayment() {
       console.error('[fetchPollingResult] Polling Failed...', e)
       isContinue.value = false
       setTimeout(
-        onFailed(() => actions.onFailure && actions.onFailure()),
+        onFailed(() => actions.onFailure && actions.onFailure(e.message)),
         1500,
       )
     }

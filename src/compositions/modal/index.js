@@ -12,7 +12,7 @@ import uploadImage from '@/http/upload/uploadImage'
 export function useDialog() {
   const { t: $t } = useI18n()
   const { pay, cancel } = usePayment()
-  const { open, close } = useModalStore()
+  const { open, close, alert: $alert } = useModalStore()
   const { toCreator, toFeed } = useRouters()
 
   const accountStore = useAccountStore()
@@ -52,6 +52,15 @@ export function useDialog() {
     })
   }
 
+  function failed(reason) {
+    $alert({
+      size: 'sm',
+      title: 'modal.payFailed.title',
+      content: $t('modal.payFailed.content', { reason }),
+      confirmText: $t('common.confirm'),
+    })
+  }
+
   async function subscribe({ item, creator }) {
     if (!item) {
       openMessage('message.error.subscriptionNotFound')
@@ -70,18 +79,18 @@ export function useDialog() {
       imageTitle: item.picture,
       content: item,
       confirmText: $t('modal.subscribe.confirm', { price: item.price }),
-      confirmAction: async (data) => {
-        await pay({
+      confirmAction: (data) => {
+        pay({
           apiKey: 'Payment.sub',
           data: { item_id: item.id },
           newWindow: data.window,
           paymentType: CONSUME_TYPE.SUBSCRIBE,
-          amount: 0,
-          onSuccess: () => () => {
+          onSuccess: () => {
             subscribeSuccess(creator)
           },
-          onFailure: () => console.log('付款失敗啦'),
+          onFailure: failed,
           onCancel: () => console.log('取消付款啦'),
+          onTimeout: () => console.log('付款逾時啦'),
         })
       },
       showClose: true,
@@ -102,18 +111,18 @@ export function useDialog() {
       avatarTitle: feed.user.thumb,
       content: feed,
       confirmText: $t('modal.shopBuy.confirm', { price: feed.price }),
-      confirmAction: async (data) => {
-        await pay({
+      confirmAction: (data) => {
+        pay({
           apiKey: 'Payment.buy',
           data: { item_id: feed.id },
           newWindow: data.window,
           paymentType: CONSUME_TYPE.SHOP_BUY,
-          amount: 0,
           onSuccess: () => {
             shopBuySuccess(feed)
           },
-          onFailure: () => console.log('付款失敗啦'),
+          onFailure: failed,
           onCancel: () => console.log('取消付款啦'),
+          onTimeout: () => console.log('付款逾時啦'),
         })
       },
       showClose: true,
