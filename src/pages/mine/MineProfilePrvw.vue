@@ -11,10 +11,10 @@
             <SocialIcon name="tiktok" :url="userData?.tiktok_link" size="15"></SocialIcon>
           </div>
           <div class="flex items-center space-x-10">
-            <Icon class="cursor-pointer" name="link" size="20"></Icon>
-            <Icon class="cursor-pointer" name="moreHorizontal" size="20"></Icon>
+            <div class="flex cursor-pointer items-center"><Icon name="report" size="20"></Icon></div>
+            <div class="flex cursor-pointer items-center"><Icon name="link" size="20"></Icon></div>
             <div v-if="isPrvwActive === 'isVisitor'">
-              <Button class="!h-26 !px-20 !py-6">{{ $t('common.subscribe') }}</Button>
+              <Button size="sm" bg-light border text-dark>{{ $t('common.subscribe') }}</Button>
             </div>
           </div>
         </div>

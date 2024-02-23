@@ -21,8 +21,11 @@
                   <Icon name="comment" size="20"></Icon>
                 </div> -->
                 <div class="flex cursor-pointer items-center"><Icon name="report" size="20"></Icon></div>
-                <div class="flex cursor-pointer items-center"><Icon name="sharePage" size="20"></Icon></div>
-                <Button size="sm" primary @click="subscribe({ item: lowestSub, creator })">
+                <div class="flex cursor-pointer items-center"><Icon name="link" size="20"></Icon></div>
+                <Button v-if="creator?.is_subscribed" size="sm" bg-light border text-dark>
+                  {{ $t('common.subscribed') }}
+                </Button>
+                <Button v-else size="sm" bg-light border text-dark @click="subscribe({ item: lowestSub, creator })">
                   {{ $t('common.subscribe') }}
                 </Button>
               </div>
