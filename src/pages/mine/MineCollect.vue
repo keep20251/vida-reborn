@@ -77,6 +77,7 @@ const {
   noMore: allArticleNoMore,
   init: allArticleInit,
   next: allArticleNext,
+  reload: allArticleReload,
 } = useInfinite('User.listArticle', {
   params: { type: GET_ARTICLE_LIST.LIKE },
 })
@@ -88,6 +89,7 @@ const {
   noMore: unlockedArticleNoMore,
   init: unlockedArticleInit,
   next: unlockedArticleNext,
+  reload: unlockedArticleReload,
 } = useInfinite('User.listArticle', {
   params: { type: GET_ARTICLE_LIST.LIKE, unlock: GET_ARTICLE_COLLECT.UNLOCKED },
 })
@@ -99,23 +101,23 @@ const {
   noMore: notUnlockedArticleNoMore,
   init: notUnlockedArticleInit,
   next: notUnlockedArticleNext,
+  reload: notUnlockedArticleReload,
 } = useInfinite('User.listArticle', {
   params: { type: GET_ARTICLE_LIST.LIKE, unlock: GET_ARTICLE_COLLECT.NOT_UNLOCKED },
 })
 
 const { setNextFn, clearNextFn } = useMineStore()
 onMounted(() => {
-  allArticleInit()
-  unlockedArticleInit()
-  notUnlockedArticleInit()
-  setNextFn(allArticleNext, unlockedArticleNext, notUnlockedArticleNext)
+  allArticleReload()
+  unlockedArticleReload()
+  notUnlockedArticleReload()
 })
 onUnmounted(() => clearNextFn(allArticleNext, unlockedArticleNext, notUnlockedArticleNext))
 onActivated(() => {
-  allArticleInit()
-  unlockedArticleInit()
-  notUnlockedArticleInit()
   setNextFn(allArticleNext, unlockedArticleNext, notUnlockedArticleNext)
+  allArticleReload()
+  unlockedArticleReload()
+  notUnlockedArticleReload()
 })
 onDeactivated(() => clearNextFn(allArticleNext, unlockedArticleNext, notUnlockedArticleNext))
 </script>

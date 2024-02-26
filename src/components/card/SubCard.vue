@@ -38,7 +38,7 @@
                   'bg-gray-a3': item.status === SUB_STATUS.CANCEL_SUB,
                   'bg-contrast': item.status === SUB_STATUS.RESTORE_SUB,
                   'bg-primary': item.status === SUB_STATUS.RE_SUB,
-                  'bg-subscribe-blue': item.status === SUB_STATUS.SUB_IN_ADVANCE,
+                  'bg-subscribe-light-pink': item.status === SUB_STATUS.SUB_IN_ADVANCE,
                 }"
                 contrast
                 size="sm"
@@ -86,9 +86,12 @@ const { dataList, isLoading, noMore, init, next, reload } = useInfinite('User.li
 })
 
 const { setNextFn, clearNextFn } = useMineStore()
-onMounted(() => init())
+onMounted(() => reload())
 onUnmounted(() => clearNextFn(next))
-onActivated(() => setNextFn(next))
+onActivated(() => {
+  setNextFn(next)
+  reload()
+})
 onDeactivated(() => clearNextFn(next))
 
 const onSubStatus = (item) => {

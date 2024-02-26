@@ -42,19 +42,16 @@ const tabOptions = ref([
   { label: 'label.artPur', value: MINE_BUY_TAB.PURCHASED_ARTICLE },
 ])
 
-const { dataList, dataExtra, isLoading, noMore, init, next } = useInfinite('User.listArticle', {
+const { dataList, dataExtra, isLoading, noMore, init, next, reload } = useInfinite('User.listArticle', {
   params: { type: GET_ARTICLE_LIST.BOUGHT },
 })
 
 const { setNextFn, clearNextFn } = useMineStore()
-onMounted(() => {
-  init()
-  setNextFn(next)
-})
+onMounted(() => reload())
 onUnmounted(() => clearNextFn(next))
 onActivated(() => {
-  init()
   setNextFn(next)
+  reload()
 })
 onDeactivated(() => clearNextFn(next))
 </script>
