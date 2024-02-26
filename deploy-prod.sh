@@ -1,2 +1,3 @@
-npm run build &&
+npm install &&
+    npm run build &&
     npm run prod -- --port=3000
