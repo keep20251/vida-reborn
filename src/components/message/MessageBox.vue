@@ -43,11 +43,22 @@ const emits = defineEmits(['intersect'])
 
 const style = computed(() => {
   const main = props.item.self
-    ? 'relative mr-8 flex max-w-[80%] space-x-8 self-end rounded-3xl bg-primary text-base leading-lg text-white before:absolute before:-right-2 before:bottom-0 before:h-16 before:rounded-bl-lg before:border-r-[1rem] before:border-solid before:border-r-primary after:absolute after:-right-9 after:bottom-0 after:h-16 after:w-10 after:rounded-bl-md after:bg-white md:mr-24 md:max-w-[65%]'
-    : 'relative flex max-w-[80%] space-x-8 self-start rounded-3xl bg-gray-f6 text-base leading-lg text-black before:absolute before:-left-2 before:bottom-0 before:h-16 before:rounded-br-lg before:border-l-[1rem] before:border-solid before:border-l-gray-f6 after:absolute after:-left-8 after:bottom-0 after:h-16 after:w-10 after:rounded-br-md after:bg-white md:max-w-[65%]'
+    ? 'relative flex space-x-8 self-end   rounded-3xl bg-primary text-base leading-lg text-white max-w-[80%] md:max-w-[65%] mr-8 md:mr-24'
+    : 'relative flex space-x-8 self-start rounded-3xl bg-gray-f6 text-base leading-lg text-black max-w-[80%] md:max-w-[65%]'
+
+  // 對話框小圓角
+  const before = props.item.self
+    ? 'before:absolute before:-right-2 before:bottom-0 before:h-16 before:rounded-bl-lg before:border-r-[1rem] before:border-solid before:border-r-primary'
+    : 'before:absolute before:-left-2  before:bottom-0 before:h-16 before:rounded-br-lg before:border-l-[1rem] before:border-solid before:border-l-gray-f6'
+
+  // 對話框小圓角上方的遮擋
+  const after = props.item.self
+    ? 'after:absolute after:-right-9 after:bottom-0 after:h-16 after:w-10 after:rounded-bl-md after:bg-white'
+    : 'after:absolute after:-left-8  after:bottom-0 after:h-16 after:w-10 after:rounded-br-md after:bg-white'
+
   const padding = isText.value ? 'px-16 py-10' : isPhoto.value ? 'p-5' : ''
 
-  return `${main} ${padding}`
+  return `${main} ${before} ${after} ${padding}`
 })
 
 const { appConfig } = useAppStore()
