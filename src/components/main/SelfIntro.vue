@@ -48,7 +48,21 @@
         <div class="flex items-end space-x-5">
           <div class="text-sm font-normal leading-3 text-gray-57">{{ item.view_count }} {{ $t('content.view') }}</div>
         </div>
-        <p class="text-base font-normal leading-lg">{{ item.description }}</p>
+        <p
+          class="select-none text-base font-normal leading-lg"
+          :class="{ 'line-clamp-3': contentFold }"
+          ref="content"
+          @click.stop="toggleContentFold"
+        >
+          {{ item.description }}
+        </p>
+        <div
+          v-show="showContentMore"
+          class="cursor-pointer select-none text-right text-base font-normal leading-lg"
+          @click.stop="toggleContentFold"
+        >
+          {{ $t('common.more') }}
+        </div>
       </div>
     </div>
     <div v-if="$slots['bottomButton']" class="my-20 flex space-x-10" :class="{ 'mx-20': isMobile }">
@@ -72,6 +86,7 @@
 </template>
 <script setup>
 import { ref } from 'vue'
+import { useResizeObserver } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import Avatar from '@comp/multimedia/Avatar.vue'
@@ -96,4 +111,13 @@ const inputBackground = ref(null)
 
 const appStore = useAppStore()
 const { isMobile } = storeToRefs(appStore)
+
+const content = ref(null)
+const showContentMore = ref(false)
+useResizeObserver(content, () => (showContentMore.value = content.value.scrollHeight > content.value.clientHeight))
+
+const contentFold = ref(true)
+function toggleContentFold() {
+  contentFold.value = !contentFold.value
+}
 </script>
