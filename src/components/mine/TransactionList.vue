@@ -35,14 +35,17 @@ import { onActivated, onDeactivated, onMounted, onUnmounted } from 'vue'
 import { useMineStore } from '@/store/mine'
 import { useInfinite } from '@use/request/infinite'
 
-const { dataList, isLoading, noMore, init, next } = useInfinite('Payment.history', {
+const { dataList, isLoading, noMore, init, next, reload } = useInfinite('Payment.history', {
   params: {},
 })
 
 const { setNextFn, clearNextFn } = useMineStore()
-onMounted(() => init())
+onMounted(() => reload())
 onUnmounted(() => clearNextFn(next))
-onActivated(() => setNextFn(next))
+onActivated(() => {
+  setNextFn(next)
+  reload()
+})
 onDeactivated(() => clearNextFn(next))
 
 const formatDate = (date) => {

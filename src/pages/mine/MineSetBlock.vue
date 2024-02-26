@@ -22,7 +22,7 @@
   </div>
 </template>
 <script setup>
-import { onActivated, onDeactivated, onMounted } from 'vue'
+import { onActivated, onDeactivated, onMounted, onUnmounted } from 'vue'
 import { useFeedStore } from '@/store/feed'
 import { useMineStore } from '@/store/mine'
 import { useModalStore } from '@/store/modal'
@@ -43,8 +43,12 @@ const { dataList, isLoading, noMore, init, next, reload } = useInfinite('User.li
 })
 
 const { setNextFn, clearNextFn } = useMineStore()
-onMounted(init)
-onActivated(() => setNextFn(next))
+onMounted(() => reload())
+onUnmounted(() => clearNextFn(next))
+onActivated(() => {
+  setNextFn(next)
+  reload()
+})
 onDeactivated(() => clearNextFn(next))
 
 async function unblock(aff_blocked) {

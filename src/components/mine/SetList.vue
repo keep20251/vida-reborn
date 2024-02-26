@@ -171,7 +171,8 @@
             <Icon name="mineAboutDmca" size="20"></Icon><span class="text-base">DMCA</span>
           </router-link>
           <div class="flex items-center space-x-18 pt-10">
-            <Icon name="mineAboutVersion" size="20"></Icon><span class="text-base">V1.0.0</span>
+            <Icon name="mineAboutVersion" size="20"></Icon
+            ><span class="text-base">{{ `${$t('title.version')} v${version}` }}</span>
           </div>
         </div>
       </div>
@@ -229,4 +230,6 @@ function onLogout() {
     },
   })
 }
+
+const version = import.meta.env.VITE_APP_VERSION
 </script>
