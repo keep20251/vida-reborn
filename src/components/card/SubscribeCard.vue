@@ -12,9 +12,15 @@
         <EncryptImage :src="props.item.picture" :borderRadius="15" cover></EncryptImage>
       </div>
       <div>
-        <div class="relative text-sm font-medium leading-normal text-gray-a3" @click="() => (fold = !fold)">
-          <p :class="{ 'line-clamp-3': fold }">{{ props.item.content }}</p>
-          <div v-show="fold" class="absolute bottom-0 right-0 cursor-pointer text-black">{{ $t('common.more') }}</div>
+        <div class="text-sm font-medium leading-normal text-gray-a3" @click.stop="toggleFold">
+          <p :class="{ 'line-clamp-3': fold }" ref="content">{{ props.item.content }}</p>
+        </div>
+        <div
+          v-show="showContentMore"
+          class="cursor-pointer select-none text-right text-sm font-medium leading-normal text-gray-a3"
+          @click.stop="toggleFold"
+        >
+          {{ $t('common.more') }}
         </div>
       </div>
     </div>
@@ -23,6 +29,7 @@
 </template>
 <script setup>
 import { ref } from 'vue'
+import { useResizeObserver } from '@vueuse/core'
 import Button from '@comp/common/Button.vue'
 
 const emit = defineEmits(['click'])
@@ -43,4 +50,12 @@ const props = defineProps({
 })
 
 const fold = ref(true)
+
+const content = ref(null)
+const showContentMore = ref(false)
+useResizeObserver(content, () => (showContentMore.value = content.value.scrollHeight > content.value.clientHeight))
+
+function toggleFold() {
+  fold.value = !fold.value
+}
 </script>
