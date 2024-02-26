@@ -55,8 +55,8 @@ const count = computed(() => {
 
 const { t: $t } = useI18n()
 const btnText = computed(() => {
-  if (props.item.article_type === FEED_PERM.SUB) return $t('common.subscribe')
-  if (props.item.article_type === FEED_PERM.BUY) return $t('common.shopBuy')
+  if (props.item.article_type === FEED_PERM.SUB) return $t('label.subBtn')
+  if (props.item.article_type === FEED_PERM.BUY) return $t('label.buyBtn')
   throw new Error('未知的帖子類型')
 })
 
