@@ -10,11 +10,11 @@
     <div class="absolute top-0 flex h-full w-full items-center justify-center rounded-inherit">
       <div v-if="item.user.is_block" class="flex flex-col items-center space-y-20">
         <Icon name="block" size="60"></Icon>
-        <div class="bg-gray-57 px-20 py-10 font-bold text-white">
+        <div class="bg-gray-57 px-20 py-10 text-base font-bold text-white">
           {{ $t('content.blocked', { name: item.user.nickname }) }}
         </div>
       </div>
-      <div v-else class="w-3/5">
+      <div v-else class="w-3/5" @click.stop>
         <Button @click="clickAction(actionParams)">{{ btnText }}</Button>
       </div>
     </div>
