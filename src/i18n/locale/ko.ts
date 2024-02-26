@@ -66,6 +66,7 @@ export default {
     tos: "이용 약관",
     pp: "개인정보 처리방침",
     cp: "쿠키 정책",
+    version: "",
     accountLogin: "계정 로그인",
     mailCodeLogin: "이메일 코드 로그인",
     pwdLogin: "비밀번호 로그인",
@@ -458,7 +459,7 @@ export default {
     },
     shopBuySuc: {
       1: "기이! 게시물을 잠금 해제하기위한 성공적인 결제",
-      2: "포스트를 선택하여 시청하거나 원래 화면에 머물러 있습니다!",
+      2: "게시물을 선택하거나 원래 화면을 유지하십시오!",
       confirm: "게시물로 이동하십시오",
     },
     title: { paySuc: "성공적으로 지불했습니다" },
@@ -468,6 +469,11 @@ export default {
       content: "자세한 이유 : {reason}. 다시 시도하거나 고객 서비스 직원에게 문의하십시오",
     },
     confirmAmount: "금액 { '$'} {price} 금액을 제출하도록 요청할 수 있습니다.",
+    beforeStart: "",
+    pickInterestedForUs: "",
+    feedCategory: "",
+    leastThree: "",
+    great: "",
   },
   beCreator: {
     id: { passport: "여권", idCard: "신분증", driverLicense: "운전 면허증" },

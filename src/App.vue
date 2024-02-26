@@ -34,11 +34,13 @@
 import { v4 as uuidv4 } from 'uuid'
 import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
+import { useLocalStorage } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
 import { useDialogStore } from '@/store/dialog'
 import { useHydrationStore } from '@/store/hydration'
+import { useModalStore } from '@/store/modal'
 import CookieBanner from '@comp/banner/CookieBanner.vue'
 import MinePrvwBanner from '@comp/banner/MinePrvwBanner.vue'
 import AuthDialog from '@comp/dialog/AuthDialog.vue'
@@ -53,7 +55,7 @@ import Modal from '@comp/modal/index.vue'
 import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import useRequest from '@use/request'
 import { useCookie } from '@use/utils/cookie'
-import { COOKIE_KEY } from '@const'
+import { COOKIE_KEY, LOCAL_STORAGE_KEYS, MODAL_TYPE } from '@const'
 import { loadSeoHead } from '@/utils/init'
 import { init, isClose, isConnecting, isOpen } from '@/ws'
 
@@ -70,7 +72,7 @@ const { authDialog, fileSelectDialog, subPlanDialog, subscriptionDialog, reportB
 
 const accountStore = useAccountStore()
 const { resetUserData, logout } = accountStore
-const { token } = storeToRefs(accountStore)
+const { token, isLogin } = storeToRefs(accountStore)
 
 const hydrationStore = useHydrationStore()
 const { appConfig, categories, userData } = storeToRefs(hydrationStore)
@@ -124,4 +126,19 @@ onHydration(() => {
 // IM 模組初始化
 const guestId = useCookie(COOKIE_KEY.GUEST_ID, { default: uuidv4, readonly: true })
 onMounted(() => init({ oauthId: guestId.value }))
+
+// 訪客初次進站興趣選擇
+const modalStore = useModalStore()
+const { open } = modalStore
+const interestedList = useLocalStorage(LOCAL_STORAGE_KEYS.INTERESTED_LIST, [])
+onMounted(() => {
+  if (!isLogin.value && interestedList.value.length === 0) {
+    open(MODAL_TYPE.INTERESTED_PICK, {
+      size: 'xl',
+      confirmAction(data) {
+        interestedList.value.push(...data)
+      },
+    })
+  }
+})
 </script>

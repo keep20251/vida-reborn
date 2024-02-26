@@ -27,22 +27,25 @@ const appStore = useAppStore()
 const { categories } = storeToRefs(appStore)
 
 const accountStore = useAccountStore()
-const { userData } = accountStore
+const { userData } = storeToRefs(accountStore)
+const { updateUserData } = accountStore
 
 const mineStore = useMineStore()
 const { interested } = storeToRefs(mineStore)
 
 onMounted(() => {
-  interested.value = userData.interested.split(',').map(String) // 字串轉成陣列
+  interested.value = userData.value.interested.split(',').map(String) // 字串轉成陣列
 })
 
 const serverError = ref('')
 async function savePref() {
   const { execute } = useRequest('User.modifyInfo')
   try {
+    const data = interested.value.join(',')
     await execute({
-      interested: interested.value.join(','), // 陣列轉回字串
+      interested: data, // 陣列轉回字串
     })
+    updateUserData({ interested: data })
     openMessage('title.updateSuccess')
   } catch (e) {
     serverError.value = e.message
