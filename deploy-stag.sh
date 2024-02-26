@@ -1,2 +1,3 @@
-npm run build:stag &&
+npm install &&
+    npm run build:stag &&
     npm run stag -- --port=3000
