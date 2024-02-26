@@ -123,7 +123,7 @@
         ></InputWrap>
 
         <!-- 排定發布 -->
-        <div class="flex flex-col space-y-10">
+        <div class="relative flex flex-col space-y-10">
           <div class="flex justify-between">
             <label class="text-left text-base leading-md">{{ $t('label.schedule') }}</label>
             <InputSwitch v-model="publishTimeOpen"></InputSwitch>
@@ -136,7 +136,7 @@
             @click:append="postTimeEditing = true"
           ></InputWrap>
           <DatePicker
-            class="self-end"
+            class="absolute bottom-36 self-end"
             v-if="publishTimeOpen && postTimeEditing"
             v-model="publishParams.postTime"
             include-time
@@ -180,7 +180,7 @@ const { uploadFiles, publishTimeOpen, isCreate, isUpdate, isVideo, isImage, isEd
   storeToRefs(publishStore)
 const { publishParams, startUpload, clear, changeVideoFile, addImageFile, removeUploadFile } = publishStore
 
-const { alert, confirm } = useModalStore()
+const { alert } = useModalStore()
 
 const accountStore = useAccountStore()
 const { userData } = storeToRefs(accountStore)
