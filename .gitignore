@@ -33,3 +33,6 @@ docker/.env
 
 # SEO verification
 public/google*.html
+
+# report files
+reports/*
