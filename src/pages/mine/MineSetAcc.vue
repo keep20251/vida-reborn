@@ -42,19 +42,21 @@
       @error="(message) => (serverError = message)"
     ></InputEmailCode>
     <div class="grid space-y-5" v-if="userData.email_validation === EMAIL_VALIDATION.UNVERIFIED">
-      <Button :loading="isLoading" @click="validate" contrast>{{ $t('label.submit') }}</Button>
+      <Button :loading="isLoading" @click="validateEmailCode" contrast>{{ $t('label.submit') }}</Button>
       <div v-if="!!serverError" class="text-sm font-normal leading-md text-warning">{{ serverError }}</div>
     </div>
     <InputWrap
-      v-model="nickname"
+      v-model="credential.nickname.value"
       :label="$t('label.displayName')"
       :placeholder="$t('placeholder.displayName')"
+      :errMsg="credential.nickname.error"
     ></InputWrap>
     <InputWrap
-      v-model="username"
+      v-model="credential.username.value"
       :label="$t('label.account')"
-      :sublabel="`@${username}`"
+      :sublabel="`@${credential.username.value}`"
       :placeholder="$t('placeholder.username')"
+      :errMsg="credential.username.error"
     ></InputWrap>
 
     <div>
@@ -82,7 +84,8 @@
   </div>
 </template>
 <script setup>
-import { onMounted, ref, watch } from 'vue'
+import { onMounted, reactive, ref, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useMineStore } from '@/store/mine'
@@ -104,12 +107,12 @@ const accountStore = useAccountStore()
 const { userData } = accountStore
 const edit = ref(false)
 const mineStore = useMineStore()
-const { email, verifyCode, nickname, username } = storeToRefs(mineStore)
+const { email, verifyCode } = storeToRefs(mineStore)
 
 onMounted(() => {
   email.value = userData.email
-  nickname.value = userData.nickname
-  username.value = userData.username
+  credential.nickname.value = userData.nickname
+  credential.username.value = userData.username
 })
 
 watch(email, (newEmailValue) => {
@@ -121,13 +124,13 @@ watch(email, (newEmailValue) => {
 const { sendEmailCode } = useMultiAuth()
 const type = SEND_EMAIL_PURPOSE.VERIFY_EMAIL
 
-const { Yup, parseError } = useYup()
+const { Yup, parseError, validate } = useYup()
 const schema = Yup.string().required().min(6).max(6)
 
 const verifyCodeError = ref('')
 const isLoading = ref(false)
 
-async function validate() {
+async function validateEmailCode() {
   try {
     isLoading.value = true
     await schema.validate(verifyCode.value)
@@ -154,28 +157,46 @@ async function accountValidationEmail() {
   }
 }
 
-watch(nickname, (newNicknameValue) => {
+const { t: $t } = useI18n()
+const credential = reactive({
+  nickname: {
+    value: userData.nickname,
+    error: '',
+    check: false,
+    schema: Yup.string().required($t('yup.mixed.required')).max(16),
+  },
+  username: {
+    value: userData.username,
+    error: '',
+    check: false,
+    schema: Yup.string().required($t('yup.mixed.required')).min(5).max(30),
+  },
+})
+
+watch(credential.nickname.value, (newNicknameValue) => {
   if (newNicknameValue) {
-    nickname.value = newNicknameValue
-    userData.nickname = nickname.value
-    console.log('nickname', nickname.value)
+    userData.nickname = newNicknameValue
+    console.log('nickname', newNicknameValue)
   }
 })
-watch(username, (newUsernameValue) => {
+watch(credential.username.value, (newUsernameValue) => {
   if (newUsernameValue) {
-    username.value = newUsernameValue
-    userData.username = username.value
-    console.log('username', username.value)
+    userData.username = newUsernameValue
+    console.log('username', newUsernameValue)
   }
 })
 
 const nameServerError = ref('')
 async function saveUserName() {
+  const validateNickname = validate(credential.nickname.schema, credential.nickname)
+  const validateUsername = validate(credential.username.schema, credential.username)
+  await Promise.all([validateNickname, validateUsername])
+
   const { execute } = useRequest('User.modifyInfo')
   try {
     await execute({
-      nickname: nickname.value,
-      username: username.value,
+      nickname: credential.nickname.value,
+      username: credential.username.value,
     })
     openMessage('title.updateSuccess')
   } catch (e) {
