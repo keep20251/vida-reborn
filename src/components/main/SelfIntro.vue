@@ -39,7 +39,9 @@
     <div v-if="showAllInfo" class="mx-20 grid space-y-10 pt-30 sm:ml-0 sm:mr-0 xl:ml-0 xl:mr-0">
       <div class="flex items-end justify-between">
         <div class="flex items-end space-x-5">
-          <div class="text-lg font-bold leading-lg">{{ item.nickname }}</div>
+          <div class="max-w-[10rem] overflow-hidden text-ellipsis whitespace-nowrap text-lg font-bold leading-lg">
+            {{ item.nickname }}
+          </div>
           <div class="text-sm font-normal leading-3 text-gray-57">＠{{ item.username }}</div>
         </div>
         <slot name="middleButton"></slot>

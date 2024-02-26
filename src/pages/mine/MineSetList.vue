@@ -3,7 +3,9 @@
     <div v-if="isUser || isCreator" class="flex flex-row space-x-10 pt-20">
       <Avatar :src="userData.thumb" :radius="35"></Avatar>
       <div class="flex flex-col justify-center space-y-5">
-        <div class="text-lg font-bold leading-lg">{{ userData.nickname }}</div>
+        <div class="max-w-[15rem] overflow-hidden text-ellipsis whitespace-nowrap text-lg font-bold leading-lg">
+          {{ userData.nickname }}
+        </div>
         <div class="text-sm font-normal leading-3">@{{ userData.username }}</div>
         <div v-if="isCreator" class="text-sm font-normal leading-3">
           {{ userData.subscriber_count }} {{ $t('common.subscribe') }}
