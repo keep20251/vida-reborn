@@ -1,12 +1,6 @@
 <template>
-  <div class="flex flex-col space-y-20">
-    <div class="relative flex items-center justify-center border-b">
-      <div class="absolute left-0 flex">
-        <Icon class="-rotate-90" name="back" size="20"></Icon>
-      </div>
-      <div class="py-20">{{ $t('title.mine') }}</div>
-    </div>
-    <div v-if="isUser || isCreator" class="flex flex-row space-x-10">
+  <div class="flex flex-col space-y-20 border-t">
+    <div v-if="isUser || isCreator" class="flex flex-row space-x-10 pt-20">
       <Avatar :src="userData.thumb" :radius="35"></Avatar>
       <div class="flex flex-col justify-center space-y-5">
         <div class="text-lg font-bold leading-lg">{{ userData.nickname }}</div>
