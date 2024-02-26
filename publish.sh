@@ -52,7 +52,7 @@ changePackageJson
 tag=$(git describe --tags --abbrev=0)
 
 # 分支的前一個Tag到HEAD的log
-log=$(git log $tag..HEAD --format='%s')
+log=$(git log $tag..HEAD --format='%s' | grep -v "Merge")
 
 report=$(
     echo "----------VIDA SSR 部署----------"
