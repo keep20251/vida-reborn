@@ -19,14 +19,19 @@
           </div>
         </div>
       </template>
-      <template #middleButton v-if="isPrvwActive === 'isVisitor'">
-        <div class="cursor-pointer text-sm font-bold leading-3 underline underline-offset-2">
-          {{ $t('common.viewSubscribePlan') }}
+      <template #bottomButton v-if="isPrvwActive === 'isVisitor'">
+        <div class="flex w-full flex-row items-center space-x-12">
+          <Button primary>
+            {{ $t('common.viewSubscribePlan') }}
+          </Button>
+          <div class="cursor-pointer">
+            <Icon name="messagePrimary" size="36"></Icon>
+          </div>
         </div>
       </template>
     </SelfIntro>
     <div class="mt-20 flex h-36 w-full items-center bg-gray-f6 px-20 text-base font-bold leading-md">
-      {{ $t('content.allPosts') }} 85
+      {{ $t('content.allPosts') }} {{ userData?.post_num }}
     </div>
     <div class="overflow-x-hidden">
       <List :items="dataList" item-key="id" divider>
