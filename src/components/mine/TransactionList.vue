@@ -12,12 +12,12 @@
             </div>
             <div class="text-base font-bold leading-md">$ {{ item.pay_amount }}</div>
           </div>
-          <div class="flex justify-between">
+          <div class="flex justify-between space-x-10">
             <div class="flex items-center space-x-5">
-              <div class="text-base font-bold leading-md">{{ $t('label.orderNumber') }}:</div>
-              <div class="text-base font-normal leading-lg text-gray-57">{{ item.order_id }}</div>
+              <div class="flex-nowrap text-base font-bold leading-md">{{ $t('label.orderNumber') }}:</div>
+              <div class="flex-wrap text-base font-normal leading-lg text-gray-57">{{ item.order_id }}</div>
             </div>
-            <div class="text-base font-normal leading-lg text-gray-57">{{ formatDate(item.created_at) }}</div>
+            <div class="flex-wrap text-base font-normal leading-lg text-gray-57">{{ formatDate(item.created_at) }}</div>
           </div>
         </div>
       </template>
