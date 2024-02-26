@@ -7,7 +7,7 @@
       </button>
     </div>
     <div class="select-none px-30 py-20">
-      <div class="scrollbar-md max-h-[65vh] overflow-y-scroll pr-15">
+      <div class="scrollbar-md max-h-[65vh] overflow-y-scroll pr-15" :class="{ 'my-10': subList.length === 0 }">
         <div @click="subPlanAdd()" class="cursor-pointer text-center text-base font-bold leading-md text-gray-57">
           ＋ {{ $t('content.AddNewSubPlan') }}
         </div>
