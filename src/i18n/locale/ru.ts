@@ -71,6 +71,7 @@ export default {
     tos: "Условия обслуживания",
     pp: "Политика конфиденциальности",
     cp: "Политика использования файлов cookie",
+    version: "",
     accountLogin: "Вход в аккаунт",
     mailCodeLogin: "Вход по коду из email",
     pwdLogin: "Вход по паролю",
@@ -170,7 +171,7 @@ export default {
     error: {
       subscribeSelf: "Не могу подписаться на себя",
       shopBuySelf: "Не могу купить свои собственные продукты",
-      subscriptionNotFound: "РЕШЕНИЕ НАСТОЯЩЕГО подписки не доступно",
+      subscriptionNotFound: "РЕШЕНИЕ НАСТОЯЩЕГО ПОДПИСКА",
     },
     sending: "Отправка",
     failure: "Неуспешный",
@@ -477,6 +478,11 @@ export default {
         "Подробная причина: {reason}. Пожалуйста, попробуйте еще раз или свяжитесь с сотрудниками по обслуживанию клиентов",
     },
     confirmAmount: "Могу я попросить вас отправить сумму {'$'} {price} перейти к платежу",
+    beforeStart: "",
+    pickInterestedForUs: "",
+    feedCategory: "",
+    leastThree: "",
+    great: "",
   },
   beCreator: {
     id: { passport: "Паспорт", idCard: "Удостоверение личности", driverLicense: "Водительские права" },

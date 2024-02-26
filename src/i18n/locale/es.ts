@@ -71,6 +71,7 @@ export default {
     tos: "Términos de servicio",
     pp: "Política de privacidad",
     cp: "Política de cookies",
+    version: "",
     accountLogin: "Iniciar sesión en la cuenta",
     mailCodeLogin: "Iniciar sesión con código de correo",
     pwdLogin: "Iniciar sesión con contraseña",
@@ -170,7 +171,7 @@ export default {
     error: {
       subscribeSelf: "No puedo suscribirte a ti mismo",
       shopBuySelf: "No puedo comprar tus propios productos",
-      subscriptionNotFound: "No hay solución de suscripción disponible",
+      subscriptionNotFound: "Sin solución de suscripción disponible",
     },
     sending: "Enviando",
     failure: "Fallido",
@@ -236,7 +237,7 @@ export default {
     whetherDelAcc: "¿Estás seguro de que quieres eliminar tu cuenta?",
   },
   content: {
-    default: "Preset, no debe mostrarse en ningún lado",
+    default: "Preestablecido, no debe mostrarse en ningún lado",
     welcomeToVida: "¡Bienvenido a Vida, únete a nosotros!",
     verifyAccount:
       "¡Apresúrate a verificar tu buzón! Ve a 【Mi cuenta>Configuración de la cuenta】 para completar la verificación",
@@ -461,7 +462,7 @@ export default {
     },
     subscribeSuc: {
       1: "¡maravilloso! ¡Suscrito con éxito a {nickname}!",
-      2: "¡Elija ir a la página de inicio del Creador, o permanecer en la pantalla original!",
+      2: "¡Elige ir a la página de inicio del Creador o permanecer en la pantalla original!",
       confirm: "Ir a la página del creador",
     },
     shopBuySuc: {
@@ -476,6 +477,11 @@ export default {
       content: "Razón detallado: {reason}. Vuelva a intentarlo, o comuníquese con el personal de servicio al cliente",
     },
     confirmAmount: "¿Puedo pedirle que envíe la cantidad {'$'} {price} Vaya al pago",
+    beforeStart: "",
+    pickInterestedForUs: "",
+    feedCategory: "",
+    leastThree: "",
+    great: "",
   },
   beCreator: {
     id: { passport: "Pasaporte", idCard: "Tarjeta de Identidad", driverLicense: "Licencia de Conducir" },

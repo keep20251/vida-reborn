@@ -71,6 +71,7 @@ export default {
     tos: "Termos de serviço",
     pp: "Política de privacidade",
     cp: "Política de cookies",
+    version: "",
     accountLogin: "Login da conta",
     mailCodeLogin: "Login com código de e-mail",
     pwdLogin: "Login com senha",
@@ -236,7 +237,7 @@ export default {
     whetherDelAcc: "Tem certeza de que deseja deletar sua conta?",
   },
   content: {
-    default: "Predefinir, não deve ser exibido em nenhum lugar",
+    default: "Predefinido, não deve ser exibido em nenhum lugar",
     welcomeToVida: "Bem-vindo ao Vida, junte-se a nós!",
     verifyAccount:
       "Corra para verificar sua caixa de correio! Vá para 【Minha conta>Configurações de conta】 para concluir a verificação",
@@ -461,7 +462,7 @@ export default {
     },
     subscribeSuc: {
       1: "maravilhoso! Subscrito com sucesso para {nickname}!",
-      2: "Escolha ir à página inicial do Criador ou permanecer na tela original!",
+      2: "Escolha ir à página inicial do Criador ou fique na tela original!",
       confirm: "Vá para a página do Criador",
     },
     shopBuySuc: {
@@ -476,6 +477,11 @@ export default {
       content: "Motivo detalhado: {reason}. Tente novamente ou entre em contato com a equipe de atendimento ao cliente",
     },
     confirmAmount: "Posso pedir que você envie o valor {'$'} {price} vá para o pagamento",
+    beforeStart: "",
+    pickInterestedForUs: "",
+    feedCategory: "",
+    leastThree: "",
+    great: "",
   },
   beCreator: {
     id: { passport: "Passaporte", idCard: "Cartão de Identidade", driverLicense: "Carteira de Motorista" },

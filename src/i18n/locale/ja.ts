@@ -66,6 +66,7 @@ export default {
     tos: "利用規約",
     pp: "プライバシーポリシー",
     cp: "クッキーポリシー",
+    version: "",
     accountLogin: "アカウントログイン",
     mailCodeLogin: "メールコードでログイン",
     pwdLogin: "パスワードログイン",
@@ -285,7 +286,7 @@ export default {
     customStyle: "カスタムスタイル",
     subUnlockDayAfter: "購入後数日間の作品のロックを解除することはできますか？",
     tokenExpired: "ログインセッションの有効期限が切れました。再度ログインしてください。",
-    clearSearchHistory: "歴史を明確にしたいですか？",
+    clearSearchHistory: "歴史をクリアしたいですか？",
     uploadVideoLimit: {
       format:
         "現在アップロードされているビデオ形式 ({format}) はサポートされていません。 .mp4 または .mov 形式に変換して、もう一度試してください。",
@@ -449,7 +450,7 @@ export default {
     },
     shopBuy: {
       1: "{nickname}部門の作業コンテンツのロックを解除します",
-      2: "{nickname}はあなたの支払いを全額受け取ります",
+      2: "{nickname}はお支払いを全額受け取ります",
       confirm: "今すぐロック解除（{'$'} {price}）",
     },
     subscribeSuc: {
@@ -469,6 +470,11 @@ export default {
       content: "詳細な理由：{reason}。もう一度やり直すか、カスタマーサービススタッフに連絡してください",
     },
     confirmAmount: "{'$'} {price}の金額を送信するようお願いします。",
+    beforeStart: "",
+    pickInterestedForUs: "",
+    feedCategory: "",
+    leastThree: "",
+    great: "",
   },
   beCreator: {
     id: { passport: "パスポート", idCard: "身分証明書", driverLicense: "運転免許証" },
