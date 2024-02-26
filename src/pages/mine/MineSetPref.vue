@@ -14,14 +14,12 @@ import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
 import { useMineStore } from '@/store/mine'
-import { useModalStore } from '@/store/modal'
 import { usePopupMessageStore } from '@/store/popup-message'
 import Button from '@comp/common/Button.vue'
 import OptionsPicker from '@comp/form/OptionsPicker.vue'
 import useRequest from '@use/request/index.js'
 
 const { open: openMessage } = usePopupMessageStore()
-const { open } = useModalStore() // 解構出 open 方法
 
 const appStore = useAppStore()
 const { categories } = storeToRefs(appStore)
@@ -34,7 +32,7 @@ const mineStore = useMineStore()
 const { interested } = storeToRefs(mineStore)
 
 onMounted(() => {
-  interested.value = userData.value.interested.split(',').map(String) // 字串轉成陣列
+  interested.value = userData.value.interested.split(',')
 })
 
 const serverError = ref('')

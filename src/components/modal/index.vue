@@ -49,6 +49,7 @@
 <script setup>
 import { computed, onMounted, ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
+import { useAppStore } from '@/store/app'
 import { useModalStore } from '@/store/modal'
 import Button from '@comp/common/Button.vue'
 import { MODAL_TYPE } from '@const'
@@ -160,6 +161,8 @@ async function tryExecute(fn) {
   }
 }
 
+const appStore = useAppStore()
+const { isDesktop } = storeToRefs(appStore)
 let html = null
 watch(isOpen, (v) => {
   if (!html) {
@@ -167,10 +170,10 @@ watch(isOpen, (v) => {
   }
   if (v) {
     html.style.overflow = 'hidden'
-    html.style.marginRight = '12px'
+    if (isDesktop.value) html.style.marginRight = '15px'
   } else {
     html.style.overflow = ''
-    html.style.marginRight = ''
+    if (isDesktop.value) html.style.marginRight = ''
 
     confirmFailMsg.value = null
   }

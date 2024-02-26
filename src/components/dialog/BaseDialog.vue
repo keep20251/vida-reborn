@@ -17,21 +17,25 @@
 </template>
 <script setup>
 import { onMounted, onUnmounted } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useAppStore } from '@/store/app'
 
 defineProps({
   noPadding: { type: Boolean, default: false },
 })
 defineEmits(['click:around'])
 
-let html = null
+const appStore = useAppStore()
+const { isDesktop } = storeToRefs(appStore)
 
+let html = null
 onMounted(() => {
   html = document.getElementsByTagName('html')[0]
   html.style.overflow = 'hidden'
-  html.style.marginRight = '12px'
+  if (isDesktop.value) html.style.marginRight = '15px'
 })
 onUnmounted(() => {
   html.style.overflow = ''
-  html.style.marginRight = ''
+  if (isDesktop.value) html.style.marginRight = ''
 })
 </script>
