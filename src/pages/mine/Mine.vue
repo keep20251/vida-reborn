@@ -80,7 +80,7 @@ function loadHead() {
 }
 
 const headerTitle = ref('title.mine')
-const excludeRoutes = ['mine-home', 'mine-profile-set', 'mine-profile-prvw']
+const excludeRoutes = ['mine-profile-prvw']
 
 function updateTitle(routeName) {
   headerTitle.value = MINE_TITLE[routeName]

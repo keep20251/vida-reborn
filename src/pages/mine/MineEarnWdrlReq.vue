@@ -58,7 +58,7 @@ async function submit() {
   confirm({
     size: 'sm',
     title: $t('beCreator.title.reConfirm'),
-    content: ($t('modal.confirmAmount'), { price: credential.wdrlAmount.value }),
+    content: $t('modal.confirmAmount', { price: credential.wdrlAmount.value }),
     confirmAction: () => {
       onWithdraw()
     },

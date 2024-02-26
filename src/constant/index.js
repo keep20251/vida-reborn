@@ -75,6 +75,8 @@ export const SEND_EMAIL_PURPOSE = {
 // 用來 Mapping路由名稱與title
 export const MINE_TITLE = {
   'mine-home': 'title.mine',
+  'mine-main': 'title.mine',
+  'mine-profile-set': 'common.editPersonalPage',
   'mine-earn': 'title.mineEarn',
   'mine-earn-wdrl-req': 'title.earnWdrlReq',
   'mine-earn-wdrl-hist': 'title.earnWdrlHist',
