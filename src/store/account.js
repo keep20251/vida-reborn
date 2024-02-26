@@ -113,6 +113,9 @@ export const useAccountStore = defineStore('account-store', () => {
     setUserData(newData)
   }
 
+  /**
+   * 全部重設
+   */
   function setUserData(newData) {
     for (const [k, v] of Object.entries(newData)) {
       if (k === 'chat_token') {
@@ -122,6 +125,22 @@ export const useAccountStore = defineStore('account-store', () => {
     userData.value = { ...newData }
 
     role.value = userData.value.auth_status === AUTH_STATUS.CREATOR ? USER_PERM.CREATOR : USER_PERM.USER
+  }
+
+  /**
+   * 部分更新
+   */
+  function updateUserData(updatedData) {
+    for (const [k, v] of Object.entries(updatedData)) {
+      if (k === 'chat_token') {
+        chatToken.value = v
+      } else {
+        userData.value[k] = v
+        if (k === 'auth_status') {
+          role.value = userData.value.auth_status === AUTH_STATUS.CREATOR ? USER_PERM.CREATOR : USER_PERM.USER
+        }
+      }
+    }
   }
 
   function clearUserData() {
@@ -147,6 +166,7 @@ export const useAccountStore = defineStore('account-store', () => {
     logout,
     afterLoginAction,
     setUserData,
+    updateUserData,
     resetUserData,
   }
 })
