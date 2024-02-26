@@ -1,7 +1,7 @@
 <template>
   <div class="relative cursor-pointer">
     <div ref="dropdown" class="flex items-center justify-between bg-white" :class="[style]" @click="onDropdownClick">
-      <div class="text-base leading-md">
+      <div class="line-clamp-1 text-base leading-md">
         {{ props.disableI18n ? selectedOptionLabel : $t(selectedOptionLabel) }}
       </div>
       <Icon name="dropdown" size="20" class="transition-transform" :class="{ 'rotate-180': open }"></Icon>

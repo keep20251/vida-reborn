@@ -15,7 +15,7 @@
         </Link>
       </div>
       <div class="grow text-right text-sm font-medium leading-5 text-gray-57">{{ item.created_at }}</div>
-      <div class="flex cursor-pointer items-center" @click.stop="dissSomeone(item.user)">
+      <div v-if="!isSelf" class="flex cursor-pointer items-center" @click.stop="dissSomeone(item.user)">
         <Icon name="moreVertical" size="20"></Icon>
       </div>
     </div>
@@ -93,6 +93,8 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { useResizeObserver } from '@vueuse/core'
+import { storeToRefs } from 'pinia'
+import { useAccountStore } from '@/store/account'
 import { useDialogStore } from '@/store/dialog'
 import { useFeedStore } from '@/store/feed'
 import Link from '@comp/common/Link.vue'
@@ -109,6 +111,10 @@ const props = defineProps({
   disableContentFold: { type: Boolean, default: false },
 })
 
+const accountStore = useAccountStore()
+const { userId } = storeToRefs(accountStore)
+
+const isSelf = computed(() => props.item.aff === userId.value)
 const isLock = computed(() => props.item.user.is_block || !props.item.is_unlock)
 // const isLock = computed(() => false) // 把鎖拿掉 debug 用
 const isVideo = computed(() => props.item.resource_type === MEDIA_TYPE.VIDEO)

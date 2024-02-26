@@ -98,7 +98,7 @@ export const useFeedStore = defineStore('feed', () => {
     const exec = _isLike ? execLike : execUnlike
 
     target.is_like = _isLike
-    target.like += _isLike ? 1 : target.like > 0 ? -1 : 0
+    target.like_num += _isLike ? 1 : target.like_num > 0 ? -1 : 0
     try {
       await exec({ article_id: target.id })
     } catch (e) {
