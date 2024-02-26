@@ -1,5 +1,5 @@
 <template>
-  <div class="flex select-none flex-col divide-y" :class="{ 'relative bottom-20': !isLogin }">
+  <div class="flex select-none flex-col divide-y" :class="{ 'bottom-20': !isLogin }">
     <div v-if="!isLogin" class="grid space-y-15 py-10">
       <div class="flex cursor-pointer items-center space-x-18" @click="openAuthDialog(AUTH_ROUTES.SIGN_UP)">
         <Icon name="mineAddOutline" size="20"></Icon>
