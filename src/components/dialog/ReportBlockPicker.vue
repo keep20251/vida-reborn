@@ -41,13 +41,13 @@ const { isLoading: isReportLoading, execute: execReport } = useRequest('User.rep
 function report() {
   if (isReportLoading.value) return
 
+  closeDiss()
   open(MODAL_TYPE.REPORT, {
     title: 'label.report',
     size: 'lg',
     confirmAction: async (data) => {
       try {
         await execReport({ ...data, uuid: reportBlockUser.value.uuid })
-        closeDiss()
       } catch (e) {
         return e.message
       }
