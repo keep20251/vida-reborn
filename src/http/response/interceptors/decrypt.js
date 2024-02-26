@@ -1,4 +1,6 @@
+import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
+import { useDialogStore } from '@/store/dialog'
 import { useModalStore } from '@/store/modal'
 import { Decrypt } from '@/utils/crypto-data'
 import TokenInvalidError from '@/errors/TokenInvalidError'
@@ -21,7 +23,7 @@ export default function (response) {
   else if (processedData.status === 422) {
     if (!import.meta.env.SSR) {
       useAccountStore().logout()
-      useModalStore().alert({ title: 'content.tokenExpired' })
+      useModalStore().alert({ title: 'content.tokenExpired', confirmAction: () => window.location.reload() })
     }
     return Promise.reject(new TokenInvalidError(processedData.msg))
   }

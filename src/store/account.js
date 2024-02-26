@@ -83,8 +83,6 @@ export const useAccountStore = defineStore('account-store', () => {
     uuidCookie.value = ''
     chatToken.value = null
     clearUserData()
-
-    router.replace({ name: 'mine-home' })
   }
 
   /**
