@@ -2,6 +2,7 @@ import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { defineStore } from 'pinia'
 import { useLocale } from '@use/utils/locale'
+import { getDecryptDataBlob } from '@/utils/encrypt-img-store'
 import { locales } from '@/i18n'
 
 export const useHeadStore = defineStore('app-head', () => {
@@ -45,16 +46,39 @@ export const useHeadStore = defineStore('app-head', () => {
     },
   ])
 
-  function setup({ title: _title, description: _description, keywords: _keywords, url: _url, image: _image }) {
+  let updateTimestamp
+  function startUpdate() {
+    const ts = Date.now()
+    updateTimestamp = ts
+    return ts
+  }
+  function isUpdateBreak(ts) {
+    return ts !== updateTimestamp
+  }
+
+  async function setup({ title: _title, description: _description, keywords: _keywords, url: _url, image: _image }) {
+    const ts = startUpdate()
+
     if (_title) title.value = _title
     if (_description) description.value = _description
     if (_keywords) keywordArr.value = _keywords
     if (_url) ogUrl.value = `${import.meta.env.VITE_APP_URL}/${locale.value}${_url}`
-    if (_image) ogImage.value = _image
-    if (_image) twitterImage.value = _image
+
+    if (_image) {
+      const image = await getDecryptDataBlob(_image)
+
+      if (isUpdateBreak(ts)) {
+        return
+      }
+
+      ogImage.value = image
+      twitterImage.value = image
+    }
   }
 
   function reset() {
+    startUpdate()
+
     title.value = $t('meta.home.title', { pipe: '|' })
     description.value = $t('meta.home.description')
     keywordArr.value = [

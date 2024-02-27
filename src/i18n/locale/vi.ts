@@ -39,7 +39,6 @@ export default {
     check: "Kiểm tra",
     subscribe: "đăng ký",
     subscribed: "Đăng ký",
-    shopBuy: "Chi trả",
     cancelSubscribe: "Hủy đăng ký",
     restoreSubscribe: "Khôi phục đăng ký",
     reSubscribe: "Đăng ký lại",
@@ -149,6 +148,8 @@ export default {
     reply: "Hồi đáp",
     subPlanName: "Tên kế hoạch đăng ký",
     subPlanCtn: "Nội dung kế hoạch đăng ký",
+    subBtn: "Đăng ký để mở khóa nội dung đầy đủ",
+    buyBtn: "Trả tiền mỗi mục để mở khóa nội dung",
   },
   placeholder: {
     account: "Vui lòng nhập tên người dùng",
@@ -176,7 +177,7 @@ export default {
     sending: "Gửi",
     failure: "Thất bại",
     imageSended: "Đã gửi hình ảnh",
-    newMessage: "",
+    newMessage: "Bạn có {count} tin nhắn mới",
   },
   copy: { link: "Sao chép liên kết", fail: "Sao chép thất bại" },
   info: {
@@ -235,6 +236,7 @@ export default {
     whetherLogin: "Bạn có chắc chắn muốn đăng xuất không?",
     whetherChangePw: "Bạn có chắc chắn muốn thay đổi mật khẩu không?",
     whetherDelAcc: "Bạn có chắc chắn muốn xóa tài khoản của mình không?",
+    whetherDelArticle: "",
   },
   content: {
     default: "Đặt trước, không nên được hiển thị ở bất cứ đâu",
@@ -309,6 +311,7 @@ export default {
     wdrlAtLeast: "Số tiền rút phải ít nhất là 100 đô la Mỹ.",
     wdrlNotMoreNumNow: "Số không thể lớn hơn doanh thu hiện tại.",
     wdrlReview: "Nộp xong sẽ được xem xét trong vòng 24 giờ, kết quả xem xét sẽ được hiển thị trong hồ sơ nộp.",
+    delSubPlan: "",
   },
   month: {
     Jan: "Tháng Một",
@@ -475,11 +478,11 @@ export default {
       content: "Lý do chi tiết: {reason}. Vui lòng thử lại hoặc liên hệ với nhân viên dịch vụ khách hàng",
     },
     confirmAmount: "Tôi có thể yêu cầu bạn gửi số tiền {'$'} {price} đi vào thanh toán",
-    beforeStart: "",
-    pickInterestedForUs: "",
-    feedCategory: "",
-    leastThree: "",
-    great: "",
+    beforeStart: "Trước khi bắt đầu...",
+    pickInterestedForUs: "Hãy giúp chúng tôi chọn loại bạn quan tâm!",
+    feedCategory: "Chủ đề bài viết:",
+    leastThree: "Chọn ít nhất ba chủ đề",
+    great: "Tuyệt vời!",
   },
   beCreator: {
     id: { passport: "Hộ chiếu", idCard: "Thẻ căn cước", driverLicense: "Giấy phép lái xe" },

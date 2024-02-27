@@ -39,7 +39,6 @@ export default {
     check: "Verificar",
     subscribe: "inscrição",
     subscribed: "Inscrever-se para",
-    shopBuy: "Pagar",
     cancelSubscribe: "Cancelar",
     restoreSubscribe: "Retomar",
     reSubscribe: "Reinscrever-se",
@@ -149,6 +148,8 @@ export default {
     reply: "Responder",
     subPlanName: "Nome do plano de assinatura",
     subPlanCtn: "Conteúdo do plano de assinatura",
+    subBtn: "Assine para desbloquear o conteúdo completo",
+    buyBtn: "Pagar por item para desbloquear conteúdo",
   },
   placeholder: {
     account: "Por favor, insira o nome de usuário",
@@ -176,7 +177,7 @@ export default {
     sending: "Enviando",
     failure: "Fracassado",
     imageSended: "Imagem enviada",
-    newMessage: "",
+    newMessage: "Você tem {count} novas mensagens",
   },
   copy: { link: "Copiar link", fail: "Cópia falhou" },
   info: {
@@ -235,6 +236,7 @@ export default {
     whetherLogin: "Tem certeza de que deseja sair?",
     whetherChangePw: "Tem certeza de que deseja alterar sua senha?",
     whetherDelAcc: "Tem certeza de que deseja deletar sua conta?",
+    whetherDelArticle: "",
   },
   content: {
     default: "Predefinido, não deve ser exibido em nenhum lugar",
@@ -310,6 +312,7 @@ export default {
     wdrlNotMoreNumNow: "O número não pode ser maior que a receita atual.",
     wdrlReview:
       "Será revisado dentro de 24 horas após a submissão, e os resultados da revisão serão exibidos no registro de submissão.",
+    delSubPlan: "",
   },
   month: {
     Jan: "Janeiro",
@@ -477,11 +480,11 @@ export default {
       content: "Motivo detalhado: {reason}. Tente novamente ou entre em contato com a equipe de atendimento ao cliente",
     },
     confirmAmount: "Posso pedir que você envie o valor {'$'} {price} vá para o pagamento",
-    beforeStart: "",
-    pickInterestedForUs: "",
-    feedCategory: "",
-    leastThree: "",
-    great: "",
+    beforeStart: "Antes de começarmos...",
+    pickInterestedForUs: "Ajude-nos a escolher os tipos de que você está interessado!",
+    feedCategory: "Tema do post:",
+    leastThree: "Escolha pelo menos três tópicos",
+    great: "Ótimo!",
   },
   beCreator: {
     id: { passport: "Passaporte", idCard: "Cartão de Identidade", driverLicense: "Carteira de Motorista" },

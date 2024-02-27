@@ -39,7 +39,6 @@ export default {
     check: "Überprüfen",
     subscribe: "Abonnement",
     subscribed: "Etwas abonnieren",
-    shopBuy: "Zahlen",
     cancelSubscribe: "Abbrechen",
     restoreSubscribe: "Wiederaufnehmen",
     reSubscribe: "Erneut abonnieren",
@@ -149,6 +148,8 @@ export default {
     reply: "Antwort",
     subPlanName: "Name des Abonnementplans",
     subPlanCtn: "Inhalt des Abonnementplans",
+    subBtn: "Abonnieren, um den vollständigen Inhalt freizuschalten",
+    buyBtn: "Einzelzahlung, um Inhalte freizuschalten",
   },
   placeholder: {
     account: "Bitte Benutzername eingeben",
@@ -176,7 +177,7 @@ export default {
     sending: "Senden",
     failure: "Fehlgeschlagen",
     imageSended: "Bild gesendet",
-    newMessage: "",
+    newMessage: "Sie haben {count} neue Nachrichten",
   },
   copy: { link: "Link kopieren", fail: "Kopieren fehlgeschlagen" },
   info: {
@@ -235,6 +236,7 @@ export default {
     whetherLogin: "Sind Sie sicher, dass Sie sich abmelden möchten?",
     whetherChangePw: "Sind Sie sicher, dass Sie Ihr Passwort ändern möchten?",
     whetherDelAcc: "Sind Sie sicher, dass Sie Ihr Konto löschen möchten?",
+    whetherDelArticle: "",
   },
   content: {
     default: "Preset, sollte nirgendwo angezeigt werden",
@@ -310,6 +312,7 @@ export default {
     wdrlNotMoreNumNow: "Die Zahl darf nicht größer als der aktuelle Umsatz sein.",
     wdrlReview:
       "Es wird innerhalb von 24 Stunden nach der Einreichung überprüft, und die Überprüfungsergebnisse werden im Einreichungsprotokoll angezeigt.",
+    delSubPlan: "",
   },
   month: {
     Jan: "Januar",
@@ -477,11 +480,11 @@ export default {
         "Detaillierter Grund: {reason}. Bitte versuchen Sie es erneut oder wenden Sie sich an das Kundendienstmitarbeiter",
     },
     confirmAmount: "Darf ich Sie bitten, den Betrag {'$'} {price} zur Zahlung einzulegen",
-    beforeStart: "",
-    pickInterestedForUs: "",
-    feedCategory: "",
-    leastThree: "",
-    great: "",
+    beforeStart: "Bevor wir beginnen...",
+    pickInterestedForUs: "Bitte helfen Sie uns, die Typen auszuwählen, die Sie interessieren!",
+    feedCategory: "Thema des Beitrags:",
+    leastThree: "Wählen Sie mindestens drei Themen",
+    great: "Großartig!",
   },
   beCreator: {
     id: { passport: "Reisepass", idCard: "Personalausweis", driverLicense: "Führerschein" },

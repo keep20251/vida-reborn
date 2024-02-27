@@ -22,10 +22,10 @@
                 </div> -->
                 <div class="flex cursor-pointer items-center"><Icon name="report" size="20"></Icon></div>
                 <div class="flex cursor-pointer items-center"><Icon name="link" size="20"></Icon></div>
-                <Button v-if="creator?.is_subscribed" size="sm" bg-light border text-dark>
+                <Button v-if="creator?.is_subscribed" size="sm" disabled>
                   {{ $t('common.subscribed') }}
                 </Button>
-                <Button v-else size="sm" bg-light border text-dark @click="subscribe({ item: lowestSub, creator })">
+                <Button v-else size="sm" @click="subscribe({ item: lowestSub, creator })">
                   {{ $t('common.subscribe') }}
                 </Button>
               </div>
@@ -127,10 +127,18 @@ const { toMessage } = useRouters()
 
 const creator = ref(null)
 const errMsg = ref(null)
-async function loadNewCreator() {
+async function loadNewCreator(onCleanup = () => {}) {
+  let cleanup = false
+  onCleanup(() => (cleanup = true))
+
   creator.value = null
   try {
-    creator.value = await getCreator(route.params.username)
+    const newCreator = await getCreator(route.params.username)
+    if (cleanup) {
+      return
+    }
+
+    creator.value = newCreator
     await reload({ newParams: { uuid: creator.value.uuid, filter_by: 0 } })
   } catch (e) {
     errMsg.value = e.message
@@ -166,10 +174,17 @@ onDeactivated(() => resetHead())
 // 進入創作者頁
 whenever(
   () => route.name === 'creator',
-  async (v) => {
+  async (v, _, onCleanup) => {
+    let cleanup = false
+    onCleanup(() => (cleanup = true))
+
     if (route.params.username !== creator.value?.username) {
-      await loadNewCreator()
+      await loadNewCreator(onCleanup)
     }
+    if (cleanup) {
+      return
+    }
+
     loadSeoHead()
   },
 )

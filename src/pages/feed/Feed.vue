@@ -82,7 +82,10 @@ const {
 
 const feed = ref(null)
 const errMsg = ref(null)
-async function loadNewFeed() {
+async function loadNewFeed(onCleanup = () => {}) {
+  let cleanup = false
+  onCleanup(() => (cleanup = true))
+
   feed.value = null
   errMsg.value = null
   try {
@@ -95,6 +98,9 @@ async function loadNewFeed() {
     }
 
     const feedData = await getFeed(id)
+    if (cleanup) {
+      return
+    }
 
     // 帖子 username 與 route 參數的 username 不一致必須當成是錯的
     if (feedData.user.username !== route.params.username) {
@@ -127,10 +133,17 @@ onDeactivated(() => resetHead())
 // 進入帖子詳情頁
 whenever(
   () => route.name === 'feed',
-  async (v) => {
+  async (v, _, onCleanup) => {
+    let cleanup = false
+    onCleanup(() => (cleanup = true))
+
     if (route.params.feedId !== feed.value?.id) {
-      await loadNewFeed()
+      await loadNewFeed(onCleanup)
     }
+    if (cleanup) {
+      return
+    }
+
     loadSeoHead()
   },
 )

@@ -39,7 +39,6 @@ export default {
     check: "जाँचें",
     subscribe: "अंशदान",
     subscribed: "सहमत होना",
-    shopBuy: "वेतन",
     cancelSubscribe: "सदस्यता रद्द करें",
     restoreSubscribe: "सदस्यता फिर से शुरू करें",
     reSubscribe: "पुनः सदस्यता लें",
@@ -149,6 +148,8 @@ export default {
     reply: "जवाब",
     subPlanName: "सदस्यता योजना का नाम",
     subPlanCtn: "सदस्यता योजना की सामग्री",
+    subBtn: "पूरी सामग्री को अनलॉक करने के लिए सब्सक्राइब करें",
+    buyBtn: "प्रति आइटम भुगतान करके सामग्री अनलॉक करें",
   },
   placeholder: {
     account: "कृपया उपयोगकर्ता नाम दर्ज करें",
@@ -176,7 +177,7 @@ export default {
     sending: "भेजना",
     failure: "असफल",
     imageSended: "छवि भेजी गई",
-    newMessage: "",
+    newMessage: "आपके पास {count} नए संदेश हैं",
   },
   copy: { link: "लिंक कॉपी करें", fail: "कॉपी विफल" },
   info: {
@@ -235,6 +236,7 @@ export default {
     whetherLogin: "क्या आप वाकई में लॉग आउट करना चाहते हैं?",
     whetherChangePw: "क्या आप वाकई में अपना पासवर्ड बदलना चाहते हैं?",
     whetherDelAcc: "क्या आप वाकई में अपना खाता हटाना चाहते हैं?",
+    whetherDelArticle: "",
   },
   content: {
     default: "प्रीसेट, कहीं भी प्रदर्शित नहीं किया जाना चाहिए",
@@ -308,6 +310,7 @@ export default {
     wdrlAtLeast: "निकासी राशि कम से कम US$100 होनी चाहिए।",
     wdrlNotMoreNumNow: "संख्या वर्तमान राजस्व से अधिक नहीं हो सकती।",
     wdrlReview: "जमा करने के 24 घंटे के भीतर समीक्षा की जाएगी, और समीक्षा परिणाम जमा रिकॉर्ड में प्रदर्शित किए जाएंगे।",
+    delSubPlan: "",
   },
   month: {
     Jan: "जनवरी",
@@ -459,11 +462,11 @@ export default {
       content: "विस्तृत कारण: {reason}। कृपया पुनः प्रयास करें, या ग्राहक सेवा कर्मचारियों से संपर्क करें",
     },
     confirmAmount: "क्या मैं आपसे {'$'} {price} राशि जमा करने के लिए कह सकता हूं",
-    beforeStart: "",
-    pickInterestedForUs: "",
-    feedCategory: "",
-    leastThree: "",
-    great: "",
+    beforeStart: "शुरू करने से पहले...",
+    pickInterestedForUs: "कृपया हमें आपकी रुचि के प्रकार चुनने में मदद करें!",
+    feedCategory: "पोस्ट का विषय:",
+    leastThree: "कम से कम तीन विषयों का चयन करें",
+    great: "बहुत बढ़िया!",
   },
   beCreator: {
     id: { passport: "पासपोर्ट", idCard: "पहचान पत्र", driverLicense: "ड्राइवर का लाइसेंस" },

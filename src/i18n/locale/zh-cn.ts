@@ -34,7 +34,6 @@ export default {
     check: "查看",
     subscribe: "订阅",
     subscribed: "已订阅",
-    shopBuy: "付费",
     cancelSubscribe: "取消订阅",
     restoreSubscribe: "恢复订阅",
     reSubscribe: "重新订阅",
@@ -144,6 +143,8 @@ export default {
     reply: "回复",
     subPlanName: "订阅方案名称",
     subPlanCtn: "订阅方案内容",
+    subBtn: "订阅解锁完整内容",
+    buyBtn: "单笔付费解锁内容",
   },
   placeholder: {
     account: "请输入用户名",
@@ -171,7 +172,7 @@ export default {
     sending: "Sending",
     failure: "Failed",
     imageSended: "Image sent",
-    newMessage: "",
+    newMessage: "您有 {count} 则新消息",
   },
   copy: { link: "复制链接", fail: "复制失败" },
   info: {
@@ -226,6 +227,7 @@ export default {
     whetherLogin: "您是否确认要登出？",
     whetherChangePw: "您是否确认要变更密码？",
     whetherDelAcc: "您是否确认要删除帐号吗？",
+    whetherDelArticle: "",
   },
   content: {
     default: "预设，不应该显示在任何地方",
@@ -295,6 +297,7 @@ export default {
     wdrlAtLeast: "提款金额须至少100美金以上。",
     wdrlNotMoreNumNow: "数字不可大于目前收益。",
     wdrlReview: "提出后将于24小时内审核，审核结果将于提交记录中展示。",
+    delSubPlan: "确定要删除此订阅方案?",
   },
   month: {
     Jan: "一月",
@@ -448,11 +451,11 @@ export default {
     paying: { title: "付款处理中" },
     payFailed: { title: "付款失败", content: "详细原因：{reason}。请再试一次，或者联系客服人员" },
     confirmAmount: "请问您提交金额 {'$'}{price} 前往支付",
-    beforeStart: "",
-    pickInterestedForUs: "",
-    feedCategory: "",
-    leastThree: "",
-    great: "",
+    beforeStart: "开始之前...",
+    pickInterestedForUs: "请帮我们选择你感兴趣的类型吧！",
+    feedCategory: "帖子主题：",
+    leastThree: "至少选择三个主题",
+    great: "太棒了！",
   },
   beCreator: {
     id: { passport: "护照", idCard: "身份证", driverLicense: "驾照" },

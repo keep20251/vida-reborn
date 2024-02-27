@@ -39,7 +39,6 @@ export default {
     check: "Проверить",
     subscribe: "подписка",
     subscribed: "Подписаться",
-    shopBuy: "Платить",
     cancelSubscribe: "Отменить подписку",
     restoreSubscribe: "Возобновить подписку",
     reSubscribe: "Подписаться снова",
@@ -149,6 +148,8 @@ export default {
     reply: "Отвечать",
     subPlanName: "Название плана подписки",
     subPlanCtn: "Содержание плана подписки",
+    subBtn: "Подписаться, чтобы разблокировать полный контент",
+    buyBtn: "Оплата за каждый элемент, чтобы разблокировать содержание",
   },
   placeholder: {
     account: "Пожалуйста, введите имя пользователя",
@@ -176,7 +177,7 @@ export default {
     sending: "Отправка",
     failure: "Неуспешный",
     imageSended: "Изображение отправлено",
-    newMessage: "",
+    newMessage: "У вас {count} новых сообщений",
   },
   copy: { link: "Скопировать ссылку", fail: "Копирование не удалось" },
   info: {
@@ -235,6 +236,7 @@ export default {
     whetherLogin: "Вы уверены, что хотите выйти?",
     whetherChangePw: "Вы уверены, что хотите изменить пароль?",
     whetherDelAcc: "Вы уверены, что хотите удалить свой аккаунт?",
+    whetherDelArticle: "",
   },
   content: {
     default: "Предустановка, нигде не следует отображать",
@@ -310,6 +312,7 @@ export default {
     wdrlNotMoreNumNow: "Число не может быть больше текущего дохода.",
     wdrlReview:
       "Будет рассмотрено в течение 24 часов после подачи, и результаты проверки будут отображены в записи подачи.",
+    delSubPlan: "",
   },
   month: {
     Jan: "Январь",
@@ -478,11 +481,11 @@ export default {
         "Подробная причина: {reason}. Пожалуйста, попробуйте еще раз или свяжитесь с сотрудниками по обслуживанию клиентов",
     },
     confirmAmount: "Могу я попросить вас отправить сумму {'$'} {price} перейти к платежу",
-    beforeStart: "",
-    pickInterestedForUs: "",
-    feedCategory: "",
-    leastThree: "",
-    great: "",
+    beforeStart: "Прежде чем мы начнем...",
+    pickInterestedForUs: "Пожалуйста, помогите нам выбрать интересующие вас типы!",
+    feedCategory: "Тема поста:",
+    leastThree: "Выберите как минимум три темы",
+    great: "Замечательно!",
   },
   beCreator: {
     id: { passport: "Паспорт", idCard: "Удостоверение личности", driverLicense: "Водительские права" },
