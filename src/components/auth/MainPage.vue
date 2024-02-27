@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative flex h-[35rem] w-full flex-col items-center justify-center space-y-30 last:mb-30 xl:lg:md:h-full"
+    class="relative flex h-[35rem] w-full flex-col items-center justify-center space-y-30 last:mb-30 md:lg:xl:h-full"
   >
     <div class="absolute right-0 top-0 cursor-pointer" @click="close">
       <Icon name="close"></Icon>

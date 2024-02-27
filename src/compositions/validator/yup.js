@@ -199,27 +199,27 @@ Yup.addMethod(Yup.string, 'strongPassword', function () {
 })
 
 Yup.addMethod(Yup.string, 'instagram', function () {
-  return this.matches(/^.*www\.instagram\.com\/[/._A-Za-z0-9]+$/, { message: { key: 'yup.string.instagram' } })
+  return this.matches(/^.*instagram\.com\/.*$/, { message: { key: 'yup.string.instagram' } })
 })
 
 Yup.addMethod(Yup.string, 'twitter', function () {
-  return this.matches(/^.*twitter\.com\/[_A-Za-z0-9]+$/, { message: { key: 'yup.string.twitter' } })
+  return this.matches(/^.*(twitter\.com|x\.com)\/.*$/, { message: { key: 'yup.string.twitter' } })
 })
 
 Yup.addMethod(Yup.string, 'tiktok', function () {
-  return this.matches(/^.*www\.tiktok\.com\/[@_A-Za-z0-9]+$/, { message: { key: 'yup.string.tiktok' } })
+  return this.matches(/^.*tiktok\.com\/@.*$/, { message: { key: 'yup.string.tiktok' } })
 })
 
 Yup.addMethod(Yup.string, 'vida', function () {
-  return this.matches(/^.*vida\.pub\/[_A-Za-z0-9\u4e00-\u9fff]+$/, {
+  return this.matches(/^.*vida\.pub\/.*$/, {
     message: { key: 'yup.string.vida' },
   })
 })
 
 Yup.addMethod(Yup.string, 'youtube', function () {
-  return this.matches(/^.*www\.youtube\.com\/[@_A-Za-z0-9]+$/, { message: { key: 'yup.string.youtube' } })
+  return this.matches(/^.*youtube\.com\/.*$/, { message: { key: 'yup.string.youtube' } })
 })
 
 Yup.addMethod(Yup.string, 'facebook', function () {
-  return this.matches(/^.*www\.facebook\.com\/[/-?._A-Za-z0-9]+$/, { message: { key: 'yup.string.facebook' } })
+  return this.matches(/^.*facebook\.com\/.*$/, { message: { key: 'yup.string.facebook' } })
 })
