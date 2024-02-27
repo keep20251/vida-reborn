@@ -24,6 +24,8 @@
 <script setup>
 import { computed, onActivated, onDeactivated, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useRoute } from 'vue-router'
+import { whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useMineStore } from '@/store/mine'
 import { usePublishStore } from '@/store/publish'
@@ -33,22 +35,32 @@ import ButtonTab from '@comp/navigation/ButtonTab.vue'
 import Tab from '@comp/navigation/Tab.vue'
 import { useInfinite } from '@use/request/infinite'
 import { useRouters } from '@use/routers'
+import { POST_TAB_TYPE as TAB_TYPE } from '@const/mine'
 import { FEED_STATUS, MEDIA_TYPE } from '@const/publish'
 import { toDate } from '@/utils/string-helper'
+
+const route = useRoute()
+const { to, updateParams } = useRouters()
 
 const mineStore = useMineStore()
 const { postReloadFlag } = storeToRefs(mineStore)
 const { setNextFn, clearNextFn } = mineStore
 
-const TAB_TYPE = { SUB: 1, BUY: 2, SCH: 3, PRI: 4 }
-
-const tab = ref(TAB_TYPE.SUB)
+const tab = ref(checkRouteTab() ? route.query.t : TAB_TYPE.SUB)
 const tabOptions = ref([
   { label: 'common.subscribe', value: TAB_TYPE.SUB },
   { label: 'label.sale', value: TAB_TYPE.BUY },
   { label: 'label.scheduledRelease', value: TAB_TYPE.SCH },
   { label: 'label.private', value: TAB_TYPE.PRI },
 ])
+watch(tab, (t) => updateParams({ query: { t } }), { immediate: true })
+whenever(
+  () => route.query.t && route.name === 'mine-post' && checkRouteTab(),
+  () => (tab.value = route.query.t),
+)
+function checkRouteTab() {
+  return [TAB_TYPE.SUB, TAB_TYPE.BUY, TAB_TYPE.SCH, TAB_TYPE.PRI].includes(route.query.t)
+}
 
 const tabBtnValues = reactive({
   [TAB_TYPE.SUB]: MEDIA_TYPE.ALL,
@@ -178,7 +190,6 @@ function status(item) {
   if (item.status === FEED_STATUS.PUBLISHED) return $t('info.published')
 }
 
-const { to } = useRouters()
 const publishStore = usePublishStore()
 const { toUpdate } = publishStore
 function onEdit(item) {
