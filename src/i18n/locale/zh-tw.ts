@@ -38,6 +38,7 @@ export default {
     restoreSubscribe: "恢復訂閱",
     reSubscribe: "重新訂閱",
     editPersonalPage: "編輯個人主頁",
+    toPersonalPage: "進入個人主頁",
     reSelect: "重新選擇",
     append: "添加",
     publish: "發布",

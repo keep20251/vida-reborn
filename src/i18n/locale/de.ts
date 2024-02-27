@@ -43,6 +43,7 @@ export default {
     restoreSubscribe: "Wiederaufnehmen",
     reSubscribe: "Erneut abonnieren",
     editPersonalPage: "Profil bearbeiten",
+    toPersonalPage: "",
     reSelect: "Neu auswählen",
     append: "Anhängen",
     publish: "Veröffentlichen",

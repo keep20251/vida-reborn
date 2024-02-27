@@ -155,6 +155,7 @@
 
 <script setup>
 import { computed, onMounted, ref, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useModalStore } from '@/store/modal'
@@ -168,6 +169,7 @@ import { SUB_PLAN_STATUS } from '@const'
 import { IMAGE_LIMIT_COUNT } from '@const/publish'
 import uploadImage from '@/http/upload/uploadImage'
 
+const { t: $t } = useI18n()
 const subPlanStore = useSubPlanStore()
 const { alert, confirm, open } = useModalStore()
 const { open: openMessage } = usePopupMessageStore()
@@ -320,7 +322,7 @@ function onDelete() {
   confirm({
     size: 'sm',
     title: 'beCreator.title.reConfirm',
-    content: 'content.delSubPlan',
+    content: $t('content.delSubPlan'),
     confirmAction: () => {
       delSubPlan()
     },

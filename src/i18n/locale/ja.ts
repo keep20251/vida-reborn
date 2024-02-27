@@ -38,6 +38,7 @@ export default {
     restoreSubscribe: "再開",
     reSubscribe: "再購読",
     editPersonalPage: "プロファイル編集",
+    toPersonalPage: "",
     reSelect: "再選択",
     append: "追加",
     publish: "公開",

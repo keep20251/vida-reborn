@@ -38,6 +38,7 @@ export default {
     restoreSubscribe: "구독 재개",
     reSubscribe: "재구독",
     editPersonalPage: "프로필 수정",
+    toPersonalPage: "",
     reSelect: "다시 선택",
     append: "추가",
     publish: "게시",

@@ -43,6 +43,7 @@ export default {
     restoreSubscribe: "Возобновить подписку",
     reSubscribe: "Подписаться снова",
     editPersonalPage: "Редактировать профиль",
+    toPersonalPage: "",
     reSelect: "Перевыбрать",
     append: "Добавить",
     publish: "Опубликовать",

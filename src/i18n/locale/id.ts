@@ -43,6 +43,7 @@ export default {
     restoreSubscribe: "Mengembalikan langganan",
     reSubscribe: "Berlangganan kembali",
     editPersonalPage: "Sunting profil",
+    toPersonalPage: "",
     reSelect: "Pilih ulang",
     append: "Menambahkan",
     publish: "Menerbitkan",

@@ -43,6 +43,7 @@ export default {
     restoreSubscribe: "استئناف الاشتراك",
     reSubscribe: "إعادة الاشتراك",
     editPersonalPage: "تعديل الملف الشخصي",
+    toPersonalPage: "",
     reSelect: "إعادة الاختيار",
     append: "إلحاق",
     publish: "نشر",

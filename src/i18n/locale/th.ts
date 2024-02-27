@@ -43,6 +43,7 @@ export default {
     restoreSubscribe: "กลับมาสมัครใหม่",
     reSubscribe: "สมัครสมาชิกอีกครั้ง",
     editPersonalPage: "แก้ไขโปรไฟล์",
+    toPersonalPage: "",
     reSelect: "เลือกใหม่",
     append: "เพิ่ม",
     publish: "เผยแพร่",
