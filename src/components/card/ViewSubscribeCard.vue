@@ -9,15 +9,17 @@
           <Avatar :radius="35" :src="props.item?.thumb" :alt="props.item?.username"></Avatar>
           <div class="flex grow flex-col space-y-10">
             <div>
-              <div class="text-lg font-bold leading-5">{{ props.item?.nickname }}</div>
+              <div class="line-clamp-1 text-lg font-bold leading-5">{{ props.item?.nickname }}</div>
               <div class="text-sm font-normal leading-3 text-gray-57">@{{ props.item?.username }}</div>
             </div>
-            <div class="text-base font-normal leading-5">
+            <div class="line-clamp-4 text-base font-normal leading-5">
               {{ props.item?.description }}
             </div>
           </div>
-          <div class="flex-shrink-0 self-end">
-            <Button :size="size">{{ $t('common.viewSubscribePlan') }}</Button>
+          <div class="flex-shrink-0 self-end" @click.stop>
+            <Button :size="size" @click="open({ items: item?.subscription_list, creator: item })">{{
+              $t('common.viewSubscribePlan')
+            }}</Button>
           </div>
         </div>
         <div class="absolute right-20 top-20 cursor-pointer">
@@ -31,6 +33,7 @@
 import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
+import { useSubsciptionStore } from '@/store/subscription'
 import Button from '@comp/common/Button.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
 import { useRouters } from '@use/routers'
@@ -61,4 +64,6 @@ const { isMobile } = storeToRefs(useAppStore())
 const size = computed(() => (isMobile.value ? 'md' : 'lg'))
 
 const { toCreator } = useRouters()
+
+const { open } = useSubsciptionStore()
 </script>

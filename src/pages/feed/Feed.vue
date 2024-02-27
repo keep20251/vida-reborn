@@ -37,6 +37,16 @@
       <Error v-else-if="errMsg" :message="errMsg"></Error>
       <Loading v-else></Loading>
     </template>
+    <template #aside-top>
+      <TopSearchBar to-search></TopSearchBar>
+    </template>
+    <template #aside>
+      <ClientOnly>
+        <CreatorIntro :username="feed.user?.username"></CreatorIntro>
+        <BulletinCard class="mt-20"></BulletinCard>
+        <Carousel class="mt-20" interval-time></Carousel>
+      </ClientOnly>
+    </template>
   </Page>
 </template>
 
@@ -50,11 +60,15 @@ import { useFeedStore } from '@/store/feed'
 import { useHeadStore } from '@/store/head'
 import { useHydrationStore } from '@/store/hydration'
 import { useNavStore } from '@/store/nav'
+import BulletinCard from '@comp/aside/BulletinCard.vue'
+import CreatorIntro from '@comp/aside/CreatorIntro.vue'
+import Carousel from '@comp/common/Carousel.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
 import Error from '@comp/info/Error.vue'
 import Feed from '@comp/main/Feed.vue'
 import Comment from '@comp/message/Comment.vue'
 import Head from '@comp/navigation/Head.vue'
+import TopSearchBar from '@comp/navigation/TopSearchBar.vue'
 import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import useRequest from '@use/request'
 import { useInfinite } from '@use/request/infinite'
