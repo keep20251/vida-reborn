@@ -1,4 +1,5 @@
 export const MEDIA_TYPE = {
+  ALL: 0,
   IMAGE: 1,
   VIDEO: 2,
 }

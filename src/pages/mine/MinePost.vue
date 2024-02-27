@@ -51,10 +51,10 @@ const tabOptions = ref([
 ])
 
 const tabBtnValues = reactive({
-  [TAB_TYPE.SUB]: MEDIA_TYPE.IMAGE,
-  [TAB_TYPE.BUY]: MEDIA_TYPE.IMAGE,
-  [TAB_TYPE.SCH]: MEDIA_TYPE.IMAGE,
-  [TAB_TYPE.PRI]: MEDIA_TYPE.IMAGE,
+  [TAB_TYPE.SUB]: MEDIA_TYPE.ALL,
+  [TAB_TYPE.BUY]: MEDIA_TYPE.ALL,
+  [TAB_TYPE.SCH]: MEDIA_TYPE.ALL,
+  [TAB_TYPE.PRI]: MEDIA_TYPE.ALL,
 })
 const tabBtn = computed({
   get() {
@@ -65,11 +65,19 @@ const tabBtn = computed({
   },
 })
 const tabBtnOptions = ref([
+  { label: 'label.all', value: MEDIA_TYPE.ALL },
   { label: 'info.image', value: MEDIA_TYPE.IMAGE },
   { label: 'info.video', value: MEDIA_TYPE.VIDEO },
 ])
 
 const pages = {
+  // 訂閱
+  [`${TAB_TYPE.SUB}${MEDIA_TYPE.ALL}`]: {
+    inited: false,
+    infinite: useInfinite('Article.listManagement', {
+      params: { article_type: 1, pre_display: 0, resource_type: MEDIA_TYPE.ALL },
+    }),
+  },
   [`${TAB_TYPE.SUB}${MEDIA_TYPE.IMAGE}`]: {
     inited: false,
     infinite: useInfinite('Article.listManagement', {
@@ -80,6 +88,14 @@ const pages = {
     inited: false,
     infinite: useInfinite('Article.listManagement', {
       params: { article_type: 1, pre_display: 0, resource_type: MEDIA_TYPE.VIDEO },
+    }),
+  },
+
+  // 販售
+  [`${TAB_TYPE.BUY}${MEDIA_TYPE.ALL}`]: {
+    inited: false,
+    infinite: useInfinite('Article.listManagement', {
+      params: { article_type: 2, pre_display: 0, resource_type: MEDIA_TYPE.ALL },
     }),
   },
   [`${TAB_TYPE.BUY}${MEDIA_TYPE.IMAGE}`]: {
@@ -94,6 +110,14 @@ const pages = {
       params: { article_type: 2, pre_display: 0, resource_type: MEDIA_TYPE.VIDEO },
     }),
   },
+
+  // 定時發布
+  [`${TAB_TYPE.SCH}${MEDIA_TYPE.ALL}`]: {
+    inited: false,
+    infinite: useInfinite('Article.listManagement', {
+      params: { article_type: 0, pre_display: 1, resource_type: MEDIA_TYPE.ALL },
+    }),
+  },
   [`${TAB_TYPE.SCH}${MEDIA_TYPE.IMAGE}`]: {
     inited: false,
     infinite: useInfinite('Article.listManagement', {
@@ -104,6 +128,14 @@ const pages = {
     inited: false,
     infinite: useInfinite('Article.listManagement', {
       params: { article_type: 0, pre_display: 1, resource_type: MEDIA_TYPE.VIDEO },
+    }),
+  },
+
+  // 僅限自己
+  [`${TAB_TYPE.PRI}${MEDIA_TYPE.ALL}`]: {
+    inited: false,
+    infinite: useInfinite('Article.listManagement', {
+      params: { article_type: 3, pre_display: 0, resource_type: MEDIA_TYPE.ALL },
     }),
   },
   [`${TAB_TYPE.PRI}${MEDIA_TYPE.IMAGE}`]: {
