@@ -289,6 +289,7 @@ export default {
     feedNotExist: "Posting tidak ada",
     month: "Bulan",
     AddNewSubPlan: "Klik untuk menambahkan rencana berlangganan baru",
+    AddFirstSubPlan: "Tambahkan Rencana Langganan Pertama Anda!",
     subStyle: "Gaya langganan",
     customStyle: "Gaya khusus",
     subUnlockDayAfter: "Apakah membuka kunci memungkinkan beberapa hari terakhir sejak pembelian?",

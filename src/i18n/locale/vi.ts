@@ -289,6 +289,7 @@ export default {
     feedNotExist: "Bài viết không tồn tại",
     month: "Tháng",
     AddNewSubPlan: "Nhấp để thêm gói đăng ký mới",
+    AddFirstSubPlan: "Thêm kế hoạch đăng ký đầu tiên của bạn!",
     subStyle: "Phong cách đăng ký",
     customStyle: "Kiểu tùy chỉnh",
     subUnlockDayAfter: "Mở khóa cho phép truy cập các tác phẩm trong vài ngày sau khi mua?",
