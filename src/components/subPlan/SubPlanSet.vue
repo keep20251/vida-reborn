@@ -104,7 +104,7 @@
         ></InputWrap>
         <InputWrap v-model="subUnlockDayAfter" :label="$t('content.subUnlockDayAfter')" :placeholder="'30'"></InputWrap>
         <!-- <div class="grid space-y-10">
-          <label class="text-base font-normal not-italic leading-md text-left">{{
+          <label class="text-left text-base font-normal not-italic leading-md">{{
             $t('content.subUnlockDayAfter')
           }}</label>
           <div class="flex flex-wrap space-y-5">
@@ -148,6 +148,7 @@
     </div>
     <div class="px-25 py-30">
       <Button @click="onSubmit" size="lg">{{ addSubPlan ? $t('label.submit') : $t('common.save') }}</Button>
+      <div v-if="!!serverError" class="text-sm font-normal leading-md text-warning">{{ serverError }}</div>
     </div>
   </div>
 </template>
@@ -160,6 +161,7 @@ import { useModalStore } from '@/store/modal'
 import { usePopupMessageStore } from '@/store/popup-message'
 import { useSubPlanStore } from '@/store/sub-plan'
 import Button from '@comp/common/Button.vue'
+// import InputRadio from '@comp/form/InputRadio.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
 import useRequest from '@use/request'
 import { SUB_PLAN_STATUS } from '@const'
@@ -188,6 +190,7 @@ const {
   selUploadItem,
 } = storeToRefs(subPlanStore)
 const showBack = computed(() => history.value.length > 0)
+const serverError = ref('')
 
 // const selectedValue = ref(0)
 // const wrapValue = ref(0)
@@ -313,7 +316,6 @@ const handleFileUpload = async (event) => {
 const removeUploadFile = (index) => {
   uploadFiles.value.splice(index, 1)
 }
-
 function onDelete() {
   confirm({
     size: 'sm',
@@ -333,9 +335,10 @@ const delSubPlan = async () => {
     await subPlanDel(payload)
     openMessage('title.delSuccess')
     subList.value = subList.value.filter((item) => item.id !== subId.value)
+    serverError.value = ''
     back()
   } catch (e) {
-    console.error(e)
+    serverError.value = e.message
   }
 }
 
@@ -345,32 +348,34 @@ const onSubmit = async () => {
   const { execute: subPlanCreate } = useRequest('Subscription.create')
   if (addSubPlan.value) {
     try {
-      await subPlanCreate(data)
+      const response = ref(null)
+      const resId = await subPlanCreate(data)
+      data.id = resId
+      response.value = data
       openMessage('title.publishSuccess')
-      subList.value.unshift(data)
+      subList.value.unshift(response.value)
       uploadFiles.value = []
       subPlanName.value = ''
       subPlanContent.value = ''
       subPlanPrice.value = ''
       subUnlockDayAfter.value = ''
-      close()
+      serverError.value = ''
+      back()
     } catch (e) {
-      console.error(e)
+      serverError.value = e.message
     }
   } else {
     try {
       await subPlanUpdate(data)
       const index = subList.value.findIndex((item) => item.id === data.id)
-      alert({
-        title: 'title.publishSuccess',
-      })
+      openMessage('title.publishSuccess')
       if (index !== -1) {
         subList.value[index] = data
       }
-      close()
-    } catch (e) {
-      console.error(e)
+      serverError.value = ''
       back()
+    } catch (e) {
+      serverError.value = e.message
     }
   }
 }
