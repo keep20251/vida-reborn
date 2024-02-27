@@ -47,6 +47,7 @@ import { useRoute } from 'vue-router'
 import { whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useFeedStore } from '@/store/feed'
+import { useHeadStore } from '@/store/head'
 import { useHydrationStore } from '@/store/hydration'
 import { useNavStore } from '@/store/nav'
 import InputWrap from '@comp/form/InputWrap.vue'
@@ -94,7 +95,6 @@ async function loadNewFeed() {
     }
 
     const feedData = await getFeed(id)
-    console.log('loadNewFeed.feedData', feedData)
 
     // 帖子 username 與 route 參數的 username 不一致必須當成是錯的
     if (feedData.user.username !== route.params.username) {
@@ -110,12 +110,28 @@ async function loadNewFeed() {
   }
 }
 
+// SEO head
+const headStore = useHeadStore()
+const { setup: setupHead, reset: resetHead } = headStore
+function loadSeoHead() {
+  setupHead({
+    title: feed.value.title,
+    description: feed.value.content,
+    keywords: [feed.value.user?.username, ...feed.value.tags.split(',').filter((t, i) => i !== 0 || t !== '')],
+    url: `/${feed.value.user?.username}/${feed.value.id}`,
+    image: feed.value.user?.thumb,
+  })
+}
+onDeactivated(() => resetHead())
+
+// 進入帖子詳情頁
 whenever(
   () => route.name === 'feed',
   async (v) => {
     if (route.params.feedId !== feed.value?.id) {
       await loadNewFeed()
     }
+    loadSeoHead()
   },
 )
 
@@ -133,6 +149,7 @@ onServerClientOnce(async (isSSR) => {
 })
 onHydration(() => {
   feed.value = revertFeed(feedFromStore.value)
+  loadSeoHead()
   revertComments(feedComments.value, { newParams: { article_id: feed.value.id } })
   errMsg.value = feedError.value
 })

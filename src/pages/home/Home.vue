@@ -55,12 +55,11 @@
 </template>
 
 <script setup>
-import { onActivated, onServerPrefetch, ref } from 'vue'
+import { ref } from 'vue'
 import { watchOnce } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useFeedStore } from '@/store/feed'
-import { useHeadStore } from '@/store/head'
 import { useHydrationStore } from '@/store/hydration'
 import BulletinCard from '@comp/card/BulletinCard.vue'
 import RecCard from '@comp/card/RecCard.vue'
@@ -108,10 +107,6 @@ onServerClientOnce(async (isSSR) => {
 onHydration(() => {
   revert(forYou.value)
 })
-
-const { reset: resetHeadStore } = useHeadStore()
-onServerPrefetch(resetHeadStore)
-onActivated(resetHeadStore)
 
 const {
   dataList: creators,

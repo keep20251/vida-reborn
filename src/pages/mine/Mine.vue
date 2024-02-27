@@ -33,7 +33,7 @@
 </template>
 
 <script setup>
-import { onActivated, onBeforeMount, onServerPrefetch, ref } from 'vue'
+import { onActivated, onBeforeMount, onDeactivated, onServerPrefetch, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { onBeforeRouteUpdate, useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
@@ -60,23 +60,24 @@ const cats = ref([
 const route = useRoute()
 const { t: $t } = useI18n()
 const headStore = useHeadStore()
-const { title, description, keywordArr, ogUrl } = storeToRefs(headStore)
+const { setup: setupHead, reset: resetHead } = headStore
 
-onActivated(() => {
-  loadHead()
-})
+onActivated(() => loadHead())
+onDeactivated(() => resetHead())
 
 function loadHead() {
-  title.value = $t('meta.mine.title', { pipe: '|' })
-  description.value = $t('meta.mine.description')
-  keywordArr.value = [
-    $t('meta.keywords.favorite'),
-    $t('meta.keywords.intl'),
-    $t('meta.keywords.subscribe'),
-    $t('meta.keywords.interact'),
-    $t('meta.keywords.title'),
-  ]
-  ogUrl.value = import.meta.env.VITE_APP_URL + route.path
+  setupHead({
+    title: $t('meta.mine.title', { pipe: '|' }),
+    description: $t('meta.mine.description'),
+    keywords: [
+      $t('meta.keywords.favorite'),
+      $t('meta.keywords.intl'),
+      $t('meta.keywords.subscribe'),
+      $t('meta.keywords.interact'),
+      $t('meta.keywords.title'),
+    ],
+    // url: `/${route.path}`,
+  })
 }
 
 const headerTitle = ref('title.mine')
