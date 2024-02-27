@@ -1,33 +1,34 @@
 <template>
   <Page>
     <div class="my-10 px-20">
-      <div class="mb-10">【 訂閱方案卡片 】</div>
+      <div class="mb-10">【 SubscribeCard 】</div>
       <SubscribeCard class="py-30"></SubscribeCard>
     </div>
     <div class="my-10 px-20">
-      <div class="mb-10">【 Creator Recommended Card 】</div>
+      <div class="mb-10">【 RecCard 】</div>
       <RecCard class="py-30" :items="items"></RecCard>
     </div>
     <div class="my-10 px-20">
-      <div class="mb-10 font-bold">【 漸層版查看創作者卡片 】</div>
+      <div class="mb-10 font-bold">【 ViewSubscribeCard 】</div>
       <div class="flex flex-col justify-center space-y-16 py-16 align-middle">
         <ViewSubscribeCard
-          v-for="index in 3"
+          v-for="(item, index) in creators"
           :key="`creator-card-${index}`"
           :theme="(index + 2) % 3"
+          :item="item"
         ></ViewSubscribeCard>
       </div>
     </div>
     <div class="my-10 px-20">
-      <div class="mb-10">【 Bulletin Card 】</div>
+      <div class="mb-10">【 BulletinCard 】</div>
       <BulletinCard></BulletinCard>
     </div>
     <div class="my-10 px-20">
-      <div class="mb-10">【 Related Creators Card 】</div>
+      <div class="mb-10">【 RelCreatorsCard 】</div>
       <RelCreatorsCard :items="creators"></RelCreatorsCard>
     </div>
     <div class="my-10 flex flex-col space-y-10 px-20">
-      <div class="mb-10 font-bold">【 搜索頁面用的創作者卡片 】</div>
+      <div class="mb-10 font-bold">【 SearchCreatorCard 】</div>
       <SearchCreatorCard v-for="index in 3" :key="`search-card-${index}`"></SearchCreatorCard>
     </div>
   </Page>
