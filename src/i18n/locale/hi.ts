@@ -43,6 +43,7 @@ export default {
     restoreSubscribe: "सदस्यता फिर से शुरू करें",
     reSubscribe: "पुनः सदस्यता लें",
     editPersonalPage: "प्रोफ़ाइल संपादित करें",
+    toPersonalPage: "",
     reSelect: "पुनः चयन करें",
     append: "जोड़ें",
     publish: "प्रकाशित करें",

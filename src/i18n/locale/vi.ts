@@ -43,6 +43,7 @@ export default {
     restoreSubscribe: "Khôi phục đăng ký",
     reSubscribe: "Đăng ký lại",
     editPersonalPage: "Chỉnh sửa hồ sơ",
+    toPersonalPage: "",
     reSelect: "Chọn lại",
     append: "Thêm vào",
     publish: "Xuất bản",
