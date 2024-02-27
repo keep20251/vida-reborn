@@ -34,9 +34,9 @@
 </template>
 <script setup>
 import { ref } from 'vue'
-import BulletinCard from '@comp/card/BulletinCard.vue'
-import RecCard from '@comp/card/RecCard.vue'
-import RelCreatorsCard from '@comp/card/RelCreatorsCard.vue'
+import BulletinCard from '@comp/aside/BulletinCard.vue'
+import RecCard from '@comp/aside/RecCard.vue'
+import RelCreatorsCard from '@comp/aside/RelCreatorsCard.vue'
 import SearchCreatorCard from '@comp/card/SearchCreatorCard.vue'
 import SubscribeCard from '@comp/card/SubscribeCard.vue'
 import ViewSubscribeCard from '@comp/card/ViewSubscribeCard.vue'
