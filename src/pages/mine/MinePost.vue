@@ -6,11 +6,15 @@
     <div class="flex justify-end pt-20">
       <ButtonTab v-model="tabBtn" :options="tabBtnOptions"></ButtonTab>
     </div>
-    <List :items="items" item-key="id" divider>
+    <List :items="items" item-key="status" divider>
       <template #default="{ item }">
-        <div class="py-20 text-base font-bold">#{{ status(item) }}</div>
-        <Feed class="pb-10" :item="item"></Feed>
-        <Button class="mb-20" @click="onEdit(item)">{{ $t('label.edit') }}</Button>
+        <div class="py-15 text-base font-bold">#{{ status(item) }}</div>
+        <List :items="item.list" item-key="id" divider>
+          <template #default="{ item }">
+            <Feed class="py-10" :item="item"></Feed>
+            <Button class="mb-20" @click="onEdit(item)">{{ $t('label.edit') }}</Button>
+          </template>
+        </List>
       </template>
       <template #bottom>
         <div class="flex items-center justify-center py-8 text-gray-a3">
@@ -163,7 +167,29 @@ const pages = {
     }),
   },
 }
-const items = computed(() => pages[`${tab.value}${tabBtn.value}`].infinite.dataList.value)
+const items = computed(() => {
+  const datas = pages[`${tab.value}${tabBtn.value}`].infinite.dataList.value.slice()
+
+  // 先排序
+  // 順序為 REJECT(5) > REVIEW(1) > PASS(3) > PUBLISHED(2)
+  // 所以 REVIEW 直接改成 4 剛好就是對應大小
+  datas.sort((a, b) => {
+    const av = a.status === FEED_STATUS.REVIEW ? 4 : a.status
+    const bv = b.status === FEED_STATUS.REVIEW ? 4 : b.status
+    return bv - av
+  })
+
+  // 再分群
+  // [{ status: 5, list: []},{ status: 1, list: []}, { status: 3, list: []}, { status: 2, list: []}, ]
+  return datas.reduce((a, d) => {
+    if (a.length === 0 || a[a.length - 1].status !== d.status) {
+      a.push({ status: d.status, list: [d] })
+    } else {
+      a[a.length - 1].list.push(d)
+    }
+    return a
+  }, [])
+})
 const isLoading = computed(() => pages[`${tab.value}${tabBtn.value}`].infinite.isLoading.value)
 const noMore = computed(() => pages[`${tab.value}${tabBtn.value}`].infinite.noMore.value)
 watch(
@@ -185,8 +211,8 @@ watch(postReloadFlag, () => pages[`${tab.value}${tabBtn.value}`].infinite.reload
 const { t: $t } = useI18n()
 function status(item) {
   if (item.status === FEED_STATUS.REVIEW) return $t('info.underReview')
-  if (item.status === FEED_STATUS.REJECT) return $t('info.auditFailure')
-  if (item.status === FEED_STATUS.PASS) return $t('info.scheduledRelease')
+  if (item.status === FEED_STATUS.REJECT) return $t('info.reviewFail')
+  if (item.status === FEED_STATUS.PASS) return $t('info.reviewPass')
   if (item.status === FEED_STATUS.PUBLISHED) return $t('info.published')
 }
 
