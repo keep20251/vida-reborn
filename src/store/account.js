@@ -83,6 +83,7 @@ export const useAccountStore = defineStore('account-store', () => {
     uuidCookie.value = ''
     chatToken.value = null
     clearUserData()
+    if (import.meta.env.SSR === false) window.location.reload()
   }
 
   /**

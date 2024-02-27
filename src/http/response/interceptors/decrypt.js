@@ -23,7 +23,9 @@ export default function (response) {
   else if (processedData.status === 422) {
     if (!import.meta.env.SSR) {
       useAccountStore().logout()
-      useModalStore().alert({ title: 'content.tokenExpired', confirmAction: () => window.location.reload() })
+
+      // TODO 現在登出都會reload，這個彈窗沒用了，但不確定之後要怎麼改XD
+      // useModalStore().alert({ title: 'content.tokenExpired', confirmAction: () => window.location.reload() })
     }
     return Promise.reject(new TokenInvalidError(processedData.msg))
   }
