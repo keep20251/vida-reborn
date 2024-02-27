@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "es6",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@comp/*": ["./src/components/*"],
+      "@use/*": ["./src/compositions/*"],
+      "@const/*": ["./src/constant/*"]
+    }
+  }
+}
