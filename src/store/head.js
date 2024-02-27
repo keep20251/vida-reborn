@@ -1,10 +1,12 @@
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { defineStore } from 'pinia'
+import { useLocale } from '@use/utils/locale'
 import { locales } from '@/i18n'
 
 export const useHeadStore = defineStore('app-head', () => {
   const { t: $t } = useI18n()
+  const locale = useLocale()
 
   const title = ref($t('meta.home.title', { pipe: '|' }))
   const description = ref($t('meta.home.description'))
@@ -43,6 +45,15 @@ export const useHeadStore = defineStore('app-head', () => {
     },
   ])
 
+  function setup({ title: _title, description: _description, keywords: _keywords, url: _url, image: _image }) {
+    if (_title) title.value = _title
+    if (_description) description.value = _description
+    if (_keywords) keywordArr.value = _keywords
+    if (_url) ogUrl.value = `${import.meta.env.VITE_APP_URL}/${locale.value}${_url}`
+    if (_image) ogImage.value = _image
+    if (_image) twitterImage.value = _image
+  }
+
   function reset() {
     title.value = $t('meta.home.title', { pipe: '|' })
     description.value = $t('meta.home.description')
@@ -73,6 +84,7 @@ export const useHeadStore = defineStore('app-head', () => {
     twitterImage,
     canonical,
     alternates,
+    setup,
     reset,
   }
 })

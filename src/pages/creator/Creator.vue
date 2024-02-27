@@ -80,13 +80,14 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, onDeactivated, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useCreatorStore } from '@/store/creator'
 import { useFeedStore } from '@/store/feed'
+import { useHeadStore } from '@/store/head'
 import { useHydrationStore } from '@/store/hydration'
 import { useSubsciptionStore } from '@/store/subscription'
 import SubscribeCard from '@comp/card/SubscribeCard.vue'
@@ -105,6 +106,9 @@ import { useRouters } from '@use/routers'
 const appStore = useAppStore()
 const { isDesktop, isMobile } = storeToRefs(appStore)
 
+const creatorStore = useCreatorStore()
+const { get: getCreator, revert: revertCreator } = creatorStore
+
 const feedStore = useFeedStore()
 const {
   dataList: items,
@@ -119,9 +123,7 @@ const {
 })
 
 const route = useRoute()
-
-const creatorStore = useCreatorStore()
-const { get: getCreator, revert: revertCreator } = creatorStore
+const { toMessage } = useRouters()
 
 const creator = ref(null)
 const errMsg = ref(null)
@@ -129,8 +131,6 @@ async function loadNewCreator() {
   creator.value = null
   try {
     creator.value = await getCreator(route.params.username)
-    console.log('loadNewCreator.value', creator.value)
-
     await reload({ newParams: { uuid: creator.value.uuid, filter_by: 0 } })
   } catch (e) {
     errMsg.value = e.message
@@ -149,14 +149,28 @@ const lowestSub = computed(() =>
   creator.value?.subscription_list?.reduce((acc, cur) => (Number(acc.price) < Number(cur.price) ? acc : cur)),
 )
 
-const { toMessage } = useRouters()
+// SEO head
+const headStore = useHeadStore()
+const { setup: setupHead, reset: resetHead } = headStore
+function loadSeoHead() {
+  setupHead({
+    title: creator.value.nickname,
+    description: creator.value.description,
+    keywords: [creator.value.username],
+    url: `/${creator.value.username}`,
+    image: creator.value.thumb,
+  })
+}
+onDeactivated(() => resetHead())
 
+// 進入創作者頁
 whenever(
   () => route.name === 'creator',
   async (v) => {
     if (route.params.username !== creator.value?.username) {
       await loadNewCreator()
     }
+    loadSeoHead()
   },
 )
 
@@ -174,6 +188,7 @@ onServerClientOnce(async (isSSR) => {
 })
 onHydration(() => {
   creator.value = revertCreator(creatorFromStore.value)
+  loadSeoHead()
   revert(creatorArticleList.value, { newParams: { uuid: creator.value.uuid } })
   errMsg.value = creatorError.value
 })
