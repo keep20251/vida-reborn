@@ -39,7 +39,6 @@ export default {
     check: "ตรวจสอบ",
     subscribe: "การสมัครสมาชิก",
     subscribed: "ติดตาม",
-    shopBuy: "จ่าย",
     cancelSubscribe: "ยกเลิกการสมัคร",
     restoreSubscribe: "กลับมาสมัครใหม่",
     reSubscribe: "สมัครสมาชิกอีกครั้ง",
@@ -149,6 +148,8 @@ export default {
     reply: "ตอบ",
     subPlanName: "ชื่อแผนการสมัครสมาชิก",
     subPlanCtn: "เนื้อหาของแผนการสมัครสมาชิก",
+    subBtn: "สมัครสมาชิกเพื่อปลดล็อกเนื้อหาเต็ม",
+    buyBtn: "จ่ายต่อรายการเพื่อปลดล็อกเนื้อหา",
   },
   placeholder: {
     account: "กรุณาใส่ชื่อผู้ใช้",
@@ -176,7 +177,7 @@ export default {
     sending: "การส่ง",
     failure: "ล้มเหลว",
     imageSended: "ส่งรูปภาพแล้ว",
-    newMessage: "",
+    newMessage: "คุณมีข้อความใหม่ {count} ข้อ",
   },
   copy: { link: "คัดลอกลิงค์", fail: "คัดลอกไม่สำเร็จ" },
   info: {
@@ -235,6 +236,7 @@ export default {
     whetherLogin: "คุณแน่ใจหรือไม่ว่าต้องการออกจากระบบ?",
     whetherChangePw: "คุณแน่ใจหรือไม่ว่าต้องการเปลี่ยนรหัสผ่าน?",
     whetherDelAcc: "คุณแน่ใจหรือไม่ว่าต้องการลบบัญชีของคุณ?",
+    whetherDelArticle: "",
   },
   content: {
     default: "ที่ตั้งไว้ไม่ควรแสดงทุกที่",
@@ -307,6 +309,7 @@ export default {
     wdrlAtLeast: "จำนวนเงินที่ถอนต้องไม่น้อยกว่า 100 ดอลลาร์สหรัฐ",
     wdrlNotMoreNumNow: "ตัวเลขไม่สามารถมากกว่ารายได้ปัจจุบัน",
     wdrlReview: "ส่งหลังจากนั้นภายใน 24 ชั่วโมงจะมีการตรวจสอบ ผลการตรวจสอบจะแสดงในบันทึกการส่ง",
+    delSubPlan: "",
   },
   month: {
     Jan: "มกราคม",
@@ -470,11 +473,11 @@ export default {
       content: "เหตุผลโดยละเอียด: {reason} โปรดลองอีกครั้งหรือติดต่อเจ้าหน้าที่ฝ่ายบริการลูกค้า",
     },
     confirmAmount: "ฉันขอให้คุณส่งจำนวน {'$'} {price} ไปที่การชำระเงิน",
-    beforeStart: "",
-    pickInterestedForUs: "",
-    feedCategory: "",
-    leastThree: "",
-    great: "",
+    beforeStart: "เริ่มก่อน...",
+    pickInterestedForUs: "ช่วยเราเลือกประเภทที่คุณสนใจ!",
+    feedCategory: "หัวข้อโพสต์:",
+    leastThree: "เลือกอย่างน้อยสามหัวข้อ",
+    great: "ดีมาก!",
   },
   beCreator: {
     id: { passport: "หนังสือเดินทาง", idCard: "บัตรประชาชน", driverLicense: "ใบขับขี่" },

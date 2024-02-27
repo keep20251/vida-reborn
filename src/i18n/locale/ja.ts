@@ -34,7 +34,6 @@ export default {
     check: "確認する",
     subscribe: "サブスクリプション",
     subscribed: "申し込む",
-    shopBuy: "支払う",
     cancelSubscribe: "キャンセル",
     restoreSubscribe: "再開",
     reSubscribe: "再購読",
@@ -144,6 +143,8 @@ export default {
     reply: "返事",
     subPlanName: "サブスクリプションプランの名前",
     subPlanCtn: "サブスクリプションプランの内容",
+    subBtn: "フルコンテンツをアンロックするために購読する",
+    buyBtn: "アイテムごとに支払ってコンテンツをアンロックする",
   },
   placeholder: {
     account: "ユーザー名を入力してください",
@@ -171,7 +172,7 @@ export default {
     sending: "送信",
     failure: "失敗した",
     imageSended: "画像を送信しました",
-    newMessage: "",
+    newMessage: "新しいメッセージが{count}件あります",
   },
   copy: { link: "リンクをコピーする", fail: "コピーに失敗しました" },
   info: {
@@ -230,6 +231,7 @@ export default {
     whetherLogin: "ログアウトしてもよろしいですか？",
     whetherChangePw: "パスワードを変更してもよろしいですか？",
     whetherDelAcc: "アカウントを削除してもよろしいですか？",
+    whetherDelArticle: "",
   },
   content: {
     default: "プリセット、どこにも表示しないでください",
@@ -304,6 +306,7 @@ export default {
     wdrlAtLeast: "引き出し額は最低でも100米ドルでなければなりません。",
     wdrlNotMoreNumNow: "数字は現在の収益を超えることはできません。",
     wdrlReview: "提出後24時間以内にレビューされ、レビュー結果は提出記録に表示されます。",
+    delSubPlan: "",
   },
   month: {
     Jan: "1月",
@@ -470,11 +473,11 @@ export default {
       content: "詳細な理由：{reason}。もう一度やり直すか、カスタマーサービススタッフに連絡してください",
     },
     confirmAmount: "{'$'} {price}の金額を送信するようお願いします。",
-    beforeStart: "",
-    pickInterestedForUs: "",
-    feedCategory: "",
-    leastThree: "",
-    great: "",
+    beforeStart: "スタート前に...",
+    pickInterestedForUs: "興味のあるタイプを選んでください！",
+    feedCategory: "投稿のテーマ：",
+    leastThree: "少なくとも3つのトピックを選択してください",
+    great: "素晴らしい！",
   },
   beCreator: {
     id: { passport: "パスポート", idCard: "身分証明書", driverLicense: "運転免許証" },

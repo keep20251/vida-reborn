@@ -39,7 +39,6 @@ export default {
     check: "Periksa",
     subscribe: "berlangganan",
     subscribed: "Berlangganan",
-    shopBuy: "Membayar",
     cancelSubscribe: "Batalkan langganan",
     restoreSubscribe: "Mengembalikan langganan",
     reSubscribe: "Berlangganan kembali",
@@ -149,6 +148,8 @@ export default {
     reply: "Membalas",
     subPlanName: "Nama rencana langganan",
     subPlanCtn: "Konten rencana langganan",
+    subBtn: "Berlangganan untuk membuka konten lengkap",
+    buyBtn: "Bayar per item untuk membuka kunci konten",
   },
   placeholder: {
     account: "Silakan masukkan nama pengguna",
@@ -176,7 +177,7 @@ export default {
     sending: "Mengirim",
     failure: "Gagal",
     imageSended: "Gambar terkirim",
-    newMessage: "",
+    newMessage: "Anda memiliki {count} pesan baru",
   },
   copy: { link: "Salin tautan", fail: "Salinan gagal" },
   info: {
@@ -235,6 +236,7 @@ export default {
     whetherLogin: "Apakah Anda yakin ingin keluar?",
     whetherChangePw: "Apakah Anda yakin ingin mengubah kata sandi?",
     whetherDelAcc: "Apakah Anda yakin ingin menghapus akun Anda?",
+    whetherDelArticle: "",
   },
   content: {
     default: "Preset, tidak boleh ditampilkan di mana pun",
@@ -310,6 +312,7 @@ export default {
     wdrlNotMoreNumNow: "Angka tidak boleh lebih besar dari pendapatan saat ini.",
     wdrlReview:
       "Akan ditinjau dalam 24 jam setelah penyerahan, dan hasil tinjauan akan ditampilkan dalam catatan pengajuan.",
+    delSubPlan: "",
   },
   month: {
     Jan: "Januari",
@@ -476,11 +479,11 @@ export default {
       content: "Alasan terperinci: {reason}. Silakan coba lagi, atau hubungi staf layanan pelanggan",
     },
     confirmAmount: "Bolehkah saya meminta Anda untuk mengirimkan jumlah {'$'} {price} pergi ke pembayaran",
-    beforeStart: "",
-    pickInterestedForUs: "",
-    feedCategory: "",
-    leastThree: "",
-    great: "",
+    beforeStart: "Sebelum kita mulai...",
+    pickInterestedForUs: "Tolong bantu kami memilih jenis yang Anda minati!",
+    feedCategory: "Tema posting:",
+    leastThree: "Pilih setidaknya tiga topik",
+    great: "Hebat!",
   },
   beCreator: {
     id: { passport: "Paspor", idCard: "Kartu Identitas", driverLicense: "Surat Izin Mengemudi" },

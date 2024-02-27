@@ -39,7 +39,6 @@ export default {
     check: "تحقق",
     subscribe: "الاشتراك",
     subscribed: "الاشتراك في",
-    shopBuy: "يدفع",
     cancelSubscribe: "إلغاء الاشتراك",
     restoreSubscribe: "استئناف الاشتراك",
     reSubscribe: "إعادة الاشتراك",
@@ -149,6 +148,8 @@ export default {
     reply: "رد",
     subPlanName: "اسم خطة الاشتراك",
     subPlanCtn: "محتوى خطة الاشتراك",
+    subBtn: "اشترك لفتح المحتوى كامل",
+    buyBtn: "دفع مقابل كل عنصر لفتح المحتوى",
   },
   placeholder: {
     account: "الرجاء إدخال اسم المستخدم",
@@ -176,7 +177,7 @@ export default {
     sending: "إرسال",
     failure: "فشل",
     imageSended: "تم إرسال الصورة",
-    newMessage: "",
+    newMessage: "لديك {count} رسالة جديدة",
   },
   copy: { link: "نسخ الرابط", fail: "فشل النسخ" },
   info: {
@@ -235,6 +236,7 @@ export default {
     whetherLogin: "هل أنت متأكد من أنك تريد تسجيل الخروج؟",
     whetherChangePw: "هل أنت متأكد من أنك تريد تغيير كلمة المرور؟",
     whetherDelAcc: "هل أنت متأكد من أنك تريد حذف حسابك؟",
+    whetherDelArticle: "",
   },
   content: {
     default: "مسبقًا ، لا ينبغي عرضه في أي مكان",
@@ -307,6 +309,7 @@ export default {
     wdrlAtLeast: "يجب أن يكون مبلغ السحب على الأقل 100 دولار أمريكي.",
     wdrlNotMoreNumNow: "لا يمكن أن يكون الرقم أكبر من الإيرادات الحالية.",
     wdrlReview: "سيتم المراجعة خلال 24 ساعة بعد الإرسال، وسيتم عرض نتائج المراجعة في سجل الإرسال.",
+    delSubPlan: "",
   },
   month: {
     Jan: "يناير",
@@ -470,11 +473,11 @@ export default {
       content: "سبب مفصل: {reason}. يرجى المحاولة مرة أخرى ، أو الاتصال بموظفي خدمة العملاء",
     },
     confirmAmount: "هل لي أن أطلب منك إرسال المبلغ {'$'} {price} انتقل إلى الدفع",
-    beforeStart: "",
-    pickInterestedForUs: "",
-    feedCategory: "",
-    leastThree: "",
-    great: "",
+    beforeStart: "قبل أن نبدأ...",
+    pickInterestedForUs: "الرجاء مساعدتنا في اختيار الأنواع التي تهتم بها!",
+    feedCategory: "موضوع المشاركة:",
+    leastThree: "اختر ثلاثة مواضيع على الأقل",
+    great: "رائع!",
   },
   beCreator: {
     id: { passport: "جواز سفر", idCard: "بطاقة هوية", driverLicense: "رخصة القيادة" },

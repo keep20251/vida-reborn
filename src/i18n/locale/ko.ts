@@ -34,7 +34,6 @@ export default {
     check: "확인하기",
     subscribe: "신청",
     subscribed: "구독하십시오",
-    shopBuy: "지불하다",
     cancelSubscribe: "구독 취소",
     restoreSubscribe: "구독 재개",
     reSubscribe: "재구독",
@@ -144,6 +143,8 @@ export default {
     reply: "회신하다",
     subPlanName: "구독 계획 이름",
     subPlanCtn: "구독 계획 내용",
+    subBtn: "전체 콘텐츠를 잠금 해제하려면 구독하세요",
+    buyBtn: "항목 당 지불하여 콘텐츠 잠금 해제",
   },
   placeholder: {
     account: "사용자 이름을 입력하세요",
@@ -171,7 +172,7 @@ export default {
     sending: "배상",
     failure: "실패한",
     imageSended: "이미지 전송됨",
-    newMessage: "",
+    newMessage: "새 메시지 {count}개가 있습니다",
   },
   copy: { link: "링크 복사하기", fail: "복사 실패" },
   info: {
@@ -230,6 +231,7 @@ export default {
     whetherLogin: "로그아웃하시겠습니까?",
     whetherChangePw: "비밀번호를 변경하시겠습니까?",
     whetherDelAcc: "계정을 삭제하시겠습니까?",
+    whetherDelArticle: "",
   },
   content: {
     default: "사전 설정, 아무데도 표시해서는 안됩니다",
@@ -303,6 +305,7 @@ export default {
     wdrlAtLeast: "출금 금액은 최소 US$100 이상이어야 합니다.",
     wdrlNotMoreNumNow: "숫자는 현재 수익을 초과할 수 없습니다.",
     wdrlReview: "제출 후 24시간 내에 검토되며, 검토 결과는 제출 기록에 표시됩니다.",
+    delSubPlan: "",
   },
   month: {
     Jan: "1월",
@@ -469,11 +472,11 @@ export default {
       content: "자세한 이유 : {reason}. 다시 시도하거나 고객 서비스 직원에게 문의하십시오",
     },
     confirmAmount: "금액 { '$'} {price} 금액을 제출하도록 요청할 수 있습니다.",
-    beforeStart: "",
-    pickInterestedForUs: "",
-    feedCategory: "",
-    leastThree: "",
-    great: "",
+    beforeStart: "시작하기 전에...",
+    pickInterestedForUs: "관심 있는 유형을 선택해주세요!",
+    feedCategory: "게시물 주제:",
+    leastThree: "적어도 세 가지 주제를 선택하세요",
+    great: "멋져요!",
   },
   beCreator: {
     id: { passport: "여권", idCard: "신분증", driverLicense: "운전 면허증" },

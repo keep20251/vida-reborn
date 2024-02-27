@@ -39,7 +39,6 @@ export default {
     check: "Check",
     subscribe: "subscription",
     subscribed: "Subscribe to",
-    shopBuy: "Pay",
     cancelSubscribe: "Cancel",
     restoreSubscribe: "Resume",
     reSubscribe: "Re-subscribe",
@@ -149,6 +148,8 @@ export default {
     reply: "Replay",
     subPlanName: "Subscription plan name",
     subPlanCtn: "Subscription plan content",
+    subBtn: "Subscribe to unlock full content",
+    buyBtn: "Pay per item to unlock content",
   },
   placeholder: {
     account: "Please enter username",
@@ -176,7 +177,7 @@ export default {
     sending: "发送中",
     failure: "失败",
     imageSended: "图片已发送",
-    newMessage: "",
+    newMessage: "You have {count} new messages",
   },
   copy: { link: "Copy Link", fail: "Copy Failed" },
   info: {
@@ -235,6 +236,7 @@ export default {
     whetherLogin: "Are you sure you want to log out?",
     whetherChangePw: "Are you sure you want to change your password?",
     whetherDelAcc: "Are you sure you want to delete your account?",
+    whetherDelArticle: "",
   },
   content: {
     default: "Preset, should not be displayed anywhere",
@@ -309,6 +311,7 @@ export default {
     wdrlNotMoreNumNow: "The number cannot be greater than the current revenue.",
     wdrlReview:
       "It will be reviewed within 24 hours after submission, and the review results will be displayed in the submission record.",
+    delSubPlan: "Are you sure you want to delete this subscription plan?",
   },
   month: {
     Jan: "January",
@@ -475,11 +478,11 @@ export default {
       content: "Detailed reason: {reason}. Please try again, or contact customer service staff",
     },
     confirmAmount: "May I ask you to submit the amount {'$'} {price} Go to the payment",
-    beforeStart: "",
-    pickInterestedForUs: "",
-    feedCategory: "",
-    leastThree: "",
-    great: "",
+    beforeStart: "Before we start...",
+    pickInterestedForUs: "Please help us choose the types you're interested in!",
+    feedCategory: "Post theme:",
+    leastThree: "Choose at least three topics",
+    great: "Great!",
   },
   beCreator: {
     id: { passport: "Passport", idCard: "ID Card", driverLicense: "Driver's License" },

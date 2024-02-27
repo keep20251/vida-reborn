@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { readonly, ref } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useMineStore = defineStore('mine-store', () => {
@@ -16,6 +16,12 @@ export const useMineStore = defineStore('mine-store', () => {
   }
   function deactivatePreview() {
     isPreviewMode.value = false
+  }
+
+  // MinePost 用來監聽是否需要重新載入
+  const postReloadFlag = ref(null)
+  function reloadPost() {
+    postReloadFlag.value = Date.now()
   }
 
   // Mine.vue 內的 Page 組件的 next 函式，由子層元件設定
@@ -40,6 +46,9 @@ export const useMineStore = defineStore('mine-store', () => {
     isPreviewMode,
     activatePreview,
     deactivatePreview,
+
+    postReloadFlag: readonly(postReloadFlag),
+    reloadPost,
 
     nextFn,
     setNextFn,

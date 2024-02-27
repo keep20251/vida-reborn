@@ -24,6 +24,7 @@
 <script setup>
 import { computed, onActivated, onDeactivated, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { storeToRefs } from 'pinia'
 import { useMineStore } from '@/store/mine'
 import { usePublishStore } from '@/store/publish'
 import Button from '@comp/common/Button.vue'
@@ -35,7 +36,9 @@ import { useRouters } from '@use/routers'
 import { FEED_STATUS, MEDIA_TYPE } from '@const/publish'
 import { toDate } from '@/utils/string-helper'
 
-const { setNextFn, clearNextFn } = useMineStore()
+const mineStore = useMineStore()
+const { postReloadFlag } = storeToRefs(mineStore)
+const { setNextFn, clearNextFn } = mineStore
 
 const TAB_TYPE = { SUB: 1, BUY: 2, SCH: 3, PRI: 4 }
 
@@ -133,6 +136,7 @@ watch(
 )
 onActivated(() => setNextFn(pages[`${tab.value}${tabBtn.value}`].infinite.next))
 onDeactivated(() => clearNextFn(pages[`${tab.value}${tabBtn.value}`].infinite.next))
+watch(postReloadFlag, () => pages[`${tab.value}${tabBtn.value}`].infinite.reload())
 
 const { t: $t } = useI18n()
 function status(item) {

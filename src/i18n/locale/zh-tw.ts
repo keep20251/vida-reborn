@@ -34,7 +34,6 @@ export default {
     check: "查看",
     subscribe: "訂閱",
     subscribed: "已訂閱",
-    shopBuy: "付費",
     cancelSubscribe: "取消訂閱",
     restoreSubscribe: "恢復訂閱",
     reSubscribe: "重新訂閱",
@@ -144,6 +143,8 @@ export default {
     reply: "回覆",
     subPlanName: "訂閱方案名稱",
     subPlanCtn: "訂閱方案內容",
+    subBtn: "訂閱解鎖完整內容",
+    buyBtn: "單筆付費解鎖內容",
   },
   placeholder: {
     account: "請輸入用戶名",
@@ -226,6 +227,7 @@ export default {
     whetherLogin: "您是否確認要登出？",
     whetherChangePw: "您是否確認要變更密碼？",
     whetherDelAcc: "您是否確認要刪除帳號嗎？",
+    whetherDelArticle: "您是否確定要刪除此貼文？",
   },
   content: {
     default: "預設，不應該顯示在任何地方",
@@ -295,6 +297,7 @@ export default {
     wdrlAtLeast: "提款金額須至少100美金以上。",
     wdrlNotMoreNumNow: "數字不可大於目前收益。",
     wdrlReview: "提出後將於24小時內審核，審核結果將於提交紀錄中展示。",
+    delSubPlan: "確定要刪除此訂閱方案?",
   },
   month: {
     Jan: "一月",

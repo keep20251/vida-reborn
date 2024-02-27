@@ -1,7 +1,7 @@
 <template>
   <Page>
     <template #main-top>
-      <Head :title="$t('title.publish')" feature-icon="close" @back="clear" @feature="onClose"></Head>
+      <Head :title="$t('title.publish')" feature-icon="close" @back="clear" @feature="onDelete"></Head>
     </template>
     <template #default>
       <div class="flex flex-col space-y-20 pb-30">
@@ -156,6 +156,7 @@ import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
+import { useMineStore } from '@/store/mine'
 import { useModalStore } from '@/store/modal'
 import { usePublishStore } from '@/store/publish'
 import Button from '@comp/common/Button.vue'
@@ -180,10 +181,12 @@ const { uploadFiles, publishTimeOpen, isCreate, isUpdate, isVideo, isImage, isEd
   storeToRefs(publishStore)
 const { publishParams, startUpload, clear, changeVideoFile, addImageFile, removeUploadFile } = publishStore
 
-const { alert } = useModalStore()
+const { alert, confirm } = useModalStore()
 
 const accountStore = useAccountStore()
 const { userData } = storeToRefs(accountStore)
+
+const { reloadPost } = useMineStore()
 
 const { back } = useRouters()
 
@@ -248,6 +251,26 @@ function onClose() {
   back()
 }
 
+function onDelete() {
+  if (isUpdate.value) {
+    confirm({
+      title: 'info.whetherDelArticle',
+      async confirmAction() {
+        try {
+          await useRequest('Article.delete', { params: { article_id: publishParams.id }, immediate: true })
+          reloadPost()
+          onClose()
+        } catch (e) {
+          return e.message
+        }
+      },
+      cancelAction() {},
+    })
+  } else {
+    onClose()
+  }
+}
+
 function publish() {
   if (!validation()) return
 
@@ -258,7 +281,12 @@ function publish() {
     .then(() => {
       alert({
         title: 'title.publishSuccess',
-        confirmAction: onClose,
+        confirmAction() {
+          if (isUpdate.value) {
+            reloadPost()
+          }
+          onClose()
+        },
       })
     })
     .catch((e) => {
