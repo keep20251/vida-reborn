@@ -73,12 +73,12 @@
         <Icon name="dropdown" size="20" class="transition-transform" :class="{ 'rotate-180': accOpen === true }"></Icon>
       </div>
       <transition
-        enter-active-class="transition duration-250 ease-out"
-        enter-from-class="transform -translate-y-5"
-        enter-to-class="transform translate-y-0"
-        leave-active-class="transition duration-450 ease-out"
-        leave-from-class="transform translate-y-0"
-        leave-to-class="transform -translate-y-5 opacity-0"
+        enter-active-class="transition duration-200 ease-in"
+        enter-from-class="transform -translate-y-10 opacity-0"
+        enter-to-class="transform translate-y-0 opacity-100"
+        leave-active-class="transition duration-200 ease-out"
+        leave-from-class="transform translate-y-0 opacity-100"
+        leave-to-class="transform -translate-y-10 opacity-0"
       >
         <div v-if="accOpen" class="pl-20">
           <div class="flex w-full flex-col space-y-10 divide-y py-5">
@@ -144,12 +144,12 @@
         ></Icon>
       </div>
       <transition
-        enter-active-class="transition duration-250 ease-out"
-        enter-from-class="transform -translate-y-5"
-        enter-to-class="transform translate-y-0"
-        leave-active-class="transition duration-450 ease-out"
-        leave-from-class="transform translate-y-0"
-        leave-to-class="transform -translate-y-5 opacity-0"
+        enter-active-class="transition duration-200 ease-in"
+        enter-from-class="transform -translate-y-10 opacity-0"
+        enter-to-class="transform translate-y-0 opacity-100"
+        leave-active-class="transition duration-200 ease-out"
+        leave-from-class="transform translate-y-0 opacity-100"
+        leave-to-class="transform -translate-y-10 opacity-0"
       >
         <div v-if="aboutOpen" class="pl-20">
           <div class="flex w-full flex-col space-y-10 divide-y py-5">
