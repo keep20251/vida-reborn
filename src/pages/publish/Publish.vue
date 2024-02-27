@@ -171,6 +171,7 @@ import Head from '@comp/navigation/Head.vue'
 import useRequest from '@use/request'
 import { useRouters } from '@use/routers'
 import { useYup } from '@use/validator/yup.js'
+import { POST_TAB_TYPE } from '@const/mine'
 import { FEED_PERM, IMAGE_LIMIT_COUNT, UPLOAD_STATUS } from '@const/publish'
 import { toDateTimeString } from '@/utils/string-helper'
 
@@ -188,7 +189,7 @@ const { userData } = storeToRefs(accountStore)
 
 const { reloadPost } = useMineStore()
 
-const { back } = useRouters()
+const { back, to } = useRouters()
 
 const publishing = ref(false)
 const inputVideo = ref(null)
@@ -246,9 +247,14 @@ function onImageFile(evt) {
   }
 }
 
-function onClose() {
+function onClose(toMinePostTab) {
   clear()
-  back()
+
+  if (toMinePostTab) {
+    to('mine-post', { query: { t: toMinePostTab } })
+  } else {
+    back()
+  }
 }
 
 function onDelete() {
@@ -275,6 +281,16 @@ function publish() {
   if (!validation()) return
 
   const data = makeReqData()
+  let toMinePostTab
+  if (isCreate.value) {
+    if (publishTimeOpen.value) {
+      toMinePostTab = POST_TAB_TYPE.SCH
+    } else if (publishParams.perm === FEED_PERM.SUB) {
+      toMinePostTab = POST_TAB_TYPE.SUB
+    } else if (publishParams.perm === FEED_PERM.BUY) {
+      toMinePostTab = POST_TAB_TYPE.BUY
+    }
+  }
 
   publishing.value = true
   useRequest('Article.publish', { params: data, immediate: true })
@@ -282,10 +298,8 @@ function publish() {
       alert({
         title: 'title.publishSuccess',
         confirmAction() {
-          if (isUpdate.value) {
-            reloadPost()
-          }
-          onClose()
+          reloadPost()
+          onClose(toMinePostTab)
         },
       })
     })

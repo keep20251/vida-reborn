@@ -54,7 +54,7 @@ const statusShow = computed(() => {
       case WITHDRAW_LIST_STATUS.UNDER_REVIEW:
         return $t('info.underReview')
       default:
-        return $t('info.auditFailure')
+        return $t('info.reviewFail')
     }
   }
 })

@@ -6,11 +6,15 @@
     <div class="flex justify-end pt-20">
       <ButtonTab v-model="tabBtn" :options="tabBtnOptions"></ButtonTab>
     </div>
-    <List :items="items" item-key="id" divider>
+    <List :items="items" item-key="status" divider>
       <template #default="{ item }">
-        <div class="py-20 text-base font-bold">#{{ status(item) }}</div>
-        <Feed class="pb-10" :item="item"></Feed>
-        <Button class="mb-20" @click="onEdit(item)">{{ $t('label.edit') }}</Button>
+        <div class="py-15 text-base font-bold">#{{ status(item) }}</div>
+        <List :items="item.list" item-key="id" divider>
+          <template #default="{ item }">
+            <Feed class="py-10" :item="item"></Feed>
+            <Button class="mb-20" @click="onEdit(item)">{{ $t('label.edit') }}</Button>
+          </template>
+        </List>
       </template>
       <template #bottom>
         <div class="flex items-center justify-center py-8 text-gray-a3">
@@ -24,6 +28,8 @@
 <script setup>
 import { computed, onActivated, onDeactivated, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useRoute } from 'vue-router'
+import { whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useMineStore } from '@/store/mine'
 import { usePublishStore } from '@/store/publish'
@@ -33,28 +39,38 @@ import ButtonTab from '@comp/navigation/ButtonTab.vue'
 import Tab from '@comp/navigation/Tab.vue'
 import { useInfinite } from '@use/request/infinite'
 import { useRouters } from '@use/routers'
+import { POST_TAB_TYPE as TAB_TYPE } from '@const/mine'
 import { FEED_STATUS, MEDIA_TYPE } from '@const/publish'
 import { toDate } from '@/utils/string-helper'
+
+const route = useRoute()
+const { to, updateParams } = useRouters()
 
 const mineStore = useMineStore()
 const { postReloadFlag } = storeToRefs(mineStore)
 const { setNextFn, clearNextFn } = mineStore
 
-const TAB_TYPE = { SUB: 1, BUY: 2, SCH: 3, PRI: 4 }
-
-const tab = ref(TAB_TYPE.SUB)
+const tab = ref(checkRouteTab() ? route.query.t : TAB_TYPE.SUB)
 const tabOptions = ref([
   { label: 'common.subscribe', value: TAB_TYPE.SUB },
   { label: 'label.sale', value: TAB_TYPE.BUY },
   { label: 'label.scheduledRelease', value: TAB_TYPE.SCH },
   { label: 'label.private', value: TAB_TYPE.PRI },
 ])
+watch(tab, (t) => updateParams({ query: { t } }), { immediate: true })
+whenever(
+  () => route.query.t && route.name === 'mine-post' && checkRouteTab(),
+  () => (tab.value = route.query.t),
+)
+function checkRouteTab() {
+  return [TAB_TYPE.SUB, TAB_TYPE.BUY, TAB_TYPE.SCH, TAB_TYPE.PRI].includes(route.query.t)
+}
 
 const tabBtnValues = reactive({
-  [TAB_TYPE.SUB]: MEDIA_TYPE.IMAGE,
-  [TAB_TYPE.BUY]: MEDIA_TYPE.IMAGE,
-  [TAB_TYPE.SCH]: MEDIA_TYPE.IMAGE,
-  [TAB_TYPE.PRI]: MEDIA_TYPE.IMAGE,
+  [TAB_TYPE.SUB]: MEDIA_TYPE.ALL,
+  [TAB_TYPE.BUY]: MEDIA_TYPE.ALL,
+  [TAB_TYPE.SCH]: MEDIA_TYPE.ALL,
+  [TAB_TYPE.PRI]: MEDIA_TYPE.ALL,
 })
 const tabBtn = computed({
   get() {
@@ -65,11 +81,19 @@ const tabBtn = computed({
   },
 })
 const tabBtnOptions = ref([
+  { label: 'label.all', value: MEDIA_TYPE.ALL },
   { label: 'info.image', value: MEDIA_TYPE.IMAGE },
   { label: 'info.video', value: MEDIA_TYPE.VIDEO },
 ])
 
 const pages = {
+  // 訂閱
+  [`${TAB_TYPE.SUB}${MEDIA_TYPE.ALL}`]: {
+    inited: false,
+    infinite: useInfinite('Article.listManagement', {
+      params: { article_type: 1, pre_display: 0, resource_type: MEDIA_TYPE.ALL },
+    }),
+  },
   [`${TAB_TYPE.SUB}${MEDIA_TYPE.IMAGE}`]: {
     inited: false,
     infinite: useInfinite('Article.listManagement', {
@@ -80,6 +104,14 @@ const pages = {
     inited: false,
     infinite: useInfinite('Article.listManagement', {
       params: { article_type: 1, pre_display: 0, resource_type: MEDIA_TYPE.VIDEO },
+    }),
+  },
+
+  // 販售
+  [`${TAB_TYPE.BUY}${MEDIA_TYPE.ALL}`]: {
+    inited: false,
+    infinite: useInfinite('Article.listManagement', {
+      params: { article_type: 2, pre_display: 0, resource_type: MEDIA_TYPE.ALL },
     }),
   },
   [`${TAB_TYPE.BUY}${MEDIA_TYPE.IMAGE}`]: {
@@ -94,6 +126,14 @@ const pages = {
       params: { article_type: 2, pre_display: 0, resource_type: MEDIA_TYPE.VIDEO },
     }),
   },
+
+  // 定時發布
+  [`${TAB_TYPE.SCH}${MEDIA_TYPE.ALL}`]: {
+    inited: false,
+    infinite: useInfinite('Article.listManagement', {
+      params: { article_type: 0, pre_display: 1, resource_type: MEDIA_TYPE.ALL },
+    }),
+  },
   [`${TAB_TYPE.SCH}${MEDIA_TYPE.IMAGE}`]: {
     inited: false,
     infinite: useInfinite('Article.listManagement', {
@@ -104,6 +144,14 @@ const pages = {
     inited: false,
     infinite: useInfinite('Article.listManagement', {
       params: { article_type: 0, pre_display: 1, resource_type: MEDIA_TYPE.VIDEO },
+    }),
+  },
+
+  // 僅限自己
+  [`${TAB_TYPE.PRI}${MEDIA_TYPE.ALL}`]: {
+    inited: false,
+    infinite: useInfinite('Article.listManagement', {
+      params: { article_type: 3, pre_display: 0, resource_type: MEDIA_TYPE.ALL },
     }),
   },
   [`${TAB_TYPE.PRI}${MEDIA_TYPE.IMAGE}`]: {
@@ -119,7 +167,29 @@ const pages = {
     }),
   },
 }
-const items = computed(() => pages[`${tab.value}${tabBtn.value}`].infinite.dataList.value)
+const items = computed(() => {
+  const datas = pages[`${tab.value}${tabBtn.value}`].infinite.dataList.value.slice()
+
+  // 先排序
+  // 順序為 REJECT(5) > REVIEW(1) > PASS(3) > PUBLISHED(2)
+  // 所以 REVIEW 直接改成 4 剛好就是對應大小
+  datas.sort((a, b) => {
+    const av = a.status === FEED_STATUS.REVIEW ? 4 : a.status
+    const bv = b.status === FEED_STATUS.REVIEW ? 4 : b.status
+    return bv - av
+  })
+
+  // 再分群
+  // [{ status: 5, list: []},{ status: 1, list: []}, { status: 3, list: []}, { status: 2, list: []}, ]
+  return datas.reduce((a, d) => {
+    if (a.length === 0 || a[a.length - 1].status !== d.status) {
+      a.push({ status: d.status, list: [d] })
+    } else {
+      a[a.length - 1].list.push(d)
+    }
+    return a
+  }, [])
+})
 const isLoading = computed(() => pages[`${tab.value}${tabBtn.value}`].infinite.isLoading.value)
 const noMore = computed(() => pages[`${tab.value}${tabBtn.value}`].infinite.noMore.value)
 watch(
@@ -141,12 +211,11 @@ watch(postReloadFlag, () => pages[`${tab.value}${tabBtn.value}`].infinite.reload
 const { t: $t } = useI18n()
 function status(item) {
   if (item.status === FEED_STATUS.REVIEW) return $t('info.underReview')
-  if (item.status === FEED_STATUS.REJECT) return $t('info.auditFailure')
-  if (item.status === FEED_STATUS.PASS) return $t('info.scheduledRelease')
+  if (item.status === FEED_STATUS.REJECT) return $t('info.reviewFail')
+  if (item.status === FEED_STATUS.PASS) return $t('info.reviewPass')
   if (item.status === FEED_STATUS.PUBLISHED) return $t('info.published')
 }
 
-const { to } = useRouters()
 const publishStore = usePublishStore()
 const { toUpdate } = publishStore
 function onEdit(item) {

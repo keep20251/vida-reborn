@@ -32,3 +32,11 @@ export const PERM_TABLE = {
     logout: true,
   },
 }
+
+// 因為會直接拿來跟 route.query 的參數做比對，所以用字串
+export const POST_TAB_TYPE = {
+  SUB: '1',
+  BUY: '2',
+  SCH: '3',
+  PRI: '4',
+}
