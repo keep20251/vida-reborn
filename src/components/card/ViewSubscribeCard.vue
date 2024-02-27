@@ -1,16 +1,16 @@
 <template>
   <div class="relative h-[11rem]">
-    <div v-if="props.item.background" class="h-full w-full">
-      <EncryptImage :src="props.item.background" :border-radius="15" cover></EncryptImage>
+    <div v-if="props.item?.background" class="h-full w-full">
+      <EncryptImage :src="props.item?.background" :border-radius="15" cover></EncryptImage>
     </div>
     <div class="absolute top-0 h-full w-full rounded-xl opacity-80" :class="colorTheme">
       <div class="h-full w-full cursor-pointer px-20 py-30" @click="toCreator(item.username)">
         <div class="flex h-full space-x-10">
-          <Avatar :radius="35" :src="props.item.thumb" :alt="props.item.username"></Avatar>
+          <Avatar :radius="35" :src="props.item?.thumb" :alt="props.item?.username"></Avatar>
           <div class="flex grow flex-col space-y-10">
             <div>
-              <div class="text-lg font-bold leading-5">{{ props.item.nickname }}</div>
-              <div class="text-sm font-normal leading-3 text-gray-57">@{{ props.item.username }}</div>
+              <div class="text-lg font-bold leading-5">{{ props.item?.nickname }}</div>
+              <div class="text-sm font-normal leading-3 text-gray-57">@{{ props.item?.username }}</div>
             </div>
             <div class="text-base font-normal leading-5">
               {{ props.item?.description }}
