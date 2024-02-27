@@ -8,7 +8,7 @@ import { useRouters } from '@use/routers'
 import { LOCAL_STORAGE_KEYS, SEARCH_TAB } from '@const'
 
 export const useSearchStore = defineStore('search-store', () => {
-  const activeTab = ref(SEARCH_TAB.AUTHOR)
+  const activeTab = ref(SEARCH_TAB.POST)
   const keyword = ref('')
 
   function reset() {

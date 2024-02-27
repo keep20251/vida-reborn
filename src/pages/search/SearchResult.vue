@@ -54,20 +54,23 @@ watch(
 
 watch(activeTab, () => reloadAction.value({ newParams: { keyword: keyword.value } }))
 
-const { relatedAuthors, keyword: hydrationKeyword } = storeToRefs(useHydrationStore())
+const { relatedAuthors, relatedFeeds, keyword: hydrationKeyword } = storeToRefs(useHydrationStore())
 
 onServerClientOnce(async (isSSR) => {
   keyword.value = route.query.q
   if (!keyword.value) return
   await creatorFetcher.value.reload({ newParams: { keyword: keyword.value } })
+  await articleFetcher.value.reload({ newParams: { keyword: keyword.value } })
   if (isSSR) {
     hydrationKeyword.value = keyword.value
     relatedAuthors.value = creatorFetcher.value.dataList
+    relatedFeeds.value = articleFetcher.value.dataList
   }
 })
 onHydration(() => {
   keyword.value = hydrationKeyword.value
   if (!keyword.value) return
   creatorFetcher.value.revert({ dataList: relatedAuthors.value }, { newParams: { keyword: keyword.value } })
+  articleFetcher.value.revert({ dataList: relatedFeeds.value }, { newParams: { keyword: keyword.value } })
 })
 </script>
