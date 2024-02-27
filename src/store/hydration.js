@@ -15,6 +15,7 @@ export const useHydrationStore = defineStore('hydration', () => {
 
   // route search
   const relatedAuthors = ref([])
+  const relatedFeeds = ref([])
   const keyword = ref('')
   const popularTags = ref([])
 
@@ -34,6 +35,7 @@ export const useHydrationStore = defineStore('hydration', () => {
     userData,
 
     relatedAuthors,
+    relatedFeeds,
     keyword,
     popularTags,
 

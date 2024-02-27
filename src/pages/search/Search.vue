@@ -47,8 +47,8 @@ const { reset } = searchStore
 const { activeTab, nextAction, keyword } = storeToRefs(searchStore)
 
 const tabOptions = [
-  { label: 'tab.relatedAuthor', value: SEARCH_TAB.AUTHOR },
   { label: 'tab.relatedPost', value: SEARCH_TAB.POST },
+  { label: 'tab.relatedAuthor', value: SEARCH_TAB.AUTHOR },
 ]
 
 watch(hasQuery, (v) => {

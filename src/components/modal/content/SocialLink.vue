@@ -31,9 +31,9 @@
       </div>
     </div>
     <div class="flex flex-col space-y-10">
-      <div class="text-base font-normal leading-3">{{ $t('info.forExample') }}:https://www.instagram.com/username</div>
-      <div class="text-base font-normal leading-3">
-        {{ $t('info.accept') }}:Instagram \ Facebook \ Youtube \ Twitter \ Tiktok
+      <div class="text-base font-normal leading-4">{{ $t('info.forExample') }}: https://www.instagram.com/username</div>
+      <div class="text-base font-normal leading-4">
+        {{ $t('info.accept') }}: Instagram \ Facebook \ Youtube \ Twitter \ Tiktok
       </div>
     </div>
   </div>
@@ -69,7 +69,7 @@ const socialLinks = reactive({
     appendIcon: '',
     check: false,
     schema: computed(() => (hasValue(socialLinks.twitter) ? Yup.string().twitter() : Yup.string())),
-    parser: (v) => cleanLink(v, /^.*twitter\.com\/(.*)$/, 'https://twitter.com/'),
+    parser: (v) => cleanLink(v, /^.*(twitter\.com|x\.com)\/(.*)$/, 'https://twitter.com/'),
   },
   tiktok: {
     value: '',
@@ -152,7 +152,7 @@ useConfirmData(() => {
   if (Object.values(socialLinks).some((link) => link.check === false)) return false
 
   const result = {}
-  Object.entries(socialLinks).forEach(([key, obj]) => (result[key] = { value: obj.parser(obj.value) }))
+  Object.entries(socialLinks).forEach(([key, obj]) => (result[key] = { value: obj.value }))
   Object.values(socialLinks).forEach((link) => (link.appendIcon = ''))
 
   return result
