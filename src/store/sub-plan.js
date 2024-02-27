@@ -22,7 +22,7 @@ export const useSubPlanStore = defineStore('subPlan', () => {
   const historyProxy = computed(() => history.value)
   const subPlanComponent = computed(() => routes.find((route) => route.value === now.value).component)
 
-  const subList = ref(userData.value.subscription_list)
+  const subList = userData.value.subscription_list
   const addSubPlan = ref(false)
   const data = ref('')
   const index = ref('')

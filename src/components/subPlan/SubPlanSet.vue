@@ -9,7 +9,7 @@
       <div class="text-lg font-bold leading-5">
         {{ addSubPlan ? $t('label.add') : $t('label.edit') }}{{ $t('info.subscribeSetting') }}
       </div>
-      <button v-if="!addSubPlan" @click="delSubPlan" class="absolute right-0 top-1/3 pr-20 pt-4">
+      <button v-if="!addSubPlan" @click="onDelete" class="absolute right-0 top-1/3 pr-20 pt-4">
         <Icon name="bin"></Icon>
       </button>
     </div>
@@ -157,6 +157,7 @@ import { computed, onMounted, ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useModalStore } from '@/store/modal'
+import { usePopupMessageStore } from '@/store/popup-message'
 import { useSubPlanStore } from '@/store/sub-plan'
 import Button from '@comp/common/Button.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
@@ -166,7 +167,8 @@ import { IMAGE_LIMIT_COUNT } from '@const/publish'
 import uploadImage from '@/http/upload/uploadImage'
 
 const subPlanStore = useSubPlanStore()
-const { alert } = useModalStore()
+const { alert, confirm, open } = useModalStore()
+const { open: openMessage } = usePopupMessageStore()
 const { back, close } = subPlanStore
 const {
   history,
@@ -312,6 +314,16 @@ const removeUploadFile = (index) => {
   uploadFiles.value.splice(index, 1)
 }
 
+function onDelete() {
+  confirm({
+    size: 'sm',
+    title: 'beCreator.title.reConfirm',
+    content: 'content.delSubPlan',
+    confirmAction: () => {
+      delSubPlan()
+    },
+  })
+}
 const delSubPlan = async () => {
   const { execute: subPlanDel } = useRequest('Subscription.bulkDel')
   const payload = {
@@ -319,11 +331,9 @@ const delSubPlan = async () => {
   }
   try {
     await subPlanDel(payload)
-    alert({
-      title: 'title.delSuccess',
-    })
+    openMessage('title.delSuccess')
     subList.value = subList.value.filter((item) => item.id !== subId.value)
-    close()
+    back()
   } catch (e) {
     console.error(e)
   }
@@ -336,9 +346,7 @@ const onSubmit = async () => {
   if (addSubPlan.value) {
     try {
       await subPlanCreate(data)
-      alert({
-        title: 'title.publishSuccess',
-      })
+      openMessage('title.publishSuccess')
       subList.value.unshift(data)
       uploadFiles.value = []
       subPlanName.value = ''
