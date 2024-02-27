@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col space-y-20 border-t">
+  <div class="flex flex-col space-y-20 border-t" :class="{ 'pt-20': isVisitor }">
     <div v-if="isUser || isCreator" class="flex flex-row space-x-10 pt-20">
       <Avatar :src="userData.thumb" :radius="35"></Avatar>
       <div class="flex flex-col justify-center space-y-5">
@@ -7,13 +7,13 @@
           {{ userData.nickname }}
         </div>
         <div class="text-sm font-normal leading-3">@{{ userData.username }}</div>
-        <div v-if="isCreator" class="text-sm font-normal leading-3">
-          {{ userData.subscriber_count }} {{ $t('common.subscribe') }}
+        <div v-if="!isVisitor" class="cursor-pointer text-sm font-normal leading-3" @click="to('mine-buy')">
+          {{ userData.subscription_count }} {{ $t('common.subscribe') }}
         </div>
       </div>
     </div>
     <Link v-if="isCreator" href="/mine/main">
-      <Button @click="to('mine-main')">{{ $t('common.editPersonalPage') }}</Button>
+      <Button @click="to('mine-main')">{{ $t('common.toPersonalPage') }}</Button>
     </Link>
     <SetList></SetList>
   </div>
@@ -27,6 +27,6 @@ import SetList from '@comp/mine/SetList.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
 import { useRouters } from '@use/routers'
 
-const { userData, isCreator, isUser } = storeToRefs(useAccountStore())
+const { userData, isCreator, isUser, isVisitor } = storeToRefs(useAccountStore())
 const { to } = useRouters()
 </script>
