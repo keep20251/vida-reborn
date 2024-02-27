@@ -72,7 +72,9 @@
       <div class="flex flex-col space-y-10">
         <div class="flex items-center justify-between pr-4">
           <p class="text-base font-normal leading-3">{{ $t('info.subscribeSetting') }}</p>
-          <p class="cursor-pointer text-base font-normal leading-3 text-primary">{{ $t('label.edit') }}</p>
+          <p class="cursor-pointer text-base font-normal leading-3 text-primary" @click="openSubPlanDialog()">
+            {{ $t('label.edit') }}
+          </p>
         </div>
         <div v-if="subscriptions.length > 0" class="flex flex-col space-y-10">
           <SubscribeSwitch
@@ -99,6 +101,7 @@ import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
 import { useModalStore } from '@/store/modal'
+import { useSubPlanStore } from '@/store/sub-plan'
 import Button from '@comp/common/Button.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
 import SocialLink from '@comp/form/SocialLink.vue'
@@ -109,6 +112,8 @@ import { useDialog } from '@use/modal'
 import useRequest from '@use/request/index.js'
 import { useLocale } from '@use/utils/locale'
 import { MODAL_TYPE } from '@const'
+
+const { open: openSubPlanDialog } = useSubPlanStore()
 
 const { uploadImageDialog } = useDialog()
 const { appConfig } = useAppStore()
