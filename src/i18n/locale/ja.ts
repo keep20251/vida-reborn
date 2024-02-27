@@ -284,6 +284,7 @@ export default {
     feedNotExist: "投稿が存在しません",
     month: "月",
     AddNewSubPlan: "新しいサブスクリプションプランを追加するにはクリックしてください",
+    AddFirstSubPlan: "最初のサブスクリプションプランを追加してください！",
     subStyle: "サブスクリプションスタイル",
     customStyle: "カスタムスタイル",
     subUnlockDayAfter: "購入後数日間の作品のロックを解除することはできますか？",

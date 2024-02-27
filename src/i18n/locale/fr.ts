@@ -289,6 +289,7 @@ export default {
     feedNotExist: "La publication n'existe pas",
     month: "Mois",
     AddNewSubPlan: "Cliquez pour ajouter un nouveau plan d'abonnement",
+    AddFirstSubPlan: "Ajoutez votre premier plan d'abonnement!",
     subStyle: "Style d'abonnement",
     customStyle: "Style personnalisé",
     subUnlockDayAfter: "Le déverrouillage permet-il les derniers jours depuis l'achat ?",

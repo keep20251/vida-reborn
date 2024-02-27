@@ -289,6 +289,7 @@ export default {
     feedNotExist: "A postagem não existe",
     month: "Mês",
     AddNewSubPlan: "Clique para adicionar um novo plano de assinatura",
+    AddFirstSubPlan: "Adicione seu primeiro plano de assinatura!",
     subStyle: "Estilo de assinatura",
     customStyle: "Estilo personalizado",
     subUnlockDayAfter: "O desbloqueio permite os últimos dias desde a compra?",

@@ -289,6 +289,7 @@ export default {
     feedNotExist: "Der Beitrag existiert nicht",
     month: "Monat",
     AddNewSubPlan: "Klicken Sie, um einen neuen Abonnement-Plan hinzuzufügen",
+    AddFirstSubPlan: "Fügen Sie Ihren ersten Abonnementplan hinzu!",
     subStyle: "Abonnement-Stil",
     customStyle: "Benutzerdefinierter Stil",
     subUnlockDayAfter: "Erlaubt das Entsperren die letzten Tage seit dem Kauf?",

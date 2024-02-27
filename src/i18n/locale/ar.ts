@@ -287,6 +287,7 @@ export default {
     feedNotExist: "المنشور غير موجود",
     month: "شهر",
     AddNewSubPlan: "انقر لإضافة خطة اشتراك جديدة",
+    AddFirstSubPlan: "أضف أول خطة اشتراكك!",
     subStyle: "أسلوب الاشتراك",
     customStyle: "نمط مخصص",
     subUnlockDayAfter: "هل يسمح الفتح بالأيام القليلة الماضية منذ الشراء؟",

@@ -288,6 +288,7 @@ export default {
     feedNotExist: "पोस्ट मौजूद नहीं है",
     month: "महीना",
     AddNewSubPlan: "नई सदस्यता योजना जोड़ने के लिए क्लिक करें",
+    AddFirstSubPlan: "अपनी पहली सदस्यता योजना जोड़ें!",
     subStyle: "सदस्यता शैली",
     customStyle: "कस्टम शैली",
     subUnlockDayAfter: "क्या अनलॉकिंग खरीद के बाद पिछले कुछ दिनों की अनुमति देता है?",

@@ -288,6 +288,7 @@ export default {
     feedNotExist: "Post does not exist",
     month: "Month",
     AddNewSubPlan: "Click to add a new subscription plan",
+    AddFirstSubPlan: "Add your first subscription plan!",
     subStyle: "Subscription style",
     customStyle: "Custom style",
     subUnlockDayAfter: "Does unlocking allow the past few days since purchase?",

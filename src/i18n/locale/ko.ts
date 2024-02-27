@@ -283,6 +283,7 @@ export default {
     feedNotExist: "게시물이 존재하지 않습니다",
     month: "월",
     AddNewSubPlan: "새 구독 계획을 추가하려면 클릭하세요",
+    AddFirstSubPlan: "첫 번째 구독 계획을 추가하십시오!",
     subStyle: "구독 스타일",
     customStyle: "사용자 정의 스타일",
     subUnlockDayAfter: "구매 후 며칠 동안의 작품을 잠금 해제하면 됩니까?",

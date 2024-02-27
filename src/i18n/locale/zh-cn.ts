@@ -278,6 +278,7 @@ export default {
     feedNotExist: "帖子不存在",
     month: "月",
     AddNewSubPlan: "点击新增订阅组",
+    AddFirstSubPlan: "新增第一个订阅方案吧！",
     subStyle: "订阅样式",
     customStyle: "自订样式",
     subUnlockDayAfter: "解锁允许自购买后过去几天的作品？",
