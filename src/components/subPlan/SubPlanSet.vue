@@ -358,22 +358,26 @@ const onSubmit = async () => {
   const { execute: subPlanUpdate } = useRequest('Subscription.update')
   const { execute: subPlanCreate } = useRequest('Subscription.create')
   if (addSubPlan.value) {
-    try {
-      const response = ref(null)
-      const resId = await subPlanCreate(data)
-      data.id = resId
-      response.value = data
-      openMessage('title.publishSuccess')
-      subList.value.unshift(response.value)
-      uploadFiles.value = []
-      subPlanName.value = ''
-      subPlanContent.value = ''
-      subPlanPrice.value = ''
-      subUnlockDayAfter.value = ''
-      serverError.value = ''
-      back()
-    } catch (e) {
-      serverError.value = e.message
+    if (subList.value.length === 10) {
+      openMessage('content.maxSubPlan')
+    } else {
+      try {
+        const response = ref(null)
+        const resId = await subPlanCreate(data)
+        data.id = resId
+        response.value = data
+        openMessage('title.publishSuccess')
+        subList.value.unshift(response.value)
+        uploadFiles.value = []
+        subPlanName.value = ''
+        subPlanContent.value = ''
+        subPlanPrice.value = ''
+        subUnlockDayAfter.value = ''
+        serverError.value = ''
+        back()
+      } catch (e) {
+        serverError.value = e.message
+      }
     }
   } else {
     try {
