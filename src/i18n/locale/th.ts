@@ -47,6 +47,7 @@ export default {
     reSelect: "เลือกใหม่",
     append: "เพิ่ม",
     publish: "เผยแพร่",
+    replace: "",
   },
   title: {
     join: "เข้าร่วม",
@@ -312,6 +313,7 @@ export default {
     wdrlNotMoreNumNow: "ตัวเลขไม่สามารถมากกว่ารายได้ปัจจุบัน",
     wdrlReview: "ส่งหลังจากนั้นภายใน 24 ชั่วโมงจะมีการตรวจสอบ ผลการตรวจสอบจะแสดงในบันทึกการส่ง",
     delSubPlan: "",
+    maxSubPlan: "",
   },
   month: {
     Jan: "มกราคม",

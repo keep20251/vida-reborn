@@ -42,6 +42,7 @@ export default {
     reSelect: "重新选择",
     append: "添加",
     publish: "发布",
+    replace: "",
   },
   title: {
     join: "注册",
@@ -300,6 +301,7 @@ export default {
     wdrlNotMoreNumNow: "数字不可大于目前收益。",
     wdrlReview: "提出后将于24小时内审核，审核结果将于提交记录中展示。",
     delSubPlan: "确定要删除此订阅方案?",
+    maxSubPlan: "最多只能10则订阅方案",
   },
   month: {
     Jan: "一月",

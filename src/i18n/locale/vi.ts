@@ -47,6 +47,7 @@ export default {
     reSelect: "Chọn lại",
     append: "Thêm vào",
     publish: "Xuất bản",
+    replace: "",
   },
   title: {
     join: "Tham gia",
@@ -314,6 +315,7 @@ export default {
     wdrlNotMoreNumNow: "Số không thể lớn hơn doanh thu hiện tại.",
     wdrlReview: "Nộp xong sẽ được xem xét trong vòng 24 giờ, kết quả xem xét sẽ được hiển thị trong hồ sơ nộp.",
     delSubPlan: "",
+    maxSubPlan: "",
   },
   month: {
     Jan: "Tháng Một",

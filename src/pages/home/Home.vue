@@ -20,23 +20,26 @@
           </template>
         </List>
       </div>
-      <div v-show="tab === TAB_TYPE.SUB">
-        <div class="flex justify-between pt-20">
-          <div class="text-base font-bold leading-md">{{ $t('info.popularCreator') }}</div>
-          <Icon v-if="isDesktop" name="filter" size="20" class="cursor-pointer" @click="creatorsReload"></Icon>
+      <div v-show="tab === TAB_TYPE.SUB" class="h-[calc(100vh-12.75rem)]">
+        <PopCreatorSwiper v-if="isMobile" :items="creators"></PopCreatorSwiper>
+        <div v-else>
+          <div class="flex justify-between pt-20">
+            <div class="text-base font-bold leading-md">{{ $t('info.popularCreator') }}</div>
+            <Icon v-if="isDesktop" name="filter" size="20" class="cursor-pointer" @click="creatorsReload"></Icon>
+          </div>
+          <div class="pt-10 text-base font-normal leading-md">{{ $t('info.subscribeToView') }}</div>
+          <List :items="creators" item-key="aff">
+            <template #default="{ item, index }">
+              <ViewSubscribeCard class="my-5" :item="item" :theme="(index + 2) % 3"></ViewSubscribeCard>
+            </template>
+            <template #bottom>
+              <div class="flex items-center justify-center py-8 text-gray-a3">
+                <Loading v-if="creatorsIsLoading"></Loading>
+                <span v-if="creatorsNoMore">{{ $t('common.noMore') }}</span>
+              </div>
+            </template>
+          </List>
         </div>
-        <div class="pt-10 text-base font-normal leading-md">{{ $t('info.subscribeToView') }}</div>
-        <List :items="creators" item-key="aff">
-          <template #default="{ item, index }">
-            <ViewSubscribeCard class="my-5" :item="item" :theme="(index + 2) % 3"></ViewSubscribeCard>
-          </template>
-          <template #bottom>
-            <div class="flex items-center justify-center py-8 text-gray-a3">
-              <Loading v-if="creatorsIsLoading"></Loading>
-              <span v-if="creatorsNoMore">{{ $t('common.noMore') }}</span>
-            </div>
-          </template>
-        </List>
       </div>
     </template>
     <template #aside-top>
@@ -63,6 +66,7 @@ import { useFeedStore } from '@/store/feed'
 import { useHydrationStore } from '@/store/hydration'
 import BulletinCard from '@comp/aside/BulletinCard.vue'
 import RecCard from '@comp/aside/RecCard.vue'
+import PopCreatorSwiper from '@comp/card/PopCreatorSwiper.vue'
 import ViewSubscribeCard from '@comp/card/ViewSubscribeCard.vue'
 import Carousel from '@comp/common/Carousel.vue'
 import Feed from '@comp/main/Feed.vue'

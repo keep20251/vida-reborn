@@ -47,6 +47,7 @@ export default {
     reSelect: "Re-select",
     append: "Append",
     publish: "Publish",
+    replace: "",
   },
   title: {
     join: "Join",
@@ -314,6 +315,7 @@ export default {
     wdrlReview:
       "It will be reviewed within 24 hours after submission, and the review results will be displayed in the submission record.",
     delSubPlan: "Are you sure you want to delete this subscription plan?",
+    maxSubPlan: "A maximum of 10 subscription plans are allowed",
   },
   month: {
     Jan: "January",
