@@ -24,9 +24,9 @@
     <div class="relative inline-block w-full rounded-md">
       <div class="mt-[60%]"></div>
       <div class="absolute left-0 top-0 h-full w-full rounded-inherit">
-        <LockMedia v-if="isLock" :item="item"></LockMedia>
-        <VideoWrap v-if="!isLock && isVideo" :urls="item.url"></VideoWrap>
-        <PhotoSwiper v-if="!isLock && isImage" :imgs="item.url"></PhotoSwiper>
+        <BlockMask v-if="isBlock" :item="item"></BlockMask>
+        <VideoWrap v-else-if="isVideo" :item="item"></VideoWrap>
+        <PhotoSwiper v-else-if="isImage" :item="item"></PhotoSwiper>
       </div>
       <div
         v-if="![FEED_STATUS.PUBLISHED, FEED_STATUS.REJECT].includes(item.status)"
@@ -99,7 +99,7 @@ import { useDialogStore } from '@/store/dialog'
 import { useFeedStore } from '@/store/feed'
 import Link from '@comp/common/Link.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
-import LockMedia from '@comp/multimedia/LockMedia.vue'
+import BlockMask from '@comp/multimedia/BlockMask.vue'
 import PhotoSwiper from '@comp/multimedia/PhotoSwiper.vue'
 import VideoWrap from '@comp/multimedia/VideoWrap.vue'
 import { useRouters } from '@use/routers'
@@ -115,8 +115,7 @@ const accountStore = useAccountStore()
 const { userId } = storeToRefs(accountStore)
 
 const isSelf = computed(() => props.item.aff === userId.value)
-const isLock = computed(() => props.item.user.is_block || !props.item.is_unlock)
-// const isLock = computed(() => false) // 把鎖拿掉 debug 用
+const isBlock = computed(() => props.item.user.is_block)
 const isVideo = computed(() => props.item.resource_type === MEDIA_TYPE.VIDEO)
 const isImage = computed(() => props.item.resource_type === MEDIA_TYPE.IMAGE)
 const tags = computed(() => (props.item.tags ? props.item.tags.split(',') : []))

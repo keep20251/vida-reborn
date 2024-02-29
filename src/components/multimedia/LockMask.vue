@@ -1,6 +1,6 @@
 <template>
-  <div class="relative h-full w-full rounded-inherit">
-    <EncryptImage :src="url" :border-radius="10" cover></EncryptImage>
+  <div class="absolute left-0 top-0 h-full w-full rounded-inherit">
+    <EncryptImage v-if="showImage" :src="url" :border-radius="10" cover></EncryptImage>
     <div class="absolute top-0 h-full w-full rounded-inherit bg-[rgba(0,0,0,0.5)] backdrop-blur">
       <div class="absolute bottom-20 right-20 flex space-x-5">
         <Icon v-if="icon" :name="icon" size="20"></Icon>
@@ -8,13 +8,7 @@
       </div>
     </div>
     <div class="absolute top-0 flex h-full w-full items-center justify-center rounded-inherit">
-      <div v-if="item.user.is_block" class="flex flex-col items-center space-y-20">
-        <Icon name="block" size="60"></Icon>
-        <div class="bg-gray-57 px-20 py-10 text-base font-bold text-white">
-          {{ $t('content.blocked', { name: item.user.nickname }) }}
-        </div>
-      </div>
-      <div v-else class="w-3/5" @click.stop>
+      <div class="w-3/5" @click.stop>
         <Button @click="clickAction(actionParams)">{{ btnText }}</Button>
       </div>
     </div>
@@ -30,6 +24,7 @@ import { FEED_PERM, MEDIA_TYPE } from '@const/publish'
 
 const props = defineProps({
   item: { type: Object, required: true },
+  showImage: { type: Boolean, default: false },
 })
 
 const isVideo = computed(() => props.item.resource_type === MEDIA_TYPE.VIDEO)
