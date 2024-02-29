@@ -212,7 +212,7 @@ onMounted(async () => {
   subPlanContent.value = data.value[index.value]?.content
   subPlanPrice.value = data.value[index.value]?.price
   subUnlockDayAfter.value = data.value[index.value]?.unlock_day_after_subscribe
-  subId.value = data.value[index.value]?.id
+  subId.value = subList.value[index.value]?.id
   subPicture.value = data.value[index.value]?.picture
   status.value = data.value[index.value]?.status
   if (!addSubPlan.value && subPicture.value) {
@@ -236,10 +236,12 @@ watch(index, (newIndex) => {
     subPlanContent.value = data.value[newIndex].content
     subPlanPrice.value = data.value[newIndex].price
     subUnlockDayAfter.value = data.value[index.value].unlock_day_after_subscribe
-    subId.value = data.value[index.value].id
     subPicture.value = data.value[index.value]?.picture
     selUploadItem.value = data.value[index.value]?.picture
     status.value = data.value[index.value]?.status
+  }
+  if (newIndex !== null && subList.value[newIndex]) {
+    subId.value = subList.value[index.value].id
   }
 })
 
@@ -330,13 +332,20 @@ function onDelete() {
 }
 const delSubPlan = async () => {
   const { execute: subPlanDel } = useRequest('Subscription.bulkDel')
-  const payload = {
-    ids: subId.value,
-  }
   try {
-    await subPlanDel(payload)
+    watch(subList, (newSubList) => {
+      if (newSubList.length === 1) {
+        watch(subList, () => {}, { immediate: true })
+      }
+    })
+    if (subList.value.length === 1) {
+      subId.value = subList.value[0].id
+      subList.value.splice(0, 1)
+    } else {
+      subList.value = subList.value.filter((item) => item.id !== subId.value)
+    }
+    await subPlanDel({ ids: subId.value })
     openMessage('title.delSuccess')
-    subList.value = subList.value.filter((item) => item.id !== subId.value)
     serverError.value = ''
     back()
   } catch (e) {
