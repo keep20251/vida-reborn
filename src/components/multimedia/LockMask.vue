@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="absolute top-0 flex h-full w-full items-center justify-center rounded-inherit">
-      <div class="w-3/5" @click.stop>
+      <div @click.stop>
         <Button @click="clickAction(actionParams)">{{ btnText }}</Button>
       </div>
     </div>
