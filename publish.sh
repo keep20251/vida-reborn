@@ -14,6 +14,9 @@ function changePackageJson() {
     # 更新 package.json 的版本號
     jq '.version = "'$version'"' package.json >temp.json && mv temp.json package.json
     echo "更新檔案: package.json"
+
+    # 刷新 package-lock.json
+    npm install
 }
 
 function generateReport() {
@@ -26,7 +29,7 @@ function generateReport() {
     report=$(
         echo "----------VIDA SSR 部署----------"
         echo "Node版本: v16.19.0"
-        echo "當前版本號: $version"
+        echo "當前版本號: v$version"
         echo "分支: $branch"
         echo "儲存庫: 172.105.200.120:rn/vida-reborn.git\n"
         echo "----------打包指令----------"
@@ -49,29 +52,6 @@ function generateReport() {
 
 }
 
-# 棄用，因為要包裝的東西太多了，部署反而更麻煩
-function package() {
-    enviroment=$1
-    dir=$2
-    pack_dir="vida-v$version-$enviroment"
-
-    if [ $? -eq 0 ]; then
-        mkdir -p "./$pack_dir"
-        cp -r ./server "./$pack_dir"
-        cp -r ./$dir "./$pack_dir"
-        cp ./package.json "./$pack_dir"
-        # 壓縮dist目錄
-        zip -r "$pack_dir.zip" "./$pack_dir"
-        dest="/Users/$USER/Downloads/$pack_dir.zip"
-        # 移動到下載目錄
-        mv "$pack_dir.zip" $dest
-        echo "打包成功: $dest"
-        rm -rf "./$pack_dir"
-    else
-        echo "打包失敗"
-    fi
-}
-
 function runProcedure() {
     env_file=$1
     branch=$2
@@ -79,7 +59,45 @@ function runProcedure() {
 
     changeEnvFile $env_file
     changePackageJson
+
+    echo "要幫你進行Git程序嗎? (Yes/No)"
+    select choice in "Yes" "No"; do
+        case $choice in
+        Yes)
+            gitProcedure $branch
+            break
+            ;;
+        No)
+            break
+            ;;
+        esac
+    done
+
     generateReport
+}
+
+function gitProcedure() {
+    branch=$1
+
+    git checkout master && git add . && git commit -m "部署 # v$version"
+    git tag "v$version"
+    git checkout $branch && git pull && git rebase master
+
+    echo "要幫你Push到遠端嗎? (y/n)"
+    select gitPush in "y" "n"; do
+        case $gitPush in
+        y)
+            git push
+            git push --tag
+            git checkout master && git push
+            echo "幫你Push到遠端了"
+            break
+            ;;
+        n)
+            break
+            ;;
+        esac
+    done
 }
 
 function main() {
@@ -97,19 +115,19 @@ function main() {
         exit 1
     fi
 
-    echo "要部署哪個環境? (1: production, 2: stag)"
-    env=1
-    read choice
-
-    if [ ! -z "$choice" ]; then
-        env="$choice"
-    fi
-
-    if [ "$env" == "1" ]; then
-        runProcedure ".env.production" "prod" "dist"
-    else
-        runProcedure ".env.staging" "stag" "dist-staging"
-    fi
+    echo "要部署哪個環境?"
+    select env in "prod" "stag"; do
+        case $env in
+        prod)
+            runProcedure ".env.production" "prod" "dist"
+            break
+            ;;
+        stag)
+            runProcedure ".env.staging" "stag" "dist-staging"
+            break
+            ;;
+        esac
+    done
 }
 
 main
