@@ -1,3 +1,4 @@
+import cloneDeep from 'lodash/cloneDeep'
 import { reactive } from 'vue'
 import { defineStore } from 'pinia'
 import useRequest from '@use/request'
@@ -45,7 +46,7 @@ export const useFeedStore = defineStore('feed', () => {
     }
 
     const feed = feedsMap.get(id)
-    Object.assign(feed, data)
+    Object.assign(feed, cloneDeep(data))
 
     return feed
   }
