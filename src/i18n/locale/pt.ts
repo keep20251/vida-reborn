@@ -47,6 +47,7 @@ export default {
     reSelect: "Re-selecionar",
     append: "Anexar",
     publish: "Publicar",
+    replace: "",
   },
   title: {
     join: "Junte-se",
@@ -315,6 +316,7 @@ export default {
     wdrlReview:
       "Será revisado dentro de 24 horas após a submissão, e os resultados da revisão serão exibidos no registro de submissão.",
     delSubPlan: "",
+    maxSubPlan: "",
   },
   month: {
     Jan: "Janeiro",
@@ -467,7 +469,7 @@ export default {
     },
     subscribeSuc: {
       1: "maravilhoso! Subscrito com sucesso para {nickname}!",
-      2: "Escolha ir à página inicial do Criador ou fique na tela original!",
+      2: "Escolha ir à página inicial do Criador ou permanecer na tela original!",
       confirm: "Vá para a página do Criador",
     },
     shopBuySuc: {

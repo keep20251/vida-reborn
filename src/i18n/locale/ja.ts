@@ -42,6 +42,7 @@ export default {
     reSelect: "再選択",
     append: "追加",
     publish: "公開",
+    replace: "",
   },
   title: {
     join: "参加する",
@@ -290,7 +291,7 @@ export default {
     customStyle: "カスタムスタイル",
     subUnlockDayAfter: "購入後数日間の作品のロックを解除することはできますか？",
     tokenExpired: "ログインセッションの有効期限が切れました。再度ログインしてください。",
-    clearSearchHistory: "歴史をクリアしたいですか？",
+    clearSearchHistory: "歴史を明確にしたいですか？",
     uploadVideoLimit: {
       format:
         "現在アップロードされているビデオ形式 ({format}) はサポートされていません。 .mp4 または .mov 形式に変換して、もう一度試してください。",
@@ -309,6 +310,7 @@ export default {
     wdrlNotMoreNumNow: "数字は現在の収益を超えることはできません。",
     wdrlReview: "提出後24時間以内にレビューされ、レビュー結果は提出記録に表示されます。",
     delSubPlan: "",
+    maxSubPlan: "",
   },
   month: {
     Jan: "1月",
@@ -450,12 +452,12 @@ export default {
       1: "過去のすべての作品を完全に訪れます{days}日",
       2: "作成者に直接情報を送信できます",
       3: "より近いステップ相互作用",
-      4: "いつでもサブスクリプションをキャンセルできます",
+      4: "サブスクリプションをいつでもキャンセルできます",
       confirm: "月{'$'} {price}支払いに移動します",
     },
     shopBuy: {
       1: "{nickname}部門の作業コンテンツのロックを解除します",
-      2: "{nickname}はお支払いを全額受け取ります",
+      2: "{nickname}はあなたの支払いを全額受け取ります",
       confirm: "今すぐロック解除（{'$'} {price}）",
     },
     subscribeSuc: {
@@ -464,7 +466,7 @@ export default {
       confirm: "クリエーターページに移動します",
     },
     shopBuySuc: {
-      1: "素晴らしい！投稿のロックを解除するための支払いが成功しました",
+      1: "素晴らしい！投稿のロックを解除するための支払いの成功",
       2: "視聴するために投稿を選択するか、元の画面にとどまります！",
       confirm: "投稿に移動します",
     },

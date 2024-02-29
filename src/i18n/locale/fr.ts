@@ -47,6 +47,7 @@ export default {
     reSelect: "Resélectionner",
     append: "Ajouter",
     publish: "Publier",
+    replace: "",
   },
   title: {
     join: "Rejoindre",
@@ -315,6 +316,7 @@ export default {
     wdrlReview:
       "Il sera examiné dans les 24 heures suivant la soumission, et les résultats de la révision seront affichés dans l'enregistrement de la soumission.",
     delSubPlan: "",
+    maxSubPlan: "",
   },
   month: {
     Jan: "Janvier",

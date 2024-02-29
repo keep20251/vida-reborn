@@ -47,6 +47,7 @@ export default {
     reSelect: "Pilih ulang",
     append: "Menambahkan",
     publish: "Menerbitkan",
+    replace: "",
   },
   title: {
     join: "Bergabung",
@@ -315,6 +316,7 @@ export default {
     wdrlReview:
       "Akan ditinjau dalam 24 jam setelah penyerahan, dan hasil tinjauan akan ditampilkan dalam catatan pengajuan.",
     delSubPlan: "",
+    maxSubPlan: "",
   },
   month: {
     Jan: "Januari",
@@ -460,7 +462,7 @@ export default {
       confirm: "Bulan {'$'} {price} Pergi ke pembayaran",
     },
     shopBuy: {
-      1: "Akan Membuka Kunci {nickname} Konten Kerja Departemen",
+      1: "Akan membuka {nickname} konten kerja departemen",
       2: "{nickname} akan menerima pembayaran Anda secara lengkap",
       confirm: "Buka Kunci Sekarang ({'$'} {price})",
     },

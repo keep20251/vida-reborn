@@ -47,6 +47,7 @@ export default {
     reSelect: "إعادة الاختيار",
     append: "إلحاق",
     publish: "نشر",
+    replace: "",
   },
   title: {
     join: "انضمام",
@@ -188,7 +189,7 @@ export default {
     neverRegister: "لم تسجل بعد؟",
     clickToRegister: "انقر هنا للتسجيل",
     loginOr: "تسجيل الدخول أو",
-    quickRegister: "التسجيل بسرعة",
+    quickRegister: "سجل بسرعة",
     loginByAccount: "تسجيل الدخول باستخدام اسم المستخدم",
     loginByApple: "تسجيل الدخول باستخدام Apple",
     loginByGoogle: "تسجيل الدخول باستخدام Google",
@@ -312,6 +313,7 @@ export default {
     wdrlNotMoreNumNow: "لا يمكن أن يكون الرقم أكبر من الإيرادات الحالية.",
     wdrlReview: "سيتم المراجعة خلال 24 ساعة بعد الإرسال، وسيتم عرض نتائج المراجعة في سجل الإرسال.",
     delSubPlan: "",
+    maxSubPlan: "",
   },
   month: {
     Jan: "يناير",

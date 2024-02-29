@@ -42,6 +42,7 @@ export default {
     reSelect: "다시 선택",
     append: "추가",
     publish: "게시",
+    replace: "",
   },
   title: {
     join: "가입하기",
@@ -308,6 +309,7 @@ export default {
     wdrlNotMoreNumNow: "숫자는 현재 수익을 초과할 수 없습니다.",
     wdrlReview: "제출 후 24시간 내에 검토되며, 검토 결과는 제출 기록에 표시됩니다.",
     delSubPlan: "",
+    maxSubPlan: "",
   },
   month: {
     Jan: "1월",
@@ -464,7 +466,7 @@ export default {
     },
     shopBuySuc: {
       1: "기이! 게시물을 잠금 해제하기위한 성공적인 결제",
-      2: "게시물을 선택하거나 원래 화면을 유지하십시오!",
+      2: "포스트를 선택하여 시청하거나 원래 화면에 머물러 있습니다!",
       confirm: "게시물로 이동하십시오",
     },
     title: { paySuc: "성공적으로 지불했습니다" },

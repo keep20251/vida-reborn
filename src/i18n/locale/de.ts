@@ -47,6 +47,7 @@ export default {
     reSelect: "Neu auswählen",
     append: "Anhängen",
     publish: "Veröffentlichen",
+    replace: "",
   },
   title: {
     join: "Beitreten",
@@ -315,6 +316,7 @@ export default {
     wdrlReview:
       "Es wird innerhalb von 24 Stunden nach der Einreichung überprüft, und die Überprüfungsergebnisse werden im Einreichungsprotokoll angezeigt.",
     delSubPlan: "",
+    maxSubPlan: "",
   },
   month: {
     Jan: "Januar",
@@ -471,7 +473,7 @@ export default {
     },
     shopBuySuc: {
       1: "fabelhaft! Erfolgreiche Zahlung zum Entsperren des Beitrags",
-      2: "Wählen Sie zum Beitrag, um sie zu beobachten oder im Originalbildschirm zu bleiben!",
+      2: "Wählen Sie zum Beitrag, um sie zu sehen oder im Originalbildschirm zu bleiben!",
       confirm: "In den Posten gehen",
     },
     title: { paySuc: "Hat erfolgreich bezahlt" },

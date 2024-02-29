@@ -47,6 +47,7 @@ export default {
     reSelect: "पुनः चयन करें",
     append: "जोड़ें",
     publish: "प्रकाशित करें",
+    replace: "",
   },
   title: {
     join: "शामिल हों",
@@ -313,6 +314,7 @@ export default {
     wdrlNotMoreNumNow: "संख्या वर्तमान राजस्व से अधिक नहीं हो सकती।",
     wdrlReview: "जमा करने के 24 घंटे के भीतर समीक्षा की जाएगी, और समीक्षा परिणाम जमा रिकॉर्ड में प्रदर्शित किए जाएंगे।",
     delSubPlan: "",
+    maxSubPlan: "",
   },
   month: {
     Jan: "जनवरी",

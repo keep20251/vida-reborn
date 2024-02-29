@@ -42,6 +42,7 @@ export default {
     reSelect: "重新選擇",
     append: "添加",
     publish: "發布",
+    replace: "換一批",
   },
   title: {
     join: "註冊",
@@ -300,6 +301,7 @@ export default {
     wdrlNotMoreNumNow: "數字不可大於目前收益。",
     wdrlReview: "提出後將於24小時內審核，審核結果將於提交紀錄中展示。",
     delSubPlan: "確定要刪除此訂閱方案?",
+    maxSubPlan: "最多只能10則訂閱方案",
   },
   month: {
     Jan: "一月",
