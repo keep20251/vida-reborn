@@ -13,6 +13,10 @@
         cover
       ></EncryptImage>
     </div>
+    <div v-if="imgs.length > 1" class="absolute bottom-20 right-20 select-none text-base text-white">
+      {{ `${currIndex + 1}/${imgs.length}` }}
+    </div>
+    <LockMask v-if="isLock" :item="item"></LockMask>
     <div v-if="imgs.length > 1" class="absolute left-20 top-0 flex h-full w-20 cursor-pointer items-center">
       <div
         class="flex h-20 w-20 items-center justify-center rounded-full bg-gray-f6 opacity-60"
@@ -29,24 +33,30 @@
         <Icon name="back" size="16"></Icon>
       </div>
     </div>
-    <div v-if="imgs.length > 1" class="absolute bottom-20 right-20 select-none text-base text-white">
-      {{ `${currIndex + 1}/${imgs.length}` }}
-    </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+import LockMask from '@comp/multimedia/LockMask.vue'
 
 const props = defineProps({
-  imgs: { type: Array, required: true },
+  item: { type: Object, required: true },
   index: { type: Number, default: 0 },
 })
 
 const currIndex = ref(props.index)
+const imgs = computed(() => props.item.url)
+
+const isLock = computed(() => !props.item.is_unlock && (imgs.value.length === 1 || currIndex.value > 0))
+// const isLock = computed(() => false)
 
 function swipe(delta) {
-  if ((currIndex.value === 0 && delta < 0) || (currIndex.value === props.imgs.length - 1 && delta > 0)) {
+  if ((currIndex.value === 0 && delta < 0) || (currIndex.value === imgs.value.length - 1 && delta > 0)) {
+    return
+  }
+
+  if (isLock.value && delta > 0) {
     return
   }
 

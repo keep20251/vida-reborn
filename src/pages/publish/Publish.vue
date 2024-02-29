@@ -1,7 +1,7 @@
 <template>
   <Page>
     <template #main-top>
-      <Head :title="$t('title.publish')" feature-icon="close" @back="clear" @feature="onDelete"></Head>
+      <Head :title="$t('title.publish')" :feature-icon="isUpdate ? 'bin' : ''" @back="clear" @feature="onDelete"></Head>
     </template>
     <template #default>
       <div class="flex flex-col space-y-20 pb-30">
@@ -247,7 +247,8 @@ function onImageFile(evt) {
   }
 }
 
-function onClose(toMinePostTab) {
+function afterActionSuccess(toMinePostTab) {
+  reloadPost()
   clear()
 
   if (toMinePostTab) {
@@ -258,23 +259,18 @@ function onClose(toMinePostTab) {
 }
 
 function onDelete() {
-  if (isUpdate.value) {
-    confirm({
-      title: 'info.whetherDelArticle',
-      async confirmAction() {
-        try {
-          await useRequest('Article.delete', { params: { article_id: publishParams.id }, immediate: true })
-          reloadPost()
-          onClose()
-        } catch (e) {
-          return e.message
-        }
-      },
-      cancelAction() {},
-    })
-  } else {
-    onClose()
-  }
+  confirm({
+    title: 'info.whetherDelArticle',
+    async confirmAction() {
+      try {
+        await useRequest('Article.delete', { params: { article_id: publishParams.id }, immediate: true })
+        afterActionSuccess()
+      } catch (e) {
+        return e.message
+      }
+    },
+    cancelAction() {},
+  })
 }
 
 function publish() {
@@ -298,8 +294,7 @@ function publish() {
       alert({
         title: 'title.publishSuccess',
         confirmAction() {
-          reloadPost()
-          onClose(toMinePostTab)
+          afterActionSuccess(toMinePostTab)
         },
       })
     })
