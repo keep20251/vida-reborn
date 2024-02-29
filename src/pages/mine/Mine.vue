@@ -62,8 +62,8 @@ const { t: $t } = useI18n()
 const headStore = useHeadStore()
 const { setup: setupHead, reset: resetHead } = headStore
 
-onActivated(() => loadHead())
-onDeactivated(() => resetHead())
+onActivated(loadHead)
+onDeactivated(resetHead)
 
 function loadHead() {
   setupHead({

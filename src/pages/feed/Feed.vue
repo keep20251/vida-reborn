@@ -124,7 +124,7 @@ async function loadNewFeed(onCleanup = () => {}) {
 
     feed.value = feedData
 
-    await reloadComments({ newParams: { article_id: feed.value.id } })
+    await Promise.all([reloadComments({ newParams: { article_id: feed.value.id } }), loadSeoHead()])
   } catch (e) {
     errMsg.value = e.message
   }
@@ -133,8 +133,8 @@ async function loadNewFeed(onCleanup = () => {}) {
 // SEO head
 const headStore = useHeadStore()
 const { setup: setupHead, reset: resetHead } = headStore
-function loadSeoHead() {
-  setupHead({
+async function loadSeoHead() {
+  await setupHead({
     title: feed.value.title,
     description: feed.value.content,
     keywords: [feed.value.user?.username, ...feed.value.tags.split(',').filter((t, i) => i !== 0 || t !== '')],
@@ -142,23 +142,17 @@ function loadSeoHead() {
     image: feed.value.user?.thumb,
   })
 }
-onDeactivated(() => resetHead())
+onDeactivated(resetHead)
 
 // 進入帖子詳情頁
 whenever(
   () => route.name === 'feed',
-  async (v, _, onCleanup) => {
-    let cleanup = false
-    onCleanup(() => (cleanup = true))
-
+  (v, _, onCleanup) => {
     if (route.params.feedId !== feed.value?.id) {
-      await loadNewFeed(onCleanup)
+      loadNewFeed(onCleanup)
+    } else {
+      loadSeoHead()
     }
-    if (cleanup) {
-      return
-    }
-
-    loadSeoHead()
   },
 )
 

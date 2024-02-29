@@ -139,7 +139,7 @@ async function loadNewCreator(onCleanup = () => {}) {
     }
 
     creator.value = newCreator
-    await reload({ newParams: { uuid: creator.value.uuid, filter_by: 0 } })
+    await Promise.all([reload({ newParams: { uuid: creator.value.uuid, filter_by: 0 } }), loadSeoHead()])
   } catch (e) {
     errMsg.value = e.message
   }
@@ -160,8 +160,8 @@ const lowestSub = computed(() =>
 // SEO head
 const headStore = useHeadStore()
 const { setup: setupHead, reset: resetHead } = headStore
-function loadSeoHead() {
-  setupHead({
+async function loadSeoHead() {
+  await setupHead({
     title: creator.value.nickname,
     description: creator.value.description,
     keywords: [creator.value.username],
@@ -169,23 +169,17 @@ function loadSeoHead() {
     image: creator.value.thumb,
   })
 }
-onDeactivated(() => resetHead())
+onDeactivated(resetHead)
 
 // 進入創作者頁
 whenever(
   () => route.name === 'creator',
-  async (v, _, onCleanup) => {
-    let cleanup = false
-    onCleanup(() => (cleanup = true))
-
+  (v, _, onCleanup) => {
     if (route.params.username !== creator.value?.username) {
-      await loadNewCreator(onCleanup)
+      loadNewCreator(onCleanup)
+    } else {
+      loadSeoHead()
     }
-    if (cleanup) {
-      return
-    }
-
-    loadSeoHead()
   },
 )
 
