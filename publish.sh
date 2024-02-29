@@ -59,6 +59,7 @@ function runProcedure() {
 
     changeEnvFile $env_file
     changePackageJson
+    generateReport
 
     echo "要幫你進行Git程序嗎? (Yes/No)"
     select choice in "Yes" "No"; do
@@ -73,7 +74,6 @@ function runProcedure() {
         esac
     done
 
-    generateReport
 }
 
 function gitProcedure() {
