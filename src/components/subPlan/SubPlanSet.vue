@@ -102,14 +102,13 @@
           :append-text="$t('label.priceTip', { price: 90 })"
           :maxLength="5"
         ></InputWrap>
-        <InputWrap v-model="subUnlockDayAfter" :label="$t('content.subUnlockDayAfter')" :placeholder="'30'"></InputWrap>
-        <!-- <div class="grid space-y-10">
+        <div class="grid space-y-10">
           <label class="text-left text-base font-normal not-italic leading-md">{{
             $t('content.subUnlockDayAfter')
           }}</label>
           <div class="flex flex-wrap space-y-5">
             <InputRadio
-              v-model="selectedValue"
+              v-model="radioValue"
               id="radioOption1"
               label="30 day(s)"
               :value="30"
@@ -117,7 +116,7 @@
               class="mr-30"
             />
             <InputRadio
-              v-model="selectedValue"
+              v-model="radioValue"
               id="radioOption2"
               label="90 day(s)"
               :value="90"
@@ -125,25 +124,24 @@
               class="mr-30"
             />
             <InputRadio
-              v-model="selectedValue"
+              v-model="radioValue"
               id="radioOption3"
               label="360 day(s)"
               :value="360"
               name="radio"
               class="mr-30"
             />
-            <InputRadio
-              v-model="selectedValue"
-              id="radioOption5"
-              label="Custom"
-              value="custom"
-              name="radio"
-              :placeholder="'Please enter duration'"
-              :includeInputWrap="true"
-              @update:modelValue="handleUpdate"
-            />
+            <div class="flex items-center">
+              <InputRadio
+                v-model="radioValue"
+                id="radioOption4"
+                label="Custom"
+                :value="'custom'"
+                name="radio"
+              /><InputWrap :placeholder="$t('yup.number.value')" v-model="customValue" class="ml-10" number></InputWrap>
+            </div>
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
     <div class="px-25 py-30">
@@ -162,18 +160,29 @@ import { useModalStore } from '@/store/modal'
 import { usePopupMessageStore } from '@/store/popup-message'
 import { useSubPlanStore } from '@/store/sub-plan'
 import Button from '@comp/common/Button.vue'
-// import InputRadio from '@comp/form/InputRadio.vue'
+import InputRadio from '@comp/form/InputRadio.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
 import useRequest from '@use/request'
 import { SUB_PLAN_STATUS } from '@const'
 import { IMAGE_LIMIT_COUNT } from '@const/publish'
 import uploadImage from '@/http/upload/uploadImage'
 
+const radioValue = ref(0)
+const customValue = ref(0)
+const subUnlockDayAfterValue = ref(0)
+watch([radioValue, customValue], () => {
+  if (radioValue.value === 'custom' && customValue.value !== 0) {
+    subUnlockDayAfterValue.value = parseInt(customValue.value)
+  } else {
+    subUnlockDayAfterValue.value = radioValue.value
+  }
+})
+
 const { t: $t } = useI18n()
 const subPlanStore = useSubPlanStore()
 const { alert, confirm, open } = useModalStore()
 const { open: openMessage } = usePopupMessageStore()
-const { back, close } = subPlanStore
+const { back } = subPlanStore
 const {
   history,
   data,
@@ -194,24 +203,11 @@ const {
 const showBack = computed(() => history.value.length > 0)
 const serverError = ref('')
 
-// const selectedValue = ref(0)
-// const wrapValue = ref(0)
-// const handleUpdate = (value) => {
-//   if (value === 'custom' && wrapValue.value !== '') {
-//     console.log(selectedValue.value, wrapValue.value)
-//   }
-// }
-// watch(wrapValue, (newValue) => {
-//   if (newValue) {
-//     wrapValue.value = newValue
-//   }
-// })
-
 onMounted(async () => {
   subPlanName.value = data.value[index.value]?.name
   subPlanContent.value = data.value[index.value]?.content
   subPlanPrice.value = data.value[index.value]?.price
-  subUnlockDayAfter.value = data.value[index.value]?.unlock_day_after_subscribe
+  subUnlockDayAfter.value = subList.value[index.value]?.unlock_day_after_subscribe
   subId.value = subList.value[index.value]?.id
   subPicture.value = data.value[index.value]?.picture
   status.value = data.value[index.value]?.status
@@ -227,6 +223,12 @@ onMounted(async () => {
     subPlanPrice.value = ''
     subUnlockDayAfter.value = ''
   }
+  if (![30, 90, 360].includes(subUnlockDayAfter.value)) {
+    radioValue.value = 'custom'
+    customValue.value = subUnlockDayAfter.value
+  } else {
+    radioValue.value = subUnlockDayAfter.value
+  }
 })
 
 // 重新進入任一設定頁，會監聽數據是否改變了
@@ -235,13 +237,30 @@ watch(index, (newIndex) => {
     subPlanName.value = data.value[newIndex].name
     subPlanContent.value = data.value[newIndex].content
     subPlanPrice.value = data.value[newIndex].price
-    subUnlockDayAfter.value = data.value[index.value].unlock_day_after_subscribe
-    subPicture.value = data.value[index.value]?.picture
-    selUploadItem.value = data.value[index.value]?.picture
-    status.value = data.value[index.value]?.status
+    subPicture.value = data.value[newIndex]?.picture
+    selUploadItem.value = data.value[newIndex]?.picture
+    status.value = data.value[newIndex]?.status
   }
   if (newIndex !== null && subList.value[newIndex]) {
-    subId.value = subList.value[index.value].id
+    subId.value = subList.value[newIndex].id
+    subUnlockDayAfter.value = subList.value[newIndex].unlock_day_after_subscribe
+  }
+  if (![30, 90, 360].includes(subUnlockDayAfter.value)) {
+    radioValue.value = 'custom'
+    customValue.value = subUnlockDayAfter.value
+  } else {
+    radioValue.value = subUnlockDayAfter.value
+    customValue.value = 0
+  }
+})
+
+watch(subUnlockDayAfter, (newSubUnlockDayAfter) => {
+  if (![30, 90, 360].includes(newSubUnlockDayAfter)) {
+    radioValue.value = 'custom'
+    customValue.value = newSubUnlockDayAfter
+  } else {
+    radioValue.value = newSubUnlockDayAfter
+    customValue.value = 0
   }
 })
 
@@ -253,7 +272,7 @@ watch(addSubPlan, (newAddSubPlan) => {
     subPlanName.value = ''
     subPlanContent.value = ''
     subPlanPrice.value = ''
-    subUnlockDayAfter.value = ''
+    subUnlockDayAfter.value = 0
     subPicture.value = ''
   } else {
     if (subPicture.value) {
@@ -272,6 +291,12 @@ watch(subPicture, (newSubPicture) => {
     selUploadItem.value = newSubPicture
     uploadFiles.value = []
     uploadFiles.value.push({ result: newSubPicture, progress: 1 })
+  }
+})
+
+watch(subList, (newSubList) => {
+  if (newSubList.length === 1) {
+    watch(subList, () => {}, { immediate: true })
   }
 })
 
@@ -333,11 +358,6 @@ function onDelete() {
 const delSubPlan = async () => {
   const { execute: subPlanDel } = useRequest('Subscription.bulkDel')
   try {
-    watch(subList, (newSubList) => {
-      if (newSubList.length === 1) {
-        watch(subList, () => {}, { immediate: true })
-      }
-    })
     if (subList.value.length === 1) {
       subId.value = subList.value[0].id
       subList.value.splice(0, 1)
@@ -400,7 +420,7 @@ function makeReqData() {
     name: subPlanName.value,
     content: subPlanContent.value,
     price: subPlanPrice.value,
-    unlock_day_after_subscribe: subUnlockDayAfter.value,
+    unlock_day_after_subscribe: subUnlockDayAfterValue.value,
   }
   if (subId.value) {
     data.id = subId.value
