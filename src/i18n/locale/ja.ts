@@ -169,7 +169,7 @@ export default {
     error: {
       subscribeSelf: "自分を購読することはできません",
       shopBuySelf: "独自の製品を購入できません",
-      subscriptionNotFound: "サブスクリプションソリューションはありません",
+      subscriptionNotFound: "利用可能なサブスクリプションスキームはありません",
     },
     sending: "送信",
     failure: "失敗した",
@@ -237,11 +237,11 @@ export default {
   },
   content: {
     default: "プリセット、どこにも表示しないでください",
-    welcomeToVida: "Vidaへようこそ、私たちと一緒に！",
+    welcomeToVIDA: "VIDAへようこそ、私たちと一緒に！",
     verifyAccount:
       "急いでメールボックスを確認してください！【マイアカウント>アカウント設定】に移動して認証を完了してください",
     termsDeclaration:
-      "続行することにより、18歳以上であることを確認し、Vidaの{tos}に同意し、VIDAの{pp}を読んだことを確認します。",
+      "続行することにより、18歳以上であることを確認し、VIDAの{tos}に同意し、VIDAの{pp}を読んだことを確認します。",
     tos: "サービス利用規約",
     pp: "プライバシーポリシー",
     cookie: {
@@ -249,7 +249,7 @@ export default {
       word: "クッキーポリシー",
     },
     notLoggedYet: "まだログインしていません、今すぐ私たちに参加しましょう！",
-    joinVida: "VIDAに急いで参加してください！もっとファンタジーな機能があなたを待っています！",
+    joinVIDA: "VIDAに急いで参加してください！もっとファンタジーな機能があなたを待っています！",
     useObey: "すべての使用は{tos}に準拠しなければなりません",
     allPosts: "すべての投稿",
     currentEarn: "現在の収益",
@@ -291,7 +291,7 @@ export default {
     customStyle: "カスタムスタイル",
     subUnlockDayAfter: "購入後数日間の作品のロックを解除することはできますか？",
     tokenExpired: "ログインセッションの有効期限が切れました。再度ログインしてください。",
-    clearSearchHistory: "歴史を明確にしたいですか？",
+    clearSearchHistory: "歴史をクリアしたいですか？",
     uploadVideoLimit: {
       format:
         "現在アップロードされているビデオ形式 ({format}) はサポートされていません。 .mp4 または .mov 形式に変換して、もう一度試してください。",
@@ -311,6 +311,10 @@ export default {
     wdrlReview: "提出後24時間以内にレビューされ、レビュー結果は提出記録に表示されます。",
     delSubPlan: "",
     maxSubPlan: "",
+    annArea: "",
+    annTitle: "",
+    annCtn: "",
+    annBtn: "",
   },
   month: {
     Jan: "1月",
@@ -329,27 +333,37 @@ export default {
   unit: { day: "{days}日" },
   meta: {
     home: {
-      title: "Vida {pipe} 大人向け高品質ショートビデオプラットフォーム",
+      title: "VIDA - クリエイター向けのメンバーシップサブスクリプションプラットフォーム",
       description:
-        "Vidaは大人向けの短編ビデオ共有プラットフォームのリーダーです。ここでは、高品質なクリエイターのビデオを視聴するだけでなく、彼らとプライベートに交流することもできます。",
+        "VIDAは、クリエイター向けに設計されたメンバーシップサブスクリプションプラットフォームで、群衆支援、プロフェッショナルなマーケティング相談、その他のワンストップサービスを提供して、クリエイターとファンの間のより深いつながりを築きます。VIDAに参加して、プラットフォーム手数料ゼロ、専属アドバイザーの1V1ガイダンス、カスタマイズ可能なマルチファンクションモジュールなどの特典を享受し、創造的な潜在能力を解放しましょう。",
+      keywords:
+        "VIDA, クリエイター, 会員登録, クラウドファンディング, プロフェッショナルマーケティング相談, カスタムモジュール",
     },
     search: {
-      title: "検索ページ {pipe} 最高のアダルトショートビデオを発見 - Vida",
+      title: "VIDAを探る - 革新とインスピレーションを発見 {'|'} VIDA",
       description:
-        "Vidaの検索ページでは、アダルトショートビデオ、ウェブイエローコンテンツ、エロティックな俳優を見つけ、あなたの好みを発見し、多様なアダルト映画を探索できます。",
+        "VIDAの検索ページで、最新かつ最も人気のあるクリエイティブコンテンツを発見し、探求してください。芸術、音楽、執筆、またはあらゆる形式のクリエイティブな作品であれ、VIDAは作品を展示し、クリエイターとファンを繋げる理想的なプラットフォームです。",
+      keywords: "VIDA, 検索, イノベーション, インスピレーション, アート, 音楽, 執筆, クリエイティブな作品",
     },
     searchResult: {
-      title: "検索結果 {pipe} {keyword} - Vida",
-      description: "{keyword}の検索結果。Vidaで高品質のアダルト映画を発見して探索しよう",
+      title: "{keyword} - 検索結果 {'|'} VIDA",
+      description: "{keyword}の検索結果です。",
+      keywords: "VIDA, {keyword}, 作成, クリエイター, クリエイティブな作品, 作成トレンド",
     },
     mine: {
-      title: "マイページ {pipe} Vida",
+      title: "マイプロフィール {'|'} VIDA",
       description:
-        "Vidaで個人的なコレクション、サブスクリプション、設定を管理し、複数の言語間で切り替え、お気に入りのアダルト映画やインタラクティブコンテンツをいつでも閲覧できます。",
+        "VIDAで個人のコレクションとサブスクリプション、個人設定、多言語切替を管理し、いつでもお気に入りの動画やインタラクティブコンテンツを閲覧できます。",
     },
     creator: {
-      title: "{name} - クリエーターページ {pipe} Vida",
-      description: "{name}はVidaで知名のクリエーターです。{bio}",
+      title: "{displayName} ({userName}) {'|'} VIDA",
+      description: "{displayName}はVIDA上のクリエイターです、{bio}",
+      keywords: "クリエイター, VIDA, 会員登録, 創作コミュニティ",
+    },
+    post: {
+      title: "{title} {'|'} {displayName}({userName}) {'|'} VIDA",
+      description: "{desc}",
+      keywords: "{title}, {displayName}, {userName}, VIDA, 作成, ファン",
     },
     keywords: {
       short: "アダルトショートビデオ",
@@ -357,9 +371,9 @@ export default {
       video: "アダルトビデオ",
       interact: "プライベートインタラクション",
       content: "アダルトコンテンツ",
-      title: "Vida",
+      title: "VIDA",
       popular: "人気のあるアダルトビデオ",
-      search: "Vida検索",
+      search: "VIDA検索",
       favorite: "私のお気に入り",
       intl: "多言語切り替え",
       subscribe: "マイサブスクリプション",
@@ -388,7 +402,7 @@ export default {
       instagram: "正しいInstagramのURLを入力してください。",
       twitter: "有効なTwitterのURLを入力してください。",
       tiktok: "有効なTikTokのURLを入力してください。",
-      vida: "有効なVidaのURLを入力してください。",
+      vida: "有効なVIDAのURLを入力してください。",
       youtube: "正しいYouTube URLを入力してください",
       facebook: "正しいFacebook Webサイトを入力してください",
       confirmPassword: "パスワードが一致しません。",
@@ -452,12 +466,12 @@ export default {
       1: "過去のすべての作品を完全に訪れます{days}日",
       2: "作成者に直接情報を送信できます",
       3: "より近いステップ相互作用",
-      4: "サブスクリプションをいつでもキャンセルできます",
+      4: "いつでもサブスクリプションをキャンセルできます",
       confirm: "月{'$'} {price}支払いに移動します",
     },
     shopBuy: {
       1: "{nickname}部門の作業コンテンツのロックを解除します",
-      2: "{nickname}はあなたの支払いを全額受け取ります",
+      2: "{nickname}はお支払いを全額受け取ります",
       confirm: "今すぐロック解除（{'$'} {price}）",
     },
     subscribeSuc: {
@@ -467,7 +481,7 @@ export default {
     },
     shopBuySuc: {
       1: "素晴らしい！投稿のロックを解除するための支払いの成功",
-      2: "視聴するために投稿を選択するか、元の画面にとどまります！",
+      2: "視聴するために投稿に行くか、元の画面にとどまることを選択してください！",
       confirm: "投稿に移動します",
     },
     title: { paySuc: "正常に支払われました" },

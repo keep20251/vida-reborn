@@ -21,7 +21,7 @@ export default {
   tab: {
     recommand: "Gợi ý",
     subscribe: "Đăng ký",
-    relatedAuthor: "Các tác giả liên quan",
+    relatedAuthor: "Tác giả liên quan",
     relatedPost: "Những bài viết liên quan",
   },
   common: {
@@ -174,7 +174,7 @@ export default {
     error: {
       subscribeSelf: "Không thể đăng ký cho chính mình",
       shopBuySelf: "Không thể mua sản phẩm của riêng bạn",
-      subscriptionNotFound: "Không có giải pháp đăng ký",
+      subscriptionNotFound: "Không có sơ đồ đăng ký có sẵn",
     },
     sending: "Gửi",
     failure: "Thất bại",
@@ -242,11 +242,11 @@ export default {
   },
   content: {
     default: "Đặt trước, không nên được hiển thị ở bất cứ đâu",
-    welcomeToVida: "Chào mừng bạn đến với Vida, hãy gia nhập chúng tôi!",
+    welcomeToVIDA: "Chào mừng bạn đến với VIDA, hãy gia nhập chúng tôi!",
     verifyAccount:
       "Hãy nhanh chóng xác minh hộp thư của bạn! Đi đến 【Tài khoản của tôi>Cài đặt tài khoản】 để hoàn thành xác minh",
     termsDeclaration:
-      "Bằng cách tiếp tục, bạn xác nhận rằng bạn đã đủ 18 tuổi trở lên và đồng ý với {tos} của Vida, và đã đọc {pp} của VIDA.",
+      "Bằng cách tiếp tục, bạn xác nhận rằng bạn đã đủ 18 tuổi trở lên và đồng ý với {tos} của VIDA, và đã đọc {pp} của VIDA.",
     tos: "Điều khoản Dịch vụ",
     pp: "Chính sách Bảo mật",
     cookie: {
@@ -254,7 +254,7 @@ export default {
       word: "Chính sách cookie",
     },
     notLoggedYet: "Bạn chưa đăng nhập, hãy tham gia với chúng tôi ngay bây giờ!",
-    joinVida: "Nhanh tay tham gia VIDA! Nhiều tính năng huyền ảo đang chờ đợi bạn!",
+    joinVIDA: "Nhanh tay tham gia VIDA! Nhiều tính năng huyền ảo đang chờ đợi bạn!",
     useObey: "Tất cả việc sử dụng phải tuân thủ {tos}",
     allPosts: "Tất cả bài viết",
     currentEarn: "Thu nhập hiện tại",
@@ -316,6 +316,10 @@ export default {
     wdrlReview: "Nộp xong sẽ được xem xét trong vòng 24 giờ, kết quả xem xét sẽ được hiển thị trong hồ sơ nộp.",
     delSubPlan: "",
     maxSubPlan: "",
+    annArea: "",
+    annTitle: "",
+    annCtn: "",
+    annBtn: "",
   },
   month: {
     Jan: "Tháng Một",
@@ -334,27 +338,37 @@ export default {
   unit: { day: "{days} ngày" },
   meta: {
     home: {
-      title: "Vida {pipe} Nền tảng Video Ngắn Cao cấp cho Người lớn",
+      title: "VIDA - Nền tảng đăng ký thành viên dành cho người sáng tạo",
       description:
-        "Vida là nền tảng chia sẻ video ngắn dành cho người lớn hàng đầu. Tại đây, bạn không chỉ có thể xem video chất lượng cao từ các nhà sáng tạo mà còn có thể tương tác riêng tư với họ.",
+        "VIDA là nền tảng đăng ký thành viên dành cho người sáng tạo, cung cấp sự hỗ trợ từ cộng đồng, tư vấn tiếp thị chuyên nghiệp và các dịch vụ một cửa khác nhằm tăng cường mối liên kết giữa người sáng tạo và người hâm mộ. Tham gia VIDA để tận hưởng ưu đãi không hoa hồng nền tảng, hướng dẫn độc quyền từ cố vấn 1V1, các mô-đun đa chức năng có thể tùy chỉnh và hơn thế nữa, để khai thác tiềm năng sáng tạo của bạn.",
+      keywords:
+        "VIDA, Người sáng tạo, Đăng ký thành viên, Hỗ trợ cộng đồng, Tư vấn tiếp thị chuyên nghiệp, Mô-đun tùy chỉnh",
     },
     search: {
-      title: "Trang Tìm kiếm {pipe} Khám phá Video Ngắn Người lớn Tốt nhất - Vida",
+      title: "Khám phá VIDA - Phát hiện Sáng tạo và Cảm hứng {'|'} VIDA",
       description:
-        "Trên trang tìm kiếm của Vida, bạn có thể tìm thấy video ngắn dành cho người trưởng thành, nội dung mạng màu vàng, diễn viên dâm đãng, khám phá sở thích của bạn và khám phá loạt phim người lớn đa dạng.",
+        "Trên trang tìm kiếm VIDA, khám phá và tìm hiểu nội dung sáng tạo mới nhất và phổ biến nhất. Dù là nghệ thuật, âm nhạc, viết lách hay bất kỳ hình thức tác phẩm sáng tạo nào, VIDA là nền tảng lý tưởng để trưng bày tác phẩm và kết nối người sáng tạo với người hâm mộ.",
+      keywords: "VIDA, Tìm kiếm, Đổi mới, Cảm hứng, Nghệ thuật, Âm nhạc, Viết lách, Tác phẩm sáng tạo",
     },
     searchResult: {
-      title: "Kết quả tìm kiếm {pipe} {keyword} - Vida",
-      description: "Kết quả tìm kiếm {keyword}. Khám phá và khám phá phim người lớn chất lượng cao trên Vida",
+      title: "{keyword} - Kết quả tìm kiếm {'|'} VIDA",
+      description: "Kết quả tìm kiếm cho {keyword}",
+      keywords: "VIDA, {keyword}, Sáng tạo, Người sáng tạo, Tác phẩm sáng tạo, Xu hướng sáng tạo",
     },
     mine: {
-      title: "Trung tâm Cá nhân của Tôi {pipe} Vida",
+      title: "Hồ sơ của tôi {'|'} VIDA",
       description:
-        "Quản lý bộ sưu tập cá nhân, đăng ký và cài đặt của bạn trên Vida, cũng như chuyển đổi giữa nhiều ngôn ngữ, và duyệt các bộ phim và nội dung tương tác người lớn yêu thích của bạn bất cứ lúc nào.",
+        "Quản lý bộ sưu tập cá nhân và đăng ký của bạn trên VIDA, cũng như cài đặt cá nhân và chuyển đổi đa ngôn ngữ, để duyệt video yêu thích và nội dung tương tác bất kỳ lúc nào.",
     },
     creator: {
-      title: "{name} - Trang Tạo hình {pipe} Vida",
-      description: "{name} là một người sáng tạo nổi tiếng trên Vida. {bio}",
+      title: "{displayName} ({userName}) {'|'} VIDA",
+      description: "{displayName} là một người sáng tạo trên VIDA, {bio}",
+      keywords: "Người sáng tạo, VIDA, Đăng ký thành viên, Cộng đồng sáng tạo",
+    },
+    post: {
+      title: "{title} {'|'} {displayName}({userName}) {'|'} VIDA",
+      description: "{desc}",
+      keywords: "{title}, {displayName}, {userName}, VIDA, Sáng tạo, Người hâm mộ",
     },
     keywords: {
       short: "Video Ngắn cho Người Adult",
@@ -362,9 +376,9 @@ export default {
       video: "Video cho Người Adult",
       interact: "Tương tác Riêng tư",
       content: "Nội dung cho Người Adult",
-      title: "Vida",
+      title: "VIDA",
       popular: "Video cho Người Adult Phổ biến",
-      search: "Tìm kiếm trên Vida",
+      search: "Tìm kiếm trên VIDA",
       favorite: "Yêu thích của tôi",
       intl: "Chuyển đổi Đa ngôn ngữ",
       subscribe: "Đăng ký của tôi",
@@ -393,7 +407,7 @@ export default {
       instagram: "Vui lòng nhập URL Instagram hợp lệ.",
       twitter: "Vui lòng nhập URL Twitter hợp lệ.",
       tiktok: "Vui lòng nhập URL TikTok hợp lệ.",
-      vida: "Vui lòng nhập URL Vida hợp lệ.",
+      vida: "Vui lòng nhập URL VIDA hợp lệ.",
       youtube: "Vui lòng nhập URL YouTube chính xác",
       facebook: "Vui lòng nhập đúng trang web Facebook",
       confirmPassword: "Mật khẩu không khớp.",
@@ -472,7 +486,7 @@ export default {
     },
     shopBuySuc: {
       1: "Marvelous! Thanh toán thành công để mở khóa bài",
-      2: "Chọn bài đăng để xem, hoặc ở trong màn hình gốc!",
+      2: "Chọn đi đến bài viết để xem, hoặc ở trong màn hình gốc!",
       confirm: "Đi đến bài viết",
     },
     title: { paySuc: "Đã trả tiền thành công" },
@@ -481,7 +495,7 @@ export default {
       title: "Thanh toán thất bại",
       content: "Lý do chi tiết: {reason}. Vui lòng thử lại hoặc liên hệ với nhân viên dịch vụ khách hàng",
     },
-    confirmAmount: "Tôi có thể yêu cầu bạn gửi số tiền {'$'} {price} đi vào thanh toán",
+    confirmAmount: "Tôi có thể yêu cầu bạn gửi số tiền {'$'} {price} Truy cập thanh toán",
     beforeStart: "Trước khi bắt đầu...",
     pickInterestedForUs: "Hãy giúp chúng tôi chọn loại bạn quan tâm!",
     feedCategory: "Chủ đề bài viết:",

@@ -21,7 +21,7 @@ export default {
   tab: {
     recommand: "Recomendar",
     subscribe: "Assinar",
-    relatedAuthor: "Autores relacionados",
+    relatedAuthor: "Autor relacionado",
     relatedPost: "Artigos relacionados",
   },
   common: {
@@ -79,7 +79,7 @@ export default {
     editSocialLink: "Edite Link Social",
     earnWdrlReq: "Solicitação de retirada",
     earnWdrlHist: "Registro de retiradas",
-    clearSearchHistory: "Clear Search Record",
+    clearSearchHistory: "Recorde de pesquisa claro",
     search: { history: "Pesquisa histórica", clear: "Pesquisas populares", popular: "Vazio" },
     subscription: "Plano de assinatura",
     publishSuccess: "Publicação Bem-sucedida",
@@ -174,7 +174,7 @@ export default {
     error: {
       subscribeSelf: "Não posso se inscrever para você",
       shopBuySelf: "Não posso comprar seus próprios produtos",
-      subscriptionNotFound: "Nenhuma solução de assinatura disponível",
+      subscriptionNotFound: "Não há esquema de assinatura disponível",
     },
     sending: "Enviando",
     failure: "Fracassado",
@@ -242,11 +242,11 @@ export default {
   },
   content: {
     default: "Predefinido, não deve ser exibido em nenhum lugar",
-    welcomeToVida: "Bem-vindo ao Vida, junte-se a nós!",
+    welcomeToVIDA: "Bem-vindo ao VIDA, junte-se a nós!",
     verifyAccount:
       "Corra para verificar sua caixa de correio! Vá para 【Minha conta>Configurações de conta】 para concluir a verificação",
     termsDeclaration:
-      "Ao continuar, você confirma que tem 18 anos ou mais, e concorda com os {tos} da Vida, e leu a {pp} da VIDA.",
+      "Ao continuar, você confirma que tem 18 anos ou mais, e concorda com os {tos} da VIDA, e leu a {pp} da VIDA.",
     tos: "Termos de Serviço",
     pp: "Política de Privacidade",
     cookie: {
@@ -254,7 +254,7 @@ export default {
       word: "Política de biscoitos",
     },
     notLoggedYet: "Você ainda não fez login, junte-se a nós agora!",
-    joinVida: "Apresse-se e junte-se à VIDA! Mais recursos de fantasia estão esperando por você!",
+    joinVIDA: "Apresse-se e junte-se à VIDA! Mais recursos de fantasia estão esperando por você!",
     useObey: "Todo uso deve cumprir com {tos}",
     allPosts: "Todas as postagens",
     currentEarn: "Ganho atual",
@@ -317,6 +317,10 @@ export default {
       "Será revisado dentro de 24 horas após a submissão, e os resultados da revisão serão exibidos no registro de submissão.",
     delSubPlan: "",
     maxSubPlan: "",
+    annArea: "",
+    annTitle: "",
+    annCtn: "",
+    annBtn: "",
   },
   month: {
     Jan: "Janeiro",
@@ -335,28 +339,37 @@ export default {
   unit: { day: "{days} dias" },
   meta: {
     home: {
-      title: "Vida {pipe} Plataforma de Vídeos Curtos para Adultos de Alta Qualidade",
+      title: "VIDA - Uma plataforma de assinatura para criadores",
       description:
-        "Vida é a plataforma líder em compartilhamento de vídeos curtos para adultos. Aqui, você pode não apenas assistir a vídeos de alta qualidade de criadores, mas também interagir privadamente com eles.",
+        "VIDA é uma plataforma de assinatura para criadores, oferecendo suporte comunitário, consultoria de marketing profissional e outros serviços completos para aprofundar a conexão entre criadores e fãs. Junte-se ao VIDA para desfrutar de comissão zero da plataforma, orientação exclusiva de um consultor 1V1, módulos multifuncionais personalizáveis, e mais, para liberar seu potencial criativo.",
+      keywords:
+        "VIDA, Criadores, Assinatura de Membros, Apoio da Multidão, Consultoria de Marketing Profissional, Módulos Personalizados",
     },
     search: {
-      title: "Página de Pesquisa {pipe} Descubra os Melhores Vídeos Curtos para Adultos - Vida",
+      title: "Explore VIDA - Descubra Inovação e Inspiração {'|'} VIDA",
       description:
-        "Na página de pesquisa da Vida, você pode encontrar vídeos curtos para adultos, conteúdo amarelo na web, atores eróticos, descobrir suas preferências e explorar uma variedade diversificada de filmes adultos.",
+        "Descubra e explore o conteúdo criativo mais recente e popular na página de pesquisa do VIDA. Seja arte, música, escrita ou qualquer forma de trabalho criativo, o VIDA é a plataforma ideal para exibir criações e conectar criadores com fãs.",
+      keywords: "VIDA, Pesquisa, Inovação, Inspiração, Arte, Música, Escrita, Obras Criativas",
     },
     searchResult: {
-      title: "Resultados da Pesquisa {pipe} {keyword} - Vida",
-      description:
-        "Resultados da pesquisa para {keyword}. Descubra e explore filmes para adultos de alta qualidade no Vida",
+      title: "{keyword} - Resultados da Pesquisa {'|'} VIDA",
+      description: "Resultados da pesquisa para {keyword}.",
+      keywords: "VIDA, {keyword}, Criação, Criadores, Obras Criativas, Tendências de Criação",
     },
     mine: {
-      title: "Meu Centro Pessoal {pipe} Vida",
+      title: "Meu Perfil {'|'} VIDA",
       description:
-        "Gerencie suas coleções pessoais, assinaturas e configurações no Vida, além de alternar entre vários idiomas, e navegue em seus filmes adultos favoritos e conteúdo interativo a qualquer momento.",
+        "Gerencie sua coleção pessoal e assinaturas no VIDA, bem como configurações pessoais e troca multilíngue, para navegar em seus vídeos favoritos e conteúdo interativo a qualquer momento.",
     },
     creator: {
-      title: "{name} - Página do Criador {pipe} Vida",
-      description: "{name} é um criador conhecido no Vida. {bio}",
+      title: "{displayName} ({userName}) {'|'} VIDA",
+      description: "{displayName} é um criador no VIDA, {bio}",
+      keywords: "Criadores, VIDA, Assinatura de Membros, Comunidade Criativa",
+    },
+    post: {
+      title: "{title} {'|'} {displayName}({userName}) {'|'} VIDA",
+      description: "{desc}",
+      keywords: "{title}, {displayName}, {userName}, VIDA, Criação, Fãs",
     },
     keywords: {
       short: "Vídeos Curtos para Adultos",
@@ -364,9 +377,9 @@ export default {
       video: "Vídeos para Adultos",
       interact: "Interações Privadas",
       content: "Conteúdo para Adultos",
-      title: "Vida",
+      title: "VIDA",
       popular: "Vídeos Populares para Adultos",
-      search: "Pesquisa no Vida",
+      search: "Pesquisa no VIDA",
       favorite: "Meus Favoritos",
       intl: "Troca Multilíngue",
       subscribe: "Minhas Assinaturas",
@@ -395,7 +408,7 @@ export default {
       instagram: "Por favor, insira um URL do Instagram válido.",
       twitter: "Por favor, insira um URL válido do Twitter.",
       tiktok: "Por favor, insira um URL válido do TikTok.",
-      vida: "Por favor, insira um URL válido do Vida.",
+      vida: "Por favor, insira um URL válido do VIDA.",
       youtube: "Por favor, insira o URL correto do YouTube",
       facebook: "Por favor, insira o site correto do Facebook",
       confirmPassword: "Senhas não correspondem.",
@@ -469,12 +482,12 @@ export default {
     },
     subscribeSuc: {
       1: "maravilhoso! Subscrito com sucesso para {nickname}!",
-      2: "Escolha ir à página inicial do Criador ou permanecer na tela original!",
+      2: "Escolha ir à página inicial do Criador ou fique na tela original!",
       confirm: "Vá para a página do Criador",
     },
     shopBuySuc: {
       1: "maravilhoso! Pagamento bem -sucedido para desbloquear a postagem",
-      2: "Escolha a postagem para assistir ou fique na tela original!",
+      2: "Escolha ir ao post para assistir ou ficar na tela original!",
       confirm: "Vá para o post",
     },
     title: { paySuc: "Pagou com sucesso" },

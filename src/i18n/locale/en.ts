@@ -21,7 +21,7 @@ export default {
   tab: {
     recommand: "Recommend",
     subscribe: "Subscribe",
-    relatedAuthor: "Related authors",
+    relatedAuthor: "Related author",
     relatedPost: "related articles",
   },
   common: {
@@ -174,7 +174,7 @@ export default {
     error: {
       subscribeSelf: "Can't subscribe to yourself",
       shopBuySelf: "Can't buy your own products",
-      subscriptionNotFound: "No subscription solution available",
+      subscriptionNotFound: "There is no available subscription scheme",
     },
     sending: "发送中",
     failure: "失败",
@@ -242,10 +242,10 @@ export default {
   },
   content: {
     default: "Preset, should not be displayed anywhere",
-    welcomeToVida: "Welcome to Vida, join us!",
+    welcomeToVIDA: "Welcome to VIDA, join us!",
     verifyAccount: "Hurry to verify your mailbox! Go to 【My>Account Settings】 to complete the verification",
     termsDeclaration:
-      "By continuing, you confirm that you are 18 years old or older, and agree to Vida's {tos}, and have read VIDA's {pp}.",
+      "By continuing, you confirm that you are 18 years old or older, and agree to VIDA's {tos}, and have read VIDA's {pp}.",
     tos: "Terms of Service",
     pp: "Privacy Policy",
     cookie: {
@@ -253,7 +253,7 @@ export default {
       word: "Cookie Policy",
     },
     notLoggedYet: "You haven't logged in yet, join us now!",
-    joinVida: "Hurry up and join VIDA! More fantasy features are waiting for you!",
+    joinVIDA: "Hurry up and join VIDA! More fantasy features are waiting for you!",
     useObey: "All use must comply with {tos}",
     allPosts: "All posts",
     currentEarn: "Current earn",
@@ -316,6 +316,11 @@ export default {
       "It will be reviewed within 24 hours after submission, and the review results will be displayed in the submission record.",
     delSubPlan: "Are you sure you want to delete this subscription plan?",
     maxSubPlan: "A maximum of 10 subscription plans are allowed",
+    annArea: "VIDA Announcement Area",
+    annTitle: "Brand new interface, unchanged service!",
+    annCtn:
+      "VIDA interface has been updated! Ushering in a new design style, the services we provide you will not be reduced because of this. Come and join us to experience it!",
+    annBtn: "Join VIDA now",
   },
   month: {
     Jan: "January",
@@ -334,27 +339,37 @@ export default {
   unit: { day: "{days} days" },
   meta: {
     home: {
-      title: "Vida {pipe} Premium Adult Short Video Platform",
+      title: "VIDA - A Membership Subscription Platform Designed for Creators",
       description:
-        "Vida is the leading adult short video sharing platform. Here, you can not only watch high-quality creator videos but also interact privately with them.",
+        "VIDA is a membership subscription platform designed for creators, offering crowd support, professional marketing consultation, and other one-stop services to deepen the connection between creators and fans. Join VIDA to enjoy zero platform commission, exclusive 1V1 advisor guidance, customizable multifunctional modules, and more, to unleash your creative potential.",
+      keywords:
+        "VIDA, Creators, Membership Subscription, Crowdfunding, Professional Marketing Consultation, Custom Modules",
     },
     search: {
-      title: "Search Page {pipe} Discover Best Adult Short Videos - Vida",
+      title: "Explore VIDA - Discover Innovation and Inspiration {'|'} VIDA",
       description:
-        "On the Vida search page, you can find adult short videos, web yellow content, erotic actors, discover your preferences, and explore a diverse range of adult films.",
+        "Discover and explore the latest and most popular creative content on the VIDA search page. Whether it's art, music, writing, or any form of creative work, VIDA is the ideal platform to showcase creations and connect creators with fans.",
+      keywords: "VIDA, Search, Innovation, Inspiration, Art, Music, Writing, Creative Works",
     },
     searchResult: {
-      title: "Search Results {pipe} {keyword} - Vida",
-      description: "{keyword} search results. Discover and explore high-quality adult films on Vida",
+      title: "{keyword} - Search Results {'|'} VIDA",
+      description: "Search results for {keyword}.",
+      keywords: "VIDA, {keyword}, Creation, Creators, Creative Works, Creation Trends",
     },
     mine: {
-      title: "My Personal Center {pipe} Vida",
+      title: "My Profile {'|'} VIDA",
       description:
-        "Manage your personal collections, subscriptions, and settings on Vida, as well as switch between multiple languages, and browse your favorite adult films and interactive content anytime.",
+        "Manage your personal collection and subscriptions on VIDA, as well as personal settings and multilingual switching, to browse your favorite videos and interactive content anytime.",
     },
     creator: {
-      title: "{name} - Creator Page {pipe} Vida",
-      description: "{name} is a well-known creator on Vida. {bio}",
+      title: "{displayName} ({userName}) {'|'} VIDA",
+      description: "{displayName} is a creator on VIDA, {bio}",
+      keywords: "Creators, VIDA, Membership Subscription, Creative Community",
+    },
+    post: {
+      title: "{title} {'|'} {displayName}({userName}) {'|'} VIDA",
+      description: "{desc}",
+      keywords: "{title}, {displayName}, {userName}, VIDA, Creation, Fans",
     },
     keywords: {
       short: "Adult Short Videos",
@@ -362,9 +377,9 @@ export default {
       video: "Adult Videos",
       interact: "Private Interactions",
       content: "Adult Content",
-      title: "Vida",
+      title: "VIDA",
       popular: "Popular Adult Videos",
-      search: "Vida Search",
+      search: "VIDA Search",
       favorite: "My Favorites",
       intl: "Multilingual Switching",
       subscribe: "My Subscriptions",
@@ -393,7 +408,7 @@ export default {
       instagram: "Please enter a valid Instagram URL.",
       twitter: "Please enter a valid Twitter URL.",
       tiktok: "Please enter a valid TikTok URL.",
-      vida: "Please enter a valid Vida URL.",
+      vida: "Please enter a valid VIDA URL.",
       youtube: "Please enter the correct Youtube URL",
       facebook: "Please enter the correct Facebook website",
       confirmPassword: "Passwords do not match.",
@@ -472,7 +487,7 @@ export default {
     },
     shopBuySuc: {
       1: "marvelous! Successful payment to unlock the post",
-      2: "Choose to the post to watch, or stay in the original screen!",
+      2: "Choose to go to the post to watch, or stay in the original screen!",
       confirm: "Go to the post",
     },
     title: { paySuc: "Has successfully paid" },
