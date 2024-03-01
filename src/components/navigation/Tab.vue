@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full">
+  <div class="relative h-full">
     <div class="flex h-full w-full flex-row space-x-2">
       <div
         v-for="option in options"
@@ -19,6 +19,11 @@
         ></div>
       </div>
     </div>
+    <div v-if="feature" class="pointer-events-none absolute right-8 top-0 flex h-full items-center">
+      <div class="pointer-events-auto h-20 w-20 cursor-pointer" @click.stop="$emit('feature')">
+        <Icon :name="feature" size="20"></Icon>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -28,9 +33,10 @@ defineProps({
   options: { type: Array, required: true },
   optionLabel: { type: String, default: 'label' },
   optionValue: { type: String, default: 'value' },
+  feature: { type: String },
 })
 
-const emits = defineEmits(['update:modelValue'])
+const emits = defineEmits(['update:modelValue', 'feature'])
 
 function onClick(v) {
   emits('update:modelValue', v)
