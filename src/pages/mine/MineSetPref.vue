@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onActivated, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
@@ -31,7 +31,7 @@ const { updateUserData } = accountStore
 const mineStore = useMineStore()
 const { interested } = storeToRefs(mineStore)
 
-onMounted(() => {
+onActivated(() => {
   interested.value = userData.value.interested.split(',')
 })
 

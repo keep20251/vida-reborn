@@ -1,10 +1,10 @@
 <template>
   <Page infinite @load="onPageEnd">
     <template v-if="isMobile" #app-top>
-      <TopSearchBar logo feature-icon="filter" to-search @feature="onReload"></TopSearchBar>
+      <TopSearchBar logo feature-icon="filter" to-search @feature="updateIntesreted"></TopSearchBar>
     </template>
     <template #main-top>
-      <Tab v-model="tab" :options="tabOptions"></Tab>
+      <Tab v-model="tab" :options="tabOptions" :feature="isDesktop ? 'filter' : ''" @feature="updateIntesreted"></Tab>
     </template>
     <template #default>
       <div v-show="tab === TAB_TYPE.REC">
@@ -25,7 +25,6 @@
         <div v-else>
           <div class="flex justify-between pt-20">
             <div class="text-base font-bold leading-md">{{ $t('info.popularCreator') }}</div>
-            <Icon v-if="isDesktop" name="filter" size="20" class="cursor-pointer" @click="creatorsReload"></Icon>
           </div>
           <div class="pt-10 text-base font-normal leading-md">{{ $t('info.subscribeToView') }}</div>
           <List :items="creators" item-key="aff">
@@ -59,11 +58,13 @@
 
 <script setup>
 import { ref } from 'vue'
-import { watchOnce } from '@vueuse/core'
+import { useLocalStorage, watchOnce } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
+import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
 import { useFeedStore } from '@/store/feed'
 import { useHydrationStore } from '@/store/hydration'
+import { useModalStore } from '@/store/modal'
 import BulletinCard from '@comp/aside/BulletinCard.vue'
 import RecCard from '@comp/aside/RecCard.vue'
 import PopCreatorSwiper from '@comp/card/PopCreatorSwiper.vue'
@@ -73,7 +74,9 @@ import Feed from '@comp/main/Feed.vue'
 import Tab from '@comp/navigation/Tab.vue'
 import TopSearchBar from '@comp/navigation/TopSearchBar.vue'
 import { onHydration, onServerClientOnce } from '@use/lifecycle'
+import useRequest from '@use/request/index.js'
 import { useInfinite } from '@use/request/infinite'
+import { LOCAL_STORAGE_KEYS, MODAL_TYPE } from '@const'
 import { TAB_TYPE } from '@const/home'
 
 const appStore = useAppStore()
@@ -135,12 +138,34 @@ function onPageEnd() {
   }
 }
 
-function onReload() {
-  if (tab.value === TAB_TYPE.REC) {
-    reload()
-  }
-  if (tab.value === TAB_TYPE.SUB) {
-    creatorsReload()
-  }
+const interestedList = useLocalStorage(LOCAL_STORAGE_KEYS.INTERESTED_LIST, [])
+const accountStore = useAccountStore()
+const { isLogin, userData } = storeToRefs(accountStore)
+const { updateUserData } = accountStore
+const modalStore = useModalStore()
+const { open } = modalStore
+function updateIntesreted() {
+  const content = isLogin.value ? userData.value.interested.split(',') : interestedList.value
+  open(MODAL_TYPE.INTERESTED_PICK, {
+    size: 'xl',
+    content,
+    async confirmAction(data) {
+      if (isLogin.value) {
+        const interested = data.join(',')
+        try {
+          await useRequest('User.modifyInfo', { params: { interested }, immediate: true })
+          updateUserData({ interested })
+        } catch (e) {
+          return e.message
+        }
+      } else {
+        interestedList.value = data
+      }
+
+      reload()
+      creatorsReload()
+    },
+    showClose: true,
+  })
 }
 </script>
