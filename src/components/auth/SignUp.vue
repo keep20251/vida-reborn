@@ -39,6 +39,14 @@
 
             <Button :loading="isLoading" @click="submit">{{ $t('label.submit') }}</Button>
           </div>
+          <div class="text-center text-base leading-md text-gray-57">
+            <span>
+              {{ $t('info.alreadyRegister') }}
+              <button class="underline" @click="to(AUTH_ROUTES.LOGIN)">
+                {{ $t('info.clickToLogin') }}
+              </button>
+            </span>
+          </div>
         </div>
       </template>
     </DialogHeader>
@@ -60,10 +68,10 @@ import InputWrap from '@comp/form/InputWrap.vue'
 import PasswordValidation from '@comp/form/PasswordValidation.vue'
 import useRequest from '@use/request/index.js'
 import { useYup } from '@use/validator/yup.js'
-import { LOCAL_STORAGE_KEYS, MODAL_TYPE } from '@const'
+import { AUTH_ROUTES, LOCAL_STORAGE_KEYS, MODAL_TYPE } from '@const'
 
 const authRouteStore = useAuthRouteStore()
-const { back, close } = authRouteStore
+const { to, back, close } = authRouteStore
 const { history } = storeToRefs(authRouteStore)
 const showBack = computed(() => history.value.length > 0)
 

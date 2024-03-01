@@ -17,7 +17,7 @@
       <ClientOnly>
         <div v-show="isPreviewMode" class="m-15 grid space-y-20">
           <SubscribeCard
-            v-for="(item, index) in userData.subscription_list"
+            v-for="(item, index) in userData?.subscription_list"
             :key="`subscribe-card-${index}`"
             :item="item"
           ></SubscribeCard>
