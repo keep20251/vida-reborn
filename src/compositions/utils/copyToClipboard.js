@@ -1,8 +1,6 @@
-import { useI18n } from 'vue-i18n'
 import { usePopupMessageStore } from '@/store/popup-message'
 
 export function useCopyToClipboard() {
-  const { t: $t } = useI18n()
   const { open: openMessage } = usePopupMessageStore()
 
   function copy(value) {
