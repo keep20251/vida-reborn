@@ -223,7 +223,7 @@ const permOptions = ref([
   { label: $t('label.private'), value: FEED_PERM.PRI },
 ])
 
-const subOptions = computed(() => userData.value.subscription_list.map((sub) => ({ label: sub.name, value: sub.id })))
+const subOptions = computed(() => userData.value?.subscription_list.map((sub) => ({ label: sub.name, value: sub.id })))
 
 const postTimeEditing = ref(false)
 const postTimeModel = computed(() => {

@@ -22,12 +22,20 @@ export default function (response) {
   // 未授權
   else if (processedData.status === 422) {
     if (!import.meta.env.SSR) {
-      useAccountStore().logout()
+      const { logout } = useAccountStore()
 
-      // TODO 現在登出都會reload，這個彈窗沒用了，但不確定之後要怎麼改XD
-      // useModalStore().alert({ title: 'content.tokenExpired', confirmAction: () => window.location.reload() })
+      const promise = new Promise(() => {
+        useModalStore().alert({
+          title: 'content.tokenExpired',
+          confirmAction: logout,
+        })
+      })
+
+      // 這是一個無解的 promise，確認點下去後直接重整
+      return promise
+    } else {
+      return Promise.reject(new TokenInvalidError(processedData.msg))
     }
-    return Promise.reject(new TokenInvalidError(processedData.msg))
   }
 
   console.log(`[response]${config.url}`, processedData.data)

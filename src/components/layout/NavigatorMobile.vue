@@ -20,12 +20,12 @@
         <Icon name="publish" size="16"></Icon>
       </div>
     </Link>
-    <router-link class="grow" :to="`/${locale}/message`">
+    <Link class="grow" href="/message" @click="toMessage">
       <div class="flex items-center justify-center space-x-16 px-12 py-16">
         <Icon v-if="atMessage" name="message" size="30"></Icon>
         <Icon v-else name="messageOutline" size="30"></Icon>
       </div>
-    </router-link>
+    </Link>
     <router-link class="grow" :to="`/${locale}/mine`">
       <div class="flex items-center justify-center space-x-16 px-12 py-16">
         <Icon v-if="atMine" name="mine" size="30"></Icon>
@@ -39,6 +39,7 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
+import { useAccountStore } from '@/store/account'
 import { useDialogStore } from '@/store/dialog'
 import { useNavStore } from '@/store/nav'
 import { usePublishStore } from '@/store/publish'
@@ -59,15 +60,18 @@ const locale = useLocale()
 
 const { to } = useRouters()
 
+const { afterLoginAction } = useAccountStore()
 const { fileSelectDialog } = storeToRefs(useDialogStore())
+
+const toMessage = afterLoginAction(() => to('message'))
 
 const publishStore = usePublishStore()
 const { isEditing } = storeToRefs(publishStore)
-function onPublishClick() {
+const onPublishClick = afterLoginAction(() => {
   if (isEditing.value) {
     to('publish')
   } else {
     fileSelectDialog.value = true
   }
-}
+})
 </script>

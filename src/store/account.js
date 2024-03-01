@@ -1,5 +1,4 @@
 import { computed, readonly, ref, watch } from 'vue'
-import { useRouter } from 'vue-router'
 import { defineStore, storeToRefs } from 'pinia'
 import { useDialogStore } from '@/store/dialog'
 import useRequest from '@use/request/index.js'
@@ -10,8 +9,6 @@ export const useAccountStore = defineStore('account-store', () => {
   // 用來暫存 afterLoginAction 的待執行函式
   // 等待使用者成功登入後再執行
   let tempAction = null
-
-  const router = useRouter()
 
   const { authDialog } = storeToRefs(useDialogStore())
 
@@ -83,7 +80,19 @@ export const useAccountStore = defineStore('account-store', () => {
     uuidCookie.value = ''
     chatToken.value = null
     clearUserData()
-    if (import.meta.env.SSR === false) window.location.reload()
+
+    if (!import.meta.env.SSR) {
+      const loc = window.location
+      let url = loc.origin
+      if (loc.pathname.includes('publish') || loc.pathname.includes('message')) {
+        url += '/'
+      } else if (loc.pathname.includes('mine')) {
+        url += '/mine'
+      } else {
+        url += loc.pathname
+      }
+      window.location.replace(url)
+    }
   }
 
   /**
