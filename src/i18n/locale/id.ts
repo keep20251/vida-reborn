@@ -174,7 +174,7 @@ export default {
     error: {
       subscribeSelf: "Tidak bisa berlangganan diri sendiri",
       shopBuySelf: "Tidak dapat membeli produk Anda sendiri",
-      subscriptionNotFound: "Tidak ada solusi berlangganan yang tersedia",
+      subscriptionNotFound: "Tidak ada skema langganan yang tersedia",
     },
     sending: "Mengirim",
     failure: "Gagal",
@@ -242,11 +242,11 @@ export default {
   },
   content: {
     default: "Preset, tidak boleh ditampilkan di mana pun",
-    welcomeToVida: "Selamat datang di Vida, bergabunglah dengan kami!",
+    welcomeToVIDA: "Selamat datang di VIDA, bergabunglah dengan kami!",
     verifyAccount:
       "Segera verifikasi kotak surat Anda! Pergi ke 【Akun Saya>Pengaturan Akun】 untuk menyelesaikan verifikasi",
     termsDeclaration:
-      "Dengan melanjutkan, Anda mengkonfirmasi bahwa Anda berusia 18 tahun atau lebih, dan setuju dengan {tos} Vida, dan telah membaca {pp} VIDA.",
+      "Dengan melanjutkan, Anda mengkonfirmasi bahwa Anda berusia 18 tahun atau lebih, dan setuju dengan {tos} VIDA, dan telah membaca {pp} VIDA.",
     tos: "Syarat Layanan",
     pp: "Kebijakan Privasi",
     cookie: {
@@ -254,7 +254,7 @@ export default {
       word: "Kebijakan Cookie",
     },
     notLoggedYet: "Anda belum masuk, bergabunglah dengan kami sekarang!",
-    joinVida: "Buruan gabung VIDA! Lebih banyak fitur fantasi menunggu Anda!",
+    joinVIDA: "Buruan gabung VIDA! Lebih banyak fitur fantasi menunggu Anda!",
     useObey: "Semua penggunaan harus mematuhi {tos}",
     allPosts: "Semua posting",
     currentEarn: "Pendapatan saat ini",
@@ -317,6 +317,10 @@ export default {
       "Akan ditinjau dalam 24 jam setelah penyerahan, dan hasil tinjauan akan ditampilkan dalam catatan pengajuan.",
     delSubPlan: "",
     maxSubPlan: "",
+    annArea: "",
+    annTitle: "",
+    annCtn: "",
+    annBtn: "",
   },
   month: {
     Jan: "Januari",
@@ -335,27 +339,36 @@ export default {
   unit: { day: "{days} Days" },
   meta: {
     home: {
-      title: "Vida {pipe} Platform Video Pendek Dewasa Berkualitas Tinggi",
+      title: "VIDA - Platform langganan untuk kreator",
       description:
-        "Vida adalah platform berbagi video pendek dewasa terkemuka. Di sini, Anda tidak hanya dapat menonton video berkualitas tinggi dari pembuat konten, tetapi juga berinteraksi secara pribadi dengan mereka.",
+        "VIDA adalah platform langganan untuk kreator, menawarkan dukungan komunitas, konsultasi pemasaran profesional, dan layanan lengkap lainnya untuk memperdalam hubungan antara kreator dan penggemar. Bergabunglah dengan VIDA untuk menikmati komisi platform nol, bimbingan eksklusif dari penasihat 1V1, modul multifungsi yang dapat disesuaikan, dan lebih banyak lagi, untuk membebaskan potensi kreatif Anda.",
+      keywords: "VIDA, Kreator, Berlangganan Anggota, Dukungan Massal, Konsultasi Pemasaran Profesional, Modul Kustom",
     },
     search: {
-      title: "Halaman Pencarian {pipe} Temukan Video Pendek Dewasa Terbaik - Vida",
+      title: "Jelajahi VIDA - Temukan Inovasi dan Inspirasi {'|'} VIDA",
       description:
-        "Di halaman pencarian Vida, Anda dapat menemukan video pendek untuk dewasa, konten web kuning, aktor erotis, menemukan preferensi Anda, dan menjelajahi beragam film dewasa.",
+        "Temukan dan jelajahi konten kreatif terbaru dan paling populer di halaman pencarian VIDA. Baik itu seni, musik, penulisan, atau bentuk karya kreatif apa pun, VIDA adalah platform ideal untuk menampilkan karya dan menghubungkan pencipta dengan penggemar.",
+      keywords: "VIDA, Pencarian, Inovasi, Inspirasi, Seni, Musik, Menulis, Karya Kreatif",
     },
     searchResult: {
-      title: "Hasil Pencarian {pipe} {keyword} - Vida",
-      description: "Hasil pencarian {keyword}. Temukan dan jelajahi film dewasa berkualitas tinggi di Vida",
+      title: "{keyword} - Hasil Pencarian {'|'} VIDA",
+      description: "Hasil pencarian untuk {keyword}.",
+      keywords: "VIDA, {keyword}, Kreasi, Kreator, Karya Kreatif, Tren Kreasi",
     },
     mine: {
-      title: "Pusat Pribadi Saya {pipe} Vida",
+      title: "Profil Saya {'|'} VIDA",
       description:
-        "Kelola koleksi pribadi, langganan, dan pengaturan Anda di Vida, serta beralih antara beberapa bahasa, dan jelajahi film dewasa favorit Anda dan konten interaktif kapan saja.",
+        "Kelola koleksi pribadi dan langganan Anda di VIDA, serta pengaturan pribadi dan pergantian bahasa multilingual, untuk menjelajahi video favorit dan konten interaktif kapan saja.",
     },
     creator: {
-      title: "{name} - Halaman Kreator {pipe} Vida",
-      description: "{name} adalah seorang pencipta terkenal di Vida. {bio}",
+      title: "{displayName} ({userName}) {'|'} VIDA",
+      description: "{displayName} adalah pencipta di VIDA, {bio}",
+      keywords: "Kreator, VIDA, Berlangganan Anggota, Komunitas Kreatif",
+    },
+    post: {
+      title: "{title} {'|'} {displayName}({userName}) {'|'} VIDA",
+      description: "{desc}",
+      keywords: "{title}, {displayName}, {userName}, VIDA, Kreasi, Penggemar",
     },
     keywords: {
       short: "Video Pendek Dewasa",
@@ -363,9 +376,9 @@ export default {
       video: "Video Dewasa",
       interact: "Interaksi Pribadi",
       content: "Konten Dewasa",
-      title: "Vida",
+      title: "VIDA",
       popular: "Video Dewasa Populer",
-      search: "Pencarian di Vida",
+      search: "Pencarian di VIDA",
       favorite: "Favorit Saya",
       intl: "Peralihan Multibahasa",
       subscribe: "Langganan Saya",
@@ -394,7 +407,7 @@ export default {
       instagram: "Silakan masukkan URL Instagram yang valid.",
       twitter: "Silakan masukkan URL Twitter yang valid.",
       tiktok: "Silakan masukkan URL TikTok yang valid.",
-      vida: "Silakan masukkan URL Vida yang valid.",
+      vida: "Silakan masukkan URL VIDA yang valid.",
       youtube: "Harap masukkan URL YouTube yang benar",
       facebook: "Harap masukkan situs web Facebook yang benar",
       confirmPassword: "Kata sandi tidak cocok.",
@@ -462,7 +475,7 @@ export default {
       confirm: "Bulan {'$'} {price} Pergi ke pembayaran",
     },
     shopBuy: {
-      1: "Akan membuka {nickname} konten kerja departemen",
+      1: "Akan Membuka Kunci {nickname} Konten Kerja Departemen",
       2: "{nickname} akan menerima pembayaran Anda secara lengkap",
       confirm: "Buka Kunci Sekarang ({'$'} {price})",
     },
@@ -473,7 +486,7 @@ export default {
     },
     shopBuySuc: {
       1: "menakjubkan! Pembayaran berhasil untuk membuka kunci pos",
-      2: "Pilih ke pos untuk ditonton, atau tetap di layar asli!",
+      2: "Pilih untuk pergi ke pos untuk ditonton, atau tetap di layar asli!",
       confirm: "Pergi ke pos",
     },
     title: { paySuc: "Telah berhasil dibayar" },

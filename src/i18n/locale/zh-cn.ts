@@ -233,9 +233,9 @@ export default {
   },
   content: {
     default: "预设，不应该显示在任何地方",
-    welcomeToVida: "欢迎加入Vida，成为我们的一员！",
+    welcomeToVIDA: "欢迎加入VIDA，成为我们的一员！",
     verifyAccount: "赶紧去认证邮箱吧！至【我的>账户设置】即可完成认证",
-    termsDeclaration: "继续操作，即表示您确认您已年满18岁，并同意Vida的{tos}，并已阅读VIDA的{pp}。",
+    termsDeclaration: "继续操作，即表示您确认您已年满18岁，并同意VIDA的{tos}，并已阅读VIDA的{pp}。",
     tos: "服务条款",
     pp: "隐私政策",
     cookie: {
@@ -243,7 +243,7 @@ export default {
       word: "Cookie政策",
     },
     notLoggedYet: "您还尚未登入，赶快加入我们吧！",
-    joinVida: "赶快加入VIDA吧！更多奇幻的特色内容正在等着你！",
+    joinVIDA: "赶快加入VIDA吧！更多奇幻的特色内容正在等着你！",
     useObey: "所有使用过程中须遵守{tos}",
     allPosts: "全部贴文",
     currentEarn: "目前收益",
@@ -302,6 +302,11 @@ export default {
     wdrlReview: "提出后将于24小时内审核，审核结果将于提交记录中展示。",
     delSubPlan: "确定要删除此订阅方案?",
     maxSubPlan: "最多只能10则订阅方案",
+    annArea: "VIDA 公告区",
+    annTitle: "全新的介面，不变的服务！",
+    annCtn:
+      "VIDA介面更新啦！ 迎来全新的设计风格，而我们所提供服务给您的服务可是不会因此而变少的。 赶快加入我们来体验看看吧！",
+    annBtn: "立即加入 VIDA",
   },
   month: {
     Jan: "一月",
@@ -320,31 +325,45 @@ export default {
   unit: { day: "{days} 天" },
   meta: {
     home: {
-      title: "Vida {pipe} 高质感成人短视频平台",
-      description: "Vida是领先的成人短视频分享平台。在此，您不仅可以观看高质量的创作者视频，还可以与他们私密互动。",
+      title: "VIDA - 专为创作者设计的会员订阅平台",
+      description:
+        "VIDA是一个专为创作者设计的会员订阅平台，提供群众助力、专业营销咨询等一站式服务，让创作者与粉丝之间建立更深的连接。加入VIDA，享受零平台抽成、专属顾问1V1指导、定制多功能模块等福利，激发创作潜能。",
+      keywords: "VIDA, 创作者, 会员订阅, 群众助力, 专业营销咨询, 定制模块",
     },
     search: {
-      title: "搜索页 {pipe} 发掘最佳成人短视频 - Vida",
-      description: "在Vida搜索页面，您可以找到成人短视频、网黄内容、情色演员，发现您的偏好，并探索丰富多彩的成人视频。",
+      title: "探索VIDA - 发现创新与灵感 {'|'} VIDA",
+      description:
+        "在VIDA搜索页面发现和探索最新、最受欢迎的创作内容。无论是艺术、音乐、写作还是任何形式的创意作品，VIDA都是展示创作和连接创作者与粉丝的理想平台。",
+      keywords: "VIDA, 搜索, 创新, 灵感, 艺术, 音乐, 写作, 创意作品",
     },
     searchResult: {
-      title: "搜索结果 {pipe} {keyword} - Vida",
-      description: "{keyword}的搜索结果。在Vida发现和探索高质感的成人视频",
+      title: "{keyword} - 搜索结果 {'|'} VIDA",
+      description: "{keyword}的搜索结果。",
+      keywords: "VIDA, {keyword}, 创作, 创作者, 创意作品, 创作趋势",
     },
     mine: {
-      title: "我的个人中心 {pipe} Vida",
-      description: "管理您在Vida的个人收藏和订阅以及个人设置与多国语系切换，随时浏览喜爱的成人视频和互动内容。",
+      title: "我的个人中心 {'|'} VIDA",
+      description: "管理您在VIDA的个人收藏和订阅以及个人设置与多国语系切换，随时浏览喜爱的影片和互动内容。",
     },
-    creator: { title: "{name} - 创作者主页 {pipe} Vida", description: "{name}是Vida上的知名创作者。{bio}" },
+    creator: {
+      title: "{displayName} ({userName}) {'|'} VIDA",
+      description: "{displayName}是VIDA上的创作者，{bio}",
+      keywords: "创作者, VIDA, 会员订阅, 创作社群",
+    },
+    post: {
+      title: "{title} {'|'} {displayName}({userName}) {'|'} VIDA",
+      description: "{desc}",
+      keywords: "{title}, {displayName}, {userName}, VIDA, 创作, 粉丝",
+    },
     keywords: {
       short: "成人短视频",
       shortSearch: "成人短视频搜索",
       video: "成人视频",
       interact: "私密互动",
       content: "成人内容",
-      title: "Vida",
+      title: "VIDA",
       popular: "热门成人视频",
-      search: "Vida搜索",
+      search: "VIDA搜索",
       favorite: "我的收藏",
       intl: "多国语言切换",
       subscribe: "我的订阅",
@@ -373,7 +392,7 @@ export default {
       instagram: "请输入有效的Instagram网址。",
       twitter: "请输入有效的Twitter网址。",
       tiktok: "请输入有效的TikTok网址。",
-      vida: "请输入有效的Vida网址。",
+      vida: "请输入有效的VIDA网址。",
       youtube: "请输入正确的Youtube网址",
       facebook: "请输入正确的Facebook网址",
       confirmPassword: "密码不一致。",

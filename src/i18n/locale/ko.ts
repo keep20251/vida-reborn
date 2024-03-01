@@ -169,7 +169,7 @@ export default {
     error: {
       subscribeSelf: "자신을 구독 할 수 없습니다",
       shopBuySelf: "자신의 제품을 살 수 없습니다",
-      subscriptionNotFound: "가입 솔루션이 없습니다",
+      subscriptionNotFound: "사용 가능한 구독 체계가 없습니다",
     },
     sending: "배상",
     failure: "실패한",
@@ -237,10 +237,10 @@ export default {
   },
   content: {
     default: "사전 설정, 아무데도 표시해서는 안됩니다",
-    welcomeToVida: "Vida에 오신 것을 환영합니다, 함께해요!",
+    welcomeToVIDA: "VIDA에 오신 것을 환영합니다, 함께해요!",
     verifyAccount: "메일함을 서둘러 인증하세요! 【내 계정>계정 설정】으로 이동하여 인증을 완료하세요",
     termsDeclaration:
-      "계속 진행하면 18세 이상임을 확인하며 Vida의 {tos}에 동의하고 VIDA의 {pp}를 읽었다는 것을 확인하는 것입니다.",
+      "계속 진행하면 18세 이상임을 확인하며 VIDA의 {tos}에 동의하고 VIDA의 {pp}를 읽었다는 것을 확인하는 것입니다.",
     tos: "서비스 이용 약관",
     pp: "개인 정보 보호 정책",
     cookie: {
@@ -248,7 +248,7 @@ export default {
       word: "쿠키 정책",
     },
     notLoggedYet: "아직 로그인하지 않았습니다, 지금 우리와 함께하세요!",
-    joinVida: "VIDA에 서둘러 가입하세요! 더 많은 판타지 기능이 여러분을 기다리고 있습니다!",
+    joinVIDA: "VIDA에 서둘러 가입하세요! 더 많은 판타지 기능이 여러분을 기다리고 있습니다!",
     useObey: "모든 사용은 {tos}를 준수해야 합니다",
     allPosts: "모든 게시물",
     currentEarn: "현재 수익",
@@ -310,6 +310,10 @@ export default {
     wdrlReview: "제출 후 24시간 내에 검토되며, 검토 결과는 제출 기록에 표시됩니다.",
     delSubPlan: "",
     maxSubPlan: "",
+    annArea: "",
+    annTitle: "",
+    annCtn: "",
+    annBtn: "",
   },
   month: {
     Jan: "1월",
@@ -328,27 +332,36 @@ export default {
   unit: { day: "{days} 일" },
   meta: {
     home: {
-      title: "Vida {pipe} 고급 성인용 짧은 비디오 플랫폼",
+      title: "VIDA - 창작자를 위한 멤버십 구독 플랫폼",
       description:
-        "Vida는 성인용 짧은 비디오 공유 플랫폼의 선두 주자입니다. 여기에서는 고품질 창작자 비디오를 시청하는 것뿐만 아니라 그들과 개인적으로 상호 작용할 수 있습니다。",
+        "VIDA는 창작자를 위해 설계된 멤버십 구독 플랫폼으로, 군중 지원, 전문 마케팅 상담 등 원스톱 서비스를 제공하여 창작자와 팬 사이의 더 깊은 연결을 구축합니다. VIDA에 가입하여 플랫폼 수수료 제로, 전담 상담원 1V1 지도, 맞춤형 다기능 모듈 등의 혜택을 누리고 창작 잠재력을 발휘하세요.",
+      keywords: "VIDA, 창작자, 회원 구독, 군중 지원, 전문 마케팅 상담, 맞춤형 모듈",
     },
     search: {
-      title: "검색 페이지 {pipe} 최고의 성인용 짧은 비디오 발견 - Vida",
+      title: "VIDA 탐색 - 혁신과 영감을 발견하다 {'|'} VIDA",
       description:
-        "Vida 검색 페이지에서는 어른용 짧은 비디오, 웹 옐로우 콘텐츠, 에로틱 배우를 찾아 선호도를 발견하고 다양한 성인 영화를 탐색할 수 있습니다.",
+        "VIDA 검색 페이지에서 최신이며 가장 인기 있는 창작 콘텐츠를 발견하고 탐색하세요. 예술, 음악, 글쓰기 또는 어떤 형태의 창의적 작업이든, VIDA는 창작물을 전시하고 창작자와 팬을 연결하는 이상적인 플랫폼입니다.",
+      keywords: "VIDA, 검색, 혁신, 영감, 예술, 음악, 글쓰기, 창의적인 작품",
     },
     searchResult: {
-      title: "검색 결과 {pipe} {keyword} - Vida",
-      description: "{keyword} 검색 결과. Vida에서 고품질의 성인 영화를 발견하고 탐험하세요",
+      title: "{keyword} - 검색 결과 {'|'} VIDA",
+      description: "{keyword}에 대한 검색 결과입니다.",
+      keywords: "VIDA, {keyword}, 창작, 창작자, 창의적인 작품, 창작 경향",
     },
     mine: {
-      title: "나의 개인 센터 {pipe} Vida",
+      title: "내 프로필 {'|'} VIDA",
       description:
-        "Vida에서 개인 컬렉션, 구독, 설정을 관리하고 다양한 언어 간 전환하며 언제든지 선호하는 성인 영화 및 상호 작용 콘텐츠를 탐색하세요.",
+        "VIDA에서 개인 컬렉션 및 구독, 개인 설정 및 다국어 전환을 관리하여 언제든지 좋아하는 비디오 및 인터랙티브 콘텐츠를 탐색하세요.",
     },
     creator: {
-      title: "{name} - 크리에이터 페이지 {pipe} Vida",
-      description: "{name}는 Vida에서 잘 알려진 크리에이터입니다. {bio}",
+      title: "{displayName} ({userName}) {'|'} VIDA",
+      description: "{displayName}은(는) VIDA의 크리에이터입니다, {bio}",
+      keywords: "창작자, VIDA, 회원 구독, 창작 커뮤니티",
+    },
+    post: {
+      title: "{title} {'|'} {displayName}({userName}) {'|'} VIDA",
+      description: "{desc}",
+      keywords: "{title}, {displayName}, {userName}, VIDA, 창작, 팬들",
     },
     keywords: {
       short: "어른 단편 영상",
@@ -356,9 +369,9 @@ export default {
       video: "어른 영상",
       interact: "개인 상호 작용",
       content: "어른 콘텐츠",
-      title: "Vida",
+      title: "VIDA",
       popular: "인기 있는 어른 영상",
-      search: "Vida 검색",
+      search: "VIDA 검색",
       favorite: "내 즐겨찾기",
       intl: "다국어 전환",
       subscribe: "내 구독",
@@ -387,7 +400,7 @@ export default {
       instagram: "올바른 Instagram URL을 입력하세요.",
       twitter: "유효한 Twitter URL을 입력하세요.",
       tiktok: "유효한 TikTok URL을 입력하세요.",
-      vida: "유효한 Vida URL을 입력하세요.",
+      vida: "유효한 VIDA URL을 입력하세요.",
       youtube: "올바른 YouTube URL을 입력하십시오",
       facebook: "올바른 Facebook 웹 사이트를 입력하십시오",
       confirmPassword: "비밀번호가 일치하지 않습니다.",
@@ -466,7 +479,7 @@ export default {
     },
     shopBuySuc: {
       1: "기이! 게시물을 잠금 해제하기위한 성공적인 결제",
-      2: "포스트를 선택하여 시청하거나 원래 화면에 머물러 있습니다!",
+      2: "게시물로 이동하여 보거나 원래 화면에 머물러보십시오!",
       confirm: "게시물로 이동하십시오",
     },
     title: { paySuc: "성공적으로 지불했습니다" },

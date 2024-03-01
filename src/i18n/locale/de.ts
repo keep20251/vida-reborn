@@ -21,7 +21,7 @@ export default {
   tab: {
     recommand: "Empfehlen",
     subscribe: "Abonnieren",
-    relatedAuthor: "Verwandte Autoren",
+    relatedAuthor: "Verwandter Autor",
     relatedPost: "In Verbindung stehende Artikel",
   },
   common: {
@@ -174,7 +174,7 @@ export default {
     error: {
       subscribeSelf: "Ich kann mich nicht abonnieren",
       shopBuySelf: "Sie können Ihre eigenen Produkte nicht kaufen",
-      subscriptionNotFound: "Keine Abonnementlösung verfügbar",
+      subscriptionNotFound: "Es gibt kein Abonnementschema",
     },
     sending: "Senden",
     failure: "Fehlgeschlagen",
@@ -242,11 +242,11 @@ export default {
   },
   content: {
     default: "Preset, sollte nirgendwo angezeigt werden",
-    welcomeToVida: "Willkommen bei Vida, treten Sie uns bei!",
+    welcomeToVIDA: "Willkommen bei VIDA, treten Sie uns bei!",
     verifyAccount:
       "Überprüfen Sie schnell Ihren Posteingang! Gehen Sie zu 【Mein Konto>Kontoeinstellungen】 um die Verifizierung abzuschließen",
     termsDeclaration:
-      "Durch die Fortsetzung bestätigen Sie, dass Sie 18 Jahre oder älter sind, und stimmen den {tos} von Vida zu, und haben die {pp} von VIDA gelesen.",
+      "Durch die Fortsetzung bestätigen Sie, dass Sie 18 Jahre oder älter sind, und stimmen den {tos} von VIDA zu, und haben die {pp} von VIDA gelesen.",
     tos: "Nutzungsbedingungen",
     pp: "Datenschutzrichtlinien",
     cookie: {
@@ -254,7 +254,7 @@ export default {
       word: "Cookie -Richtlinie",
     },
     notLoggedYet: "Du bist noch nicht eingeloggt, tritt jetzt bei uns bei!",
-    joinVida: "Beeil dich und tritt VIDA bei! Mehr fantastische Funktionen warten auf dich!",
+    joinVIDA: "Beeil dich und tritt VIDA bei! Mehr fantastische Funktionen warten auf dich!",
     useObey: "Die Nutzung muss den {tos} entsprechen",
     allPosts: "Alle Beiträge",
     currentEarn: "Aktueller Verdienst",
@@ -317,6 +317,10 @@ export default {
       "Es wird innerhalb von 24 Stunden nach der Einreichung überprüft, und die Überprüfungsergebnisse werden im Einreichungsprotokoll angezeigt.",
     delSubPlan: "",
     maxSubPlan: "",
+    annArea: "",
+    annTitle: "",
+    annCtn: "",
+    annBtn: "",
   },
   month: {
     Jan: "Januar",
@@ -335,27 +339,37 @@ export default {
   unit: { day: "{days} Tage" },
   meta: {
     home: {
-      title: "Vida {pipe} Hochwertige Kurzvideo-Plattform für Erwachsene",
+      title: "VIDA - Eine Mitgliedschaftsabonnementplattform für Kreative",
       description:
-        "Vida ist die führende Plattform für das Teilen von Kurzvideos für Erwachsene. Hier können Sie nicht nur hochwertige Videos von Schöpfern ansehen, sondern auch privat mit ihnen interagieren.",
+        "VIDA ist eine Mitgliedschaftsabonnementplattform für Kreative, die Crowd-Support, professionelle Marketingberatung und andere Komplettservices bietet, um die Verbindung zwischen Kreativen und Fans zu vertiefen. Treten Sie VIDA bei, um null Plattformprovision, exklusive 1V1-Beratung, anpassbare multifunktionale Module und mehr zu genießen, um Ihr kreatives Potenzial zu entfesseln.",
+      keywords:
+        "VIDA, Ersteller, Mitgliederabonnement, Massenunterstützung, Professionelle Marketingberatung, Benutzerdefinierte Module",
     },
     search: {
-      title: "Suchseite {pipe} Entdecken Sie die besten kurzen Erwachsenenvideos - Vida",
+      title: "Entdecken Sie VIDA - Entdecken Sie Innovation und Inspiration {'|'} VIDA",
       description:
-        "Auf der Vida-Suchseite finden Sie kurze Erwachsenenvideos, gelben Webinhalt, erotische Schauspieler, entdecken Sie Ihre Vorlieben und erkunden Sie eine vielfältige Auswahl an Erwachsenenfilmen.",
+        "Entdecken und erkunden Sie die neuesten und beliebtesten kreativen Inhalte auf der VIDA-Suchseite. Ob Kunst, Musik, Schreiben oder jede Form von kreativem Werk, VIDA ist die ideale Plattform, um Kreationen zu präsentieren und Schöpfer mit Fans zu verbinden.",
+      keywords: "VIDA, Suche, Innovation, Inspiration, Kunst, Musik, Schreiben, Kreative Werke",
     },
     searchResult: {
-      title: "Suchergebnisse {pipe} {keyword} - Vida",
-      description: "Suchergebnisse für {keyword}. Entdecken und erkunden Sie hochwertige Erwachsenenfilme auf Vida",
+      title: "{keyword} - Suchergebnisse {'|'} VIDA",
+      description: "Suchergebnisse für {keyword}.",
+      keywords: "VIDA, {keyword}, Schöpfung, Schöpfer, Kreative Werke, Schöpfungstrends",
     },
     mine: {
-      title: "Mein Persönliches Zentrum {pipe} Vida",
+      title: "Mein Profil {'|'} VIDA",
       description:
-        "Verwalten Sie Ihre persönlichen Sammlungen, Abonnements und Einstellungen auf Vida, wechseln Sie zwischen mehreren Sprachen und durchsuchen Sie jederzeit Ihre Lieblings-Erwachsenenfilme und interaktiven Inhalte.",
+        "Verwalten Sie Ihre persönliche Sammlung und Abonnements auf VIDA, sowie persönliche Einstellungen und Sprachwechsel, um jederzeit Ihre Lieblingsvideos und interaktiven Inhalte zu durchsuchen.",
     },
     creator: {
-      title: "{name} - Schöpferseite {pipe} Vida",
-      description: "{name} ist ein bekannter Schöpfer auf Vida. {bio}",
+      title: "{displayName} ({userName}) {'|'} VIDA",
+      description: "{displayName} ist ein Schöpfer auf VIDA, {bio}",
+      keywords: "Schöpfer, VIDA, Mitgliedsabonnement, Kreative Gemeinschaft",
+    },
+    post: {
+      title: "{title} {'|'} {displayName}({userName}) {'|'} VIDA",
+      description: "{desc}",
+      keywords: "{title}, {displayName}, {userName}, VIDA, Schöpfung, Fans",
     },
     keywords: {
       short: "Erwachsenen Kurzvideos",
@@ -363,9 +377,9 @@ export default {
       video: "Erwachsenen Videos",
       interact: "Private Interaktionen",
       content: "Erwachseneninhalt",
-      title: "Vida",
+      title: "VIDA",
       popular: "Beliebte Erwachsenen Videos",
-      search: "Suche auf Vida",
+      search: "Suche auf VIDA",
       favorite: "Meine Favoriten",
       intl: "Mehrsprachiges Umschalten",
       subscribe: "Meine Abonnements",
@@ -394,7 +408,7 @@ export default {
       instagram: "Bitte geben Sie eine gültige Instagram-URL ein.",
       twitter: "Bitte geben Sie eine gültige Twitter-URL ein.",
       tiktok: "Bitte geben Sie eine gültige TikTok-URL ein.",
-      vida: "Bitte geben Sie eine gültige Vida-URL ein.",
+      vida: "Bitte geben Sie eine gültige VIDA-URL ein.",
       youtube: "Bitte geben Sie die richtige YouTube -URL ein",
       facebook: "Bitte geben Sie die richtige Facebook -Website ein",
       confirmPassword: "Die Passwörter stimmen nicht überein.",
@@ -456,8 +470,8 @@ export default {
   modal: {
     subscribe: {
       1: "Besuchen Sie alle Werke der Vergangenheit {days} Tag",
-      2: "Kann Informationen direkt an den Ersteller senden",
-      3: "Näher -stufe -Interaktion",
+      2: "Kann Informationen direkt an den Schöpfer senden",
+      3: "Näher -stufe Interaktion",
       4: "Sie können Ihr Abonnement jederzeit stornieren",
       confirm: "Monat {'$'} {price} zur Zahlung gehen",
     },
@@ -473,7 +487,7 @@ export default {
     },
     shopBuySuc: {
       1: "fabelhaft! Erfolgreiche Zahlung zum Entsperren des Beitrags",
-      2: "Wählen Sie zum Beitrag, um sie zu sehen oder im Originalbildschirm zu bleiben!",
+      2: "Wählen Sie, um in den Beitrag zu gehen, um sie zu beobachten, oder bleiben Sie im Originalbildschirm!",
       confirm: "In den Posten gehen",
     },
     title: { paySuc: "Hat erfolgreich bezahlt" },

@@ -21,7 +21,7 @@ export default {
   tab: {
     recommand: "Recomendar",
     subscribe: "Suscribirse",
-    relatedAuthor: "Autores relacionados",
+    relatedAuthor: "Autor relacionado",
     relatedPost: "Artículos relacionados",
   },
   common: {
@@ -174,7 +174,7 @@ export default {
     error: {
       subscribeSelf: "No puedo suscribirte a ti mismo",
       shopBuySelf: "No puedo comprar tus propios productos",
-      subscriptionNotFound: "No hay solución de suscripción disponible",
+      subscriptionNotFound: "No hay un esquema de suscripción disponible",
     },
     sending: "Enviando",
     failure: "Fallido",
@@ -242,11 +242,11 @@ export default {
   },
   content: {
     default: "Preset, no debe mostrarse en ningún lado",
-    welcomeToVida: "¡Bienvenido a Vida, únete a nosotros!",
+    welcomeToVIDA: "¡Bienvenido a VIDA, únete a nosotros!",
     verifyAccount:
       "¡Apresúrate a verificar tu buzón! Ve a 【Mi cuenta>Configuración de la cuenta】 para completar la verificación",
     termsDeclaration:
-      "Al continuar, usted confirma que tiene 18 años o más, y acepta los {tos} de Vida, y ha leído la {pp} de VIDA.",
+      "Al continuar, usted confirma que tiene 18 años o más, y acepta los {tos} de VIDA, y ha leído la {pp} de VIDA.",
     tos: "Términos de servicio",
     pp: "Política de privacidad",
     cookie: {
@@ -254,7 +254,7 @@ export default {
       word: "Política de cookies",
     },
     notLoggedYet: "¡Aún no has iniciado sesión, únete a nosotros ahora!",
-    joinVida: "¡Date prisa y únete a VIDA! ¡Más características de fantasía te están esperando!",
+    joinVIDA: "¡Date prisa y únete a VIDA! ¡Más características de fantasía te están esperando!",
     useObey: "Todo uso debe cumplir con {tos}",
     allPosts: "Todas las publicaciones",
     currentEarn: "Ganancia actual",
@@ -317,6 +317,10 @@ export default {
       "Será revisado en un plazo de 24 horas tras la presentación, y los resultados de la revisión se mostrarán en el registro de envío.",
     delSubPlan: "",
     maxSubPlan: "",
+    annArea: "",
+    annTitle: "",
+    annCtn: "",
+    annBtn: "",
   },
   month: {
     Jan: "Enero",
@@ -335,28 +339,37 @@ export default {
   unit: { day: "{days} días" },
   meta: {
     home: {
-      title: "Vida {pipe} Plataforma de Vídeos Cortos para Adultos de Alta Calidad",
+      title: "VIDA - Una plataforma de suscripción para creadores",
       description:
-        "Vida es la plataforma líder en compartir videos cortos para adultos. Aquí, no solo puedes ver videos de alta calidad de creadores, sino también interactuar privadamente con ellos.",
+        "VIDA es una plataforma de suscripción para creadores que ofrece apoyo de la comunidad, consultoría de marketing profesional y otros servicios integrales para profundizar la conexión entre creadores y fans. Únete a VIDA para disfrutar de cero comisión de plataforma, orientación exclusiva de un asesor 1V1, módulos multifuncionales personalizables, y más, para liberar tu potencial creativo.",
+      keywords:
+        "VIDA, Creadores, Suscripción de Miembros, Apoyo Colectivo, Consultoría de Marketing Profesional, Módulos Personalizados",
     },
     search: {
-      title: "Página de Búsqueda {pipe} Descubre los Mejores Vídeos Cortos para Adultos - Vida",
+      title: "Explora VIDA - Descubre Innovación e Inspiración {'|'} VIDA",
       description:
-        "En la página de búsqueda de Vida, puedes encontrar videos cortos para adultos, contenido amarillo en la web, actores eróticos, descubrir tus preferencias y explorar una amplia variedad de películas para adultos.",
+        "Descubre y explora el contenido creativo más reciente y popular en la página de búsqueda de VIDA. Ya sea arte, música, escritura o cualquier forma de obra creativa, VIDA es la plataforma ideal para mostrar creaciones y conectar a los creadores con los fans.",
+      keywords: "VIDA, Búsqueda, Innovación, Inspiración, Arte, Música, Escritura, Obras Creativas",
     },
     searchResult: {
-      title: "Resultados de la Búsqueda {pipe} {keyword} - Vida",
-      description:
-        "Resultados de búsqueda de {keyword}. Descubre y explora películas para adultos de alta calidad en Vida",
+      title: "{keyword} - Resultados de Búsqueda {'|'} VIDA",
+      description: "Resultados de búsqueda para {keyword}.",
+      keywords: "VIDA, {keyword}, Creación, Creadores, Obras Creativas, Tendencias de Creación",
     },
     mine: {
-      title: "Mi Centro Personal {pipe} Vida",
+      title: "Mi Perfil {'|'} VIDA",
       description:
-        "Administre sus colecciones personales, suscripciones y configuraciones en Vida, así como cambie entre varios idiomas, y explore sus películas y contenidos interactivos para adultos favoritos en cualquier momento.",
+        "Gestiona tu colección personal y suscripciones en VIDA, así como la configuración personal y el cambio de idioma, para navegar tus videos favoritos y contenido interactivo en cualquier momento.",
     },
     creator: {
-      title: "{name} - Página del creador {pipe} Vida",
-      description: "{name} es un creador conocido en Vida. {bio}",
+      title: "{displayName} ({userName}) {'|'} VIDA",
+      description: "{displayName} es un creador en VIDA, {bio}",
+      keywords: "Creadores, VIDA, Suscripción de Miembros, Comunidad Creativa",
+    },
+    post: {
+      title: "{title} {'|'} {displayName}({userName}) {'|'} VIDA",
+      description: "{desc}",
+      keywords: "{title}, {displayName}, {userName}, VIDA, Creación, Fans",
     },
     keywords: {
       short: "Videos Cortos para Adultos",
@@ -364,9 +377,9 @@ export default {
       video: "Videos para Adultos",
       interact: "Interacciones Privadas",
       content: "Contenido para Adultos",
-      title: "Vida",
+      title: "VIDA",
       popular: "Videos para Adultos Populares",
-      search: "Búsqueda en Vida",
+      search: "Búsqueda en VIDA",
       favorite: "Mis Favoritos",
       intl: "Cambio Multilingüe",
       subscribe: "Mis Suscripciones",
@@ -395,7 +408,7 @@ export default {
       instagram: "Por favor, ingrese una URL de Instagram válida.",
       twitter: "Por favor, ingrese una URL válida de Twitter.",
       tiktok: "Por favor, ingrese una URL válida de TikTok.",
-      vida: "Por favor, ingrese una URL válida de Vida.",
+      vida: "Por favor, ingrese una URL válida de VIDA.",
       youtube: "Ingrese la URL de YouTube correcta",
       facebook: "Ingrese el sitio web de Facebook correcto",
       confirmPassword: "Las contraseñas no coinciden.",
@@ -469,12 +482,12 @@ export default {
     },
     subscribeSuc: {
       1: "¡maravilloso! ¡Suscrito con éxito a {nickname}!",
-      2: "¡Elige ir a la página de inicio del Creador o permanecer en la pantalla original!",
+      2: "¡Elija ir a la página de inicio del Creador, o permanecer en la pantalla original!",
       confirm: "Ir a la página del creador",
     },
     shopBuySuc: {
       1: "¡maravilloso! Pago exitoso para desbloquear la publicación",
-      2: "¡Elija la publicación para mirar o permanecer en la pantalla original!",
+      2: "¡Elija ir a la publicación para mirar, o permanecer en la pantalla original!",
       confirm: "Ir a la publicación",
     },
     title: { paySuc: "Ha pagado con éxito" },
