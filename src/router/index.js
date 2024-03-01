@@ -8,6 +8,7 @@ import Publish from '@/pages/publish/Publish.vue'
 import Search from '@/pages/search/Search.vue'
 import afterGuard from './guards/after'
 import beforeGuard from './guards/before'
+import checkPermission from './guards/before/check-permission'
 import devRoutes from './routes/dev'
 import errorRoutes from './routes/error'
 import mineRoutes from './routes/mine'
@@ -19,7 +20,13 @@ const routes = [
   { name: 'home', path: '/:lang', component: Home, meta: {} },
   { name: 'search', path: '/:lang/search', component: Search, meta: {} },
   { name: 'message', path: '/:lang/message/:to?', component: Message, meta: {} },
-  { name: 'mine', path: '/:lang/mine', component: Mine, meta: {}, children: mineRoutes },
+  {
+    name: 'mine',
+    path: '/:lang/mine',
+    component: Mine,
+    meta: {},
+    children: mineRoutes.map((route) => ({ ...route, beforeEnter: checkPermission })),
+  },
   { name: 'publish', path: '/:lang/publish', component: Publish, meta: {} },
   { name: 'creator', path: '/:lang/:username', component: Creator, meta: {} },
   { name: 'feed', path: '/:lang/:username/:feedId', component: Feed, meta: {} },
