@@ -52,6 +52,7 @@ export const iconMap = {
   moreVertical: 'function/more-vertical',
   picture: 'function/picture',
   play: 'function/play',
+  replay: 'function/replay',
   report: 'function/report',
   search2: 'function/search',
   send: 'function/send',
