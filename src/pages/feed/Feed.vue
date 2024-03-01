@@ -124,7 +124,7 @@ async function loadNewFeed(onCleanup = () => {}) {
 
     feed.value = feedData
 
-    await Promise.all([reloadComments({ newParams: { article_id: feed.value.id } }), loadSeoHead()])
+    await Promise.allSettled([reloadComments({ newParams: { article_id: feed.value.id } }), loadSeoHead()])
   } catch (e) {
     errMsg.value = e.message
   }
