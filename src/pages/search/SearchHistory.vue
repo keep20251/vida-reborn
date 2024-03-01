@@ -4,7 +4,9 @@
       <div class="flex flex-col space-y-10">
         <div class="flex justify-between text-base font-normal leading-md">
           <div>{{ $t('title.search.history') }}</div>
-          <div class="cursor-pointer" @click="openClearConfirm">{{ $t('title.search.popular') }}</div>
+          <div v-show="historyTags.length > 0" class="cursor-pointer" @click="openClearConfirm">
+            {{ $t('title.search.popular') }}
+          </div>
         </div>
         <ClientOnly>
           <TagGroup v-model="selectedHistory" :items="historyTags" @update:modelValue="onSearch"></TagGroup>
