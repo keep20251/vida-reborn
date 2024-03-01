@@ -42,6 +42,7 @@
                 }"
                 contrast
                 size="sm"
+                class="whitespace-nowrap"
                 >{{
                   item.status === SUB_STATUS.CANCEL_SUB
                     ? $t('common.cancelSubscribe')
