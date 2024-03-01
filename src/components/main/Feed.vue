@@ -9,12 +9,14 @@
       <Link :href="`/${item.user?.username}`" @click.stop="toCreator(item.user.username)">
         <Avatar :radius="15" class="mr-5" :src="item.user?.thumb"></Avatar>
       </Link>
-      <div class="text-base font-bold leading-none">
+      <div class="line-clamp-1 text-base font-bold leading-none">
         <Link class="hover:underline" :href="`/${item.user?.username}`" @click.stop="toCreator(item.user?.username)"
           >{{ item.user?.nickname }}
         </Link>
       </div>
-      <div class="grow text-right text-sm font-medium leading-5 text-gray-57">{{ item.created_at }}</div>
+      <div class="line-clamp-1 shrink-0 grow text-right text-sm font-medium leading-5 text-gray-57">
+        {{ item.created_at }}
+      </div>
       <div v-if="!isVisitor && !isSelf" class="flex cursor-pointer items-center" @click.stop="dissSomeone(item.user)">
         <Icon name="moreVertical" size="20"></Icon>
       </div>
