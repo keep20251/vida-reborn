@@ -243,7 +243,7 @@ export default {
       word: "Cookie政策",
     },
     notLoggedYet: "您還尚未登入，趕快加入我們吧！",
-    joinVIDA: "趕快加入VIDA吧！更多奇幻的特色內容正在等著你！",
+    joinVida: "趕快加入VIDA吧！更多奇幻的特色內容正在等著你！",
     useObey: "所有使用過程中須遵守{tos}",
     allPosts: "全部貼文",
     currentEarn: "目前收益",
@@ -302,7 +302,7 @@ export default {
     wdrlReview: "提出後將於24小時內審核，審核結果將於提交紀錄中展示。",
     delSubPlan: "確定要刪除此訂閱方案?",
     maxSubPlan: "最多只能10則訂閱方案",
-    annArea: "VIDA 公告區",
+    annArea: "VIDA 公告",
     annTitle: "全新的介面，不變的服務！",
     annCtn:
       "VIDA介面更新啦！迎來全新的設計風格，而我們所提供服務給您的服務可是不會因此而變少的。趕快加入我們來體驗看看吧！",

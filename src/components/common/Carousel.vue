@@ -21,6 +21,9 @@
 
 <script setup>
 import { onActivated, onBeforeUnmount, onDeactivated, onMounted, ref } from 'vue'
+import ad_1 from '@/assets/images/ad_1.png'
+import ad_2 from '@/assets/images/ad_2.png'
+import ad_3 from '@/assets/images/ad_3.png'
 
 const props = defineProps({
   intervalTime: {
@@ -33,14 +36,7 @@ const props = defineProps({
   },
 })
 
-const images = ref([
-  { img: 'https://i.postimg.cc/3RTHR6kh/4edca499dd436a67fa25e5fbf3cb5582.png' },
-  { img: 'https://images.pexels.com/photos/1056251/pexels-photo-1056251.jpeg' },
-  { img: 'https://images.pexels.com/photos/57416/cat-sweet-kitty-animals-57416.jpeg' },
-  { img: 'https://images.pexels.com/photos/3054570/pexels-photo-3054570.jpeg' },
-  { img: 'https://images.pexels.com/photos/2071882/pexels-photo-2071882.jpeg' },
-  { img: 'https://images.pexels.com/photos/1440403/pexels-photo-1440403.jpeg' },
-])
+const images = ref([{ img: ad_1 }, { img: ad_2 }, { img: ad_3 }])
 
 const activeSlide = ref(0)
 let time
