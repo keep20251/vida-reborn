@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col space-y-20 border-t" :class="{ 'pt-20': isVisitor }">
+  <div class="flex flex-col space-y-20 border-t">
     <div v-if="isUser || isCreator" class="flex flex-row space-x-10 pt-20">
       <Avatar :src="userData.thumb" :radius="35"></Avatar>
       <div class="flex flex-col justify-center space-y-5">
