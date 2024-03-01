@@ -85,17 +85,20 @@
       </div>
       <div class="mt-30 flex flex-col space-y-20">
         <InputWrap
-          v-model="subPlanName"
+          v-model="credential.subPlanName.value"
+          :err-msg="credential.subPlanName.error"
           :label="$t('label.subPlanName')"
           :placeholder="$t('placeholder.subPlanName')"
         ></InputWrap>
         <InputWrap
-          v-model="subPlanContent"
+          v-model="credential.subPlanContent.value"
+          :err-msg="credential.subPlanContent.error"
           :label="$t('label.subPlanCtn')"
           :placeholder="$t('placeholder.subPlanCtn')"
         ></InputWrap>
         <InputWrap
-          v-model="subPlanPrice"
+          v-model="credential.subPlanPrice.value"
+          :err-msg="credential.subPlanPrice.error"
           :label="$t('label.price')"
           :sublabel="$t('label.priceSub')"
           :placeholder="'9.99'"
@@ -152,7 +155,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, onMounted, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
@@ -163,6 +166,7 @@ import Button from '@comp/common/Button.vue'
 import InputRadio from '@comp/form/InputRadio.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
 import useRequest from '@use/request'
+import { useYup } from '@use/validator/yup'
 import { SUB_PLAN_STATUS } from '@const'
 import { IMAGE_LIMIT_COUNT } from '@const/publish'
 import uploadImage from '@/http/upload/uploadImage'
@@ -179,6 +183,7 @@ watch([radioValue, customValue], () => {
 })
 
 const { t: $t } = useI18n()
+const { Yup, validate } = useYup()
 const subPlanStore = useSubPlanStore()
 const { alert, confirm, open } = useModalStore()
 const { open: openMessage } = usePopupMessageStore()
@@ -187,6 +192,7 @@ const {
   history,
   data,
   index,
+  lastIndex,
   status,
   subList,
   addSubPlan,
@@ -200,13 +206,34 @@ const {
   selDefaultItem,
   selUploadItem,
 } = storeToRefs(subPlanStore)
+
+const credential = reactive({
+  subPlanName: {
+    value: data.value[index.value]?.name,
+    error: '',
+    check: false,
+    schema: Yup.string().required($t('yup.mixed.required')).max(32),
+  },
+  subPlanContent: {
+    value: data.value[index.value]?.content,
+    error: '',
+    check: false,
+    schema: Yup.string().required($t('yup.mixed.required')).max(300),
+  },
+  subPlanPrice: {
+    value: data.value[index.value]?.content,
+    error: '',
+    check: false,
+    schema: Yup.number().required($t('yup.number.positive')).max(90),
+  },
+})
 const showBack = computed(() => history.value.length > 0)
 const serverError = ref('')
 
 onMounted(async () => {
-  subPlanName.value = data.value[index.value]?.name
-  subPlanContent.value = data.value[index.value]?.content
-  subPlanPrice.value = data.value[index.value]?.price
+  credential.subPlanName.value = data.value[index.value]?.name
+  credential.subPlanContent.value = data.value[index.value]?.content
+  credential.subPlanPrice.value = data.value[index.value]?.price
   subUnlockDayAfter.value = subList.value[index.value]?.unlock_day_after_subscribe
   subId.value = subList.value[index.value]?.id
   subPicture.value = data.value[index.value]?.picture
@@ -218,9 +245,9 @@ onMounted(async () => {
     selUploadItem.value = subPicture.value
   }
   if (addSubPlan.value) {
-    subPlanName.value = ''
-    subPlanContent.value = ''
-    subPlanPrice.value = ''
+    credential.subPlanName.value = ''
+    credential.subPlanContent.value = ''
+    credential.subPlanPrice.value = ''
     subUnlockDayAfter.value = ''
   }
   if (![30, 90, 360].includes(subUnlockDayAfter.value)) {
@@ -234,9 +261,9 @@ onMounted(async () => {
 // 重新進入任一設定頁，會監聽數據是否改變了
 watch(index, (newIndex) => {
   if (newIndex !== null && data.value[newIndex]) {
-    subPlanName.value = data.value[newIndex].name
-    subPlanContent.value = data.value[newIndex].content
-    subPlanPrice.value = data.value[newIndex].price
+    credential.subPlanName.value = data.value[newIndex].name
+    credential.subPlanContent.value = data.value[newIndex].content
+    credential.subPlanPrice.value = data.value[newIndex].price
     subPicture.value = data.value[newIndex]?.picture
     selUploadItem.value = data.value[newIndex]?.picture
     status.value = data.value[newIndex]?.status
@@ -269,17 +296,15 @@ watch(addSubPlan, (newAddSubPlan) => {
     uploadFiles.value = []
     selUploadItem.value = null
     selDefaultItem.value = appConfig.subscription_images[0]
-    subPlanName.value = ''
-    subPlanContent.value = ''
-    subPlanPrice.value = ''
+    credential.subPlanName.value = ''
+    credential.subPlanContent.value = ''
+    credential.subPlanPrice.value = ''
     subUnlockDayAfter.value = 0
     subPicture.value = ''
   } else {
-    if (subPicture.value) {
-      selDefaultItem.value = null
-      uploadFiles.value = []
-      uploadFiles.value.push({ result: subPicture.value, progress: 1 })
-    }
+    credential.subPlanName.value = data.value[index.value].name
+    credential.subPlanContent.value = data.value[index.value].content
+    credential.subPlanPrice.value = data.value[index.value].price
     selDefaultItem.value = null
     selUploadItem.value = data.value[index.value].picture
   }
@@ -382,6 +407,11 @@ const onSubmit = async () => {
       openMessage('content.maxSubPlan')
     } else {
       try {
+        await Promise.all([
+          validate(credential.subPlanName.schema, credential.subPlanName),
+          validate(credential.subPlanContent.schema, credential.subPlanContent),
+          validate(credential.subPlanPrice.schema, credential.subPlanPrice),
+        ])
         const response = ref(null)
         const resId = await subPlanCreate(data)
         data.id = resId
@@ -389,9 +419,9 @@ const onSubmit = async () => {
         openMessage('title.publishSuccess')
         subList.value.unshift(response.value)
         uploadFiles.value = []
-        subPlanName.value = ''
-        subPlanContent.value = ''
-        subPlanPrice.value = ''
+        credential.subPlanName.value = ''
+        credential.subPlanContent.value = ''
+        credential.subPlanPrice.value = ''
         subUnlockDayAfter.value = ''
         serverError.value = ''
         back()
@@ -401,6 +431,11 @@ const onSubmit = async () => {
     }
   } else {
     try {
+      await Promise.all([
+        validate(credential.subPlanName.schema, credential.subPlanName),
+        validate(credential.subPlanContent.schema, credential.subPlanContent),
+        validate(credential.subPlanPrice.schema, credential.subPlanPrice),
+      ])
       await subPlanUpdate(data)
       const index = subList.value.findIndex((item) => item.id === data.id)
       openMessage('title.publishSuccess')
@@ -417,9 +452,9 @@ const onSubmit = async () => {
 
 function makeReqData() {
   const data = {
-    name: subPlanName.value,
-    content: subPlanContent.value,
-    price: subPlanPrice.value,
+    name: credential.subPlanName.value,
+    content: credential.subPlanContent.value,
+    price: credential.subPlanPrice.value,
     unlock_day_after_subscribe: subUnlockDayAfterValue.value,
   }
   if (subId.value) {
