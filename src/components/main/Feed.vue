@@ -15,7 +15,7 @@
         </Link>
       </div>
       <div class="grow text-right text-sm font-medium leading-5 text-gray-57">{{ item.created_at }}</div>
-      <div v-if="!isSelf" class="flex cursor-pointer items-center" @click.stop="dissSomeone(item.user)">
+      <div v-if="!isVisitor && !isSelf" class="flex cursor-pointer items-center" @click.stop="dissSomeone(item.user)">
         <Icon name="moreVertical" size="20"></Icon>
       </div>
     </div>
@@ -112,7 +112,7 @@ const props = defineProps({
 })
 
 const accountStore = useAccountStore()
-const { userId } = storeToRefs(accountStore)
+const { userId, isVisitor } = storeToRefs(accountStore)
 
 const isSelf = computed(() => props.item.aff === userId.value)
 const isBlock = computed(() => props.item.user.is_block)

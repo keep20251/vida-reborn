@@ -42,7 +42,7 @@
     </template>
     <template #aside>
       <ClientOnly>
-        <CreatorIntro :username="feed.user?.username"></CreatorIntro>
+        <CreatorIntro v-if="feed" :username="feed.user?.username"></CreatorIntro>
         <BulletinCard class="mt-20"></BulletinCard>
         <Carousel class="mt-20" interval-time></Carousel>
       </ClientOnly>

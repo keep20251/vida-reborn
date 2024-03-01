@@ -75,7 +75,7 @@
   </div>
 </template>
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, onActivated, ref } from 'vue'
 import { whenever } from '@vueuse/core'
 
 const props = defineProps({
@@ -117,9 +117,7 @@ const labelCenter = computed(() => (props.labelCenter ? 'text-center' : 'text-le
 const input = ref(null)
 whenever(
   () => props.focus,
-  (v) => {
-    input.value.focus()
-  },
-  { immediate: true },
+  (v) => input.value.focus(),
 )
+onActivated(() => props.focus && input.value.focus())
 </script>

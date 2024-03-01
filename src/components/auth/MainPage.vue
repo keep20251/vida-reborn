@@ -16,7 +16,9 @@
         :label="$t('label.email')"
         :placeholder="$t('placeholder.email')"
         label-center
+        focus
         @update:modelValue="() => (error = '')"
+        @keypress:enter="next"
       ></InputWrap>
       <Button :loading="isLoading" @click="next">{{ $t('common.next') }}</Button>
     </div>
