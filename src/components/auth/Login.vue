@@ -9,6 +9,8 @@
               :label="$t('label.account')"
               :placeholder="$t('placeholder.account')"
               :err-msg="credential.account.error"
+              focus
+              @keypress:enter="submit"
             ></InputWrap>
             <InputWrap
               v-model="credential.password.value"
@@ -16,8 +18,9 @@
               :placeholder="$t('placeholder.password')"
               password
               :err-msg="credential.password.error"
+              @keypress:enter="submit"
             ></InputWrap>
-            <Button :loading="isLoading" @click="validaite">{{ $t('label.login') }}</Button>
+            <Button :loading="isLoading" @click="submit">{{ $t('label.login') }}</Button>
             <div v-if="serverErrorMsg" class="text-base text-warning">{{ serverErrorMsg }}</div>
           </div>
           <div class="text-center text-base leading-md text-gray-57">
@@ -66,7 +69,7 @@ const credential = reactive({
 
 const isLoading = ref(false)
 
-async function validaite() {
+async function submit() {
   try {
     isLoading.value = true
     await Promise.all([

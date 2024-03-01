@@ -9,18 +9,22 @@
               :err-msg="credential.email.error"
               :label="$t('label.email')"
               :placeholder="$t('placeholder.email')"
+              focus
+              @keypress:enter="submit"
             ></InputWrap>
             <InputWrap
               v-model="credential.account.value"
               :err-msg="credential.account.error"
               :label="$t('label.account')"
               :placeholder="$t('placeholder.account')"
+              @keypress:enter="submit"
             ></InputWrap>
             <InputWrap
               v-model="credential.password.value"
               :err-msg="credential.password.error"
               :label="$t('label.password')"
               :placeholder="$t('placeholder.password')"
+              @keypress:enter="submit"
               password
             ></InputWrap>
             <div>

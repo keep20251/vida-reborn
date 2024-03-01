@@ -9,6 +9,8 @@
               :label="$t('label.password')"
               :placeholder="$t('placeholder.password')"
               password
+              focus
+              @keypress:enter="validate"
             ></InputWrap>
             <Button @click="validate">{{ $t('label.login') }}</Button>
           </div>

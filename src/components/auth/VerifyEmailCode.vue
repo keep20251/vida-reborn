@@ -13,8 +13,10 @@
               :err-msg="verifyCodeError"
               :first-time="false"
               :label-center="true"
+              focus
               @update:modelValue="verifyCodeError = ''"
               @error="(message) => (serverError = message)"
+              @keypress:enter="validate"
             ></InputEmailCode>
             <Button :loading="isLoading" @click="validate">{{ $t('label.login') }}</Button>
             <div v-if="!!serverError" class="text-base font-normal leading-md text-warning">{{ serverError }}</div>
