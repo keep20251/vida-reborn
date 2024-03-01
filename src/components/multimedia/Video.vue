@@ -11,14 +11,17 @@ import { get, release } from '@/utils/video-store'
 const props = defineProps({
   id: { type: Number },
   url: { type: String, required: true },
+  preview: { type: Boolean, default: false },
 })
+
+const emits = defineEmits(['play', 'ended'])
 
 let videoAutoplayController
 
 const videoWrap = ref(null)
 const videoElement = ref(null)
 const isLoading = ref(true)
-const isWaiting = ref(false)
+// const isWaiting = ref(false)
 const errMsg = ref('')
 
 const isPlaying = ref(false)
@@ -30,7 +33,11 @@ function setupVideo() {
   if (videoElement.value !== null) return
 
   try {
-    videoElement.value = get(props.url)
+    videoElement.value = get(props.url, {
+      onPlay: () => emits('play'),
+      onEnded: () => emits('ended'),
+      isPreview: props.preview,
+    })
     videoWrap.value.appendChild(videoElement.value)
 
     videoAutoplayController = new IntersectionObserver(

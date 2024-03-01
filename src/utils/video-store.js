@@ -21,7 +21,6 @@ function makeNewVideoElement() {
   videoElement.style.objectFit = 'contain'
   videoElement._vida_count = count
   videoElement._vida_sign = SIGN
-  videoElement.setAttribute('loop', true)
   videoElement.setAttribute('playsinline', true)
   videoElement.setAttribute('controls', true)
   // 补充安卓playsinline的兼容
@@ -42,12 +41,19 @@ export function init() {
   }
 }
 
-export function get(src, { currentTime = 0, onLoaded, onWaiting, onPlaying, onTimeupdate, onError } = {}) {
+export function get(
+  src,
+  { currentTime = 0, onLoaded, onWaiting, onPlaying, onPlay, onEnded, onTimeupdate, onError, isPreview } = {},
+) {
   if (VIDEO_STORE.length === 0) {
     throw new Error('VIDEO_STORE is empty...')
   }
 
   const videoElement = VIDEO_STORE.shift()
+
+  if (!isPreview) {
+    videoElement.setAttribute('loop', true)
+  }
 
   // src 佈置
   if (Hls.isSupported()) {
@@ -69,6 +75,8 @@ export function get(src, { currentTime = 0, onLoaded, onWaiting, onPlaying, onTi
   }
   videoElement.onwaiting = onWaiting
   videoElement.onplaying = onPlaying
+  videoElement.onplay = onPlay
+  videoElement.onended = onEnded
   videoElement.ontimeupdate = onTimeupdate
   videoElement.onerror = onError
 
@@ -90,12 +98,15 @@ export function release(videoElement) {
   // 重置 video element
   videoElement.pause()
   videoElement.removeAttribute('src')
+  videoElement.removeAttribute('loop')
   videoElement.load()
   videoElement.remove()
   videoElement.onloadeddata = undefined
   videoElement.onprogress = undefined
   videoElement.onwaiting = undefined
   videoElement.onplaying = undefined
+  videoElement.onplay = undefined
+  videoElement.onended = undefined
   videoElement.ontimeupdate = undefined
   videoElement.onerror = undefined
 
