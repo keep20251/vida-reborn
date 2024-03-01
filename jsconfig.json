@@ -1,12 +1,15 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "target": "es6",
+    "module": "CommonJS",
+    "target": "ES6",
     "paths": {
       "@/*": ["./src/*"],
       "@comp/*": ["./src/components/*"],
       "@use/*": ["./src/compositions/*"],
       "@const/*": ["./src/constant/*"]
     }
-  }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "dist-staging"]
 }
