@@ -16,7 +16,11 @@
     <template #aside>
       <ClientOnly>
         <div v-show="isPreviewMode" class="m-15 grid space-y-20">
-          <SubscribeCard v-for="n in 3" :key="`subscribe-card-${n}`"></SubscribeCard>
+          <SubscribeCard
+            v-for="(item, index) in userData.subscription_list"
+            :key="`subscribe-card-${index}`"
+            :item="item"
+          ></SubscribeCard>
         </div>
         <div v-show="!isPreviewMode" class="grid space-y-20">
           <SetList />
@@ -37,6 +41,7 @@ import { onActivated, onBeforeMount, onDeactivated, onServerPrefetch, ref } from
 import { useI18n } from 'vue-i18n'
 import { onBeforeRouteUpdate, useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
+import { useAccountStore } from '@/store/account'
 import { useHeadStore } from '@/store/head'
 import { useMineStore } from '@/store/mine'
 import SubscribeCard from '@comp/card/SubscribeCard.vue'
@@ -47,6 +52,7 @@ import TopSearchBar from '@comp/navigation/TopSearchBar.vue'
 import { MINE_TITLE } from '@const'
 
 const { nextFn, isPreviewMode } = storeToRefs(useMineStore())
+const { userData } = storeToRefs(useAccountStore())
 
 const cats = ref([
   { img: 'https://i.postimg.cc/3RTHR6kh/4edca499dd436a67fa25e5fbf3cb5582.png' },
