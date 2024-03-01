@@ -2,12 +2,7 @@
   <div class="flex flex-col space-y-10">
     <label class="text-left text-base leading-md">Tag</label>
     <OptionsPicker v-model="tags" :options="tagOptions"></OptionsPicker>
-    <InputWrap
-      v-model="tagInput"
-      :placeholder="'Add new tag...'"
-      :append-text-btn="'Add'"
-      @click:append="addTag"
-    ></InputWrap>
+    <InputWrap v-model="tagInput" :append-label-btn="$t('label.add')" @click:append="addTag"></InputWrap>
   </div>
 </template>
 

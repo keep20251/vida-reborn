@@ -6,40 +6,54 @@
     <template #default>
       <div v-if="tab === 1" class="my-10 grid space-y-20 px-20">
         <div>【 Input Text | Password | Number 】</div>
-        <InputWrap v-model="inputValue" :label="'帳號'" :sublabel="'(必填)'" :errMsg="'帳號不得為空'"></InputWrap>
+        <InputWrap v-model="inputValue" label="帳號" sublabel="(必填)" err-msg="帳號不得為空"></InputWrap>
 
         <InputWrap
           v-model="inputValue"
-          :label="'Price'"
-          :sublabel="'单位：美金'"
-          :placeholder="'9.99'"
-          :appendText="'最高设置为90元'"
+          label="Price"
+          sublabel="单位：美金"
+          placeholder="9.99"
+          append-text="最高设置为90元"
           :maxLength="5"
         ></InputWrap>
 
         <InputWrap
           v-model="inputValue"
-          :placeholder="`輸入您的連結...`"
-          :prependIcon="'link'"
-          :appendIcon="'bin'"
+          placeholder="輸入您的連結..."
+          prepend-icon="link"
+          append-icon="bin"
           @click:append="console.log('appendIcon')"
         ></InputWrap>
 
         <InputWrap
           v-model="inputValue"
-          :placeholder="'Add new tag...'"
-          :appendTextBtn="'Add'"
+          placeholder="這是 append-text-btn"
+          append-text-btn="append-text-btn"
           @click:append="console.log('appendTextBtn')"
         ></InputWrap>
 
         <InputWrap
           v-model="inputValue"
-          :placeholder="'Add new tag...'"
-          :appendIconBtn="'sendWhite'"
+          placeholder="這是 append-text"
+          append-text="append-text"
+          @click:append="console.log('appendText')"
+        ></InputWrap>
+
+        <InputWrap
+          v-model="inputValue"
+          placeholder="這是 append-label-btn"
+          append-label-btn="Add"
+          @click:append="console.log('appendLabelBtn')"
+        ></InputWrap>
+
+        <InputWrap
+          v-model="inputValue"
+          placeholder="這是 append-icon-btn"
+          append-icon-btn="sendWhite"
           @click:append="console.log('appendIconBtn')"
         ></InputWrap>
 
-        <InputWrap v-model="inputValue" :label="'密碼'" :placeholder="'輸入您的密碼'" password></InputWrap>
+        <InputWrap v-model="inputValue" label="密碼" placeholder="輸入您的密碼" password></InputWrap>
 
         <p class="text-sm">輸入的值：{{ inputValue }}</p>
         <hr />
@@ -47,10 +61,10 @@
         <div>【 Textarea 】</div>
         <TextareaWrap
           v-model="textareaValue"
-          :label="'标题'"
-          :sublabel="'(副标题)'"
-          :placeholder="'填写内文'"
-          :errMsg="'錯誤訊息'"
+          label="标题"
+          sublabel="(副标题)"
+          placeholder="填写内文"
+          err-msg="錯誤訊息"
         ></TextareaWrap>
         <p class="text-sm">輸入的值：{{ textareaValue }}</p>
         <hr />

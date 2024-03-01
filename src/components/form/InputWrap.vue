@@ -54,6 +54,13 @@
           {{ appendTextBtn }}
         </div>
         <div
+          v-if="!!appendLabelBtn"
+          class="absolute right-5 flex h-26 w-40 cursor-pointer items-center justify-center rounded-xl bg-primary px-6 py-10 text-center text-sm font-bold leading-md text-white shadow-md"
+          @click="emits('click:append')"
+        >
+          {{ appendLabelBtn }}
+        </div>
+        <div
           v-if="!!appendIconBtn"
           class="absolute right-5 flex h-30 w-40 cursor-pointer items-center justify-center rounded-xl bg-primary px-6 py-10 text-center text-base font-bold leading-md text-white shadow-md"
           @click="emits('click:append')"
@@ -91,6 +98,7 @@ const props = defineProps({
   appendText: { type: String, default: '' },
   appendIcon: { type: String, default: '' },
   appendTextBtn: { type: String, default: '' },
+  appendLabelBtn: { type: String, default: '' },
   appendIconBtn: { type: String, default: '' },
   prependIcon: { type: String, default: '' },
   maxLength: { type: Number },
