@@ -87,7 +87,7 @@ export default {
     updateFail: "Update Failed",
     publishFail: "Publish Failed",
     delSuccess: "Successfully deleted",
-    createFeed: "",
+    createFeed: "Create",
   },
   label: {
     account: "Username",
@@ -153,7 +153,7 @@ export default {
     subPlanCtn: "Subscription plan content",
     subBtn: "Subscribe to unlock full content",
     buyBtn: "Pay per item to unlock content",
-    eventAd: "VIDA events and advertising",
+    eventAd: "VIDA Events and Ads",
   },
   placeholder: {
     account: "Please enter username",
@@ -325,8 +325,8 @@ export default {
     annCtn:
       "VIDA interface has been updated! Ushering in a new design style, the services we provide you will not be reduced because of this. Come and join us to experience it!",
     annBtn: "Join VIDA now",
-    tapForUpload: "Tap here to upload photo or video",
-    afterUpload: "After upload files, proceed to the next step to edit the details",
+    tapForUpload: "Tap here to upload a photo or video",
+    afterUpload: "After selecting a file, proceed to the next step to edit the post content",
   },
   month: {
     Jan: "January",
@@ -345,7 +345,7 @@ export default {
   unit: { day: "{days} days" },
   meta: {
     home: {
-      title: "VIDA - A Membership Subscription Platform Designed for Creators",
+      title: "VIDA - Content Creator Hub",
       description:
         "VIDA is a membership subscription platform designed for creators, offering crowd support, professional marketing consultation, and other one-stop services to deepen the connection between creators and fans. Join VIDA to enjoy zero platform commission, exclusive 1V1 advisor guidance, customizable multifunctional modules, and more, to unleash your creative potential.",
       keywords:
@@ -507,8 +507,8 @@ export default {
     pickInterestedForUs: "Please help us choose the types you're interested in!",
     feedCategory: "Post theme:",
     leastCategory: "Choose at least {count} topics",
-    moreCategory: "",
-    completeCategory: "",
+    moreCategory: "Choose {count} more topics",
+    completeCategory: "Great!",
   },
   beCreator: {
     id: { passport: "Passport", idCard: "ID Card", driverLicense: "Driver's License" },

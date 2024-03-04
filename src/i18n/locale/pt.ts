@@ -87,7 +87,7 @@ export default {
     updateFail: "Atualização falhou",
     publishFail: "Falha na Publicação",
     delSuccess: "Excluído com sucesso",
-    createFeed: "",
+    createFeed: "Criar postagem",
   },
   label: {
     account: "Nome de usuário",
@@ -153,7 +153,7 @@ export default {
     subPlanCtn: "Conteúdo do plano de assinatura",
     subBtn: "Assine para desbloquear o conteúdo completo",
     buyBtn: "Pagar por item para desbloquear conteúdo",
-    eventAd: "",
+    eventAd: "Eventos e anúncios VIDA",
   },
   placeholder: {
     account: "Por favor, insira o nome de usuário",
@@ -245,7 +245,7 @@ export default {
     whetherDelArticle: "Tem certeza de que deseja deletar esta postagem?",
   },
   content: {
-    default: "Predefinir, não deve ser exibido em nenhum lugar",
+    default: "Predefinido, não deve ser exibido em nenhum lugar",
     welcomeToVIDA: "Bem-vindo ao VIDA, junte-se a nós!",
     verifyAccount:
       "Corra para verificar sua caixa de correio! Vá para 【Minha conta>Configurações de conta】 para concluir a verificação",
@@ -326,8 +326,8 @@ export default {
     annCtn:
       "A interface do VIDA foi atualizada! Apresentando um novo estilo de design, os serviços que oferecemos a você não serão reduzidos por isso. Venha e junte-se a nós para experimentar!",
     annBtn: "Junte-se ao VIDA agora",
-    tapForUpload: "",
-    afterUpload: "",
+    tapForUpload: "Toque aqui para fazer upload de uma foto ou vídeo",
+    afterUpload: "Após selecionar um arquivo, prossiga para a próxima etapa para editar o conteúdo da postagem",
   },
   month: {
     Jan: "Janeiro",
@@ -346,7 +346,7 @@ export default {
   unit: { day: "{days} dias" },
   meta: {
     home: {
-      title: "VIDA - Uma plataforma de assinatura para criadores",
+      title: "VIDA - Content Creator Hub",
       description:
         "VIDA é uma plataforma de assinatura para criadores, oferecendo suporte comunitário, consultoria de marketing profissional e outros serviços completos para aprofundar a conexão entre criadores e fãs. Junte-se ao VIDA para desfrutar de comissão zero da plataforma, orientação exclusiva de um consultor 1V1, módulos multifuncionais personalizáveis, e mais, para liberar seu potencial criativo.",
       keywords:
@@ -489,7 +489,7 @@ export default {
     },
     subscribeSuc: {
       1: "maravilhoso! Subscrito com sucesso para {nickname}!",
-      2: "Escolha ir à página inicial do Criador ou fique na tela original!",
+      2: "Escolha ir à página inicial do Criador ou permanecer na tela original!",
       confirm: "Vá para a página do Criador",
     },
     shopBuySuc: {
@@ -508,8 +508,8 @@ export default {
     pickInterestedForUs: "Ajude-nos a escolher os tipos de que você está interessado!",
     feedCategory: "Tema do post:",
     leastCategory: "",
-    moreCategory: "",
-    completeCategory: "",
+    moreCategory: "Escolha mais {count} tópicos",
+    completeCategory: "Ótimo!",
   },
   beCreator: {
     id: { passport: "Passaporte", idCard: "Cartão de Identidade", driverLicense: "Carteira de Motorista" },

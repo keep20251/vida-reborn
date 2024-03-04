@@ -82,7 +82,7 @@ export default {
     updateFail: "更新失敗",
     publishFail: "公開失敗",
     delSuccess: "削除成功",
-    createFeed: "",
+    createFeed: "投稿を作成する",
   },
   label: {
     account: "ユーザー名",
@@ -148,7 +148,7 @@ export default {
     subPlanCtn: "サブスクリプションプランの内容",
     subBtn: "フルコンテンツをアンロックするために購読する",
     buyBtn: "アイテムごとに支払ってコンテンツをアンロックする",
-    eventAd: "",
+    eventAd: "VIDAのイベントと広告",
   },
   placeholder: {
     account: "ユーザー名を入力してください",
@@ -295,7 +295,7 @@ export default {
     customStyle: "カスタムスタイル",
     subUnlockDayAfter: "購入後数日間の作品のロックを解除することはできますか？",
     tokenExpired: "ログインセッションの有効期限が切れました。再度ログインしてください。",
-    clearSearchHistory: "歴史を明確にしたいですか？",
+    clearSearchHistory: "歴史をクリアしたいですか？",
     uploadVideoLimit: {
       format:
         "現在アップロードされているビデオ形式 ({format}) はサポートされていません。 .mp4 または .mov 形式に変換して、もう一度試してください。",
@@ -320,8 +320,8 @@ export default {
     annCtn:
       "VIDAのインターフェースが更新されました！ 新しいデザインスタイルを導入し、これによって提供するサービスが減少することはありません。 ぜひご参加ください！",
     annBtn: "今すぐVIDAに参加",
-    tapForUpload: "",
-    afterUpload: "",
+    tapForUpload: "ここをタップして写真または動画をアップロード",
+    afterUpload: "ファイルを選択した後、次のステップに進んで投稿内容を編集します",
   },
   month: {
     Jan: "1月",
@@ -340,7 +340,7 @@ export default {
   unit: { day: "{days}日" },
   meta: {
     home: {
-      title: "VIDA - クリエイター向けのメンバーシップサブスクリプションプラットフォーム",
+      title: "VIDA - Content Creator Hub",
       description:
         "VIDAは、クリエイター向けに設計されたメンバーシップサブスクリプションプラットフォームで、群衆支援、プロフェッショナルなマーケティング相談、その他のワンストップサービスを提供して、クリエイターとファンの間のより深いつながりを築きます。VIDAに参加して、プラットフォーム手数料ゼロ、専属アドバイザーの1V1ガイダンス、カスタマイズ可能なマルチファンクションモジュールなどの特典を享受し、創造的な潜在能力を解放しましょう。",
       keywords:
@@ -478,7 +478,7 @@ export default {
     },
     shopBuy: {
       1: "{nickname}部門の作業コンテンツのロックを解除します",
-      2: "{nickname}はあなたの支払いを全額受け取ります",
+      2: "{nickname}はお支払いを全額受け取ります",
       confirm: "今すぐロック解除（{'$'} {price}）",
     },
     subscribeSuc: {
@@ -502,8 +502,8 @@ export default {
     pickInterestedForUs: "興味のあるタイプを選んでください！",
     feedCategory: "投稿のテーマ：",
     leastCategory: "",
-    moreCategory: "",
-    completeCategory: "",
+    moreCategory: "さらに{count}個のトピックを選択してください",
+    completeCategory: "素晴らしい！",
   },
   beCreator: {
     id: { passport: "パスポート", idCard: "身分証明書", driverLicense: "運転免許証" },

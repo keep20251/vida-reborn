@@ -87,7 +87,7 @@ export default {
     updateFail: "Cập nhật thất bại",
     publishFail: "Đăng thất bại",
     delSuccess: "Xóa thành công",
-    createFeed: "",
+    createFeed: "Tạo bài viết",
   },
   label: {
     account: "Tên người dùng",
@@ -153,7 +153,7 @@ export default {
     subPlanCtn: "Nội dung kế hoạch đăng ký",
     subBtn: "Đăng ký để mở khóa nội dung đầy đủ",
     buyBtn: "Trả tiền mỗi mục để mở khóa nội dung",
-    eventAd: "",
+    eventAd: "Sự kiện và quảng cáo VIDA",
   },
   placeholder: {
     account: "Vui lòng nhập tên người dùng",
@@ -325,8 +325,8 @@ export default {
     annCtn:
       "Giao diện VIDA đã được cập nhật! Giới thiệu phong cách thiết kế mới, dịch vụ mà chúng tôi cung cấp cho bạn sẽ không bị giảm bởi điều này. Hãy tham gia cùng chúng tôi để trải nghiệm!",
     annBtn: "Tham gia VIDA ngay",
-    tapForUpload: "",
-    afterUpload: "",
+    tapForUpload: "Nhấn vào đây để tải ảnh hoặc video lên",
+    afterUpload: "Sau khi chọn tệp, tiếp tục sang bước tiếp theo để chỉnh sửa nội dung bài viết",
   },
   month: {
     Jan: "Tháng Một",
@@ -345,7 +345,7 @@ export default {
   unit: { day: "{days} ngày" },
   meta: {
     home: {
-      title: "VIDA - Nền tảng đăng ký thành viên dành cho người sáng tạo",
+      title: "VIDA - Content Creator Hub",
       description:
         "VIDA là nền tảng đăng ký thành viên dành cho người sáng tạo, cung cấp sự hỗ trợ từ cộng đồng, tư vấn tiếp thị chuyên nghiệp và các dịch vụ một cửa khác nhằm tăng cường mối liên kết giữa người sáng tạo và người hâm mộ. Tham gia VIDA để tận hưởng ưu đãi không hoa hồng nền tảng, hướng dẫn độc quyền từ cố vấn 1V1, các mô-đun đa chức năng có thể tùy chỉnh và hơn thế nữa, để khai thác tiềm năng sáng tạo của bạn.",
       keywords:
@@ -507,8 +507,8 @@ export default {
     pickInterestedForUs: "Hãy giúp chúng tôi chọn loại bạn quan tâm!",
     feedCategory: "Chủ đề bài viết:",
     leastCategory: "",
-    moreCategory: "",
-    completeCategory: "",
+    moreCategory: "Chọn thêm {count} chủ đề nữa",
+    completeCategory: "Tuyệt vời!",
   },
   beCreator: {
     id: { passport: "Hộ chiếu", idCard: "Thẻ căn cước", driverLicense: "Giấy phép lái xe" },

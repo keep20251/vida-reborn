@@ -82,7 +82,7 @@ export default {
     updateFail: "업데이트 실패",
     publishFail: "게시 실패",
     delSuccess: "삭제 성공",
-    createFeed: "",
+    createFeed: "게시물 생성",
   },
   label: {
     account: "사용자 이름",
@@ -148,7 +148,7 @@ export default {
     subPlanCtn: "구독 계획 내용",
     subBtn: "전체 콘텐츠를 잠금 해제하려면 구독하세요",
     buyBtn: "항목 당 지불하여 콘텐츠 잠금 해제",
-    eventAd: "",
+    eventAd: "VIDA 이벤트 및 광고",
   },
   placeholder: {
     account: "사용자 이름을 입력하세요",
@@ -319,8 +319,8 @@ export default {
     annCtn:
       "VIDA 인터페이스가 업데이트되었습니다! 새로운 디자인 스타일을 도입하며, 이로 인해 제공하는 서비스가 줄어들지 않습니다. 지금 바로 참여해보세요!",
     annBtn: "지금 VIDA에 가입하세요",
-    tapForUpload: "",
-    afterUpload: "",
+    tapForUpload: "여기를 탭하여 사진 또는 비디오 업로드",
+    afterUpload: "파일을 선택한 후, 다음 단계로 넘어가 게시물 내용을 편집하세요",
   },
   month: {
     Jan: "1월",
@@ -339,7 +339,7 @@ export default {
   unit: { day: "{days} 일" },
   meta: {
     home: {
-      title: "VIDA - 창작자를 위한 멤버십 구독 플랫폼",
+      title: "VIDA - Content Creator Hub",
       description:
         "VIDA는 창작자를 위해 설계된 멤버십 구독 플랫폼으로, 군중 지원, 전문 마케팅 상담 등 원스톱 서비스를 제공하여 창작자와 팬 사이의 더 깊은 연결을 구축합니다. VIDA에 가입하여 플랫폼 수수료 제로, 전담 상담원 1V1 지도, 맞춤형 다기능 모듈 등의 혜택을 누리고 창작 잠재력을 발휘하세요.",
       keywords: "VIDA, 창작자, 회원 구독, 군중 지원, 전문 마케팅 상담, 맞춤형 모듈",
@@ -486,7 +486,7 @@ export default {
     },
     shopBuySuc: {
       1: "기이! 게시물을 잠금 해제하기위한 성공적인 결제",
-      2: "게시물을 선택하거나 원래 화면을 유지하십시오!",
+      2: "포스트를 선택하여 시청하거나 원래 화면에 머물러 있습니다!",
       confirm: "게시물로 이동하십시오",
     },
     title: { paySuc: "성공적으로 지불했습니다" },
@@ -500,8 +500,8 @@ export default {
     pickInterestedForUs: "관심 있는 유형을 선택해주세요!",
     feedCategory: "게시물 주제:",
     leastCategory: "",
-    moreCategory: "",
-    completeCategory: "",
+    moreCategory: "{count}개의 주제를 더 선택하세요",
+    completeCategory: "훌륭해요!",
   },
   beCreator: {
     id: { passport: "여권", idCard: "신분증", driverLicense: "운전 면허증" },
