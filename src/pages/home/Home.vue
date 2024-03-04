@@ -57,7 +57,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 import { useLocalStorage, watchOnce } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
@@ -78,6 +78,7 @@ import useRequest from '@use/request/index.js'
 import { useInfinite } from '@use/request/infinite'
 import { LOCAL_STORAGE_KEYS, MODAL_TYPE } from '@const'
 import { TAB_TYPE } from '@const/home'
+import { useObserver } from '@/compositions/lifecycle/observer'
 
 const appStore = useAppStore()
 const { isDesktop, isMobile } = storeToRefs(appStore)
@@ -88,6 +89,7 @@ const {
   dataExtra,
   isLoading,
   noMore,
+  currentPage,
   init,
   revert,
   next,
@@ -168,4 +170,18 @@ function updateIntesreted() {
     showClose: true,
   })
 }
+
+const authObserver = useObserver(isLogin)
+const fn = {
+  onExecuted: async () => {
+    const page = currentPage.value
+    reload()
+    for (let i = 1; i <= page; i++) await next()
+  },
+  onCompleted: () => console.log('完成'),
+  onError: () => console.log('錯誤'),
+}
+
+onMounted(() => authObserver.subscribe(fn))
+onUnmounted(() => authObserver.unsubscribe(fn))
 </script>
