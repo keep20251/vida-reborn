@@ -81,7 +81,6 @@ const {
   subUnlockDayAfter,
   uploadFiles,
   selDefaultItem,
-  selUploadItem,
 } = storeToRefs(useSubPlanStore())
 
 function subPlanAdd() {
@@ -98,13 +97,11 @@ function subPlanEdit(d, index) {
   i.value = index
   if (lastIndex.value !== null && lastIndex.value === index) {
     uploadFiles.value = [{ result: data.value[i.value].picture, progress: 1 }]
-    selUploadItem.value = data.value[i.value]?.picture
     subPlanName.value = data.value[i.value].name
     subPlanContent.value = data.value[i.value].content
     subPlanPrice.value = data.value[i.value].price
     subUnlockDayAfter.value = data.value[i.value].unlock_day_after_subscribe
   }
   lastIndex.value = index
-  selUploadItem.value = data.value[index.value]?.picture
 }
 </script>
