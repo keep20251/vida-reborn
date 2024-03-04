@@ -87,6 +87,7 @@ export default {
     updateFail: "Mise à jour échouée",
     publishFail: "Publication Échouée",
     delSuccess: "Supprimé avec succès",
+    createFeed: "",
   },
   label: {
     account: "Nom d’utilisateur",
@@ -325,6 +326,8 @@ export default {
     annCtn:
       "L'interface VIDA a été mise à jour ! Introduisant un nouveau style de design, les services que nous vous fournissons ne seront pas réduits à cause de cela. Venez nous rejoindre pour le vivre !",
     annBtn: "Rejoignez VIDA maintenant",
+    tapForUpload: "",
+    afterUpload: "",
   },
   month: {
     Jan: "Janvier",

@@ -87,6 +87,7 @@ export default {
     updateFail: "अद्यतन विफल",
     publishFail: "प्रकाशन विफल",
     delSuccess: "सफलतापूर्वक हटाया गया",
+    createFeed: "",
   },
   label: {
     account: "उपयोगकर्ता नाम",
@@ -323,6 +324,8 @@ export default {
     annCtn:
       "VIDA इंटरफेस अपडेट किया गया है! एक नई डिजाइन शैली पेश करते हुए, हम जो सेवाएँ आपको प्रदान करते हैं वह इस कारण से कम नहीं होगी। आओ और हमसे जुड़ें इसे अनुभव करने के लिए!",
     annBtn: "अभी VIDA में शामिल हों",
+    tapForUpload: "",
+    afterUpload: "",
   },
   month: {
     Jan: "जनवरी",

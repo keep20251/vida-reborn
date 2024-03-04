@@ -86,6 +86,7 @@ import { computed, onDeactivated, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
+import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
 import { useCreatorStore } from '@/store/creator'
 import { useFeedStore } from '@/store/feed'
@@ -113,6 +114,9 @@ const { copy } = useCopyToClipboard()
 const appStore = useAppStore()
 const { isDesktop, isMobile } = storeToRefs(appStore)
 
+const accountStore = useAccountStore()
+const { afterLoginAction } = accountStore
+
 const creatorStore = useCreatorStore()
 const { get: getCreator, revert: revertCreator } = creatorStore
 
@@ -130,7 +134,8 @@ const {
 })
 
 const route = useRoute()
-const { toMessage } = useRouters()
+const { toMessage: $toMessage } = useRouters()
+const toMessage = afterLoginAction($toMessage)
 
 const creator = ref(null)
 const errMsg = ref(null)

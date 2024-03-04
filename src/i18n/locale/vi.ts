@@ -87,6 +87,7 @@ export default {
     updateFail: "Cập nhật thất bại",
     publishFail: "Đăng thất bại",
     delSuccess: "Xóa thành công",
+    createFeed: "",
   },
   label: {
     account: "Tên người dùng",
@@ -324,6 +325,8 @@ export default {
     annCtn:
       "Giao diện VIDA đã được cập nhật! Giới thiệu phong cách thiết kế mới, dịch vụ mà chúng tôi cung cấp cho bạn sẽ không bị giảm bởi điều này. Hãy tham gia cùng chúng tôi để trải nghiệm!",
     annBtn: "Tham gia VIDA ngay",
+    tapForUpload: "",
+    afterUpload: "",
   },
   month: {
     Jan: "Tháng Một",

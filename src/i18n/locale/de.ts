@@ -87,6 +87,7 @@ export default {
     updateFail: "Aktualisierung fehlgeschlagen",
     publishFail: "Veröffentlichung fehlgeschlagen",
     delSuccess: "Erfolgreich gelöscht",
+    createFeed: "",
   },
   label: {
     account: "Benutzername",
@@ -325,6 +326,8 @@ export default {
     annCtn:
       "Die VIDA-Oberfläche wurde aktualisiert! Mit einem neuen Designstil werden die Dienste, die wir Ihnen anbieten, deswegen nicht reduziert. Kommen Sie und treten Sie uns bei, um es zu erleben!",
     annBtn: "Treten Sie jetzt VIDA bei",
+    tapForUpload: "",
+    afterUpload: "",
   },
   month: {
     Jan: "Januar",
