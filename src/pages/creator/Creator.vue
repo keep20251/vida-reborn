@@ -20,7 +20,9 @@
                 <!-- <div class="flex cursor-pointer items-center" @click="toMessage(creator?.username)">
                   <Icon name="comment" size="20"></Icon>
                 </div> -->
-                <div class="flex cursor-pointer items-center"><Icon name="report" size="20"></Icon></div>
+                <div v-if="isLogin" class="flex cursor-pointer items-center" @click="dissSomeone(creator)">
+                  <Icon name="report" size="20"></Icon>
+                </div>
                 <Link :href="`/${creator?.username}`" :title="copyLink" @click="copy(copyLink)">
                   <div class="flex cursor-pointer items-center"><Icon name="link" size="20"></Icon></div>
                 </Link>
@@ -89,6 +91,7 @@ import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
 import { useCreatorStore } from '@/store/creator'
+import { useDialogStore } from '@/store/dialog'
 import { useFeedStore } from '@/store/feed'
 import { useHeadStore } from '@/store/head'
 import { useHydrationStore } from '@/store/hydration'
@@ -115,10 +118,13 @@ const appStore = useAppStore()
 const { isDesktop, isMobile } = storeToRefs(appStore)
 
 const accountStore = useAccountStore()
+const { isLogin } = storeToRefs(accountStore)
 const { afterLoginAction } = accountStore
 
 const creatorStore = useCreatorStore()
 const { get: getCreator, revert: revertCreator } = creatorStore
+
+const { dissSomeone } = useDialogStore()
 
 const feedStore = useFeedStore()
 const {

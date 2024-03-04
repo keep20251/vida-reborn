@@ -87,10 +87,18 @@ export const useCreatorStore = defineStore('creator', () => {
     })
   }
 
+  function toggleBlock(username, isBlock) {
+    if (creatorsMap.has(username)) {
+      creatorsMap.get(username).is_block = isBlock
+    }
+  }
+
   return {
     get,
     getByUUID,
     revert,
     clear,
+
+    toggleBlock,
   }
 })

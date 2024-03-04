@@ -18,6 +18,7 @@
 <script setup>
 import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
+import { useCreatorStore } from '@/store/creator'
 import { useDialogStore } from '@/store/dialog'
 import { useFeedStore } from '@/store/feed'
 import { useModalStore } from '@/store/modal'
@@ -32,8 +33,11 @@ const { closeDiss } = dialogStore
 const modalStore = useModalStore()
 const { open } = modalStore
 
+const creatorStore = useCreatorStore()
+const { toggleBlock: toggleBlockInCreator } = creatorStore
+
 const feedStore = useFeedStore()
-const { toggleBlock } = feedStore
+const { toggleBlock: toggleBlockInFeed } = feedStore
 
 const isBlocked = computed(() => reportBlockUser.value.is_block)
 
@@ -41,13 +45,14 @@ const { isLoading: isReportLoading, execute: execReport } = useRequest('User.rep
 function report() {
   if (isReportLoading.value) return
 
+  const uuid = reportBlockUser.value.uuid
   closeDiss()
   open(MODAL_TYPE.REPORT, {
     title: 'label.report',
     size: 'lg',
     confirmAction: async (data) => {
       try {
-        await execReport({ ...data, uuid: reportBlockUser.value.uuid })
+        await execReport({ ...data, uuid })
       } catch (e) {
         return e.message
       }
@@ -60,14 +65,17 @@ const { isLoading: isLoadingBlock, execute: execBlock } = useRequest('User.block
 function block() {
   if (isLoadingBlock.value) return
 
+  const isBlock = isBlocked.value
+
   const reqData = {
     aff_blocked: reportBlockUser.value.aff,
-    action_type: isBlocked.value ? BLOCK_ACTION.UNBLOCK : BLOCK_ACTION.BLOCK,
+    action_type: isBlock ? BLOCK_ACTION.UNBLOCK : BLOCK_ACTION.BLOCK,
   }
 
   execBlock(reqData)
     .then(() => {
-      toggleBlock(reqData.aff_blocked, !isBlocked.value)
+      toggleBlockInCreator(reportBlockUser.value.username, !isBlock)
+      toggleBlockInFeed(reportBlockUser.value.aff, !isBlock)
       closeDiss()
     })
     .catch((e) => console.error(e))
