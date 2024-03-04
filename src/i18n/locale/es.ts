@@ -87,7 +87,7 @@ export default {
     updateFail: "Actualización fallida",
     publishFail: "Publicación Fallida",
     delSuccess: "Eliminado con éxito",
-    createFeed: "",
+    createFeed: "Crear publicación",
   },
   label: {
     account: "Nombre de usuario",
@@ -153,7 +153,7 @@ export default {
     subPlanCtn: "Contenido del plan de suscripción",
     subBtn: "Suscribirse para desbloquear el contenido completo",
     buyBtn: "Pagar por artículo para desbloquear contenido",
-    eventAd: "",
+    eventAd: "Eventos y anuncios de VIDA",
   },
   placeholder: {
     account: "Por favor, ingrese nombre de usuario",
@@ -176,7 +176,7 @@ export default {
     error: {
       subscribeSelf: "No puedo suscribirte a ti mismo",
       shopBuySelf: "No puedo comprar tus propios productos",
-      subscriptionNotFound: "Sin solución de suscripción disponible",
+      subscriptionNotFound: "No hay solución de suscripción disponible",
     },
     sending: "Enviando",
     failure: "Fallido",
@@ -326,8 +326,9 @@ export default {
     annCtn:
       "¡La interfaz de VIDA ha sido actualizada! Presentando un nuevo estilo de diseño, los servicios que te ofrecemos no se reducirán por esto. ¡Ven y únete a nosotros para experimentarlo!",
     annBtn: "Únete a VIDA ahora",
-    tapForUpload: "",
-    afterUpload: "",
+    tapForUpload: "Toca aquí para subir una foto o un vídeo",
+    afterUpload:
+      "Después de seleccionar un archivo, procede al siguiente paso para editar el contenido de la publicación",
   },
   month: {
     Jan: "Enero",
@@ -346,7 +347,7 @@ export default {
   unit: { day: "{days} días" },
   meta: {
     home: {
-      title: "VIDA - Una plataforma de suscripción para creadores",
+      title: "VIDA - Content Creator Hub",
       description:
         "VIDA es una plataforma de suscripción para creadores que ofrece apoyo de la comunidad, consultoría de marketing profesional y otros servicios integrales para profundizar la conexión entre creadores y fans. Únete a VIDA para disfrutar de cero comisión de plataforma, orientación exclusiva de un asesor 1V1, módulos multifuncionales personalizables, y más, para liberar tu potencial creativo.",
       keywords:
@@ -494,7 +495,7 @@ export default {
     },
     shopBuySuc: {
       1: "¡maravilloso! Pago exitoso para desbloquear la publicación",
-      2: "¡Elija la publicación para ver, o permanecer en la pantalla original!",
+      2: "¡Elija la publicación para mirar o permanecer en la pantalla original!",
       confirm: "Ir a la publicación",
     },
     title: { paySuc: "Ha pagado con éxito" },
@@ -508,8 +509,8 @@ export default {
     pickInterestedForUs: "¡Ayúdanos a elegir los tipos que te interesan!",
     feedCategory: "Tema de la publicación:",
     leastCategory: "Elige al menos {count} temas",
-    moreCategory: "",
-    completeCategory: "",
+    moreCategory: "Elige {count} temas más",
+    completeCategory: "¡Genial!",
   },
   beCreator: {
     id: { passport: "Pasaporte", idCard: "Tarjeta de Identidad", driverLicense: "Licencia de Conducir" },

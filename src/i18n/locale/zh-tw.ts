@@ -331,7 +331,7 @@ export default {
   unit: { day: "{days} 天" },
   meta: {
     home: {
-      title: "VIDA - 專為創作者設計的會員訂閱平台",
+      title: "VIDA - 創作者中心",
       description:
         "VIDA是一個專為創作者設計的會員訂閱平台，提供群眾助力、專業行銷諮詢等一站式服務，讓創作者與粉絲之間建立更深的連結。加入VIDA，享受零平台抽成、專屬顧問1V1指導、客製多功能模組等福利，激發創作潛能。",
       keywords: "VIDA, 創作者, 會員訂閱, 群眾助力, 專業行銷諮詢, 客製模組",

@@ -87,7 +87,7 @@ export default {
     updateFail: "Pembaruan gagal",
     publishFail: "Penerbitan Gagal",
     delSuccess: "Berhasil dihapus",
-    createFeed: "",
+    createFeed: "Buat Posting",
   },
   label: {
     account: "Nama pengguna",
@@ -153,7 +153,7 @@ export default {
     subPlanCtn: "Konten rencana langganan",
     subBtn: "Berlangganan untuk membuka konten lengkap",
     buyBtn: "Bayar per item untuk membuka kunci konten",
-    eventAd: "",
+    eventAd: "Acara dan Iklan VIDA",
   },
   placeholder: {
     account: "Silakan masukkan nama pengguna",
@@ -326,8 +326,8 @@ export default {
     annCtn:
       "Antarmuka VIDA telah diperbarui! Memperkenalkan gaya desain baru, layanan yang kami berikan kepada Anda tidak akan dikurangi karena ini. Ayo bergabung dengan kami untuk merasakannya!",
     annBtn: "Bergabung dengan VIDA sekarang",
-    tapForUpload: "",
-    afterUpload: "",
+    tapForUpload: "Klik di sini untuk mengunggah foto atau video",
+    afterUpload: "Setelah memilih file, lanjutkan ke langkah berikutnya untuk mengedit konten postingan",
   },
   month: {
     Jan: "Januari",
@@ -346,7 +346,7 @@ export default {
   unit: { day: "{days} Days" },
   meta: {
     home: {
-      title: "VIDA - Platform langganan untuk kreator",
+      title: "VIDA - Content Creator Hub",
       description:
         "VIDA adalah platform langganan untuk kreator, menawarkan dukungan komunitas, konsultasi pemasaran profesional, dan layanan lengkap lainnya untuk memperdalam hubungan antara kreator dan penggemar. Bergabunglah dengan VIDA untuk menikmati komisi platform nol, bimbingan eksklusif dari penasihat 1V1, modul multifungsi yang dapat disesuaikan, dan lebih banyak lagi, untuk membebaskan potensi kreatif Anda.",
       keywords: "VIDA, Kreator, Berlangganan Anggota, Dukungan Massal, Konsultasi Pemasaran Profesional, Modul Kustom",
@@ -507,8 +507,8 @@ export default {
     pickInterestedForUs: "Tolong bantu kami memilih jenis yang Anda minati!",
     feedCategory: "Tema posting:",
     leastCategory: "",
-    moreCategory: "",
-    completeCategory: "",
+    moreCategory: "Pilih {count} topik lagi",
+    completeCategory: "Luar biasa!",
   },
   beCreator: {
     id: { passport: "Paspor", idCard: "Kartu Identitas", driverLicense: "Surat Izin Mengemudi" },

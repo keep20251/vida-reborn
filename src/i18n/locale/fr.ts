@@ -87,7 +87,7 @@ export default {
     updateFail: "Mise à jour échouée",
     publishFail: "Publication Échouée",
     delSuccess: "Supprimé avec succès",
-    createFeed: "",
+    createFeed: "Créer une publication",
   },
   label: {
     account: "Nom d’utilisateur",
@@ -153,7 +153,7 @@ export default {
     subPlanCtn: "Contenu du plan d'abonnement",
     subBtn: "Abonnez-vous pour débloquer le contenu complet",
     buyBtn: "Payer par article pour débloquer le contenu",
-    eventAd: "",
+    eventAd: "Événements et annonces VIDA",
   },
   placeholder: {
     account: "Veuillez entrer le nom d’utilisateur",
@@ -245,7 +245,7 @@ export default {
     whetherDelArticle: "Êtes-vous sûr de vouloir supprimer ce post ?",
   },
   content: {
-    default: "Préréglage, ne doit être affiché nulle part",
+    default: "Préréglé, ne doit être affiché nulle part",
     welcomeToVIDA: "Bienvenue chez VIDA, rejoignez-nous !",
     verifyAccount:
       "Dépêchez-vous de vérifier votre boîte aux lettres ! Allez à 【Mon compte>Paramètres du compte】 pour compléter la vérification",
@@ -326,8 +326,9 @@ export default {
     annCtn:
       "L'interface VIDA a été mise à jour ! Introduisant un nouveau style de design, les services que nous vous fournissons ne seront pas réduits à cause de cela. Venez nous rejoindre pour le vivre !",
     annBtn: "Rejoignez VIDA maintenant",
-    tapForUpload: "",
-    afterUpload: "",
+    tapForUpload: "Cliquez ici pour télécharger une photo ou une vidéo",
+    afterUpload:
+      "Après avoir sélectionné un fichier, passez à l'étape suivante pour éditer le contenu de la publication",
   },
   month: {
     Jan: "Janvier",
@@ -346,7 +347,7 @@ export default {
   unit: { day: "{days} jours" },
   meta: {
     home: {
-      title: "VIDA - Une plateforme d'abonnement pour les créateurs",
+      title: "VIDA - Content Creator Hub",
       description:
         "VIDA est une plateforme d'abonnement pour les créateurs, offrant un soutien communautaire, des consultations marketing professionnelles et d'autres services tout-en-un pour approfondir la connexion entre les créateurs et les fans. Rejoignez VIDA pour profiter d'une commission nulle sur la plateforme, d'un conseil exclusif 1V1, de modules multifonctionnels personnalisables, et plus encore, pour libérer votre potentiel créatif.",
       keywords:
@@ -508,8 +509,8 @@ export default {
     pickInterestedForUs: "Aidez-nous à choisir les types qui vous intéressent !",
     feedCategory: "Thème du post :",
     leastCategory: "Choisissez au moins {count} sujets",
-    moreCategory: "",
-    completeCategory: "",
+    moreCategory: "Choisissez {count} sujets de plus",
+    completeCategory: "Super !",
   },
   beCreator: {
     id: { passport: "Passeport", idCard: "Carte d'Identité", driverLicense: "Permis de Conduire" },

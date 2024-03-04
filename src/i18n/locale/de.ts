@@ -87,7 +87,7 @@ export default {
     updateFail: "Aktualisierung fehlgeschlagen",
     publishFail: "Veröffentlichung fehlgeschlagen",
     delSuccess: "Erfolgreich gelöscht",
-    createFeed: "",
+    createFeed: "Beitrag erstellen",
   },
   label: {
     account: "Benutzername",
@@ -153,7 +153,7 @@ export default {
     subPlanCtn: "Inhalt des Abonnementplans",
     subBtn: "Abonnieren, um den vollständigen Inhalt freizuschalten",
     buyBtn: "Einzelzahlung, um Inhalte freizuschalten",
-    eventAd: "",
+    eventAd: "VIDA Veranstaltungen und Werbung",
   },
   placeholder: {
     account: "Bitte Benutzername eingeben",
@@ -326,8 +326,9 @@ export default {
     annCtn:
       "Die VIDA-Oberfläche wurde aktualisiert! Mit einem neuen Designstil werden die Dienste, die wir Ihnen anbieten, deswegen nicht reduziert. Kommen Sie und treten Sie uns bei, um es zu erleben!",
     annBtn: "Treten Sie jetzt VIDA bei",
-    tapForUpload: "",
-    afterUpload: "",
+    tapForUpload: "Klicken Sie hier, um ein Foto oder Video hochzuladen",
+    afterUpload:
+      "Nachdem Sie eine Datei ausgewählt haben, gehen Sie zum nächsten Schritt, um den Beitrag zu bearbeiten",
   },
   month: {
     Jan: "Januar",
@@ -346,7 +347,7 @@ export default {
   unit: { day: "{days} Tage" },
   meta: {
     home: {
-      title: "VIDA - Eine Mitgliedschaftsabonnementplattform für Kreative",
+      title: "VIDA - Content Creator Hub",
       description:
         "VIDA ist eine Mitgliedschaftsabonnementplattform für Kreative, die Crowd-Support, professionelle Marketingberatung und andere Komplettservices bietet, um die Verbindung zwischen Kreativen und Fans zu vertiefen. Treten Sie VIDA bei, um null Plattformprovision, exklusive 1V1-Beratung, anpassbare multifunktionale Module und mehr zu genießen, um Ihr kreatives Potenzial zu entfesseln.",
       keywords:
@@ -494,7 +495,7 @@ export default {
     },
     shopBuySuc: {
       1: "fabelhaft! Erfolgreiche Zahlung zum Entsperren des Beitrags",
-      2: "Wählen Sie zum Beitrag, um sie zu beobachten oder im Originalbildschirm zu bleiben!",
+      2: "Wählen Sie zum Beitrag, um sie zu sehen oder im Originalbildschirm zu bleiben!",
       confirm: "In den Posten gehen",
     },
     title: { paySuc: "Hat erfolgreich bezahlt" },
@@ -509,8 +510,8 @@ export default {
     pickInterestedForUs: "Bitte helfen Sie uns, die Typen auszuwählen, die Sie interessieren!",
     feedCategory: "Thema des Beitrags:",
     leastCategory: "Wählen Sie mindestens {count} Themen",
-    moreCategory: "",
-    completeCategory: "",
+    moreCategory: "Wählen Sie {count} weitere Themen",
+    completeCategory: "Großartig!",
   },
   beCreator: {
     id: { passport: "Reisepass", idCard: "Personalausweis", driverLicense: "Führerschein" },

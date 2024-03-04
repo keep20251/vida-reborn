@@ -87,7 +87,7 @@ export default {
     updateFail: "فشل التحديث",
     publishFail: "فشل النشر",
     delSuccess: "تم الحذف بنجاح",
-    createFeed: "",
+    createFeed: "إنشاء منشور",
   },
   label: {
     account: "اسم المستخدم",
@@ -153,7 +153,7 @@ export default {
     subPlanCtn: "محتوى خطة الاشتراك",
     subBtn: "اشترك لفتح المحتوى كامل",
     buyBtn: "دفع مقابل كل عنصر لفتح المحتوى",
-    eventAd: "",
+    eventAd: "فعاليات وإعلانات VIDA",
   },
   placeholder: {
     account: "الرجاء إدخال اسم المستخدم",
@@ -323,8 +323,8 @@ export default {
     annCtn:
       "واجهة VIDA تم تحديثها! مع تقديم أسلوب تصميم جديد، الخدمات التي نقدمها لك لن تقل بسبب هذا. تعال وانضم إلينا لتجربته!",
     annBtn: "انضم إلى VIDA الآن",
-    tapForUpload: "",
-    afterUpload: "",
+    tapForUpload: "انقر هنا لتحميل صورة أو فيديو",
+    afterUpload: "بعد اختيار ملف، انتقل إلى الخطوة التالية لتحرير محتوى المنشور",
   },
   month: {
     Jan: "يناير",
@@ -343,7 +343,7 @@ export default {
   unit: { day: "{days} أيام" },
   meta: {
     home: {
-      title: "VIDA - منصة الاشتراك للمبدعين",
+      title: "VIDA - Content Creator Hub",
       description:
         "VIDA هي منصة اشتراك للمبدعين تقدم دعم الجمهور، استشارات تسويقية احترافية، وخدمات شاملة أخرى لتعميق الاتصال بين المبدعين والمعجبين. انضم إلى VIDA للاستمتاع بعدم وجود عمولة للمنصة، إرشاد حصري من مستشار 1V1، وحدات متعددة الوظائف قابلة للتخصيص، والمزيد، لتحرير الإمكانيات الإبداعية لديك.",
       keywords: "VIDA, المبدعون, اشتراك الأعضاء, دعم الجماهير, استشارات التسويق المحترفة, وحدات مخصصة",
@@ -504,8 +504,8 @@ export default {
     pickInterestedForUs: "الرجاء مساعدتنا في اختيار الأنواع التي تهتم بها!",
     feedCategory: "موضوع المشاركة:",
     leastCategory: "",
-    moreCategory: "",
-    completeCategory: "",
+    moreCategory: "اختر {count} مواضيع أخرى",
+    completeCategory: "رائع!",
   },
   beCreator: {
     id: { passport: "جواز سفر", idCard: "بطاقة هوية", driverLicense: "رخصة القيادة" },

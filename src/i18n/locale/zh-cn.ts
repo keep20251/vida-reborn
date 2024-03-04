@@ -82,7 +82,7 @@ export default {
     updateFail: "更新失败",
     publishFail: "发布失败",
     delSuccess: "删除成功",
-    createFeed: "",
+    createFeed: "创建帖子",
   },
   label: {
     account: "用户名",
@@ -311,8 +311,8 @@ export default {
     annCtn:
       "VIDA介面更新啦！ 迎来全新的设计风格，而我们所提供服务给您的服务可是不会因此而变少的。 赶快加入我们来体验看看吧！",
     annBtn: "立即加入 VIDA",
-    tapForUpload: "",
-    afterUpload: "",
+    tapForUpload: "点击这里上传图片或视频",
+    afterUpload: "选择文件后，进入下一步编辑帖子内容",
   },
   month: {
     Jan: "一月",
@@ -331,7 +331,7 @@ export default {
   unit: { day: "{days} 天" },
   meta: {
     home: {
-      title: "VIDA - 专为创作者设计的会员订阅平台",
+      title: "VIDA - 创作中心",
       description:
         "VIDA是一个专为创作者设计的会员订阅平台，提供群众助力、专业营销咨询等一站式服务，让创作者与粉丝之间建立更深的连接。加入VIDA，享受零平台抽成、专属顾问1V1指导、定制多功能模块等福利，激发创作潜能。",
       keywords: "VIDA, 创作者, 会员订阅, 群众助力, 专业营销咨询, 定制模块",
@@ -484,8 +484,8 @@ export default {
     pickInterestedForUs: "请帮我们选择你感兴趣的类型吧！",
     feedCategory: "帖子主题：",
     leastCategory: "至少选择 {count} 个主题",
-    moreCategory: "",
-    completeCategory: "",
+    moreCategory: "再选择 {count} 个主题",
+    completeCategory: "太棒了！",
   },
   beCreator: {
     id: { passport: "护照", idCard: "身份证", driverLicense: "驾照" },
