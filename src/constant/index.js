@@ -175,8 +175,8 @@ export const MINE_COLLECT_TAB = {
 
 // 取得用戶自身帖子列表 - 按讚收藏解鎖狀態
 export const GET_ARTICLE_COLLECT = {
-  UNLOCKED: 0,
-  NOT_UNLOCKED: 1,
+  NOT_UNLOCKED: 0,
+  UNLOCKED: 1,
 }
 
 // 消費類型
