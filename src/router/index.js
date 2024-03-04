@@ -64,9 +64,11 @@ const routes = [
 ]
 
 export function createRouter() {
+  if (import.meta.env.DEV) routes.find((route) => route.name === 'app').children[0].children.push(...devRoutes)
+
   const router = createVueRouter({
     history: import.meta.env.SSR ? createMemoryHistory() : createWebHistory(),
-    routes: import.meta.env.DEV ? [...routes, ...devRoutes] : routes,
+    routes: import.meta.env.DEV ? [...routes] : routes,
   })
 
   beforeGuard.forEach((guard) => router.beforeEach(guard))
