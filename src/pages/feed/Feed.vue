@@ -31,6 +31,7 @@
             append-icon-btn="sendWhite"
             :focus="!!replyTo"
             @click:append="sendComment"
+            @keypress:enter="sendComment"
           ></InputWrap>
         </div>
       </div>
@@ -56,6 +57,7 @@ import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 import { whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
+import { useAccountStore } from '@/store/account'
 import { useFeedStore } from '@/store/feed'
 import { useHeadStore } from '@/store/head'
 import { useHydrationStore } from '@/store/hydration'
@@ -180,8 +182,8 @@ const replyTo = ref(null)
 const { isLoading: isSendCommentLoading, execute: execSendComment } = useRequest('Comment.add')
 const { isLoading: isCommentLikeLoading, execute: execCommentLike } = useRequest('Comment.like')
 const { isLoading: isCommentUnlikeLoading, execute: execCommentUnlike } = useRequest('Comment.unlike')
-async function sendComment() {
-  if (isSendCommentLoading.value) {
+async function $sendComment() {
+  if (isSendCommentLoading.value || isCommentsLoading.value) {
     return
   }
 
@@ -211,7 +213,7 @@ async function sendComment() {
     console.error(e)
   }
 }
-async function onCommentToggleLike(comment) {
+async function $onCommentToggleLike(comment) {
   if (isCommentLikeLoading.value || isCommentUnlikeLoading.value) {
     return
   }
@@ -226,11 +228,17 @@ async function onCommentToggleLike(comment) {
     console.error('評論愛心給我出錯傻眼耶搞笑？', e)
   }
 }
-function onCommentReply(comment) {
+function $onCommentReply(comment) {
   replyTo.value = comment
 }
 function clearInput() {
   commentInput.value = ''
   replyTo.value = null
 }
+
+const accountStore = useAccountStore()
+const { afterLoginAction } = accountStore
+const sendComment = afterLoginAction($sendComment)
+const onCommentToggleLike = afterLoginAction($onCommentToggleLike)
+const onCommentReply = afterLoginAction($onCommentReply)
 </script>

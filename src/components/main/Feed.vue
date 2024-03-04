@@ -115,6 +115,7 @@ const props = defineProps({
 
 const accountStore = useAccountStore()
 const { userId, isVisitor } = storeToRefs(accountStore)
+const { afterLoginAction } = accountStore
 
 const isSelf = computed(() => props.item.aff === userId.value)
 const isBlock = computed(() => props.item.user.is_block)
@@ -136,7 +137,8 @@ function toggleContentFold() {
 
 const { to, toCreator, toFeed } = useRouters()
 
-const { toggleLike } = useFeedStore()
+const { toggleLike: $toggleLike } = useFeedStore()
+const toggleLike = afterLoginAction($toggleLike)
 
 const { dissSomeone } = useDialogStore()
 </script>
