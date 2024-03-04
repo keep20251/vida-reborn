@@ -21,7 +21,7 @@ export default {
   tab: {
     recommand: "Recomendar",
     subscribe: "Assinar",
-    relatedAuthor: "Autor relacionado",
+    relatedAuthor: "Autores relacionados",
     relatedPost: "Artigos relacionados",
   },
   common: {
@@ -79,7 +79,7 @@ export default {
     editSocialLink: "Edite Link Social",
     earnWdrlReq: "Solicitação de retirada",
     earnWdrlHist: "Registro de retiradas",
-    clearSearchHistory: "Recorde de pesquisa claro",
+    clearSearchHistory: "Clear Search Record",
     search: { history: "Pesquisa histórica", clear: "Pesquisas Populares", popular: "Vazio" },
     subscription: "Plano de assinatura",
     publishSuccess: "Publicação Bem-sucedida",
@@ -152,6 +152,7 @@ export default {
     subPlanCtn: "Conteúdo do plano de assinatura",
     subBtn: "Assine para desbloquear o conteúdo completo",
     buyBtn: "Pagar por item para desbloquear conteúdo",
+    eventAd: "",
   },
   placeholder: {
     account: "Por favor, insira o nome de usuário",
@@ -174,7 +175,7 @@ export default {
     error: {
       subscribeSelf: "Não posso se inscrever para você",
       shopBuySelf: "Não posso comprar seus próprios produtos",
-      subscriptionNotFound: "Não há esquema de assinatura disponível",
+      subscriptionNotFound: "Nenhuma solução de assinatura disponível",
     },
     sending: "Enviando",
     failure: "Fracassado",
@@ -243,7 +244,7 @@ export default {
     whetherDelArticle: "Tem certeza de que deseja deletar esta postagem?",
   },
   content: {
-    default: "Predefinido, não deve ser exibido em nenhum lugar",
+    default: "Predefinir, não deve ser exibido em nenhum lugar",
     welcomeToVIDA: "Bem-vindo ao VIDA, junte-se a nós!",
     verifyAccount:
       "Corra para verificar sua caixa de correio! Vá para 【Minha conta>Configurações de conta】 para concluir a verificação",
@@ -490,7 +491,7 @@ export default {
     },
     shopBuySuc: {
       1: "maravilhoso! Pagamento bem -sucedido para desbloquear a postagem",
-      2: "Escolha ir ao post para assistir ou ficar na tela original!",
+      2: "Escolha a postagem para assistir ou fique na tela original!",
       confirm: "Vá para o post",
     },
     title: { paySuc: "Pagou com sucesso" },
@@ -503,7 +504,9 @@ export default {
     beforeStart: "Antes de começarmos...",
     pickInterestedForUs: "Ajude-nos a escolher os tipos de que você está interessado!",
     feedCategory: "Tema do post:",
-    leastThree: "Escolha pelo menos três tópicos",
+    leastCategory: "",
+    moreCategory: "",
+    completeCategory: "",
   },
   beCreator: {
     id: { passport: "Passaporte", idCard: "Cartão de Identidade", driverLicense: "Carteira de Motorista" },

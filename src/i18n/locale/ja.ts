@@ -147,6 +147,7 @@ export default {
     subPlanCtn: "サブスクリプションプランの内容",
     subBtn: "フルコンテンツをアンロックするために購読する",
     buyBtn: "アイテムごとに支払ってコンテンツをアンロックする",
+    eventAd: "",
   },
   placeholder: {
     account: "ユーザー名を入力してください",
@@ -169,7 +170,7 @@ export default {
     error: {
       subscribeSelf: "自分を購読することはできません",
       shopBuySelf: "独自の製品を購入できません",
-      subscriptionNotFound: "利用可能なサブスクリプションスキームはありません",
+      subscriptionNotFound: "サブスクリプションソリューションはありません",
     },
     sending: "送信",
     failure: "失敗した",
@@ -293,7 +294,7 @@ export default {
     customStyle: "カスタムスタイル",
     subUnlockDayAfter: "購入後数日間の作品のロックを解除することはできますか？",
     tokenExpired: "ログインセッションの有効期限が切れました。再度ログインしてください。",
-    clearSearchHistory: "歴史をクリアしたいですか？",
+    clearSearchHistory: "歴史を明確にしたいですか？",
     uploadVideoLimit: {
       format:
         "現在アップロードされているビデオ形式 ({format}) はサポートされていません。 .mp4 または .mov 形式に変換して、もう一度試してください。",
@@ -474,7 +475,7 @@ export default {
     },
     shopBuy: {
       1: "{nickname}部門の作業コンテンツのロックを解除します",
-      2: "{nickname}はお支払いを全額受け取ります",
+      2: "{nickname}はあなたの支払いを全額受け取ります",
       confirm: "今すぐロック解除（{'$'} {price}）",
     },
     subscribeSuc: {
@@ -484,7 +485,7 @@ export default {
     },
     shopBuySuc: {
       1: "素晴らしい！投稿のロックを解除するための支払いの成功",
-      2: "視聴するために投稿に行くか、元の画面にとどまることを選択してください！",
+      2: "視聴するために投稿を選択するか、元の画面にとどまります！",
       confirm: "投稿に移動します",
     },
     title: { paySuc: "正常に支払われました" },
@@ -497,7 +498,9 @@ export default {
     beforeStart: "スタート前に...",
     pickInterestedForUs: "興味のあるタイプを選んでください！",
     feedCategory: "投稿のテーマ：",
-    leastThree: "少なくとも3つのトピックを選択してください",
+    leastCategory: "",
+    moreCategory: "",
+    completeCategory: "",
   },
   beCreator: {
     id: { passport: "パスポート", idCard: "身分証明書", driverLicense: "運転免許証" },

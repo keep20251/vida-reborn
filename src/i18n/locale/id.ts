@@ -152,6 +152,7 @@ export default {
     subPlanCtn: "Konten rencana langganan",
     subBtn: "Berlangganan untuk membuka konten lengkap",
     buyBtn: "Bayar per item untuk membuka kunci konten",
+    eventAd: "",
   },
   placeholder: {
     account: "Silakan masukkan nama pengguna",
@@ -174,7 +175,7 @@ export default {
     error: {
       subscribeSelf: "Tidak bisa berlangganan diri sendiri",
       shopBuySelf: "Tidak dapat membeli produk Anda sendiri",
-      subscriptionNotFound: "Tidak ada skema langganan yang tersedia",
+      subscriptionNotFound: "Tidak ada solusi langganan yang tersedia",
     },
     sending: "Mengirim",
     failure: "Gagal",
@@ -489,7 +490,7 @@ export default {
     },
     shopBuySuc: {
       1: "menakjubkan! Pembayaran berhasil untuk membuka kunci pos",
-      2: "Pilih untuk pergi ke pos untuk ditonton, atau tetap di layar asli!",
+      2: "Pilih ke pos untuk ditonton, atau tetap di layar asli!",
       confirm: "Pergi ke pos",
     },
     title: { paySuc: "Telah berhasil dibayar" },
@@ -498,11 +499,13 @@ export default {
       title: "Pembayaran gagal",
       content: "Alasan terperinci: {reason}. Silakan coba lagi, atau hubungi staf layanan pelanggan",
     },
-    confirmAmount: "Bolehkah saya meminta Anda untuk mengirimkan jumlah {'$'} {price} pergi ke pembayaran",
+    confirmAmount: "Bolehkah saya meminta Anda untuk mengirimkan jumlah {'$'} {price} Pergi ke pembayaran",
     beforeStart: "Sebelum kita mulai...",
     pickInterestedForUs: "Tolong bantu kami memilih jenis yang Anda minati!",
     feedCategory: "Tema posting:",
-    leastThree: "Pilih setidaknya tiga topik",
+    leastCategory: "",
+    moreCategory: "",
+    completeCategory: "",
   },
   beCreator: {
     id: { passport: "Paspor", idCard: "Kartu Identitas", driverLicense: "Surat Izin Mengemudi" },

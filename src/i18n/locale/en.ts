@@ -21,7 +21,7 @@ export default {
   tab: {
     recommand: "Recommend",
     subscribe: "Subscribe",
-    relatedAuthor: "Related author",
+    relatedAuthor: "Related authors",
     relatedPost: "related articles",
   },
   common: {
@@ -152,6 +152,7 @@ export default {
     subPlanCtn: "Subscription plan content",
     subBtn: "Subscribe to unlock full content",
     buyBtn: "Pay per item to unlock content",
+    eventAd: "VIDA events and advertising",
   },
   placeholder: {
     account: "Please enter username",
@@ -174,7 +175,7 @@ export default {
     error: {
       subscribeSelf: "Can't subscribe to yourself",
       shopBuySelf: "Can't buy your own products",
-      subscriptionNotFound: "There is no available subscription scheme",
+      subscriptionNotFound: "No subscription solution available",
     },
     sending: "发送中",
     failure: "失败",
@@ -489,7 +490,7 @@ export default {
     },
     shopBuySuc: {
       1: "marvelous! Successful payment to unlock the post",
-      2: "Choose to go to the post to watch, or stay in the original screen!",
+      2: "Choose to the post to watch, or stay in the original screen!",
       confirm: "Go to the post",
     },
     title: { paySuc: "Has successfully paid" },
@@ -502,7 +503,9 @@ export default {
     beforeStart: "Before we start...",
     pickInterestedForUs: "Please help us choose the types you're interested in!",
     feedCategory: "Post theme:",
-    leastThree: "Choose at least three topics",
+    leastCategory: "Choose at least {count} topics",
+    moreCategory: "",
+    completeCategory: "",
   },
   beCreator: {
     id: { passport: "Passport", idCard: "ID Card", driverLicense: "Driver's License" },

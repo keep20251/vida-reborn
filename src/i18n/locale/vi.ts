@@ -21,7 +21,7 @@ export default {
   tab: {
     recommand: "Gợi ý",
     subscribe: "Đăng ký",
-    relatedAuthor: "Tác giả liên quan",
+    relatedAuthor: "Các tác giả liên quan",
     relatedPost: "Những bài viết liên quan",
   },
   common: {
@@ -152,6 +152,7 @@ export default {
     subPlanCtn: "Nội dung kế hoạch đăng ký",
     subBtn: "Đăng ký để mở khóa nội dung đầy đủ",
     buyBtn: "Trả tiền mỗi mục để mở khóa nội dung",
+    eventAd: "",
   },
   placeholder: {
     account: "Vui lòng nhập tên người dùng",
@@ -174,7 +175,7 @@ export default {
     error: {
       subscribeSelf: "Không thể đăng ký cho chính mình",
       shopBuySelf: "Không thể mua sản phẩm của riêng bạn",
-      subscriptionNotFound: "Không có sơ đồ đăng ký có sẵn",
+      subscriptionNotFound: "Không có giải pháp đăng ký",
     },
     sending: "Gửi",
     failure: "Thất bại",
@@ -489,7 +490,7 @@ export default {
     },
     shopBuySuc: {
       1: "Marvelous! Thanh toán thành công để mở khóa bài",
-      2: "Chọn đi đến bài viết để xem, hoặc ở trong màn hình gốc!",
+      2: "Chọn bài đăng để xem, hoặc ở trong màn hình gốc!",
       confirm: "Đi đến bài viết",
     },
     title: { paySuc: "Đã trả tiền thành công" },
@@ -498,11 +499,13 @@ export default {
       title: "Thanh toán thất bại",
       content: "Lý do chi tiết: {reason}. Vui lòng thử lại hoặc liên hệ với nhân viên dịch vụ khách hàng",
     },
-    confirmAmount: "Tôi có thể yêu cầu bạn gửi số tiền {'$'} {price} Truy cập thanh toán",
+    confirmAmount: "Tôi có thể yêu cầu bạn gửi số tiền {'$'} {price} đi vào thanh toán",
     beforeStart: "Trước khi bắt đầu...",
     pickInterestedForUs: "Hãy giúp chúng tôi chọn loại bạn quan tâm!",
     feedCategory: "Chủ đề bài viết:",
-    leastThree: "Chọn ít nhất ba chủ đề",
+    leastCategory: "",
+    moreCategory: "",
+    completeCategory: "",
   },
   beCreator: {
     id: { passport: "Hộ chiếu", idCard: "Thẻ căn cước", driverLicense: "Giấy phép lái xe" },

@@ -21,7 +21,7 @@ export default {
   tab: {
     recommand: "Empfehlen",
     subscribe: "Abonnieren",
-    relatedAuthor: "Verwandter Autor",
+    relatedAuthor: "Verwandte Autoren",
     relatedPost: "In Verbindung stehende Artikel",
   },
   common: {
@@ -152,6 +152,7 @@ export default {
     subPlanCtn: "Inhalt des Abonnementplans",
     subBtn: "Abonnieren, um den vollständigen Inhalt freizuschalten",
     buyBtn: "Einzelzahlung, um Inhalte freizuschalten",
+    eventAd: "",
   },
   placeholder: {
     account: "Bitte Benutzername eingeben",
@@ -174,7 +175,7 @@ export default {
     error: {
       subscribeSelf: "Ich kann mich nicht abonnieren",
       shopBuySelf: "Sie können Ihre eigenen Produkte nicht kaufen",
-      subscriptionNotFound: "Es gibt kein Abonnementschema",
+      subscriptionNotFound: "Keine Abonnementlösung verfügbar",
     },
     sending: "Senden",
     failure: "Fehlgeschlagen",
@@ -473,8 +474,8 @@ export default {
   modal: {
     subscribe: {
       1: "Besuchen Sie alle Werke der Vergangenheit {days} Tag",
-      2: "Kann Informationen direkt an den Schöpfer senden",
-      3: "Näher -stufe Interaktion",
+      2: "Kann Informationen direkt an den Ersteller senden",
+      3: "Näher -stufe -Interaktion",
       4: "Sie können Ihr Abonnement jederzeit stornieren",
       confirm: "Monat {'$'} {price} zur Zahlung gehen",
     },
@@ -490,7 +491,7 @@ export default {
     },
     shopBuySuc: {
       1: "fabelhaft! Erfolgreiche Zahlung zum Entsperren des Beitrags",
-      2: "Wählen Sie, um in den Beitrag zu gehen, um sie zu beobachten, oder bleiben Sie im Originalbildschirm!",
+      2: "Wählen Sie zum Beitrag, um sie zu beobachten oder im Originalbildschirm zu bleiben!",
       confirm: "In den Posten gehen",
     },
     title: { paySuc: "Hat erfolgreich bezahlt" },
@@ -504,7 +505,9 @@ export default {
     beforeStart: "Bevor wir beginnen...",
     pickInterestedForUs: "Bitte helfen Sie uns, die Typen auszuwählen, die Sie interessieren!",
     feedCategory: "Thema des Beitrags:",
-    leastThree: "Wählen Sie mindestens drei Themen",
+    leastCategory: "Wählen Sie mindestens {count} Themen",
+    moreCategory: "",
+    completeCategory: "",
   },
   beCreator: {
     id: { passport: "Reisepass", idCard: "Personalausweis", driverLicense: "Führerschein" },

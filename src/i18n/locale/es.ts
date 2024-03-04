@@ -21,7 +21,7 @@ export default {
   tab: {
     recommand: "Recomendar",
     subscribe: "Suscribirse",
-    relatedAuthor: "Autor relacionado",
+    relatedAuthor: "Autores relacionados",
     relatedPost: "Artículos relacionados",
   },
   common: {
@@ -152,6 +152,7 @@ export default {
     subPlanCtn: "Contenido del plan de suscripción",
     subBtn: "Suscribirse para desbloquear el contenido completo",
     buyBtn: "Pagar por artículo para desbloquear contenido",
+    eventAd: "",
   },
   placeholder: {
     account: "Por favor, ingrese nombre de usuario",
@@ -174,7 +175,7 @@ export default {
     error: {
       subscribeSelf: "No puedo suscribirte a ti mismo",
       shopBuySelf: "No puedo comprar tus propios productos",
-      subscriptionNotFound: "No hay un esquema de suscripción disponible",
+      subscriptionNotFound: "Sin solución de suscripción disponible",
     },
     sending: "Enviando",
     failure: "Fallido",
@@ -243,7 +244,7 @@ export default {
     whetherDelArticle: "¿Estás seguro de que quieres eliminar esta publicación?",
   },
   content: {
-    default: "Preset, no debe mostrarse en ningún lado",
+    default: "Preestablecido, no debe mostrarse en ningún lado",
     welcomeToVIDA: "¡Bienvenido a VIDA, únete a nosotros!",
     verifyAccount:
       "¡Apresúrate a verificar tu buzón! Ve a 【Mi cuenta>Configuración de la cuenta】 para completar la verificación",
@@ -485,12 +486,12 @@ export default {
     },
     subscribeSuc: {
       1: "¡maravilloso! ¡Suscrito con éxito a {nickname}!",
-      2: "¡Elija ir a la página de inicio del Creador, o permanecer en la pantalla original!",
+      2: "¡Elige ir a la página de inicio del Creador o permanecer en la pantalla original!",
       confirm: "Ir a la página del creador",
     },
     shopBuySuc: {
       1: "¡maravilloso! Pago exitoso para desbloquear la publicación",
-      2: "¡Elija ir a la publicación para mirar, o permanecer en la pantalla original!",
+      2: "¡Elija la publicación para ver, o permanecer en la pantalla original!",
       confirm: "Ir a la publicación",
     },
     title: { paySuc: "Ha pagado con éxito" },
@@ -503,7 +504,9 @@ export default {
     beforeStart: "Antes de empezar...",
     pickInterestedForUs: "¡Ayúdanos a elegir los tipos que te interesan!",
     feedCategory: "Tema de la publicación:",
-    leastThree: "Elige al menos tres temas",
+    leastCategory: "Elige al menos {count} temas",
+    moreCategory: "",
+    completeCategory: "",
   },
   beCreator: {
     id: { passport: "Pasaporte", idCard: "Tarjeta de Identidad", driverLicense: "Licencia de Conducir" },
