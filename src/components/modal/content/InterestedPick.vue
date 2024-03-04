@@ -7,13 +7,14 @@
     <div class="mb-20 text-center text-base font-bold leading-lg">{{ $t('modal.feedCategory') }}</div>
     <OptionsPicker v-model="interested" :options="categories" center></OptionsPicker>
     <div class="mt-30 text-center">
-      <div class="text-base font-bold leading-lg" :class="{ 'text-warning': err }">{{ $t('modal.leastThree') }}</div>
+      <div class="text-base font-bold leading-lg" :class="{ 'text-warning': err }">{{ tipText }}</div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
@@ -37,6 +38,19 @@ whenever(
   (v) => (interested.value = content.value || []),
   { immediate: true },
 )
+
+const LEAST_COUNT = 3
+const { t: $t } = useI18n()
+const tipText = computed(() => {
+  const count = LEAST_COUNT - interested.value.length
+  if (count <= 0) {
+    return $t('modal.completeCategory')
+  } else if (count <= 2) {
+    return $t('modal.moreCategory', { count })
+  } else {
+    return $t('modal.leastCategory', { count })
+  }
+})
 
 function validator() {
   if (interested.value.length < 3) {
