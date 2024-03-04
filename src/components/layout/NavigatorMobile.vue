@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="fixed bottom-0 z-50 flex h-60 w-full items-center bg-white shadow-bottom transition-transform"
+    class="fixed bottom-0 z-20 flex h-60 w-full items-center bg-white shadow-bottom transition-transform"
     :class="{ 'translate-y-full': !isShow }"
   >
     <router-link class="grow" :to="`/${locale}`">
