@@ -44,7 +44,7 @@
       <ClientOnly>
         <CreatorIntro v-if="feed" :username="feed.user?.username"></CreatorIntro>
         <BulletinCard class="mt-20"></BulletinCard>
-        <Carousel class="mt-20" interval-time></Carousel>
+        <Carousel class="mt-20" interval-time :label="$t('label.eventAd')"></Carousel>
       </ClientOnly>
     </template>
   </Page>

@@ -18,7 +18,12 @@ export default {
     hi: "हिन्दी",
   },
   nav: { home: "الصفحة الرئيسية", search: "بحث", publish: "إنشاء", message: "رسالة", mine: "لي" },
-  tab: { recommand: "يوصى به", subscribe: "الاشتراك", relatedAuthor: "مؤلف ذي صلة", relatedPost: "مقالات ذات صلة" },
+  tab: {
+    recommand: "يوصى به",
+    subscribe: "الاشتراك",
+    relatedAuthor: "المؤلفين ذات الصلة",
+    relatedPost: "مقالات ذات صلة",
+  },
   common: {
     next: "التالي",
     getAround: "تصفح",
@@ -147,6 +152,7 @@ export default {
     subPlanCtn: "محتوى خطة الاشتراك",
     subBtn: "اشترك لفتح المحتوى كامل",
     buyBtn: "دفع مقابل كل عنصر لفتح المحتوى",
+    eventAd: "",
   },
   placeholder: {
     account: "الرجاء إدخال اسم المستخدم",
@@ -169,7 +175,7 @@ export default {
     error: {
       subscribeSelf: "لا يمكنك الاشتراك في نفسك",
       shopBuySelf: "لا يمكنك شراء منتجاتك الخاصة",
-      subscriptionNotFound: "لا يوجد مخطط اشتراك متاح",
+      subscriptionNotFound: "لا يوجد حل اشتراك متاح",
     },
     sending: "إرسال",
     failure: "فشل",
@@ -481,7 +487,7 @@ export default {
     },
     shopBuySuc: {
       1: "رائع! الدفع الناجح لفتح المنشور",
-      2: "اختر الانتقال إلى المنشور لمشاهدة ، أو البقاء في الشاشة الأصلية!",
+      2: "اختر المنشور لمشاهدة ، أو البقاء في الشاشة الأصلية!",
       confirm: "انتقل إلى المنشور",
     },
     title: { paySuc: "دفعت بنجاح" },
@@ -494,7 +500,9 @@ export default {
     beforeStart: "قبل أن نبدأ...",
     pickInterestedForUs: "الرجاء مساعدتنا في اختيار الأنواع التي تهتم بها!",
     feedCategory: "موضوع المشاركة:",
-    leastThree: "اختر ثلاثة مواضيع على الأقل",
+    leastCategory: "",
+    moreCategory: "",
+    completeCategory: "",
   },
   beCreator: {
     id: { passport: "جواز سفر", idCard: "بطاقة هوية", driverLicense: "رخصة القيادة" },

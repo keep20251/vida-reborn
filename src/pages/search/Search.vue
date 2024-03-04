@@ -15,7 +15,7 @@
         <div class="mt-20">
           <RelCreatorsCard></RelCreatorsCard>
           <BulletinCard class="mt-20"></BulletinCard>
-          <Carousel class="mt-30" interval-time></Carousel>
+          <Carousel class="mt-30" interval-time :label="$t('label.eventAd')"></Carousel>
         </div>
       </ClientOnly>
     </template>

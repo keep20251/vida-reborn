@@ -152,6 +152,7 @@ export default {
     subPlanCtn: "เนื้อหาของแผนการสมัครสมาชิก",
     subBtn: "สมัครสมาชิกเพื่อปลดล็อกเนื้อหาเต็ม",
     buyBtn: "จ่ายต่อรายการเพื่อปลดล็อกเนื้อหา",
+    eventAd: "",
   },
   placeholder: {
     account: "กรุณาใส่ชื่อผู้ใช้",
@@ -174,7 +175,7 @@ export default {
     error: {
       subscribeSelf: "ไม่สามารถสมัครสมาชิกตัวเองได้",
       shopBuySelf: "ไม่สามารถซื้อผลิตภัณฑ์ของคุณเองได้",
-      subscriptionNotFound: "ไม่มีรูปแบบการสมัครสมาชิก",
+      subscriptionNotFound: "ไม่มีโซลูชันการสมัครสมาชิก",
     },
     sending: "การส่ง",
     failure: "ล้มเหลว",
@@ -486,7 +487,7 @@ export default {
     },
     shopBuySuc: {
       1: "มหัศจรรย์ การชำระเงินที่ประสบความสำเร็จในการปลดล็อกโพสต์",
-      2: "เลือกไปที่โพสต์เพื่อดูหรืออยู่ในหน้าจอดั้งเดิม!",
+      2: "เลือกโพสต์เพื่อดูหรืออยู่ในหน้าจอดั้งเดิม!",
       confirm: "ไปที่โพสต์",
     },
     title: { paySuc: "จ่ายสำเร็จแล้ว" },
@@ -499,7 +500,9 @@ export default {
     beforeStart: "เริ่มก่อน...",
     pickInterestedForUs: "ช่วยเราเลือกประเภทที่คุณสนใจ!",
     feedCategory: "หัวข้อโพสต์:",
-    leastThree: "เลือกอย่างน้อยสามหัวข้อ",
+    leastCategory: "",
+    moreCategory: "",
+    completeCategory: "",
   },
   beCreator: {
     id: { passport: "หนังสือเดินทาง", idCard: "บัตรประชาชน", driverLicense: "ใบขับขี่" },

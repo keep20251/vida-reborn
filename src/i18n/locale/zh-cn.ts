@@ -147,6 +147,7 @@ export default {
     subPlanCtn: "订阅方案内容",
     subBtn: "订阅解锁完整内容",
     buyBtn: "单笔付费解锁内容",
+    eventAd: "VIDA 活动与广告",
   },
   placeholder: {
     account: "请输入用户名",
@@ -479,7 +480,9 @@ export default {
     beforeStart: "开始之前...",
     pickInterestedForUs: "请帮我们选择你感兴趣的类型吧！",
     feedCategory: "帖子主题：",
-    leastThree: "至少选择三个主题",
+    leastCategory: "至少选择 {count} 个主题",
+    moreCategory: "",
+    completeCategory: "",
   },
   beCreator: {
     id: { passport: "护照", idCard: "身份证", driverLicense: "驾照" },

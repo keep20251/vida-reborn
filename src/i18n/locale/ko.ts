@@ -147,6 +147,7 @@ export default {
     subPlanCtn: "구독 계획 내용",
     subBtn: "전체 콘텐츠를 잠금 해제하려면 구독하세요",
     buyBtn: "항목 당 지불하여 콘텐츠 잠금 해제",
+    eventAd: "",
   },
   placeholder: {
     account: "사용자 이름을 입력하세요",
@@ -169,7 +170,7 @@ export default {
     error: {
       subscribeSelf: "자신을 구독 할 수 없습니다",
       shopBuySelf: "자신의 제품을 살 수 없습니다",
-      subscriptionNotFound: "사용 가능한 구독 체계가 없습니다",
+      subscriptionNotFound: "가입 솔루션이 없습니다",
     },
     sending: "배상",
     failure: "실패한",
@@ -482,7 +483,7 @@ export default {
     },
     shopBuySuc: {
       1: "기이! 게시물을 잠금 해제하기위한 성공적인 결제",
-      2: "게시물로 이동하여 보거나 원래 화면에 머물러보십시오!",
+      2: "게시물을 선택하거나 원래 화면을 유지하십시오!",
       confirm: "게시물로 이동하십시오",
     },
     title: { paySuc: "성공적으로 지불했습니다" },
@@ -495,7 +496,9 @@ export default {
     beforeStart: "시작하기 전에...",
     pickInterestedForUs: "관심 있는 유형을 선택해주세요!",
     feedCategory: "게시물 주제:",
-    leastThree: "적어도 세 가지 주제를 선택하세요",
+    leastCategory: "",
+    moreCategory: "",
+    completeCategory: "",
   },
   beCreator: {
     id: { passport: "여권", idCard: "신분증", driverLicense: "운전 면허증" },

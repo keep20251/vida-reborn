@@ -32,7 +32,6 @@ const props = defineProps({
   },
   label: {
     type: String,
-    default: 'VIDA 活動與廣告',
   },
 })
 

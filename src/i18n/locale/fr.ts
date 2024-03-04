@@ -21,7 +21,7 @@ export default {
   tab: {
     recommand: "Recommander",
     subscribe: "S’abonner",
-    relatedAuthor: "Auteur connexe",
+    relatedAuthor: "Auteurs connexes",
     relatedPost: "Articles Liés",
   },
   common: {
@@ -152,6 +152,7 @@ export default {
     subPlanCtn: "Contenu du plan d'abonnement",
     subBtn: "Abonnez-vous pour débloquer le contenu complet",
     buyBtn: "Payer par article pour débloquer le contenu",
+    eventAd: "",
   },
   placeholder: {
     account: "Veuillez entrer le nom d’utilisateur",
@@ -174,7 +175,7 @@ export default {
     error: {
       subscribeSelf: "Je ne peux pas vous abonner à vous-même",
       shopBuySelf: "Impossible d'acheter vos propres produits",
-      subscriptionNotFound: "Il n'y a pas de schéma d'abonnement disponible",
+      subscriptionNotFound: "Aucune solution d'abonnement disponible",
     },
     sending: "Envoi en cours",
     failure: "Échoué",
@@ -243,7 +244,7 @@ export default {
     whetherDelArticle: "Êtes-vous sûr de vouloir supprimer ce post ?",
   },
   content: {
-    default: "Préréglé, ne doit être affiché nulle part",
+    default: "Préréglage, ne doit être affiché nulle part",
     welcomeToVIDA: "Bienvenue chez VIDA, rejoignez-nous !",
     verifyAccount:
       "Dépêchez-vous de vérifier votre boîte aux lettres ! Allez à 【Mon compte>Paramètres du compte】 pour compléter la vérification",
@@ -490,7 +491,7 @@ export default {
     },
     shopBuySuc: {
       1: "merveilleux! Paiement réussi pour déverrouiller le message",
-      2: "Choisissez d'aller au poste pour regarder ou rester dans l'écran d'origine!",
+      2: "Choisissez le message pour regarder ou rester dans l'écran d'origine!",
       confirm: "Aller au poste",
     },
     title: { paySuc: "A réussi à payer" },
@@ -503,7 +504,9 @@ export default {
     beforeStart: "Avant de commencer...",
     pickInterestedForUs: "Aidez-nous à choisir les types qui vous intéressent !",
     feedCategory: "Thème du post :",
-    leastThree: "Choisissez au moins trois sujets",
+    leastCategory: "Choisissez au moins {count} sujets",
+    moreCategory: "",
+    completeCategory: "",
   },
   beCreator: {
     id: { passport: "Passeport", idCard: "Carte d'Identité", driverLicense: "Permis de Conduire" },
