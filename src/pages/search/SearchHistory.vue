@@ -1,10 +1,10 @@
 <template>
   <div class="w-full">
     <div class="flex flex-col space-y-20">
-      <div class="flex flex-col space-y-10">
+      <div v-if="historyTags.length > 0" class="flex flex-col space-y-10">
         <div class="flex justify-between text-base font-normal leading-md">
           <div>{{ $t('title.search.history') }}</div>
-          <div v-show="historyTags.length > 0" class="cursor-pointer" @click="openClearConfirm">
+          <div class="cursor-pointer" @click="openClearConfirm">
             {{ $t('title.search.popular') }}
           </div>
         </div>

@@ -1,6 +1,6 @@
 <template>
   <div class="h-full w-full rounded-xl bg-gray-f6 py-30 pr-20">
-    <div class="scrollbar-md max-h-[37.5rem] overflow-y-scroll">
+    <div class="scrollbar-md max-h-[30.5rem] overflow-y-scroll">
       <div class="flex flex-col space-y-20 px-20 text-base font-normal leading-lg">
         <div>{{ i18nPack.cp?.info.title }}</div>
         <div>{{ i18nPack.cp?.info.content }}</div>
