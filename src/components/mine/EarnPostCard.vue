@@ -4,9 +4,7 @@
       @click="() => (isActive = !isActive)"
       class="relative flex cursor-pointer space-x-10 rounded-xl bg-white px-20 py-15 shadow-sm"
     >
-      <div class="w-100">
-        <EncryptImage :src="item.url_detail[0].url" class="h-full w-full rounded object-cover"></EncryptImage>
-      </div>
+      <EncryptImage :src="item.url_detail[0].url" :width="105" :height="70"></EncryptImage>
       <div class="flex flex-1 flex-col space-y-10">
         <div class="text-sm font-normal leading-3">{{ item.title }}</div>
         <div class="flex space-x-10">
