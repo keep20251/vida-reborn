@@ -82,6 +82,7 @@ export default {
     updateFail: "更新失敗",
     publishFail: "公開失敗",
     delSuccess: "削除成功",
+    createFeed: "",
   },
   label: {
     account: "ユーザー名",
@@ -319,6 +320,8 @@ export default {
     annCtn:
       "VIDAのインターフェースが更新されました！ 新しいデザインスタイルを導入し、これによって提供するサービスが減少することはありません。 ぜひご参加ください！",
     annBtn: "今すぐVIDAに参加",
+    tapForUpload: "",
+    afterUpload: "",
   },
   month: {
     Jan: "1月",

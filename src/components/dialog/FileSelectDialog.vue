@@ -2,7 +2,7 @@
   <BaseDialog @click:around="fileSelectDialog = false">
     <template #default>
       <div class="flex flex-col space-y-20">
-        <div class="text-center text-lg font-bold">建立帖子</div>
+        <div class="text-center text-lg font-bold">{{ $t('title.createFeed') }}</div>
         <label class="flex cursor-pointer flex-col items-center justify-center space-y-10 bg-gray-f6 py-72">
           <svg xmlns="http://www.w3.org/2000/svg" width="62" height="55" viewBox="0 0 62 55" fill="none">
             <path
@@ -22,7 +22,7 @@
               fill="#ECECEC"
             />
           </svg>
-          <span class="text-base leading-lg text-gray-a3">Tap here to upload photo or video</span>
+          <span class="text-base leading-lg text-gray-a3">{{ $t('content.tapForUpload') }}</span>
           <input
             type="file"
             class="hidden"
@@ -31,9 +31,7 @@
             @change="onFile"
           />
         </label>
-        <div class="text-center text-sm text-gray-a3">
-          After uploading the video, proceed to the next step to edit the details
-        </div>
+        <div class="text-center text-sm text-gray-a3">{{ $t('content.afterUpload') }}</div>
       </div>
     </template>
   </BaseDialog>

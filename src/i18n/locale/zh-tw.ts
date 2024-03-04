@@ -82,6 +82,7 @@ export default {
     updateFail: "更新失敗",
     publishFail: "發布失敗",
     delSuccess: "刪除成功",
+    createFeed: "建立貼文",
   },
   label: {
     account: "用戶名",
@@ -310,6 +311,8 @@ export default {
     annCtn:
       "VIDA介面更新啦！迎來全新的設計風格，而我們所提供服務給您的服務可是不會因此而變少的。趕快加入我們來體驗看看吧！",
     annBtn: "立即加入 VIDA",
+    tapForUpload: "點擊這裡上傳圖片或影片",
+    afterUpload: "選擇檔案後，進入下一步編輯貼文內容",
   },
   month: {
     Jan: "一月",

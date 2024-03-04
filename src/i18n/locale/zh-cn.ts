@@ -82,6 +82,7 @@ export default {
     updateFail: "更新失败",
     publishFail: "发布失败",
     delSuccess: "删除成功",
+    createFeed: "",
   },
   label: {
     account: "用户名",
@@ -310,6 +311,8 @@ export default {
     annCtn:
       "VIDA介面更新啦！ 迎来全新的设计风格，而我们所提供服务给您的服务可是不会因此而变少的。 赶快加入我们来体验看看吧！",
     annBtn: "立即加入 VIDA",
+    tapForUpload: "",
+    afterUpload: "",
   },
   month: {
     Jan: "一月",

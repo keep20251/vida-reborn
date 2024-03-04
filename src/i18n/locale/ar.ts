@@ -87,6 +87,7 @@ export default {
     updateFail: "فشل التحديث",
     publishFail: "فشل النشر",
     delSuccess: "تم الحذف بنجاح",
+    createFeed: "",
   },
   label: {
     account: "اسم المستخدم",
@@ -322,6 +323,8 @@ export default {
     annCtn:
       "واجهة VIDA تم تحديثها! مع تقديم أسلوب تصميم جديد، الخدمات التي نقدمها لك لن تقل بسبب هذا. تعال وانضم إلينا لتجربته!",
     annBtn: "انضم إلى VIDA الآن",
+    tapForUpload: "",
+    afterUpload: "",
   },
   month: {
     Jan: "يناير",

@@ -87,6 +87,7 @@ export default {
     updateFail: "Update Failed",
     publishFail: "Publish Failed",
     delSuccess: "Successfully deleted",
+    createFeed: "",
   },
   label: {
     account: "Username",
@@ -324,6 +325,8 @@ export default {
     annCtn:
       "VIDA interface has been updated! Ushering in a new design style, the services we provide you will not be reduced because of this. Come and join us to experience it!",
     annBtn: "Join VIDA now",
+    tapForUpload: "Tap here to upload photo or video",
+    afterUpload: "After upload files, proceed to the next step to edit the details",
   },
   month: {
     Jan: "January",

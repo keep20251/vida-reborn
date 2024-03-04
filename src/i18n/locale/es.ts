@@ -87,6 +87,7 @@ export default {
     updateFail: "Actualización fallida",
     publishFail: "Publicación Fallida",
     delSuccess: "Eliminado con éxito",
+    createFeed: "",
   },
   label: {
     account: "Nombre de usuario",
@@ -325,6 +326,8 @@ export default {
     annCtn:
       "¡La interfaz de VIDA ha sido actualizada! Presentando un nuevo estilo de diseño, los servicios que te ofrecemos no se reducirán por esto. ¡Ven y únete a nosotros para experimentarlo!",
     annBtn: "Únete a VIDA ahora",
+    tapForUpload: "",
+    afterUpload: "",
   },
   month: {
     Jan: "Enero",

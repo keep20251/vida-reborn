@@ -87,6 +87,7 @@ export default {
     updateFail: "อัปเดตไม่สำเร็จ",
     publishFail: "เผยแพร่ไม่สำเร็จ",
     delSuccess: "ลบสำเร็จ",
+    createFeed: "",
   },
   label: {
     account: "ชื่อผู้ใช้",
@@ -322,6 +323,8 @@ export default {
     annCtn:
       "อินเทอร์เฟซ VIDA ได้รับการอัปเดตแล้ว! นำเสนอสไตล์การออกแบบใหม่, บริการที่เรามอบให้คุณจะไม่ถูกลดลงเพราะสิ่งนี้ มาร่วมกับเราเพื่อสัมผัสประสบการณ์นี้!",
     annBtn: "เข้าร่วม VIDA ทันที",
+    tapForUpload: "",
+    afterUpload: "",
   },
   month: {
     Jan: "มกราคม",

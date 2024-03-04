@@ -87,6 +87,7 @@ export default {
     updateFail: "Pembaruan gagal",
     publishFail: "Penerbitan Gagal",
     delSuccess: "Berhasil dihapus",
+    createFeed: "",
   },
   label: {
     account: "Nama pengguna",
@@ -325,6 +326,8 @@ export default {
     annCtn:
       "Antarmuka VIDA telah diperbarui! Memperkenalkan gaya desain baru, layanan yang kami berikan kepada Anda tidak akan dikurangi karena ini. Ayo bergabung dengan kami untuk merasakannya!",
     annBtn: "Bergabung dengan VIDA sekarang",
+    tapForUpload: "",
+    afterUpload: "",
   },
   month: {
     Jan: "Januari",
