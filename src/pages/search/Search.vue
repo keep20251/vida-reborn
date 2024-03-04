@@ -22,12 +22,14 @@
   </Page>
 </template>
 <script setup>
-import { computed, watch } from 'vue'
+import { computed, onActivated, onDeactivated, onServerPrefetch, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import SearchHistory from '@/pages/search/SearchHistory.vue'
 import SearchResult from '@/pages/search/SearchResult.vue'
 import { useAppStore } from '@/store/app'
+import { useHeadStore } from '@/store/head'
 import { useSearchStore } from '@/store/search'
 import BulletinCard from '@comp/aside/BulletinCard.vue'
 import RelCreatorsCard from '@comp/aside/RelCreatorsCard.vue'
@@ -54,4 +56,19 @@ const tabOptions = [
 watch(hasQuery, (v) => {
   if (!v) reset()
 })
+
+const { t: $t } = useI18n()
+const headStore = useHeadStore()
+const { setup: setupHead, reset: resetHead } = headStore
+async function loadSeoHead() {
+  await setupHead({
+    title: $t('meta.search.title'),
+    description: $t('meta.search.description'),
+    keywords: [$t('meta.search.keywords')],
+    url: `/search`,
+  })
+}
+onServerPrefetch(loadSeoHead)
+onActivated(loadSeoHead)
+onDeactivated(resetHead)
 </script>
