@@ -5,5 +5,3 @@
     </keep-alive>
   </router-view>
 </template>
-
-<script setup></script>
