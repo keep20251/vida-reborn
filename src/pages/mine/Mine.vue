@@ -25,7 +25,7 @@
         <div v-show="!isPreviewMode" class="grid space-y-20">
           <SetList />
           <div class="grid space-y-5">
-            <Carousel :items="cats" interval-time></Carousel>
+            <Carousel :items="cats" interval-time :label="$t('label.eventAd')"></Carousel>
             <p class="text-xs font-normal leading-3 text-gray-400">
               Terms of Service Privacy Policy Cookie Policy Ad info About @ 2023 VIDA corp
             </p>

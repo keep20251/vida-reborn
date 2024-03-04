@@ -49,7 +49,7 @@
         <div>
           <BulletinCard class="mt-20"></BulletinCard>
           <RecCard class="mt-10"></RecCard>
-          <Carousel class="mt-20" interval-time></Carousel>
+          <Carousel class="mt-20" interval-time :label="$t('label.eventAd')"></Carousel>
         </div>
       </ClientOnly>
     </template>
