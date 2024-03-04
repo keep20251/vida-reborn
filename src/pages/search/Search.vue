@@ -3,12 +3,12 @@
     <template #app-top>
       <TopSearchBar :input-value="keyword" :logo="isMobile" to-search @search="(v) => (keyword = v)"></TopSearchBar>
     </template>
-    <template #main-top>
-      <Tab v-if="hasQuery" v-model="activeTab" :options="tabOptions"></Tab>
+    <template #main-top v-if="hasQuery">
+      <Tab v-model="activeTab" :options="tabOptions"></Tab>
     </template>
     <template #default>
       <SearchResult v-if="hasQuery"></SearchResult>
-      <SearchHistory v-else></SearchHistory>
+      <SearchHistory v-else class="mt-20"></SearchHistory>
     </template>
     <template #aside>
       <ClientOnly>
