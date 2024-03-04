@@ -198,3 +198,9 @@ export const MINE_EARN_TAB = {
   OVERALL_PREF: 1,
   POST_PREF: 2,
 }
+
+// 我的 - 頁籤(一般會員)
+export const MINE_HOME_REG = {
+  MINE_COLLECT_TAB: 1,
+  MINE_BUY_TAB: 2,
+}
