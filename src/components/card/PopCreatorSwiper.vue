@@ -10,14 +10,15 @@
         :key="item.aff"
         class="absolute left-[50%] h-full w-2/3 rounded-xl transition-transform"
         :class="{
-          '-translate-x-[260%]': i < currIndex - 1,
-          '-translate-x-[155%]': i < currIndex,
+          '-translate-x-[260%]': i === currIndex - 2,
+          '-translate-x-[155%]': i === currIndex - 1,
           '-translate-x-[50%]': i === currIndex,
-          'translate-x-[55%]': i > currIndex,
-          'translate-x-[160%]': i > currIndex + 1,
+          'translate-x-[55%]': i === currIndex + 1,
+          'translate-x-[160%]': i === currIndex + 2,
           'scale-90': i !== currIndex,
           hidden: i < currIndex - 2 || i > currIndex + 2,
         }"
+        @click="toCreator(item.username)"
       >
         <div v-if="item.background" class="h-full w-full">
           <EncryptImage :src="item.background" :border-radius="15" cover></EncryptImage>
@@ -36,43 +37,49 @@
           <div class="mt-10 line-clamp-1 shrink-0 text-lg font-bold text-white">{{ item.nickname }}</div>
           <div class="mt-10 line-clamp-1 shrink-0 text-sm text-white">@{{ item.username }}</div>
           <div class="flex grow items-center overflow-hidden text-base text-white">{{ item.description }}</div>
-          <div class="mb-10">
-            <Button>{{ $t('common.viewSubscribePlan') }}</Button>
+          <div class="mb-10" @click.stop>
+            <Button @click="open({ items: item?.subscription_list, creator: item })">{{
+              $t('common.viewSubscribePlan')
+            }}</Button>
           </div>
         </div>
       </div>
-      <div class="absolute left-20 top-0 flex h-full w-20 cursor-pointer items-center">
-        <div
-          class="flex h-20 w-20 items-center justify-center rounded-full bg-gray-f6 opacity-60"
-          @click.stop="swipe(-1)"
-        >
-          <Icon name="back" size="16"></Icon>
+      <div class="absolute left-10 top-0 flex h-full w-40 items-center">
+        <div class="flex h-40 w-40 items-center justify-start pl-10" @click.stop="swipe(-1)">
+          <div class="flex h-20 w-20 cursor-pointer items-center justify-center rounded-full bg-gray-f6 opacity-60">
+            <Icon name="back" size="16"></Icon>
+          </div>
         </div>
       </div>
-      <div class="absolute right-20 top-0 flex h-full w-20 cursor-pointer items-center">
-        <div
-          class="flex h-20 w-20 rotate-180 items-center justify-center rounded-full bg-gray-f6 opacity-60"
-          @click.stop="swipe(1)"
-        >
-          <Icon name="back" size="16"></Icon>
+      <div class="absolute right-10 top-0 flex h-full w-40 items-center">
+        <div class="flex h-40 w-40 items-center justify-end pr-10" @click.stop="swipe(1)">
+          <div
+            class="flex h-20 w-20 rotate-180 cursor-pointer items-center justify-center rounded-full bg-gray-f6 opacity-60"
+          >
+            <Icon name="back" size="16"></Icon>
+          </div>
         </div>
       </div>
       <Loading v-if="items.length === 0"></Loading>
     </div>
     <div class="flex">
-      <Button contrast>{{ $t('common.replace') }}</Button>
+      <Button contrast @click="reload">{{ $t('common.replace') }}</Button>
     </div>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
+import { useSubsciptionStore } from '@/store/subscription'
 import Button from '@comp/common/Button.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
+import { useRouters } from '@use/routers'
 
 const props = defineProps({
   items: { type: Array, required: true },
 })
+
+const emits = defineEmits(['load', 'reload'])
 
 const currIndex = ref(0)
 function swipe(delta) {
@@ -80,5 +87,18 @@ function swipe(delta) {
     return
   }
   currIndex.value += delta
+
+  if (currIndex.value >= props.items.length - 2) {
+    emits('load')
+  }
 }
+
+function reload() {
+  currIndex.value = 0
+  emits('reload')
+}
+
+const { toCreator } = useRouters()
+
+const { open } = useSubsciptionStore()
 </script>

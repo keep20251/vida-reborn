@@ -76,6 +76,7 @@ function releaseVideo() {
 }
 
 function openLazy() {
+  if (!videoWrap.value) return
   lazyloader.observe(videoWrap.value)
 }
 
