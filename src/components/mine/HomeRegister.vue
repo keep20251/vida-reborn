@@ -42,6 +42,7 @@ import { onActivated, onDeactivated, onMounted, onUnmounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
+import { useFeedStore } from '@/store/feed'
 import { useMineStore } from '@/store/mine'
 import Feed from '@comp/main/Feed.vue'
 import SelfIntro from '@comp/main/SelfIntro.vue'
@@ -58,6 +59,7 @@ const tabOptions = ref([
   { label: 'title.mineBuy', value: MINE_HOME_REG.MINE_BUY_TAB },
 ])
 
+const feedStore = useFeedStore()
 const {
   dataList: allArticleList,
   dataExtra: allArticleExtra,
@@ -67,6 +69,7 @@ const {
   reload: allArticleReload,
 } = useInfinite('User.listArticle', {
   params: { type: GET_ARTICLE_LIST.LIKE },
+  transformer: feedStore.sync,
 })
 
 const {
@@ -78,6 +81,7 @@ const {
   reload: buyArticleReload,
 } = useInfinite('User.listArticle', {
   params: { type: GET_ARTICLE_LIST.BOUGHT },
+  transformer: feedStore.sync,
 })
 
 const { setNextFn, clearNextFn } = useMineStore()

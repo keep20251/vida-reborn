@@ -95,10 +95,10 @@ export const useFeedStore = defineStore('feed', () => {
 
     const target = feedsMap.get(feed.id)
 
-    const _isLike = typeof isLike === 'boolean' ? isLike : !target.is_like
+    const _isLike = typeof isLike === 'boolean' ? isLike : !target.is_liked
     const exec = _isLike ? execLike : execUnlike
 
-    target.is_like = _isLike
+    target.is_liked = _isLike
     target.like_num += _isLike ? 1 : target.like_num > 0 ? -1 : 0
     try {
       await exec({ article_id: target.id })

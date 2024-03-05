@@ -41,7 +41,7 @@
     <!-- feature -->
     <div class="flex h-20 select-none space-x-32">
       <div class="flex cursor-pointer space-x-10" @click.stop="toggleLike(item)">
-        <Icon :name="item.is_like ? 'like' : 'likeOutline'" size="20"></Icon>
+        <Icon :name="item.is_liked ? 'like' : 'likeOutline'" size="20"></Icon>
         <div class="text-sm font-medium leading-5">{{ item.like_num }}</div>
       </div>
       <div class="flex cursor-pointer space-x-10">
