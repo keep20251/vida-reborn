@@ -27,6 +27,7 @@
 </template>
 <script setup>
 import { onActivated, onDeactivated, onMounted, onUnmounted, ref } from 'vue'
+import { useFeedStore } from '@/store/feed'
 import { useMineStore } from '@/store/mine'
 import SubCard from '@comp/card/SubCard.vue'
 import Feed from '@comp/main/Feed.vue'
@@ -42,8 +43,10 @@ const tabOptions = ref([
   { label: 'label.artPur', value: MINE_BUY_TAB.PURCHASED_ARTICLE },
 ])
 
+const feedStore = useFeedStore()
 const { dataList, dataExtra, isLoading, noMore, init, next, reload } = useInfinite('User.listArticle', {
   params: { type: GET_ARTICLE_LIST.BOUGHT },
+  transformer: feedStore.sync,
 })
 
 const { setNextFn, clearNextFn } = useMineStore()
