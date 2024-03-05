@@ -15,12 +15,7 @@ const handleClick = () => {
 </script>
 
 <template>
-  <!-- TODO:: if router match this link then fond bold is bold else normal -->
-  <div @click.prevent="handleClick" class="text-nowrap cursor-pointer text-lg font-bold">{{ text }}</div>
+  <div class="flex items-center justify-center p-2">
+    <Icon name="officialMenu" size="25"></Icon>
+  </div>
 </template>
-
-<style scoped>
-.text-nowrap {
-  white-space: nowrap;
-}
-</style>
