@@ -4,7 +4,7 @@
       <Link class="mt-10 px-12 pb-20 pt-10 hover:bg-gray-f6" title="VIDA" @click="to('home')">
         <img class="h-20 w-36 xl:h-40 xl:w-72" src="@/assets/logo.svg?url" alt="VIDA" />
       </Link>
-      <router-link :to="`/${locale}`">
+      <router-link :to="`/${locale}/home`">
         <div class="flex items-center justify-center space-x-20 px-12 py-10 hover:bg-gray-f6 xl:justify-start">
           <Icon v-if="atHome" name="home" size="30"></Icon>
           <Icon v-else name="homeOutline" size="30"></Icon>

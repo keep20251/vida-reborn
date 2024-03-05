@@ -25,6 +25,9 @@ import { storeToRefs } from 'pinia'
 import { useSearchStore } from '@/store/search'
 import Link from '@comp/common/Link.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
+import { useRouters } from '@use/routers'
+
+const { to } = useRouters()
 
 const { t: $t } = useI18n()
 
