@@ -12,7 +12,7 @@ const handleClick = () => (isActived.value = !isActived.value)
       <div class="flex cursor-pointer items-center justify-center gap-5">
         <Icon name="officialEarth" size="25"></Icon>
         <div>中文</div>
-        <Icon name="officialDropdown" size="10"></Icon>
+        <Icon name="officialDropdown" class="officialDropdown pt-2" :class="{ rotate: isActived }" size="10"></Icon>
       </div>
     </div>
     <div
@@ -42,6 +42,19 @@ const handleClick = () => (isActived.value = !isActived.value)
   }
 }
 
+.rotate {
+  animation: rotate180 0.3s forwards;
+}
+
+@keyframes rotate180 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
 .official-lang-menu {
   text-wrap: nowrap;
   position: relative;
@@ -60,8 +73,7 @@ const handleClick = () => (isActived.value = !isActived.value)
   }
   &-items.active {
     display: block;
-
-    animation: slideDown 0.3s ease forwards; /* 使用 keyframes 動畫 */
+    animation: slideDown 0.3s ease forwards;
   }
   &-items div {
     padding: 10px 20px;
