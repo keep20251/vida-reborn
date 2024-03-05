@@ -19,14 +19,16 @@
     <LockMask v-if="isLock" :item="item"></LockMask>
     <div v-if="imgs.length > 1" class="absolute left-10 top-0 flex h-full w-40 items-center">
       <div class="flex h-40 w-40 items-center justify-start pl-10" @click.stop="swipe(-1)">
-        <div class="h-20 w-20 cursor-pointer rounded-full bg-gray-f6 opacity-60">
+        <div class="flex h-20 w-20 cursor-pointer items-center justify-center rounded-full bg-gray-f6 opacity-60">
           <Icon name="back" size="16"></Icon>
         </div>
       </div>
     </div>
     <div v-if="imgs.length > 1" class="absolute right-10 top-0 flex h-full w-40 items-center">
       <div class="flex h-40 w-40 items-center justify-end pr-10" @click.stop="swipe(1)">
-        <div class="h-20 w-20 rotate-180 cursor-pointer rounded-full bg-gray-f6 opacity-60">
+        <div
+          class="flex h-20 w-20 rotate-180 cursor-pointer items-center justify-center rounded-full bg-gray-f6 opacity-60"
+        >
           <Icon name="back" size="16"></Icon>
         </div>
       </div>

@@ -21,7 +21,12 @@
         </List>
       </div>
       <div v-show="tab === TAB_TYPE.SUB" class="h-[calc(100vh-12.75rem)]">
-        <PopCreatorSwiper v-if="isMobile" :items="creators"></PopCreatorSwiper>
+        <PopCreatorSwiper
+          v-if="isMobile"
+          :items="creators"
+          @load="creatorsNext"
+          @reload="creatorsReload"
+        ></PopCreatorSwiper>
         <div v-else>
           <div class="flex justify-between pt-20">
             <div class="text-base font-bold leading-md">{{ $t('info.popularCreator') }}</div>
