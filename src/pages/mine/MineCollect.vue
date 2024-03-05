@@ -3,20 +3,28 @@
     <Tab v-model="tab" :options="tabOptions"></Tab>
   </div>
   <div v-show="tab === MINE_COLLECT_TAB.ALL">
-    <ColArticle></ColArticle>
+    <ArticleList :api="'User.listArticle'" :apiType="GET_ARTICLE_LIST.LIKE"></ArticleList>
   </div>
   <div v-show="tab === MINE_COLLECT_TAB.UNLOCKED">
-    <ColArticle :apiParams="GET_ARTICLE_COLLECT.UNLOCKED"></ColArticle>
+    <ArticleList
+      :api="'User.listArticle'"
+      :apiType="GET_ARTICLE_LIST.LIKE"
+      :apiParams="GET_ARTICLE_COLLECT.UNLOCKED"
+    ></ArticleList>
   </div>
   <div v-show="tab === MINE_COLLECT_TAB.NOT_UNLOCKED">
-    <ColArticle :apiParams="GET_ARTICLE_COLLECT.NOT_UNLOCKED"></ColArticle>
+    <ArticleList
+      :api="'User.listArticle'"
+      :apiType="GET_ARTICLE_LIST.LIKE"
+      :apiParams="GET_ARTICLE_COLLECT.NOT_UNLOCKED"
+    ></ArticleList>
   </div>
 </template>
 <script setup>
 import { ref } from 'vue'
-import ColArticle from '@comp/mine/ColArticle.vue'
 import Tab from '@comp/navigation/Tab.vue'
-import { GET_ARTICLE_COLLECT, MINE_COLLECT_TAB } from '@const'
+import { GET_ARTICLE_COLLECT, GET_ARTICLE_LIST, MINE_COLLECT_TAB } from '@const'
+import ArticleList from '@/components/mine/ArticleList.vue'
 
 const tab = ref(MINE_COLLECT_TAB.ALL)
 const tabOptions = ref([

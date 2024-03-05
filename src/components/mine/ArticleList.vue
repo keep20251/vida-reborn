@@ -23,12 +23,17 @@ import { useFeedStore } from '@/store/feed'
 import { useMineStore } from '@/store/mine'
 import Feed from '@comp/main/Feed.vue'
 import { useInfinite } from '@use/request/infinite'
-import { GET_ARTICLE_LIST } from '@const'
 
 const props = defineProps({
+  api: {
+    type: String,
+    required: true,
+  },
+  apiType: {
+    type: Number,
+  },
   apiParams: {
     type: Number,
-    required: true,
   },
 })
 
@@ -40,8 +45,8 @@ const {
   noMore,
   next,
   reload,
-} = useInfinite('User.listArticle', {
-  params: { type: GET_ARTICLE_LIST.LIKE, unlock: props.apiParams },
+} = useInfinite(props.api, {
+  params: { type: props.apiType, unlock: props.apiParams },
   transformer: feedStore.sync,
 })
 
