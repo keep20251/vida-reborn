@@ -28,9 +28,6 @@ export function useInfinite(apiKey, { params = {}, limit = 10, readonly: ro = tr
   // 沒有更多了，當判斷到回傳資料數量小於 limit 就會被判定為沒有更多資料
   const noMore = ref(false)
 
-  // 當前頁數
-  const currentPage = ref(1)
-
   const { data, error, isLoading, execute, cancel } = useRequest(apiKey, { readonly: ro })
 
   async function init() {
@@ -46,7 +43,6 @@ export function useInfinite(apiKey, { params = {}, limit = 10, readonly: ro = tr
     dataList.value = []
     dataExtra.value = null
     noMore.value = false
-    currentPage.value = 1
   }
 
   async function reload({ newParams = params, newLimit = limit } = {}) {
@@ -79,7 +75,6 @@ export function useInfinite(apiKey, { params = {}, limit = 10, readonly: ro = tr
     }
 
     const page = Math.ceil(dataList.value.length / limit) + 1
-    currentPage.value = page
 
     try {
       await execute({ page, limit, ...params })
@@ -123,7 +118,6 @@ export function useInfinite(apiKey, { params = {}, limit = 10, readonly: ro = tr
     error,
     isLoading,
     noMore: readonly(noMore),
-    currentPage: readonly(currentPage),
     init,
     reset,
     reload,
