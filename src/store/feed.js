@@ -1,6 +1,8 @@
 import cloneDeep from 'lodash/cloneDeep'
 import { reactive } from 'vue'
-import { defineStore } from 'pinia'
+import { whenever } from '@vueuse/core'
+import { defineStore, storeToRefs } from 'pinia'
+import { useAccountStore } from '@/store/account'
 import useRequest from '@use/request'
 import { MEDIA_TYPE } from '@const/publish'
 
@@ -16,6 +18,12 @@ export const useFeedStore = defineStore('feed', () => {
   const feedsMap = reactive(new Map())
 
   const inRequesting = {}
+
+  const accountStore = useAccountStore()
+  const { isLogin } = storeToRefs(accountStore)
+  if (!import.meta.env.SSR) {
+    whenever(isLogin, clear)
+  }
 
   async function get(id) {
     if (feedsMap.has(id)) {
