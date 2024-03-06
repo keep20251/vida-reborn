@@ -1,7 +1,8 @@
-import { readonly, ref, useSSRContext, watch } from 'vue'
+import { effectScope, readonly, ref, useSSRContext, watch } from 'vue'
 import { createCookies, useCookies } from '@vueuse/integrations/useCookies'
 
 const clientCookieRefMap = new Map()
+const scope = effectScope()
 
 export function useCookie(key, { default: defaultValue, readonly: isReadonly = false } = {}) {
   let cookieRef
@@ -61,8 +62,10 @@ export function useCookie(key, { default: defaultValue, readonly: isReadonly = f
 
     // Server 端不支援響應性
     if (!import.meta.env.SSR) {
-      watch(cookieRef, (newCookie) => {
-        cookies.set(key, newCookie, { path: '/' })
+      scope.run(() => {
+        watch(cookieRef, (newCookie) => {
+          cookies.set(key, newCookie, { path: '/' })
+        })
       })
     }
   }
