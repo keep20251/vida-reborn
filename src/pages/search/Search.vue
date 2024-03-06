@@ -1,7 +1,7 @@
 <template>
   <Page infinite @load="nextAction">
     <template #app-top>
-      <TopSearchBar :input-value="keyword" :logo="isMobile" to-search @search="(v) => (keyword = v)"></TopSearchBar>
+      <TopSearchBar v-model="keyword" :logo="isMobile" to-search @search="setKeyword"></TopSearchBar>
     </template>
     <template #main-top v-if="hasQuery">
       <Tab v-model="activeTab" :options="tabOptions"></Tab>
@@ -38,20 +38,20 @@ import Tab from '@comp/navigation/Tab.vue'
 import TopSearchBar from '@comp/navigation/TopSearchBar.vue'
 import { SEARCH_TAB } from '@const'
 
-const route = useRoute()
-const hasQuery = computed(() => Object.keys(route.query).length > 0)
-
 const appStore = useAppStore()
 const { isMobile } = storeToRefs(appStore)
 
 const searchStore = useSearchStore()
-const { reset } = searchStore
+const { reset, setKeyword } = searchStore
 const { activeTab, nextAction, keyword } = storeToRefs(searchStore)
 
 const tabOptions = [
   { label: 'tab.relatedPost', value: SEARCH_TAB.POST },
   { label: 'tab.relatedAuthor', value: SEARCH_TAB.AUTHOR },
 ]
+
+const route = useRoute()
+const hasQuery = computed(() => Object.keys(route.query).length > 0)
 
 watch(hasQuery, (v) => {
   if (!v) reset()
