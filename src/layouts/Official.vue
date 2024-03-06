@@ -6,13 +6,11 @@ import OfficialHeader from '@comp/layout/official/Header.vue'
 <template>
   <div class="relative flex h-full flex-col">
     <OfficialHeader />
-    <div>
       <router-view v-slot="{ Component }">
         <keep-alive>
           <component :is="Component"></component>
         </keep-alive>
       </router-view>
-    </div>
     <OfficialFooter />
   </div>
 </template>

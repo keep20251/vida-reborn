@@ -1,54 +1,6 @@
+<script setup>
+import HeroSection from '@comp/official/HeroSection.vue'
+</script>
 <template>
-  <div>official landing1</div>
-  <div>official landing2</div>
-  <div>official landing3</div>
-  <div>official landing4j</div>
-  <div>official landing5</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
-  <div>official landing</div>
+  <HeroSection />
 </template>
-<script setup></script>
