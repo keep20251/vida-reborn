@@ -19,7 +19,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="official-lang-menu">
+  <div class="official-lang-menu text-nowrap relative">
     <div class="official-lang-menu-btn" @click.prevent="toggleMenu">
       <div class="flex cursor-pointer items-center justify-center gap-5">
         <Icon name="officialEarth" size="25"></Icon>
@@ -29,7 +29,7 @@ onBeforeUnmount(() => {
     </div>
     <div
       :class="{ active: isActived }"
-      class="official-lang-menu-items min-w-min rounded bg-white text-base text-gray-57 shadow-lg"
+      class="official-lang-menu-items absolute right-1 top-[140%] hidden w-full min-w-min cursor-pointer rounded bg-white text-base text-gray-57 shadow-lg"
     >
       <!-- TODO:: add language items -->
       <!-- TODO: add language click event -->
@@ -43,6 +43,23 @@ onBeforeUnmount(() => {
 </template>
 
 <style lang="scss" scoped>
+/* TODO: 把這邊換成tailwind css*/
+
+.official-lang-menu {
+  text-wrap: nowrap;
+  &-items.active {
+    display: block;
+    animation: slideDown 0.3s ease forwards;
+  }
+  &-items div {
+    padding: 10px 20px;
+    &:hover {
+      background-color: #6567e8;
+      color: white;
+    }
+  }
+}
+
 @keyframes slideDown {
   0% {
     opacity: 0;
@@ -64,35 +81,6 @@ onBeforeUnmount(() => {
   }
   100% {
     transform: rotate(180deg);
-  }
-}
-
-.official-lang-menu {
-  text-wrap: nowrap;
-  position: relative;
-  &-btn {
-    display: block;
-    border: none;
-    cursor: pointer;
-  }
-  &-items {
-    display: none;
-    position: absolute;
-    top: 140%;
-    right: 0;
-    width: 100%;
-    cursor: pointer;
-  }
-  &-items.active {
-    display: block;
-    animation: slideDown 0.3s ease forwards;
-  }
-  &-items div {
-    padding: 10px 20px;
-    &:hover {
-      background-color: #6567e8;
-      color: white;
-    }
   }
 }
 </style>
