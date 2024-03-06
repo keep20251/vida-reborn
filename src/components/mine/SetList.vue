@@ -125,7 +125,14 @@
       <div class="flex items-center space-x-18">
         <Icon name="mineLang" size="20"></Icon>
       </div>
-      <Dropdown class="bottom-2 w-full pl-3 text-base" shadow-none v-model="locale" :options="transOptions"></Dropdown>
+      <Dropdown
+        class="bottom-2 w-full pl-3 text-base"
+        shadow-none
+        v-model="locale"
+        :options="locales"
+        option-label="key"
+        option-value="value"
+      ></Dropdown>
     </div>
     <div class="grid space-y-10 py-10">
       <div class="flex cursor-pointer items-center justify-between bg-white pr-15" @click="aboutOpen = !aboutOpen">
@@ -219,10 +226,6 @@ const accOpen = ref(false)
 const aboutOpen = ref(false)
 
 const locale = useLocale()
-const transOptions = locales.map((lang) => ({
-  label: `lang.${lang.label}`,
-  value: lang.value,
-}))
 
 const setRoutes = ['mine-account', 'mine-password', 'mine-preference', 'mine-block', 'mine-delete']
 const aboutRoutes = ['mine-tos', 'mine-pp', 'mine-cp', 'mine-dmca']
