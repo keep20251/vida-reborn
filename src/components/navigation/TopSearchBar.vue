@@ -21,10 +21,9 @@
 import debounce from 'lodash/debounce'
 import { ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { storeToRefs } from 'pinia'
-import { useSearchStore } from '@/store/search'
 import Link from '@comp/common/Link.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
+import { useRouters } from '@/compositions/routers'
 
 const { t: $t } = useI18n()
 
@@ -42,17 +41,10 @@ watch(
   (v) => (input.value = v),
 )
 
-const searchStore = useSearchStore()
-const { historyTags } = storeToRefs(searchStore)
-const { onSearch } = searchStore
+const { to } = useRouters()
 
 const triggerSearch = debounce(() => {
   emits('search', input.value)
-  if (input.value && props.toSearch) {
-    onSearch(input.value)
-
-    if (historyTags.value.find((tag) => tag.value === input.value)) return
-    historyTags.value.push({ value: input.value, label: input.value })
-  }
+  if (input.value && props.toSearch) to('search', { query: { q: input.value } })
 }, 500)
 </script>

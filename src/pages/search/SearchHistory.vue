@@ -9,12 +9,20 @@
           </div>
         </div>
         <ClientOnly>
-          <TagGroup v-model="selectedHistory" :items="historyTags" @update:modelValue="onSearch"></TagGroup>
+          <TagGroup
+            v-model="selectedHistory"
+            :items="historyTags"
+            @update:modelValue="(q) => to('search', { query: { q } })"
+          ></TagGroup>
         </ClientOnly>
       </div>
       <div class="flex flex-col space-y-10">
         <div class="text-base font-normal leading-md">{{ $t('title.search.clear') }}</div>
-        <TagGroup v-model="selectedPopular" :items="popularTags" @update:modelValue="onSearch"></TagGroup>
+        <TagGroup
+          v-model="selectedPopular"
+          :items="popularTags"
+          @update:modelValue="(q) => to('search', { query: { q } })"
+        ></TagGroup>
       </div>
     </div>
   </div>
@@ -28,9 +36,12 @@ import { useModalStore } from '@/store/modal'
 import { useSearchStore } from '@/store/search'
 import TagGroup from '@comp/common/TagGroup.vue'
 import { onHydration, onServerClientOnce } from '@use/lifecycle'
+import { useRouters } from '@/compositions/routers'
+
+const { to } = useRouters()
 
 const searchStore = useSearchStore()
-const { fetchPopularTags, clearHistoryTags, onSearch } = searchStore
+const { fetchPopularTags, clearHistoryTags } = searchStore
 const { popularTags, historyTags } = storeToRefs(searchStore)
 
 const selectedHistory = ref('')
