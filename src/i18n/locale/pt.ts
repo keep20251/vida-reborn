@@ -226,9 +226,10 @@ export default {
     prvw: "Pré-visualização",
     video: "Vídeo",
     image: "Imagem",
-    notReviewed: "Ainda não revisado",
-    underReview: "Em revisão",
-    reviewFail: "Falha na auditoria",
+    pending: "",
+    passed: "",
+    wdrlCom: "",
+    wdrlFlr: "",
     reviewPass: "Passou",
     paid: "Pago",
     published: "Publicado",
@@ -249,7 +250,7 @@ export default {
     whetherDelArticle: "Tem certeza de que deseja deletar esta postagem?",
   },
   content: {
-    default: "Predefinir, não deve ser exibido em nenhum lugar",
+    default: "Predefinido, não deve ser exibido em nenhum lugar",
     welcomeToVIDA: "Bem-vindo ao VIDA, junte-se a nós!",
     verifyAccount:
       "Corra para verificar sua caixa de correio! Vá para 【Minha conta>Configurações de conta】 para concluir a verificação",
@@ -487,7 +488,7 @@ export default {
       confirm: "Mês {'$'} {price} vá para o pagamento",
     },
     shopBuy: {
-      1: "Desbloqueará {nickname}",
+      1: "Desbloqueará {nickname} o conteúdo do trabalho do departamento",
       2: "{nickname} receberá seu pagamento integralmente",
       confirm: "Desbloqueie agora ({'$'} {price})",
     },
@@ -501,7 +502,7 @@ export default {
       2: "Escolha a postagem para assistir ou fique na tela original!",
       confirm: "Vá para o post",
     },
-    title: { paySuc: "Pagamento bem -sucedido" },
+    title: { paySuc: "Pagou com sucesso" },
     paying: { title: "Processo de pagamento" },
     payFailed: {
       title: "Falha de pagamento",

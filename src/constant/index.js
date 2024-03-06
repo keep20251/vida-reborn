@@ -120,10 +120,10 @@ export const AUTH_STATUS = {
 
 // 提交紀錄 - 申請狀態
 export const WITHDRAW_LIST_STATUS = {
-  PAID: 1,
-  NOT_REVIEWED: 15,
-  FAIL: 10,
-  UNDER_REVIEW: 5,
+  PENDING: 0,
+  PASS: 1,
+  WDRL_COM: 2,
+  WDRL_FLR: 3,
 }
 
 export const BECOME_CREATOR_IDENTITY = {
