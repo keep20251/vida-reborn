@@ -4,7 +4,6 @@ import { defineStore } from 'pinia'
 import { useFeedStore } from '@/store/feed'
 import useRequest from '@use/request'
 import { useInfinite } from '@use/request/infinite'
-import { useRouters } from '@use/routers'
 import { LOCAL_STORAGE_KEYS, SEARCH_TAB } from '@const'
 
 export const useSearchStore = defineStore('search-store', () => {
@@ -63,11 +62,12 @@ export const useSearchStore = defineStore('search-store', () => {
     historyTags.value = []
   }
 
-  const { to } = useRouters()
+  function onSearch(value) {
+    setKeyword(value)
+    reloadAction.value({ newParams: { keyword: value } })
 
-  function onSearch(q) {
-    keyword.value = q
-    to('search', { query: { q } })
+    if (historyTags.value.find((tag) => tag.value === value)) return
+    historyTags.value.push({ value, label: value })
   }
 
   return {
