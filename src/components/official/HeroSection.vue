@@ -10,7 +10,17 @@ import { ref } from 'vue'
         <div class="hero-content-icon-img"></div>
       </div>
       <div class="hero-content-main-title">
-        EMPOWERING CREATORS TO CONNECT with THEIR FANS
+        <!-- <div>EMPOWERING</div> -->
+        <!-- <div>CREATORS</div> -->
+        <!-- <div>TO</div> -->
+        <!-- <div>CONNECT</div> -->
+        <!-- <div>with</div> -->
+        <!-- <div>THEIR</div> -->
+        <!-- <div>FANS</div> -->
+        <div>EMPOWERING CREATORS</div>
+        <div>TO CONNECT</div>
+        <div>with</div>
+        <div>THEIR FANS</div>
       </div>
       <div class="hero-content-sub-title">Monetising content made simple</div>
       <div class="hero-content-btns">
@@ -23,43 +33,50 @@ import { ref } from 'vue'
 
 <style lang="scss" scoped>
 .hero {
-
-  @apply flex w-full relative h-[calc(100vh_-_3.75rem)];
+  @apply relative flex h-[calc(100vh_-_3.75rem)] w-full;
 
   &-content {
-    @apply w-full h-fit max-w-[1009px] mx-auto text-white relative flex gap-5 items-center top-[17%] flex-col;
+    @apply relative  top-[8%] mx-auto flex h-fit w-full max-w-5xl  flex-col items-center gap-5 break-words px-36 text-white sm:top-[17%];
 
     &-icon {
-      @apply flex justify-end w-full;
+      @apply flex w-full justify-end;
 
       &-img {
-
-        @apply w-100 h-100;
+        @apply h-100 w-100;
         background-image: url(@/assets/images/official/reverse-logo.svg);
+        background-size: cover;
         max-width: 100%;
         object-fit: cover;
       }
     }
 
     &-main-title {
-      @apply text-center font-bold text-[67.29px] w-full;
-      // max-width: 62em;
-
-      // line-height: 34.9px;
-      // align-items: center;
-      // font-weight: 700;
-      // font-size: 4.1em
+      @apply px-5 py-5 text-right text-[2.56em] font-bold sm:max-w-5xl sm:text-center sm:text-[3.5em];
+      letter-spacing: 0.02em;
+      word-spacing: 0.1em;
+      line-height: 1.1;
+      word-wrap: break-word;
+      :nth-child(2) {
+        @apply sm:inline sm:px-5 sm:text-[1em];
+      }
+      :nth-child(3) {
+        @apply inline px-5 text-[.5em];
+      }
+      :nth-child(4) {
+        @apply inline;
+      }
     }
 
     &-sub-title {
-      @apply text-[30px] font-bold;
+      @apply text-[1.4em] font-bold;
+      line-height: 2em;
     }
 
     &-btns {
-      @apply justify-center flex gap-34 mt-36 text-[22px];
+      @apply mt-36 flex justify-center gap-34 text-[1.25em];
 
       div {
-        @apply border rounded-full px-34 py-6
+        @apply rounded-full border px-34 py-6;
       }
 
       :first-child {
@@ -70,11 +87,12 @@ import { ref } from 'vue'
   }
 
   &-bg {
-    @apply absolute w-full h-full bg-gray-600;
+    @apply absolute h-full w-full bg-gray-600;
     background-image: url(@/assets/images/official/bg-hero.png);
     object-fit: cover;
     background-size: cover;
-    background-position: center;
+    //   background-position: right 40% bottom 15%; //desktop
+    background-position: right 40% bottom 10%; //desktop
     background-repeat: no-repeat;
     background-color: #f0f0f0;
     padding: 20px;
