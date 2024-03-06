@@ -4,7 +4,7 @@ import OfficialHeader from '@comp/layout/official/Header.vue'
 </script>
 
 <template>
-  <div class="flex h-full flex-col">
+  <div class="relative flex h-full flex-col">
     <OfficialHeader />
     <div>
       <router-view v-slot="{ Component }">
