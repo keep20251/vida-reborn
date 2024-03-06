@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-show="activeTab === SEARCH_TAB.AUTHOR" class="overflow-x-hidden">
-      <List :items="creatorFetcher.dataList" item-key="id" divider>
+      <List :items="creatorFetcher.dataList" item-key="id">
         <template #default="{ item }">
           <SearchCreatorCard :item="item" class="mt-20"></SearchCreatorCard>
         </template>
