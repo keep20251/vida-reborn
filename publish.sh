@@ -46,6 +46,11 @@ function generateReport() {
         echo "$log\n"
     )
 
+    if [ ! -d "./reports" ]; then
+        echo "reports 資料夾不存在，幫你建立一個"
+        mkdir reports
+    fi
+
     path="./reports/deploy-v$version-$branch.md"
     echo "$report" >$path
     echo "部署報告發布完成, PATH:$path"
