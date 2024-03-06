@@ -43,6 +43,7 @@ const {
   dataExtra: total,
   isLoading,
   noMore,
+  init,
   next,
   reload,
 } = useInfinite(props.api, {
@@ -51,14 +52,8 @@ const {
 })
 
 const { setNextFn, clearNextFn } = useMineStore()
-
-onMounted(() => {
-  reload()
-})
+onMounted(() => init())
 onUnmounted(() => clearNextFn(next))
-onActivated(() => {
-  setNextFn(next)
-  reload()
-})
+onActivated(() => setNextFn(next))
 onDeactivated(() => clearNextFn(next))
 </script>
