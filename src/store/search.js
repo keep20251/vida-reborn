@@ -1,4 +1,4 @@
-import { computed, ref } from 'vue'
+import { computed, readonly, ref } from 'vue'
 import { useLocalStorage } from '@vueuse/core'
 import { defineStore } from 'pinia'
 import { useFeedStore } from '@/store/feed'
@@ -11,8 +11,12 @@ export const useSearchStore = defineStore('search-store', () => {
   const activeTab = ref(SEARCH_TAB.POST)
   const keyword = ref('')
 
+  function setKeyword(value) {
+    keyword.value = value
+  }
+
   function reset() {
-    activeTab.value = SEARCH_TAB.AUTHOR
+    activeTab.value = SEARCH_TAB.POST
     keyword.value = ''
   }
 
@@ -62,12 +66,14 @@ export const useSearchStore = defineStore('search-store', () => {
   const { to } = useRouters()
 
   function onSearch(q) {
+    keyword.value = q
     to('search', { query: { q } })
   }
 
   return {
     activeTab,
-    keyword,
+    keyword: readonly(keyword),
+    setKeyword,
     reset,
 
     nextAction,
