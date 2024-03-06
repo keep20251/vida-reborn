@@ -1,14 +1,26 @@
 <script setup>
-import { ref } from 'vue'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 
 const isActived = ref(false)
 
-const handleClick = () => (isActived.value = !isActived.value)
+const toggleMenu = () => (isActived.value = !isActived.value)
+
+const colseMenuOutside = (event) => {
+  if (!event.target.closest('.official-lang-menu')) isActived.value = false
+}
+
+onMounted(() => {
+  document.addEventListener('click', colseMenuOutside)
+})
+
+onBeforeUnmount(() => {
+  document.removeEventListener('click', colseMenuOutside)
+})
 </script>
 
 <template>
   <div class="official-lang-menu">
-    <div class="official-lang-menu-btn" @click.prevent="handleClick">
+    <div class="official-lang-menu-btn" @click.prevent="toggleMenu">
       <div class="flex cursor-pointer items-center justify-center gap-5">
         <Icon name="officialEarth" size="25"></Icon>
         <div>中文</div>
