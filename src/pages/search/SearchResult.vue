@@ -29,8 +29,9 @@
   </div>
 </template>
 <script setup>
-import { onDeactivated, watch } from 'vue'
+import { watch } from 'vue'
 import { useRoute } from 'vue-router'
+import { whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useHydrationStore } from '@/store/hydration'
 import { useSearchStore } from '@/store/search'
@@ -45,36 +46,28 @@ const { keyword, activeTab, reloadAction, articleFetcher, creatorFetcher } = sto
 
 const route = useRoute()
 
-watch(
+whenever(
   () => route.query.q,
-  (newQ) => {
-    if (!newQ) return
-    setKeyword(newQ)
-    console.log('watch.newQ', keyword.value)
-    reloadAction.value({ newParams: { keyword: keyword.value } })
-  },
-  { immediate: true },
+  (value) => `${(setKeyword(value), reloadAction.value({ newParams: { keyword: value } }))}`,
 )
 
 watch(activeTab, () => reloadAction.value({ newParams: { keyword: keyword.value } }))
 
-const { relatedAuthors, relatedFeeds, keyword: hydrationKeyword } = storeToRefs(useHydrationStore())
+const { relatedFeeds, keyword: hydrationKeyword } = storeToRefs(useHydrationStore())
 
 onServerClientOnce(async (isSSR) => {
   setKeyword(route.query.q)
   if (!keyword.value) return
-  await creatorFetcher.value.reload({ newParams: { keyword: keyword.value } })
+
   await articleFetcher.value.reload({ newParams: { keyword: keyword.value } })
   if (isSSR) {
     hydrationKeyword.value = keyword.value
-    relatedAuthors.value = creatorFetcher.value.dataList
     relatedFeeds.value = articleFetcher.value.dataList
   }
 })
 onHydration(() => {
   setKeyword(hydrationKeyword.value)
   if (!keyword.value) return
-  creatorFetcher.value.revert({ dataList: relatedAuthors.value }, { newParams: { keyword: keyword.value } })
   articleFetcher.value.revert({ dataList: relatedFeeds.value }, { newParams: { keyword: keyword.value } })
 })
 </script>
