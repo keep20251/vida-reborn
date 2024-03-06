@@ -12,7 +12,6 @@
           :type="type"
           :placeholder="placeholder"
           :disabled="disabled"
-          :value="value"
           :maxlength="maxLength"
           :class="{
             'pl-50 ': !!prependIcon,
@@ -94,7 +93,6 @@ const props = defineProps({
   password: { type: Boolean, default: false },
   number: { type: Boolean, default: false },
   disabled: { type: Boolean, default: false },
-  value: { type: String },
   appendText: { type: String, default: '' },
   appendIcon: { type: String, default: '' },
   appendTextBtn: { type: String, default: '' },
