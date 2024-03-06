@@ -69,6 +69,7 @@
 </template>
 <script setup>
 import { onActivated, onDeactivated, onMounted, onUnmounted, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useMineStore } from '@/store/mine'
 import { useModalStore } from '@/store/modal'
 import { usePopupMessageStore } from '@/store/popup-message'
@@ -79,6 +80,7 @@ import useRequest from '@use/request/index.js'
 import { useInfinite } from '@use/request/infinite'
 import { CANCEL_SUB_TYPE, SUB_STATUS } from '@const'
 
+const { t: $t } = useI18n()
 const { open, confirm } = useModalStore()
 const { open: openMessage } = usePopupMessageStore()
 const { subscribe } = useDialog()
@@ -87,12 +89,9 @@ const { dataList, isLoading, noMore, init, next, reload } = useInfinite('User.li
 })
 
 const { setNextFn, clearNextFn } = useMineStore()
-onMounted(() => reload())
+onMounted(() => init())
 onUnmounted(() => clearNextFn(next))
-onActivated(() => {
-  setNextFn(next)
-  reload()
-})
+onActivated(() => setNextFn(next))
 onDeactivated(() => clearNextFn(next))
 
 const onSubStatus = (item) => {
@@ -108,8 +107,8 @@ const onSubStatus = (item) => {
   if (item.status === SUB_STATUS.CANCEL_SUB) {
     confirm({
       size: 'sm',
-      title: '再次確認',
-      content: '你確定要取消訂閱嗎？',
+      title: 'beCreator.title.reConfirm',
+      content: $t('common.whetherCancelSub'),
       confirmAction: () => {
         handleSubscription(CANCEL_SUB_TYPE.CANCEL_SUB, item.subscription_id)
       },
@@ -117,8 +116,8 @@ const onSubStatus = (item) => {
   } else if (item.status === SUB_STATUS.RESTORE_SUB) {
     confirm({
       size: 'sm',
-      title: '再次確認',
-      content: '你確定要取消訂閱嗎？',
+      title: 'beCreator.title.reConfirm',
+      content: $t('common.whetherCrestoreSub'),
       confirmAction: () => {
         handleSubscription(CANCEL_SUB_TYPE.RESTORE_SUB, item.subscription_id)
       },
@@ -128,14 +127,14 @@ const onSubStatus = (item) => {
       subscribe({ item: i.value, creator: creator.value })
       handleSubscription(CANCEL_SUB_TYPE.RESTORE_SUB, item.subscription_id)
     } catch (e) {
-      openMessage('重新訂閱失敗', e)
+      openMessage('common.reSubErr', e)
     }
   } else {
     try {
       subscribe({ item: i.value, creator: creator.value })
       handleSubscription(CANCEL_SUB_TYPE.SUB_IN_ADVANCE, item.subscription_id)
     } catch (e) {
-      openMessage('提前續訂失敗', e)
+      openMessage('common.subInAdvanceErr', e)
     }
   }
 }
