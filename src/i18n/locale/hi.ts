@@ -48,6 +48,10 @@ export default {
     append: "जोड़ें",
     publish: "प्रकाशित करें",
     replace: "बदलें",
+    whetherCancelSub: "",
+    whetherCrestoreSub: "",
+    reSubErr: "",
+    subInAdvanceErr: "",
   },
   title: {
     join: "शामिल हों",
@@ -245,7 +249,7 @@ export default {
     whetherDelArticle: "क्या आप वाकई में इस पोस्ट को हटाना चाहते हैं?",
   },
   content: {
-    default: "प्रीसेट, कहीं भी प्रदर्शित नहीं किया जाना चाहिए",
+    default: "प्रीसेट, को कहीं भी प्रदर्शित नहीं किया जाना चाहिए",
     welcomeToVIDA: "VIDA में आपका स्वागत है, हमसे जुड़ें!",
     verifyAccount: "अपने मेलबॉक्स को जल्दी से सत्यापित करें! 【मेरा>खाता सेटिंग्स】 पर जाकर सत्यापन पूरा करें",
     termsDeclaration:
@@ -468,7 +472,7 @@ export default {
       confirm: "माह {'$'} {price} भुगतान पर जाएं",
     },
     shopBuy: {
-      1: "विभाग की कार्य सामग्री {nickname} अनलॉक करेगी",
+      1: "{nickname} अनलॉक करेगा",
       2: "{nickname} आपका भुगतान पूरा प्राप्त होगा",
       confirm: "अब अनलॉक करें ({'$'} {price})",
     },
@@ -482,7 +486,7 @@ export default {
       2: "देखने के लिए पोस्ट करने के लिए चुनें, या मूल स्क्रीन में रहें!",
       confirm: "पोस्ट पर जाओ",
     },
-    title: { paySuc: "सफलतापूर्वक भुगतान किया है" },
+    title: { paySuc: "सफल भुगतान" },
     paying: { title: "भुगतान प्रक्रिया" },
     payFailed: {
       title: "अदायगी विफल",

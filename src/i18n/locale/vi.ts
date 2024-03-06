@@ -48,6 +48,10 @@ export default {
     append: "Thêm vào",
     publish: "Xuất bản",
     replace: "Thay một nhóm",
+    whetherCancelSub: "",
+    whetherCrestoreSub: "",
+    reSubErr: "",
+    subInAdvanceErr: "",
   },
   title: {
     join: "Tham gia",
@@ -482,7 +486,7 @@ export default {
       confirm: "Tháng {'$'} {price} Chuyển đến thanh toán",
     },
     shopBuy: {
-      1: "Sẽ mở khóa {nickname} nội dung công việc của bộ phận",
+      1: "Sẽ mở khóa {nickname}",
       2: "{nickname} sẽ nhận đầy đủ thanh toán của bạn",
       confirm: "Mở khóa ngay bây giờ ({'$'} {price})",
     },
@@ -496,7 +500,7 @@ export default {
       2: "Chọn bài đăng để xem, hoặc ở trong màn hình gốc!",
       confirm: "Đi đến bài viết",
     },
-    title: { paySuc: "Đã trả tiền thành công" },
+    title: { paySuc: "Thanh toán thành công" },
     paying: { title: "Xử lý thanh toán" },
     payFailed: {
       title: "Thanh toán thất bại",

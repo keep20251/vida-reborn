@@ -43,6 +43,10 @@ export default {
     append: "추가",
     publish: "게시",
     replace: "교체하기",
+    whetherCancelSub: "",
+    whetherCrestoreSub: "",
+    reSubErr: "",
+    subInAdvanceErr: "",
   },
   title: {
     join: "가입하기",
@@ -475,7 +479,7 @@ export default {
       confirm: "Month { '$'} {price} 결제로 이동",
     },
     shopBuy: {
-      1: "{nickname} 부서의 작업 내용을 잠금 해제합니다.",
+      1: "잠금 해제 {nickname}",
       2: "{nickname}은 전액 지불을받습니다",
       confirm: "지금 잠금 해제 ({ '$'} {price})",
     },
@@ -489,7 +493,7 @@ export default {
       2: "포스트를 선택하여 시청하거나 원래 화면에 머물러 있습니다!",
       confirm: "게시물로 이동하십시오",
     },
-    title: { paySuc: "성공적으로 지불했습니다" },
+    title: { paySuc: "성공적인 지불" },
     paying: { title: "지불 처리" },
     payFailed: {
       title: "결제 실패",

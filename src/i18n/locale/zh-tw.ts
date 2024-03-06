@@ -43,6 +43,10 @@ export default {
     append: "添加",
     publish: "發布",
     replace: "換一批",
+    whetherCancelSub: "您是否確定要取消訂閱？",
+    whetherCrestoreSub: "您是否確定要恢復訂閱？",
+    reSubErr: "重新訂閱失敗",
+    subInAdvanceErr: "提前續訂失敗",
   },
   title: {
     join: "註冊",

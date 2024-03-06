@@ -48,6 +48,10 @@ export default {
     append: "Anhängen",
     publish: "Veröffentlichen",
     replace: "Ersetzen",
+    whetherCancelSub: "",
+    whetherCrestoreSub: "",
+    reSubErr: "",
+    subInAdvanceErr: "",
   },
   title: {
     join: "Beitreten",
@@ -478,13 +482,13 @@ export default {
   modal: {
     subscribe: {
       1: "Besuchen Sie alle Werke der Vergangenheit {days} Tag",
-      2: "Kann Informationen direkt an den Ersteller senden",
+      2: "Kann Informationen direkt an den Schöpfer senden",
       3: "Näher -stufe -Interaktion",
       4: "Sie können Ihr Abonnement jederzeit stornieren",
       confirm: "Monat {'$'} {price} zur Zahlung gehen",
     },
     shopBuy: {
-      1: "Entsperren {nickname} den Arbeitsinhalt der Abteilung",
+      1: "Entsperren {nickname}",
       2: "{nickname} erhält Ihre Zahlung vollständig",
       confirm: "Jetzt entsperren ({'$'} {price})",
     },
@@ -498,7 +502,7 @@ export default {
       2: "Wählen Sie zum Beitrag, um sie zu sehen oder im Originalbildschirm zu bleiben!",
       confirm: "In den Posten gehen",
     },
-    title: { paySuc: "Hat erfolgreich bezahlt" },
+    title: { paySuc: "Erfolgreiche Zahlung" },
     paying: { title: "Zahlungsabwicklung" },
     payFailed: {
       title: "Zahlung fehl",

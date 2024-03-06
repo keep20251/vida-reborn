@@ -48,6 +48,10 @@ export default {
     append: "Добавить",
     publish: "Опубликовать",
     replace: "Заменить",
+    whetherCancelSub: "",
+    whetherCrestoreSub: "",
+    reSubErr: "",
+    subInAdvanceErr: "",
   },
   title: {
     join: "Присоединиться",
@@ -176,7 +180,7 @@ export default {
     error: {
       subscribeSelf: "Не могу подписаться на себя",
       shopBuySelf: "Не могу купить свои собственные продукты",
-      subscriptionNotFound: "РЕШЕНИЕ НАСТОЯЩЕГО подписки не доступно",
+      subscriptionNotFound: "РЕШЕНИЕ НАСТОЯЩЕГО ПОДПИСКА",
     },
     sending: "Отправка",
     failure: "Неуспешный",
@@ -300,7 +304,7 @@ export default {
     customStyle: "Пользовательский стиль",
     subUnlockDayAfter: "Разблокировка позволяет за последние несколько дней с момента покупки?",
     tokenExpired: "Срок сеанса входа истек, пожалуйста, войдите снова.",
-    clearSearchHistory: "Вы уверены, что хотите очистить историю?",
+    clearSearchHistory: "Вы уверены, что хотите прояснить историю?",
     uploadVideoLimit: {
       format:
         "Загруженный в данный момент формат видео ({format}) не поддерживается. Пожалуйста, преобразуйте его в формат .mp4 или .mov и повторите попытку.",
@@ -483,7 +487,7 @@ export default {
       confirm: "Месяц {'$'} {price} перейти к оплате",
     },
     shopBuy: {
-      1: "Разблокирует {nickname} рабочее содержимое отдела",
+      1: "Разблокирует {nickname}",
       2: "{nickname} получит ваш платеж в полном объеме",
       confirm: "Разблокировать сейчас ({'$'} {price})",
     },
@@ -497,7 +501,7 @@ export default {
       2: "Выберите пост, чтобы посмотреть, или остаться на оригинальном экране!",
       confirm: "Перейти к сообщению",
     },
-    title: { paySuc: "Успешно заплатил" },
+    title: { paySuc: "Успешная оплата" },
     paying: { title: "Процесс оплаты" },
     payFailed: {
       title: "Оплата провал",

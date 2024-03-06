@@ -48,6 +48,10 @@ export default {
     append: "Ajouter",
     publish: "Publier",
     replace: "Remplacer",
+    whetherCancelSub: "",
+    whetherCrestoreSub: "",
+    reSubErr: "",
+    subInAdvanceErr: "",
   },
   title: {
     join: "Rejoindre",
@@ -245,7 +249,7 @@ export default {
     whetherDelArticle: "Êtes-vous sûr de vouloir supprimer ce post ?",
   },
   content: {
-    default: "Préréglé, ne doit être affiché nulle part",
+    default: "Préréglage, ne doit être affiché nulle part",
     welcomeToVIDA: "Bienvenue chez VIDA, rejoignez-nous !",
     verifyAccount:
       "Dépêchez-vous de vérifier votre boîte aux lettres ! Allez à 【Mon compte>Paramètres du compte】 pour compléter la vérification",
@@ -484,7 +488,7 @@ export default {
       confirm: "Mois {'$'} {price} Aller au paiement",
     },
     shopBuy: {
-      1: "Déverrouillera {nickname} le contenu de travail du département",
+      1: "Déverrouillera {nickname}",
       2: "{nickname} recevra votre paiement en totalité",
       confirm: "Déverrouiller maintenant ({'$'} {price})",
     },
@@ -498,7 +502,7 @@ export default {
       2: "Choisissez le message pour regarder ou rester dans l'écran d'origine!",
       confirm: "Aller au poste",
     },
-    title: { paySuc: "A réussi à payer" },
+    title: { paySuc: "Paiement réussi" },
     paying: { title: "Traitement des paiements" },
     payFailed: {
       title: "Échec du paiement",
