@@ -23,21 +23,21 @@ const HI = 'hi'
  * 小心[dash]跟[underline]的差異
  */
 export const locales = Object.freeze([
-  { label: 'en', value: EN },
-  { label: 'zh_cn', value: CN },
-  { label: 'zh_tw', value: TW },
-  { label: 'es', value: ES },
-  { label: 'fr', value: FR },
-  { label: 'de', value: DE },
-  { label: 'th', value: TH },
-  { label: 'vi', value: VI },
-  { label: 'ja', value: JA },
-  { label: 'ko', value: KO },
-  { label: 'ru', value: RU },
-  { label: 'pt', value: PT },
-  { label: 'id', value: ID },
-  { label: 'ar', value: AR },
-  { label: 'hi', value: HI },
+  { label: 'en', value: EN, key: 'lang.en' },
+  { label: 'zh_cn', value: CN, key: 'lang.zh_cn' },
+  { label: 'zh_tw', value: TW, key: 'lang.zh_tw' },
+  { label: 'es', value: ES, key: 'lang.es' },
+  { label: 'fr', value: FR, key: 'lang.fr' },
+  { label: 'de', value: DE, key: 'lang.de' },
+  { label: 'th', value: TH, key: 'lang.th' },
+  { label: 'vi', value: VI, key: 'lang.vi' },
+  { label: 'ja', value: JA, key: 'lang.ja' },
+  { label: 'ko', value: KO, key: 'lang.ko' },
+  { label: 'ru', value: RU, key: 'lang.ru' },
+  { label: 'pt', value: PT, key: 'lang.pt' },
+  { label: 'id', value: ID, key: 'lang.id' },
+  { label: 'ar', value: AR, key: 'lang.ar' },
+  { label: 'hi', value: HI, key: 'lang.hi' },
 ])
 
 function initLocale() {

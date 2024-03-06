@@ -9,12 +9,12 @@
                 <div class="text-center text-xl font-bold">i18n Testing Text</div>
                 <div class="text-center text-xl font-bold">{{ $t('common.loading') }}</div>
                 <div
-                  v-for="(lang, index) in langs"
+                  v-for="(lang, index) in locales"
                   :key="`lang-${index}`"
                   class="cursor-pointer text-center hover:text-green-500"
-                  @click="locale = lang"
+                  @click="locale = lang.label"
                 >
-                  {{ $t(`lang.${lang}`) }}
+                  {{ $t(lang.key) }}
                 </div>
               </div>
             </div>
@@ -29,6 +29,4 @@ import { useLocale } from '@use/utils/locale'
 import { locales } from '@/i18n'
 
 const locale = useLocale()
-
-const langs = locales.map((locale) => locale.label)
 </script>
