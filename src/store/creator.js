@@ -1,5 +1,7 @@
 import { reactive } from 'vue'
-import { defineStore } from 'pinia'
+import { whenever } from '@vueuse/core'
+import { defineStore, storeToRefs } from 'pinia'
+import { useAccountStore } from '@/store/account'
 import useRequest from '@use/request'
 
 export const useCreatorStore = defineStore('creator', () => {
@@ -18,6 +20,12 @@ export const useCreatorStore = defineStore('creator', () => {
   const uuidToUsername = {}
 
   const inRequesting = {}
+
+  const accountStore = useAccountStore()
+  const { isLogin } = storeToRefs(accountStore)
+  if (!import.meta.env.SSR) {
+    whenever(isLogin, clear)
+  }
 
   async function get(username) {
     if (creatorsMap.has(username)) {

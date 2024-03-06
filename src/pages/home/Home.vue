@@ -21,7 +21,12 @@
         </List>
       </div>
       <div v-show="tab === TAB_TYPE.SUB" class="h-[calc(100vh-12.75rem)]">
-        <PopCreatorSwiper v-if="isMobile" :items="creators"></PopCreatorSwiper>
+        <PopCreatorSwiper
+          v-if="isMobile"
+          :items="creators"
+          @load="creatorsNext"
+          @reload="creatorsReload"
+        ></PopCreatorSwiper>
         <div v-else>
           <div class="flex justify-between pt-20">
             <div class="text-base font-bold leading-md">{{ $t('info.popularCreator') }}</div>
@@ -89,7 +94,6 @@ const {
   dataExtra,
   isLoading,
   noMore,
-  currentPage,
   init,
   revert,
   next,
@@ -173,11 +177,7 @@ function updateIntesreted() {
 
 const authObserver = useObserver(isLogin)
 const fn = {
-  onExecuted: async () => {
-    const page = currentPage.value
-    reload()
-    for (let i = 1; i <= page; i++) await next()
-  },
+  onExecuted: async () => reload(),
   onCompleted: () => console.log('完成'),
   onError: () => console.log('錯誤'),
 }

@@ -28,7 +28,7 @@
         <!-- app-top -->
         <div
           v-if="$slots['app-top']"
-          class="fixed top-0 z-10 -ml-20 h-52 max-w-[540px] overflow-hidden bg-white px-20 py-9"
+          class="fixed top-0 z-20 -ml-20 h-52 max-w-[540px] overflow-hidden bg-white px-20 py-9"
           :class="{
             'w-full': isMobile,
             'w-[calc(100%-60px)]': isDesktop,
