@@ -52,10 +52,7 @@ const tabOptions = [
 
 const route = useRoute()
 const hasQuery = computed(() => Object.keys(route.query).length > 0)
-
-watch(hasQuery, (v) => {
-  if (!v) reset()
-})
+watch(hasQuery, (v) => (v ? void 0 : reset()))
 
 const { t: $t } = useI18n()
 const headStore = useHeadStore()
