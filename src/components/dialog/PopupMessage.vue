@@ -8,7 +8,7 @@
     leave-from-class="transform scale-100"
   >
     <div
-      v-show="isOpen"
+      v-if="isOpen"
       class="fixed bottom-50 z-50 flex w-fit min-w-[10.625rem] items-center justify-center rounded-md bg-gray-a3 bg-opacity-50 px-16 py-8 text-base font-medium leading-md"
       :class="{
         'bg-warning bg-opacity-50': failedTheme,
