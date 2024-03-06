@@ -21,8 +21,6 @@
 import debounce from 'lodash/debounce'
 import { ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useRoute } from 'vue-router'
-import { watchImmediate } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useSearchStore } from '@/store/search'
 import Link from '@comp/common/Link.vue'
@@ -57,10 +55,4 @@ const triggerSearch = debounce(() => {
     historyTags.value.push({ value: input.value, label: input.value })
   }
 }, 500)
-
-const route = useRoute()
-watchImmediate(
-  () => route.query?.q,
-  (value) => (input.value = value),
-)
 </script>

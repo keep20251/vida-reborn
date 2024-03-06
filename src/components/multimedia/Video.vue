@@ -82,6 +82,7 @@ function openLazy() {
 
 function closeLazy() {
   releaseVideo()
+  if (!videoWrap.value) return
   lazyloader.unobserve(videoWrap.value)
 }
 
