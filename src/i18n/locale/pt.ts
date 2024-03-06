@@ -48,6 +48,10 @@ export default {
     append: "Anexar",
     publish: "Publicar",
     replace: "Substituir",
+    whetherCancelSub: "",
+    whetherCrestoreSub: "",
+    reSubErr: "",
+    subInAdvanceErr: "",
   },
   title: {
     join: "Junte-se",
@@ -79,7 +83,7 @@ export default {
     editSocialLink: "Edite Link Social",
     earnWdrlReq: "Solicitação de retirada",
     earnWdrlHist: "Registro de retiradas",
-    clearSearchHistory: "Clear Search Record",
+    clearSearchHistory: "Recorde de pesquisa claro",
     search: { history: "Pesquisa histórica", clear: "Pesquisas Populares", popular: "Vazio" },
     subscription: "Plano de assinatura",
     publishSuccess: "Publicação Bem-sucedida",
@@ -245,7 +249,7 @@ export default {
     whetherDelArticle: "Tem certeza de que deseja deletar esta postagem?",
   },
   content: {
-    default: "Predefinido, não deve ser exibido em nenhum lugar",
+    default: "Predefinir, não deve ser exibido em nenhum lugar",
     welcomeToVIDA: "Bem-vindo ao VIDA, junte-se a nós!",
     verifyAccount:
       "Corra para verificar sua caixa de correio! Vá para 【Minha conta>Configurações de conta】 para concluir a verificação",
@@ -483,7 +487,7 @@ export default {
       confirm: "Mês {'$'} {price} vá para o pagamento",
     },
     shopBuy: {
-      1: "Desbloqueará {nickname} o conteúdo do trabalho do departamento",
+      1: "Desbloqueará {nickname}",
       2: "{nickname} receberá seu pagamento integralmente",
       confirm: "Desbloqueie agora ({'$'} {price})",
     },
@@ -497,7 +501,7 @@ export default {
       2: "Escolha a postagem para assistir ou fique na tela original!",
       confirm: "Vá para o post",
     },
-    title: { paySuc: "Pagou com sucesso" },
+    title: { paySuc: "Pagamento bem -sucedido" },
     paying: { title: "Processo de pagamento" },
     payFailed: {
       title: "Falha de pagamento",

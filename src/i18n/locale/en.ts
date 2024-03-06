@@ -48,6 +48,10 @@ export default {
     append: "Append",
     publish: "Publish",
     replace: "Replace",
+    whetherCancelSub: "Are you sure you want to cancel your subscription?",
+    whetherCrestoreSub: "Are you sure you want to resume your subscription?",
+    reSubErr: "Resubscription failed",
+    subInAdvanceErr: "Early renewal failed",
   },
   title: {
     join: "Join",
@@ -482,7 +486,7 @@ export default {
       confirm: "Month {'$'} {price} Go to payment",
     },
     shopBuy: {
-      1: "Will unlock {nickname} The work content of the department",
+      1: "Will unlock {nickname}",
       2: "{nickname} will receive your payment in full",
       confirm: "Unlock now ({'$'} {price})",
     },
@@ -496,7 +500,7 @@ export default {
       2: "Choose to the post to watch, or stay in the original screen!",
       confirm: "Go to the post",
     },
-    title: { paySuc: "Has successfully paid" },
+    title: { paySuc: "Successful payment" },
     paying: { title: "Payment processing" },
     payFailed: {
       title: "Payment Fail",

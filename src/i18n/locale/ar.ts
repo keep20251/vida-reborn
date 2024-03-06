@@ -48,6 +48,10 @@ export default {
     append: "إلحاق",
     publish: "نشر",
     replace: "استبدال",
+    whetherCancelSub: "",
+    whetherCrestoreSub: "",
+    reSubErr: "",
+    subInAdvanceErr: "",
   },
   title: {
     join: "انضمام",
@@ -478,11 +482,7 @@ export default {
       4: "يمكنك إلغاء اشتراكك في أي وقت",
       confirm: "الشهر {'$'} {price} انتقل إلى الدفع",
     },
-    shopBuy: {
-      1: "سوف يفتح {nickname} محتوى العمل في القسم",
-      2: "{nickname} سوف تتلقى دفعتك بالكامل",
-      confirm: "فتح الآن ({'$'} {price})",
-    },
+    shopBuy: { 1: "سوف يفتح {nickname}", 2: "{nickname} سوف تتلقى دفعتك بالكامل", confirm: "فتح الآن ({'$'} {price})" },
     subscribeSuc: {
       1: "رائع! اشتركت بنجاح في {nickname}!",
       2: "اختر الانتقال إلى صفحة المبدع الرئيسية ، أو البقاء على الشاشة الأصلية!",
@@ -493,7 +493,7 @@ export default {
       2: "اختر المنشور لمشاهدة ، أو البقاء في الشاشة الأصلية!",
       confirm: "انتقل إلى المنشور",
     },
-    title: { paySuc: "دفعت بنجاح" },
+    title: { paySuc: "دفع ناجح" },
     paying: { title: "معالجة الدفع" },
     payFailed: {
       title: "فشلت عملية الدفع",

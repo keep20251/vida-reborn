@@ -48,6 +48,10 @@ export default {
     append: "Menambahkan",
     publish: "Menerbitkan",
     replace: "Ganti",
+    whetherCancelSub: "",
+    whetherCrestoreSub: "",
+    reSubErr: "",
+    subInAdvanceErr: "",
   },
   title: {
     join: "Bergabung",
@@ -176,7 +180,7 @@ export default {
     error: {
       subscribeSelf: "Tidak bisa berlangganan diri sendiri",
       shopBuySelf: "Tidak dapat membeli produk Anda sendiri",
-      subscriptionNotFound: "Tidak ada solusi langganan yang tersedia",
+      subscriptionNotFound: "Tidak ada solusi berlangganan yang tersedia",
     },
     sending: "Mengirim",
     failure: "Gagal",
@@ -482,7 +486,7 @@ export default {
       confirm: "Bulan {'$'} {price} Pergi ke pembayaran",
     },
     shopBuy: {
-      1: "Akan Membuka Kunci {nickname} Konten Kerja Departemen",
+      1: "Akan membuka kunci {nickname}",
       2: "{nickname} akan menerima pembayaran Anda secara lengkap",
       confirm: "Buka Kunci Sekarang ({'$'} {price})",
     },
@@ -496,7 +500,7 @@ export default {
       2: "Pilih ke pos untuk ditonton, atau tetap di layar asli!",
       confirm: "Pergi ke pos",
     },
-    title: { paySuc: "Telah berhasil dibayar" },
+    title: { paySuc: "Pembayaran yang berhasil" },
     paying: { title: "Proses pembayaran" },
     payFailed: {
       title: "Pembayaran gagal",

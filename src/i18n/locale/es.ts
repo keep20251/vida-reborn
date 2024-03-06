@@ -48,6 +48,10 @@ export default {
     append: "Añadir",
     publish: "Publicar",
     replace: "Cambiar",
+    whetherCancelSub: "",
+    whetherCrestoreSub: "",
+    reSubErr: "",
+    subInAdvanceErr: "",
   },
   title: {
     join: "Unirse",
@@ -176,7 +180,7 @@ export default {
     error: {
       subscribeSelf: "No puedo suscribirte a ti mismo",
       shopBuySelf: "No puedo comprar tus propios productos",
-      subscriptionNotFound: "No hay solución de suscripción disponible",
+      subscriptionNotFound: "Sin solución de suscripción disponible",
     },
     sending: "Enviando",
     failure: "Fallido",
@@ -484,7 +488,7 @@ export default {
       confirm: "Mes {'$'} {price} ir al pago",
     },
     shopBuy: {
-      1: "Desbloqueará {nickname} el contenido de trabajo del departamento",
+      1: "Desbloqueará {nickname}",
       2: "{nickname} recibirá su pago en su totalidad",
       confirm: "Desbloquear ahora ({'$'} {price})",
     },
@@ -495,14 +499,14 @@ export default {
     },
     shopBuySuc: {
       1: "¡maravilloso! Pago exitoso para desbloquear la publicación",
-      2: "¡Elija la publicación para mirar o permanecer en la pantalla original!",
+      2: "¡Elija la publicación para ver, o permanecer en la pantalla original!",
       confirm: "Ir a la publicación",
     },
-    title: { paySuc: "Ha pagado con éxito" },
+    title: { paySuc: "Pago exitoso" },
     paying: { title: "Procesando pago" },
     payFailed: {
       title: "Pago fallido",
-      content: "Razón detallado: {reason}. Vuelva a intentarlo, o comuníquese con el personal de servicio al cliente",
+      content: "Razón detallado: {reason}. Vuelva a intentarlo o comuníquese con el personal de servicio al cliente",
     },
     confirmAmount: "¿Puedo pedirle que envíe la cantidad {'$'} {price} Vaya al pago",
     beforeStart: "Antes de empezar...",

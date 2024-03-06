@@ -43,6 +43,10 @@ export default {
     append: "追加",
     publish: "公開",
     replace: "一新しいものに交換する",
+    whetherCancelSub: "",
+    whetherCrestoreSub: "",
+    reSubErr: "",
+    subInAdvanceErr: "",
   },
   title: {
     join: "参加する",
@@ -477,7 +481,7 @@ export default {
       confirm: "月{'$'} {price}支払いに移動します",
     },
     shopBuy: {
-      1: "{nickname}部門の作業コンテンツのロックを解除します",
+      1: "{nickname}のロックを解除します",
       2: "{nickname}はお支払いを全額受け取ります",
       confirm: "今すぐロック解除（{'$'} {price}）",
     },
@@ -487,11 +491,11 @@ export default {
       confirm: "クリエーターページに移動します",
     },
     shopBuySuc: {
-      1: "素晴らしい！投稿のロックを解除するための支払いの成功",
+      1: "素晴らしい！投稿のロックを解除するための支払いが成功しました",
       2: "視聴するために投稿を選択するか、元の画面にとどまります！",
       confirm: "投稿に移動します",
     },
-    title: { paySuc: "正常に支払われました" },
+    title: { paySuc: "成功した支払い" },
     paying: { title: "支払い手続き" },
     payFailed: {
       title: "支払いは失敗します",

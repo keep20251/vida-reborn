@@ -32,7 +32,7 @@ import InputWrap from '@comp/form/InputWrap.vue'
 import useRequest from '@use/request'
 import { useYup } from '@use/validator/yup.js'
 
-const { confirm } = useModalStore()
+const { confirm, alert } = useModalStore()
 const earnStore = useEarnStore()
 const { refreshOverallData } = earnStore
 const { overallData } = storeToRefs(earnStore)

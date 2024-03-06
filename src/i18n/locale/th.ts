@@ -48,6 +48,10 @@ export default {
     append: "เพิ่ม",
     publish: "เผยแพร่",
     replace: "เปลี่ยนชุดใหม่",
+    whetherCancelSub: "",
+    whetherCrestoreSub: "",
+    reSubErr: "",
+    subInAdvanceErr: "",
   },
   title: {
     join: "เข้าร่วม",
@@ -479,7 +483,7 @@ export default {
       confirm: "เดือน {'$'} {price} ไปที่การชำระเงิน",
     },
     shopBuy: {
-      1: "จะปลดล็อก {nickname} เนื้อหาการทำงานของแผนก",
+      1: "จะปลดล็อก {nickname}",
       2: "{nickname} จะได้รับการชำระเงินเต็มจำนวน",
       confirm: "ปลดล็อกตอนนี้ ({'$'} {price})",
     },
@@ -493,7 +497,7 @@ export default {
       2: "เลือกโพสต์เพื่อดูหรืออยู่ในหน้าจอดั้งเดิม!",
       confirm: "ไปที่โพสต์",
     },
-    title: { paySuc: "จ่ายสำเร็จแล้ว" },
+    title: { paySuc: "การชำระเงินที่ประสบความสำเร็จ" },
     paying: { title: "การประมวลผลการชำระเงิน" },
     payFailed: {
       title: "การชำระเงินล้มเหลว",
