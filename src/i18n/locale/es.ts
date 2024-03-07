@@ -48,6 +48,10 @@ export default {
     append: "Añadir",
     publish: "Publicar",
     replace: "Cambiar",
+    whetherCancelSub: "",
+    whetherCrestoreSub: "",
+    reSubErr: "",
+    subInAdvanceErr: "",
   },
   title: {
     join: "Unirse",
@@ -176,7 +180,7 @@ export default {
     error: {
       subscribeSelf: "No puedo suscribirte a ti mismo",
       shopBuySelf: "No puedo comprar tus propios productos",
-      subscriptionNotFound: "No hay solución de suscripción disponible",
+      subscriptionNotFound: "Sin solución de suscripción disponible",
     },
     sending: "Enviando",
     failure: "Fallido",
@@ -222,9 +226,10 @@ export default {
     prvw: "Vista previa",
     video: "Vídeo",
     image: "Imagen",
-    notReviewed: "Aún no revisado",
-    underReview: "En revisión",
-    reviewFail: "Fallo de auditoría",
+    pending: "",
+    passed: "",
+    wdrlCom: "",
+    wdrlFlr: "",
     reviewPass: "Aprobado",
     paid: "Pagado",
     published: "Publicado",
@@ -245,7 +250,7 @@ export default {
     whetherDelArticle: "¿Estás seguro de que quieres eliminar esta publicación?",
   },
   content: {
-    default: "Preestablecido, no debe mostrarse en ningún lado",
+    default: "Preset, no debe mostrarse en ningún lado",
     welcomeToVIDA: "¡Bienvenido a VIDA, únete a nosotros!",
     verifyAccount:
       "¡Apresúrate a verificar tu buzón! Ve a 【Mi cuenta>Configuración de la cuenta】 para completar la verificación",
@@ -495,7 +500,7 @@ export default {
     },
     shopBuySuc: {
       1: "¡maravilloso! Pago exitoso para desbloquear la publicación",
-      2: "¡Elija la publicación para mirar o permanecer en la pantalla original!",
+      2: "¡Elija la publicación para ver, o permanecer en la pantalla original!",
       confirm: "Ir a la publicación",
     },
     title: { paySuc: "Ha pagado con éxito" },

@@ -1,18 +1,21 @@
-import { computed, ref } from 'vue'
+import { computed, readonly, ref } from 'vue'
 import { useLocalStorage } from '@vueuse/core'
 import { defineStore } from 'pinia'
 import { useFeedStore } from '@/store/feed'
 import useRequest from '@use/request'
 import { useInfinite } from '@use/request/infinite'
-import { useRouters } from '@use/routers'
 import { LOCAL_STORAGE_KEYS, SEARCH_TAB } from '@const'
 
 export const useSearchStore = defineStore('search-store', () => {
   const activeTab = ref(SEARCH_TAB.POST)
   const keyword = ref('')
 
+  function setKeyword(value) {
+    keyword.value = value
+  }
+
   function reset() {
-    activeTab.value = SEARCH_TAB.AUTHOR
+    activeTab.value = SEARCH_TAB.POST
     keyword.value = ''
   }
 
@@ -59,15 +62,18 @@ export const useSearchStore = defineStore('search-store', () => {
     historyTags.value = []
   }
 
-  const { to } = useRouters()
+  function onSearch(value) {
+    setKeyword(value)
+    reloadAction.value({ newParams: { keyword: value } })
 
-  function onSearch(q) {
-    to('search', { query: { q } })
+    if (historyTags.value.find((tag) => tag.value === value)) return
+    historyTags.value.push({ value, label: value })
   }
 
   return {
     activeTab,
-    keyword,
+    keyword: readonly(keyword),
+    setKeyword,
     reset,
 
     nextAction,

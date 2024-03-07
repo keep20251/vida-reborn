@@ -1,9 +1,12 @@
 import { ref } from 'vue'
-import { defineStore } from 'pinia'
+import { defineStore, storeToRefs } from 'pinia'
+import { useAccountStore } from '@/store/account'
 import useRequest from '@use/request'
 import { addDays, toDateYmd } from '@/utils/string-helper'
 
 export const useEarnStore = defineStore('earn', () => {
+  const { userData } = storeToRefs(useAccountStore())
+  const balance = ref(userData.value.money)
   const startDate = ref(addDays(-7))
   const endDate = ref(new Date())
 
@@ -26,6 +29,7 @@ export const useEarnStore = defineStore('earn', () => {
   }
 
   return {
+    balance,
     startDate,
     endDate,
     overallData,

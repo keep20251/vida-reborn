@@ -43,12 +43,9 @@ const { dataList, isLoading, noMore, init, next, reload } = useInfinite('User.li
 })
 
 const { setNextFn, clearNextFn } = useMineStore()
-onMounted(() => reload())
+onMounted(() => init())
 onUnmounted(() => clearNextFn(next))
-onActivated(() => {
-  setNextFn(next)
-  reload()
-})
+onActivated(() => setNextFn(next))
 onDeactivated(() => clearNextFn(next))
 
 async function unblock(aff_blocked) {

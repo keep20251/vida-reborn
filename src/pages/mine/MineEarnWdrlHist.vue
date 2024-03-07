@@ -47,14 +47,14 @@ const { t: $t } = useI18n()
 const statusShow = computed(() => {
   return (status) => {
     switch (status) {
-      case WITHDRAW_LIST_STATUS.PAID:
-        return $t('info.paid')
-      case WITHDRAW_LIST_STATUS.NOT_REVIEWED:
-        return $t('info.notReviewed')
-      case WITHDRAW_LIST_STATUS.UNDER_REVIEW:
-        return $t('info.underReview')
+      case WITHDRAW_LIST_STATUS.PENDING:
+        return $t('info.pending')
+      case WITHDRAW_LIST_STATUS.PASS:
+        return $t('info.passed')
+      case WITHDRAW_LIST_STATUS.WDRL_COM:
+        return $t('info.wdrlCom')
       default:
-        return $t('info.reviewFail')
+        return $t('info.wdrlFlr')
     }
   }
 })

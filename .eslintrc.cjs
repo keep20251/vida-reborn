@@ -16,5 +16,6 @@ module.exports = {
     'comma-dangle': 0,
     'no-unused-vars': 1,
     camelcase: 0,
+    'no-void': 'off',
   },
 }

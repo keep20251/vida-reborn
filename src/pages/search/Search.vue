@@ -1,7 +1,7 @@
 <template>
   <Page infinite @load="nextAction">
     <template #app-top>
-      <TopSearchBar :input-value="keyword" :logo="isMobile" to-search @search="(v) => (keyword = v)"></TopSearchBar>
+      <TopSearchBar :input-value="keyword" :logo="isMobile" to-search></TopSearchBar>
     </template>
     <template #main-top v-if="hasQuery">
       <Tab v-model="activeTab" :options="tabOptions"></Tab>
@@ -30,6 +30,7 @@ import SearchHistory from '@/pages/search/SearchHistory.vue'
 import SearchResult from '@/pages/search/SearchResult.vue'
 import { useAppStore } from '@/store/app'
 import { useHeadStore } from '@/store/head'
+import { useHydrationStore } from '@/store/hydration'
 import { useSearchStore } from '@/store/search'
 import BulletinCard from '@comp/aside/BulletinCard.vue'
 import RelCreatorsCard from '@comp/aside/RelCreatorsCard.vue'
@@ -37,25 +38,24 @@ import Carousel from '@comp/common/Carousel.vue'
 import Tab from '@comp/navigation/Tab.vue'
 import TopSearchBar from '@comp/navigation/TopSearchBar.vue'
 import { SEARCH_TAB } from '@const'
-
-const route = useRoute()
-const hasQuery = computed(() => Object.keys(route.query).length > 0)
+import { onHydration, onServerClientOnce } from '@/compositions/lifecycle'
 
 const appStore = useAppStore()
 const { isMobile } = storeToRefs(appStore)
 
 const searchStore = useSearchStore()
-const { reset } = searchStore
-const { activeTab, nextAction, keyword } = storeToRefs(searchStore)
+const { reset, setKeyword, onSearch } = searchStore
+const { activeTab, nextAction, keyword, articleFetcher, reloadAction } = storeToRefs(searchStore)
 
 const tabOptions = [
   { label: 'tab.relatedPost', value: SEARCH_TAB.POST },
   { label: 'tab.relatedAuthor', value: SEARCH_TAB.AUTHOR },
 ]
+watch(activeTab, () => reloadAction.value({ newParams: { keyword: keyword.value } }))
 
-watch(hasQuery, (v) => {
-  if (!v) reset()
-})
+const route = useRoute()
+const hasQuery = computed(() => route.name === 'search' && route.query.q)
+watch(hasQuery, (v) => (v ? onSearch(v) : reset()))
 
 const { t: $t } = useI18n()
 const headStore = useHeadStore()
@@ -71,4 +71,22 @@ async function loadSeoHead() {
 onServerPrefetch(loadSeoHead)
 onActivated(loadSeoHead)
 onDeactivated(resetHead)
+
+const { relatedFeeds, keyword: hydrationKeyword } = storeToRefs(useHydrationStore())
+
+onServerClientOnce(async (isSSR) => {
+  setKeyword(route.query.q)
+  if (!keyword.value) return
+
+  await articleFetcher.value.reload({ newParams: { keyword: keyword.value } })
+  if (isSSR) {
+    hydrationKeyword.value = keyword.value
+    relatedFeeds.value = articleFetcher.value.dataList
+  }
+})
+onHydration(() => {
+  setKeyword(hydrationKeyword.value)
+  if (!keyword.value) return
+  articleFetcher.value.revert({ dataList: relatedFeeds.value }, { newParams: { keyword: keyword.value } })
+})
 </script>

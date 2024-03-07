@@ -6,15 +6,20 @@
   >
     <!-- head -->
     <div class="flex h-30 w-full items-center">
-      <Link :href="`/${item.user?.username}`" @click.stop="toCreator(item.user.username)">
-        <Avatar :radius="15" class="mr-5" :src="item.user?.thumb"></Avatar>
+      <Link class="mr-10" :href="`/${item.user?.username}`" @click.stop="toCreator(item.user.username)">
+        <Avatar :radius="15" :src="item.user?.thumb"></Avatar>
       </Link>
-      <div class="line-clamp-1 text-base font-bold leading-none">
+      <div class="mr-10 line-clamp-1 text-base font-bold leading-none">
         <Link class="hover:underline" :href="`/${item.user?.username}`" @click.stop="toCreator(item.user?.username)"
           >{{ item.user?.nickname }}
         </Link>
       </div>
-      <div class="line-clamp-1 shrink-0 grow text-right text-sm font-medium leading-5 text-gray-57">
+      <div class="mr-10 flex grow items-center justify-end">
+        <div class="h-20 w-20" @click.stop="copy(item.share_url)">
+          <Icon name="link" size="20"></Icon>
+        </div>
+      </div>
+      <div class="line-clamp-1 shrink-0 text-right text-sm font-medium leading-5 text-gray-57">
         {{ item.created_at }}
       </div>
       <div v-if="!isVisitor && !isSelf" class="flex cursor-pointer items-center" @click.stop="dissSomeone(item.user)">
@@ -105,6 +110,7 @@ import BlockMask from '@comp/multimedia/BlockMask.vue'
 import PhotoSwiper from '@comp/multimedia/PhotoSwiper.vue'
 import VideoWrap from '@comp/multimedia/VideoWrap.vue'
 import { useRouters } from '@use/routers'
+import { useCopyToClipboard } from '@use/utils/copyToClipboard'
 import { FEED_STATUS, MEDIA_TYPE } from '@const/publish'
 
 const props = defineProps({
@@ -140,5 +146,6 @@ const { to, toCreator, toFeed } = useRouters()
 const { toggleLike: $toggleLike } = useFeedStore()
 const toggleLike = afterLoginAction($toggleLike)
 
+const { copy } = useCopyToClipboard()
 const { dissSomeone } = useDialogStore()
 </script>
