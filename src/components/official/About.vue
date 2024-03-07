@@ -1,4 +1,15 @@
-<script setup></script>
+<script setup>
+import { storeToRefs } from 'pinia'
+import { useAppStore } from '@/store/app'
+import { useSearchStore } from '@/store/search'
+import TopSearchBar from '@comp/navigation/TopSearchBar.vue'
+
+const appStore = useAppStore()
+const { isMobile } = storeToRefs(appStore)
+
+const searchStore = useSearchStore()
+const { activeTab, nextAction, keyword } = storeToRefs(searchStore)
+</script>
 
 <template>
   <div class="official-about">
@@ -13,19 +24,21 @@
         achieve them.
       </div>
     </div>
-
     <div class="official-about-search">
-      <div class="official-about-search-input"></div>
+      <div class="official-about-search-input">
+        <TopSearchBar :input-value="keyword" :logo="isMobile" to-search @search="(v) => (keyword = v)"></TopSearchBar>
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .official-about {
-  @apply mt-60 h-[calc(100vh_-_3.75rem)];
-  @apply flex  items-start justify-center space-y-20;
+  @apply mx-auto my-60 flex  flex-col space-y-20;
+  max-width: 47.563em;
+
   &-content {
-    @apply mt-60 flex flex-col  items-center justify-center p-100;
+    @apply mx-40 mt-90 flex flex-col items-center justify-center;
 
     &-img {
       width: 6.25em;
@@ -44,14 +57,13 @@
     }
     &-info {
       @apply pt-20 text-center font-normal leading-6 text-gray-57;
-      max-width: 47.563em;
       word-wrap: break-word;
     }
   }
   &-search {
-    @apply absolute right-0 top-0;
+    @apply pt-60;
     &-input {
-      @apply h-100 w-100;
+      @apply mx-40 sm:mx-80;
     }
   }
 }
