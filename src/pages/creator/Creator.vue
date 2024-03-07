@@ -23,9 +23,9 @@
                 <div v-if="isLogin" class="flex cursor-pointer items-center" @click="dissSomeone(creator)">
                   <Icon name="report" size="20"></Icon>
                 </div>
-                <Link :href="`/${creator?.username}`" :title="copyLink" @click="copy(copyLink)">
-                  <div class="flex cursor-pointer items-center"><Icon name="link" size="20"></Icon></div>
-                </Link>
+                <div class="flex cursor-pointer items-center" @click="copy(creator.share_url)">
+                  <Icon name="link" size="20"></Icon>
+                </div>
                 <Button v-if="creator?.is_subscribed" size="sm" disabled>
                   {{ $t('common.subscribed') }}
                 </Button>
@@ -98,7 +98,6 @@ import { useHydrationStore } from '@/store/hydration'
 import { useSubsciptionStore } from '@/store/subscription'
 import SubscribeCard from '@comp/card/SubscribeCard.vue'
 import Button from '@comp/common/Button.vue'
-import Link from '@comp/common/Link.vue'
 import SocialIcon from '@comp/common/SocialIcon.vue'
 import Error from '@comp/info/Error.vue'
 import Feed from '@comp/main/Feed.vue'
@@ -111,7 +110,6 @@ import { useInfinite } from '@use/request/infinite'
 import { useRouters } from '@use/routers'
 import { useCopyToClipboard } from '@use/utils/copyToClipboard'
 
-const copyLink = computed(() => `${import.meta.env.VITE_APP_URL}/${creator.value?.username}`)
 const { copy } = useCopyToClipboard()
 
 const appStore = useAppStore()
