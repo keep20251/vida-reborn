@@ -1,4 +1,5 @@
 import { createMemoryHistory, createRouter as createVueRouter, createWebHistory } from 'vue-router'
+import { useCookies } from '@vueuse/integrations/useCookies'
 import Creator from '@/pages/creator/Creator.vue'
 import Feed from '@/pages/feed/Feed.vue'
 import Home from '@/pages/home/Home.vue'
@@ -8,6 +9,8 @@ import Academy from '@/pages/official/Academy.vue'
 import Landing from '@/pages/official/Landing.vue'
 import Publish from '@/pages/publish/Publish.vue'
 import Search from '@/pages/search/Search.vue'
+import { COOKIE_KEY } from '@const'
+import { locales } from '@/i18n'
 import AppLicationLayout from '@/layouts/Application.vue'
 import OfficialLayout from '@/layouts/Official.vue'
 import afterGuard from './guards/after'
@@ -17,6 +20,8 @@ import devRoutes from './routes/dev'
 import errorRoutes from './routes/error'
 import mineRoutes from './routes/mine'
 
+const langRegex = locales.map((l) => l.value).join('|')
+
 /**
  * @property checkLogin 用於判斷該頁面是否需要驗證登入狀態
  */
@@ -24,45 +29,58 @@ const routes = [
   {
     name: 'app',
     path: '/',
-    // component: Application,
     children: [
-      {
-        name: 'applaction', // layout for application
-        path: '/',
-        component: AppLicationLayout,
-        children: [
-          { name: 'home', path: '/:lang/home', component: Home, meta: {} },
-          { name: 'search', path: '/:lang/search', component: Search, meta: {} },
-          { name: 'message', path: '/:lang/message/:to?', component: Message, meta: {} },
-          {
-            name: 'mine',
-            path: '/:lang/mine',
-            component: Mine,
-            meta: {},
-            children: mineRoutes.map((route) => ({ ...route, beforeEnter: checkPermission })),
-          },
-          { name: 'publish', path: '/:lang/publish', component: Publish, meta: {} },
-          { name: 'creator', path: '/:lang/:username', component: Creator, meta: {} },
-          { name: 'feed', path: '/:lang/:username/:feedId', component: Feed, meta: {} },
-        ],
-      },
       {
         name: 'official',
         path: '/',
         component: OfficialLayout, // layout for official
         children: [
+          // landing
+          { path: '/', redirect: redirectToLangPath },
+          { name: 'landing', path: `/:lang(${langRegex})`, component: Landing, meta: {} },
+
+          // academy
+          { path: '/official/academy', redirect: redirectToLangPath },
+          { name: 'academy', path: `/:lang(${langRegex})/official/academy`, component: Academy, meta: {} },
+        ],
+      },
+      {
+        name: 'applaction', // layout for application
+        path: '/',
+        component: AppLicationLayout,
+        children: [
+          // home
+          { path: '/home', redirect: redirectToLangPath },
+          { name: 'home', path: `/:lang(${langRegex})/home`, component: Home, meta: {} },
+
+          // search
+          { path: '/search', redirect: redirectToLangPath },
+          { name: 'search', path: `/:lang(${langRegex})/search`, component: Search, meta: {} },
+
+          // message
+          { path: '/message/:to?', redirect: redirectToLangPath },
+          { name: 'message', path: `/:lang(${langRegex})/message/:to?`, component: Message, meta: {} },
+
+          // mine
           {
-            name: 'landing',
-            path: '/:lang',
-            component: Landing,
+            name: 'mine',
+            path: `/:lang(${langRegex})/mine`,
+            component: Mine,
             meta: {},
+            children: mineRoutes.map((route) => ({ ...route, beforeEnter: checkPermission })),
           },
-          {
-            name: 'academy',
-            path: '/:lang/official/academy',
-            component: Academy,
-            meta: {},
-          },
+
+          // publish
+          { path: '/publish', redirect: redirectToLangPath },
+          { name: 'publish', path: `/:lang(${langRegex})/publish`, component: Publish, meta: {} },
+
+          // creator
+          { path: '/:username', redirect: redirectToLangPath },
+          { name: 'creator', path: `/:lang(${langRegex})/:username`, component: Creator, meta: {} },
+
+          // feed
+          { path: '/:username/:feedId', redirect: redirectToLangPath },
+          { name: 'feed', path: `/:lang(${langRegex})/:username/:feedId`, component: Feed, meta: {} },
         ],
       },
     ],
@@ -86,4 +104,22 @@ export function createRouter() {
   })
 
   return router
+}
+
+function redirectToLangPath(to) {
+  let langPath
+
+  // Server 端靠判別 request 中的 url 來確認是否補上 query.lang
+  if (import.meta.env.SSR) {
+    langPath = to.query.lang
+  }
+
+  // Client 從 cookie 拿，Server 會在第一次執行的時候把語言設定至 cookie
+  else {
+    const cookies = useCookies()
+    langPath = cookies.get(COOKIE_KEY.LOCALE, { path: '/' })
+  }
+
+  const { lang, ...query } = to.query
+  return { path: `/${langPath}${to.path}`, query }
 }

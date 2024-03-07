@@ -82,3 +82,7 @@ export function getLang(langTmp) {
   })
   return matches || EN
 }
+
+export function containsLang(lang) {
+  return locales.map((l) => l.value).indexOf(lang) !== -1
+}

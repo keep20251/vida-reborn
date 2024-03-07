@@ -1,17 +1,34 @@
 import { basename } from 'node:path'
 import { renderToString } from 'vue/server-renderer'
-import { createI18n } from '@/i18n'
+import { containsLang, createI18n } from '@/i18n'
 import { createApp } from './main'
 
 export async function render(url, manifest, ctx) {
   const { app, router, store, head } = await createApp()
 
-  const locale = url.split('/')[1]
+  let locale
+  if (ctx.req.cookies.__LOCALE) {
+    locale = ctx.req.cookies.__LOCALE
+  } else {
+    const urlLang = url.split('/')[1]
+    const acceptLang = ctx.req.get('accept-language')?.split(',')[0].split(';')[0].toLocaleLowerCase()
+
+    if (containsLang(urlLang)) {
+      locale = urlLang
+    } else if (containsLang(acceptLang)) {
+      locale = acceptLang
+    } else {
+      locale = 'en'
+    }
+
+    ctx.res.cookie('__LOCALE', locale, { path: '/' })
+  }
 
   const i18n = await createI18n(locale)
   app.use(i18n)
 
-  await router.push(url)
+  // query.lang 可能會在 vue router redirect 被使用到
+  await router.push(`${url}${url.indexOf('?') === -1 ? '?' : '&'}lang=${locale}`)
   await router.isReady()
 
   const html = await renderToString(app, ctx)
