@@ -77,14 +77,13 @@
   }
 
   &-bg {
-    @apply absolute -top-60 h-full w-full p-35;
+    @apply absolute -top-60 h-full w-full  pb-60;
     @apply h-[calc(100vh_+_3.75rem)];
     background-image: url(@/assets/images/official/bg-hero.png);
     background-position: right 35% bottom 45%;
     object-fit: cover;
     background-size: cover;
     background-repeat: no-repeat;
-    padding: 20px;
     text-align: center;
   }
 }
