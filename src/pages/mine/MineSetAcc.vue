@@ -86,6 +86,7 @@
 <script setup>
 import { onMounted, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useMineStore } from '@/store/mine'
@@ -104,15 +105,16 @@ const { twitterLogin, googleLogin } = useThirdPartyAuth()
 const { open: openMessage } = usePopupMessageStore()
 const { open } = useModalStore()
 const accountStore = useAccountStore()
-const { userData } = accountStore
+const { userData } = storeToRefs(accountStore)
 const edit = ref(false)
 const mineStore = useMineStore()
 const { email, verifyCode } = storeToRefs(mineStore)
+const { push } = useRouter()
 
 onMounted(() => {
   email.value = userData.email
-  credential.nickname.value = userData.nickname
-  credential.username.value = userData.username
+  credential.nickname.value = userData.value.nickname
+  credential.username.value = userData.value.username
 })
 
 watch(email, (newEmailValue) => {
@@ -198,7 +200,10 @@ async function saveUserName() {
       nickname: credential.nickname.value,
       username: credential.username.value,
     })
+    userData.value.nickname = credential.nickname.value
+    userData.value.username = credential.username.value
     openMessage('title.updateSuccess')
+    push({ name: 'mine-home' })
   } catch (e) {
     nameServerError.value = e.message
     openMessage('title.updateFail')
