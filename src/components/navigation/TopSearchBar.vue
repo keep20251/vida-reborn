@@ -23,13 +23,7 @@ import { ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import Link from '@comp/common/Link.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
-<<<<<<< HEAD
-import { useRouters } from '@use/routers'
-
-const { to } = useRouters()
-=======
 import { useRouters } from '@/compositions/routers'
->>>>>>> master
 
 const { t: $t } = useI18n()
 
