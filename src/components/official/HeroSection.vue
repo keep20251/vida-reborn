@@ -1,6 +1,4 @@
-<script setup>
-import { ref } from 'vue'
-</script>
+<script setup></script>
 
 <template>
   <div class="hero">
@@ -79,13 +77,13 @@ import { ref } from 'vue'
   }
 
   &-bg {
-    @apply absolute h-full w-full bg-gray-600;
+    @apply absolute -top-60 h-full w-full p-35;
+    @apply h-[calc(100vh_+_3.75rem)];
     background-image: url(@/assets/images/official/bg-hero.png);
+    background-position: right 35% bottom 45%;
     object-fit: cover;
     background-size: cover;
-    background-position: right 40% bottom 10%;
     background-repeat: no-repeat;
-    background-color: #f0f0f0;
     padding: 20px;
     text-align: center;
   }
