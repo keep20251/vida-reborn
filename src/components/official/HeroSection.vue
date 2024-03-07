@@ -10,13 +10,6 @@ import { ref } from 'vue'
         <div class="hero-content-icon-img"></div>
       </div>
       <div class="hero-content-main-title">
-        <!-- <div>EMPOWERING</div> -->
-        <!-- <div>CREATORS</div> -->
-        <!-- <div>TO</div> -->
-        <!-- <div>CONNECT</div> -->
-        <!-- <div>with</div> -->
-        <!-- <div>THEIR</div> -->
-        <!-- <div>FANS</div> -->
         <div>EMPOWERING CREATORS</div>
         <div>TO CONNECT</div>
         <div>with</div>
@@ -36,7 +29,7 @@ import { ref } from 'vue'
   @apply relative flex h-[calc(100vh_-_3.75rem)] w-full;
 
   &-content {
-    @apply relative  top-[8%] mx-auto flex h-fit w-full max-w-5xl  flex-col items-center gap-5 break-words px-36 text-white sm:top-[17%];
+    @apply relative  top-[8%] mx-auto flex h-fit w-full max-w-5xl  flex-col items-center space-x-10 space-y-10 break-words px-36 text-white sm:top-[17%];
 
     &-icon {
       @apply flex w-full justify-end;
@@ -68,12 +61,11 @@ import { ref } from 'vue'
     }
 
     &-sub-title {
-      @apply text-[1.4em] font-bold;
-      line-height: 2em;
+      @apply font-bold sm:text-[2em];
     }
 
     &-btns {
-      @apply mt-36 flex justify-center gap-34 text-[1.25em];
+      @apply mt-5 flex justify-center space-x-34 pt-30 text-[1.25em];
 
       div {
         @apply rounded-full border px-34 py-6;
@@ -91,8 +83,7 @@ import { ref } from 'vue'
     background-image: url(@/assets/images/official/bg-hero.png);
     object-fit: cover;
     background-size: cover;
-    //   background-position: right 40% bottom 15%; //desktop
-    background-position: right 40% bottom 10%; //desktop
+    background-position: right 40% bottom 10%;
     background-repeat: no-repeat;
     background-color: #f0f0f0;
     padding: 20px;
