@@ -36,8 +36,8 @@ export const useHeadStore = defineStore('app-head', () => {
   const alternates = ref([
     ...locales.map((locale) => ({
       rel: 'alternate',
-      hreflang: locale.label,
-      href: import.meta.env.VITE_APP_URL + `/${locale.label}`,
+      hreflang: locale.value,
+      href: import.meta.env.VITE_APP_URL + `/${locale.value}`,
     })),
     {
       rel: 'alternate',
