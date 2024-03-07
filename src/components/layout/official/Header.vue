@@ -5,7 +5,7 @@ import MobileMenuBtn from '@/components/layout/official/MobileMenuBtn.vue'
 </script>
 <template>
   <header
-    class="official-header z-10 sticky top-0 flex h-60 flex-row items-center justify-between gap-62 bg-primary px-19 text-white sm:px-50"
+    class="official-header sticky top-0 z-50 flex h-60 flex-row items-center justify-between gap-62 bg-primary px-19 text-white sm:px-50"
   >
     <div class="sm:flex-grow">
       <img src="@/assets/images/official/nav-logo.svg?url" class="web-logo" alt="VIDA" />

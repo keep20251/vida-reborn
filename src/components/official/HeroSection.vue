@@ -66,6 +66,7 @@
       @apply mt-5 flex justify-center space-x-34 pt-30 text-[1.25em];
 
       div {
+        cursor: pointer;
         @apply rounded-full border px-34 py-6;
       }
 
