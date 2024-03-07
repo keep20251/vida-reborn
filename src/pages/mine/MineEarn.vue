@@ -7,12 +7,14 @@
   </div>
   <div class="flex items-end justify-center space-x-5 py-35">
     <div class="text-base font-bold leading-md">$</div>
-    <div class="text-xl font-bold leading-xl">{{ overallData?.total_income || 0 }}</div>
+    <div class="text-xl font-bold leading-xl">{{ balance || 0 }}</div>
   </div>
   <router-link :to="{ name: 'mine-earn-wdrl-req' }">
     <Button>{{ $t('content.withdrawalApply') }}</Button>
   </router-link>
-  <div class="mt-30 text-base font-bold leading-md">{{ $t('content.dataDashboard') }}</div>
+  <div class="mt-30 text-base font-bold leading-md">
+    {{ $t('content.dataDashboard') }}
+  </div>
 
   <div class="sticky top-52 z-10 h-35 bg-white">
     <Tab v-model="tab" :options="tabOptions"></Tab>
@@ -138,7 +140,7 @@ import { toDateYmd } from '@/utils/string-helper'
 
 const earnStore = useEarnStore()
 const { refreshOverallData } = earnStore
-const { overallData, startDate, endDate } = storeToRefs(earnStore)
+const { balance, overallData, startDate, endDate } = storeToRefs(earnStore)
 
 const tab = ref(MINE_EARN_TAB.OVERALL_PREF)
 const tabOptions = ref([
