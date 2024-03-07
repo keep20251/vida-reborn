@@ -5,7 +5,7 @@
     </div>
     <div class="flex items-end justify-center space-x-5 py-35">
       <div class="text-base font-bold leading-md">$</div>
-      <div class="text-xl font-bold leading-xl">{{ overallData?.total_income || 0 }}</div>
+      <div class="text-xl font-bold leading-xl">{{ balance || 0 }}</div>
     </div>
     <InputWrap
       v-model="credential.wdrlAmount.value"
@@ -35,7 +35,7 @@ import { useYup } from '@use/validator/yup.js'
 const { confirm, alert } = useModalStore()
 const earnStore = useEarnStore()
 const { refreshOverallData } = earnStore
-const { overallData } = storeToRefs(earnStore)
+const { balance } = storeToRefs(earnStore)
 
 onMounted(() => {
   refreshOverallData()
@@ -68,7 +68,7 @@ async function submit() {
 const onWithdraw = async () => {
   try {
     await useRequest('User.applyWithdraw', { params: { amount: credential.wdrlAmount.value }, immediate: true })
-    refreshOverallData()
+    balance.value = balance.value - credential.wdrlAmount.value
   } catch (e) {
     alert({
       title: 'title.publishFail',
