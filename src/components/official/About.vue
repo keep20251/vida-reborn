@@ -1,14 +1,9 @@
 <script setup>
-import { storeToRefs } from 'pinia'
-import { useAppStore } from '@/store/app'
-import { useSearchStore } from '@/store/search'
 import TopSearchBar from '@comp/navigation/TopSearchBar.vue'
 
-const appStore = useAppStore()
-const { isMobile } = storeToRefs(appStore)
-
-const searchStore = useSearchStore()
-const { activeTab, nextAction, keyword } = storeToRefs(searchStore)
+function toSearch(value) {
+  window.location.href = `/search?q=${value}`
+}
 </script>
 
 <template>
@@ -26,7 +21,7 @@ const { activeTab, nextAction, keyword } = storeToRefs(searchStore)
     </div>
     <div class="official-about-search">
       <div class="official-about-search-input">
-        <TopSearchBar :input-value="keyword" :logo="isMobile" to-search @search="(v) => (keyword = v)"></TopSearchBar>
+        <TopSearchBar @search="toSearch"></TopSearchBar>
       </div>
     </div>
   </div>
