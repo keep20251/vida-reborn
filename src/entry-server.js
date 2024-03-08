@@ -1,6 +1,6 @@
 import { basename } from 'node:path'
 import { renderToString } from 'vue/server-renderer'
-import { containsLang, createI18n } from '@/i18n'
+import { containsLang, createI18n, getLang } from '@/i18n'
 import { createApp } from './main'
 
 export async function render(url, manifest, ctx) {
@@ -10,21 +10,16 @@ export async function render(url, manifest, ctx) {
   const restPath = rest.filter((p) => p).join('/')
   const firstPathIsLang = containsLang(firstPath)
 
-  // 語言優先權: cookie > firstPath > acceptLanguage > 預設'en'
+  // 語言優先權: cookie > firstPath > request head Accept-Language > 預設'en'
   let locale
-  if (ctx.req.cookies.__LOCALE) {
+  if (containsLang(ctx.req.cookies.__LOCALE)) {
     locale = ctx.req.cookies.__LOCALE
   } else {
-    const acceptLang = ctx.req.get('accept-language')?.split(',')[0].split(';')[0].toLocaleLowerCase()
-
     if (firstPathIsLang) {
       locale = firstPath
-    } else if (containsLang(acceptLang)) {
-      locale = acceptLang
     } else {
-      locale = 'en'
+      locale = getLang(ctx.req.get('accept-language')?.split(',')[0].split(';')[0])
     }
-
     ctx.res.cookie('__LOCALE', locale, { path: '/' })
   }
 
