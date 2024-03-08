@@ -1,22 +1,15 @@
 <script setup>
-const props = defineProps({
+defineProps({
   text: { type: String, default: 'Button' },
-  click: {
-    type: Function,
-    default: () => {
-      console.log('btn click')
-    },
-  },
+  bold: { type: Boolean, default: false },
 })
-
-const handleClick = () => {
-  props.click()
-}
+const emits = defineEmits(['click'])
 </script>
 
 <template>
-  <!-- TODO:: if router match this link then fond bold is bold else normal -->
-  <div @click.prevent="handleClick" class="text-nowrap cursor-pointer text-lg font-bold">{{ text }}</div>
+  <div @click.prevent="emits('click')" class="text-nowrap cursor-pointer text-lg" :class="{ 'font-bold': bold }">
+    {{ text }}
+  </div>
 </template>
 
 <style scoped>
