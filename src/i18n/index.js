@@ -85,9 +85,11 @@ export function getLang(langTmp = EN) {
     if (['hant', 'tw', 'hk', 'mo'].includes(countryCode)) {
       return TW
     }
-    if (['hans', 'cn', 'sg', 'my'].includes(countryCode)) {
-      return CN
-    }
+    // 非繁中就預設簡中了
+    return CN
+    // if (['hans', 'cn', 'sg', 'my'].includes(countryCode)) {
+    // return CN
+    // }
   }
 
   if ([EN, ES, FR, DE, TH, VI, JA, KO, RU, PT, ID, AR, HI].includes(languageCode)) {
