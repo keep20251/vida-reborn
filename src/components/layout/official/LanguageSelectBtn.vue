@@ -1,20 +1,25 @@
 <script setup>
-import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import { useLocale } from '@use/utils/locale'
+import { locales } from '@/i18n'
+
+const _locale = useLocale()
+const currentLocaleLabel = computed(() => locales.find((item) => item.value === _locale.value).key)
 
 const isActived = ref(false)
 
 const toggleMenu = () => (isActived.value = !isActived.value)
 
-const colseMenuOutside = (event) => {
+const closeMenuOutside = (event) => {
   if (!event.target.closest('.official-lang-menu')) isActived.value = false
 }
 
 onMounted(() => {
-  document.addEventListener('click', colseMenuOutside)
+  document.addEventListener('click', closeMenuOutside)
 })
 
 onBeforeUnmount(() => {
-  document.removeEventListener('click', colseMenuOutside)
+  document.removeEventListener('click', closeMenuOutside)
 })
 </script>
 
@@ -23,21 +28,17 @@ onBeforeUnmount(() => {
     <div class="official-lang-menu-btn" @click.prevent="toggleMenu">
       <div class="flex cursor-pointer items-center justify-center gap-5">
         <Icon name="officialEarth" size="25"></Icon>
-        <div>中文</div>
+        <div>{{ $t(currentLocaleLabel) }}</div>
         <Icon name="officialDropdown" class="officialDropdown pt-2" :class="{ rotate: isActived }" size="10"></Icon>
       </div>
     </div>
     <div
       :class="{ active: isActived }"
-      class="official-lang-menu-items absolute right-1 top-[140%] hidden w-full min-w-min cursor-pointer rounded bg-white text-base text-gray-57 shadow-lg"
+      class="official-lang-menu-items scrollbar absolute right-1 top-[140%] hidden max-h-[138px] w-full min-w-min cursor-pointer overflow-y-scroll rounded bg-white text-base text-gray-57 shadow-lg"
     >
-      <!-- TODO:: add language items -->
-      <!-- TODO: add language click event -->
-      <div>English</div>
-      <div>中文</div>
-      <div>العربية</div>
-      <div>日本語</div>
-      <div>Français</div>
+      <div v-for="locale in locales" :key="`lang-${locale.value}`" @click="() => (_locale = locale.value)">
+        {{ $t(locale.key) }}
+      </div>
     </div>
   </div>
 </template>
