@@ -93,7 +93,7 @@ const {
   noMore: commentsNoMore,
   reload: reloadComments,
   revert: revertComments,
-  next: nextComments,
+  next: $nextComments,
 } = useInfinite('Comment.list', { readonly: false })
 
 const feed = ref(null)
@@ -130,6 +130,12 @@ async function loadNewFeed(onCleanup = () => {}) {
   } catch (e) {
     errMsg.value = e.message
   }
+}
+function nextComments() {
+  if (feed.value === null) {
+    return
+  }
+  $nextComments()
 }
 
 // SEO head
@@ -171,10 +177,14 @@ onServerClientOnce(async (isSSR) => {
   }
 })
 onHydration(() => {
+  errMsg.value = feedError.value
+  if (errMsg.value) {
+    return
+  }
+
   feed.value = revertFeed(feedFromStore.value)
   loadSeoHead()
   revertComments(feedComments.value, { newParams: { article_id: feed.value.id } })
-  errMsg.value = feedError.value
 })
 
 const commentInput = ref('')
