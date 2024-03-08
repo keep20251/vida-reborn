@@ -8,9 +8,9 @@ const { push } = useRouter()
 
 const route = useRoute()
 const headerButtons = [
-  { text: 'Home', route: 'landing' },
-  { text: 'Vida Academy', route: 'academy' },
-  { text: 'Contact', route: 'contact' },
+  { text: 'Home', route: 'landing', href: '/' },
+  { text: 'Vida Academy', route: 'academy', href: '/official/academy' },
+  { text: 'Contact', route: 'contact', href: '/official/contact' },
 ]
 </script>
 <template>
@@ -26,6 +26,7 @@ const headerButtons = [
       :key="`header-${index}-${btn.text}`"
       :text="btn.text"
       :bold="route.name === btn.route"
+      :href="btn.href"
       @click="push({ name: btn.route })"
     />
     <div class="hidden sm:block">
