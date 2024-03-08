@@ -1,22 +1,20 @@
 <script setup>
-const props = defineProps({
-  text: { type: String, default: 'Button' },
-  click: {
-    type: Function,
-    default: () => {
-      console.log('btn click')
-    },
-  },
-})
+import Link from '@comp/common/Link.vue'
 
-const handleClick = () => {
-  props.click()
-}
+defineProps({
+  href: { type: String, default: '' },
+  text: { type: String, default: 'Button' },
+  bold: { type: Boolean, default: false },
+})
+const emits = defineEmits(['click'])
 </script>
 
 <template>
-  <!-- TODO:: if router match this link then fond bold is bold else normal -->
-  <div @click.prevent="handleClick" class="text-nowrap cursor-pointer text-lg font-bold">{{ text }}</div>
+  <Link :href="href">
+    <div @click.prevent="emits('click')" class="text-nowrap cursor-pointer text-lg" :class="{ 'font-bold': bold }">
+      {{ text }}
+    </div>
+  </Link>
 </template>
 
 <style scoped>

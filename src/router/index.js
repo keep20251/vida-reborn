@@ -4,6 +4,7 @@ import Feed from '@/pages/feed/Feed.vue'
 import Home from '@/pages/home/Home.vue'
 import Message from '@/pages/message/Message.vue'
 import Mine from '@/pages/mine/Mine.vue'
+import Academy from '@/pages/official/Academy.vue'
 import Landing from '@/pages/official/Landing.vue'
 import Publish from '@/pages/publish/Publish.vue'
 import Search from '@/pages/search/Search.vue'
@@ -54,6 +55,12 @@ const routes = [
             name: 'landing',
             path: '/:lang',
             component: Landing,
+            meta: {},
+          },
+          {
+            name: 'academy',
+            path: '/:lang/official/academy',
+            component: Academy,
             meta: {},
           },
         ],
