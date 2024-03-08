@@ -1,7 +1,7 @@
 <template>
   <Page>
     <template #default>
-      <div>404 Page</div>
+      <div class="flex h-screen items-center justify-center text-xl font-bold">404 Not Found</div>
     </template>
   </Page>
 </template>

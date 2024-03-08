@@ -75,7 +75,6 @@ export async function loadLanguage(lang) {
 export function getLang(langTmp = EN) {
   const locale = langTmp.replace('_', '-').toLowerCase()
 
-  // 預設
   if (!locale) {
     return EN
   }
