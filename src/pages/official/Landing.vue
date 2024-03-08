@@ -1,5 +1,6 @@
 <script setup>
 import About from '@comp/official/About.vue'
+import Advantages from '@comp/official/Advantages.vue'
 import AttractGlobalAudience from '@comp/official/AttractGlobalAudience.vue'
 import HeroSection from '@comp/official/HeroSection.vue'
 import JoinUs from '@comp/official/JoinUs.vue'
@@ -9,4 +10,5 @@ import JoinUs from '@comp/official/JoinUs.vue'
   <About />
   <JoinUs />
   <AttractGlobalAudience />
+  <Advantages />
 </template>
