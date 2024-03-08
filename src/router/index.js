@@ -107,19 +107,14 @@ export function createRouter() {
 }
 
 function redirectToLangPath(to) {
-  let langPath
-
-  // Server 端靠判別 request 中的 url 來確認是否補上 query.lang
+  // Server 端設計成不可能會有路徑沒有語言的情況
   if (import.meta.env.SSR) {
-    langPath = to.query.lang
+    throw new Error('SSR is impossible reach to this route redirector...')
   }
 
-  // Client 從 cookie 拿，Server 會在第一次執行的時候把語言設定至 cookie
-  else {
-    const cookies = useCookies()
-    langPath = cookies.get(COOKIE_KEY.LOCALE, { path: '/' })
-  }
-
+  // Client 端路徑沒有語言的話從 cookie 拿，Server 會在第一次執行的時候把語言設定至 cookie，保證會有
+  const cookies = useCookies()
+  const langPath = cookies.get(COOKIE_KEY.LOCALE, { path: '/' })
   const { lang, ...query } = to.query
   return { path: `/${langPath}${to.path}`, query }
 }

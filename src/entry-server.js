@@ -6,15 +6,19 @@ import { createApp } from './main'
 export async function render(url, manifest, ctx) {
   const { app, router, store, head } = await createApp()
 
+  const [, firstPath, ...rest] = url.split('/')
+  const restPath = rest.filter((p) => p).join('/')
+  const firstPathIsLang = containsLang(firstPath)
+
+  // 語言優先權: cookie > firstPath > acceptLanguage > 預設'en'
   let locale
   if (ctx.req.cookies.__LOCALE) {
     locale = ctx.req.cookies.__LOCALE
   } else {
-    const urlLang = url.split('/')[1]
     const acceptLang = ctx.req.get('accept-language')?.split(',')[0].split(';')[0].toLocaleLowerCase()
 
-    if (containsLang(urlLang)) {
-      locale = urlLang
+    if (firstPathIsLang) {
+      locale = firstPath
     } else if (containsLang(acceptLang)) {
       locale = acceptLang
     } else {
@@ -24,11 +28,17 @@ export async function render(url, manifest, ctx) {
     ctx.res.cookie('__LOCALE', locale, { path: '/' })
   }
 
+  let routerUrl
+  if (firstPathIsLang) {
+    routerUrl = `/${locale}${prefixSlash(restPath)}`
+  } else {
+    routerUrl = `/${locale}${prefixSlash(firstPath)}${prefixSlash(restPath)}`
+  }
+
   const i18n = await createI18n(locale)
   app.use(i18n)
 
-  // query.lang 可能會在 vue router redirect 被使用到
-  await router.push(`${url}${url.indexOf('?') === -1 ? '?' : '&'}lang=${locale}`)
+  await router.push(routerUrl)
   await router.isReady()
 
   const html = await renderToString(app, ctx)
@@ -86,5 +96,13 @@ function renderPreloadLink(file) {
   } else {
     // TODO
     return ''
+  }
+}
+
+function prefixSlash(path) {
+  if (path.length > 0 && !path.startsWith('/')) {
+    return `/${path}`
+  } else {
+    return path
   }
 }
