@@ -32,26 +32,22 @@
   background: rgba(231, 242, 255, 0.3);
 
   .wrapper-content {
-    @apply mx-auto my-80  sm:grid sm:grid-cols-5 sm:px-74;
+    @apply mx-auto my-80  h-screen sm:grid sm:h-fit sm:grid-cols-5 sm:bg-center sm:px-74;
     .map {
-      @apply w-full sm:col-span-3 sm:h-[400px] sm:bg-contain sm:bg-center;
-      min-height: 341px;
+      @apply h-[40%] w-full bg-cover bg-left bg-no-repeat object-cover sm:col-span-3 sm:h-[400px] sm:bg-contain sm:bg-center;
       background-image: url(@/assets/images/official/golabel.png);
-      background-position: left 25% top 50%;
-      object-fit: cover;
-      background-repeat: no-repeat;
     }
     .info {
-      @apply m-10 mt-20  p-10 sm:col-span-2 sm:ml-auto sm:max-w-xl sm:text-right;
+      @apply m-10 mt-20  flex flex-col justify-center p-10 sm:col-span-2 sm:max-w-xl sm:text-right;
       .title {
         @apply mt-10 text-right font-bold leading-10;
         font-size: 2.5em;
       }
       .context {
-        @apply mt-30 leading-7;
+        @apply mt-20 leading-7;
       }
       .btns {
-        @apply mt-50 flex  items-start justify-end space-x-17;
+        @apply mt-40 flex  items-start justify-end space-x-17;
         .btn {
           @apply mr-2 flex  min-w-[6rem] flex-col  items-center justify-center  text-center;
           div:nth-child(1) {
