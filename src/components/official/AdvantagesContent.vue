@@ -1,14 +1,19 @@
 <script setup>
-import { defineProps } from 'vue'
+import { defineProps, toRefs, watch } from 'vue'
 
 const props = defineProps({
+  id: Number,
   title: String,
   subtitle: String,
   desc: String,
+  active: Boolean,
 })
+
+const emit = defineEmits(['contentClick'])
+const handleClick = () => emit('contentClick', props.id)
 </script>
 <template>
-  <div class="official-advantages-content">
+  <div class="official-advantages-content" :class="{ active: active }" @click="handleClick">
     <div class="official-advantages-content-title">{{ title }}</div>
     <div class="official-advantages-content-subtitle">{{ subtitle }}</div>
     <div class="official-advantages-content-description">{{ desc }}</div>
@@ -16,25 +21,30 @@ const props = defineProps({
 </template>
 <style lang="scss" scoped>
 .official-advantages-content {
-  @apply min-w-[321px] rounded-br-3xl rounded-tl-3xl px-30 py-30 shadow-md;
+  @apply mx-20 mt-20 max-w-[325px] cursor-pointer rounded-br-[2.5em] rounded-tl-[2.5em] px-30 py-30 text-black shadow-md sm:max-w-[355px];
+  // about focus and active effects
+  @apply hover:bg-primary  hover:text-white hover:shadow-[0_35px_20px_-15px_rgba(0,0,0,0.3)] active:bg-primary active:text-white active:shadow-[0_35px_20px_-15px_rgba(0,0,0,0.3)];
+  // transition
+  @apply transition delay-150 ease-in-out;
+
   &-title {
     font-weight: 900;
     font-size: 24px;
     line-height: 29.45px;
-    color: rgba(0, 0, 0, 1);
   }
   &-subtitle {
     @apply mt-10 font-medium;
     font-size: 20px;
     line-height: 24.24px;
-    color: rgba(0, 0, 0, 1);
   }
   &-description {
     @apply mt-10;
     font-size: 14px;
     line-height: 19.6px;
     font-weight: 400;
-    color: rgba(56, 56, 56, 1);
   }
+}
+.official-advantages-content.active {
+  @apply bg-primary text-white shadow-[0_35px_20px_-15px_rgba(0,0,0,0.3)];
 }
 </style>
