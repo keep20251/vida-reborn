@@ -105,13 +105,7 @@ async function loadNewFeed(onCleanup = () => {}) {
   feed.value = null
   errMsg.value = null
   try {
-    let id = route.params.feedId
-    if (/^\d+$/.test(id)) {
-      id = parseInt(id)
-    } else {
-      errMsg.value = $t('content.feedNotExist')
-      return
-    }
+    const id = parseInt(route.params.feedId)
 
     const feedData = await getFeed(id)
     if (cleanup) {

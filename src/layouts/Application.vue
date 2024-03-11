@@ -74,6 +74,8 @@ const accountStore = useAccountStore()
 const { resetUserData, logout } = accountStore
 const { token, isLogin } = storeToRefs(accountStore)
 
+const guestId = useCookie(COOKIE_KEY.GUEST_ID, { default: uuidv4, readonly: true })
+
 const hydrationStore = useHydrationStore()
 const { appConfig, categories, userData } = storeToRefs(hydrationStore)
 
@@ -107,6 +109,11 @@ onServerClientOnce(async (isSSR) => {
   } catch (e) {
     console.error(e)
   }
+
+  if (!isSSR) {
+    // IM 模組初始化
+    init({ oauthId: guestId.value })
+  }
 })
 onHydration(() => {
   const executors = token.value ? [...execTable.base, ...execTable.login] : [...execTable.base]
@@ -121,11 +128,10 @@ onHydration(() => {
       break
     }
   }
-})
 
-// IM 模組初始化
-const guestId = useCookie(COOKIE_KEY.GUEST_ID, { default: uuidv4, readonly: true })
-onMounted(() => init({ oauthId: guestId.value }))
+  // IM 模組初始化
+  init({ oauthId: guestId.value })
+})
 
 // 訪客初次進站興趣選擇
 const modalStore = useModalStore()

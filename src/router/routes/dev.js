@@ -10,19 +10,32 @@ import Pinia from '@/pages/dev-mode/Pinia.vue'
 import Tab from '@/pages/dev-mode/Tab.vue'
 import i18n from '@/pages/dev-mode/i18n.vue'
 import ssr2csrHydration from '@/pages/dev-mode/ssr2csrHydration.vue'
+import { locales } from '@/i18n'
+
+const langRegex = locales.map((l) => l.value).join('|')
 
 const prefix = 'devmode'
 export default [
-  { name: `${prefix}-Hydration`, path: `/:lang/${prefix}/hydration`, component: ssr2csrHydration, meta: {} },
-  { name: `${prefix}-i18n`, path: `/:lang/${prefix}/i18n`, component: i18n, meta: {} },
-  { name: `${prefix}-Pinia`, path: `/:lang/${prefix}/pinia`, component: Pinia, meta: {} },
-  { name: `${prefix}-Icon`, path: `/:lang/${prefix}/icon`, component: Icon, meta: {} },
-  { name: `${prefix}-ClientOnly`, path: `/:lang/${prefix}/client-only`, component: ClientOnly, meta: {} },
-  { name: `${prefix}-OAuth`, path: `/:lang/${prefix}/google`, component: OAuth, meta: {} },
-  { name: `${prefix}-Tab`, path: `/:lang/${prefix}/tab`, component: Tab, meta: {} },
-  { name: `${prefix}-Form`, path: `/:lang/${prefix}/form`, component: Form, meta: {} },
-  { name: `${prefix}-Dialog`, path: `/:lang/${prefix}/dialog`, component: Dialog, meta: {} },
-  { name: `${prefix}-Modal`, path: `/:lang/${prefix}/modal`, component: Modal, meta: {} },
-  { name: `${prefix}-Loading`, path: `/:lang/${prefix}/loading`, component: Loading, meta: {} },
-  { name: `${prefix}-Card`, path: `/:lang/${prefix}/card`, component: Cards, meta: {} },
+  {
+    name: `${prefix}-hydration`,
+    path: `/:lang(${langRegex})/${prefix}/hydration`,
+    component: ssr2csrHydration,
+    meta: {},
+  },
+  { name: `${prefix}-i18n`, path: `/:lang(${langRegex})/${prefix}/i18n`, component: i18n, meta: {} },
+  { name: `${prefix}-pinia`, path: `/:lang(${langRegex})/${prefix}/pinia`, component: Pinia, meta: {} },
+  { name: `${prefix}-icon`, path: `/:lang(${langRegex})/${prefix}/icon`, component: Icon, meta: {} },
+  {
+    name: `${prefix}-client-only`,
+    path: `/:lang(${langRegex})/${prefix}/client-only`,
+    component: ClientOnly,
+    meta: {},
+  },
+  { name: `${prefix}-oauth`, path: `/:lang(${langRegex})/${prefix}/oauth`, component: OAuth, meta: {} },
+  { name: `${prefix}-tab`, path: `/:lang(${langRegex})/${prefix}/tab`, component: Tab, meta: {} },
+  { name: `${prefix}-form`, path: `/:lang(${langRegex})/${prefix}/form`, component: Form, meta: {} },
+  { name: `${prefix}-dialog`, path: `/:lang(${langRegex})/${prefix}/dialog`, component: Dialog, meta: {} },
+  { name: `${prefix}-modal`, path: `/:lang(${langRegex})/${prefix}/modal`, component: Modal, meta: {} },
+  { name: `${prefix}-loading`, path: `/:lang(${langRegex})/${prefix}/loading`, component: Loading, meta: {} },
+  { name: `${prefix}-card`, path: `/:lang(${langRegex})/${prefix}/card`, component: Cards, meta: {} },
 ]

@@ -77,7 +77,7 @@ const routes = [
         ],
       },
       {
-        name: 'applaction', // layout for application
+        name: 'application', // layout for application
         path: '/',
         component: AppLicationLayout,
         children: [
@@ -111,8 +111,8 @@ const routes = [
           { name: 'creator', path: `/:lang(${langRegex})/:username`, component: Creator, meta: {} },
 
           // feed
-          { path: '/:username/:feedId', redirect: redirectToLangPath },
-          { name: 'feed', path: `/:lang(${langRegex})/:username/:feedId`, component: Feed, meta: {} },
+          { path: '/:username/:feedId(\\d+)', redirect: redirectToLangPath },
+          { name: 'feed', path: `/:lang(${langRegex})/:username/:feedId(\\d+)`, component: Feed, meta: {} },
         ],
       },
     ],
@@ -121,7 +121,12 @@ const routes = [
 ]
 
 export function createRouter() {
-  if (import.meta.env.DEV) routes.find((route) => route.name === 'app').children[0].children.push(...devRoutes)
+  if (import.meta.env.DEV) {
+    routes
+      .find((r) => r.name === 'app')
+      .children.find((r) => r.name === 'application')
+      .children.push(...devRoutes)
+  }
 
   const router = createVueRouter({
     history: import.meta.env.SSR ? createMemoryHistory() : createWebHistory(),
