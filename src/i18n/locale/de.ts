@@ -483,7 +483,7 @@ export default {
   modal: {
     subscribe: {
       1: "Besuchen Sie alle Werke der Vergangenheit {days} Tag",
-      2: "Kann Informationen direkt an den Schöpfer senden",
+      2: "Kann Informationen direkt an den Ersteller senden",
       3: "Näher -stufe Interaktion",
       4: "Sie können Ihr Abonnement jederzeit stornieren",
       confirm: "Monat {'$'} {price} zur Zahlung gehen",
@@ -500,7 +500,7 @@ export default {
     },
     shopBuySuc: {
       1: "fabelhaft! Erfolgreiche Zahlung zum Entsperren des Beitrags",
-      2: "Wählen Sie zum Beitrag, um sie zu sehen oder im Originalbildschirm zu bleiben!",
+      2: "Wählen Sie zum Beitrag, um sie zu beobachten oder im Originalbildschirm zu bleiben!",
       confirm: "In den Posten gehen",
     },
     title: { paySuc: "Hat erfolgreich bezahlt" },
@@ -596,6 +596,88 @@ export default {
       36: "Sie können den Support auch kontaktieren, indem Sie eine E-Mail an",
       title: "ตกลง",
       btn: "ตกลงและขั้นตอนถัดไป",
+    },
+  },
+  official: {
+    hero: {
+      1: "KREATIVE BEFÄHIGEN",
+      2: "ZUM VERBINDEN",
+      3: "mit",
+      4: "IHREN FANS",
+      5: "Monetarisierung von Inhalten einfach gemacht",
+    },
+    about: {
+      title: "Über VIDA",
+      info: "Vida ist eine bahnbrechende Mitglieder-Abonnement-Plattform, die ausschließlich für Kreative entwickelt wurde, um ihnen zu ermöglichen, mit ihren Fans in Verbindung zu treten und ihre Inhalte effektiv zu monetarisieren. Wir bieten unseren Kreativen ein umfassendes Dienstleistungspaket, einschließlich Crowdfunding-Fähigkeiten, strategischer Markenberatungen und Mentoring-Dienste. Wir haben eine breite Palette von Mitgliedschaftspaketen zur Auswahl, sodass Sie unabhängig von Ihren Zielen diese mit Vida erreichen können.",
+    },
+    joinUs: {
+      title: "Werden Sie als Schöpfer mit",
+      subtitle: "Verwandeln Sie Ihre Talente und Inhalte in ein Geschäft",
+      info: "Vida ermöglicht es Schöpfern, mit ihren Fans in Kontakt zu treten, ihr Publikum zu erweitern und ihren Inhalt erfolgreich zu monetarisieren. Mit der Vida Academy bringen wir Ihnen bei, wie Sie Ihren Inhalt auf die nächste Stufe heben und noch profitabler machen können.",
+      btn: "Jetzt beitreten",
+    },
+    attachment: {
+      title: "Ein globales Publikum anziehen",
+      info: "Mit aktiven Nutzern aus der ganzen Welt ermöglicht Vida es Schöpfern, ein globales Publikum zu erreichen und anzuziehen. Schmieden Sie stärkere Verbindungen mit Ihrer Fangemeinde und fördern Sie ein tiefes Gemeinschaftsgefühl.",
+      btns: { country: "Länder", creator: "Schöpfer", charge: "Servicegebühr" },
+    },
+    advantage: {
+      1: {
+        title: "Provisionsfrei",
+        subtitle: "0% Gebühren, 100% Zufriedenheit",
+        desc: "Vida ist die beste umfassende Plattform für Kreative, die eine breite Palette von Lösungen bietet, um Ihren spezifischen Bedürfnissen gerecht zu werden. Auf Vida erhalten Kreative 100% der Gelder von ihren Fans, ohne dass eine Provision abgezogen wird.",
+      },
+      2: {
+        title: "Crowdfunding",
+        subtitle: "Erfolg durch Fans antreiben",
+        desc: "Einführung des innovativen Konzepts des Crowdfundings. In diesem Bereich haben Schöpfer die Fähigkeit, ihre Sponsoring-Pläne zu gestalten, während Fans die Autonomie genießen, ihr bevorzugtes Unterstützungsniveau auszuwählen, wodurch sie sich nahtlos in das Gewebe des kreativen Entwurfs integrieren.",
+      },
+      3: {
+        title: "Markenstrategie:",
+        subtitle: "Erweitern Sie Ihre Reichweite",
+        desc: "Unser Expertenteam ist hier, um Ihnen zu helfen, sich zu übertreffen. Sie werden Ihnen helfen, umfassende Strategien für soziale Kommunikation und Optimierung zu entwickeln und umzusetzen, um die Interaktion und das Engagement in Ihrer Gemeinschaft zu verbessern.",
+      },
+      4: {
+        title: "Multifunktionale Module:",
+        subtitle: "Ihre persönliche Note",
+        desc: "Wir bieten Kreativen ein außergewöhnlich flexibles Funktionsdesign, das es Ihnen ermöglicht, Ihre Fan-Gemeinde mühelos zu verwalten, Ihre Werke zu kategorisieren und Abonnement- und Zahlungsvorlieben festzulegen.",
+      },
+    },
+    academy: {
+      title: "Vida Akademie",
+      subtitle: "Steigern Sie Ihr Vida-Konto in den sozialen Medien",
+      info: "Willkommen in der Vida Akademie! Unsere virtuelle Akademie wurde speziell für Kreative gestaltet. Treten Sie heute bei, um Zugang zu einem reichen Schatz an Wissen und Anleitung zu erhalten, der Ihnen hilft, Ihre kreativen Bestrebungen zu beschleunigen und Ihr Monetarisierungspotenzial zu maximieren. Wenn Sie darauf erpicht sind, Ihr kreatives Potenzial zu entfesseln, Ihre Fähigkeiten zu verfeinern und Ihre Leidenschaft in ein erfolgreiches Unternehmen zu verwandeln, sind Sie hier genau richtig. Treten Sie unserer Gemeinschaft gleichgesinnter Personen bei und begeben wir uns gemeinsam auf diese aufregende kreative Reise! Melden Sie sich heute an, um Ihr Lernabenteuer mit uns zu beginnen, und klicken Sie auf das Glockensymbol, um über wichtige Ankündigungen informiert zu werden.",
+      btn: "Lernen Entdecken",
+      page: {
+        title: "VIDA AKADEMIE",
+        subtitle: "Treten Sie Vida bei, entdecken Sie Ihre Potentiale, verdienen Sie mehr.",
+        videos: {
+          1: "Treten Sie Vida bei, entdecken Sie Ihre Potentiale, verdienen Sie mehr.",
+          2: "Ihre Gewinne verwalten",
+          3: "So passen Sie Ihren Abonnementpreis an",
+          4: "Verbindung zu Ihren Followern herstellen",
+          5: "Ihr Vida-Konto in den sozialen Medien steigern",
+          6: "Die Geheimnisse außergewöhnlicher Inhalteerstellung enthüllen",
+        },
+        content: {
+          1: 'VIDA ist eine sorgfältig gefertigte Abonnementplattform, die exklusiv für Schöpfer entwickelt wurde. Es ermutigt die Schöpfer, sich mit ihren Fans zu beschäftigen, und ihre Inhalte monetarisieren effektiv. Wir bieten eine umfassende Suite von Dienstleistungen, die sich um Macher konzentrieren, einschließlich "Crowdfunding" und "Strategic Branding Consultation.',
+          2: "Darüber hinaus bieten wir verschiedene Mitgliedsebenen und vielseitige Moduloptionen an und befähigen die Schöpfer, sich frei auszudrücken.",
+          3: "Derzeit dienen wir stolz eine Community von über 5000 Schöpfer und Fans, die über mehr als 20 Länder erstrecken. Während wir Schöpfer inspirieren, Exzellenz zu verfolgen und qualitativ hochwertige Inhalte zu produzieren,",
+          4: "VIDA ist gleichermaßen verpflichtet, stärkere Verbindungen zwischen Schöpfer und ihrer ergebenen Fangemeinde herzustellen und ein tiefes Gefühl der Einheit der Gemeinschaft zu fördern.",
+        },
+      },
+    },
+    header: { home: "Startseite", academy: "Vida Akademie", contact: "Kontaktieren Sie uns" },
+    footer: {
+      contact: "Kontaktieren Sie uns",
+      address: "Adresse",
+      tos: "Term of Service",
+      pp: "Privacy Policy",
+      usc: "18 USC 2257 Statement",
+      dmca: "DMCA",
+      aup: "Acceptable Use Policy",
+      cookiePolicy: "Cookie Policy",
+      complaintsPolicy: "Complaints Policy",
     },
   },
 }

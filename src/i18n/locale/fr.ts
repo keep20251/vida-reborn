@@ -597,4 +597,86 @@ export default {
       btn: "Zustimmen und nächster Schritt",
     },
   },
+  official: {
+    hero: {
+      1: "DONNER DU POUVOIR AUX CRÉATEURS",
+      2: "POUR CONNECTER",
+      3: "avec",
+      4: "LEURS FANS",
+      5: "Monétiser le contenu rendu simple",
+    },
+    about: {
+      title: "À propos de VIDA",
+      info: "Vida est une plateforme d'abonnement pour membres révolutionnaire conçue exclusivement pour les créateurs, leur permettant de se connecter avec leurs fans et de monétiser efficacement leur contenu. Nous offrons une gamme complète de services pour nos créateurs, incluant des capacités de financement participatif, des consultations stratégiques de marque et des services de mentorat. Nous avons un large éventail de forfaits d'adhésion à choisir, donc quel que soient vos objectifs, Vida vous permet de les atteindre.",
+    },
+    joinUs: {
+      title: "Rejoignez-nous en tant que créateur",
+      subtitle: "Transformez vos talents et votre contenu en entreprise",
+      info: "Vida permet aux créateurs d'interagir avec leurs fans, d'élargir leur audience et de monétiser avec succès leur contenu. Avec Vida Academy, nous vous apprendrons à amener votre contenu au niveau supérieur et à le rendre encore plus rentable.",
+      btn: "Rejoignez maintenant",
+    },
+    attachment: {
+      title: "Attirer un public mondial",
+      info: "Avec des utilisateurs actifs du monde entier, Vida permet aux créateurs d'atteindre et d'attirer un public mondial. Renforcez les liens avec votre base de fans et cultivez un profond sentiment de communauté.",
+      btns: { country: "Pays", creator: "Créateurs", charge: "Frais de service" },
+    },
+    advantage: {
+      1: {
+        title: "Sans commission",
+        subtitle: "0% de frais, 100% de satisfaction",
+        desc: "Vida est la meilleure plateforme globale pour les créateurs, offrant une large gamme de solutions pour répondre à vos besoins spécifiques. Sur Vida, les créateurs reçoivent 100% des fonds de leurs fans sans aucune commission déduite.",
+      },
+      2: {
+        title: "Financement participatif",
+        subtitle: "Alimenter le succès grâce aux fans",
+        desc: "Présentation du concept innovant de financement participatif. Dans ce domaine, les créateurs ont la capacité de personnaliser leurs plans de parrainage, tandis que les fans jouissent de l'autonomie de sélectionner leur niveau de soutien préféré, s'intégrant ainsi sans heurt dans le tissu même du plan créatif.",
+      },
+      3: {
+        title: "Stratégie de marque :",
+        subtitle: "Élargissez votre portée",
+        desc: "Notre équipe d'experts est là pour vous aider à exceller. Ils vous aideront à élaborer et à mettre en œuvre des stratégies complètes de communication sociale et d'optimisation pour améliorer l'interaction et l'engagement au sein de votre communauté.",
+      },
+      4: {
+        title: "Modules multifonctions :",
+        subtitle: "Votre touche personnelle",
+        desc: "Nous offrons aux créateurs une conception de fonctionnalités exceptionnellement flexible qui vous permet de gérer sans effort votre communauté de fans, d'organiser vos œuvres en catégories et d'établir des préférences d'abonnement et de paiement.",
+      },
+    },
+    academy: {
+      title: "Académie Vida",
+      subtitle: "Boostez votre compte Vida sur les réseaux sociaux",
+      info: "Bienvenue à l'Académie Vida ! Notre académie virtuelle a été spécifiquement conçue pour les créateurs. Rejoignez-nous aujourd'hui pour accéder à un trésor de connaissances et de conseils pour vous aider à accélérer vos efforts créatifs et maximiser votre potentiel de monétisation. Si vous êtes désireux de libérer votre potentiel créatif, de peaufiner vos compétences et de transformer votre passion en une entreprise prospère, vous êtes au bon endroit. Rejoignez notre communauté d'individus partageant les mêmes idées et embarquons ensemble dans ce voyage créatif passionnant ! Inscrivez-vous aujourd'hui pour commencer votre aventure d'apprentissage avec nous et cliquez sur l'icône de cloche de notification pour être informé des annonces clés.",
+      btn: "Apprendre Explorer",
+      page: {
+        title: "ACADEMIE VIDA",
+        subtitle: "Rejoignez Vida, explorez vos potentiels, gagnez plus.",
+        videos: {
+          1: "Rejoignez Vida, explorez vos potentiels, gagnez plus.",
+          2: "Gérer vos profits",
+          3: "Comment personnaliser le prix de votre abonnement",
+          4: "Se connecter avec vos abonnés",
+          5: "Booster votre compte Vida sur les réseaux sociaux",
+          6: "Déverrouiller les secrets de la création de contenu exceptionnelle",
+        },
+        content: {
+          1: "VIDA est une plate-forme d'abonnement aux membres méticuleusement conçue conçue exclusivement pour les créateurs.",
+          2: "De plus, nous offrons divers niveaux d'adhésion et options de modules polyvalents, ce qui permet aux créateurs de s'exprimer librement.",
+          3: "Actuellement, nous servons fièrement une communauté de plus de 5000 créateurs et fans, couvrant plus de 20 pays. Alors que nous inspirons les créateurs à poursuivre l'excellence et à produire un contenu de haute qualité,",
+          4: "Vida est également déterminée à forger des liens plus forts entre les créateurs et leur base de fans dévoués, favorisant un profond sentiment d'unité communautaire.",
+        },
+      },
+    },
+    header: { home: "Accueil", academy: "Académie Vida", contact: "Contactez-nous" },
+    footer: {
+      contact: "Contactez-nous",
+      address: "Adresse",
+      tos: "Term of Service",
+      pp: "Privacy Policy",
+      usc: "18 USC 2257 Statement",
+      dmca: "DMCA",
+      aup: "Acceptable Use Policy",
+      cookiePolicy: "Cookie Policy",
+      complaintsPolicy: "Complaints Policy",
+    },
+  },
 }
