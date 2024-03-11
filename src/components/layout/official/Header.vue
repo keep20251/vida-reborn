@@ -23,6 +23,7 @@ const headerButtons = [
 
     <HeaderBtn
       v-for="(btn, index) in headerButtons"
+      class="hidden sm:block"
       :key="`header-${index}-${btn.text}`"
       :text="btn.text"
       :bold="route.name === btn.route"
