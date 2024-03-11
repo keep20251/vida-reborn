@@ -39,6 +39,7 @@
               :key="`video-${index}`"
               :title="video.title"
               :border="selectedVideo === video.value"
+              :link="video.link"
               @click="selectedVideo = video.value"
             ></AcademyVideo>
           </div>
@@ -70,11 +71,35 @@ const contents = [
 
 const selectedVideo = ref(null)
 const videos = [
-  { value: 0, title: 'Join Vida, explore your potentials, earn more.' },
-  { value: 1, title: 'Managing your profit | Pro Tips for Growth ⬆' },
-  { value: 2, title: 'How to tailor your subscription price | Real Tea Talk' },
-  { value: 3, title: 'Connecting with your followers | Pure Gold💰' },
-  { value: 4, title: 'Boosting your vida account on social media | Practical Advice' },
-  { value: 5, title: 'Unlocking the Secrets of Exceptional Content Creation 💡🎥 | Source for Invaluable Insights' },
+  {
+    value: 0,
+    title: 'Join Vida, explore your potentials, earn more.',
+    link: 'https://www.youtube.com/watch?v=_569x7cWAFI',
+  },
+  {
+    value: 1,
+    title: 'Managing your profit | Pro Tips for Growth ⬆',
+    link: 'https://www.youtube.com/watch?v=_x2TCxj4YyI',
+  },
+  {
+    value: 2,
+    title: 'How to tailor your subscription price | Real Tea Talk',
+    link: 'https://www.youtube.com/watch?v=wwiwVvgcd9M',
+  },
+  {
+    value: 3,
+    title: 'Connecting with your followers | Pure Gold💰',
+    link: 'https://www.youtube.com/watch?v=3PjcwD99z5s',
+  },
+  {
+    value: 4,
+    title: 'Boosting your vida account on social media | Practical Advice',
+    link: 'https://www.youtube.com/watch?v=XGKvT-28E6E',
+  },
+  {
+    value: 5,
+    title: 'Unlocking the Secrets of Exceptional Content Creation 💡🎥 | Source for Invaluable Insights',
+    link: 'https://www.youtube.com/watch?v=s7cP6Ft-WjA',
+  },
 ]
 </script>
