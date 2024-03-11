@@ -212,9 +212,13 @@ onServerClientOnce(async (isSSR) => {
   }
 })
 onHydration(() => {
+  errMsg.value = creatorError.value
+  if (errMsg.value) {
+    return
+  }
+
   creator.value = revertCreator(creatorFromStore.value)
   loadSeoHead()
   revert(creatorArticleList.value, { newParams: { uuid: creator.value.uuid } })
-  errMsg.value = creatorError.value
 })
 </script>
