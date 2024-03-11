@@ -8,8 +8,8 @@ const { push } = useRouter()
 
 const route = useRoute()
 const headerButtons = [
-  { text: 'Home', route: 'landing', href: '/' },
-  { text: 'Vida Academy', route: 'academy', href: '/official/academy' },
+  { text: 'official.header.home', route: 'landing', href: '/' },
+  { text: 'official.header.academy', route: 'academy', href: '/official/academy' },
 ]
 </script>
 <template>
@@ -29,7 +29,7 @@ const headerButtons = [
       :href="btn.href"
       @click="push({ name: btn.route })"
     />
-    <a class="hidden sm:block" href="#contact">Contact</a>
+    <a class="hidden sm:block" href="#contact">{{ $t('official.header.contact') }}</a>
     <div class="hidden sm:block">
       <LanguageSelectBtn />
     </div>

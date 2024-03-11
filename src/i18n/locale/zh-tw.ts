@@ -645,5 +645,21 @@ export default {
         },
       },
     },
+    header: {
+      home: '首頁',
+      academy: 'Vida學院',
+      contact: '聯絡我們',
+    },
+    footer: {
+      contact: '聯絡我們',
+      address: '地址',
+      tos: 'Term of Service Effective',
+      pp: 'Privacy policy',
+      usc: '18 USC 2257 Statement',
+      dmca: 'DMCA',
+      aup: 'Acceptable Use Policy',
+      cookiePolicy: 'Cookie Policy',
+      complaintsPolicy: 'Complaints Policy',
+    },
   },
 }

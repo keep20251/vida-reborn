@@ -40,11 +40,11 @@ const socials = ref([
       </div>
       <div class="official-footer-social-infos">
         <div class="official-footer-social-infos-info">
-          <div>Contact Us</div>
+          <div>{{ $t('official.footer.contact') }}</div>
           <div>official@vida.contact</div>
         </div>
         <div class="official-footer-social-infos-info">
-          <div>Address</div>
+          <div>{{ $t('official.footer.address') }}</div>
           <div>Dawson House 5 Jewry St, London</div>
         </div>
       </div>
@@ -54,17 +54,17 @@ const socials = ref([
 
     <div class="official-footer-policys">
       <div class="official-footer-policys-first">
-        <div>Term of Service Effective</div>
-        <div>Privacy policy</div>
-        <div>18 USC 2257 Statement</div>
-        <div>DMCA</div>
+        <div>{{ $t('official.footer.tos') }}</div>
+        <div>{{ $t('official.footer.pp') }}</div>
+        <div>{{ $t('official.footer.usc') }}</div>
+        <div>{{ $t('official.footer.dmca') }}</div>
       </div>
     </div>
     <div class="official-footer-policys-second">
       <div class="official-footer-policys">
-        <div>Acceptable Use Policy</div>
-        <div>Cookie Policy</div>
-        <div>Complaints Policy</div>
+        <div>{{ $t('official.footer.aup') }}</div>
+        <div>{{ $t('official.footer.cookiePolicy') }}</div>
+        <div>{{ $t('official.footer.complaintsPolicy') }}</div>
       </div>
     </div>
   </footer>
