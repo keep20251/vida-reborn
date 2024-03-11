@@ -26,7 +26,7 @@ onBeforeUnmount(() => {
 <template>
   <div class="official-lang-menu text-nowrap relative">
     <div class="official-lang-menu-btn" @click.prevent="toggleMenu">
-      <div class="flex cursor-pointer items-center justify-center gap-5">
+      <div class="ga-5 flex cursor-pointer items-center">
         <Icon name="officialEarth" size="25"></Icon>
         <div>{{ $t(currentLocaleLabel) }}</div>
         <Icon name="officialDropdown" class="officialDropdown pt-2" :class="{ rotate: isActived }" size="10"></Icon>
