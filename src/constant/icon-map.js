@@ -112,4 +112,11 @@ export const iconMap = {
 
   tiktokActive: 'social/tiktok-active',
   tiktokDeactive: 'social/tiktok-deactive',
+
+  officialDropdown: 'official/dropdown',
+  officialEarth: 'official/earth',
+  officialLogo: 'official/logo',
+  officialMenu: 'official/menu',
+  officialNavLogo: 'official/nav-logo',
+  officialReverseLogo: 'official/reverse-logo',
 }

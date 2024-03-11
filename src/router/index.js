@@ -4,8 +4,12 @@ import Feed from '@/pages/feed/Feed.vue'
 import Home from '@/pages/home/Home.vue'
 import Message from '@/pages/message/Message.vue'
 import Mine from '@/pages/mine/Mine.vue'
+import Academy from '@/pages/official/Academy.vue'
+import Landing from '@/pages/official/Landing.vue'
 import Publish from '@/pages/publish/Publish.vue'
 import Search from '@/pages/search/Search.vue'
+import AppLicationLayout from '@/layouts/Application.vue'
+import OfficialLayout from '@/layouts/Official.vue'
 import afterGuard from './guards/after'
 import beforeGuard from './guards/before'
 import checkPermission from './guards/before/check-permission'
@@ -17,26 +21,61 @@ import mineRoutes from './routes/mine'
  * @property checkLogin 用於判斷該頁面是否需要驗證登入狀態
  */
 const routes = [
-  { name: 'home', path: '/:lang', component: Home, meta: {} },
-  { name: 'search', path: '/:lang/search', component: Search, meta: {} },
-  { name: 'message', path: '/:lang/message/:to?', component: Message, meta: {} },
   {
-    name: 'mine',
-    path: '/:lang/mine',
-    component: Mine,
-    meta: {},
-    children: mineRoutes.map((route) => ({ ...route, beforeEnter: checkPermission })),
+    name: 'app',
+    path: '/',
+    // component: Application,
+    children: [
+      {
+        name: 'applaction', // layout for application
+        path: '/',
+        component: AppLicationLayout,
+        children: [
+          { name: 'home', path: '/:lang/home', component: Home, meta: {} },
+          { name: 'search', path: '/:lang/search', component: Search, meta: {} },
+          { name: 'message', path: '/:lang/message/:to?', component: Message, meta: {} },
+          {
+            name: 'mine',
+            path: '/:lang/mine',
+            component: Mine,
+            meta: {},
+            children: mineRoutes.map((route) => ({ ...route, beforeEnter: checkPermission })),
+          },
+          { name: 'publish', path: '/:lang/publish', component: Publish, meta: {} },
+          { name: 'creator', path: '/:lang/:username', component: Creator, meta: {} },
+          { name: 'feed', path: '/:lang/:username/:feedId', component: Feed, meta: {} },
+        ],
+      },
+      {
+        name: 'official',
+        path: '/',
+        component: OfficialLayout, // layout for official
+        children: [
+          {
+            name: 'landing',
+            path: '/:lang',
+            component: Landing,
+            meta: {},
+          },
+          {
+            name: 'academy',
+            path: '/:lang/official/academy',
+            component: Academy,
+            meta: {},
+          },
+        ],
+      },
+    ],
   },
-  { name: 'publish', path: '/:lang/publish', component: Publish, meta: {} },
-  { name: 'creator', path: '/:lang/:username', component: Creator, meta: {} },
-  { name: 'feed', path: '/:lang/:username/:feedId', component: Feed, meta: {} },
   ...errorRoutes,
 ]
 
 export function createRouter() {
+  if (import.meta.env.DEV) routes.find((route) => route.name === 'app').children[0].children.push(...devRoutes)
+
   const router = createVueRouter({
     history: import.meta.env.SSR ? createMemoryHistory() : createWebHistory(),
-    routes: import.meta.env.DEV ? [...routes, ...devRoutes] : routes,
+    routes: import.meta.env.DEV ? [...routes] : routes,
   })
 
   beforeGuard.forEach((guard) => router.beforeEach(guard))

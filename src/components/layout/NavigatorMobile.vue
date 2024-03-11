@@ -3,7 +3,7 @@
     class="fixed bottom-0 z-20 flex h-60 w-full items-center bg-white shadow-bottom transition-transform"
     :class="{ 'translate-y-full': !isShow }"
   >
-    <router-link class="grow" :to="`/${locale}`">
+    <router-link class="grow" :to="`/${locale}/home`">
       <div class="flex items-center justify-center space-x-16 px-12 py-16">
         <Icon v-if="atHome" name="home" size="30"></Icon>
         <Icon v-else name="homeOutline" size="30"></Icon>
