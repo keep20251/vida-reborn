@@ -53,8 +53,8 @@
           <router-link
             v-for="route in devRoutes"
             class="font-bold hover:text-green-700"
-            :to="route.path.replace(':lang', locale)"
-            :key="route.path.replace(':lang', locale)"
+            :to="`/${locale}/devmode/${route.name.substring('devmode-'.length)}`"
+            :key="route.name"
           >
             {{ route.name.replace('devmode-', '') }}
           </router-link>

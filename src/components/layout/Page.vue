@@ -173,6 +173,6 @@ onActivated(() => {
 onDeactivated(() => {
   active = false
 
-  stopOnScroll()
+  stopOnScroll && stopOnScroll()
 })
 </script>

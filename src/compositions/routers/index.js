@@ -16,14 +16,18 @@ export function useRouters() {
     }
   }
 
-  function to(name, { params, query } = {}) {
+  function to(name, { params, query } = {}, replace = false) {
     // mine 頁用 push 物件的方式導過去必須使用 child 的第一個名稱才會顯示出來
     // 感覺是 vue-router 的坑
     if (name === 'mine') {
       name = 'mine-home'
     }
 
-    return router.push({ name, params, query })
+    return router.push({ name, params, query, replace })
+  }
+
+  function replace(name, { params, query } = {}) {
+    return to(name, { params, query }, true)
   }
 
   function toMessage(username) {
@@ -52,6 +56,7 @@ export function useRouters() {
   return {
     back,
     to,
+    replace,
     toMessage,
     toCreator,
     toFeed,

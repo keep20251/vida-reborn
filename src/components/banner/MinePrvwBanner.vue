@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="show"
     class="fixed left-0 top-0 z-50 flex w-full items-center justify-between bg-black bg-opacity-70 py-15 pr-20 sm:py-40 sm:pr-40 xl:py-40 xl:pr-40"
   >
     <div class="opacity-0">Preview</div>
@@ -26,12 +27,17 @@
   </div>
 </template>
 <script setup>
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useMineStore } from '@/store/mine'
 import { useRouters } from '@use/routers'
 
 const { isDesktop } = storeToRefs(useAppStore())
+
+const route = useRoute()
+const show = computed(() => route.name === 'mine-profile-prvw')
 
 const mineStore = useMineStore()
 const { isPrvwActive } = storeToRefs(mineStore)

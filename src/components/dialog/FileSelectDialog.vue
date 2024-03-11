@@ -1,5 +1,5 @@
 <template>
-  <BaseDialog @click:around="fileSelectDialog = false">
+  <BaseDialog v-if="fileSelectDialog" @click:around="fileSelectDialog = false">
     <template #default>
       <div class="flex flex-col space-y-20">
         <div class="text-center text-lg font-bold">{{ $t('title.createFeed') }}</div>
