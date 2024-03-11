@@ -7,15 +7,13 @@
       </keep-alive>
     </router-view>
     <ClientOnly>
-      <AuthDialog v-if="authDialog"></AuthDialog>
-      <FileSelectDialog v-if="fileSelectDialog"></FileSelectDialog>
-      <SubPlanDialog v-if="subPlanDialog"></SubPlanDialog>
-      <Subscriptions v-if="subscriptionDialog"></Subscriptions>
-      <ReportBlockPicker v-if="reportBlockDialog"></ReportBlockPicker>
-      <Modal></Modal>
-      <MinePrvwBanner v-if="route.name === 'mine-profile-prvw'"></MinePrvwBanner>
+      <AuthDialog></AuthDialog>
+      <FileSelectDialog></FileSelectDialog>
+      <SubPlanDialog></SubPlanDialog>
+      <Subscriptions></Subscriptions>
+      <ReportBlockPicker></ReportBlockPicker>
+      <MinePrvwBanner></MinePrvwBanner>
       <PopupMessage></PopupMessage>
-      <CookieBanner></CookieBanner>
     </ClientOnly>
   </div>
   <NavigatorMobile v-if="isMobile"></NavigatorMobile>
@@ -31,14 +29,11 @@
 
 <script setup>
 import { onMounted, ref } from 'vue'
-import { useRoute } from 'vue-router'
 import { useLocalStorage } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
-import { useDialogStore } from '@/store/dialog'
 import { useModalStore } from '@/store/modal'
-import CookieBanner from '@comp/banner/CookieBanner.vue'
 import MinePrvwBanner from '@comp/banner/MinePrvwBanner.vue'
 import AuthDialog from '@comp/dialog/AuthDialog.vue'
 import FileSelectDialog from '@comp/dialog/FileSelectDialog.vue'
@@ -48,18 +43,13 @@ import SubPlanDialog from '@comp/dialog/SubPlanDialog.vue'
 import Subscriptions from '@comp/dialog/Subscriptions.vue'
 import Navigator from '@comp/layout/Navigator.vue'
 import NavigatorMobile from '@comp/layout/NavigatorMobile.vue'
-import Modal from '@comp/modal/index.vue'
 import { LOCAL_STORAGE_KEYS, MODAL_TYPE } from '@const'
 import { isClose, isConnecting, isOpen } from '@/ws'
 
 const isDev = ref(import.meta.env.DEV)
 
-const route = useRoute()
 const appStore = useAppStore()
 const { isDesktop, isMobile } = storeToRefs(appStore)
-
-const { authDialog, fileSelectDialog, subPlanDialog, subscriptionDialog, reportBlockDialog } =
-  storeToRefs(useDialogStore())
 
 // 訪客初次進站興趣選擇
 const accountStore = useAccountStore()

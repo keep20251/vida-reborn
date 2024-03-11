@@ -1,5 +1,9 @@
 <template>
   <router-view></router-view>
+  <ClientOnly>
+    <CookieBanner></CookieBanner>
+    <Modal></Modal>
+  </ClientOnly>
 </template>
 
 <script setup>
@@ -10,6 +14,8 @@ import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
 import { useHydrationStore } from '@/store/hydration'
+import CookieBanner from '@comp/banner/CookieBanner.vue'
+import Modal from '@comp/modal/index.vue'
 import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import useRequest from '@use/request'
 import { useRouters } from '@use/routers'

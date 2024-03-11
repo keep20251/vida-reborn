@@ -1,5 +1,5 @@
 <template>
-  <BaseDialog @click:around="reportBlockDialog = false" no-padding>
+  <BaseDialog v-if="reportBlockDialog" @click:around="reportBlockDialog = false" no-padding>
     <template #default>
       <div class="flex cursor-pointer items-center space-x-10 px-36 pb-20 pt-30" @click="report">
         <Icon name="report" size="20"></Icon>

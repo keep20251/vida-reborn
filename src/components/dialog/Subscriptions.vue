@@ -1,5 +1,5 @@
 <template>
-  <BaseDialog no-padding @click:around="close">
+  <BaseDialog v-if="subscriptionDialog" no-padding @click:around="close">
     <template #default>
       <div class="h-full w-full rounded-xl">
         <div class="relative flex w-full items-center justify-center rounded-t-xl bg-primary py-16">
@@ -25,10 +25,13 @@
 </template>
 <script setup>
 import { storeToRefs } from 'pinia'
+import { useDialogStore } from '@/store/dialog'
 import { useSubsciptionStore } from '@/store/subscription'
 import SubscribeCard from '@comp/card/SubscribeCard.vue'
 import { useDialog } from '@use/modal'
 import BaseDialog from './BaseDialog.vue'
+
+const { subscriptionDialog } = storeToRefs(useDialogStore())
 
 const store = useSubsciptionStore()
 const { close } = store
