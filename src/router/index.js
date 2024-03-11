@@ -6,6 +6,13 @@ import Message from '@/pages/message/Message.vue'
 import Mine from '@/pages/mine/Mine.vue'
 import Academy from '@/pages/official/Academy.vue'
 import Landing from '@/pages/official/Landing.vue'
+import AUP from '@/pages/official/terms/AUP.vue'
+import ComplaintsPolicy from '@/pages/official/terms/ComplaintsPolicy.vue'
+import CookiePolicy from '@/pages/official/terms/CookiePolicy.vue'
+import DMCA from '@/pages/official/terms/DMCA.vue'
+import PrivacyPolicy from '@/pages/official/terms/PrivacyPolicy.vue'
+import ToS from '@/pages/official/terms/ToS.vue'
+import Usc from '@/pages/official/terms/Usc.vue'
 import Publish from '@/pages/publish/Publish.vue'
 import Search from '@/pages/search/Search.vue'
 import AppLicationLayout from '@/layouts/Application.vue'
@@ -62,6 +69,17 @@ const routes = [
             path: '/:lang/official/academy',
             component: Academy,
             meta: {},
+          },
+          { name: 'official-tos', path: '/:lang/official/tos', component: ToS },
+          { name: 'official-pp', path: '/:lang/official/privacy-policy', component: PrivacyPolicy },
+          { name: 'official-usc', path: '/:lang/official/usc', component: Usc },
+          { name: 'official-dmca', path: '/:lang/official/dmca', component: DMCA },
+          { name: 'official-aup', path: '/:lang/official/acceptable-use-policy', component: AUP },
+          { name: 'official-cookie-policy', path: '/:lang/official/cookie-policy', component: CookiePolicy },
+          {
+            name: 'official-complaints-policy',
+            path: '/:lang/official/complaints-policy',
+            component: ComplaintsPolicy,
           },
         ],
       },
