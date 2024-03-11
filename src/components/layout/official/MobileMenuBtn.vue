@@ -1,18 +1,35 @@
 <script setup>
-import { ref } from 'vue'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { useRouter } from 'vue-router'
 import LanguageSelectBtn from '@/components/layout/official/LanguageSelectBtn.vue'
 
+const { push } = useRouter()
+
 const isActived = ref(false)
-const toggleMenu = () => {
-  console.log('click')
-  isActived.value = !isActived.value
-}
+const toggleMenu = () => (isActived.value = !isActived.value)
+
 const menuBtns = [
-  { label: 'Home', href: '/', route: 'landing', translate: 'official.header.home' },
-  { label: 'Vida Academy', href: '/official/academy', route: 'academy', translate: 'official.header.academy' },
-  { label: 'Contact', href: '#contact', route: 'contact', translate: 'official.header.contact' },
-  { label: 'Language', href: '#', route: '', translate: '', component: LanguageSelectBtn },
+  { label: 'Home', href: '/', route: 'landing', hash: '', translate: 'official.header.home' },
+  {
+    label: 'Vida Academy',
+    href: '/official/academy',
+    route: 'academy',
+    hash: '',
+    translate: 'official.header.academy',
+  },
+  { label: 'Contact', href: '#contact', route: 'landing', hash: '#contact', translate: 'official.header.contact' },
+  { label: 'Language', href: '#', route: '', hash: '', translate: '', component: LanguageSelectBtn },
 ]
+
+const closeMenuOutside = (event) => {
+  if (!event.target.closest('.official-mobile-menu')) isActived.value = false
+}
+
+const closeMenu = () => (isActived.value = false)
+
+onMounted(() => document.addEventListener('click', closeMenuOutside))
+
+onBeforeUnmount(() => document.removeEventListener('click', closeMenuOutside))
 </script>
 
 <template>
@@ -23,10 +40,12 @@ const menuBtns = [
     <div class="official-mobile-menu-items" :class="{ active: isActived }">
       <div v-for="btn in menuBtns" :key="`menu-${btn.label}`">
         <template v-if="btn.component">
-          <component :is="btn.component" />
+          <component :is="btn.component" @closeMenu="closeMenu" />
         </template>
         <template v-else>
-          <a :href="btn.href">{{ $t(btn.translate) }}</a>
+          <a :href="btn.href">
+            {{ $t(btn.translate) }}
+          </a>
         </template>
       </div>
     </div>
@@ -47,7 +66,19 @@ const menuBtns = [
     line-height: 3rem;
   }
   .official-mobile-menu-items.active {
-    @apply absolute  -right-15 top-41 block bg-primary;
+    @apply absolute -right-15 top-41 block bg-primary;
+    animation: slideDown 0.3s ease forwards;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>

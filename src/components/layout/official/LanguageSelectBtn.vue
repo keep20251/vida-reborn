@@ -14,6 +14,15 @@ const closeMenuOutside = (event) => {
   if (!event.target.closest('.official-lang-menu')) isActived.value = false
 }
 
+const emits = defineEmits(['closeMenu'])
+
+const handleChangeLanguage = (locale) => {
+  _locale.value = locale
+  toggleMenu()
+  // emit close upper menu
+  emits('closeMenu')
+}
+
 onMounted(() => {
   document.addEventListener('click', closeMenuOutside)
 })
@@ -36,7 +45,7 @@ onBeforeUnmount(() => {
       :class="{ active: isActived }"
       class="official-lang-menu-items scrollbar absolute right-1 top-[140%] hidden max-h-[138px] w-full min-w-min cursor-pointer overflow-y-scroll rounded bg-white text-base text-gray-57 shadow-lg"
     >
-      <div v-for="locale in locales" :key="`lang-${locale.value}`" @click="() => (_locale = locale.value)">
+      <div v-for="locale in locales" :key="`lang-${locale.value}`" @click="handleChangeLanguage(locale.value)">
         {{ $t(locale.key) }}
       </div>
     </div>
