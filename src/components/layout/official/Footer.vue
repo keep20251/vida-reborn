@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import Divider from '@comp/common/Divider.vue'
 import SocialIcon from '@comp/common/SocialIcon.vue'
 
-const socialIconSize = 40
+const socialIconSize = '40'
 
 const socials = ref([
   { name: 'tiktok', url: 'https://www.google.com.tw/?hl=zh_TW', size: socialIconSize },
