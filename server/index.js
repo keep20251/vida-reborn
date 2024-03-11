@@ -57,10 +57,6 @@ async function createServer(root = process.cwd(), hmrPort = 6173) {
   })
 
   app.use('*', async (req, res, next) => {
-    // if (redirectToLangPath(req, res)) {
-    //   return
-    // }
-
     try {
       const url = req.originalUrl
       console.log(`\x1b[96m [VIDA:request]${url} \x1b[0m`)
@@ -98,41 +94,6 @@ async function createServer(root = process.cwd(), hmrPort = 6173) {
 
   return { app, vite }
 }
-
-// function redirectToLangPath(req, res) {
-//   const [, firstPath, ...rest] = req.originalUrl.split('/')
-//   const restPath = rest.filter((p) => p)
-//   const cookieLang = req.cookies.__LOCALE
-
-//   // 路徑是語言開頭
-//   if (containsLang(firstPath)) {
-//     if (firstPath !== cookieLang) {
-//       res.cookie('__LOCALE', firstPath, { path: '/' })
-//     }
-//   }
-
-//   // 路徑不是語言開頭
-//   else {
-//     // 1. 預設先查 cookie
-//     // 2. cookie 沒設定過就用 http req head accept-language
-//     // 3. 最糟的情況直接使用 en
-//     const defaultLang =
-//       cookieLang || req.get('accept-language')?.split(',')[0].split(';')[0].toLocaleLowerCase() || 'en'
-
-//     let path = `/${defaultLang}`
-//     if (firstPath) {
-//       path += `/${firstPath}`
-//       if (restPath.length > 0) {
-//         path += `/${restPath.join('/')}`
-//       }
-//     }
-
-//     res.redirect(302, `${path}`)
-//     return true
-//   }
-
-//   return false
-// }
 
 function main() {
   let port = 3001
