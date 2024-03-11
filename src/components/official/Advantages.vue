@@ -19,9 +19,6 @@ const contentClick = (id) => {
       v-for="advantage in advantages"
       :key="advantage.id"
       :id="advantage.id"
-      :title="advantage.title"
-      :subtitle="advantage.subtitle"
-      :desc="advantage.desc"
       :active="advantage.active"
       @contentClick="contentClick"
     />

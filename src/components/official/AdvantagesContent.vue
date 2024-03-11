@@ -1,11 +1,8 @@
 <script setup>
-import { defineProps, toRefs, watch } from 'vue'
+import { defineProps } from 'vue'
 
 const props = defineProps({
   id: Number,
-  title: String,
-  subtitle: String,
-  desc: String,
   active: Boolean,
 })
 
