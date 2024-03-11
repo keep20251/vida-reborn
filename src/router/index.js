@@ -1,3 +1,4 @@
+import cloneDeep from 'lodash/cloneDeep'
 import { createMemoryHistory, createRouter as createVueRouter, createWebHistory } from 'vue-router'
 import { useCookies } from '@vueuse/integrations/useCookies'
 import Creator from '@/pages/creator/Creator.vue'
@@ -18,8 +19,8 @@ import Publish from '@/pages/publish/Publish.vue'
 import Search from '@/pages/search/Search.vue'
 import { COOKIE_KEY } from '@const'
 import { locales } from '@/i18n'
-import AppLicationLayout from '@/layouts/Application.vue'
-import OfficialLayout from '@/layouts/Official.vue'
+import Main from '@/layouts/Main.vue'
+import Official from '@/layouts/Official.vue'
 import afterGuard from './guards/after'
 import beforeGuard from './guards/before'
 import checkPermission from './guards/before/check-permission'
@@ -27,12 +28,10 @@ import devRoutes from './routes/dev'
 import errorRoutes from './routes/error'
 import mineRoutes from './routes/mine'
 
+const langPath = '/:lang'
 const langRegex = locales.map((l) => l.value).join('|')
 
-/**
- * @property checkLogin 用於判斷該頁面是否需要驗證登入狀態
- */
-const routes = [
+const routesTemplate = [
   {
     name: 'app',
     path: '/',
@@ -40,35 +39,16 @@ const routes = [
       {
         name: 'official',
         path: '/',
-        component: OfficialLayout, // layout for official
+        component: Official,
         children: [
-          // landing
-          { path: '/', redirect: redirectToLangPath },
-          { name: 'landing', path: `/:lang(${langRegex})`, component: Landing, meta: {} },
-
-          // academy
-          { path: '/official/academy', redirect: redirectToLangPath },
-          { name: 'academy', path: `/:lang(${langRegex})/official/academy`, component: Academy, meta: {} },
-
-          { path: '/official/tos', redirect: redirectToLangPath },
+          { name: 'landing', path: '/:lang', component: Landing, meta: {} },
+          { name: 'academy', path: '/:lang/official/academy', component: Academy, meta: {} },
           { name: 'official-tos', path: '/:lang/official/tos', component: ToS },
-
-          { path: '/official/privacy-policy', redirect: redirectToLangPath },
           { name: 'official-pp', path: '/:lang/official/privacy-policy', component: PrivacyPolicy },
-
-          { path: '/official/usc', redirect: redirectToLangPath },
           { name: 'official-usc', path: '/:lang/official/usc', component: Usc },
-
-          { path: '/official/dmca', redirect: redirectToLangPath },
           { name: 'official-dmca', path: '/:lang/official/dmca', component: DMCA },
-
-          { path: '/official/aup', redirect: redirectToLangPath },
           { name: 'official-aup', path: '/:lang/official/acceptable-use-policy', component: AUP },
-
-          { path: '/official/cookie-policy', redirect: redirectToLangPath },
           { name: 'official-cookie-policy', path: '/:lang/official/cookie-policy', component: CookiePolicy },
-
-          { path: '/official/complaints-policy', redirect: redirectToLangPath },
           {
             name: 'official-complaints-policy',
             path: '/:lang/official/complaints-policy',
@@ -77,55 +57,49 @@ const routes = [
         ],
       },
       {
-        name: 'applaction', // layout for application
+        name: 'main',
         path: '/',
-        component: AppLicationLayout,
+        component: Main,
         children: [
-          // home
-          { path: '/home', redirect: redirectToLangPath },
-          { name: 'home', path: `/:lang(${langRegex})/home`, component: Home, meta: {} },
-
-          // search
-          { path: '/search', redirect: redirectToLangPath },
-          { name: 'search', path: `/:lang(${langRegex})/search`, component: Search, meta: {} },
-
-          // message
-          { path: '/message/:to?', redirect: redirectToLangPath },
-          { name: 'message', path: `/:lang(${langRegex})/message/:to?`, component: Message, meta: {} },
-
-          // mine
+          { name: 'home', path: '/:lang/home', component: Home, meta: {} },
+          { name: 'search', path: '/:lang/search', component: Search, meta: {} },
+          { name: 'message', path: '/:lang/message/:to?', component: Message, meta: {} },
           {
             name: 'mine',
-            path: `/:lang(${langRegex})/mine`,
+            path: '/:lang/mine',
             component: Mine,
             meta: {},
             children: mineRoutes.map((route) => ({ ...route, beforeEnter: checkPermission })),
           },
-
-          // publish
-          { path: '/publish', redirect: redirectToLangPath },
-          { name: 'publish', path: `/:lang(${langRegex})/publish`, component: Publish, meta: {} },
-
-          // creator
-          { path: '/:username', redirect: redirectToLangPath },
-          { name: 'creator', path: `/:lang(${langRegex})/:username`, component: Creator, meta: {} },
-
-          // feed
-          { path: '/:username/:feedId', redirect: redirectToLangPath },
-          { name: 'feed', path: `/:lang(${langRegex})/:username/:feedId`, component: Feed, meta: {} },
+          { name: 'publish', path: '/:lang/publish', component: Publish, meta: {} },
+          { name: 'creator', path: '/:lang/:username', component: Creator, meta: {} },
+          { name: 'feed', path: '/:lang/:username/:feedId(\\d+)', component: Feed, meta: {} },
         ],
       },
     ],
   },
-  ...errorRoutes,
 ]
 
 export function createRouter() {
-  if (import.meta.env.DEV) routes.find((route) => route.name === 'app').children[0].children.push(...devRoutes)
+  const template = cloneDeep(routesTemplate)
+
+  const extendRoutes = []
+  if (import.meta.env.DEV) {
+    extendRoutes.push(...devRoutes)
+  }
+  extendRoutes.push(...errorRoutes)
+
+  template
+    .find((r) => r.name === 'app')
+    .children.find((r) => r.name === 'main')
+    .children.push(...extendRoutes)
+
+  const routes = createRoutes(template)
+  // console.log(routes)
 
   const router = createVueRouter({
     history: import.meta.env.SSR ? createMemoryHistory() : createWebHistory(),
-    routes: import.meta.env.DEV ? [...routes] : routes,
+    routes,
   })
 
   beforeGuard.forEach((guard) => router.beforeEach(guard))
@@ -136,6 +110,28 @@ export function createRouter() {
   })
 
   return router
+}
+
+function createRoutes(routes) {
+  return routes.reduce((a, r) => {
+    const { path, children, ...rest } = r
+    const hasLang = path.startsWith(langPath)
+
+    // mine 不加重導
+    if (hasLang && rest.name !== 'mine') {
+      const noLangPath = path === langPath ? '/' : path.substring(langPath.length)
+      a.push({ path: noLangPath, redirect: redirectToLangPath })
+    }
+
+    const newRoute = { ...rest }
+    newRoute.path = hasLang ? `${langPath}(${langRegex})${path.substring(langPath.length)}` : path
+    if (Array.isArray(children)) {
+      newRoute.children = createRoutes(children)
+    }
+    a.push(newRoute)
+
+    return a
+  }, [])
 }
 
 function redirectToLangPath(to) {

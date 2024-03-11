@@ -11,14 +11,9 @@
             <SocialIcon name="tiktok" :url="userData?.tiktok_link" size="15"></SocialIcon>
           </div>
           <div class="flex items-center space-x-10">
-            <Link
-              class="flex items-center justify-center"
-              :href="`/${userData.username}`"
-              :title="copyLink"
-              @click="copy(copyLink)"
-            >
+            <div class="flex items-center justify-center" @click="copy(userData.share_url)">
               <Icon class="cursor-pointer" name="link" size="20"></Icon>
-            </Link>
+            </div>
             <router-link :to="{ name: 'mine-profile-set' }" class="flex items-center">
               <Icon class="cursor-pointer" name="setting" size="20"></Icon>
             </router-link>
@@ -56,14 +51,13 @@
 </template>
 
 <script setup>
-import { computed, onActivated, onDeactivated, onMounted, onUnmounted } from 'vue'
+import { onActivated, onDeactivated, onMounted, onUnmounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useFeedStore } from '@/store/feed'
 import { useMineStore } from '@/store/mine'
 import { useSubPlanStore } from '@/store/sub-plan'
 import Button from '@comp/common/Button.vue'
-import Link from '@comp/common/Link.vue'
 import SocialIcon from '@comp/common/SocialIcon.vue'
 import Feed from '@comp/main/Feed.vue'
 import SelfIntro from '@comp/main/SelfIntro.vue'
@@ -71,7 +65,6 @@ import { useInfinite } from '@use/request/infinite'
 import { useCopyToClipboard } from '@use/utils/copyToClipboard'
 
 const { copy } = useCopyToClipboard()
-const copyLink = computed(() => `${import.meta.env.VITE_APP_URL}/${userData.value?.username}`)
 
 const { open: openSubPlanDialog } = useSubPlanStore()
 
