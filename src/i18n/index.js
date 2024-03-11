@@ -72,13 +72,33 @@ export async function loadLanguage(lang) {
   loadLanguage[lang] = (await import(`./locale/${lang}.ts`)).default
 }
 
-export function getLang(langTmp) {
-  const lang = langTmp.replace('_', '-')
-  const localeCodes = locales.map((locale) => locale.value)
-  let matches = null
-  localeCodes.forEach((code) => {
-    if (lang.includes(code)) matches = code
-    if (lang.includes('zh-hk')) matches = TW
-  })
-  return matches || EN
+export function getLang(langTmp = EN) {
+  const locale = langTmp.replace('_', '-').toLowerCase()
+
+  if (!locale) {
+    return EN
+  }
+
+  const [languageCode, countryCode] = locale.split('-')
+  if (languageCode === 'zh') {
+    // 繁體/簡體區域碼參考 https://zh.wikipedia.org/zh-tw/Wikipedia:%E5%9C%B0%E5%8C%BA%E8%AF%8D%E5%A4%84%E7%90%86
+    if (['hant', 'tw', 'hk', 'mo'].includes(countryCode)) {
+      return TW
+    }
+    // 非繁中就預設簡中了
+    return CN
+    // if (['hans', 'cn', 'sg', 'my'].includes(countryCode)) {
+    // return CN
+    // }
+  }
+
+  if ([EN, ES, FR, DE, TH, VI, JA, KO, RU, PT, ID, AR, HI].includes(languageCode)) {
+    return languageCode
+  }
+
+  return EN
+}
+
+export function containsLang(lang) {
+  return locales.map((l) => l.value).indexOf(lang) !== -1
 }

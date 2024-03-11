@@ -1,17 +1,39 @@
 import { basename } from 'node:path'
 import { renderToString } from 'vue/server-renderer'
-import { createI18n } from '@/i18n'
+import { containsLang, createI18n, getLang } from '@/i18n'
 import { createApp } from './main'
 
 export async function render(url, manifest, ctx) {
   const { app, router, store, head } = await createApp()
 
-  const locale = url.split('/')[1]
+  const [, firstPath, ...rest] = url.split('/')
+  const restPath = rest.filter((p) => p).join('/')
+  const firstPathIsLang = containsLang(firstPath)
+
+  // 語言優先權: cookie > firstPath > request head Accept-Language > 預設'en'
+  let locale
+  if (containsLang(ctx.req.cookies.__LOCALE)) {
+    locale = ctx.req.cookies.__LOCALE
+  } else {
+    if (firstPathIsLang) {
+      locale = firstPath
+    } else {
+      locale = getLang(ctx.req.get('accept-language')?.split(',')[0].split(';')[0])
+    }
+    ctx.res.cookie('__LOCALE', locale, { path: '/' })
+  }
+
+  let routerUrl
+  if (firstPathIsLang) {
+    routerUrl = `/${locale}${prefixSlash(restPath)}`
+  } else {
+    routerUrl = `/${locale}${prefixSlash(firstPath)}${prefixSlash(restPath)}`
+  }
 
   const i18n = await createI18n(locale)
   app.use(i18n)
 
-  await router.push(url)
+  await router.push(routerUrl)
   await router.isReady()
 
   const html = await renderToString(app, ctx)
@@ -69,5 +91,13 @@ function renderPreloadLink(file) {
   } else {
     // TODO
     return ''
+  }
+}
+
+function prefixSlash(path) {
+  if (path.length > 0 && !path.startsWith('/')) {
+    return `/${path}`
+  } else {
+    return path
   }
 }
