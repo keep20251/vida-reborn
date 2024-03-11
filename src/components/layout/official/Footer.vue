@@ -1,6 +1,93 @@
-<script setup></script>
+<script setup>
+import { ref } from 'vue'
+import Divider from '@comp/common/Divider.vue'
+import SocialIcon from '@comp/common/SocialIcon.vue'
+
+const socialIconSize = '40'
+
+const socials = ref([
+  { name: 'tiktok', url: 'https://www.google.com.tw/?hl=zh_TW', size: socialIconSize },
+  { name: 'twitter', url: 'https://www.google.com.tw/?hl=zh_TW', size: socialIconSize },
+  { name: 'instagram', url: 'https://www.google.com.tw/?hl=zh_TW', size: socialIconSize },
+  { name: 'youtube', url: 'https://www.google.com.tw/?hl=zh_TW', size: socialIconSize },
+])
+</script>
 <template>
-  <footer style="height: 100vh" id="contact">
-    <h1>Official Footer Component</h1>
+  <footer class="official-footer" id="contact">
+    <div class="official-footer-social">
+      <div class="official-footer-social-icons">
+        <SocialIcon
+          v-for="(social, index) in socials"
+          :key="index"
+          :name="social.name"
+          :url="social.url"
+          :size="social.size"
+        />
+      </div>
+      <div class="official-footer-social-infos">
+        <div class="official-footer-social-infos-info">
+          <div>{{ $t('official.footer.contact') }}</div>
+          <div>official@vida.contact</div>
+        </div>
+        <div class="official-footer-social-infos-info">
+          <div>{{ $t('official.footer.address') }}</div>
+          <div>Dawson House 5 Jewry St, London</div>
+        </div>
+      </div>
+    </div>
+
+    <Divider class="py-2 sm:hidden" />
+
+    <div class="official-footer-policys">
+      <div class="official-footer-policys-first">
+        <div>{{ $t('official.footer.tos') }}</div>
+        <div>{{ $t('official.footer.pp') }}</div>
+        <div>{{ $t('official.footer.usc') }}</div>
+        <div>{{ $t('official.footer.dmca') }}</div>
+      </div>
+    </div>
+    <div class="official-footer-policys-second">
+      <div class="official-footer-policys">
+        <div>{{ $t('official.footer.aup') }}</div>
+        <div>{{ $t('official.footer.cookiePolicy') }}</div>
+        <div>{{ $t('official.footer.complaintsPolicy') }}</div>
+      </div>
+    </div>
   </footer>
 </template>
+<style lang="scss" scoped>
+.official-footer {
+  @apply grid-cols-12 bg-[#FFFFFF] px-10 py-40 leading-10 sm:grid;
+  &-social {
+    @apply py-40 sm:col-span-4 sm:col-start-3 sm:mx-auto sm:min-w-[400px];
+    &-icons {
+      @apply flex justify-center space-x-15 sm:justify-start;
+      > div {
+        @apply rounded-full;
+      }
+    }
+    &-infos {
+      @apply pt-30;
+      &-info {
+        @apply flex justify-around   sm:justify-start;
+
+        :first-child {
+          @apply font-bold sm:mr-auto;
+        }
+        :last-child {
+          @apply font-light;
+        }
+      }
+    }
+  }
+  &-policys {
+    @apply flex flex-col text-center font-light  sm:col-span-2 sm:col-start-4 md:col-start-8;
+    &-first {
+      @apply pt-30;
+    }
+    &-second {
+      @apply sm:pt-30;
+    }
+  }
+}
+</style>

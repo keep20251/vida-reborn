@@ -8,13 +8,13 @@ const { push } = useRouter()
 
 const route = useRoute()
 const headerButtons = [
-  { text: 'Home', route: 'landing', href: '/' },
-  { text: 'Vida Academy', route: 'academy', href: '/official/academy' },
+  { text: 'official.header.home', route: 'landing', href: '/' },
+  { text: 'official.header.academy', route: 'academy', href: '/official/academy' },
 ]
 </script>
 <template>
   <header
-    class="official-header sticky top-0 z-50 flex h-60 flex-row items-center justify-between gap-62 bg-primary px-19 text-white sm:px-50"
+    class="official-header sticky top-0 z-50 flex h-60 flex-row items-center justify-between gap-62 bg-primary px-15 text-white sm:px-50"
   >
     <div class="sm:flex-grow">
       <img src="@/assets/images/official/nav-logo.svg?url" class="min-w-[100px] max-w-full object-cover" alt="VIDA" />
@@ -29,7 +29,7 @@ const headerButtons = [
       :href="btn.href"
       @click="push({ name: btn.route })"
     />
-    <a class="hidden sm:block" href="#contact">Contact</a>
+    <a class="hidden sm:block" href="#contact">{{ $t('official.header.contact') }}</a>
     <div class="hidden sm:block">
       <LanguageSelectBtn />
     </div>

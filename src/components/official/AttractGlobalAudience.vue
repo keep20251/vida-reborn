@@ -4,23 +4,22 @@
     <div class="wrapper-content">
       <div class="map"></div>
       <div class="info">
-        <div class="title">Attract a Global Audience</div>
+        <div class="title">{{ $t('official.attachment.title') }}</div>
         <div class="context">
-          With active users from all over the globe, Vida enables creators to reach and attract a global audience. Forge
-          stronger connections with your fan base and foster a profound sense of community.
+          {{ $t('official.attachment.info') }}
         </div>
         <div class="btns">
           <div class="btn">
             <div>20+</div>
-            <div>Countries</div>
+            <div>{{ $t('official.attachment.btns.country') }}</div>
           </div>
           <div class="btn">
             <div>5000+</div>
-            <div>Creators</div>
+            <div>{{ $t('official.attachment.btns.creator') }}</div>
           </div>
           <div class="btn">
             <div>0%</div>
-            <div>Service charge</div>
+            <div>{{ $t('official.attachment.btns.charge') }}</div>
           </div>
         </div>
       </div>

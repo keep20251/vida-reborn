@@ -12,7 +12,7 @@ const emits = defineEmits(['click'])
 <template>
   <Link :href="href">
     <div @click.prevent="emits('click')" class="text-nowrap cursor-pointer text-lg" :class="{ 'font-bold': bold }">
-      {{ text }}
+      {{ $t(text) }}
     </div>
   </Link>
 </template>

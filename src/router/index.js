@@ -7,6 +7,13 @@ import Message from '@/pages/message/Message.vue'
 import Mine from '@/pages/mine/Mine.vue'
 import Academy from '@/pages/official/Academy.vue'
 import Landing from '@/pages/official/Landing.vue'
+import AUP from '@/pages/official/terms/AUP.vue'
+import ComplaintsPolicy from '@/pages/official/terms/ComplaintsPolicy.vue'
+import CookiePolicy from '@/pages/official/terms/CookiePolicy.vue'
+import DMCA from '@/pages/official/terms/DMCA.vue'
+import PrivacyPolicy from '@/pages/official/terms/PrivacyPolicy.vue'
+import ToS from '@/pages/official/terms/ToS.vue'
+import Usc from '@/pages/official/terms/Usc.vue'
 import Publish from '@/pages/publish/Publish.vue'
 import Search from '@/pages/search/Search.vue'
 import { COOKIE_KEY } from '@const'
@@ -42,6 +49,31 @@ const routes = [
           // academy
           { path: '/official/academy', redirect: redirectToLangPath },
           { name: 'academy', path: `/:lang(${langRegex})/official/academy`, component: Academy, meta: {} },
+
+          { path: '/official/tos', redirect: redirectToLangPath },
+          { name: 'official-tos', path: '/:lang/official/tos', component: ToS },
+
+          { path: '/official/privacy-policy', redirect: redirectToLangPath },
+          { name: 'official-pp', path: '/:lang/official/privacy-policy', component: PrivacyPolicy },
+
+          { path: '/official/usc', redirect: redirectToLangPath },
+          { name: 'official-usc', path: '/:lang/official/usc', component: Usc },
+
+          { path: '/official/dmca', redirect: redirectToLangPath },
+          { name: 'official-dmca', path: '/:lang/official/dmca', component: DMCA },
+
+          { path: '/official/aup', redirect: redirectToLangPath },
+          { name: 'official-aup', path: '/:lang/official/acceptable-use-policy', component: AUP },
+
+          { path: '/official/cookie-policy', redirect: redirectToLangPath },
+          { name: 'official-cookie-policy', path: '/:lang/official/cookie-policy', component: CookiePolicy },
+
+          { path: '/official/complaints-policy', redirect: redirectToLangPath },
+          {
+            name: 'official-complaints-policy',
+            path: '/:lang/official/complaints-policy',
+            component: ComplaintsPolicy,
+          },
         ],
       },
       {
