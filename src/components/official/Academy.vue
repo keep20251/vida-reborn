@@ -17,9 +17,9 @@
         <div class="academy-wrapper-content-description">
           {{ $t('official.academy.info') }}
         </div>
-        <div class="academy-wrapper-content-button">
+        <a href="/official/academy" class="academy-wrapper-content-button">
           {{ $t('official.academy.btn') }}
-        </div>
+        </a>
       </div>
     </div>
   </div>
