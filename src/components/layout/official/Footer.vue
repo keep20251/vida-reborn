@@ -3,31 +3,33 @@ import { ref } from 'vue'
 import Divider from '@comp/common/Divider.vue'
 import SocialIcon from '@comp/common/SocialIcon.vue'
 
+const socialIconSize = 40
+
 const socials = ref([
   {
     name: 'tiktok',
     url: 'https://www.google.com.tw/?hl=zh_TW',
-    size: '38',
+    size: socialIconSize,
   },
   {
     name: 'twitter',
     url: 'https://www.google.com.tw/?hl=zh_TW',
-    size: '38',
+    size: socialIconSize,
   },
   {
     name: 'instagram',
     url: 'https://www.google.com.tw/?hl=zh_TW',
-    size: '38',
+    size: socialIconSize,
   },
   {
     name: 'youtube',
     url: 'https://www.google.com.tw/?hl=zh_TW',
-    size: '38',
+    size: socialIconSize,
   },
 ])
 </script>
 <template>
-  <footer class="official-footer" style="height: 100vh" id="contact">
+  <footer class="official-footer" id="contact">
     <div class="official-footer-social">
       <div class="official-footer-social-icons">
         <SocialIcon
@@ -50,7 +52,7 @@ const socials = ref([
       </div>
     </div>
 
-    <Divider class="py-2" />
+    <Divider class="py-2 sm:hidden" />
 
     <div class="official-footer-policys">
       <div class="official-footer-policys-first">
@@ -71,11 +73,11 @@ const socials = ref([
 </template>
 <style lang="scss" scoped>
 .official-footer {
-  @apply px-30 py-40 text-sm;
+  @apply grid-cols-6 bg-[#FFFFFF] px-10 py-40 sm:grid;
   &-social {
-    @apply py-40;
+    @apply py-40 sm:col-span-2 sm:col-start-2 sm:mx-auto sm:min-w-[400px];
     &-icons {
-      @apply flex justify-center space-x-15;
+      @apply flex justify-center space-x-15 sm:justify-start;
       > div {
         @apply rounded-full;
       }
@@ -83,10 +85,10 @@ const socials = ref([
     &-infos {
       @apply pt-30;
       &-info {
-        @apply flex justify-around leading-8;
+        @apply flex justify-around leading-8 sm:justify-start;
 
         :first-child {
-          @apply font-bold;
+          @apply font-bold sm:mr-auto;
         }
         :last-child {
           @apply font-light;
@@ -95,12 +97,13 @@ const socials = ref([
     }
   }
   &-policys {
-    @apply flex flex-col  text-center font-light leading-8;
+    @apply flex flex-col text-center font-light leading-8 sm:col-span-1 sm:col-start-4;
     font-size: small;
     &-first {
       @apply pt-30;
     }
     &-second {
+      @apply sm:pt-30;
     }
   }
 }
