@@ -18,8 +18,8 @@ import Publish from '@/pages/publish/Publish.vue'
 import Search from '@/pages/search/Search.vue'
 import { COOKIE_KEY } from '@const'
 import { locales } from '@/i18n'
-import AppLicationLayout from '@/layouts/Application.vue'
-import OfficialLayout from '@/layouts/Official.vue'
+import Main from '@/layouts/Main.vue'
+import Official from '@/layouts/Official.vue'
 import afterGuard from './guards/after'
 import beforeGuard from './guards/before'
 import checkPermission from './guards/before/check-permission'
@@ -40,7 +40,7 @@ const routes = [
       {
         name: 'official',
         path: '/',
-        component: OfficialLayout, // layout for official
+        component: Official,
         children: [
           // landing
           { path: '/', redirect: redirectToLangPath },
@@ -77,9 +77,9 @@ const routes = [
         ],
       },
       {
-        name: 'application', // layout for application
+        name: 'main',
         path: '/',
-        component: AppLicationLayout,
+        component: Main,
         children: [
           // home
           { path: '/home', redirect: redirectToLangPath },
@@ -124,7 +124,7 @@ export function createRouter() {
   if (import.meta.env.DEV) {
     routes
       .find((r) => r.name === 'app')
-      .children.find((r) => r.name === 'application')
+      .children.find((r) => r.name === 'main')
       .children.push(...devRoutes)
   }
 
