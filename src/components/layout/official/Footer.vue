@@ -6,26 +6,10 @@ import SocialIcon from '@comp/common/SocialIcon.vue'
 const socialIconSize = 40
 
 const socials = ref([
-  {
-    name: 'tiktok',
-    url: 'https://www.google.com.tw/?hl=zh_TW',
-    size: socialIconSize,
-  },
-  {
-    name: 'twitter',
-    url: 'https://www.google.com.tw/?hl=zh_TW',
-    size: socialIconSize,
-  },
-  {
-    name: 'instagram',
-    url: 'https://www.google.com.tw/?hl=zh_TW',
-    size: socialIconSize,
-  },
-  {
-    name: 'youtube',
-    url: 'https://www.google.com.tw/?hl=zh_TW',
-    size: socialIconSize,
-  },
+  { name: 'tiktok', url: 'https://www.google.com.tw/?hl=zh_TW', size: socialIconSize },
+  { name: 'twitter', url: 'https://www.google.com.tw/?hl=zh_TW', size: socialIconSize },
+  { name: 'instagram', url: 'https://www.google.com.tw/?hl=zh_TW', size: socialIconSize },
+  { name: 'youtube', url: 'https://www.google.com.tw/?hl=zh_TW', size: socialIconSize },
 ])
 </script>
 <template>
@@ -73,9 +57,9 @@ const socials = ref([
 </template>
 <style lang="scss" scoped>
 .official-footer {
-  @apply grid-cols-6 bg-[#FFFFFF] px-10 py-40 sm:grid;
+  @apply grid-cols-12 bg-[#FFFFFF] px-10 py-40 leading-10 sm:grid;
   &-social {
-    @apply py-40 sm:col-span-2 sm:col-start-2 sm:mx-auto sm:min-w-[400px];
+    @apply py-40 sm:col-span-4 sm:col-start-3 sm:mx-auto sm:min-w-[400px];
     &-icons {
       @apply flex justify-center space-x-15 sm:justify-start;
       > div {
@@ -85,7 +69,7 @@ const socials = ref([
     &-infos {
       @apply pt-30;
       &-info {
-        @apply flex justify-around leading-8 sm:justify-start;
+        @apply flex justify-around   sm:justify-start;
 
         :first-child {
           @apply font-bold sm:mr-auto;
@@ -97,8 +81,7 @@ const socials = ref([
     }
   }
   &-policys {
-    @apply flex flex-col text-center font-light leading-8 sm:col-span-1 sm:col-start-4;
-    font-size: small;
+    @apply flex flex-col text-center font-light  sm:col-span-2 sm:col-start-4 md:col-start-8;
     &-first {
       @apply pt-30;
     }
