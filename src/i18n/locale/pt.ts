@@ -83,7 +83,7 @@ export default {
     editSocialLink: "Edite Link Social",
     earnWdrlReq: "Solicitação de retirada",
     earnWdrlHist: "Registro de retiradas",
-    clearSearchHistory: "Recorde de pesquisa claro",
+    clearSearchHistory: "Clear Search Record",
     search: { history: "Pesquisa histórica", clear: "Pesquisas Populares", popular: "Vazio" },
     subscription: "Plano de assinatura",
     publishSuccess: "Publicação Bem-sucedida",
@@ -250,7 +250,7 @@ export default {
     whetherDelArticle: "Tem certeza de que deseja deletar esta postagem?",
   },
   content: {
-    default: "Predefinido, não deve ser exibido em nenhum lugar",
+    default: "Predefinir, não deve ser exibido em nenhum lugar",
     welcomeToVIDA: "Bem-vindo ao VIDA, junte-se a nós!",
     verifyAccount:
       "Corra para verificar sua caixa de correio! Vá para 【Minha conta>Configurações de conta】 para concluir a verificação",
@@ -594,6 +594,88 @@ export default {
       36: "Você também pode entrar em contato com o suporte enviando um e-mail para",
       title: "Setuju",
       btn: "Setuju dan langkah selanjutnya",
+    },
+  },
+  official: {
+    hero: {
+      1: "EMPODERANDO CRIADORES",
+      2: "PARA CONECTAR",
+      3: "com",
+      4: "SEUS FÃS",
+      5: "Tornando a monetização de conteúdo simples",
+    },
+    about: {
+      title: "Sobre a VIDA",
+      info: "A Vida é uma plataforma de assinatura para membros inovadora, projetada exclusivamente para criadores, capacitando-os a se conectar com seus fãs e monetizar efetivamente seu conteúdo. Nós fornecemos um conjunto abrangente de serviços para nossos criadores, incluindo capacidades de financiamento coletivo, consultas de marca estratégicas e serviços de mentoria. Temos uma ampla gama de pacotes de associação para escolher, então não importa quais sejam seus objetivos, a Vida permite que você os alcance.",
+    },
+    joinUs: {
+      title: "Junte-se como criador",
+      subtitle: "Transforme seus talentos e conteúdo em um negócio",
+      info: "A Vida permite que os criadores se envolvam com seus fãs, expandam sua audiência e monetizem com sucesso seu conteúdo. Com a Vida Academy, ensinaremos você a levar seu conteúdo para o próximo nível e torná-lo ainda mais lucrativo.",
+      btn: "Junte-se agora",
+    },
+    attachment: {
+      title: "Atrair uma audiência global",
+      info: "Com usuários ativos de todo o mundo, a Vida permite que os criadores alcancem e atraiam uma audiência global. Fortaleça as conexões com sua base de fãs e fomente um profundo senso de comunidade.",
+      btns: { country: "Países", creator: "Criadores", charge: "Taxa de serviço" },
+    },
+    advantage: {
+      1: {
+        title: "Sem comissão",
+        subtitle: "0% taxas, 100% satisfação",
+        desc: "A Vida é a melhor plataforma abrangente para criadores, oferecendo uma vasta gama de soluções para atender às suas necessidades específicas. Na Vida, os criadores recebem 100% dos fundos de seus fãs sem dedução de comissão.",
+      },
+      2: {
+        title: "Crowdfunding",
+        subtitle: "Impulsionando o sucesso através dos fãs",
+        desc: "Apresentando o conceito inovador de crowdfunding. Neste âmbito, os criadores têm a capacidade de personalizar seus planos de patrocínio, enquanto os fãs desfrutam da autonomia para selecionar seu nível preferido de apoio, integrando-se assim perfeitamente na própria essência do plano criativo.",
+      },
+      3: {
+        title: "Estratégia de marca:",
+        subtitle: "Expanda seu alcance",
+        desc: "Nossa equipe de especialistas está aqui para ajudá-lo a se destacar. Eles ajudarão você a desenvolver e implementar estratégias abrangentes de comunicação social e otimização para melhorar a interação e o envolvimento dentro de sua comunidade.",
+      },
+      4: {
+        title: "Módulos multifuncionais:",
+        subtitle: "Seu toque pessoal",
+        desc: "Oferecemos aos criadores um design de funcionalidades excepcionalmente flexível que permite gerenciar facilmente sua comunidade de fãs, organizar seus trabalhos em categorias e estabelecer preferências de assinatura e pagamento.",
+      },
+    },
+    academy: {
+      title: "Academia Vida",
+      subtitle: "Impulsionando sua conta Vida nas mídias sociais",
+      info: "Bem-vindo à Academia Vida! Nossa academia virtual foi especificamente projetada para criadores. Junte-se hoje para ter acesso a uma riqueza de conhecimento e orientação para ajudar a acelerar seus esforços criativos e maximizar seu potencial de monetização. Se você está ansioso para liberar seu potencial criativo, refinar suas habilidades e transformar sua paixão em um empreendimento bem-sucedido, você veio ao lugar certo. Junte-se à nossa comunidade de indivíduos com ideias semelhantes e vamos embarcar juntos nesta emocionante jornada criativa! Inscreva-se hoje para começar sua aventura de aprendizado conosco e clique no ícone do sino de notificação para ser notificado sobre anúncios importantes.",
+      btn: "Aprender Explorar",
+      page: {
+        title: "Academia VIDA",
+        subtitle: "Junte-se à Vida, explore seus potenciais, ganhe mais.",
+        videos: {
+          1: "Junte-se à Vida, explore seus potenciais, ganhe mais.",
+          2: "Gerenciando seu lucro",
+          3: "Como personalizar o preço da sua assinatura",
+          4: "Conectando-se com seus seguidores",
+          5: "Impulsionando sua conta Vida nas mídias sociais",
+          6: "Desvendando os Segredos da Criação de Conteúdo Excepcional",
+        },
+        content: {
+          1: 'A VIDA é uma plataforma de assinatura de membros meticulosamente criada, projetada exclusivamente para criadores. Incentiva os criadores a se envolverem com seus fãs e monetizar seu conteúdo de maneira eficaz. Fornecemos um conjunto abrangente de serviços centrados em criadores, incluindo "crowdfunding" e "Strategic Consulta.',
+          2: "Além disso, oferecemos diversas camadas de associação e opções versáteis do módulo, capacitando os criadores a se expressar livremente.",
+          3: "Atualmente, servimos orgulhosamente uma comunidade de mais de 5000 criadores e fãs, abrangendo mais de 20 países. Enquanto inspiramos os criadores a buscar a excelência e produzir conteúdo de alta qualidade,",
+          4: "A VIDA está igualmente comprometida em forjar conexões mais fortes entre os criadores e sua base de fãs dedicada, promovendo um profundo senso de unidade comunitária.",
+        },
+      },
+    },
+    header: { home: "Início", academy: "Academia Vida", contact: "Fale Conosco" },
+    footer: {
+      contact: "Fale Conosco",
+      address: "Endereço",
+      tos: "Term of Service",
+      pp: "Privacy Policy",
+      usc: "18 USC 2257 Statement",
+      dmca: "DMCA",
+      aup: "Acceptable Use Policy",
+      cookiePolicy: "Cookie Policy",
+      complaintsPolicy: "Complaints Policy",
     },
   },
 }

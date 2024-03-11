@@ -480,7 +480,7 @@ export default {
   },
   modal: {
     subscribe: {
-      1: "Ghé thăm hoàn toàn tất cả các tác phẩm của ngày {days} trong quá khứ",
+      1: "Hoàn toàn ghé thăm tất cả các tác phẩm của ngày {days} đã qua",
       2: "Có thể gửi thông tin trực tiếp cho người tạo",
       3: "Tương tác gần hơn",
       4: "Bạn có thể hủy đăng ký của mình bất cứ lúc nào",
@@ -507,7 +507,7 @@ export default {
       title: "Thanh toán thất bại",
       content: "Lý do chi tiết: {reason}. Vui lòng thử lại hoặc liên hệ với nhân viên dịch vụ khách hàng",
     },
-    confirmAmount: "Tôi có thể yêu cầu bạn gửi số tiền {'$'} {price} Truy cập thanh toán",
+    confirmAmount: "Tôi có thể yêu cầu bạn gửi số tiền {'$'} {price} đi vào thanh toán",
     beforeStart: "Trước khi bắt đầu...",
     pickInterestedForUs: "Hãy giúp chúng tôi chọn loại bạn quan tâm!",
     feedCategory: "Chủ đề bài viết:",
@@ -593,6 +593,88 @@ export default {
       36: "Bạn cũng có thể liên hệ hỗ trợ bằng cách gửi email đến",
       title: "同意する",
       btn: "同意して次のステップへ",
+    },
+  },
+  official: {
+    hero: {
+      1: "Trao quyền cho người sáng tạo",
+      2: "Để kết nối",
+      3: "với",
+      4: "người hâm mộ của họ",
+      5: "Làm cho việc kiếm tiền từ nội dung trở nên đơn giản",
+    },
+    about: {
+      title: "Về VIDA",
+      info: "Vida là một nền tảng đăng ký thành viên đột phá được thiết kế riêng cho các nhà sáng tạo, trao quyền cho họ kết nối với người hâm mộ và kiếm tiền từ nội dung một cách hiệu quả. Chúng tôi cung cấp một bộ dịch vụ toàn diện cho các nhà sáng tạo của mình, bao gồm khả năng gây quỹ cộng đồng, tư vấn thương hiệu chiến lược và dịch vụ cố vấn. Chúng tôi có nhiều gói thành viên để bạn lựa chọn, vì vậy dù mục tiêu của bạn là gì, Vida giúp bạn đạt được chúng.",
+    },
+    joinUs: {
+      title: "Tham gia làm người sáng tạo",
+      subtitle: "Chuyển đổi tài năng và nội dung của bạn thành kinh doanh",
+      info: "Vida cho phép các nhà sáng tạo tương tác với người hâm mộ của họ, mở rộng đối tượng và kiếm tiền từ nội dung của họ một cách thành công. Với Vida Academy, chúng tôi sẽ dạy bạn cách nâng cao nội dung của mình lên một tầm cao mới và trở nên có lợi nhuận hơn.",
+      btn: "Tham gia ngay",
+    },
+    attachment: {
+      title: "Thu hút khán giả toàn cầu",
+      info: "Với người dùng hoạt động từ khắp nơi trên thế giới, Vida giúp các nhà sáng tạo tiếp cận và thu hút khán giả toàn cầu. Tạo ra mối liên kết mạnh mẽ hơn với cơ sở người hâm mộ và nuôi dưỡng cảm giác cộng đồng sâu sắc.",
+      btns: { country: "Quốc gia", creator: "Người sáng tạo", charge: "Phí dịch vụ" },
+    },
+    advantage: {
+      1: {
+        title: "Miễn phí hoa hồng",
+        subtitle: "0% phí, 100% hài lòng",
+        desc: "Vida là nền tảng tổng hợp tốt nhất dành cho những người sáng tạo, cung cấp nhiều giải pháp để đáp ứng nhu cầu cụ thể của bạn. Trên Vida, người sáng tạo nhận được 100% số tiền từ người hâm mộ mà không bị trừ bất kỳ hoa hồng nào.",
+      },
+      2: {
+        title: "Gây quỹ cộng đồng",
+        subtitle: "Thúc đẩy thành công thông qua người hâm mộ",
+        desc: "Giới thiệu khái niệm đổi mới về crowdfunding. Trong lĩnh vực này, nhà sáng tạo có khả năng tùy chỉnh kế hoạch tài trợ của họ, trong khi người hâm mộ thì tự do chọn lựa mức độ hỗ trợ ưa thích của họ, từ đó hòa mình một cách liền mạch vào chính bản chất của bản vẽ sáng tạo.",
+      },
+      3: {
+        title: "Chiến lược thương hiệu:",
+        subtitle: "Mở rộng phạm vi của bạn",
+        desc: "Đội ngũ chuyên gia của chúng tôi ở đây để giúp bạn xuất sắc. Họ sẽ giúp bạn thiết kế và thực hiện các chiến lược giao tiếp xã hội và tối ưu hóa toàn diện để cải thiện tương tác và sự tham gia trong cộng đồng của bạn.",
+      },
+      4: {
+        title: "Mô-đun đa chức năng:",
+        subtitle: "Chạm trổ cá nhân của bạn",
+        desc: "Chúng tôi cung cấp cho nhà sáng tạo một thiết kế tính năng linh hoạt đặc biệt, cho phép bạn dễ dàng quản lý cộng đồng người hâm mộ, tổ chức các tác phẩm của mình vào các danh mục, và thiết lập ưu tiên đăng ký và thanh toán.",
+      },
+    },
+    academy: {
+      title: "Học viện Vida",
+      subtitle: "Nâng cao tài khoản Vida của bạn trên mạng xã hội",
+      info: "Chào mừng bạn đến với Học viện Vida! Học viện ảo của chúng tôi đã được thiết kế đặc biệt cho các nhà sáng tạo. Tham gia ngay hôm nay để truy cập vào kho kiến thức và hướng dẫn giúp bạn tăng tốc nỗ lực sáng tạo và tối đa hóa khả năng kiếm tiền của mình. Nếu bạn mong muốn khám phá tiềm năng sáng tạo, tinh chỉnh kỹ năng và biến đam mê thành doanh nghiệp thành công, bạn đã đến đúng nơi. Tham gia cộng đồng của chúng toi, những người có chung suy nghĩ và hãy cùng nhau bắt đầu cuộc hành trình sáng tạo thú vị này! Đăng ký ngay hôm nay để bắt đầu cuộc phiêu lưu học tập với chúng tôi và nhấp vào biểu tượng chuông thông báo để được thông báo về các thông báo quan trọng.",
+      btn: "Học Tìm hiểu",
+      page: {
+        title: "Học viện VIDA",
+        subtitle: "Tham gia Vida, khám phá tiềm năng của bạn, kiếm được nhiều hơn.",
+        videos: {
+          1: "Tham gia Vida, khám phá tiềm năng của bạn, kiếm được nhiều hơn.",
+          2: "Quản lý lợi nhuận của bạn",
+          3: "Cách tùy chỉnh giá đăng ký của bạn",
+          4: "Kết nối với người theo dõi của bạn",
+          5: "Tăng cường tài khoản Vida của bạn trên mạng xã hội",
+          6: "Mở khóa bí mật của việc tạo ra nội dung xuất sắc",
+        },
+        content: {
+          1: "VIDA là một nền tảng đăng ký thành viên được chế tạo tỉ mỉ được thiết kế dành riêng cho người sáng tạo. Nó khuyến khích người sáng tạo tham gia với người hâm mộ của họ và kiếm tiền từ nội dung của họ một cách hiệu quả.",
+          2: "Ngoài ra, chúng tôi cung cấp các tầng thành viên đa dạng và các tùy chọn mô -đun đa năng, trao quyền cho người sáng tạo thể hiện bản thân một cách tự do.",
+          3: "Hiện tại, chúng tôi tự hào phục vụ một cộng đồng gồm hơn 5000 người sáng tạo và người hâm mộ, kéo dài hơn 20 quốc gia. Khi chúng tôi truyền cảm hứng cho những người sáng tạo theo đuổi sự xuất sắc và sản xuất nội dung chất lượng cao,",
+          4: "VIDA cũng cam kết không kém về việc tạo ra các kết nối mạnh mẽ hơn giữa những người sáng tạo và cơ sở người hâm mộ tận tụy của họ, thúc đẩy ý thức sâu sắc về sự thống nhất của cộng đồng.",
+        },
+      },
+    },
+    header: { home: "Trang chủ", academy: "Học viện Vida", contact: "Liên hệ chúng tôi" },
+    footer: {
+      contact: "Liên hệ chúng tôi",
+      address: "Địa chỉ",
+      tos: "Term of Service",
+      pp: "Privacy Policy",
+      usc: "18 USC 2257 Statement",
+      dmca: "DMCA",
+      aup: "Acceptable Use Policy",
+      cookiePolicy: "Cookie Policy",
+      complaintsPolicy: "Complaints Policy",
     },
   },
 }

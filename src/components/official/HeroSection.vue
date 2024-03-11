@@ -1,5 +1,3 @@
-<script setup></script>
-
 <template>
   <div class="hero">
     <div class="hero-bg"></div>
@@ -15,8 +13,8 @@
       </div>
       <div class="hero-content-sub-title">{{ $t('official.hero.5') }}</div>
       <div class="hero-content-btns">
-        <div class="btn">{{ $t('label.login') }}</div>
-        <div class="btn">{{ $t('label.register') }}</div>
+        <a href="/mine">{{ $t('label.login') }}</a>
+        <a href="/mine">{{ $t('label.register') }}</a>
       </div>
     </div>
   </div>
@@ -65,14 +63,13 @@
     &-btns {
       @apply mt-5 flex justify-center space-x-34 pt-30 text-[1.25em];
 
-      div {
+      a {
         cursor: pointer;
         @apply rounded-full border px-34 py-6;
       }
 
-      :first-child {
-        background-color: white;
-        @apply text-primary;
+      :hover {
+        @apply bg-white text-primary;
       }
     }
   }

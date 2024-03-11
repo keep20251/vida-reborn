@@ -180,7 +180,7 @@ export default {
     error: {
       subscribeSelf: "No puedo suscribirte a ti mismo",
       shopBuySelf: "No puedo comprar tus propios productos",
-      subscriptionNotFound: "Sin solución de suscripción disponible",
+      subscriptionNotFound: "No hay solución de suscripción disponible",
     },
     sending: "Enviando",
     failure: "Fallido",
@@ -250,7 +250,7 @@ export default {
     whetherDelArticle: "¿Estás seguro de que quieres eliminar esta publicación?",
   },
   content: {
-    default: "Preset, no debe mostrarse en ningún lado",
+    default: "Preestablecido, no debe mostrarse en ningún lado",
     welcomeToVIDA: "¡Bienvenido a VIDA, únete a nosotros!",
     verifyAccount:
       "¡Apresúrate a verificar tu buzón! Ve a 【Mi cuenta>Configuración de la cuenta】 para completar la verificación",
@@ -500,7 +500,7 @@ export default {
     },
     shopBuySuc: {
       1: "¡maravilloso! Pago exitoso para desbloquear la publicación",
-      2: "¡Elija la publicación para ver, o permanecer en la pantalla original!",
+      2: "¡Elija la publicación para mirar o permanecer en la pantalla original!",
       confirm: "Ir a la publicación",
     },
     title: { paySuc: "Ha pagado con éxito" },
@@ -595,6 +595,88 @@ export default {
       36: "También puede contactar con el soporte enviando un correo electrónico a",
       title: "Accord",
       btn: "Accepter et étape suivante",
+    },
+  },
+  official: {
+    hero: {
+      1: "EMPODERANDO A LOS CREADORES",
+      2: "PARA CONECTAR",
+      3: "con",
+      4: "SUS FANS",
+      5: "Monetizar contenido hecho simple",
+    },
+    about: {
+      title: "Acerca de VIDA",
+      info: "Vida es una plataforma de suscripción para miembros innovadora diseñada exclusivamente para creadores, que les empodera para conectar con sus fans y monetizar eficazmente su contenido. Ofrecemos un conjunto completo de servicios para nuestros creadores, incluyendo capacidades de financiamiento colectivo, consultas de marca estratégicas y servicios de mentoría. Tenemos una amplia gama de paquetes de membresía para elegir, por lo que, no importa cuáles sean tus objetivos, Vida te permite alcanzarlos.",
+    },
+    joinUs: {
+      title: "Únete como creador",
+      subtitle: "Convierte tus talentos y contenido en un negocio",
+      info: "Vida permite a los creadores interactuar con sus fans, expandir su audiencia y monetizar con éxito su contenido. Con Vida Academy, te enseñaremos cómo llevar tu contenido al siguiente nivel y ser aún más rentable.",
+      btn: "Únete ahora",
+    },
+    attachment: {
+      title: "Atraer a una audiencia global",
+      info: "Con usuarios activos de todo el mundo, Vida permite a los creadores llegar y atraer a una audiencia global. Forja conexiones más fuertes con tu base de fans y fomenta un profundo sentido de comunidad.",
+      btns: { country: "Países", creator: "Creadores", charge: "Cargo por servicio" },
+    },
+    advantage: {
+      1: {
+        title: "Sin comisión",
+        subtitle: "0% de comisiones, 100% de satisfacción",
+        desc: "Vida es la mejor plataforma integral para creadores, ofreciendo una amplia gama de soluciones para satisfacer tus necesidades específicas. En Vida, los creadores reciben el 100% de los fondos de sus fans sin que se deduzca ninguna comisión.",
+      },
+      2: {
+        title: "Crowdfunding",
+        subtitle: "Impulsando el éxito a través de los fans",
+        desc: "Presentando el concepto innovador de crowdfunding. En este ámbito, los creadores tienen la capacidad de adaptar sus planes de patrocinio, mientras que los fans disfrutan de la autonomía para seleccionar su nivel preferido de apoyo, integrándose así sin problemas en el tejido mismo del plano creativo.",
+      },
+      3: {
+        title: "Estrategia de marca:",
+        subtitle: "Amplía tu alcance",
+        desc: "Nuestro equipo de expertos está aquí para ayudarte a sobresalir. Te ayudarán a diseñar e implementar estrategias integrales de comunicación social y optimización para mejorar la interacción y el compromiso dentro de tu comunidad.",
+      },
+      4: {
+        title: "Módulos multifuncionales:",
+        subtitle: "Tu toque personal",
+        desc: "Ofrecemos a los creadores un diseño de funciones excepcionalmente flexible que te permite gestionar sin esfuerzo tu comunidad de fans, organizar tus trabajos en categorías y establecer preferencias de suscripción y pago.",
+      },
+    },
+    academy: {
+      title: "Academia Vida",
+      subtitle: "Impulsando tu cuenta Vida en redes sociales",
+      info: "¡Bienvenido a la Academia Vida! Nuestra academia virtual ha sido diseñada específicamente para creadores. Únete hoy para acceder a una riqueza de conocimiento y orientación para ayudarte a acelerar tus esfuerzos creativos y maximizar tu potencial de monetización. Si estás ansioso por desbloquear tu potencial creativo, refinar tus habilidades y convertir tu pasión en una empresa exitosa, has llegado al lugar correcto. Únete a nuestra comunidad de individuos afines y embarquémonos juntos en este emocionante viaje creativo. ¡Inscríbete hoy para comenzar tu aventura de aprendizaje con nosotros y haz clic en el icono de campana de notificación para estar informado sobre anuncios clave!",
+      btn: "Aprender Explorar",
+      page: {
+        title: "ACADEMIA VIDA",
+        subtitle: "Únete a Vida, explora tus potenciales, gana más.",
+        videos: {
+          1: "Únete a Vida, explora tus potenciales, gana más.",
+          2: "Gestionando tus ganancias",
+          3: "Cómo personalizar el precio de tu suscripción",
+          4: "Conectando con tus seguidores",
+          5: "Impulsando tu cuenta Vida en redes sociales",
+          6: "Desbloqueando los secretos de la creación de contenido excepcional",
+        },
+        content: {
+          1: 'VIDA es una plataforma de suscripción de miembros meticulosamente elaborada diseñada exclusivamente para los creadores. Alienta a los creadores a interactuar con sus fanáticos y monetizar su contenido de manera efectiva. Proporcionamos un conjunto integral de servicios centrados en los creadores, incluyendo "crowdfunding" y "consulta estratégica de marca.',
+          2: "Además, ofrecemos diversos niveles de membresía y opciones de módulos versátiles, lo que permite a los creadores que se expresen libremente.",
+          3: "Actualmente, servimos con orgullo a una comunidad de más de 5000 creadores y fanáticos, que abarca más de 20 países. Mientras inspiramos a los creadores a buscar excelencia y producir contenido de alta calidad,",
+          4: "Vida está igualmente comprometida con forjar conexiones más fuertes entre los creadores y su devota base de fanáticos, fomentando un profundo sentido de unidad comunitaria.",
+        },
+      },
+    },
+    header: { home: "Inicio", academy: "Academia Vida", contact: "Contáctenos" },
+    footer: {
+      contact: "Contáctenos",
+      address: "Dirección",
+      tos: "Term of Service",
+      pp: "Privacy Policy",
+      usc: "18 USC 2257 Statement",
+      dmca: "DMCA",
+      aup: "Acceptable Use Policy",
+      cookiePolicy: "Cookie Policy",
+      complaintsPolicy: "Complaints Policy",
     },
   },
 }
