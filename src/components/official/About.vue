@@ -10,13 +10,9 @@ function toSearch(value) {
   <div class="official-about">
     <div class="official-about-content">
       <div class="official-about-content-img"></div>
-      <div class="official-about-content-title">About Vida</div>
+      <div class="official-about-content-title">{{ $t('official.about.title') }}</div>
       <div class="official-about-content-info">
-        Vida is a ground-breaking member subscription platform designed exclusively for creators, empowering them to
-        connect with their fans and effectively monetise their content. We provide a comprehensive suite of services for
-        our creators, including crowdfunding capabilities, strategic brand consultations and mentoring services. We have
-        a wide range of membership packages to choose from, so no matter what your goals are, Vida enables you to
-        achieve them.
+        {{ $t('official.about.info') }}
       </div>
     </div>
     <div class="official-about-search">
