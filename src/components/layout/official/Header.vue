@@ -10,7 +10,6 @@ const route = useRoute()
 const headerButtons = [
   { text: 'Home', route: 'landing', href: '/' },
   { text: 'Vida Academy', route: 'academy', href: '/official/academy' },
-  { text: 'Contact', route: 'contact', href: '/official/contact' },
 ]
 </script>
 <template>
@@ -30,6 +29,7 @@ const headerButtons = [
       :href="btn.href"
       @click="push({ name: btn.route })"
     />
+    <a class="hidden sm:block" href="#contact">Contact</a>
     <div class="hidden sm:block">
       <LanguageSelectBtn />
     </div>
