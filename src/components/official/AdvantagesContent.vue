@@ -14,9 +14,15 @@ const handleClick = () => emit('contentClick', props.id)
 </script>
 <template>
   <div class="official-advantages-content" :class="{ active: active }" @click="handleClick">
-    <div class="official-advantages-content-title">{{ title }}</div>
-    <div class="official-advantages-content-subtitle">{{ subtitle }}</div>
-    <div class="official-advantages-content-description">{{ desc }}</div>
+    <div class="official-advantages-content-title">
+      {{ $t(`official.advantage.${props.id}.title`) }}
+    </div>
+    <div class="official-advantages-content-subtitle">
+      {{ $t(`official.advantage.${props.id}.subtitle`) }}
+    </div>
+    <div class="official-advantages-content-description">
+      {{ $t(`official.advantage.${props.id}.desc`) }}
+    </div>
   </div>
 </template>
 <style lang="scss" scoped>

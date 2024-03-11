@@ -1,14 +1,3 @@
-<script setup>
-import { ref } from 'vue'
-
-const academy = ref({
-  title: 'Vida Academy',
-  subtitle: 'Boosting your Vida account on social media',
-  description:
-    'Welcome to Vida Academy! Our virtual academy has been specifically designed for creators. Join today for access to a wealth of knowledge and guidance to help you accelerate your creative endeavours and maximise your monetisation potential.  So, if you’re eager to unlock your creative potential, refine your skills, and turn your passion into a successful enterprise, you’ve come to the right place. Join our community of like-minded individuals, and let’s embark on this exciting creative journey together! Sign up today to begin your learning adventure with us and click the notification bell icon to be notified about key announcements.',
-  button: 'Explore',
-})
-</script>
 <template>
   <div class="academy">
     <div class="academy-wrapper">
@@ -19,10 +8,18 @@ const academy = ref({
         <div class="academy-wrapper-bar-line"></div>
       </div>
       <div class="academy-wrapper-content">
-        <div class="academy-wrapper-content-title">{{ academy.title }}</div>
-        <div class="academy-wrapper-content-subtitle">{{ academy.subtitle }}</div>
-        <div class="academy-wrapper-content-description">{{ academy.description }}</div>
-        <div class="academy-wrapper-content-button">Explore</div>
+        <div class="academy-wrapper-content-title">
+          {{ $t('official.academy.title') }}
+        </div>
+        <div class="academy-wrapper-content-subtitle">
+          {{ $t('official.academy.subtitle') }}
+        </div>
+        <div class="academy-wrapper-content-description">
+          {{ $t('official.academy.info') }}
+        </div>
+        <div class="academy-wrapper-content-button">
+          {{ $t('official.academy.btn') }}
+        </div>
       </div>
     </div>
   </div>

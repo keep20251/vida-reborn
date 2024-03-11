@@ -10,12 +10,14 @@
         alt="Academy Video"
       />
     </div>
-    <div class="max-w-[264px] text-md font-bold leading-5 text-white">{{ props.title }}</div>
+    <div class="max-w-[264px] text-md font-bold leading-5 text-white">
+      {{ $t(`official.academy.page.videos.${props.id}`) }}
+    </div>
   </div>
 </template>
 <script setup>
 const props = defineProps({
-  title: { type: String, default: '' },
+  id: { type: [String, Number], required: true },
   border: { type: Boolean, default: false },
   link: { type: String, default: '' },
 })

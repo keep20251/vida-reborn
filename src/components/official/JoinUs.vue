@@ -6,14 +6,12 @@
     <div class="official-joinus-bg"></div>
     <div class="official-joinus-info">
       <div class="official-joinus-info-container">
-        <h1>Join as a Creator</h1>
-        <h2>Turn your talents & content into a business</h2>
+        <h1>{{ $t('official.joinUs.title') }}</h1>
+        <h2>{{ $t('official.joinUs.subtitle') }}</h2>
         <div class="info">
-          Vida enables creators to engage with their fans, expand their audience and successfully monetise their
-          content. With Vida Academy, we will teach you how to take your content to the next level and become even more
-          profitable.
+          {{ $t('official.joinUs.info') }}
         </div>
-        <div class="btn">Join Now</div>
+        <div class="btn">{{ $t('official.joinUs.btn') }}</div>
       </div>
     </div>
   </div>

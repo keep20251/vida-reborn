@@ -17,7 +17,9 @@
           alt="VIDA"
         />
         <img src="@/assets/images/official/vertical-divider.svg?url" class="object-cover" />
-        <div class="align-bottom text-[34px] font-bold leading-[34px] text-white">VIDA ACADAMY</div>
+        <div class="align-bottom text-[34px] font-bold leading-[34px] text-white">
+          {{ $t('official.academy.page.title') }}
+        </div>
       </div>
     </div>
 
@@ -31,23 +33,25 @@
               alt="VIDA"
             />
             <img src="@/assets/images/official/vertical-divider.svg?url" class="object-cover" />
-            <div class="align-bottom text-[40px] font-bold leading-[40px] text-white">VIDA ACADAMY</div>
+            <div class="align-bottom text-[40px] font-bold leading-[40px] text-white">
+              {{ $t('official.academy.page.title') }}
+            </div>
           </div>
           <div class="grid grid-cols-2 md:grid-cols-3">
             <AcademyVideo
               v-for="(video, index) in videos"
               :key="`video-${index}`"
-              :title="video.title"
-              :border="selectedVideo === video.value"
+              :id="video.value"
               :link="video.link"
+              :border="selectedVideo === video.value"
               @click="selectedVideo = video.value"
             ></AcademyVideo>
           </div>
         </div>
         <div class="flex max-w-[553px] flex-col items-center justify-center space-y-20 text-start text-white">
-          <div class="text-xl font-bold leading-7">Join Vida, explore your potentials, earn more.</div>
+          <div class="text-xl font-bold leading-7">{{ $t('official.academy.page.subtitle') }}</div>
           <div v-for="(content, index) in contents" :key="`content-${index}`" class="text-md font-normal leading-5">
-            {{ content }}
+            {{ $t(content) }}
           </div>
         </div>
       </div>
@@ -63,42 +67,36 @@ import AcademyVideo from '@/components/official/AcademyVideo.vue'
 const { isDesktop } = storeToRefs(useAppStore())
 
 const contents = [
-  'Vida is a meticulously crafted member subscription platform designed exclusively for creators.It encourages creators to engage with their fansand monetize their content effectively.We provide a comprehensive suite of services centered around creators,including "crowdfunding" and "Strategic Branding Consultation.',
-  'Additionally, we offer diverse membership tiers and versatile module options, empowering creators to express themselves freely.',
-  'Currently, we proudly serve a community of over 5000 creators and fans, spanning 20+ countries. As we inspire creators to pursue excellence and produce high-quality content,',
-  'Vida is equally committed to forging stronger connections between creators and their devoted fan base, fostering a profound sense of community unity.',
+  'official.academy.page.content.1',
+  'official.academy.page.content.2',
+  'official.academy.page.content.3',
+  'official.academy.page.content.4',
 ]
 
 const selectedVideo = ref(null)
 const videos = [
   {
-    value: 0,
-    title: 'Join Vida, explore your potentials, earn more.',
+    value: 1,
     link: 'https://www.youtube.com/watch?v=_569x7cWAFI',
   },
   {
-    value: 1,
-    title: 'Managing your profit | Pro Tips for Growth ⬆',
+    value: 2,
     link: 'https://www.youtube.com/watch?v=_x2TCxj4YyI',
   },
   {
-    value: 2,
-    title: 'How to tailor your subscription price | Real Tea Talk',
+    value: 3,
     link: 'https://www.youtube.com/watch?v=wwiwVvgcd9M',
   },
   {
-    value: 3,
-    title: 'Connecting with your followers | Pure Gold💰',
+    value: 4,
     link: 'https://www.youtube.com/watch?v=3PjcwD99z5s',
   },
   {
-    value: 4,
-    title: 'Boosting your vida account on social media | Practical Advice',
+    value: 5,
     link: 'https://www.youtube.com/watch?v=XGKvT-28E6E',
   },
   {
-    value: 5,
-    title: 'Unlocking the Secrets of Exceptional Content Creation 💡🎥 | Source for Invaluable Insights',
+    value: 6,
     link: 'https://www.youtube.com/watch?v=s7cP6Ft-WjA',
   },
 ]

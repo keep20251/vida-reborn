@@ -8,15 +8,15 @@
         <div class="hero-content-icon-img"></div>
       </div>
       <div class="hero-content-main-title">
-        <div>EMPOWERING CREATORS</div>
-        <div>TO CONNECT</div>
-        <div>with</div>
-        <div>THEIR FANS</div>
+        <div>{{ $t('official.hero.1') }}</div>
+        <div>{{ $t('official.hero.2') }}</div>
+        <div>{{ $t('official.hero.3') }}</div>
+        <div>{{ $t('official.hero.4') }}</div>
       </div>
-      <div class="hero-content-sub-title">Monetising content made simple</div>
+      <div class="hero-content-sub-title">{{ $t('official.hero.5') }}</div>
       <div class="hero-content-btns">
-        <div class="btn">Login</div>
-        <div class="btn">Registrer</div>
+        <div class="btn">{{ $t('label.login') }}</div>
+        <div class="btn">{{ $t('label.register') }}</div>
       </div>
     </div>
   </div>
