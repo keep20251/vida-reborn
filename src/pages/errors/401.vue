@@ -1,7 +1,7 @@
 <template>
   <Page>
     <template #default>
-      <div>401 Page</div>
+      <div class="flex h-screen items-center justify-center text-xl font-bold">401 Unauthorized</div>
     </template>
   </Page>
 </template>
