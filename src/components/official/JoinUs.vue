@@ -11,7 +11,7 @@
         <div class="info">
           {{ $t('official.joinUs.info') }}
         </div>
-        <div class="btn">{{ $t('official.joinUs.btn') }}</div>
+        <a href="/mine/creator" class="btn">{{ $t('official.joinUs.btn') }}</a>
       </div>
     </div>
   </div>
