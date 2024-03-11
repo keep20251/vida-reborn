@@ -6,10 +6,10 @@ import SocialIcon from '@comp/common/SocialIcon.vue'
 const socialIconSize = '40'
 
 const socials = ref([
-  { name: 'tiktok', url: 'https://www.google.com.tw/?hl=zh_TW', size: socialIconSize },
-  { name: 'twitter', url: 'https://www.google.com.tw/?hl=zh_TW', size: socialIconSize },
-  { name: 'instagram', url: 'https://www.google.com.tw/?hl=zh_TW', size: socialIconSize },
-  { name: 'youtube', url: 'https://www.google.com.tw/?hl=zh_TW', size: socialIconSize },
+  { name: 'tiktok', url: 'https://www.tiktok.com/@vida_platform/', size: socialIconSize },
+  { name: 'twitter', url: 'https://twitter.com/vida_platform/', size: socialIconSize },
+  { name: 'instagram', url: 'https://www.instagram.com/vida_officialcontact/', size: socialIconSize },
+  { name: 'youtube', url: 'https://www.youtube.com/@vida_platform/', size: socialIconSize },
 ])
 </script>
 <template>
@@ -38,19 +38,19 @@ const socials = ref([
 
     <Divider class="py-2 sm:hidden" />
 
-    <div class="official-footer-policys">
-      <div class="official-footer-policys-first">
-        <div>{{ $t('official.footer.tos') }}</div>
-        <div>{{ $t('official.footer.pp') }}</div>
-        <div>{{ $t('official.footer.usc') }}</div>
-        <div>{{ $t('official.footer.dmca') }}</div>
+    <div class="official-footer-policys-first">
+      <div class="official-footer-policys">
+        <a href="/official/tos">{{ $t('official.footer.tos') }}</a>
+        <a href="/official/privacy-policy">{{ $t('official.footer.pp') }}</a>
+        <a href="/official/usc">{{ $t('official.footer.usc') }}</a>
+        <a href="/official/dmca">{{ $t('official.footer.dmca') }}</a>
       </div>
     </div>
     <div class="official-footer-policys-second">
       <div class="official-footer-policys">
-        <div>{{ $t('official.footer.aup') }}</div>
-        <div>{{ $t('official.footer.cookiePolicy') }}</div>
-        <div>{{ $t('official.footer.complaintsPolicy') }}</div>
+        <a href="/official/aup">{{ $t('official.footer.aup') }}</a>
+        <a href="/official/cookie-policy">{{ $t('official.footer.cookiePolicy') }}</a>
+        <a href="/official/complaints-policy">{{ $t('official.footer.complaintsPolicy') }}</a>
       </div>
     </div>
   </footer>
