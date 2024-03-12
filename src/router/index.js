@@ -114,7 +114,7 @@ function createRoutes(routes) {
     const hasLang = path.startsWith(langPath)
 
     // mine 不加重導
-    if (hasLang) {
+    if (hasLang && rest.name !== 'mine') {
       const noLangPath = path === langPath ? '/' : path.substring(langPath.length)
       a.push({ path: noLangPath, redirect: redirectToLangPath })
     }
