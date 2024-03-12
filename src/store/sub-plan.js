@@ -10,7 +10,7 @@ import { SUB_PLAN } from '@const'
 export const useSubPlanStore = defineStore('subPlan', () => {
   const { subPlanDialog } = storeToRefs(useDialogStore())
   const { appConfig } = useAppStore()
-  const { userData } = storeToRefs(useAccountStore())
+  const { userData, isCreator } = storeToRefs(useAccountStore())
 
   const routes = [
     { value: SUB_PLAN.MAIN_PAGE, component: MainPage },
@@ -22,7 +22,10 @@ export const useSubPlanStore = defineStore('subPlan', () => {
   const historyProxy = computed(() => history.value)
   const subPlanComponent = computed(() => routes.find((route) => route.value === now.value).component)
 
-  const subList = ref(userData.value.subscription_list)
+  const subList = computed(() => {
+    return isCreator.value ? userData.value.subscription_list : ''
+  })
+
   const addSubPlan = ref(false)
   const data = ref('')
   const index = ref('')

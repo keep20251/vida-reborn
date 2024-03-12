@@ -59,7 +59,6 @@
 </template>
 <script setup>
 import { storeToRefs } from 'pinia'
-import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
 import { useSubPlanStore } from '@/store/sub-plan'
 import Button from '@comp/common/Button.vue'
@@ -67,7 +66,6 @@ import List from '@comp/common/List.vue'
 import { SUB_PLAN } from '@const'
 
 const { appConfig } = useAppStore()
-const { userData } = storeToRefs(useAccountStore())
 const { to, close } = useSubPlanStore()
 const {
   data,

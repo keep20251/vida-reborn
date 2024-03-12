@@ -158,6 +158,7 @@
 import { computed, onMounted, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
+import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
 import { useModalStore } from '@/store/modal'
 import { usePopupMessageStore } from '@/store/popup-message'
@@ -171,14 +172,16 @@ import { SUB_PLAN_STATUS } from '@const'
 import { IMAGE_LIMIT_COUNT } from '@const/publish'
 import uploadImage from '@/http/upload/uploadImage'
 
+const accountStore = useAccountStore()
+const { updateUserData } = accountStore
+
 const radioValue = ref(0)
 const customValue = ref(0)
-const subUnlockDayAfterValue = ref(0)
-watch([radioValue, customValue], () => {
+const subUnlockDayAfterValue = computed(() => {
   if (radioValue.value === 'custom' && customValue.value !== 0) {
-    subUnlockDayAfterValue.value = parseInt(customValue.value)
+    return parseInt(customValue.value)
   } else {
-    subUnlockDayAfterValue.value = radioValue.value
+    return radioValue.value
   }
 })
 
@@ -192,13 +195,10 @@ const {
   history,
   data,
   index,
-  lastIndex,
   status,
   subList,
   addSubPlan,
-  subPlanName,
   subPlanContent,
-  subPlanPrice,
   subUnlockDayAfter,
   subId,
   subPicture,
@@ -234,8 +234,8 @@ onMounted(async () => {
   credential.subPlanName.value = data.value[index.value]?.name
   credential.subPlanContent.value = data.value[index.value]?.content
   credential.subPlanPrice.value = data.value[index.value]?.price
-  subUnlockDayAfter.value = subList.value[index.value]?.unlock_day_after_subscribe
-  subId.value = subList.value[index.value]?.id
+  subUnlockDayAfter.value = data.value[index.value]?.unlock_day_after_subscribe
+  subId.value = data.value[index.value]?.id
   subPicture.value = data.value[index.value]?.picture
   status.value = data.value[index.value]?.status
   if (!addSubPlan.value && subPicture.value) {
@@ -267,6 +267,11 @@ watch(index, (newIndex) => {
     subPicture.value = data.value[newIndex]?.picture
     selUploadItem.value = data.value[newIndex]?.picture
     status.value = data.value[newIndex]?.status
+    subId.value = data.value[index.value]?.id
+    credential.subPlanName.error = ''
+    credential.subPlanContent.error = ''
+    credential.subPlanPrice.error = ''
+    serverError.value = ''
   }
   if (newIndex !== null && subList.value[newIndex]) {
     subId.value = subList.value[newIndex].id
@@ -299,14 +304,22 @@ watch(addSubPlan, (newAddSubPlan) => {
     credential.subPlanName.value = ''
     credential.subPlanContent.value = ''
     credential.subPlanPrice.value = ''
-    subUnlockDayAfter.value = 0
+    credential.subPlanName.error = ''
+    credential.subPlanContent.error = ''
+    credential.subPlanPrice.error = ''
+    subUnlockDayAfter.value = ''
     subPicture.value = ''
+    serverError.value = ''
   } else {
     credential.subPlanName.value = data.value[index.value].name
     credential.subPlanContent.value = data.value[index.value].content
     credential.subPlanPrice.value = data.value[index.value].price
     selDefaultItem.value = null
     selUploadItem.value = data.value[index.value].picture
+    credential.subPlanName.error = ''
+    credential.subPlanContent.error = ''
+    credential.subPlanPrice.error = ''
+    serverError.value = ''
   }
 })
 
@@ -320,8 +333,14 @@ watch(subPicture, (newSubPicture) => {
 })
 
 watch(subList, (newSubList) => {
-  if (newSubList.length === 1) {
-    watch(subList, () => {}, { immediate: true })
+  if (newSubList) {
+    credential.subPlanName.value = newSubList[index.value].name
+    credential.subPlanContent.value = newSubList[index.value].content
+    credential.subPlanPrice.value = newSubList[index.value].price
+    subUnlockDayAfter.value = newSubList[index.value].unlock_day_after_subscribe
+    subPicture.value = newSubList[index.value].picture
+    selUploadItem.value = subPicture.value
+    subId.value = newSubList[index.value].id
   }
 })
 
@@ -383,13 +402,10 @@ function onDelete() {
 const delSubPlan = async () => {
   const { execute: subPlanDel } = useRequest('Subscription.bulkDel')
   try {
-    if (subList.value.length === 1) {
-      subId.value = subList.value[0].id
-      subList.value.splice(0, 1)
-    } else {
-      subList.value = subList.value.filter((item) => item.id !== subId.value)
-    }
     await subPlanDel({ ids: subId.value })
+    data.value = data.value.filter((item) => item.id !== subId.value)
+    updateUserData({ subscription_list: data.value })
+    subList.value = data.value
     openMessage('title.delSuccess')
     serverError.value = ''
     back()
@@ -416,8 +432,9 @@ const onSubmit = async () => {
         const resId = await subPlanCreate(data)
         data.id = resId
         response.value = data
-        openMessage('title.publishSuccess')
         subList.value.unshift(response.value)
+        updateUserData({ subscription_list: subList.value })
+        openMessage('title.publishSuccess')
         uploadFiles.value = []
         credential.subPlanName.value = ''
         credential.subPlanContent.value = ''
@@ -437,11 +454,12 @@ const onSubmit = async () => {
         validate(credential.subPlanPrice.schema, credential.subPlanPrice),
       ])
       await subPlanUpdate(data)
-      const index = subList.value.findIndex((item) => item.id === data.id)
-      openMessage('title.publishSuccess')
+      const index = subList.value.findIndex((item) => item.id === subId.value)
       if (index !== -1) {
         subList.value[index] = data
       }
+      updateUserData({ subscription_list: subList.value })
+      openMessage('title.publishSuccess')
       serverError.value = ''
       back()
     } catch (e) {
