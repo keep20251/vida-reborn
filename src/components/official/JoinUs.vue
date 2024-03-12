@@ -11,11 +11,16 @@
         <div class="info">
           {{ $t('official.joinUs.info') }}
         </div>
-        <a href="/mine/creator" class="btn">{{ $t('official.joinUs.btn') }}</a>
+        <a :href="`/${locale}/mine/creator`" class="btn">{{ $t('official.joinUs.btn') }}</a>
       </div>
     </div>
   </div>
 </template>
+<script setup>
+import { useLocale } from '@use/utils/locale'
+
+const locale = useLocale()
+</script>
 
 <style lang="scss" scoped>
 .official-joinus {
