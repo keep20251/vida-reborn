@@ -1,5 +1,5 @@
 <template>
-  <Page infinite @load="nextAction">
+  <Page infinite @load="onPageLoad">
     <template #app-top>
       <TopSearchBar :input-value="keyword" :logo="isMobile" to-search></TopSearchBar>
     </template>
@@ -51,11 +51,16 @@ const tabOptions = [
   { label: 'tab.relatedPost', value: SEARCH_TAB.POST },
   { label: 'tab.relatedAuthor', value: SEARCH_TAB.AUTHOR },
 ]
+
 watch(activeTab, () => reloadAction.value({ newParams: { keyword: keyword.value } }))
 
 const route = useRoute()
+
 const hasQuery = computed(() => route.name === 'search' && route.query.q)
+
 watch(hasQuery, (v) => (v ? onSearch(v) : reset()))
+
+const onPageLoad = computed(() => (hasQuery.value ? nextAction : void 0))
 
 const { t: $t } = useI18n()
 const headStore = useHeadStore()
@@ -77,7 +82,6 @@ const { relatedFeeds, keyword: hydrationKeyword } = storeToRefs(useHydrationStor
 onServerClientOnce(async (isSSR) => {
   setKeyword(route.query.q)
   if (!keyword.value) return
-
   await articleFetcher.value.reload({ newParams: { keyword: keyword.value } })
   if (isSSR) {
     hydrationKeyword.value = keyword.value
