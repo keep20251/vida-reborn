@@ -28,10 +28,10 @@ import devRoutes from './routes/dev'
 import errorRoutes from './routes/error'
 import mineRoutes from './routes/mine'
 
-const langPath = '/:lang'
-const langRegex = locales.map((l) => l.value).join('|')
+const LANG_PATH = '/:lang'
+const LANG_REGEX = locales.map((l) => l.value).join('|')
 
-const routesTemplate = [
+const ROUTES_TEMPLATE = [
   {
     name: 'app',
     path: '/',
@@ -81,7 +81,7 @@ const routesTemplate = [
 ]
 
 const routes = (() => {
-  const template = cloneDeep(routesTemplate)
+  const template = cloneDeep(ROUTES_TEMPLATE)
 
   const mainChildren = template.find((r) => r.name === 'app').children.find((r) => r.name === 'main').children
   if (import.meta.env.DEV) {
@@ -111,16 +111,16 @@ export function createRouter() {
 function createRoutes(routes) {
   return routes.reduce((a, r) => {
     const { path, children, ...rest } = r
-    const hasLang = path.startsWith(langPath)
+    const hasLang = path.startsWith(LANG_PATH)
 
     // mine 不加重導
     if (hasLang && rest.name !== 'mine') {
-      const noLangPath = path === langPath ? '/' : path.substring(langPath.length)
+      const noLangPath = path === LANG_PATH ? '/' : path.substring(LANG_PATH.length)
       a.push({ path: noLangPath, redirect: redirectToLangPath })
     }
 
     const newRoute = { ...rest }
-    newRoute.path = hasLang ? `${langPath}(${langRegex})${path.substring(langPath.length)}` : path
+    newRoute.path = hasLang ? `${LANG_PATH}(${LANG_REGEX})${path.substring(LANG_PATH.length)}` : path
     if (Array.isArray(children)) {
       newRoute.children = createRoutes(children)
     }
