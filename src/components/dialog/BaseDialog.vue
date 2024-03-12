@@ -7,7 +7,7 @@
             'mx-24 px-20 py-30 sm:px-16 sm:py-24': !noPadding,
             'mx-20': noPadding,
           }"
-          class="h-max-[80%] w-full max-w-lg rounded-xl bg-white"
+          class="w-full max-w-lg rounded-xl bg-white"
         >
           <slot></slot>
         </div>

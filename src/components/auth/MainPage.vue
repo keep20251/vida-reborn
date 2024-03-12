@@ -1,56 +1,60 @@
 <template>
-  <div
-    class="relative flex h-[35rem] w-full flex-col items-center justify-center space-y-30 last:mb-30 md:lg:xl:h-full"
-  >
-    <div class="absolute right-0 top-0 cursor-pointer" @click="close">
-      <Icon name="close"></Icon>
-    </div>
-    <div class="flex items-center justify-center">
-      <img class="h-[5rem] w-[9rem]" src="@/assets/logo.svg?url" alt="VIDA" />
-    </div>
-    <div class="text-lg font-bold leading-5">{{ $t('info.loginOr') }}{{ $t('info.quickRegister') }}</div>
-    <div class="flex w-full flex-col justify-center space-y-10 px-20">
-      <InputWrap
-        v-model="email"
-        :err-msg="error"
-        :label="$t('label.email')"
-        :placeholder="$t('placeholder.email')"
-        label-center
-        focus
-        @update:modelValue="() => (error = '')"
-        @keypress:enter="next"
-      ></InputWrap>
-      <Button :loading="isLoading" @click="next">{{ $t('common.next') }}</Button>
-    </div>
-    <div class="text-center text-base font-normal leading-3">
-      {{ $t('info.loginOr')
-      }}<span class="cursor-pointer text-primary" @click="to(AUTH_ROUTES.SIGN_UP)">{{ $t('info.quickRegister') }}</span>
-    </div>
-    <div class="flex w-full flex-col justify-center space-y-16 px-45 md:px-60 lg:px-90">
-      <button
-        v-for="(option, index) in loginOptions"
-        :key="`login-option-${index}`"
-        class="rounded-full border border-black py-8 text-center"
-        @click="option.onClick"
-      >
-        <div class="flex flex-row items-center justify-center">
-          <Icon :name="option.icon" size="15" class="mr-10"></Icon>
-          {{ $t(option.label) }}
+  <div class="flex h-full w-full">
+    <div class="relative max-h-[70vh] overflow-y-scroll md:overflow-y-hidden">
+      <div class="absolute right-0 top-0 cursor-pointer" @click="close">
+        <Icon name="close"></Icon>
+      </div>
+      <div class="flex flex-col items-center justify-center space-y-30">
+        <div class="flex h-[5rem] w-[9rem] items-center justify-center">
+          <img class="h-full w-full" src="@/assets/logo.svg?url" alt="VIDA" />
         </div>
-      </button>
+        <div class="text-lg font-bold leading-5">{{ $t('info.loginOr') }}{{ $t('info.quickRegister') }}</div>
+        <div class="flex w-full flex-col justify-center space-y-10 px-20">
+          <InputWrap
+            v-model="email"
+            :err-msg="error"
+            :label="$t('label.email')"
+            :placeholder="$t('placeholder.email')"
+            label-center
+            focus
+            @update:modelValue="() => (error = '')"
+            @keypress:enter="next"
+          ></InputWrap>
+          <Button :loading="isLoading" @click="next">{{ $t('common.next') }}</Button>
+        </div>
+        <div class="text-center text-base font-normal leading-3">
+          {{ $t('info.loginOr')
+          }}<span class="cursor-pointer text-primary" @click="to(AUTH_ROUTES.SIGN_UP)">{{
+            $t('info.quickRegister')
+          }}</span>
+        </div>
+        <div class="flex w-full flex-col justify-center space-y-16 px-45 md:px-60 lg:px-90">
+          <button
+            v-for="(option, index) in loginOptions"
+            :key="`login-option-${index}`"
+            class="rounded-full border border-black py-8 text-center"
+            @click="option.onClick"
+          >
+            <div class="flex flex-row items-center justify-center">
+              <Icon :name="option.icon" size="15" class="mr-10"></Icon>
+              {{ $t(option.label) }}
+            </div>
+          </button>
+        </div>
+        <i18n-t
+          keypath="content.termsDeclaration"
+          tag="div"
+          class="px-50 text-center text-sm font-normal leading-4 text-gray-600"
+        >
+          <template #tos>
+            <span class="cursor-pointer font-bold" @click="openTermsOfService">{{ $t('content.tos') }}</span>
+          </template>
+          <template #pp>
+            <span class="cursor-pointer font-bold" @click="openPrivacyPolicy">{{ $t('content.pp') }}</span>
+          </template>
+        </i18n-t>
+      </div>
     </div>
-    <i18n-t
-      keypath="content.termsDeclaration"
-      tag="div"
-      class="px-50 text-center text-sm font-normal leading-4 text-gray-600"
-    >
-      <template #tos>
-        <span class="cursor-pointer font-bold" @click="openTermsOfService">{{ $t('content.tos') }}</span>
-      </template>
-      <template #pp>
-        <span class="cursor-pointer font-bold" @click="openPrivacyPolicy">{{ $t('content.pp') }}</span>
-      </template>
-    </i18n-t>
   </div>
 </template>
 <script setup>
