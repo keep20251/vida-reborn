@@ -63,7 +63,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { useLocalStorage, watchOnce } from '@vueuse/core'
+import { useLocalStorage, watchOnce, whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
@@ -173,4 +173,9 @@ function updateIntesreted() {
     showClose: true,
   })
 }
+
+whenever(isLogin, () => {
+  reload()
+  creatorsReload()
+})
 </script>
