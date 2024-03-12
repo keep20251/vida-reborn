@@ -1,21 +1,21 @@
 <template>
   <div class="w-full">
     <div class="flex flex-col space-y-20">
-      <div v-if="historyTags.length > 0" class="flex flex-col space-y-10">
-        <div class="flex justify-between text-base font-normal leading-md">
-          <div>{{ $t('title.search.history') }}</div>
-          <div class="cursor-pointer" @click="openClearConfirm">
-            {{ $t('title.search.popular') }}
+      <Client-Only>
+        <div v-if="historyTags.length > 0" class="flex flex-col space-y-10">
+          <div class="flex justify-between text-base font-normal leading-md">
+            <div>{{ $t('title.search.history') }}</div>
+            <div class="cursor-pointer" @click="openClearConfirm">
+              {{ $t('title.search.popular') }}
+            </div>
           </div>
-        </div>
-        <ClientOnly>
           <TagGroup
             v-model="selectedHistory"
             :items="historyTags"
             @update:modelValue="(q) => to('search', { query: { q } })"
           ></TagGroup>
-        </ClientOnly>
-      </div>
+        </div>
+      </Client-Only>
       <div class="flex flex-col space-y-10">
         <div class="text-base font-normal leading-md">{{ $t('title.search.clear') }}</div>
         <TagGroup
@@ -28,7 +28,7 @@
   </div>
 </template>
 <script setup>
-import { onActivated, onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useHydrationStore } from '@/store/hydration'
@@ -46,13 +46,6 @@ const { popularTags, historyTags } = storeToRefs(searchStore)
 
 const selectedHistory = ref('')
 const selectedPopular = ref('')
-
-onMounted(async () => await getPopularTags())
-onActivated(async () => await getPopularTags())
-
-async function getPopularTags() {
-  if (popularTags.value.length <= 0) await fetchPopularTags()
-}
 
 const { popularTags: hydrationPopularTags } = storeToRefs(useHydrationStore())
 
