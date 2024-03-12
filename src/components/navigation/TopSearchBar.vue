@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-full items-center space-x-20">
-    <Link v-if="logo" title="VIDA" @click="to('home')">
+    <Link v-if="logo" href="/home" title="VIDA" @click="to('home')">
       <img class="h-30 w-54" src="@/assets/logo.svg?url" alt="VIDA" />
     </Link>
     <InputWrap

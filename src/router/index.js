@@ -1,6 +1,8 @@
 import cloneDeep from 'lodash/cloneDeep'
 import { createMemoryHistory, createRouter as createVueRouter, createWebHistory } from 'vue-router'
 import { useCookies } from '@vueuse/integrations/useCookies'
+import Main from '@/layouts/Main.vue'
+import Official from '@/layouts/Official.vue'
 import Creator from '@/pages/creator/Creator.vue'
 import Feed from '@/pages/feed/Feed.vue'
 import Home from '@/pages/home/Home.vue'
@@ -19,8 +21,6 @@ import Publish from '@/pages/publish/Publish.vue'
 import Search from '@/pages/search/Search.vue'
 import { COOKIE_KEY } from '@const'
 import { locales } from '@/i18n'
-import Main from '@/layouts/Main.vue'
-import Official from '@/layouts/Official.vue'
 import afterGuard from './guards/after'
 import beforeGuard from './guards/before'
 import checkPermission from './guards/before/check-permission'
@@ -80,23 +80,19 @@ const routesTemplate = [
   },
 ]
 
-export function createRouter() {
+const routes = (() => {
   const template = cloneDeep(routesTemplate)
 
-  const extendRoutes = []
+  const mainChildren = template.find((r) => r.name === 'app').children.find((r) => r.name === 'main').children
   if (import.meta.env.DEV) {
-    extendRoutes.push(...devRoutes)
+    mainChildren.push(...devRoutes)
   }
-  extendRoutes.push(...errorRoutes)
+  mainChildren.push(...errorRoutes)
 
-  template
-    .find((r) => r.name === 'app')
-    .children.find((r) => r.name === 'main')
-    .children.push(...extendRoutes)
+  return createRoutes(template)
+})()
 
-  const routes = createRoutes(template)
-  // console.log(routes)
-
+export function createRouter() {
   const router = createVueRouter({
     history: import.meta.env.SSR ? createMemoryHistory() : createWebHistory(),
     routes,

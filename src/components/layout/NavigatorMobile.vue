@@ -3,13 +3,13 @@
     class="fixed bottom-0 z-20 flex h-60 w-full items-center bg-white shadow-bottom transition-transform"
     :class="{ 'translate-y-full': !isShow }"
   >
-    <router-link class="grow" :to="`/${locale}/home`">
+    <router-link class="grow" to="/home">
       <div class="flex items-center justify-center space-x-16 px-12 py-16">
         <Icon v-if="atHome" name="home" size="30"></Icon>
         <Icon v-else name="homeOutline" size="30"></Icon>
       </div>
     </router-link>
-    <router-link class="grow" :to="`/${locale}/search`">
+    <router-link class="grow" to="/search">
       <div class="flex items-center justify-center space-x-16 px-12 py-16">
         <Icon v-if="atSearch" name="search" size="30"></Icon>
         <Icon v-else name="searchOutline" size="30"></Icon>
@@ -26,7 +26,7 @@
         <Icon v-else name="messageOutline" size="30"></Icon>
       </div>
     </Link>
-    <router-link class="grow" :to="`/${locale}/mine`">
+    <router-link class="grow" to="/mine">
       <div class="flex items-center justify-center space-x-16 px-12 py-16">
         <Icon v-if="atMine" name="mine" size="30"></Icon>
         <Icon v-else name="mineOutline" size="30"></Icon>
@@ -45,7 +45,6 @@ import { useNavStore } from '@/store/nav'
 import { usePublishStore } from '@/store/publish'
 import Link from '@comp/common/Link.vue'
 import { useRouters } from '@use/routers'
-import { useLocale } from '@use/utils/locale'
 
 const route = useRoute()
 const atHome = computed(() => route.name === 'home')
@@ -55,8 +54,6 @@ const atMine = computed(() => route.name.includes('mine'))
 
 const navStore = useNavStore()
 const { isShow } = storeToRefs(navStore)
-
-const locale = useLocale()
 
 const { to } = useRouters()
 
