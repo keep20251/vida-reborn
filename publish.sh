@@ -81,6 +81,47 @@ function runProcedure() {
 
 }
 
+function runAll() {
+    branch="prod, stag"
+    changeEnvFile ".env.production"
+    changeEnvFile ".env.staging"
+    changePackageJson
+    generateReport
+
+    echo "要幫你進行Git程序嗎? (Yes/No)"
+    select choice in "Yes" "No"; do
+        case $choice in
+        Yes)
+            git checkout master && git add . && git commit -m "部署 # v$version"
+            git tag "v$version"
+            git checkout prod && git pull && git rebase master
+            git checkout stag && git pull && git rebase master
+
+            echo "要幫你Push到遠端嗎? (y/n)"
+            select gitPush in "y" "n"; do
+                case $gitPush in
+                y)
+                    git push --tag
+                    git checkout prod && git push
+                    git checkout stag && git push
+                    git checkout master && git push
+                    echo "幫你Push到遠端了"
+                    break
+                    ;;
+                n)
+                    break
+                    ;;
+                esac
+            done
+            break
+            ;;
+        No)
+            break
+            ;;
+        esac
+    done
+}
+
 function gitProcedure() {
     branch=$1
 
@@ -121,7 +162,7 @@ function main() {
     fi
 
     echo "要部署哪個環境?"
-    select env in "prod" "stag"; do
+    select env in "prod" "stag" "all"; do
         case $env in
         prod)
             runProcedure ".env.production" "prod" "dist"
@@ -131,6 +172,11 @@ function main() {
             runProcedure ".env.staging" "stag" "dist-staging"
             break
             ;;
+        all)
+            runAll
+            break
+            ;;
+
         esac
     done
 }
