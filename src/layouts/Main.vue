@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-full w-full flex-row justify-center" id="main">
+  <div class="flex h-full w-full flex-row justify-center">
     <Navigator v-if="isDesktop"></Navigator>
     <router-view v-slot="{ Component }">
       <keep-alive>

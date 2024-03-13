@@ -1,9 +1,11 @@
 <template>
-  <router-view></router-view>
-  <ClientOnly>
-    <CookieBanner></CookieBanner>
-    <Modal></Modal>
-  </ClientOnly>
+  <div id="main">
+    <router-view></router-view>
+    <ClientOnly>
+      <CookieBanner></CookieBanner>
+      <Modal></Modal>
+    </ClientOnly>
+  </div>
 </template>
 
 <script setup>
