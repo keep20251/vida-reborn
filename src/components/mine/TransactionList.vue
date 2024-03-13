@@ -44,7 +44,10 @@ const { dataList, isLoading, noMore, init, next, reload } = useInfinite('Payment
 const { setNextFn, clearNextFn } = useMineStore()
 onMounted(() => init())
 onUnmounted(() => clearNextFn(next))
-onActivated(() => setNextFn(next))
+onActivated(() => {
+  setNextFn(next)
+  reload()
+})
 onDeactivated(() => clearNextFn(next))
 
 const formatDate = (date) => {

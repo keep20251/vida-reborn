@@ -189,6 +189,9 @@ onMounted(() => {
   refreshOverallData()
   init()
 })
-onActivated(() => setNextFn(next))
+onActivated(() => {
+  setNextFn(next)
+  reload()
+})
 onDeactivated(() => clearNextFn(next))
 </script>
