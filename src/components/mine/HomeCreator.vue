@@ -71,7 +71,7 @@ const { open: openSubPlanDialog } = useSubPlanStore()
 const { userData } = storeToRefs(useAccountStore())
 
 const feedStore = useFeedStore()
-const { dataList, isLoading, noMore, next, init } = useInfinite('Article.list', {
+const { dataList, isLoading, noMore, next, init, reload } = useInfinite('Article.list', {
   params: { uuid: userData.value?.uuid, filter_by: 0, include_my_article: 1 },
   transformer: feedStore.sync,
 })
@@ -80,6 +80,9 @@ const { setNextFn, clearNextFn } = useMineStore()
 
 onMounted(async () => init())
 onUnmounted(() => clearNextFn(next))
-onActivated(() => setNextFn(next))
+onActivated(() => {
+  setNextFn(next)
+  reload()
+})
 onDeactivated(() => clearNextFn(next))
 </script>
