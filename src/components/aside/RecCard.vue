@@ -7,7 +7,9 @@
             <Avatar :radius="15" :src="item?.thumb"></Avatar>
             <div class="flex grow flex-col space-y-5">
               <div class="flex space-x-5">
-                <div class="text-base font-bold leading-md">{{ item?.nickname }}</div>
+                <div class="max-w-[6rem] overflow-hidden text-ellipsis text-base font-bold leading-md">
+                  {{ item?.nickname }}
+                </div>
                 <div class="text-sm font-normal leading-3">@{{ item?.username }}</div>
               </div>
               <div class="flex items-end space-x-5">
