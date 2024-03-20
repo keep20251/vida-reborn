@@ -180,7 +180,7 @@ export default {
     error: {
       subscribeSelf: "Can't subscribe to yourself",
       shopBuySelf: "Can't buy your own products",
-      subscriptionNotFound: "No subscription solution available",
+      subscriptionNotFound: "There is no available subscription scheme",
     },
     sending: "发送中",
     failure: "失败",
@@ -231,6 +231,8 @@ export default {
     wdrlCom: "Completed",
     wdrlFlr: "Failure",
     reviewPass: "Passed",
+    underReview: "Under Review",
+    reviewFail: "Review Failed",
     paid: "Paid",
     published: "Published",
     time: "Time",
@@ -498,7 +500,7 @@ export default {
     },
     shopBuySuc: {
       1: "marvelous! Successful payment to unlock the post",
-      2: "Choose to the post to watch, or stay in the original screen!",
+      2: "Choose to go to the post to watch, or stay in the original screen!",
       confirm: "Go to the post",
     },
     title: { paySuc: "Has successfully paid" },
