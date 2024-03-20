@@ -4,16 +4,16 @@ npm: 8.19.3
 node: 16.19.0
 
 ## 專案文件參考
-[Git Commit 與 分支規範](markdown/git.md)
-[i18n 語言包設定 與 更新](markdown/i18n.md)
-[Docker 與 本地 hosts 設定](markdown/docker.md)
-[客製化 icon 設定](markdown/icon.md)
-[排錯處理](markdown/trouble-shooting.md)
-[是否SSR頁面邏輯](markdown/ssr.md)
+[Git Commit 與 分支規範](docs/git.md)
+[i18n 語言包設定 與 更新](docs/i18n.md)
+[Docker 與 本地 hosts 設定](docs/docker.md)
+[客製化 icon 設定](docs/icon.md)
+[排錯處理](docs/trouble-shooting.md)
+[是否SSR頁面邏輯](docs/ssr.md)
 
 ### 組件文件參考
-[Modal](markdown/component/modal.md)
-[Head](markdown/component/head.md)
+[Modal](docs/component/modal.md)
+[Head](docs/component/head.md)
 
 ## 專案初始化
 
