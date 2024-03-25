@@ -4,7 +4,7 @@
       <div class="flex justify-between">
         <div
           class="flex items-center space-x-10"
-          :class="[{ 'w-full justify-between': userData.email_validation === EMAIL_VALIDATION.VERIFIED }]"
+          :class="[{ 'w-full': userData.email_validation === EMAIL_VALIDATION.VERIFIED }]"
         >
           <div class="text-base font-normal leading-lg">{{ $t('label.nowEmail') }}</div>
           <div
@@ -12,7 +12,7 @@
             :class="[
               {
                 'text-warning': userData.email_validation === EMAIL_VALIDATION.UNVERIFIED,
-                'text-primary': userData.email_validation === EMAIL_VALIDATION.VERIFIED,
+                'text-gray-57': userData.email_validation === EMAIL_VALIDATION.VERIFIED,
               },
             ]"
           >
@@ -22,20 +22,19 @@
           </div>
         </div>
         <div
-          v-if="userData.email_validation === EMAIL_VALIDATION.UNVERIFIED"
-          class="cursor-pointer text-base font-normal leading-lg text-primary"
-          @click="() => (edit = !edit)"
+          class="text-gray cursor-pointer whitespace-nowrap text-base font-normal leading-lg text-primary"
+          @click="confirmEmail"
         >
-          {{ edit ? 'Confirm' : 'Edit' }}
+          {{ edit ? $t('common.confirm') : $t('label.edit') }}
         </div>
       </div>
-      <InputWrap v-if="edit" v-model="email" :placeholder="$t('placeholder.email')"></InputWrap>
-      <div v-if="!edit" class="text-sm font-normal leading-3 text-gray-57">{{ email }}</div>
+      <InputWrap v-if="edit" v-model="credential.email.value" :placeholder="$t('placeholder.email')"></InputWrap>
+      <div v-if="!edit" class="text-sm font-normal leading-3 text-gray-57">{{ credential.email.value }}</div>
     </div>
     <InputEmailCode
       v-if="userData.email_validation === EMAIL_VALIDATION.UNVERIFIED"
       v-model="verifyCode"
-      :onResend="() => sendEmailCode({ email, type })"
+      :onResend="resendEmailCode"
       :err-msg="verifyCodeError"
       :first-time="false"
       @update:modelValue="verifyCodeError = ''"
@@ -84,7 +83,7 @@
   </div>
 </template>
 <script setup>
-import { onMounted, reactive, ref, watch } from 'vue'
+import { computed, onMounted, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
@@ -108,35 +107,80 @@ const accountStore = useAccountStore()
 const { userData } = storeToRefs(accountStore)
 const edit = ref(false)
 const mineStore = useMineStore()
-const { email, verifyCode } = storeToRefs(mineStore)
+const { verifyCode } = storeToRefs(mineStore)
 const { push } = useRouter()
-
-onMounted(() => {
-  email.value = userData.email
-  credential.nickname.value = userData.value.nickname
-  credential.username.value = userData.value.username
-})
-
-watch(email, (newEmailValue) => {
-  if (newEmailValue) {
-    email.value = newEmailValue
-  }
-})
 
 const { sendEmailCode } = useMultiAuth()
 const type = SEND_EMAIL_PURPOSE.VERIFY_EMAIL
 
 const { Yup, parseError, validate } = useYup()
-const schema = Yup.string().required().min(6).max(6)
+const codeSchema = Yup.string().required().min(6).max(6)
 
 const verifyCodeError = ref('')
 const isLoading = ref(false)
 
+const { t: $t } = useI18n()
+const credential = reactive({
+  email: {
+    value: userData.value.email,
+    error: '',
+    check: false,
+    schema: Yup.string().email(),
+  },
+  nickname: {
+    value: userData.value.nickname,
+    error: '',
+    check: false,
+    schema: Yup.string().required($t('yup.mixed.required')).max(16),
+  },
+  username: {
+    value: userData.value.username,
+    error: '',
+    check: false,
+    schema: Yup.string().required($t('yup.mixed.required')).min(5).max(30),
+  },
+})
+
+const confirmEmail = async () => {
+  if (edit.value === false) {
+    edit.value = true
+  } else {
+    edit.value = false
+
+    if (userData.value.email !== credential.email.value) {
+      modifyMail()
+      userData.value.email_validation = EMAIL_VALIDATION.UNVERIFIED
+    }
+  }
+}
+
+const modifyMail = async () => {
+  await validate(credential.email.schema, credential.email)
+  const { execute } = useRequest('User.modifyInfo')
+  try {
+    await execute({
+      email: credential.email.value,
+    })
+    userData.value.email = credential.email.value
+    openMessage('title.updateSuccess')
+  } catch (e) {
+    nameServerError.value = e.message
+    openMessage('title.updateFail')
+  }
+}
+
+const resendEmailCode = computed(() => {
+  return () => {
+    sendEmailCode({ email: credential.email.value, type })
+    openMessage('label.sendMailCode')
+  }
+})
 async function validateEmailCode() {
   try {
     isLoading.value = true
-    await schema.validate(verifyCode.value)
+    await codeSchema.validate(verifyCode.value)
     await accountValidationEmail()
+    verifyCode.value = ''
   } catch (e) {
     verifyCodeError.value = parseError(e)
   } finally {
@@ -146,47 +190,20 @@ async function validateEmailCode() {
 
 const serverError = ref('')
 async function accountValidationEmail() {
-  const { execute } = useRequest('Account.validationEmail')
+  const { execute: validateEmailCode } = useRequest('Account.validationEmail')
   try {
-    await execute({
-      email: email.value,
+    await validateEmailCode({
+      email: credential.email.value,
       code: verifyCode.value,
     })
+    userData.value.email = credential.email.value
+    userData.value.email_validation = EMAIL_VALIDATION.VERIFIED
     openMessage('title.updateSuccess')
   } catch (e) {
     serverError.value = e.message
     openMessage('title.updateFail')
   }
 }
-
-const { t: $t } = useI18n()
-const credential = reactive({
-  nickname: {
-    value: userData.nickname,
-    error: '',
-    check: false,
-    schema: Yup.string().required($t('yup.mixed.required')).max(16),
-  },
-  username: {
-    value: userData.username,
-    error: '',
-    check: false,
-    schema: Yup.string().required($t('yup.mixed.required')).min(5).max(30),
-  },
-})
-
-watch(credential.nickname.value, (newNicknameValue) => {
-  if (newNicknameValue) {
-    userData.nickname = newNicknameValue
-    console.log('nickname', newNicknameValue)
-  }
-})
-watch(credential.username.value, (newUsernameValue) => {
-  if (newUsernameValue) {
-    userData.username = newUsernameValue
-    console.log('username', newUsernameValue)
-  }
-})
 
 const nameServerError = ref('')
 async function saveUserName() {
@@ -209,4 +226,10 @@ async function saveUserName() {
     openMessage('title.updateFail')
   }
 }
+
+onMounted(() => {
+  credential.email.value = userData.value.email
+  credential.nickname.value = userData.value.nickname
+  credential.username.value = userData.value.username
+})
 </script>
