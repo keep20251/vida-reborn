@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="line-clamp-1 shrink-0 text-right text-sm font-medium leading-5 text-gray-57">
-        {{ item.created_at }}
+        {{ tsSecondToYMDhm(item.created_ts, item.created_at) }}
       </div>
       <div v-if="!isVisitor && !isSelf" class="flex cursor-pointer items-center" @click.stop="dissSomeone(item.user)">
         <Icon name="moreVertical" size="20"></Icon>
@@ -39,7 +39,7 @@
         v-if="![FEED_STATUS.PUBLISHED, FEED_STATUS.REJECT].includes(item.status)"
         class="absolute left-20 top-20 text-base font-bold text-white"
       >
-        {{ $t('content.autoPublishAt', { datetime: item.display_at }) }}
+        {{ $t('content.autoPublishAt', { datetime: tsSecondToYMDhm(item.display_ts, item.display_at) }) }}
       </div>
     </div>
 
@@ -81,14 +81,14 @@
           class="whitespace-pre-wrap break-words text-base leading-lg"
           :class="{ 'line-clamp-2': contentFold }"
           ref="content"
-          @click.stop="toggleContentFold"
+          @click="toggleContentFold"
         >
           {{ item.content }}
         </p>
         <div
           v-if="showContentMore"
           class="select-none text-right text-base leading-lg text-gray-57"
-          @click.stop="toggleContentFold"
+          @click="toggleContentFold"
         >
           more
         </div>
@@ -112,6 +112,7 @@ import VideoWrap from '@comp/multimedia/VideoWrap.vue'
 import { useRouters } from '@use/routers'
 import { useCopyToClipboard } from '@use/utils/copyToClipboard'
 import { FEED_STATUS, MEDIA_TYPE } from '@const/publish'
+import { tsSecondToYMDhm } from '@/utils/string-helper'
 
 const props = defineProps({
   item: { type: Object, required: true },
@@ -134,9 +135,12 @@ const showContentMore = ref(false)
 useResizeObserver(content, () => (showContentMore.value = content.value.scrollHeight > content.value.clientHeight))
 
 const contentFold = ref(!props.disableContentFold)
-function toggleContentFold() {
+function toggleContentFold(evt) {
   if (props.disableContentFold) {
     return
+  }
+  if (showContentMore.value) {
+    evt.stopPropagation()
   }
   contentFold.value = !contentFold.value
 }

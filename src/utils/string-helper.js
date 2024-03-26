@@ -51,6 +51,14 @@ export const toDateTimeString = (date) => {
   return `${toDateYmd(date)} ${hour}:${minute}:${second}`
 }
 
+export const tsSecondToYMDhm = (tsSecond, backupDateString) => {
+  if (typeof tsSecond === 'number') {
+    return toDateTimeString(new Date(tsSecond * 1000)).substring(0, 16)
+  } else {
+    return backupDateString?.substring(0, 16)
+  }
+}
+
 // dateString 格式為 YYYY-MM-DD HH:mm:ss
 export const toDate = (dateString) => {
   const [datePart, timePart] = dateString.split(' ')

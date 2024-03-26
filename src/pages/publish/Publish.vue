@@ -340,7 +340,7 @@ function makeReqData() {
   }
 
   if (publishTimeOpen.value) {
-    data.start_date = postTimeModel.value + ':00'
+    data.display_at = Math.floor(publishParams.postTime.getTime() / 1000)
   }
 
   return data
