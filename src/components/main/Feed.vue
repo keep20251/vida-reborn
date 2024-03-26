@@ -67,14 +67,14 @@
     <div class="flex flex-col space-y-5">
       <div class="text-base font-bold leading-none">{{ item.title }}</div>
       <div>
-        <div class="flex select-none space-x-5">
+        <div class="flex select-none flex-wrap space-x-5">
           <Link
             v-for="(tag, i) in tags"
             :key="i"
             :href="`/search?q=${tag}`"
             class="text-base leading-lg text-primary"
             @click.stop="to('search', { query: { q: tag } })"
-            >#{{ tag }}</Link
+            >#{{ tag.length > 20 ? tag.substring(0, 20) + '...' : tag }}</Link
           >
         </div>
         <p

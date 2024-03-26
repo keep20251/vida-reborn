@@ -1,5 +1,5 @@
 <template>
-  <Page infinite @load="onPageEnd">
+  <Page infinite @load="onPageEnd" :pull-to-reload="tab === TAB_TYPE.REC" @reload="reload">
     <template v-if="isMobile" #app-top>
       <TopSearchBar logo feature-icon="filter" to-search @feature="updateIntesreted"></TopSearchBar>
     </template>
