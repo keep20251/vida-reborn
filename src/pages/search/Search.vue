@@ -1,5 +1,5 @@
 <template>
-  <Page infinite @load="onPageLoad">
+  <Page infinite @load="onPageLoad" :pull-to-reload="!!hasQuery" @reload="reloadAction">
     <template #app-top>
       <TopSearchBar :input-value="keyword" :logo="isMobile" to-search></TopSearchBar>
     </template>

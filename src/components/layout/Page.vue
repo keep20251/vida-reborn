@@ -50,6 +50,20 @@
             'pt-[6.5rem]': isDesktop && $slots['app-top'] && $slots['main-top'],
           }"
         >
+          <Loading
+            v-if="pullToReload"
+            class="absolute left-1/2 -translate-x-1/2"
+            :class="{
+              'top-4': isMobile && $slots['main-top'] && !$slots['app-top'],
+              'top-12':
+                (isDesktop &&
+                  (($slots['main-top'] && !$slots['app-top']) || (!$slots['main-top'] && $slots['app-top']))) ||
+                (isMobile && !$slots['main-top'] && $slots['app-top']),
+              'top-56': isMobile && $slots['app-top'] && $slots['main-top'],
+              'top-64': isDesktop && $slots['app-top'] && $slots['main-top'],
+            }"
+            :rate="reloadRate"
+          ></Loading>
           <slot></slot>
         </div>
       </main>
@@ -72,19 +86,21 @@
 
 <script setup>
 import { computed, onActivated, onDeactivated, onMounted, ref } from 'vue'
-import { useElementSize, useEventListener, useInfiniteScroll, useWindowSize } from '@vueuse/core'
+import { useElementSize, useEventListener, useInfiniteScroll, useRafFn, useSwipe, useWindowSize } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useNavStore } from '@/store/nav'
+import Loading from '@comp/common/Loading.vue'
 
 const props = defineProps({
   mainTopToggleDisabled: { type: Boolean, default: false },
   infinite: { type: Boolean, default: false },
   infiniteDistance: { type: Number, default: 100 },
   infiniteInterval: { type: Number, default: 1000 },
+  pullToReload: { type: Boolean, default: false },
 })
 
-const emits = defineEmits(['load'])
+const emits = defineEmits(['load', 'reload'])
 
 const appStore = useAppStore()
 const { isDesktop, isMobile } = storeToRefs(appStore)
@@ -174,5 +190,46 @@ onDeactivated(() => {
   active = false
 
   stopOnScroll && stopOnScroll()
+})
+
+// pull to reload
+const reloadRate = ref(0)
+let reloadStartY
+const { pause, resume: revertReloadRate } = useRafFn(
+  () => {
+    reloadRate.value -= Math.min(reloadRate.value, 0.03)
+    if (reloadRate.value === 0) {
+      pause()
+    }
+  },
+  { immediate: false },
+)
+onMounted(() => {
+  useSwipe(document, {
+    threshold: 0,
+    onSwipe(evt) {
+      if (!props.pullToReload) return
+      const scrollTop = document.documentElement.scrollTop
+      const [{ screenY }] = evt.touches
+      if (scrollTop === 0) {
+        if (!reloadStartY) {
+          reloadStartY = screenY
+        }
+      }
+      if (reloadStartY) {
+        reloadRate.value = Math.max(0, Math.min(1, (screenY - reloadStartY) / 100))
+      }
+    },
+    onSwipeEnd() {
+      if (!props.pullToReload) return
+      if (reloadRate.value >= 1) {
+        emits('reload')
+        reloadRate.value = 0
+      } else {
+        revertReloadRate()
+      }
+      reloadStartY = undefined
+    },
+  })
 })
 </script>
