@@ -81,14 +81,14 @@
           class="whitespace-pre-wrap break-words text-base leading-lg"
           :class="{ 'line-clamp-2': contentFold }"
           ref="content"
-          @click.stop="toggleContentFold"
+          @click="toggleContentFold"
         >
           {{ item.content }}
         </p>
         <div
           v-if="showContentMore"
           class="select-none text-right text-base leading-lg text-gray-57"
-          @click.stop="toggleContentFold"
+          @click="toggleContentFold"
         >
           more
         </div>
@@ -134,9 +134,12 @@ const showContentMore = ref(false)
 useResizeObserver(content, () => (showContentMore.value = content.value.scrollHeight > content.value.clientHeight))
 
 const contentFold = ref(!props.disableContentFold)
-function toggleContentFold() {
+function toggleContentFold(evt) {
   if (props.disableContentFold) {
     return
+  }
+  if (showContentMore.value) {
+    evt.stopPropagation()
   }
   contentFold.value = !contentFold.value
 }
