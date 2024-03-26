@@ -1,7 +1,10 @@
 <template>
   <div class="-mx-20 sm:ml-0 sm:mr-0 xl:ml-0 xl:mr-0">
     <div class="relative mb-35 flex h-[180px] w-full bg-gray-57 bg-cover bg-center bg-no-repeat">
-      <EncryptImage :src="coverBg || item.background" cover></EncryptImage>
+      <EncryptImage v-if="coverBg || item.background" :src="coverBg || item.background" cover></EncryptImage>
+      <div v-else class="h-full w-full rounded-inherit bg-gray-f6">
+        <img class="h-full w-full rounded-inherit" src="@/assets/images/default-bg.jpg?url" alt="DefaultAvatar" />
+      </div>
       <div
         v-if="showBgUpload"
         class="absolute left-1/2 top-1/2 w-full -translate-x-2/4 -translate-y-2/4 cursor-pointer"
