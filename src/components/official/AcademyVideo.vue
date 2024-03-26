@@ -1,10 +1,10 @@
 <template>
   <div class="mr-10 mt-10 flex select-none flex-col space-y-10" @click="onClick">
     <div
-      class="max-h-[155] min-h-[101px] min-w-[168px] max-w-[255] cursor-pointer rounded-md border-[5px] border-primary hover:rounded-lg hover:border-white"
+      class="max-h-[155px] min-h-[101px] min-w-[168px] max-w-[255px] cursor-pointer rounded-md border-[5px] border-primary hover:rounded-lg hover:border-white"
     >
       <img
-        src="@/assets/images/official/academy/video.png"
+        :src="`https://img.youtube.com/vi/${videoImg}/maxresdefault.jpg`"
         class="h-full w-full rounded-md object-cover"
         alt="Academy Video"
       />
@@ -53,13 +53,14 @@ function onClick() {
 }
 
 const videos = [
-  { src: 'https://www.youtube.com/embed/_569x7cWAFI?si=5wbqs0P6mPEi5GJP', id: 1 },
-  { src: 'https://www.youtube.com/embed/_x2TCxj4YyI?si=prQMfbSqdCjpTfzt', id: 2 },
-  { src: 'https://www.youtube.com/embed/wwiwVvgcd9M?si=_JMW8ogDqUHmiVK6', id: 3 },
-  { src: 'https://www.youtube.com/embed/3PjcwD99z5s?si=NwrgDEW-CIHORR5l', id: 4 },
-  { src: 'https://www.youtube.com/embed/XGKvT-28E6E?si=vwUWsa7WVaJhpft4', id: 5 },
-  { src: 'https://www.youtube.com/embed/s7cP6Ft-WjA?si=tjvuWC8vAyn660iY', id: 6 },
+  { src: 'https://www.youtube.com/embed/_569x7cWAFI?si=5wbqs0P6mPEi5GJP', vid: '_569x7cWAFI', id: 1 },
+  { src: 'https://www.youtube.com/embed/_x2TCxj4YyI?si=prQMfbSqdCjpTfzt', vid: '_x2TCxj4YyI', id: 2 },
+  { src: 'https://www.youtube.com/embed/wwiwVvgcd9M?si=_JMW8ogDqUHmiVK6', vid: 'wwiwVvgcd9M', id: 3 },
+  { src: 'https://www.youtube.com/embed/3PjcwD99z5s?si=NwrgDEW-CIHORR5l', vid: '3PjcwD99z5s', id: 4 },
+  { src: 'https://www.youtube.com/embed/XGKvT-28E6E?si=vwUWsa7WVaJhpft4', vid: 'XGKvT-28E6E', id: 5 },
+  { src: 'https://www.youtube.com/embed/s7cP6Ft-WjA?si=tjvuWC8vAyn660iY', vid: 's7cP6Ft-WjA', id: 6 },
 ]
 
 const videoSrc = computed(() => videos.find((video) => video.id === props.id).src)
+const videoImg = computed(() => videos.find((video) => video.id === props.id).vid)
 </script>
