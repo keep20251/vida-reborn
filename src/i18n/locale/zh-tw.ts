@@ -37,6 +37,7 @@ export default {
     cancelSubscribe: "取消訂閱",
     restoreSubscribe: "恢復訂閱",
     reSubscribe: "重新訂閱",
+    beforehandSubscribe: "提前續訂",
     editPersonalPage: "編輯個人主頁",
     toPersonalPage: "進入個人主頁",
     reSelect: "重新選擇",

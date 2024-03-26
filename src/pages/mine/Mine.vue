@@ -1,7 +1,10 @@
 <template>
-  <Page infinite @load="nextFn">
+  <Page infinite @load="nextFn" :pull-to-reload="reloadFn !== null" @reload="reloadFn">
     <template #app-top v-if="!excludeRoutes.includes(route.name) && headerTitle">
       <Head :title="headerTitle.includes('.') ? $t(headerTitle) : headerTitle"></Head>
+    </template>
+    <template #main-top v-if="tab">
+      <Tab v-model="tab" :options="tabOptions"></Tab>
     </template>
     <template #default>
       <router-view v-slot="{ Component }">
@@ -48,10 +51,11 @@ import SubscribeCard from '@comp/card/SubscribeCard.vue'
 import Carousel from '@comp/common/Carousel.vue'
 import SetList from '@comp/mine/SetList.vue'
 import Head from '@comp/navigation/Head.vue'
+import Tab from '@comp/navigation/Tab.vue'
 import TopSearchBar from '@comp/navigation/TopSearchBar.vue'
 import { MINE_TITLE } from '@const'
 
-const { nextFn, isPreviewMode } = storeToRefs(useMineStore())
+const { tab, tabOptions, nextFn, reloadFn, isPreviewMode } = storeToRefs(useMineStore())
 const { userData } = storeToRefs(useAccountStore())
 
 const cats = ref([
