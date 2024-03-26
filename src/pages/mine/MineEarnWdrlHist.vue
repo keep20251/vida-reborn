@@ -5,7 +5,9 @@
         <div class="space-y-10 pb-10 pt-10 last:pb-0">
           <div class="flex items-center justify-between">
             <div class="text-base font-bold leading-md">{{ $t('info.time') }}</div>
-            <div class="text-base font-normal leading-lg text-gray-57">{{ item.created_at }}</div>
+            <div class="text-base font-normal leading-lg text-gray-57">
+              {{ tsSecondToYMDhm(item.created_ts, item.created_at) }}
+            </div>
           </div>
           <div class="flex items-center justify-between">
             <div class="text-base font-bold leading-md">{{ $t('label.wdrlAmount') }}</div>
@@ -27,10 +29,11 @@
   </div>
 </template>
 <script setup>
-import { computed, onActivated, onDeactivated, onMounted, onUnmounted, ref } from 'vue'
+import { computed, onActivated, onDeactivated, onMounted, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useMineStore } from '@/store/mine'
 import { useInfinite } from '@use/request/infinite'
+import { tsSecondToYMDhm } from '@/utils/string-helper'
 import { WITHDRAW_LIST_STATUS } from '@/constant/index.js'
 
 const { dataList, isLoading, noMore, init, next } = useInfinite('User.listWithdraw', {

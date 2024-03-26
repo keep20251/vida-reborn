@@ -18,7 +18,7 @@
               <div class="text-base font-normal leading-lg text-gray-57">{{ item.order_id }}</div>
             </div>
             <div class="w-3/12 flex-wrap text-right text-base font-normal leading-lg text-gray-57">
-              {{ formatDate(item.created_at) }}
+              {{ tsSecondToYMDhm(item.created_ts, item.created_at) }}
             </div>
           </div>
         </div>
@@ -36,6 +36,7 @@
 import { onActivated, onDeactivated, onMounted, onUnmounted } from 'vue'
 import { useMineStore } from '@/store/mine'
 import { useInfinite } from '@use/request/infinite'
+import { tsSecondToYMDhm } from '@/utils/string-helper'
 
 const { dataList, isLoading, noMore, init, next, reload } = useInfinite('Payment.history', {
   params: {},
@@ -49,8 +50,4 @@ onActivated(() => {
   reload()
 })
 onDeactivated(() => clearNextFn(next))
-
-const formatDate = (date) => {
-  return date.slice(0, 16)
-}
 </script>

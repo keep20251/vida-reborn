@@ -7,7 +7,7 @@
         {{ item.content }}
       </p>
       <div class="flex">
-        <div class="mr-24 text-sm text-gray-57">{{ item.created_at }}</div>
+        <div class="mr-24 text-sm text-gray-57">{{ tsSecondToYMDhm(item.created_ts, item.created_at) }}</div>
         <div class="cursor-pointer text-sm text-gray-57" @click="$emit('click:reply', item)">
           {{ $t('label.reply') }}
         </div>
@@ -25,7 +25,7 @@
             {{ reply.content }}
           </p>
           <div class="flex">
-            <div class="mr-24 text-sm text-gray-57">{{ reply.created_at }}</div>
+            <div class="mr-24 text-sm text-gray-57">{{ tsSecondToYMDhm(reply.created_ts, reply.created_at) }}</div>
             <!-- <div class="cursor-pointer text-sm text-gray-57" @click="$emit('reply', item)">回覆</div> -->
             <div class="flex grow cursor-pointer justify-end" @click="$emit('click:like', reply)">
               <Icon :name="!!reply.liked ? 'like' : 'likeOutline'" size="15"></Icon>
@@ -49,6 +49,7 @@
 <script setup>
 import Avatar from '@comp/multimedia/Avatar.vue'
 import { useInfinite } from '@use/request/infinite'
+import { tsSecondToYMDhm } from '@/utils/string-helper'
 
 const props = defineProps({
   item: { type: Object, required: true },

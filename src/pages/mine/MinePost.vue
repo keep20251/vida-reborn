@@ -35,7 +35,6 @@ import { useInfinite } from '@use/request/infinite'
 import { useRouters } from '@use/routers'
 import { POST_TAB_TYPE as TAB_TYPE } from '@const/mine'
 import { FEED_STATUS, MEDIA_TYPE } from '@const/publish'
-import { toDate } from '@/utils/string-helper'
 
 const route = useRoute()
 const { to, updateParams } = useRouters()
@@ -228,7 +227,7 @@ function onEdit(item) {
     perm: item.article_type,
     subs: item.user.subscription_list.map((sub) => sub.id),
     price: item.price,
-    postTime: toDate(item.display_at),
+    postTime: new Date(item.display_ts * 1000),
     urls: item.url,
   })
 
