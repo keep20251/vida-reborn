@@ -1,29 +1,24 @@
 <template>
-  <div class="sticky top-52 z-10 h-35 bg-white">
-    <Tab v-model="tab" :options="tabOptions"></Tab>
+  <div class="flex justify-end pt-20">
+    <ButtonTab v-model="tabBtn" :options="tabBtnOptions"></ButtonTab>
   </div>
-  <div>
-    <div class="flex justify-end pt-20">
-      <ButtonTab v-model="tabBtn" :options="tabBtnOptions"></ButtonTab>
-    </div>
-    <List :items="items" item-key="status" divider>
-      <template #default="{ item }">
-        <div class="py-15 text-base font-bold">#{{ status(item) }}</div>
-        <List :items="item.list" item-key="id" divider>
-          <template #default="{ item }">
-            <Feed class="py-10" :item="item"></Feed>
-            <Button class="mb-20" @click="onEdit(item)">{{ $t('label.edit') }}</Button>
-          </template>
-        </List>
-      </template>
-      <template #bottom>
-        <div class="flex items-center justify-center py-8 text-gray-a3">
-          <Loading v-if="isLoading"></Loading>
-          <span v-if="noMore">{{ $t('common.noMore') }}</span>
-        </div>
-      </template>
-    </List>
-  </div>
+  <List :items="items" item-key="status" divider>
+    <template #default="{ item }">
+      <div class="py-15 text-base font-bold">#{{ status(item) }}</div>
+      <List :items="item.list" item-key="id" divider>
+        <template #default="{ item }">
+          <Feed class="py-10" :item="item"></Feed>
+          <Button class="mb-20" @click="onEdit(item)">{{ $t('label.edit') }}</Button>
+        </template>
+      </List>
+    </template>
+    <template #bottom>
+      <div class="flex items-center justify-center py-8 text-gray-a3">
+        <Loading v-if="isLoading"></Loading>
+        <span v-if="noMore">{{ $t('common.noMore') }}</span>
+      </div>
+    </template>
+  </List>
 </template>
 <script setup>
 import { computed, onActivated, onDeactivated, reactive, ref, watch } from 'vue'
@@ -36,7 +31,6 @@ import { usePublishStore } from '@/store/publish'
 import Button from '@comp/common/Button.vue'
 import Feed from '@comp/main/Feed.vue'
 import ButtonTab from '@comp/navigation/ButtonTab.vue'
-import Tab from '@comp/navigation/Tab.vue'
 import { useInfinite } from '@use/request/infinite'
 import { useRouters } from '@use/routers'
 import { POST_TAB_TYPE as TAB_TYPE } from '@const/mine'
@@ -48,15 +42,15 @@ const { to, updateParams } = useRouters()
 
 const mineStore = useMineStore()
 const { postReloadFlag } = storeToRefs(mineStore)
-const { setNextFn, clearNextFn } = mineStore
+const { setTab, clearTab, setNextFn, clearNextFn, setReloadFn, clearReloadFn } = mineStore
 
 const tab = ref(checkRouteTab() ? route.query.t : TAB_TYPE.SUB)
-const tabOptions = ref([
+const tabOptions = [
   { label: 'common.subscribe', value: TAB_TYPE.SUB },
   { label: 'label.sale', value: TAB_TYPE.BUY },
   { label: 'label.scheduledRelease', value: TAB_TYPE.SCH },
   { label: 'label.private', value: TAB_TYPE.PRI },
-])
+]
 watch(tab, (t) => updateParams({ query: { t } }), { immediate: true })
 whenever(
   () => route.query.t && route.name === 'mine-post' && checkRouteTab(),
@@ -73,12 +67,8 @@ const tabBtnValues = reactive({
   [TAB_TYPE.PRI]: MEDIA_TYPE.ALL,
 })
 const tabBtn = computed({
-  get() {
-    return tabBtnValues[tab.value]
-  },
-  set(v) {
-    tabBtnValues[tab.value] = v
-  },
+  get: () => tabBtnValues[tab.value],
+  set: (v) => (tabBtnValues[tab.value] = v),
 })
 const tabBtnOptions = ref([
   { label: 'label.all', value: MEDIA_TYPE.ALL },
@@ -201,11 +191,20 @@ watch(
       page.infinite.init()
     }
     setNextFn(page.infinite.next)
+    setReloadFn(page.infinite.reload)
   },
   { immediate: true },
 )
-onActivated(() => setNextFn(pages[`${tab.value}${tabBtn.value}`].infinite.next))
-onDeactivated(() => clearNextFn(pages[`${tab.value}${tabBtn.value}`].infinite.next))
+onActivated(() => {
+  setNextFn(pages[`${tab.value}${tabBtn.value}`].infinite.next)
+  setReloadFn(pages[`${tab.value}${tabBtn.value}`].infinite.reload)
+  setTab(tab, tabOptions)
+})
+onDeactivated(() => {
+  clearNextFn()
+  clearReloadFn()
+  clearTab()
+})
 watch(postReloadFlag, () => pages[`${tab.value}${tabBtn.value}`].infinite.reload())
 
 const { t: $t } = useI18n()
