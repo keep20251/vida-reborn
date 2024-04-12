@@ -2,7 +2,8 @@
   <div class="border-t pt-20">
     <div class="space-y-20">
       <div class="mb-10 text-base font-normal leading-lg text-gray-57">
-        {{ $t('content.delAccContent') }} example@mail.com
+        {{ $t('content.delAccContent') }}
+        <a class="text-primary" href="mailto:official@vida.contact">official@vida.contact</a>
       </div>
       <InputWrap
         v-model="credential.nowPw.value"
