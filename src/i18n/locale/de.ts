@@ -18,12 +18,8 @@ export default {
     hi: "हिन्दी",
   },
   nav: { home: "Startseite", search: "Suchen", publish: "Erstellen", message: "Nachricht", mine: "Mein" },
-  tab: {
-    recommand: "Empfehlen",
-    subscribe: "Abonnieren",
-    relatedAuthor: "Verwandte Autoren",
-    relatedPost: "In Verbindung stehende Artikel",
-  },
+  recommand: "Für Sie",
+  tab: { subscribe: "Abonnieren", relatedAuthor: "Verwandte Autoren", relatedPost: "In Verbindung stehende Artikel" },
   common: {
     next: "Nächster",
     getAround: "Sich umsehen",
@@ -42,7 +38,7 @@ export default {
     cancelSubscribe: "Abbrechen",
     restoreSubscribe: "Wiederaufnehmen",
     reSubscribe: "Erneut abonnieren",
-    beforehandSubscribe: "",
+    beforehandSubscribe: "Früh verlängern",
     editPersonalPage: "Profil bearbeiten",
     toPersonalPage: "Zum Profil gehen",
     reSelect: "Neu auswählen",
@@ -181,7 +177,7 @@ export default {
     error: {
       subscribeSelf: "Ich kann mich nicht selbst abonnieren",
       shopBuySelf: "Sie können keine eigenen Produkte kaufen",
-      subscriptionNotFound: "Kein Abonnement verfügbar",
+      subscriptionNotFound: "Kein Abonnementplan verfügbar",
     },
     sending: "Senden",
     failure: "Fehlgeschlagen",
@@ -217,9 +213,9 @@ export default {
     forExample: "Zum Beispiel",
     accept: "Akzeptieren",
     clickToUploadBg: "Klicken, um Hintergrundbild hochzuladen",
-    perSubscriber: "Pro Abonnent",
-    perVisitor: "Pro Besucher",
-    perPost: "Pro Beitrag",
+    perSubscriber: "Abonnent",
+    perVisitor: "Besucher",
+    perPost: "Beitrag",
     myLink: "Mein Link",
     watches: "Uhren",
     publicProfileWillBe: "Öffentliches Profil wird angezeigt als",
@@ -308,7 +304,7 @@ export default {
     customStyle: "Benutzerdefinierter Stil",
     subUnlockDayAfter: "Erlaubt das Entsperren die letzten Tage seit dem Kauf?",
     tokenExpired: "Die Anmeldesitzung ist abgelaufen. Bitte melden Sie sich erneut an.",
-    clearSearchHistory: "Sind Sie sicher, dass Sie Ihren Suchverlauf löschen möchten?",
+    clearSearchHistory: "Möchten Sie Ihren Suchverlauf wirklich löschen?",
     uploadVideoLimit: {
       format:
         "Das aktuell hochgeladene Videoformat ({format}) wird nicht unterstützt. Bitte konvertieren Sie es in das MP4- oder MOV-Format und versuchen Sie es erneut.",
@@ -503,7 +499,7 @@ export default {
     },
     shopBuySuc: {
       1: "fabelhaft! Erfolgreich bezahlt, um den Beitrag freizuschalten",
-      2: "Gehen Sie zum Ansehen des Beitrags oder bleiben Sie zum Durchsuchen auf dem Originalbildschirm!",
+      2: "Gehen Sie entweder zum Beitrag, um ihn anzusehen, oder bleiben Sie zum Durchsuchen auf dem Originalbildschirm!",
       confirm: "Zum Posten gehen",
     },
     title: { paySuc: "Zahlung erfolgreich durchgeführt" },

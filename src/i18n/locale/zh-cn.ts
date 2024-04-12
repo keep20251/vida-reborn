@@ -18,7 +18,8 @@ export default {
     hi: "हिन्दी",
   },
   nav: { home: "主页", search: "搜索", publish: "创建", message: "信息", mine: "我的" },
-  tab: { recommand: "推荐", subscribe: "订阅", relatedAuthor: "相关作者", relatedPost: "相关帖子" },
+  recommand: "推荐",
+  tab: { subscribe: "订阅", relatedAuthor: "相关作者", relatedPost: "相关帖子" },
   common: {
     next: "下一步",
     getAround: "先逛逛",
@@ -37,7 +38,7 @@ export default {
     cancelSubscribe: "取消订阅",
     restoreSubscribe: "恢复订阅",
     reSubscribe: "重新订阅",
-    beforehandSubscribe: "",
+    beforehandSubscribe: "提前续订",
     editPersonalPage: "编辑个人主页",
     toPersonalPage: "进入个人主页",
     reSelect: "重新选择",

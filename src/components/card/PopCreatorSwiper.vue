@@ -30,9 +30,10 @@
             'bg-black opacity-70': i !== currIndex,
           }"
         >
-          <div class="self-end">
+          <!-- 暫隱藏 -->
+          <!-- <div class="self-end">
             <Icon name="closeWhite" size="20"></Icon>
-          </div>
+          </div> -->
           <Avatar class="mt-10" :radius="35" :src="item.thumb" :alt="item.username"></Avatar>
           <div class="mt-10 line-clamp-1 shrink-0 text-lg font-bold text-white">{{ item.nickname }}</div>
           <div class="mt-10 line-clamp-1 shrink-0 text-sm text-white">@{{ item.username }}</div>
