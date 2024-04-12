@@ -18,7 +18,8 @@ export default {
     hi: "हिन्दी",
   },
   nav: { home: "主頁", search: "搜尋", publish: "建立", message: "訊息", mine: "我的" },
-  tab: { recommand: "推薦", subscribe: "訂閱", relatedAuthor: "相關作者", relatedPost: "相關貼文" },
+  recommand: "推薦",
+  tab: { subscribe: "訂閱", relatedAuthor: "相關作者", relatedPost: "相關貼文" },
   common: {
     next: "下一步",
     getAround: "先逛逛",
