@@ -5,28 +5,33 @@
     </div>
     <div class="absolute top-0 h-full w-full rounded-xl opacity-80" :class="colorTheme">
       <div class="h-full w-full cursor-pointer px-20 py-30" @click="toCreator(item.username)">
-        <div class="flex h-full space-x-10">
-          <Avatar :radius="35" :src="props.item?.thumb" :alt="props.item?.username"></Avatar>
-          <div class="flex grow flex-col space-y-10">
+        <div class="flex h-full pl-80">
+          <div class="flex w-2/5 grow flex-col space-y-10">
             <div>
               <div class="line-clamp-1 text-lg font-bold leading-5">{{ props.item?.nickname }}</div>
-              <div class="text-sm font-normal leading-3 text-gray-57">@{{ props.item?.username }}</div>
+              <div class="overflow-hidden text-ellipsis whitespace-nowrap text-sm font-normal leading-3 text-gray-57">
+                @{{ props.item?.username }}
+              </div>
             </div>
-            <div class="line-clamp-4 text-base font-normal leading-5">
+            <div class="line-clamp-2 text-base font-normal leading-5">
               {{ props.item?.description }}
             </div>
           </div>
-          <div class="flex-shrink-0 self-end" @click.stop>
-            <Button :size="size" @click="open({ items: item?.subscription_list, creator: item })">{{
-              $t('common.viewSubscribePlan')
-            }}</Button>
-          </div>
-        </div>
-        <div class="absolute right-20 top-20 cursor-pointer">
-          <Icon name="closeWhite" size="20"></Icon>
         </div>
       </div>
     </div>
+    <div class="absolute left-20 top-30 flex-shrink-0">
+      <Avatar :radius="35" :src="props.item?.thumb" :alt="props.item?.username"></Avatar>
+    </div>
+    <div class="absolute bottom-20 right-20 flex-shrink-0 self-end" @click.stop>
+      <Button :size="size" @click="open({ items: item?.subscription_list, creator: item })">{{
+        $t('common.viewSubscribePlan')
+      }}</Button>
+    </div>
+    <!-- 暫隱藏 -->
+    <!-- <div class="absolute right-20 top-20 cursor-pointer">
+      <Icon name="closeWhite" size="20"></Icon>
+    </div> -->
   </div>
 </template>
 <script setup>
