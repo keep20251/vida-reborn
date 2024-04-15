@@ -18,8 +18,12 @@ export default {
     hi: "हिन्दी",
   },
   nav: { home: "Beranda", search: "Cari", publish: "Buat", message: "Pesan", mine: "Saya" },
-  recommand: "Untuk Anda",
-  tab: { subscribe: "Berlangganan", relatedAuthor: "Penulis terkait", relatedPost: "artikel terkait" },
+  tab: {
+    recommand: "Untuk Anda",
+    subscribe: "Berlangganan",
+    relatedAuthor: "Penulis terkait",
+    relatedPost: "artikel terkait",
+  },
   common: {
     next: "Selanjutnya",
     getAround: "Jelajahi",

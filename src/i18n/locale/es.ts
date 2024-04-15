@@ -18,8 +18,12 @@ export default {
     hi: "हिन्दी",
   },
   nav: { home: "Inicio", search: "Buscar", publish: "Crear", message: "Mensaje", mine: "Mío" },
-  recommand: "Para ti",
-  tab: { subscribe: "Suscribirse", relatedAuthor: "Autores relacionados", relatedPost: "Artículos relacionados" },
+  tab: {
+    recommand: "Para ti",
+    subscribe: "Suscribirse",
+    relatedAuthor: "Autores relacionados",
+    relatedPost: "Artículos relacionados",
+  },
   common: {
     next: "Siguiente",
     getAround: "Echar un vistazo",
@@ -499,7 +503,7 @@ export default {
     },
     shopBuySuc: {
       1: "¡maravilloso! Pago exitoso para desbloquear la publicación",
-      2: "¡Elige ir a la publicación para verla o permanecer en la pantalla original para navegar!",
+      2: "¡Elija ir a la publicación para verla o permanecer en la pantalla original para navegar!",
       confirm: "Ir a la publicación",
     },
     title: { paySuc: "Pago hecho satisfactoriamente" },

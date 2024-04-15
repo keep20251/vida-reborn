@@ -18,8 +18,7 @@ export default {
     hi: "हिन्दी",
   },
   nav: { home: "主页", search: "搜索", publish: "创建", message: "信息", mine: "我的" },
-  recommand: "推荐",
-  tab: { subscribe: "订阅", relatedAuthor: "相关作者", relatedPost: "相关帖子" },
+  tab: { recommand: "推荐", subscribe: "订阅", relatedAuthor: "相关作者", relatedPost: "相关帖子" },
   common: {
     next: "下一步",
     getAround: "先逛逛",
