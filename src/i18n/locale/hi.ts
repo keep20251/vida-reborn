@@ -18,8 +18,7 @@ export default {
     hi: "हिन्दी",
   },
   nav: { home: "मुख पृष्ठ", search: "खोजें", publish: "बनाएँ", message: "संदेश", mine: "मेरा" },
-  recommand: "आपके लिए",
-  tab: { subscribe: "सदस्यता लें", relatedAuthor: "संबंधित लेखक", relatedPost: "संबंधित आलेख" },
+  tab: { recommand: "आपके लिए", subscribe: "सदस्यता लें", relatedAuthor: "संबंधित लेखक", relatedPost: "संबंधित आलेख" },
   common: {
     next: "अगला",
     getAround: "चारों ओर देखें",

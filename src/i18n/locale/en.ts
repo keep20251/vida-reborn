@@ -18,8 +18,12 @@ export default {
     hi: "हिन्दी",
   },
   nav: { home: "Home", search: "Search", publish: "Create", message: "Message", mine: "Mine" },
-  recommand: "For you",
-  tab: { subscribe: "Subscribe", relatedAuthor: "Related authors", relatedPost: "related articles" },
+  tab: {
+    recommand: "For you",
+    subscribe: "Subscribe",
+    relatedAuthor: "Related authors",
+    relatedPost: "related articles",
+  },
   common: {
     next: "Next",
     getAround: "Browse around",

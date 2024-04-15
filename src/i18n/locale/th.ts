@@ -18,8 +18,12 @@ export default {
     hi: "हिन्दी",
   },
   nav: { home: "หน้าหลัก", search: "ค้นหา", publish: "สร้าง", message: "ข้อความ", mine: "ของฉัน" },
-  recommand: "สำหรับคุณ",
-  tab: { subscribe: "สมัครสมาชิก", relatedAuthor: "ผู้เขียนที่เกี่ยวข้อง", relatedPost: "บทความที่เกี่ยวข้อง" },
+  tab: {
+    recommand: "สำหรับคุณ",
+    subscribe: "สมัครสมาชิก",
+    relatedAuthor: "ผู้เขียนที่เกี่ยวข้อง",
+    relatedPost: "บทความที่เกี่ยวข้อง",
+  },
   common: {
     next: "ต่อไป",
     getAround: "ชมรอบๆ",
@@ -175,7 +179,7 @@ export default {
   message: {
     payment: { failed: "การชำระเงินล้มเหลว", success: "การชำระเงินสำเร็จ", cancel: "การชำระเงินถูกยกเลิก" },
     error: {
-      subscribeSelf: "ไม่สามารถสมัครสมาชิกกับตัวเองได้",
+      subscribeSelf: "ไม่สามารถสมัครเป็นสมาชิกของตัวเองได้",
       shopBuySelf: "ไม่สามารถซื้อสินค้าของตัวเองได้",
       subscriptionNotFound: "ไม่มีแผนการสมัครสมาชิก",
     },
@@ -488,7 +492,7 @@ export default {
       confirm: "ปลดล็อคตอนนี้ ({'$'}{price})",
     },
     subscribeSuc: {
-      1: "มหัศจรรย์! สมัครรับข้อมูล {nickname} สำเร็จแล้ว!",
+      1: "มหัศจรรย์! สมัครสมาชิก {nickname} สำเร็จแล้ว!",
       2: "เลือกที่จะไปที่หน้าแรกของผู้สร้าง หรืออยู่บนหน้าจอดั้งเดิมแล้วเรียกดู!",
       confirm: "ไปที่หน้าผู้สร้าง",
     },

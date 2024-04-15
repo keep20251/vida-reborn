@@ -18,8 +18,7 @@ export default {
     hi: "हिन्दी",
   },
   nav: { home: "홈", search: "검색", publish: "만들기", message: "메시지", mine: "내 것" },
-  recommand: "당신을 위해",
-  tab: { subscribe: "구독", relatedAuthor: "관련 작가", relatedPost: "관련 기사" },
+  tab: { recommand: "당신을 위해", subscribe: "구독", relatedAuthor: "관련 작가", relatedPost: "관련 기사" },
   common: {
     next: "다음",
     getAround: "둘러보기",

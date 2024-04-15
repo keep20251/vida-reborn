@@ -18,8 +18,12 @@ export default {
     hi: "हिन्दी",
   },
   nav: { home: "Startseite", search: "Suchen", publish: "Erstellen", message: "Nachricht", mine: "Mein" },
-  recommand: "Für Sie",
-  tab: { subscribe: "Abonnieren", relatedAuthor: "Verwandte Autoren", relatedPost: "In Verbindung stehende Artikel" },
+  tab: {
+    recommand: "Für Sie",
+    subscribe: "Abonnieren",
+    relatedAuthor: "Verwandte Autoren",
+    relatedPost: "In Verbindung stehende Artikel",
+  },
   common: {
     next: "Nächster",
     getAround: "Sich umsehen",
@@ -177,7 +181,7 @@ export default {
     error: {
       subscribeSelf: "Ich kann mich nicht selbst abonnieren",
       shopBuySelf: "Sie können keine eigenen Produkte kaufen",
-      subscriptionNotFound: "Kein Abonnementplan verfügbar",
+      subscriptionNotFound: "Kein Abonnement verfügbar",
     },
     sending: "Senden",
     failure: "Fehlgeschlagen",

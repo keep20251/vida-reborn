@@ -18,8 +18,12 @@ export default {
     hi: "हिन्दी",
   },
   nav: { home: "Trang chủ", search: "Tìm kiếm", publish: "Tạo", message: "Tin nhắn", mine: "Của tôi" },
-  recommand: "Dành cho bạn",
-  tab: { subscribe: "Đăng ký", relatedAuthor: "tác giả liên quan", relatedPost: "Những bài viết liên quan" },
+  tab: {
+    recommand: "Dành cho bạn",
+    subscribe: "Đăng ký",
+    relatedAuthor: "tác giả liên quan",
+    relatedPost: "Những bài viết liên quan",
+  },
   common: {
     next: "Tiếp theo",
     getAround: "Xem quanh",

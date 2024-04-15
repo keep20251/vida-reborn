@@ -18,8 +18,7 @@ export default {
     hi: "हिन्दी",
   },
   nav: { home: "ホーム", search: "検索", publish: "作成", message: "メッセージ", mine: "私の" },
-  recommand: "あなたのために",
-  tab: { subscribe: "購読", relatedAuthor: "関連著者", relatedPost: "関連記事" },
+  tab: { recommand: "あなたのために", subscribe: "購読", relatedAuthor: "関連著者", relatedPost: "関連記事" },
   common: {
     next: "次へ",
     getAround: "周りを見る",
@@ -82,7 +81,7 @@ export default {
     earnWdrlHist: "引き出し記録",
     clearSearchHistory: "検索履歴をクリア",
     search: { history: "履歴検索", clear: "人気の検索", popular: "クリア" },
-    subscription: "定期購読プラン",
+    subscription: "定期購入プラン",
     publishSuccess: "公開成功",
     updateSuccess: "更新完了",
     updateFail: "更新失敗",
@@ -497,7 +496,7 @@ export default {
     },
     shopBuySuc: {
       1: "素晴らしい！投稿のロックを解除するために支払いが完了しました",
-      2: "投稿に移動して視聴するか、元の画面に留まって閲覧するかを選択してください。",
+      2: "投稿に移動して見るか、元の画面に留まって閲覧するかを選択してください。",
       confirm: "投稿に移動",
     },
     title: { paySuc: "支払いが正常に完了しました" },

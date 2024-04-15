@@ -18,8 +18,7 @@ export default {
     hi: "हिन्दी",
   },
   nav: { home: "الصفحة الرئيسية", search: "بحث", publish: "إنشاء", message: "رسالة", mine: "لي" },
-  recommand: "لك",
-  tab: { subscribe: "الاشتراك", relatedAuthor: "المؤلفين ذات الصلة", relatedPost: "مقالات ذات صلة" },
+  tab: { recommand: "لك", subscribe: "الاشتراك", relatedAuthor: "المؤلفين ذات الصلة", relatedPost: "مقالات ذات صلة" },
   common: {
     next: "التالي",
     getAround: "تصفح",
