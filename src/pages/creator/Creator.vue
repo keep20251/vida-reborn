@@ -9,8 +9,8 @@
           <template #topButton>
             <div class="flex w-full items-center justify-between pl-100">
               <div class="flex items-center space-x-10">
-                <SocialIcon name="instagram" :url="creator?.facebook_link" size="15"></SocialIcon>
-                <SocialIcon name="facebook" :url="creator?.instagram_link" size="15"></SocialIcon>
+                <SocialIcon name="instagram" :url="creator?.instagram_link" size="15"></SocialIcon>
+                <SocialIcon name="facebook" :url="creator?.facebook_link" size="15"></SocialIcon>
                 <SocialIcon name="twitter" :url="creator?.twitter_link" size="15"></SocialIcon>
                 <SocialIcon name="youtube" :url="creator?.youtube_link" size="15"></SocialIcon>
                 <SocialIcon name="tiktok" :url="creator?.tiktok_link" size="15"></SocialIcon>

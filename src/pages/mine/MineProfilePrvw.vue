@@ -4,8 +4,8 @@
       <template #topButton>
         <div class="flex h-26 w-full items-center justify-between pl-100">
           <div class="flex items-center space-x-10">
-            <SocialIcon name="instagram" :url="userData?.facebook_link" size="15"></SocialIcon>
-            <SocialIcon name="facebook" :url="userData?.instagram_link" size="15"></SocialIcon>
+            <SocialIcon name="instagram" :url="userData?.instagram_link" size="15"></SocialIcon>
+            <SocialIcon name="facebook" :url="userData?.facebook_link" size="15"></SocialIcon>
             <SocialIcon name="twitter" :url="userData?.twitter_link" size="15"></SocialIcon>
             <SocialIcon name="youtube" :url="userData?.youtube_link" size="15"></SocialIcon>
             <SocialIcon name="tiktok" :url="userData?.tiktok_link" size="15"></SocialIcon>
