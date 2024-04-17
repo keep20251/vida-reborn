@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div class="flex items-center justify-center py-20">
+    <div class="flex flex-col items-center justify-center py-20">
+      <img class="mb-50 w-[12.5rem]" src="@/assets/images/registration-portal.svg?url" alt="Error" />
       <div class="text-lg font-bold leading-5">{{ $t('info.loginOr') }}{{ $t('info.quickRegister') }}</div>
     </div>
     <div class="mb-10 text-center text-base font-normal leading-md">{{ $t('content.notLoggedYet') }}</div>
