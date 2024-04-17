@@ -11,6 +11,7 @@
       v-model="credential.wdrlAmount.value"
       :label="$t('label.wdrlAmount')"
       :placeholder="$t('placeholder.wdrlAmount')"
+      :number="true"
       :errMsg="credential.wdrlAmount.error"
     ></InputWrap>
     <ol class="!list-decimal pb-20 pl-20 pt-10 text-base font-normal leading-xl text-gray-a3">
@@ -24,6 +25,7 @@
 <script setup>
 import { onMounted, reactive } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useEarnStore } from '@/store/earn'
 import { useModalStore } from '@/store/modal'
@@ -32,6 +34,7 @@ import InputWrap from '@comp/form/InputWrap.vue'
 import useRequest from '@use/request'
 import { useYup } from '@use/validator/yup.js'
 
+const { push } = useRouter()
 const { confirm, alert } = useModalStore()
 const earnStore = useEarnStore()
 const { refreshOverallData } = earnStore
@@ -69,6 +72,7 @@ const onWithdraw = async () => {
   try {
     await useRequest('User.applyWithdraw', { params: { amount: credential.wdrlAmount.value }, immediate: true })
     balance.value = balance.value - credential.wdrlAmount.value
+    push({ name: 'mine-earn-wdrl-hist' })
   } catch (e) {
     alert({
       title: 'title.publishFail',
