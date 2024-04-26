@@ -53,7 +53,7 @@
         <Icon name="comment" size="20"></Icon>
         <div class="text-sm font-medium leading-5">{{ item.comment_num }}</div>
       </div>
-      <div class="flex cursor-pointer space-x-10">
+      <div class="flex cursor-pointer space-x-10" @click.stop="copy(item.share_url)">
         <Icon name="sharePost" size="20"></Icon>
         <div class="text-sm font-medium leading-5">{{ item.share_num }}</div>
       </div>
