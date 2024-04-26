@@ -27,38 +27,38 @@
 
 <style lang="scss" scoped>
 .academy {
-  @apply bg-primary px-16 py-64 text-white;
+  @apply bg-primary px-16 py-50 text-white md:px-[9.375rem] md:py-75;
   .academy-wrapper {
-    @apply mx-auto sm:grid sm:max-w-[1440px] sm:grid-cols-12;
+    @apply mx-auto md:grid md:max-w-[1920px] md:grid-cols-12;
 
     &-media {
-      @apply sm:col-span-7;
+      @apply flex items-center md:col-span-7;
       img {
         max-width: 100%;
         object-fit: cover;
       }
     }
     &-bar {
-      @apply w-full py-20 sm:col-span-1 sm:flex;
+      @apply w-full py-30 md:col-span-1 md:flex;
       &-line {
         @apply mx-auto h-9 w-[70%] rounded bg-white;
-        @apply bg-white  sm:my-auto sm:h-[60%] sm:w-12;
+        @apply bg-white  md:my-auto md:h-[60%] md:w-12;
       }
     }
     &-content {
-      @apply mx-auto flex max-w-[80%] flex-col items-start justify-start sm:col-span-4;
+      @apply mx-auto flex flex-col items-start justify-start px-38 md:col-span-4 md:justify-center md:px-0;
       &-title {
-        @apply w-full pt-10 text-center text-[30px] font-bold;
+        @apply w-full text-start text-[30px] font-bold;
         letter-spacing: 0.05em;
       }
       &-subtitle {
-        @apply pt-20 text-[20px] font-light;
+        @apply pt-10 text-[20px] font-light;
       }
       &-description {
-        @apply pt-20 text-[16px] font-light;
+        @apply pt-30 text-[16px] font-light;
       }
       &-button {
-        @apply mt-40 rounded-full  bg-contrast px-25 py-2 text-white;
+        @apply mt-30 rounded-full  bg-contrast px-25 py-2 text-white;
       }
     }
   }
