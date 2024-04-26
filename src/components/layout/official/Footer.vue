@@ -69,19 +69,19 @@ const socials = ref([
     &-infos {
       @apply pt-30;
       &-info {
-        @apply flex justify-around   sm:justify-start;
+        @apply flex justify-center space-x-15 sm:justify-start;
 
         :first-child {
-          @apply font-bold sm:mr-auto;
+          @apply text-md font-medium;
         }
         :last-child {
-          @apply font-light;
+          @apply text-md;
         }
       }
     }
   }
   &-policys {
-    @apply flex flex-col text-center font-light  sm:col-span-2 sm:col-start-4 md:col-start-8;
+    @apply flex flex-col text-center font-light  sm:col-span-2 sm:col-start-4 md:col-start-8 md:text-left;
     &-first {
       @apply pt-30;
     }
