@@ -78,6 +78,8 @@ import { useInfiniteScroll } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useChatStore } from '@/store/chat'
+import { useCreatorStore } from '@/store/creator'
+import { useModalStore } from '@/store/modal'
 import TextareaWrap from '@comp/form/TextareaWrap.vue'
 import MessageBox from '@comp/message/MessageBox.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
@@ -96,6 +98,11 @@ const { isLogin, isCreator } = storeToRefs(accountStore)
 const chatStore = useChatStore()
 const { ready } = storeToRefs(chatStore)
 const { getUser, loadNextHistory } = chatStore
+
+const creatorStore = useCreatorStore()
+const { get: getCreator } = creatorStore
+
+const { alert } = useModalStore()
 
 const { toCreator } = useRouters()
 
@@ -137,10 +144,14 @@ watch(
 
 const input = ref('')
 const inputLine = computed(() => Math.min(input.value.split('\n').length, 5))
-function sendText() {
+async function sendText() {
   const message = input.value.trim()
 
   if (!message) return
+
+  if (!(await checkCanSend())) {
+    return
+  }
 
   const toUUID = user.value.uuid
 
@@ -154,7 +165,11 @@ function sendText() {
 }
 
 const photoInput = ref(null)
-function sendPhoto(evt) {
+async function sendPhoto(evt) {
+  if (!(await checkCanSend())) {
+    return
+  }
+
   const file = evt.target.files[0]
   if (file) {
     const uuid = user.value.uuid
@@ -167,6 +182,17 @@ function sendPhoto(evt) {
   }
 
   photoInput.value.value = null
+}
+
+async function checkCanSend() {
+  const creator = await getCreator(user.value.username)
+
+  if (!creator.is_able_send_message) {
+    alert({ title: 'info.subscribeBeforeChat' })
+    return false
+  }
+
+  return true
 }
 
 const messages = ref(null)
