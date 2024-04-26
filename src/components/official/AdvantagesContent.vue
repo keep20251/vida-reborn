@@ -47,7 +47,8 @@ const handleClick = () => emit('contentClick', props.id)
     font-weight: 400;
   }
 }
-.official-advantages-content.active {
-  @apply bg-primary text-white shadow-[0_35px_20px_-15px_rgba(0,0,0,0.3)];
-}
+// 暫移除
+// .official-advantages-content.active {
+//   @apply bg-primary text-white shadow-[0_35px_20px_-15px_rgba(0,0,0,0.3)];
+// }
 </style>
