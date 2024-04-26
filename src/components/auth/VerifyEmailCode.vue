@@ -22,7 +22,7 @@
             <div v-if="!!serverError" class="text-base font-normal leading-md text-warning">{{ serverError }}</div>
           </div>
           <div class="text-center">
-            <button class="text-base font-normal leading-md" @click="to(AUTH_ROUTES.VERIFY_PASSWORD)">
+            <button class="text-base font-normal leading-md" @click="to(AUTH_ROUTES.LOGIN)">
               {{ $t('info.loginByPwd') }}
             </button>
           </div>
