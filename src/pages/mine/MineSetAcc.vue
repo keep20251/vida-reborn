@@ -28,11 +28,16 @@
           {{ edit ? $t('common.confirm') : $t('label.edit') }}
         </div>
       </div>
-      <InputWrap v-if="edit" v-model="credential.email.value" :placeholder="$t('placeholder.email')"></InputWrap>
+      <InputWrap
+        v-if="edit"
+        v-model="credential.email.value"
+        :placeholder="$t('placeholder.email')"
+        :errMsg="credential.email.error"
+      ></InputWrap>
       <div v-if="!edit" class="text-sm font-normal leading-3 text-gray-57">{{ credential.email.value }}</div>
     </div>
     <InputEmailCode
-      v-if="userData.email_validation === EMAIL_VALIDATION.UNVERIFIED"
+      v-if="userData.email_validation === EMAIL_VALIDATION.UNVERIFIED && !edit"
       v-model="verifyCode"
       :onResend="resendEmailCode"
       :err-msg="verifyCodeError"
@@ -125,7 +130,7 @@ const credential = reactive({
     value: userData.value.email,
     error: '',
     check: false,
-    schema: Yup.string().email(),
+    schema: Yup.string().required($t('yup.mixed.required')).email(),
   },
   nickname: {
     value: userData.value.nickname,
@@ -144,6 +149,7 @@ const credential = reactive({
 const confirmEmail = async () => {
   if (edit.value === false) {
     edit.value = true
+    nameServerError.value = ''
   } else {
     edit.value = false
 
@@ -155,36 +161,43 @@ const confirmEmail = async () => {
 }
 
 const modifyMail = async () => {
-  await validate(credential.email.schema, credential.email)
   const { execute } = useRequest('User.modifyInfo')
   try {
+    await Yup.string().email().required().validate(credential.email.value)
     await execute({
       email: credential.email.value,
     })
     userData.value.email = credential.email.value
     openMessage('title.updateSuccess')
+    credential.email.error = ''
   } catch (e) {
-    nameServerError.value = e.message
+    credential.email.error = parseError(e)
     openMessage('title.updateFail')
+    edit.value = true
   }
 }
 
 const resendEmailCode = computed(() => {
   return () => {
+    console.log('你的信箱：', credential.email.value)
     sendEmailCode({ email: credential.email.value, type })
     openMessage('label.sendMailCode')
   }
 })
 async function validateEmailCode() {
-  try {
-    isLoading.value = true
-    await codeSchema.validate(verifyCode.value)
-    await accountValidationEmail()
-    verifyCode.value = ''
-  } catch (e) {
-    verifyCodeError.value = parseError(e)
-  } finally {
-    isLoading.value = false
+  if (edit.value) {
+    openMessage('info.clickRtConfirm')
+  } else {
+    try {
+      isLoading.value = true
+      await codeSchema.validate(verifyCode.value)
+      await accountValidationEmail()
+      verifyCode.value = ''
+    } catch (e) {
+      verifyCodeError.value = parseError(e)
+    } finally {
+      isLoading.value = false
+    }
   }
 }
 
@@ -198,10 +211,10 @@ async function accountValidationEmail() {
     })
     userData.value.email = credential.email.value
     userData.value.email_validation = EMAIL_VALIDATION.VERIFIED
-    openMessage('title.updateSuccess')
+    openMessage('title.submitSuccess')
   } catch (e) {
     serverError.value = e.message
-    openMessage('title.updateFail')
+    openMessage('yup.mixed.default')
   }
 }
 
