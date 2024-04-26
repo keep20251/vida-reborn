@@ -48,9 +48,9 @@
       .btns {
         @apply mt-40 flex items-start justify-end space-x-16;
         .btn {
-          @apply flex min-w-[6rem]  flex-col items-center justify-center text-center;
+          @apply flex w-[5.125rem]  flex-col items-center justify-center text-center;
           div:nth-child(1) {
-            @apply min-w-[6rem]  rounded-full border-2 border-primary px-14 py-1;
+            @apply w-[5.125rem]  rounded-full border-2 border-primary px-14 py-1;
           }
 
           div:nth-child(2) {
