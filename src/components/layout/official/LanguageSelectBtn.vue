@@ -35,7 +35,7 @@ onBeforeUnmount(() => {
 <template>
   <div class="official-lang-menu text-nowrap relative">
     <div class="official-lang-menu-btn" @click.prevent="toggleMenu">
-      <div class="ga-5 flex cursor-pointer items-center">
+      <div class="ga-5 flex cursor-pointer items-center space-x-6">
         <Icon name="officialEarth" size="25"></Icon>
         <div>{{ $t(currentLocaleLabel) }}</div>
         <Icon name="officialDropdown" class="officialDropdown pt-2" :class="{ rotate: isActived }" size="10"></Icon>
@@ -43,7 +43,7 @@ onBeforeUnmount(() => {
     </div>
     <div
       :class="{ active: isActived }"
-      class="official-lang-menu-items scrollbar absolute right-1 top-[140%] hidden max-h-[138px] w-full min-w-min cursor-pointer overflow-y-scroll rounded bg-white text-base text-gray-57 shadow-lg"
+      class="official-lang-menu-items scrollbar absolute right-1 top-[140%] hidden max-h-[138px] w-full min-w-min cursor-pointer overflow-y-scroll rounded bg-white py-6 text-right text-base leading-4 text-gray-57 shadow-lg"
     >
       <div v-for="locale in locales" :key="`lang-${locale.value}`" @click="handleChangeLanguage(locale.value)">
         {{ $t(locale.key) }}

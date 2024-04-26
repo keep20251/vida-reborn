@@ -28,7 +28,7 @@ const handleClick = () => emit('contentClick', props.id)
   // about focus and active effects
   @apply hover:bg-primary  hover:text-white hover:shadow-[0_35px_20px_-15px_rgba(0,0,0,0.3)] active:bg-primary active:text-white active:shadow-[0_35px_20px_-15px_rgba(0,0,0,0.3)];
   // transition
-  @apply transition delay-150 ease-in-out;
+  // @apply transition delay-150 ease-in-out;
 
   &-title {
     font-weight: 900;
