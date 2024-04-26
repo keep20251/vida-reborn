@@ -1,7 +1,6 @@
 <template>
   <div class="flex h-full items-center justify-center rounded-inherit" @click.stop>
-    <div v-if="!url" class="animate-bounce">這筆資料有問題...</div>
-    <LockMask v-else-if="showLockMask" :item="item" show-image @replay="playEnd = false"></LockMask>
+    <LockMask v-if="showLockMask" :item="item" show-image @replay="playEnd = false"></LockMask>
     <Video v-else ref="video" :url="url" :preview="isLock" @play="playEnd = false" @ended="playEnd = true"></Video>
   </div>
 </template>
