@@ -23,6 +23,7 @@ const props = defineProps({
   optionLabel: { type: String, default: 'label' },
   optionValue: { type: String, default: 'value' },
   center: { type: Boolean, default: false },
+  canPickNone: { type: Boolean, default: false },
 })
 
 const emits = defineEmits(['update:modelValue'])
@@ -34,7 +35,7 @@ function onClick(v) {
     if (index === -1) {
       r.push(v)
       r.sort((a, b) => a - b)
-    } else if (r.length > 1) {
+    } else if (props.canPickNone || r.length > 1) {
       r.splice(index, 1)
     }
     emits('update:modelValue', r)
