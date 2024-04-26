@@ -49,6 +49,7 @@
               <div v-if="!last" class="h-1 w-[calc(100%-115px)] translate-x-95 bg-gray-e5"></div>
             </template>
           </List>
+          <NoData v-if="sortedUsers.length === 0"></NoData>
         </div>
         <div v-else class="flex h-full items-center justify-center"><Loading></Loading></div>
       </template>
@@ -68,6 +69,7 @@ import { useChatStore } from '@/store/chat'
 import { useCreatorStore } from '@/store/creator'
 import { useNavStore } from '@/store/nav'
 import Badge from '@comp/common/Badge.vue'
+import NoData from '@comp/info/NoData.vue'
 import PageMessage from '@comp/layout/PageMessage.vue'
 import Room from '@comp/message/Room.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'

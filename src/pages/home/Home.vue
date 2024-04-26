@@ -20,7 +20,7 @@
           </template>
         </List>
       </div>
-      <div v-show="tab === TAB_TYPE.SUB" class="h-[calc(100vh-12.75rem)]">
+      <div v-show="tab === TAB_TYPE.SUB" :class="{ 'h-[calc(100vh-12.75rem)]': isMobile }">
         <PopCreatorSwiper
           v-if="isMobile"
           :items="creators"
