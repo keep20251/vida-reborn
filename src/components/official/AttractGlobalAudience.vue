@@ -46,11 +46,11 @@
         @apply mt-20 leading-7;
       }
       .btns {
-        @apply mt-40 flex  items-start justify-end space-x-17;
+        @apply mt-40 flex items-start justify-end space-x-16;
         .btn {
-          @apply mr-2 flex  min-w-[6rem] flex-col  items-center justify-center  text-center;
+          @apply flex min-w-[6rem]  flex-col items-center justify-center text-center;
           div:nth-child(1) {
-            @apply min-w-[4rem] rounded-full border-2 border-primary px-14 py-1;
+            @apply min-w-[6rem]  rounded-full border-2 border-primary px-14 py-1;
           }
 
           div:nth-child(2) {
