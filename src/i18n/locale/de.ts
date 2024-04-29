@@ -93,6 +93,9 @@ export default {
     publishFail: "Veröffentlichung fehlgeschlagen",
     delSuccess: "Erfolgreich gelöscht",
     createFeed: "Beitrag erstellen",
+    submitSuccess: "",
+    submitFail: "",
+    reportSuccess: "",
   },
   label: {
     account: "Benutzername",
@@ -159,7 +162,11 @@ export default {
     subBtn: "Abonnieren, um den vollständigen Inhalt freizuschalten",
     buyBtn: "Einzelzahlung, um Inhalte freizuschalten",
     eventAd: "VIDA Veranstaltungen und Werbung",
+    just: "gerade eben",
+    minutesAgo: "vor {minutes} Minuten",
+    hoursAgo: "vor {hours} Stunden",
   },
+  lsnrl: { yesterday: "gestern" },
   placeholder: {
     account: "Bitte Benutzername eingeben",
     password: "Bitte Passwort eingeben",
@@ -181,7 +188,7 @@ export default {
     error: {
       subscribeSelf: "Ich kann mich nicht selbst abonnieren",
       shopBuySelf: "Sie können keine eigenen Produkte kaufen",
-      subscriptionNotFound: "Kein Abonnement verfügbar",
+      subscriptionNotFound: "Kein Abonnementplan verfügbar",
     },
     sending: "Senden",
     failure: "Fehlgeschlagen",
@@ -251,6 +258,8 @@ export default {
     whetherChangePw: "Sind Sie sicher, dass Sie Ihr Passwort ändern möchten?",
     whetherDelAcc: "Sind Sie sicher, dass Sie Ihr Konto löschen möchten?",
     whetherDelArticle: "Sind Sie sicher, dass Sie diesen Beitrag löschen möchten?",
+    subscribeBeforeChat: "Bitte abonnieren Sie, bevor Sie chatten",
+    clickRtConfirm: "",
   },
   content: {
     default: "Standardmäßig, sollte nirgendwo auftauchen",
@@ -308,7 +317,7 @@ export default {
     customStyle: "Benutzerdefinierter Stil",
     subUnlockDayAfter: "Erlaubt das Entsperren die letzten Tage seit dem Kauf?",
     tokenExpired: "Die Anmeldesitzung ist abgelaufen. Bitte melden Sie sich erneut an.",
-    clearSearchHistory: "Möchten Sie Ihren Suchverlauf wirklich löschen?",
+    clearSearchHistory: "Sind Sie sicher, dass Sie Ihren Suchverlauf löschen möchten?",
     uploadVideoLimit: {
       format:
         "Das aktuell hochgeladene Videoformat ({format}) wird nicht unterstützt. Bitte konvertieren Sie es in das MP4- oder MOV-Format und versuchen Sie es erneut.",
@@ -503,7 +512,7 @@ export default {
     },
     shopBuySuc: {
       1: "fabelhaft! Erfolgreich bezahlt, um den Beitrag freizuschalten",
-      2: "Gehen Sie entweder zum Beitrag, um ihn anzusehen, oder bleiben Sie zum Durchsuchen auf dem Originalbildschirm!",
+      2: "Gehen Sie zum Ansehen des Beitrags oder bleiben Sie zum Durchsuchen auf dem Originalbildschirm!",
       confirm: "Zum Posten gehen",
     },
     title: { paySuc: "Zahlung erfolgreich durchgeführt" },
@@ -579,7 +588,7 @@ export default {
       17: "Weitere Informationen und Kontakte",
       18: "Weitere Informationen darüber, wie VIDA Ihre personenbezogenen Daten verarbeitet, finden Sie in der Datenschutzrichtlinie von VIDA (hier) und auf der Seite „Respektieren Ihrer Privatsphäre“ im Sicherheits- und Transparenzzentrum von VIDA (hier).",
       19: "Weitere Informationen darüber, warum VIDA diese Identitätsüberprüfungs- und Authentifizierungsprüfungen durchführen muss, finden Sie auf der Seite „Alters- und Identitätsverifizierung“ in unserem Online-Sicherheits- und Transparenzzentrum (hier).",
-      20: "Bei Fragen wenden Sie sich bitte an Privacy{'@'}VIDA.com.",
+      20: "Wenn Sie Fragen haben, wenden Sie sich bitte an Privacy{'@'}VIDA.com.",
       21: "Ihre Zustimmung",
       22: "Indem Sie auf „[Ich stimme zu]“ klicken, verstehen und akzeptieren Sie, dass: Sie der Erfassung und Verarbeitung Ihrer biometrischen Gesichtsdaten zustimmen (d.h. diese mit dem Foto auf Ihrem Identitätsdokument abgleichen), ausschließlich zum Zweck der Überprüfung Ihres Alters und der Überprüfung und Authentifizierung Ihrer Identität. Sie haben die in dieser Mitteilung enthaltenen Informationen gelesen und verstanden.",
       23: "Sie sind mindestens 18 Jahre alt.",
@@ -612,12 +621,17 @@ export default {
       title: "Über VIDA",
       info: "Vida ist eine bahnbrechende Mitglieder-Abonnement-Plattform, die ausschließlich für Kreative entwickelt wurde, um ihnen zu ermöglichen, mit ihren Fans in Verbindung zu treten und ihre Inhalte effektiv zu monetarisieren. Wir bieten unseren Kreativen ein umfassendes Dienstleistungspaket, einschließlich Crowdfunding-Fähigkeiten, strategischer Markenberatungen und Mentoring-Dienste. Wir haben eine breite Palette von Mitgliedschaftspaketen zur Auswahl, sodass Sie unabhängig von Ihren Zielen diese mit Vida erreichen können.",
     },
-    joinUs: {
+    joinUsAsCreator: {
       title: "Werden Sie als Schöpfer mit",
       subtitle: "Verwandeln Sie Ihre Talente und Inhalte in ein Geschäft",
       info: "Vida ermöglicht es Schöpfern, mit ihren Fans in Kontakt zu treten, ihr Publikum zu erweitern und ihren Inhalt erfolgreich zu monetarisieren. Mit der Vida Academy bringen wir Ihnen bei, wie Sie Ihren Inhalt auf die nächste Stufe heben und noch profitabler machen können.",
-      btn: "Jetzt beitreten",
     },
+    joinUsAsSubscriber: {
+      title: "Abonniere uns",
+      subtitle: "Finden und verbinden Sie sich mit Ihren Lieblingskreativen",
+      info: "Vida ermöglicht es Benutzern, ihre Lieblingskreativen zu unterstützen und direkt mit ihnen zu interagieren, sowie neue einzigartige Talente zu entdecken. Abonnieren Sie Kreative, um sicherzustellen, dass Sie deren neuen Inhalt nicht verpassen, Zugang zu exklusiven Inhalten erhalten und direkt mit ihnen interagieren können.",
+    },
+    joinUs: { btn: "Jetzt beitreten" },
     attachment: {
       title: "Ein globales Publikum anziehen",
       info: "Mit aktiven Nutzern aus der ganzen Welt ermöglicht Vida es Schöpfern, ein globales Publikum zu erreichen und anzuziehen. Schmieden Sie stärkere Verbindungen mit Ihrer Fangemeinde und fördern Sie ein tiefes Gemeinschaftsgefühl.",

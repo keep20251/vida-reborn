@@ -88,6 +88,9 @@ export default {
     publishFail: "게시 실패",
     delSuccess: "삭제 성공",
     createFeed: "게시물 생성",
+    submitSuccess: "",
+    submitFail: "",
+    reportSuccess: "",
   },
   label: {
     account: "사용자 이름",
@@ -154,7 +157,11 @@ export default {
     subBtn: "전체 콘텐츠를 잠금 해제하려면 구독하세요",
     buyBtn: "항목 당 지불하여 콘텐츠 잠금 해제",
     eventAd: "VIDA 이벤트 및 광고",
+    just: "방금",
+    minutesAgo: "{minutes}분 전",
+    hoursAgo: "{hours}시간 전",
   },
+  lsnrl: { yesterday: "어제" },
   placeholder: {
     account: "사용자 이름을 입력하세요",
     password: "비밀번호를 입력하세요",
@@ -246,6 +253,8 @@ export default {
     whetherChangePw: "비밀번호를 변경하시겠습니까?",
     whetherDelAcc: "계정을 삭제하시겠습니까?",
     whetherDelArticle: "이 게시물을 삭제하시겠습니까?",
+    subscribeBeforeChat: "채팅하기 전에 구독해주세요",
+    clickRtConfirm: "",
   },
   content: {
     default: "기본값은 어디에도 표시되지 않아야 합니다.",
@@ -600,12 +609,17 @@ export default {
       title: "VIDA에 대하여",
       info: "VIDA는 크리에이터 전용으로 설계된 혁신적인 멤버십 구독 플랫폼으로, 팬과 연결하고 콘텐츠를 효과적으로 수익화할 수 있는 힘을 제공합니다. 우리는 크리에이터를 위한 포괄적인 서비스 스위트를 제공합니다. 이에는 크라우드펀딩 기능, 전략적 브랜드 컨설팅 및 멘토링 서비스가 포함됩니다. 선택할 수 있는 회원 패키지의 범위가 넓어서, 당신의 목표가 무엇이든 Vida가 그것을 달성할 수 있도록 도와줍니다.",
     },
-    joinUs: {
+    joinUsAsCreator: {
       title: "창작자로 가입하기",
       subtitle: "당신의 재능과 콘텐츠를 비즈니스로 전환하세요",
       info: "Vida는 크리에이터가 팬들과 교류하고, 청중을 확대하며, 콘텐츠를 성공적으로 수익화할 수 있게 합니다. Vida 아카데미에서는 콘텐츠를 새로운 수준으로 끌어올리고 더 많은 수익을 창출하는 방법을 가르칠 것입니다。",
-      btn: "지금 가입하기",
     },
+    joinUsAsSubscriber: {
+      title: "구독자로 가입하기",
+      subtitle: "좋아하는 창작자를 찾아 연결하세요",
+      info: "Vida는 사용자가 좋아하는 창작자를 지원하고 직접 참여할 수 있도록 하며, 새로운 독특한 재능도 발견할 수 있습니다. 창작자를 구독하여 새로운 콘텐츠를 놓치지 않고, 독점 콘텐츠에 접근하고, 그들과 직접 상호작용할 수 있습니다.",
+    },
+    joinUs: { btn: "지금 가입하기" },
     attachment: {
       title: "글로벌 오디언스 유치",
       info: "전 세계의 활발한 사용자를 보유한 Vida는 창작자가 글로벌 청중에 도달하고 매료시킬 수 있게 합니다. 팬 기반과 더 강력한 연결을 구축하고 깊은 커뮤니티 의식을 증진시키세요.",

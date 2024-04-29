@@ -93,6 +93,9 @@ export default {
     publishFail: "Publicación Fallida",
     delSuccess: "Eliminado con éxito",
     createFeed: "Crear publicación",
+    submitSuccess: "",
+    submitFail: "",
+    reportSuccess: "",
   },
   label: {
     account: "Nombre de usuario",
@@ -159,7 +162,11 @@ export default {
     subBtn: "Suscribirse para desbloquear el contenido completo",
     buyBtn: "Pagar por artículo para desbloquear contenido",
     eventAd: "Eventos y anuncios de VIDA",
+    just: "justo ahora",
+    minutesAgo: "hace {minutes} minutos",
+    hoursAgo: "hace {hours} horas",
   },
+  lsnrl: { yesterday: "ayer" },
   placeholder: {
     account: "Por favor, ingrese nombre de usuario",
     password: "Por favor, ingrese contraseña",
@@ -251,9 +258,11 @@ export default {
     whetherChangePw: "¿Estás seguro de que quieres cambiar tu contraseña?",
     whetherDelAcc: "¿Estás seguro de que quieres eliminar tu cuenta?",
     whetherDelArticle: "¿Estás seguro de que quieres eliminar esta publicación?",
+    subscribeBeforeChat: "Por favor suscríbete antes de chatear.",
+    clickRtConfirm: "",
   },
   content: {
-    default: "Predeterminado, no debería aparecer en ningún lado",
+    default: "Predeterminado, no debería aparecer en ninguna parte",
     welcomeToVIDA: "¡Bienvenido a VIDA, únete a nosotros!",
     verifyAccount:
       "¡Apresúrate a verificar tu buzón! Ve a 【Mi cuenta>Configuración de la cuenta】 para completar la verificación",
@@ -503,7 +512,7 @@ export default {
     },
     shopBuySuc: {
       1: "¡maravilloso! Pago exitoso para desbloquear la publicación",
-      2: "¡Elija ir a la publicación para verla o permanecer en la pantalla original para navegar!",
+      2: "¡Elige ir a la publicación para verla o permanecer en la pantalla original para navegar!",
       confirm: "Ir a la publicación",
     },
     title: { paySuc: "Pago hecho satisfactoriamente" },
@@ -613,12 +622,17 @@ export default {
       title: "Acerca de VIDA",
       info: "Vida es una plataforma de suscripción para miembros innovadora diseñada exclusivamente para creadores, que les empodera para conectar con sus fans y monetizar eficazmente su contenido. Ofrecemos un conjunto completo de servicios para nuestros creadores, incluyendo capacidades de financiamiento colectivo, consultas de marca estratégicas y servicios de mentoría. Tenemos una amplia gama de paquetes de membresía para elegir, por lo que, no importa cuáles sean tus objetivos, Vida te permite alcanzarlos.",
     },
-    joinUs: {
+    joinUsAsCreator: {
       title: "Únete como creador",
       subtitle: "Convierte tus talentos y contenido en un negocio",
       info: "Vida permite a los creadores interactuar con sus fans, expandir su audiencia y monetizar con éxito su contenido. Con Vida Academy, te enseñaremos cómo llevar tu contenido al siguiente nivel y ser aún más rentable.",
-      btn: "Únete ahora",
     },
+    joinUsAsSubscriber: {
+      title: "Únete como suscriptor",
+      subtitle: "Encuentra y conecta con tus creadores favoritos",
+      info: "Vida permite a los usuarios apoyar y comprometerse directamente con sus creadores favoritos, además de descubrir nuevos talentos únicos. Suscríbete a los creadores para asegurarte de no perderte su nuevo contenido, acceder a contenido exclusivo y la capacidad de interactuar directamente con ellos.",
+    },
+    joinUs: { btn: "Únete ahora" },
     attachment: {
       title: "Atraer a una audiencia global",
       info: "Con usuarios activos de todo el mundo, Vida permite a los creadores llegar y atraer a una audiencia global. Forja conexiones más fuertes con tu base de fans y fomenta un profundo sentido de comunidad.",

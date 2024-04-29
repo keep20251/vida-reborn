@@ -93,6 +93,9 @@ export default {
     publishFail: "Đăng thất bại",
     delSuccess: "Xóa thành công",
     createFeed: "Tạo bài viết",
+    submitSuccess: "",
+    submitFail: "",
+    reportSuccess: "",
   },
   label: {
     account: "Tên người dùng",
@@ -159,7 +162,11 @@ export default {
     subBtn: "Đăng ký để mở khóa nội dung đầy đủ",
     buyBtn: "Trả tiền mỗi mục để mở khóa nội dung",
     eventAd: "Sự kiện và quảng cáo VIDA",
+    just: "vừa mới",
+    minutesAgo: "{minutes} phút trước",
+    hoursAgo: "{hours} giờ trước",
   },
+  lsnrl: { yesterday: "hôm qua" },
   placeholder: {
     account: "Vui lòng nhập tên người dùng",
     password: "Vui lòng nhập mật khẩu",
@@ -179,7 +186,7 @@ export default {
   message: {
     payment: { failed: "Thanh toán thất bại", success: "Thanh toán thành công", cancel: "Thanh toán đã hủy" },
     error: {
-      subscribeSelf: "Không thể đăng ký cho chính tôi",
+      subscribeSelf: "Không thể đăng ký cho chính mình",
       shopBuySelf: "Không thể mua sản phẩm của riêng bạn",
       subscriptionNotFound: "Không có gói đăng ký nào",
     },
@@ -251,6 +258,8 @@ export default {
     whetherChangePw: "Bạn có chắc chắn muốn thay đổi mật khẩu không?",
     whetherDelAcc: "Bạn có chắc chắn muốn xóa tài khoản của mình không?",
     whetherDelArticle: "Bạn có chắc chắn muốn xóa bài viết này không?",
+    subscribeBeforeChat: "Vui lòng đăng ký trước khi trò chuyện",
+    clickRtConfirm: "",
   },
   content: {
     default: "Mặc định, không nên hiển thị ở bất cứ đâu",
@@ -610,12 +619,17 @@ export default {
       title: "Về VIDA",
       info: "Vida là một nền tảng đăng ký thành viên đột phá được thiết kế riêng cho các nhà sáng tạo, trao quyền cho họ kết nối với người hâm mộ và kiếm tiền từ nội dung một cách hiệu quả. Chúng tôi cung cấp một bộ dịch vụ toàn diện cho các nhà sáng tạo của mình, bao gồm khả năng gây quỹ cộng đồng, tư vấn thương hiệu chiến lược và dịch vụ cố vấn. Chúng tôi có nhiều gói thành viên để bạn lựa chọn, vì vậy dù mục tiêu của bạn là gì, Vida giúp bạn đạt được chúng.",
     },
-    joinUs: {
+    joinUsAsCreator: {
       title: "Tham gia làm người sáng tạo",
       subtitle: "Chuyển đổi tài năng và nội dung của bạn thành kinh doanh",
       info: "Vida cho phép các nhà sáng tạo tương tác với người hâm mộ của họ, mở rộng đối tượng và kiếm tiền từ nội dung của họ một cách thành công. Với Vida Academy, chúng tôi sẽ dạy bạn cách nâng cao nội dung của mình lên một tầm cao mới và trở nên có lợi nhuận hơn.",
-      btn: "Tham gia ngay",
     },
+    joinUsAsSubscriber: {
+      title: "Tham gia làm người đăng ký",
+      subtitle: "Tìm kiếm và kết nối với những người sáng tạo yêu thích của bạn",
+      info: "Vida cho phép người dùng hỗ trợ và tương tác trực tiếp với những người sáng tạo yêu thích của họ, đồng thời khám phá những tài năng độc đáo mới. Đăng ký theo dõi các nhà sáng tạo để đảm bảo bạn không bỏ lỡ nội dung mới của họ, truy cập nội dung độc quyền và có khả năng tương tác trực tiếp với họ.",
+    },
+    joinUs: { btn: "Tham gia ngay" },
     attachment: {
       title: "Thu hút khán giả toàn cầu",
       info: "Với người dùng hoạt động từ khắp nơi trên thế giới, Vida giúp các nhà sáng tạo tiếp cận và thu hút khán giả toàn cầu. Tạo ra mối liên kết mạnh mẽ hơn với cơ sở người hâm mộ và nuôi dưỡng cảm giác cộng đồng sâu sắc.",

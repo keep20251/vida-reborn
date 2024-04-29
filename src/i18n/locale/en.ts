@@ -93,6 +93,9 @@ export default {
     publishFail: "Publish Failed",
     delSuccess: "Successfully deleted",
     createFeed: "Create",
+    submitSuccess: "Submitted successfully",
+    submitFail: "Submission Failed",
+    reportSuccess: "Report successfully",
   },
   label: {
     account: "Username",
@@ -159,7 +162,11 @@ export default {
     subBtn: "Subscribe to unlock full content",
     buyBtn: "Pay per item to unlock content",
     eventAd: "VIDA Events and Ads",
+    just: "just now",
+    minutesAgo: "{minutes} minutes ago",
+    hoursAgo: "{hours} hours ago",
   },
+  lsnrl: { yesterday: "yesterday" },
   placeholder: {
     account: "Please enter username",
     password: "Please enter password",
@@ -251,6 +258,8 @@ export default {
     whetherChangePw: "Are you sure you want to change your password?",
     whetherDelAcc: "Are you sure you want to delete your account?",
     whetherDelArticle: "Are you sure you want to delete this post?",
+    subscribeBeforeChat: "Please subscribe before chatting",
+    clickRtConfirm: "Please click on the upper right corner to confirm first",
   },
   content: {
     default: "Default, shouldn't show up anywhere",
@@ -610,12 +619,17 @@ export default {
       title: "About VIDA",
       info: "Vida is a ground-breaking member subscription platform designed exclusively for creators, empowering them to connect with their fans and effectively monetise their content. We provide a comprehensive suite of services for our creators, including crowdfunding capabilities, strategic brand consultations and mentoring services. We have a wide range of membership packages to choose from, so no matter what your goals are, Vida enables you to achieve them.",
     },
-    joinUs: {
+    joinUsAsCreator: {
       title: "Join as a Creator",
       subtitle: "Turn your talents & content into a business",
       info: "Vida enables creators to engage with their fans, expand their audience and successfully monetise their content. With Vida Academy, we will teach you how to take your content to the next level and become even more profitable.",
-      btn: "Join Now",
     },
+    joinUsAsSubscriber: {
+      title: "Join as a subscriber",
+      subtitle: "Find & connect with your favourite creators",
+      info: "Vida enables users to support and directly engage with their favourite creators, as well as discover new unique talent. Subscribe to creators to ensure you never miss their new content, get access to exclusive content and the ability to directly interact with them.",
+    },
+    joinUs: { btn: "Join Now" },
     attachment: {
       title: "Attract a Global Audience",
       info: "With active users from all over the globe, Vida enables creators to reach and attract a global audience. Forge stronger connections with your fan base and foster a profound sense of community.",
