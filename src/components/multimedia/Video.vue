@@ -20,13 +20,12 @@ let videoAutoplayController
 
 const videoWrap = ref(null)
 const videoElement = ref(null)
+const videoCurrentTime = ref(0)
 const isLoading = ref(true)
 // const isWaiting = ref(false)
 const errMsg = ref('')
 
-const isPlaying = ref(false)
-const autoPlayEnable = ref(true)
-
+let autoPlayEnable = true
 let videoActionId
 
 function setupVideo() {
@@ -34,8 +33,10 @@ function setupVideo() {
 
   try {
     videoElement.value = get(props.url, {
+      currentTime: videoCurrentTime.value,
       onPlay: () => emits('play'),
       onEnded: () => emits('ended'),
+      onTimeupdate: () => (videoCurrentTime.value = videoElement.value?.currentTime || 0),
       isPreview: props.preview,
     })
     videoWrap.value.appendChild(videoElement.value)
@@ -88,27 +89,22 @@ function closeLazy() {
 
 function autoPlay() {
   const video = videoElement.value
-  if (!video || isPlaying.value || !autoPlayEnable.value) {
+  if (!video || !video.paused || !autoPlayEnable) {
     return
   }
 
-  video
-    .play()
-    .then(() => (isPlaying.value = true))
-    .catch((e) => {
-      console.error('video.play() error:', e)
-      isPlaying.value = false
-    })
+  video.play().catch((e) => console.error('video.play() error:', e))
 }
 
 function autoPause() {
   const video = videoElement.value
-  if (!video || !isPlaying.value) {
+  if (!video || video.paused) {
+    autoPlayEnable = false
     return
   }
 
+  autoPlayEnable = true
   videoElement.value.pause()
-  isPlaying.value = false
 }
 
 onMounted(() => {
