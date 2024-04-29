@@ -22,10 +22,10 @@
 
 <style lang="scss" scoped>
 .hero {
-  @apply relative flex h-[calc(100vh_-_3.75rem)] w-full;
+  @apply relative flex h-[72vh] w-full sm:h-[calc(100vh_-_10.75rem)];
 
   &-content {
-    @apply relative  top-[8%] mx-auto flex h-fit w-full max-w-5xl  flex-col items-center space-x-10 space-y-10 break-words px-36 text-white sm:top-[17%];
+    @apply relative top-[12%] mx-auto flex h-fit w-full max-w-5xl flex-col  items-center space-x-10 space-y-10 break-words px-36 text-white sm:top-[20%];
 
     &-icon {
       @apply flex w-full justify-end;
@@ -40,7 +40,7 @@
     }
 
     &-main-title {
-      @apply px-5 py-5 text-right text-[2.56em] font-bold sm:max-w-5xl sm:text-center sm:text-[3.5em];
+      @apply w-full px-5 pt-10 text-right text-[2.56em] font-bold sm:max-w-5xl sm:text-center sm:text-[3.5em] lg:w-auto lg:pt-0;
       letter-spacing: 0.02em;
       word-spacing: 0.1em;
       line-height: 1.1;
@@ -57,26 +57,29 @@
     }
 
     &-sub-title {
-      @apply font-bold sm:text-[2em];
+      @apply my-0 w-full pr-4 text-end font-bold sm:text-center sm:text-[2em] lg:pt-10;
     }
 
     &-btns {
-      @apply mt-5 flex justify-center space-x-34 pt-30 text-[1.25em];
+      @apply mt-5 flex justify-center space-x-50 pt-40 text-[1.25em];
 
       a {
         cursor: pointer;
-        @apply rounded-full border px-34 py-6;
+        @apply w-[9.375rem] rounded-full border px-34 py-6 text-center;
       }
 
-      :hover {
+      :first-child {
         @apply bg-white text-primary;
+      }
+      :hover {
+        @apply border-primary bg-primary bg-opacity-90 text-white drop-shadow-lg;
       }
     }
   }
 
   &-bg {
-    @apply absolute -top-60 h-full w-full  pb-60;
-    @apply h-[calc(100vh_+_3.75rem)];
+    @apply absolute top-[-25%] w-full sm:-top-100 sm:h-full sm:pb-100;
+    @apply h-[90vh] sm:h-[98vh];
     background-image: url(@/assets/images/official/bg-hero.png);
     background-position: right 35% bottom 45%;
     object-fit: cover;

@@ -25,11 +25,11 @@ function toSearch(value) {
 
 <style lang="scss" scoped>
 .official-about {
-  @apply mx-auto my-60 flex  flex-col space-y-20;
+  @apply mx-auto my-60 flex flex-col space-y-20 lg:pb-40;
   max-width: 47.563em;
 
   &-content {
-    @apply mx-40 mt-90 flex flex-col items-center justify-center;
+    @apply mx-40 flex flex-col items-center justify-center sm:mt-90;
 
     &-img {
       width: 6.25em;
@@ -40,19 +40,19 @@ function toSearch(value) {
       background-repeat: no-repeat;
     }
     &-title {
-      @apply py-15 text-[2.56em] font-bold;
+      @apply pb-30 pt-20 text-[2.56em] font-bold;
       letter-spacing: 0.02em;
       word-spacing: 0.1em;
       line-height: 1.1;
       word-wrap: break-word;
     }
     &-info {
-      @apply pt-20 text-center font-normal leading-6 text-gray-57;
+      @apply text-center font-normal leading-6 text-gray-57;
       word-wrap: break-word;
     }
   }
   &-search {
-    @apply pt-60;
+    @apply pt-30 sm:pt-80;
     &-input {
       @apply mx-40 sm:mx-80;
     }
