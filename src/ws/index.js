@@ -27,12 +27,12 @@ export function init({ oauthId, oauthType = 'pwa' } = {}) {
   oauth = { id: oauthId, type: oauthType }
 
   const { appConfig } = useAppStore()
-  const { im_url: imUrl, via: chatVia, chat_token: chatToken } = appConfig
+  const { im_url: imUrl, via: chatVia } = appConfig
 
   const url = imUrl[Math.floor(Math.random() * imUrl.length)]
 
   const accountStore = useAccountStore()
-  const { isLogin /* , chatToken */ } = storeToRefs(accountStore)
+  const { isLogin, chatToken } = storeToRefs(accountStore)
 
   const { status, data, send, open, close } = useWebSocket(url, {
     immediate: false,
@@ -69,8 +69,8 @@ export function init({ oauthId, oauthType = 'pwa' } = {}) {
     isLogin,
     (login) => {
       if (login) {
-        // token 和 uuid 會在每次登入都被更新
-        token = chatToken
+        // token 會在每次登入都被更新
+        token = chatToken.value
         open()
       } else {
         token = null
@@ -171,7 +171,6 @@ function sendMessage(route, data, ackId) {
 
   if (data) {
     const encryptData = EncryptIm({ ...data })
-    // const encryptData = { ...data }
     message.data = encryptData
 
     if (ackId) {
