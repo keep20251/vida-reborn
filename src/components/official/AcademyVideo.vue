@@ -1,5 +1,5 @@
 <template>
-  <div class="mr-10 mt-10 flex select-none flex-col space-y-10" @click="onClick">
+  <div class="mb-25 flex select-none flex-col space-y-5" @click="onClick">
     <div
       class="max-h-[155px] min-h-[101px] min-w-[168px] max-w-[255px] cursor-pointer rounded-md border-[5px] border-primary hover:rounded-lg hover:border-white"
     >
@@ -9,7 +9,7 @@
         alt="Academy Video"
       />
     </div>
-    <div class="max-w-[264px] text-md font-bold leading-5 text-white">
+    <div class="ml-5 max-w-[264px] text-sm font-bold leading-5 text-white sm:text-md">
       {{ $t(`official.academy.page.videos.${props.id}`) }}
     </div>
     <BaseDialog v-if="dialog" size="auto" @click:around="dialog = false">
