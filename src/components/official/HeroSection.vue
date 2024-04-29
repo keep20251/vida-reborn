@@ -61,7 +61,7 @@
     }
 
     &-btns {
-      @apply mt-5 flex justify-center space-x-50 pt-40 text-[1.25em];
+      @apply mt-5 flex justify-center space-x-30 pt-40 text-[1.25em] sm:space-x-50;
 
       a {
         cursor: pointer;
