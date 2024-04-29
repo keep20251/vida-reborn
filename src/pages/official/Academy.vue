@@ -23,8 +23,8 @@
       </div>
     </div>
 
-    <div class="flex flex-col items-center justify-center px-24">
-      <div class="flex w-full justify-start xl:w-[90%]">
+    <div class="flex flex-col items-center justify-center px-24 lg:px-[3%] xl:px-[6.5%]">
+      <div class="flex w-full">
         <div v-if="isDesktop" class="mt-50 flex flex-row items-center justify-center space-x-15">
           <img
             src="@/assets/images/official/logo-white.svg?url"
@@ -37,14 +37,14 @@
           </div>
         </div>
       </div>
-      <div class="flex flex-col-reverse justify-start pb-[150px] pt-50 md:flex-row">
+      <div class="flex w-full flex-col-reverse justify-start pb-[50px] pt-50 lg:flex-row lg:pb-[125px]">
         <div class="flex flex-col space-y-50">
-          <div class="grid grid-cols-2 md:grid-cols-3">
+          <div class="grid grid-cols-2 pt-[45px] sm:grid-cols-3 sm:pt-20 lg:pt-0">
             <AcademyVideo v-for="n in 6" :key="`video-${n}`" :id="n"></AcademyVideo>
           </div>
         </div>
         <div
-          class="flex max-w-[553px] flex-col items-center justify-center space-y-20 text-start text-white md:ml-[120px]"
+          class="flex flex-col justify-start space-y-20 text-start text-white lg:ml-[3%] lg:max-w-[553px] lg:items-start xl:ml-[6%]"
         >
           <div class="w-full text-start text-xl font-bold leading-7">{{ $t('official.academy.page.subtitle') }}</div>
           <div v-for="(content, index) in contents" :key="`content-${index}`" class="text-md font-normal leading-5">
