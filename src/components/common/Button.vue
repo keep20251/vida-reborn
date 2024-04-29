@@ -80,7 +80,7 @@ const padding = computed(() => {
       return 'px-18 py-6'
     case 'lg':
     default:
-      return 'px-45 py-10'
+      return 'px-18 py-10'
   }
 })
 
