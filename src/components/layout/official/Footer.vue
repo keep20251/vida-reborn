@@ -36,7 +36,7 @@ const socials = ref([
       </div>
     </div>
 
-    <Divider class="py-2 sm:hidden" />
+    <Divider class="py-40 lg:hidden" />
 
     <div class="official-footer-policys-first">
       <div class="official-footer-policys">
@@ -57,36 +57,36 @@ const socials = ref([
 </template>
 <style lang="scss" scoped>
 .official-footer {
-  @apply grid-cols-12 bg-[#FFFFFF] px-10 py-40 leading-10 sm:grid;
+  @apply grid-cols-12 bg-[#FFFFFF] px-10 py-50 leading-10 lg:grid lg:py-40;
   &-social {
-    @apply py-40 sm:col-span-4 sm:col-start-3 sm:mx-auto sm:min-w-[400px];
+    @apply lg:col-span-4 lg:col-start-3 lg:mx-auto lg:min-w-[400px] lg:py-40;
     &-icons {
-      @apply flex justify-center space-x-15 sm:justify-start;
+      @apply flex justify-center space-x-15 lg:justify-start;
       > div {
         @apply rounded-full;
       }
     }
     &-infos {
-      @apply pt-30;
+      @apply pt-25 lg:pt-30;
       &-info {
-        @apply flex justify-center space-x-15 sm:justify-start;
+        @apply mb-10 flex justify-center space-x-12 leading-5 lg:justify-start lg:space-x-15;
 
         :first-child {
-          @apply text-md font-medium;
+          @apply text-sm font-medium lg:text-md;
         }
         :last-child {
-          @apply text-md;
+          @apply text-sm lg:text-md;
         }
       }
     }
   }
   &-policys {
-    @apply flex flex-col text-center font-light  sm:col-span-2 sm:col-start-4 md:col-start-8 md:text-left;
+    @apply flex flex-col space-y-16 text-center font-light leading-5 lg:col-span-2 lg:col-start-4 lg:text-left;
     &-first {
-      @apply pt-30;
+      @apply lg:col-start-8 lg:pt-30;
     }
     &-second {
-      @apply sm:pt-30;
+      @apply lg:pt-30;
     }
   }
 }
