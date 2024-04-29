@@ -3,6 +3,10 @@
 @import 'tailwindcss/utilities';
 
 @layer base {
+  // 避免 mobile 點擊會有藍屏閃爍(來源: https://stackoverflow.com/questions/65185411/tailwindcss-blue-rectangle-when-click-on-mobile-device)
+  // -webkit 以外的可能沒效果，之後再說...
+  * { -webkit-tap-highlight-color: rgba(0,0,0,0); }
+
   html {
     font-family:
       Helvetica Neue,

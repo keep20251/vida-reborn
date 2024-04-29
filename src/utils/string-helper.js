@@ -67,6 +67,30 @@ export const toDate = (dateString) => {
   return new Date(year, month - 1, day, hour, minute, second)
 }
 
+export const tsSecondToHumanString = (tsSecond, backupDateString) => {
+  const date = typeof tsSecond === 'number' ? new Date(tsSecond * 1000) : toDate(backupDateString)
+  const now = new Date()
+  const diff = now - date
+  if (diff < 60 * 1000) {
+    return ['label.just']
+  } else if (diff < 60 * 60 * 1000) {
+    return ['label.minutesAgo', { minutes: Math.floor(diff / 60 / 1000) }]
+  } else if (diff < 23 * 60 * 60 * 1000) {
+    return ['label.hoursAgo', { minutes: Math.floor(diff / 60 / 60 / 1000) }]
+  } else if (diff < 48 * 60 * 60 * 1000) {
+    return ['label.yesterday']
+  } else {
+    const month = String(date.getMonth() + 1).padStart(2, '0')
+    const day = String(date.getDate()).padStart(2, '0')
+    if (now.getFullYear() === date.getFullYear()) {
+      return [`${month}-${day}`]
+    } else {
+      const year = date.getFullYear()
+      return [`${year}-${month}-${day}`]
+    }
+  }
+}
+
 /**
  * 加入天數後返回新的 Date
  * @param {Number} days

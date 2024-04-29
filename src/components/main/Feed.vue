@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="line-clamp-1 shrink-0 text-right text-sm font-medium leading-5 text-gray-57">
-        {{ tsSecondToYMDhm(item.created_ts, item.created_at) }}
+        {{ $t(...tsSecondToHumanString(item.created_ts, item.created_at)) }}
       </div>
       <div v-if="!isVisitor && !isSelf" class="flex cursor-pointer items-center" @click.stop="dissSomeone(item.user)">
         <Icon name="moreVertical" size="20"></Icon>
@@ -112,7 +112,7 @@ import VideoWrap from '@comp/multimedia/VideoWrap.vue'
 import { useRouters } from '@use/routers'
 import { useCopyToClipboard } from '@use/utils/copyToClipboard'
 import { FEED_STATUS, MEDIA_TYPE } from '@const/publish'
-import { tsSecondToYMDhm } from '@/utils/string-helper'
+import { tsSecondToHumanString, tsSecondToYMDhm } from '@/utils/string-helper'
 
 const props = defineProps({
   item: { type: Object, required: true },
