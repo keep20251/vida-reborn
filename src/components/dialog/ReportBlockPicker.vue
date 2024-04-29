@@ -31,7 +31,7 @@ const { reportBlockDialog, reportBlockUser } = storeToRefs(dialogStore)
 const { closeDiss } = dialogStore
 
 const modalStore = useModalStore()
-const { open } = modalStore
+const { open, alert } = modalStore
 
 const creatorStore = useCreatorStore()
 const { toggleBlock: toggleBlockInCreator } = creatorStore
@@ -53,6 +53,7 @@ function report() {
     confirmAction: async (data) => {
       try {
         await execReport({ ...data, uuid })
+        requestAnimationFrame(() => alert({ title: 'title.reportSuccess', content: data.reason }))
       } catch (e) {
         return e.message
       }
