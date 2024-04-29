@@ -13,12 +13,19 @@
       </div>
       <div class="hero-content-sub-title">{{ $t('official.hero.5') }}</div>
       <div class="hero-content-btns">
-        <a href="/mine">{{ $t('label.login') }}</a>
-        <a href="/mine">{{ $t('label.register') }}</a>
+        <Link href="/mine" @click="to('mine')">{{ $t('label.login') }}</Link>
+        <Link href="/mine" @click="to('mine')">{{ $t('label.register') }}</Link>
       </div>
     </div>
   </div>
 </template>
+
+<script setup>
+import Link from '@comp/common/Link.vue'
+import { useRouters } from '@use/routers'
+
+const { to } = useRouters()
+</script>
 
 <style lang="scss" scoped>
 .hero {
