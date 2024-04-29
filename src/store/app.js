@@ -3,7 +3,7 @@ import { useEventListener } from '@vueuse/core'
 import { defineStore } from 'pinia'
 import useRequest from '@use/request'
 import { isMobile as checkMobile } from '@/utils/device'
-import { cacheCategories, getCategories } from '@/utils/server-config-cache'
+import { getAppConfig, getCategories } from '@/utils/server-config-cache'
 
 const DESKTOP = 'desktop'
 const MOBILE = 'mobile'
@@ -20,9 +20,11 @@ export const useAppStore = defineStore('app', () => {
   // 後端提供的全域參數
   const appConfig = reactive({})
   async function initAppConfig() {
-    const data = await useRequest('App.config', { params: { version: '1.0' }, immediate: true })
-    setAppConfig(data)
-    return data
+    const appConfig = await getAppConfig(
+      async () => await useRequest('App.config', { params: { version: '1.0' }, immediate: true }),
+    )
+    setAppConfig(appConfig)
+    return appConfig
   }
   function setAppConfig(data) {
     if (!data) {
@@ -35,12 +37,10 @@ export const useAppStore = defineStore('app', () => {
 
   const categories = ref([])
   async function initCategories() {
-    let categories = getCategories()
-    if (categories === null) {
+    const categories = await getCategories(async () => {
       const data = await useRequest('Article.categories', { immediate: true })
-      categories = Object.keys(data.list).map((k) => ({ label: `category.${k}`, value: k }))
-      cacheCategories(categories)
-    }
+      return Object.keys(data.list).map((k) => ({ label: `category.${k}`, value: k }))
+    })
     setCategories(categories)
     return categories
   }

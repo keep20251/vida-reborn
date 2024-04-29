@@ -125,12 +125,8 @@ export const useAccountStore = defineStore('account-store', () => {
    * 全部重設
    */
   function setUserData(newData) {
-    for (const [k, v] of Object.entries(newData)) {
-      if (k === 'chat_token') {
-        chatToken.value = v
-      }
-    }
     userData.value = { ...newData }
+    chatToken.value = newData.chat_token
 
     role.value = userData.value.auth_status === AUTH_STATUS.CREATOR ? USER_PERM.CREATOR : USER_PERM.USER
   }
