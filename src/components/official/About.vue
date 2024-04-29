@@ -1,9 +1,5 @@
 <script setup>
 import TopSearchBar from '@comp/navigation/TopSearchBar.vue'
-
-function toSearch(value) {
-  window.location.href = `/search?q=${value}`
-}
 </script>
 
 <template>
@@ -17,7 +13,7 @@ function toSearch(value) {
     </div>
     <div class="official-about-search">
       <div class="official-about-search-input">
-        <TopSearchBar @search="toSearch"></TopSearchBar>
+        <TopSearchBar to-search></TopSearchBar>
       </div>
     </div>
   </div>
