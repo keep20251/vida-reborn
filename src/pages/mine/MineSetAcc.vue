@@ -88,13 +88,13 @@
   </div>
 </template>
 <script setup>
-import { computed, onMounted, reactive, ref, watch } from 'vue'
+import { computed, onMounted, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useMineStore } from '@/store/mine'
-import { useModalStore } from '@/store/modal'
+// import { useModalStore } from '@/store/modal'
 import { usePopupMessageStore } from '@/store/popup-message'
 import Button from '@comp/common/Button.vue'
 import InputEmailCode from '@comp/form/InputEmailCode.vue'
@@ -107,7 +107,7 @@ import { EMAIL_VALIDATION, SEND_EMAIL_PURPOSE } from '@const'
 
 const { twitterLogin, googleLogin } = useThirdPartyAuth()
 const { open: openMessage } = usePopupMessageStore()
-const { open } = useModalStore()
+// const { open } = useModalStore()
 const accountStore = useAccountStore()
 const { userData } = storeToRefs(accountStore)
 const edit = ref(false)
@@ -130,19 +130,23 @@ const credential = reactive({
     value: userData.value.email,
     error: '',
     check: false,
-    schema: Yup.string().required($t('yup.mixed.required')).email(),
+    schema: Yup.string().required().email(),
   },
   nickname: {
     value: userData.value.nickname,
     error: '',
     check: false,
-    schema: Yup.string().required($t('yup.mixed.required')).max(16),
+    schema: Yup.string().required().max(16),
   },
   username: {
     value: userData.value.username,
     error: '',
     check: false,
-    schema: Yup.string().required($t('yup.mixed.required')).min(5).max(30),
+    schema: Yup.string()
+      .required()
+      .min(4)
+      .max(20)
+      .matches(/^[a-zA-Z0-9]*$/),
   },
 })
 
