@@ -29,5 +29,6 @@ export const useSubsciptionStore = defineStore('subscription-store', () => {
     open,
     close,
     items: readonly(_items),
+    creator: readonly(_creator),
   }
 })

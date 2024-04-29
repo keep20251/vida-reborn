@@ -91,9 +91,14 @@ async function next() {
   try {
     isLoading.value = true
     await schema.validate(email.value)
-    const response = await sendEmailCode({ email: email.value })
-    console.log('sendEmailCode.response', response)
-    to(AUTH_ROUTES.VERIFY_EMAIL_CODE)
+    const isEmailExist = await useRequest('Account.isUsedEmail', { params: { email: email.value }, immediate: true })
+
+    if (isEmailExist) {
+      await sendEmailCode({ email: email.value })
+      to(AUTH_ROUTES.VERIFY_EMAIL_CODE)
+    } else {
+      to(AUTH_ROUTES.SIGN_UP)
+    }
   } catch (e) {
     error.value = parseError(e)
   } finally {

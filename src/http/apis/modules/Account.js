@@ -19,4 +19,6 @@ export default {
 
   // 取得條款政策聲明
   getDeclare: { method: 'post', url: '/api/account/getDeclare' },
+
+  isUsedEmail: { method: 'post', url: '/api/account/isUseEmail' },
 }
