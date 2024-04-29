@@ -1,5 +1,3 @@
-<script setup></script>
-
 <template>
   <div class="official-joinus">
     <!-- 輪播 creator -->
@@ -17,7 +15,7 @@
           <div class="info">
             {{ $t('official.joinUsAsCreator.info') }}
           </div>
-          <a :href="`/${locale}/mine/creator`" class="btn">{{ $t('official.joinUs.btn') }}</a>
+          <Link href="/mine" class="btn" @click="to('mine')">{{ $t('official.joinUs.btn') }}</Link>
         </div>
       </div>
     </div>
@@ -37,7 +35,7 @@
           <div class="info">
             {{ $t('official.joinUsAsSubscriber.info') }}
           </div>
-          <a :href="`/${locale}/mine/creator`" class="btn">{{ $t('official.joinUs.btn') }}</a>
+          <Link href="/mine" class="btn" @click="to('mine')">{{ $t('official.joinUs.btn') }}</Link>
         </div>
       </div>
     </div>
@@ -56,9 +54,10 @@
 </template>
 <script setup>
 import { onActivated, onDeactivated, ref } from 'vue'
-import { useLocale } from '@use/utils/locale'
+import Link from '@comp/common/Link.vue'
+import { useRouters } from '@use/routers'
 
-const locale = useLocale()
+const { to } = useRouters()
 
 const transitionOn = ref(false)
 const translateXArray = ref(['0%', '100%'])
@@ -121,7 +120,7 @@ onDeactivated(() => clearTimeout(timerId))
           line-height: 1.5;
         }
         .btn {
-          @apply ml-auto mt-20 cursor-pointer rounded-full  bg-primary px-20 py-10 text-lg font-bold text-white sm:ml-0;
+          @apply ml-auto mt-20 cursor-pointer rounded-full bg-primary px-20 py-10 text-lg font-bold text-white sm:ml-0;
           width: fit-content;
         }
       }
