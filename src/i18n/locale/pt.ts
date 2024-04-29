@@ -93,6 +93,9 @@ export default {
     publishFail: "Falha na Publicação",
     delSuccess: "Excluído com sucesso",
     createFeed: "Criar postagem",
+    submitSuccess: "",
+    submitFail: "",
+    reportSuccess: "",
   },
   label: {
     account: "Nome de usuário",
@@ -159,7 +162,11 @@ export default {
     subBtn: "Assine para desbloquear o conteúdo completo",
     buyBtn: "Pagar por item para desbloquear conteúdo",
     eventAd: "Eventos e anúncios VIDA",
+    just: "agora mesmo",
+    minutesAgo: "há {minutes} minutos",
+    hoursAgo: "há {hours} horas",
   },
+  lsnrl: { yesterday: "ontem" },
   placeholder: {
     account: "Por favor, insira o nome de usuário",
     password: "Por favor, insira a senha",
@@ -251,6 +258,8 @@ export default {
     whetherChangePw: "Tem certeza de que deseja alterar sua senha?",
     whetherDelAcc: "Tem certeza de que deseja deletar sua conta?",
     whetherDelArticle: "Tem certeza de que deseja deletar esta postagem?",
+    subscribeBeforeChat: "Por favor, inscreva-se antes de conversar",
+    clickRtConfirm: "",
   },
   content: {
     default: "Padrão, não deve aparecer em lugar nenhum",
@@ -611,12 +620,17 @@ export default {
       title: "Sobre a VIDA",
       info: "A Vida é uma plataforma de assinatura para membros inovadora, projetada exclusivamente para criadores, capacitando-os a se conectar com seus fãs e monetizar efetivamente seu conteúdo. Nós fornecemos um conjunto abrangente de serviços para nossos criadores, incluindo capacidades de financiamento coletivo, consultas de marca estratégicas e serviços de mentoria. Temos uma ampla gama de pacotes de associação para escolher, então não importa quais sejam seus objetivos, a Vida permite que você os alcance.",
     },
-    joinUs: {
+    joinUsAsCreator: {
       title: "Junte-se como criador",
       subtitle: "Transforme seus talentos e conteúdo em um negócio",
       info: "A Vida permite que os criadores se envolvam com seus fãs, expandam sua audiência e monetizem com sucesso seu conteúdo. Com a Vida Academy, ensinaremos você a levar seu conteúdo para o próximo nível e torná-lo ainda mais lucrativo.",
-      btn: "Junte-se agora",
     },
+    joinUsAsSubscriber: {
+      title: "Junte-se como assinante",
+      subtitle: "Encontre e conecte-se com seus criadores favoritos",
+      info: "Vida permite que os usuários apoiem e interajam diretamente com seus criadores favoritos, além de descobrir novos talentos únicos. Inscreva-se nos criadores para garantir que você nunca perca seu novo conteúdo, tenha acesso a conteúdo exclusivo e a capacidade de interagir diretamente com eles.",
+    },
+    joinUs: { btn: "Junte-se agora" },
     attachment: {
       title: "Atrair uma audiência global",
       info: "Com usuários ativos de todo o mundo, a Vida permite que os criadores alcancem e atraiam uma audiência global. Fortaleça as conexões com sua base de fãs e fomente um profundo senso de comunidade.",

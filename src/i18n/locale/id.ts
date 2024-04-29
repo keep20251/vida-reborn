@@ -93,6 +93,9 @@ export default {
     publishFail: "Penerbitan Gagal",
     delSuccess: "Berhasil dihapus",
     createFeed: "Buat Posting",
+    submitSuccess: "",
+    submitFail: "",
+    reportSuccess: "",
   },
   label: {
     account: "Nama pengguna",
@@ -159,7 +162,11 @@ export default {
     subBtn: "Berlangganan untuk membuka konten lengkap",
     buyBtn: "Bayar per item untuk membuka kunci konten",
     eventAd: "Acara dan Iklan VIDA",
+    just: "baru saja",
+    minutesAgo: "{minutes} menit yang lalu",
+    hoursAgo: "{hours} jam yang lalu",
   },
+  lsnrl: { yesterday: "kemarin" },
   placeholder: {
     account: "Silakan masukkan nama pengguna",
     password: "Silakan masukkan kata sandi",
@@ -251,6 +258,8 @@ export default {
     whetherChangePw: "Apakah Anda yakin ingin mengubah kata sandi?",
     whetherDelAcc: "Apakah Anda yakin ingin menghapus akun Anda?",
     whetherDelArticle: "Apakah Anda yakin ingin menghapus posting ini?",
+    subscribeBeforeChat: "Silakan berlangganan sebelum mengobrol",
+    clickRtConfirm: "",
   },
   content: {
     default: "Defaultnya, seharusnya tidak muncul di mana pun",
@@ -610,12 +619,17 @@ export default {
       title: "Tentang VIDA",
       info: "Vida adalah platform langganan anggota yang inovatif yang dirancang khusus untuk para kreator, memberdayakan mereka untuk terhubung dengan penggemar dan memonetisasi konten mereka secara efektif. Kami menyediakan rangkaian layanan lengkap untuk para kreator kami, termasuk kemampuan penggalangan dana, konsultasi merek strategis, dan layanan mentoring. Kami memiliki berbagai paket keanggotaan untuk dipilih, jadi tidak peduli apa tujuan Anda, Vida memungkinkan Anda untuk mencapainya.",
     },
-    joinUs: {
+    joinUsAsCreator: {
       title: "Bergabung sebagai Kreator",
       subtitle: "Ubah bakat & konten Anda menjadi bisnis",
       info: "Vida memungkinkan para kreator untuk berinteraksi dengan penggemar mereka, memperluas audiens mereka, dan berhasil memonetisasi konten mereka. Dengan Vida Academy, kami akan mengajarkan Anda cara mengambil konten Anda ke tingkat berikutnya dan menjadi lebih menguntungkan.",
-      btn: "Bergabung sekarang",
     },
+    joinUsAsSubscriber: {
+      title: "Bergabung sebagai pelanggan",
+      subtitle: "Temukan dan terhubung dengan kreator favorit Anda",
+      info: "Vida memungkinkan pengguna untuk mendukung dan terlibat langsung dengan kreator favorit mereka, serta menemukan bakat unik baru. Berlangganan kreator untuk memastikan Anda tidak pernah ketinggalan konten baru mereka, mendapatkan akses ke konten eksklusif, dan kemampuan untuk berinteraksi langsung dengan mereka.",
+    },
+    joinUs: { btn: "Bergabung sekarang" },
     attachment: {
       title: "Menarik Audiensi Global",
       info: "Dengan pengguna aktif dari seluruh dunia, Vida memungkinkan kreator untuk menjangkau dan menarik audiensi global. Bangun koneksi yang lebih kuat dengan basis penggemar Anda dan kembangkan rasa komunitas yang mendalam.",

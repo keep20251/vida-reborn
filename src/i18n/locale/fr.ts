@@ -93,6 +93,9 @@ export default {
     publishFail: "Publication Échouée",
     delSuccess: "Supprimé avec succès",
     createFeed: "Créer une publication",
+    submitSuccess: "",
+    submitFail: "",
+    reportSuccess: "",
   },
   label: {
     account: "Nom d’utilisateur",
@@ -159,7 +162,11 @@ export default {
     subBtn: "Abonnez-vous pour débloquer le contenu complet",
     buyBtn: "Payer par article pour débloquer le contenu",
     eventAd: "Événements et annonces VIDA",
+    just: "à l'instant",
+    minutesAgo: "il y a {minutes} minutes",
+    hoursAgo: "il y a {hours} heures",
   },
+  lsnrl: { yesterday: "hier" },
   placeholder: {
     account: "Veuillez entrer le nom d’utilisateur",
     password: "Veuillez entrer le mot de passe",
@@ -251,6 +258,8 @@ export default {
     whetherChangePw: "Êtes-vous sûr de vouloir changer votre mot de passe ?",
     whetherDelAcc: "Êtes-vous sûr de vouloir supprimer votre compte ?",
     whetherDelArticle: "Êtes-vous sûr de vouloir supprimer ce post ?",
+    subscribeBeforeChat: "Merci de vous abonner avant de discuter",
+    clickRtConfirm: "",
   },
   content: {
     default: "Par défaut, ne devrait apparaître nulle part",
@@ -498,7 +507,7 @@ export default {
     },
     subscribeSuc: {
       1: "merveilleux! Vous vous êtes abonné avec succès à {nickname} !",
-      2: "Choisissez d'accéder à la page d'accueil du créateur, ou restez sur l'écran d'origine et parcourez !",
+      2: "Choisissez d'aller sur la page d'accueil du créateur, ou restez sur l'écran d'origine et parcourez !",
       confirm: "Aller à la page du créateur",
     },
     shopBuySuc: {
@@ -612,12 +621,17 @@ export default {
       title: "À propos de VIDA",
       info: "Vida est une plateforme d'abonnement pour membres révolutionnaire conçue exclusivement pour les créateurs, leur permettant de se connecter avec leurs fans et de monétiser efficacement leur contenu. Nous offrons une gamme complète de services pour nos créateurs, incluant des capacités de financement participatif, des consultations stratégiques de marque et des services de mentorat. Nous avons un large éventail de forfaits d'adhésion à choisir, donc quel que soient vos objectifs, Vida vous permet de les atteindre.",
     },
-    joinUs: {
+    joinUsAsCreator: {
       title: "Rejoignez-nous en tant que créateur",
       subtitle: "Transformez vos talents et votre contenu en entreprise",
       info: "Vida permet aux créateurs d'interagir avec leurs fans, d'élargir leur audience et de monétiser avec succès leur contenu. Avec Vida Academy, nous vous apprendrons à amener votre contenu au niveau supérieur et à le rendre encore plus rentable.",
-      btn: "Rejoignez maintenant",
     },
+    joinUsAsSubscriber: {
+      title: "Rejoignez-nous en tant qu'abonné",
+      subtitle: "Trouvez et connectez-vous avec vos créateurs préférés",
+      info: "Vida permet aux utilisateurs de soutenir et d'interagir directement avec leurs créateurs préférés, tout en découvrant de nouveaux talents uniques. Abonnez-vous aux créateurs pour ne jamais manquer leur nouveau contenu, accéder à du contenu exclusif et avoir la possibilité d'interagir directement avec eux.",
+    },
+    joinUs: { btn: "Rejoignez maintenant" },
     attachment: {
       title: "Attirer un public mondial",
       info: "Avec des utilisateurs actifs du monde entier, Vida permet aux créateurs d'atteindre et d'attirer un public mondial. Renforcez les liens avec votre base de fans et cultivez un profond sentiment de communauté.",

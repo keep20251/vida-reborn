@@ -88,6 +88,9 @@ export default {
     publishFail: "發布失敗",
     delSuccess: "刪除成功",
     createFeed: "建立貼文",
+    submitSuccess: "提交成功",
+    submitFail: "提交失敗",
+    reportSuccess: "檢舉成功",
   },
   label: {
     account: "用戶名",
@@ -154,7 +157,11 @@ export default {
     subBtn: "訂閱解鎖完整內容",
     buyBtn: "單筆付費解鎖內容",
     eventAd: "VIDA 活動與廣告",
+    just: "剛剛",
+    minutesAgo: "{minutes} 分鐘前",
+    hoursAgo: "{hours} 小時前",
   },
+  lsnrl: { yesterday: "昨天" },
   placeholder: {
     account: "請輸入用戶名",
     password: "請輸入密碼",
@@ -242,6 +249,8 @@ export default {
     whetherChangePw: "您是否確認要變更密碼？",
     whetherDelAcc: "您是否確認要刪除帳號嗎？",
     whetherDelArticle: "您是否確定要刪除此貼文？",
+    subscribeBeforeChat: "請先訂閱才能聊天",
+    clickRtConfirm: "請先點擊右上角確認",
   },
   content: {
     default: "預設，不應該顯示在任何地方",
@@ -581,12 +590,17 @@ export default {
       title: "關於 VIDA",
       info: "Vida是專為創作者設計的創新會員訂閱平台，賦能他們與粉絲連接並有效實現內容變現。我們為創作者提供全面的服務，包括眾籌能力、策略品牌諮詢和指導服務。提供多種會員套餐選擇，助您達成目標。",
     },
-    joinUs: {
+    joinUsAsCreator: {
       title: "加入成為創作者",
       subtitle: "將您的才華和內容轉化為生意",
       info: "Vida讓創作者能夠與粉絲互動，擴大他們的觀眾群並成功地將內容變現。通過Vida學院，我們將教您如何提升您的內容到新的高度，並讓其更具盈利性。",
-      btn: "立即加入",
     },
+    joinUsAsSubscriber: {
+      title: "加入成為訂閱者",
+      subtitle: "尋找並與你喜愛的創作者建立聯繫",
+      info: "Vida使使用者能夠支持並直接與他們喜愛的創作者互動，同時也能發掘新的獨特人才。訂閱創作者以確保您永遠不會錯過他們的新內容，獲取獨家內容以及與他們直接互動的能力。",
+    },
+    joinUs: { btn: "立即加入" },
     attachment: {
       title: "吸引全球觀眾",
       info: "擁有來自全球的活躍用戶，Vida讓創作者能夠觸及並吸引全球觀眾。與您的粉絲群體建立更緊密的聯繫，培養深厚的社群感。",

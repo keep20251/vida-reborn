@@ -33,7 +33,7 @@ export default {
     cookie: "このメッセージを受け入れて見ないでください",
     check: "確認する",
     subscribe: "サブスクリプション",
-    subscribed: "購読しました",
+    subscribed: "購読済み",
     cancelSubscribe: "キャンセル",
     restoreSubscribe: "再開",
     reSubscribe: "再購読",
@@ -88,6 +88,9 @@ export default {
     publishFail: "公開失敗",
     delSuccess: "削除成功",
     createFeed: "投稿を作成する",
+    submitSuccess: "",
+    submitFail: "",
+    reportSuccess: "",
   },
   label: {
     account: "ユーザー名",
@@ -154,7 +157,11 @@ export default {
     subBtn: "フルコンテンツをアンロックするために購読する",
     buyBtn: "アイテムごとに支払ってコンテンツをアンロックする",
     eventAd: "VIDAのイベントと広告",
+    just: "たった今",
+    minutesAgo: "{minutes}分前",
+    hoursAgo: "{hours}時間前",
   },
+  lsnrl: { yesterday: "昨日" },
   placeholder: {
     account: "ユーザー名を入力してください",
     password: "パスワードを入力してください",
@@ -176,7 +183,7 @@ export default {
     error: {
       subscribeSelf: "自分自身を購読できません",
       shopBuySelf: "自分の商品が買えない",
-      subscriptionNotFound: "利用可能なサブスクリプション プランはありません",
+      subscriptionNotFound: "利用可能なサブスクリプションプランはありません",
     },
     sending: "送信",
     failure: "失敗した",
@@ -246,6 +253,8 @@ export default {
     whetherChangePw: "パスワードを変更してもよろしいですか？",
     whetherDelAcc: "アカウントを削除してもよろしいですか？",
     whetherDelArticle: "この投稿を削除してもよろしいですか？",
+    subscribeBeforeChat: "チャットする前に購読してください",
+    clickRtConfirm: "",
   },
   content: {
     default: "デフォルト、どこにも表示されないはずです",
@@ -486,7 +495,7 @@ export default {
     },
     shopBuy: {
       1: "この作品では {nickname} のコンテンツがアンロックされます",
-      2: "{nickname}がお支払いを全額受け取ります",
+      2: "{nickname}はあなたの支払いを全額受け取ります",
       confirm: "今すぐロックを解除します ({'$'}{price})",
     },
     subscribeSuc: {
@@ -605,12 +614,17 @@ export default {
       title: "VIDAについて",
       info: "VIDAは、クリエイター専用に設計された画期的なメンバーシップサブスクリプションプラットフォームで、彼らがファンとつながり、効果的にコンテンツを収益化することを可能にします。私たちはクリエイターのために、クラウドファンディング機能、戦略的ブランドコンサルテーション、メンタリングサービスを含む包括的なサービススイートを提供します。選べるメンバーシップパッケージの範囲が広いため、あなたの目標が何であれ、Vidaがそれを達成することを可能にします。",
     },
-    joinUs: {
+    joinUsAsCreator: {
       title: "クリエイターとして参加する",
       subtitle: "あなたの才能とコンテンツをビジネスに変えましょう",
       info: "VIDAは、クリエイターがファンと交流し、視聴者を拡大し、コンテンツを成功裏に収益化することを可能にします。VIDAアカデミーでは、コンテンツを次のレベルに引き上げ、さらに利益を上げる方法を教えます。",
-      btn: "今すぐ参加",
     },
+    joinUsAsSubscriber: {
+      title: "登録者として参加",
+      subtitle: "お気に入りのクリエイターを見つけて接続する",
+      info: "Vidaはユーザーがお気に入りのクリエイターをサポートし、直接エンゲージメントを行うことを可能にし、新しいユニークな才能を発見することもできます。クリエイターをフォローして、彼らの新しいコンテンツを逃さないようにし、独占コンテンツへのアクセスと直接交流する能力を得ることができます。",
+    },
+    joinUs: { btn: "今すぐ参加" },
     attachment: {
       title: "グローバルなオーディエンスを引き付ける",
       info: "世界中のアクティブユーザーを持つVidaは、クリエイターがグローバルな視聴者をリーチし、魅了するのを可能にします。ファンベースとのより強固なつながりを築き、深いコミュニティ感を育む。",
