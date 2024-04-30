@@ -37,6 +37,9 @@
               {{ $t('info.uploadProgress', { progress: Math.floor(uploadFiles[0].progress * 100) }) }}
             </div>
           </div>
+          <div v-if="uploadError" class="text-left text-sm font-normal not-italic leading-md text-warning">
+            {{ uploadError }}
+          </div>
         </div>
 
         <!-- 上傳圖片 -->
@@ -78,6 +81,9 @@
                 <Icon name="close" size="10"></Icon>
               </div>
             </div>
+          </div>
+          <div v-if="uploadError" class="text-left text-sm font-normal not-italic leading-md text-warning">
+            {{ uploadError }}
           </div>
         </div>
 
@@ -144,7 +150,9 @@
           ></DatePicker>
         </div>
 
-        <Button :loading="publishing" :disabled="isUploading" @click="publish">{{ $t('common.publish') }}</Button>
+        <Button :loading="publishing" :disabled="isUploading" @click="publish">{{
+          isUploading ? $t('info.waitUploading') : $t('common.publish')
+        }}</Button>
       </div>
     </template>
   </Page>
@@ -369,6 +377,7 @@ function makeReqData() {
 }
 
 const { Yup, parseError } = useYup()
+const uploadError = ref('')
 const titleSchema = Yup.string().required()
 const titleError = ref('')
 const contentSchema = Yup.string().required()
@@ -378,6 +387,12 @@ const priceSchema = Yup.number().positive().max(90)
 const priceError = ref('')
 function validation() {
   let result = true
+
+  uploadError.value = ''
+  if (uploadFiles.value.length === 0) {
+    uploadError.value = $t('yup.file.required')
+    result = false
+  }
 
   titleError.value = ''
   try {
