@@ -127,7 +127,7 @@ const {
   init: creatorsInit,
   next: creatorsNext,
   reload: creatorsReload,
-} = useInfinite('User.searchCreator')
+} = useInfinite('User.getNewCreator')
 watchOnce(tab, (tab) => {
   if (tab === TAB_TYPE.SUB) {
     creatorsInit()
