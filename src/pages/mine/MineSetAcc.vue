@@ -142,11 +142,7 @@ const credential = reactive({
     value: userData.value.username,
     error: '',
     check: false,
-    schema: Yup.string()
-      .required()
-      .min(4)
-      .max(20)
-      .matches(/^[a-zA-Z0-9]*$/),
+    schema: Yup.string().required().account(),
   },
 })
 

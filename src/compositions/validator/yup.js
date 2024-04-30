@@ -223,3 +223,9 @@ Yup.addMethod(Yup.string, 'youtube', function () {
 Yup.addMethod(Yup.string, 'facebook', function () {
   return this.matches(/^.*facebook\.com\/.*$/, { message: { key: 'yup.string.facebook' } })
 })
+
+Yup.addMethod(Yup.string, 'account', function () {
+  return this.min(4)
+    .max(20)
+    .matches(/^[a-zA-Z0-9]*$/, { message: { key: 'yup.string.account' } })
+})
