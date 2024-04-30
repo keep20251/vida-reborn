@@ -91,6 +91,7 @@ export default {
     submitSuccess: "",
     submitFail: "",
     reportSuccess: "",
+    noSubPlan: "لم يتم تعيين خطة اشتراك",
   },
   label: {
     account: "اسم المستخدم",
@@ -160,8 +161,9 @@ export default {
     just: "للتو",
     minutesAgo: "منذ {minutes} دقائق",
     hoursAgo: "منذ {hours} ساعات",
+    yesterday: "أمس",
+    goToSet: "اذهب إلى الإعدادات",
   },
-  lsnrl: { yesterday: "أمس" },
   placeholder: {
     account: "الرجاء إدخال اسم المستخدم",
     password: "الرجاء إدخال كلمة المرور",
@@ -337,6 +339,7 @@ export default {
     annBtn: "انضم إلى VIDA الآن",
     tapForUpload: "انقر هنا لتحميل صورة أو فيديو",
     afterUpload: "بعد اختيار ملف، انتقل إلى الخطوة التالية لتحرير محتوى المنشور",
+    createSubBeforePost: "قبل النشر، قم أولاً بإكمال خطة الاشتراك الخاصة بك!",
   },
   month: {
     Jan: "يناير",
@@ -428,6 +431,7 @@ export default {
       facebook: "الرجاء إدخال موقع Facebook الصحيح",
       confirmPassword: "كلمات المرور غير متطابقة.",
       withAt: "لا تتضمن رموز {'@'}",
+      account: "فقط الأحرف الأبجدية الرقمية مسموح بها",
     },
     number: {
       value: "الرجاء إدخال عدد.",

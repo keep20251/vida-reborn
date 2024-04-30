@@ -91,6 +91,7 @@ export default {
     submitSuccess: "提交成功",
     submitFail: "提交失败",
     reportSuccess: "举报成功",
+    noSubPlan: "尚未建置订阅计划",
   },
   label: {
     account: "用户名",
@@ -160,8 +161,9 @@ export default {
     just: "刚刚",
     minutesAgo: "{minutes} 分钟前",
     hoursAgo: "{hours} 小时前",
+    yesterday: "昨天",
+    goToSet: "前往设置",
   },
-  lsnrl: { yesterday: "昨天" },
   placeholder: {
     account: "请输入用户名",
     password: "请输入密码",
@@ -330,6 +332,7 @@ export default {
     annBtn: "立即加入 VIDA",
     tapForUpload: "点击这里上传图片或视频",
     afterUpload: "选择文件后，进入下一步编辑帖子内容",
+    createSubBeforePost: "发布帖子之前，先来完成属于你的订阅计划吧！",
   },
   month: {
     Jan: "一月",
@@ -420,6 +423,7 @@ export default {
       facebook: "请输入正确的Facebook网址",
       confirmPassword: "密码不一致。",
       withAt: "不得包含{'@'}符号",
+      account: "只允许英文字符与数字组合",
     },
     number: {
       value: "请输入一个数字。",

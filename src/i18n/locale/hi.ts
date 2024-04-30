@@ -91,6 +91,7 @@ export default {
     submitSuccess: "",
     submitFail: "",
     reportSuccess: "",
+    noSubPlan: "सदस्यता योजना नहीं बनाई गई है",
   },
   label: {
     account: "उपयोगकर्ता नाम",
@@ -160,8 +161,9 @@ export default {
     just: "अभी अभी",
     minutesAgo: "{minutes} मिनट पहले",
     hoursAgo: "{hours} घंटे पहले",
+    yesterday: "कल",
+    goToSet: "सेटिंग्स पर जाएं",
   },
-  lsnrl: { yesterday: "कल" },
   placeholder: {
     account: "कृपया उपयोगकर्ता नाम दर्ज करें",
     password: "कृपया पासवर्ड दर्ज करें",
@@ -338,6 +340,7 @@ export default {
     annBtn: "अभी VIDA में शामिल हों",
     tapForUpload: "फोटो या वीडियो अपलोड करने के लिए यहां टैप करें",
     afterUpload: "फाइल चुनने के बाद, पोस्ट कंटेंट एडिट करने के लिए अगले चरण में जाएं",
+    createSubBeforePost: "पोस्टिंग से पहले, अपनी सदस्यता योजना पहले पूरी करें!",
   },
   month: {
     Jan: "जनवरी",
@@ -429,6 +432,7 @@ export default {
       facebook: "कृपया सही फेसबुक वेबसाइट दर्ज करें",
       confirmPassword: "पासवर्ड मेल नहीं खाते।",
       withAt: "शामिल न करें {'@'} प्रतीकों को शामिल करें",
+      account: "केवल अल्फ़ान्यूमेरिक वर्ण स्वीकार्य हैं",
     },
     number: {
       value: "कृपया एक संख्या दर्ज करें।",

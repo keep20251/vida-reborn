@@ -96,6 +96,7 @@ export default {
     submitSuccess: "",
     submitFail: "",
     reportSuccess: "",
+    noSubPlan: "Aucun plan d'abonnement configuré",
   },
   label: {
     account: "Nom d’utilisateur",
@@ -165,8 +166,9 @@ export default {
     just: "à l'instant",
     minutesAgo: "il y a {minutes} minutes",
     hoursAgo: "il y a {hours} heures",
+    yesterday: "hier",
+    goToSet: "Aller aux réglages",
   },
-  lsnrl: { yesterday: "hier" },
   placeholder: {
     account: "Veuillez entrer le nom d’utilisateur",
     password: "Veuillez entrer le mot de passe",
@@ -346,6 +348,7 @@ export default {
     tapForUpload: "Cliquez ici pour télécharger une photo ou une vidéo",
     afterUpload:
       "Après avoir sélectionné un fichier, passez à l'étape suivante pour éditer le contenu de la publication",
+    createSubBeforePost: "Avant de publier, complétez d'abord votre plan d'abonnement !",
   },
   month: {
     Jan: "Janvier",
@@ -438,6 +441,7 @@ export default {
       facebook: "Veuillez saisir le site Web Facebook correct",
       confirmPassword: "Les mots de passe ne correspondent pas.",
       withAt: "N'incluez pas les symboles {'@'}",
+      account: "Seuls les caractères alphanumériques sont autorisés",
     },
     number: {
       value: "Veuillez entrer un nombre.",

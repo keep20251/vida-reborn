@@ -96,6 +96,7 @@ export default {
     submitSuccess: "",
     submitFail: "",
     reportSuccess: "",
+    noSubPlan: "Chưa thiết lập kế hoạch đăng ký",
   },
   label: {
     account: "Tên người dùng",
@@ -165,8 +166,9 @@ export default {
     just: "vừa mới",
     minutesAgo: "{minutes} phút trước",
     hoursAgo: "{hours} giờ trước",
+    yesterday: "hôm qua",
+    goToSet: "Đi đến cài đặt",
   },
-  lsnrl: { yesterday: "hôm qua" },
   placeholder: {
     account: "Vui lòng nhập tên người dùng",
     password: "Vui lòng nhập mật khẩu",
@@ -344,6 +346,7 @@ export default {
     annBtn: "Tham gia VIDA ngay",
     tapForUpload: "Nhấn vào đây để tải ảnh hoặc video lên",
     afterUpload: "Sau khi chọn tệp, tiếp tục sang bước tiếp theo để chỉnh sửa nội dung bài viết",
+    createSubBeforePost: "Trước khi đăng bài, hãy hoàn thành kế hoạch đăng ký của bạn trước!",
   },
   month: {
     Jan: "Tháng Một",
@@ -436,6 +439,7 @@ export default {
       facebook: "Vui lòng nhập đúng trang web Facebook",
       confirmPassword: "Mật khẩu không khớp.",
       withAt: "Không bao gồm các ký hiệu {'@'}",
+      account: "Chỉ cho phép ký tự chữ và số",
     },
     number: {
       value: "Vui lòng nhập một số.",

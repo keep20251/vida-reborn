@@ -91,6 +91,7 @@ export default {
     submitSuccess: "提交成功",
     submitFail: "提交失敗",
     reportSuccess: "檢舉成功",
+    noSubPlan: "尚未建置訂閱計畫",
   },
   label: {
     account: "用戶名",
@@ -160,8 +161,9 @@ export default {
     just: "剛剛",
     minutesAgo: "{minutes} 分鐘前",
     hoursAgo: "{hours} 小時前",
+    yesterday: "昨天",
+    goToSet: "前往設置",
   },
-  lsnrl: { yesterday: "昨天" },
   placeholder: {
     account: "請輸入用戶名",
     password: "請輸入密碼",
@@ -330,6 +332,7 @@ export default {
     annBtn: "立即加入 VIDA",
     tapForUpload: "點擊這裡上傳圖片或影片",
     afterUpload: "選擇檔案後，進入下一步編輯貼文內容",
+    createSubBeforePost: "發布貼文之前，先來完成屬於你的訂閱計畫吧！",
   },
   month: {
     Jan: "一月",
@@ -420,6 +423,7 @@ export default {
       facebook: "請輸入正確的Facebook網址",
       confirmPassword: "密碼不符。",
       withAt: "不得包含{'@'}符號",
+      account: "只允許英文字符與數字組合",
     },
     number: {
       value: "請輸入數字",

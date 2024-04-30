@@ -96,6 +96,7 @@ export default {
     submitSuccess: "Submitted successfully",
     submitFail: "Submission Failed",
     reportSuccess: "Report successfully",
+    noSubPlan: "No subscription plan set",
   },
   label: {
     account: "Username",
@@ -165,8 +166,9 @@ export default {
     just: "just now",
     minutesAgo: "{minutes} minutes ago",
     hoursAgo: "{hours} hours ago",
+    yesterday: "yesterday",
+    goToSet: "Go to settings",
   },
-  lsnrl: { yesterday: "yesterday" },
   placeholder: {
     account: "Please enter username",
     password: "Please enter password",
@@ -344,6 +346,7 @@ export default {
     annBtn: "Join VIDA now",
     tapForUpload: "Tap here to upload a photo or video",
     afterUpload: "After selecting a file, proceed to the next step to edit the post content",
+    createSubBeforePost: "Before posting, first complete your subscription plan!",
   },
   month: {
     Jan: "January",
@@ -436,6 +439,7 @@ export default {
       facebook: "Please enter the correct Facebook website",
       confirmPassword: "Passwords do not match.",
       withAt: "Do not include {'@'} symbols",
+      account: "Only alphanumeric characters allowed",
     },
     number: {
       value: "Please enter a number.",

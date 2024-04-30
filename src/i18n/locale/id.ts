@@ -96,6 +96,7 @@ export default {
     submitSuccess: "",
     submitFail: "",
     reportSuccess: "",
+    noSubPlan: "Belum ada rencana langganan yang diset",
   },
   label: {
     account: "Nama pengguna",
@@ -165,8 +166,9 @@ export default {
     just: "baru saja",
     minutesAgo: "{minutes} menit yang lalu",
     hoursAgo: "{hours} jam yang lalu",
+    yesterday: "kemarin",
+    goToSet: "Pergi ke pengaturan",
   },
-  lsnrl: { yesterday: "kemarin" },
   placeholder: {
     account: "Silakan masukkan nama pengguna",
     password: "Silakan masukkan kata sandi",
@@ -345,6 +347,7 @@ export default {
     annBtn: "Bergabung dengan VIDA sekarang",
     tapForUpload: "Klik di sini untuk mengunggah foto atau video",
     afterUpload: "Setelah memilih file, lanjutkan ke langkah berikutnya untuk mengedit konten postingan",
+    createSubBeforePost: "Sebelum memposting, selesaikan dulu rencana langganan Anda!",
   },
   month: {
     Jan: "Januari",
@@ -436,6 +439,7 @@ export default {
       facebook: "Harap masukkan situs web Facebook yang benar",
       confirmPassword: "Kata sandi tidak cocok.",
       withAt: "Jangan sertakan simbol {'@'}",
+      account: "Hanya karakter alfanumerik yang diizinkan",
     },
     number: {
       value: "Silakan masukkan angka.",
