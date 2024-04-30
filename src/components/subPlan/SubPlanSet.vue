@@ -214,19 +214,19 @@ const {
 
 const credential = reactive({
   subPlanName: {
-    value: data.value[index.value]?.name,
+    value: data.value[index.value]?.name || '',
     error: '',
     check: false,
-    schema: Yup.string().required($t('yup.mixed.required')).max(32),
+    schema: Yup.string().required().max(32),
   },
   subPlanContent: {
-    value: data.value[index.value]?.content,
+    value: data.value[index.value]?.content || '',
     error: '',
     check: false,
-    schema: Yup.string().required($t('yup.mixed.required')).max(300),
+    schema: Yup.string().required().max(300),
   },
   subPlanPrice: {
-    value: data.value[index.value]?.content,
+    value: data.value[index.value]?.price || 0,
     error: '',
     check: false,
     schema: Yup.number().required($t('yup.number.positive')).max(90),
@@ -235,7 +235,7 @@ const credential = reactive({
 const showBack = computed(() => history.value.length > 0)
 const serverError = ref('')
 
-onMounted(async () => {
+onMounted(() => {
   credential.subPlanName.value = data.value[index.value]?.name
   credential.subPlanContent.value = data.value[index.value]?.content
   credential.subPlanPrice.value = data.value[index.value]?.price
@@ -243,24 +243,6 @@ onMounted(async () => {
   subId.value = data.value[index.value]?.id
   subPicture.value = data.value[index.value]?.picture
   status.value = data.value[index.value]?.status
-  if (!addSubPlan.value && subPicture.value) {
-    selDefaultItem.value = null
-    uploadFiles.value = []
-    uploadFiles.value.push({ result: subPicture.value, progress: 1 })
-    selUploadItem.value = subPicture.value
-  }
-  if (addSubPlan.value) {
-    credential.subPlanName.value = ''
-    credential.subPlanContent.value = ''
-    credential.subPlanPrice.value = ''
-    subUnlockDayAfter.value = ''
-  }
-  if (![30, 90, 360].includes(subUnlockDayAfter.value)) {
-    radioValue.value = 'custom'
-    customValue.value = subUnlockDayAfter.value
-  } else {
-    radioValue.value = subUnlockDayAfter.value
-  }
 })
 
 // 重新進入任一設定頁，會監聽數據是否改變了
@@ -273,9 +255,7 @@ watch(index, (newIndex) => {
     selUploadItem.value = data.value[newIndex]?.picture
     status.value = data.value[newIndex]?.status
     subId.value = data.value[index.value]?.id
-    credential.subPlanName.error = ''
-    credential.subPlanContent.error = ''
-    credential.subPlanPrice.error = ''
+    resetFormError('subPlanName', 'subPlanContent', 'subPlanPrice')
     serverError.value = ''
   }
   if (newIndex !== null && subList.value[newIndex]) {
@@ -306,26 +286,18 @@ watch(addSubPlan, (newAddSubPlan) => {
     uploadFiles.value = []
     selUploadItem.value = null
     selDefaultItem.value = appConfig.subscription_images[0]
-    credential.subPlanName.value = ''
-    credential.subPlanContent.value = ''
-    credential.subPlanPrice.value = ''
-    credential.subPlanName.error = ''
-    credential.subPlanContent.error = ''
-    credential.subPlanPrice.error = ''
+    resetForm('subPlanName', 'subPlanContent', 'subPlanPrice')
     subUnlockDayAfter.value = ''
     subPicture.value = ''
-    serverError.value = ''
   } else {
     credential.subPlanName.value = data.value[index.value].name
     credential.subPlanContent.value = data.value[index.value].content
     credential.subPlanPrice.value = data.value[index.value].price
     selDefaultItem.value = null
     selUploadItem.value = data.value[index.value].picture
-    credential.subPlanName.error = ''
-    credential.subPlanContent.error = ''
-    credential.subPlanPrice.error = ''
-    serverError.value = ''
   }
+  resetFormError('subPlanName', 'subPlanContent', 'subPlanPrice')
+  serverError.value = ''
 })
 
 watch(subPicture, (newSubPicture) => {
@@ -338,7 +310,7 @@ watch(subPicture, (newSubPicture) => {
 })
 
 watch(subList, (newSubList) => {
-  if (newSubList) {
+  if (newSubList && data.value.length > 0) {
     credential.subPlanName.value = newSubList[index.value].name
     credential.subPlanContent.value = newSubList[index.value].content
     credential.subPlanPrice.value = newSubList[index.value].price
@@ -410,10 +382,9 @@ const delSubPlan = async () => {
     await subPlanDel({ ids: subId.value })
     data.value = data.value.filter((item) => item.id !== subId.value)
     updateUserData({ subscription_list: data.value })
-    subList.value = data.value
+    back()
     openMessage('title.delSuccess')
     serverError.value = ''
-    back()
   } catch (e) {
     serverError.value = e.message
   }
@@ -441,9 +412,7 @@ const onSubmit = async () => {
         updateUserData({ subscription_list: subList.value })
         openMessage('title.publishSuccess')
         uploadFiles.value = []
-        credential.subPlanName.value = ''
-        credential.subPlanContent.value = ''
-        credential.subPlanPrice.value = ''
+        resetForm('subPlanName', 'subPlanContent', 'subPlanPrice')
         subUnlockDayAfter.value = ''
         serverError.value = ''
         back()
@@ -490,9 +459,6 @@ function makeReqData() {
   if (subId.value) {
     data.id = subId.value
   }
-  if (subPlanContent.value) {
-    data.content = subPlanContent.value
-  }
   if (selDefaultItem.value || selUploadItem.value) {
     data.picture = selDefaultItem.value || selUploadItem.value
   }
@@ -503,5 +469,17 @@ function makeReqData() {
   }
 
   return data
+}
+
+const resetForm = (...keys) => {
+  keys.forEach((key) => {
+    credential[key].value = ''
+    credential[key].check = false
+  })
+}
+const resetFormError = (...keys) => {
+  keys.forEach((key) => {
+    credential[key].error = ''
+  })
 }
 </script>
