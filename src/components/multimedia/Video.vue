@@ -36,7 +36,16 @@ function setupVideo() {
       currentTime: videoCurrentTime.value,
       onPlay: () => emits('play'),
       onEnded: () => emits('ended'),
-      onTimeupdate: () => (videoCurrentTime.value = videoElement.value?.currentTime || 0),
+      onTimeupdate: () => {
+        videoCurrentTime.value = videoElement.value?.currentTime || 0
+
+        // 尼瑪 der 視頻會出現播放完畢當下 currentTime 比 duration 還小的情況
+        // 我尼瑪 der 只好在這邊判斷比 duration 還小兩秒就送 ended 事件
+        const { currentTime, duration } = videoElement.value
+        if (Math.floor(currentTime) >= Math.floor(duration) - 2) {
+          emits('ended')
+        }
+      },
       isPreview: props.preview,
     })
     videoWrap.value.appendChild(videoElement.value)

@@ -34,7 +34,7 @@ import ButtonTab from '@comp/navigation/ButtonTab.vue'
 import { useInfinite } from '@use/request/infinite'
 import { useRouters } from '@use/routers'
 import { POST_TAB_TYPE as TAB_TYPE } from '@const/mine'
-import { FEED_STATUS, MEDIA_TYPE } from '@const/publish'
+import { FEED_PERM, FEED_STATUS, MEDIA_TYPE } from '@const/publish'
 
 const route = useRoute()
 const { to, updateParams } = useRouters()
@@ -80,19 +80,19 @@ const pages = {
   [`${TAB_TYPE.SUB}${MEDIA_TYPE.ALL}`]: {
     inited: false,
     infinite: useInfinite('Article.listManagement', {
-      params: { article_type: 1, pre_display: 0, resource_type: MEDIA_TYPE.ALL },
+      params: { article_type: FEED_PERM.SUB, pre_display: 0, resource_type: MEDIA_TYPE.ALL },
     }),
   },
   [`${TAB_TYPE.SUB}${MEDIA_TYPE.IMAGE}`]: {
     inited: false,
     infinite: useInfinite('Article.listManagement', {
-      params: { article_type: 1, pre_display: 0, resource_type: MEDIA_TYPE.IMAGE },
+      params: { article_type: FEED_PERM.SUB, pre_display: 0, resource_type: MEDIA_TYPE.IMAGE },
     }),
   },
   [`${TAB_TYPE.SUB}${MEDIA_TYPE.VIDEO}`]: {
     inited: false,
     infinite: useInfinite('Article.listManagement', {
-      params: { article_type: 1, pre_display: 0, resource_type: MEDIA_TYPE.VIDEO },
+      params: { article_type: FEED_PERM.SUB, pre_display: 0, resource_type: MEDIA_TYPE.VIDEO },
     }),
   },
 
@@ -100,19 +100,19 @@ const pages = {
   [`${TAB_TYPE.BUY}${MEDIA_TYPE.ALL}`]: {
     inited: false,
     infinite: useInfinite('Article.listManagement', {
-      params: { article_type: 2, pre_display: 0, resource_type: MEDIA_TYPE.ALL },
+      params: { article_type: FEED_PERM.BUY, pre_display: 0, resource_type: MEDIA_TYPE.ALL },
     }),
   },
   [`${TAB_TYPE.BUY}${MEDIA_TYPE.IMAGE}`]: {
     inited: false,
     infinite: useInfinite('Article.listManagement', {
-      params: { article_type: 2, pre_display: 0, resource_type: MEDIA_TYPE.IMAGE },
+      params: { article_type: FEED_PERM.BUY, pre_display: 0, resource_type: MEDIA_TYPE.IMAGE },
     }),
   },
   [`${TAB_TYPE.BUY}${MEDIA_TYPE.VIDEO}`]: {
     inited: false,
     infinite: useInfinite('Article.listManagement', {
-      params: { article_type: 2, pre_display: 0, resource_type: MEDIA_TYPE.VIDEO },
+      params: { article_type: FEED_PERM.BUY, pre_display: 0, resource_type: MEDIA_TYPE.VIDEO },
     }),
   },
 
@@ -120,19 +120,19 @@ const pages = {
   [`${TAB_TYPE.SCH}${MEDIA_TYPE.ALL}`]: {
     inited: false,
     infinite: useInfinite('Article.listManagement', {
-      params: { article_type: 0, pre_display: 1, resource_type: MEDIA_TYPE.ALL },
+      params: { article_type: FEED_PERM.SCH, pre_display: 1, resource_type: MEDIA_TYPE.ALL },
     }),
   },
   [`${TAB_TYPE.SCH}${MEDIA_TYPE.IMAGE}`]: {
     inited: false,
     infinite: useInfinite('Article.listManagement', {
-      params: { article_type: 0, pre_display: 1, resource_type: MEDIA_TYPE.IMAGE },
+      params: { article_type: FEED_PERM.SCH, pre_display: 1, resource_type: MEDIA_TYPE.IMAGE },
     }),
   },
   [`${TAB_TYPE.SCH}${MEDIA_TYPE.VIDEO}`]: {
     inited: false,
     infinite: useInfinite('Article.listManagement', {
-      params: { article_type: 0, pre_display: 1, resource_type: MEDIA_TYPE.VIDEO },
+      params: { article_type: FEED_PERM.SCH, pre_display: 1, resource_type: MEDIA_TYPE.VIDEO },
     }),
   },
 
@@ -140,19 +140,19 @@ const pages = {
   [`${TAB_TYPE.PRI}${MEDIA_TYPE.ALL}`]: {
     inited: false,
     infinite: useInfinite('Article.listManagement', {
-      params: { article_type: 3, pre_display: 0, resource_type: MEDIA_TYPE.ALL },
+      params: { article_type: FEED_PERM.PRI, pre_display: 0, resource_type: MEDIA_TYPE.ALL },
     }),
   },
   [`${TAB_TYPE.PRI}${MEDIA_TYPE.IMAGE}`]: {
     inited: false,
     infinite: useInfinite('Article.listManagement', {
-      params: { article_type: 3, pre_display: 0, resource_type: MEDIA_TYPE.IMAGE },
+      params: { article_type: FEED_PERM.PRI, pre_display: 0, resource_type: MEDIA_TYPE.IMAGE },
     }),
   },
   [`${TAB_TYPE.PRI}${MEDIA_TYPE.VIDEO}`]: {
     inited: false,
     infinite: useInfinite('Article.listManagement', {
-      params: { article_type: 3, pre_display: 0, resource_type: MEDIA_TYPE.VIDEO },
+      params: { article_type: FEED_PERM.PRI, pre_display: 0, resource_type: MEDIA_TYPE.VIDEO },
     }),
   },
 }
