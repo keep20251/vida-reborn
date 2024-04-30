@@ -26,6 +26,8 @@ export default {
   // 搜尋創作者
   searchCreator: { method: 'post', url: '/api/user/searchCreator' },
 
+  getNewCreator: { method: 'post', url: '/api/user/getNewCreator' },
+
   // 取得用戶該時段總體收益
   stats: { method: 'post', url: '/api/user/getUserStatistic' },
 
