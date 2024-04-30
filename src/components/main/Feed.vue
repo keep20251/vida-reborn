@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="line-clamp-1 shrink-0 text-right text-sm font-medium leading-5 text-gray-57">
-        {{ $t(...tsSecondToHumanString(item.created_ts, item.created_at)) }}
+        {{ $ts(tsSecondToHumanString(item.created_ts, item.created_at)) }}
       </div>
       <div v-if="!isVisitor && !isSelf" class="flex cursor-pointer items-center" @click.stop="dissSomeone(item.user)">
         <Icon name="moreVertical" size="20"></Icon>
@@ -99,6 +99,7 @@
 
 <script setup>
 import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useResizeObserver } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
@@ -152,4 +153,13 @@ const toggleLike = afterLoginAction($toggleLike)
 
 const { copy } = useCopyToClipboard()
 const { dissSomeone } = useDialogStore()
+
+const { t: $t } = useI18n()
+function $ts(date) {
+  if (typeof date === 'string' || typeof date === 'object') {
+    if (typeof date === 'object') return $t(date.key, date?.values)
+    else return date
+  }
+  console.warn('toHumanString: date is not string or object')
+}
 </script>

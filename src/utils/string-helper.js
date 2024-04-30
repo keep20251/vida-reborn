@@ -72,21 +72,21 @@ export const tsSecondToHumanString = (tsSecond, backupDateString) => {
   const now = new Date()
   const diff = now - date
   if (diff < 60 * 1000) {
-    return ['label.just']
+    return { key: 'label.just' }
   } else if (diff < 60 * 60 * 1000) {
-    return ['label.minutesAgo', { minutes: Math.floor(diff / 60 / 1000) }]
+    return { key: 'label.minutesAgo', values: { minutes: Math.floor(diff / 60 / 1000) } }
   } else if (diff < 23 * 60 * 60 * 1000) {
-    return ['label.hoursAgo', { hours: Math.floor(diff / 60 / 60 / 1000) }]
+    return { key: 'label.hoursAgo', values: { hours: Math.floor(diff / 60 / 60 / 1000) } }
   } else if (diff < 48 * 60 * 60 * 1000) {
-    return ['label.yesterday']
+    return { key: 'label.yesterday' }
   } else {
     const month = String(date.getMonth() + 1).padStart(2, '0')
     const day = String(date.getDate()).padStart(2, '0')
     if (now.getFullYear() === date.getFullYear()) {
-      return [`${month}-${day}`]
+      return `${month}-${day}`
     } else {
       const year = date.getFullYear()
-      return [`${year}-${month}-${day}`]
+      return `${year}-${month}-${day}`
     }
   }
 }
