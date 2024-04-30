@@ -253,6 +253,7 @@ export default {
     whetherDelArticle: "您是否确定要删除此帖子？",
     subscribeBeforeChat: "请先订阅才能聊天",
     clickRtConfirm: "请先点击右上角确认",
+    waitUploading: "文件上传中...",
   },
   content: {
     default: "预设，不应该显示在任何地方",

@@ -88,9 +88,9 @@ export default {
     publishFail: "게시 실패",
     delSuccess: "삭제 성공",
     createFeed: "게시물 생성",
-    submitSuccess: "",
-    submitFail: "",
-    reportSuccess: "",
+    submitSuccess: "제출 성공",
+    submitFail: "제출 실패",
+    reportSuccess: "신고 성공",
     noSubPlan: "구독 계획이 설정되어 있지 않습니다",
   },
   label: {
@@ -256,7 +256,8 @@ export default {
     whetherDelAcc: "계정을 삭제하시겠습니까?",
     whetherDelArticle: "이 게시물을 삭제하시겠습니까?",
     subscribeBeforeChat: "채팅하기 전에 구독해주세요",
-    clickRtConfirm: "",
+    clickRtConfirm: "오른쪽 상단을 클릭하여 확인하세요",
+    waitUploading: "파일 업로드 중...",
   },
   content: {
     default: "기본값은 어디에도 표시되지 않아야 합니다.",

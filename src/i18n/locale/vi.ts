@@ -93,9 +93,9 @@ export default {
     publishFail: "Đăng thất bại",
     delSuccess: "Xóa thành công",
     createFeed: "Tạo bài viết",
-    submitSuccess: "",
-    submitFail: "",
-    reportSuccess: "",
+    submitSuccess: "Đã gửi thành công",
+    submitFail: "Gửi không thành công",
+    reportSuccess: "Báo cáo thành công",
     noSubPlan: "Chưa thiết lập kế hoạch đăng ký",
   },
   label: {
@@ -261,7 +261,8 @@ export default {
     whetherDelAcc: "Bạn có chắc chắn muốn xóa tài khoản của mình không?",
     whetherDelArticle: "Bạn có chắc chắn muốn xóa bài viết này không?",
     subscribeBeforeChat: "Vui lòng đăng ký trước khi trò chuyện",
-    clickRtConfirm: "",
+    clickRtConfirm: "Vui lòng nhấp vào góc phải trên cùng để xác nhận",
+    waitUploading: "Đang tải lên tệp...",
   },
   content: {
     default: "Mặc định, không nên hiển thị ở bất cứ đâu",

@@ -93,9 +93,9 @@ export default {
     publishFail: "Falha na Publicação",
     delSuccess: "Excluído com sucesso",
     createFeed: "Criar postagem",
-    submitSuccess: "",
-    submitFail: "",
-    reportSuccess: "",
+    submitSuccess: "Enviado com sucesso",
+    submitFail: "Envio falhou",
+    reportSuccess: "Relatório bem-sucedido",
     noSubPlan: "Sem plano de assinatura configurado",
   },
   label: {
@@ -261,7 +261,8 @@ export default {
     whetherDelAcc: "Tem certeza de que deseja deletar sua conta?",
     whetherDelArticle: "Tem certeza de que deseja deletar esta postagem?",
     subscribeBeforeChat: "Por favor, inscreva-se antes de conversar",
-    clickRtConfirm: "",
+    clickRtConfirm: "Por favor, clique no canto superior direito para confirmar",
+    waitUploading: "Enviando arquivo...",
   },
   content: {
     default: "Padrão, não deve aparecer em lugar nenhum",

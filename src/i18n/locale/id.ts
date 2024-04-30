@@ -93,9 +93,9 @@ export default {
     publishFail: "Penerbitan Gagal",
     delSuccess: "Berhasil dihapus",
     createFeed: "Buat Posting",
-    submitSuccess: "",
-    submitFail: "",
-    reportSuccess: "",
+    submitSuccess: "Berhasil dikirim",
+    submitFail: "Gagal mengirim",
+    reportSuccess: "Laporan berhasil",
     noSubPlan: "Belum ada rencana langganan yang diset",
   },
   label: {
@@ -261,7 +261,8 @@ export default {
     whetherDelAcc: "Apakah Anda yakin ingin menghapus akun Anda?",
     whetherDelArticle: "Apakah Anda yakin ingin menghapus posting ini?",
     subscribeBeforeChat: "Silakan berlangganan sebelum mengobrol",
-    clickRtConfirm: "",
+    clickRtConfirm: "Silakan klik sudut kanan atas untuk mengonfirmasi",
+    waitUploading: "Mengunggah file...",
   },
   content: {
     default: "Defaultnya, seharusnya tidak muncul di mana pun",

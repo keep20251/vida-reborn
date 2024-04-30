@@ -93,9 +93,9 @@ export default {
     publishFail: "Veröffentlichung fehlgeschlagen",
     delSuccess: "Erfolgreich gelöscht",
     createFeed: "Beitrag erstellen",
-    submitSuccess: "",
-    submitFail: "",
-    reportSuccess: "",
+    submitSuccess: "Erfolgreich eingereicht",
+    submitFail: "Übermittlung fehlgeschlagen",
+    reportSuccess: "Meldung erfolgreich",
     noSubPlan: "Kein Abonnementplan festgelegt",
   },
   label: {
@@ -261,7 +261,8 @@ export default {
     whetherDelAcc: "Sind Sie sicher, dass Sie Ihr Konto löschen möchten?",
     whetherDelArticle: "Sind Sie sicher, dass Sie diesen Beitrag löschen möchten?",
     subscribeBeforeChat: "Bitte abonnieren Sie, bevor Sie chatten",
-    clickRtConfirm: "",
+    clickRtConfirm: "Bitte klicken Sie oben rechts, um zu bestätigen",
+    waitUploading: "Datei wird hochgeladen...",
   },
   content: {
     default: "Standardmäßig, sollte nirgendwo auftauchen",

@@ -88,9 +88,9 @@ export default {
     publishFail: "प्रकाशन विफल",
     delSuccess: "सफलतापूर्वक हटाया गया",
     createFeed: "पोस्ट बनाएं",
-    submitSuccess: "",
-    submitFail: "",
-    reportSuccess: "",
+    submitSuccess: "सफलतापूर्वक सबमिट किया गया",
+    submitFail: "सबमिशन विफल रहा",
+    reportSuccess: "सफलतापूर्वक रिपोर्ट किया गया",
     noSubPlan: "सदस्यता योजना नहीं बनाई गई है",
   },
   label: {
@@ -256,7 +256,8 @@ export default {
     whetherDelAcc: "क्या आप वाकई में अपना खाता हटाना चाहते हैं?",
     whetherDelArticle: "क्या आप वाकई में इस पोस्ट को हटाना चाहते हैं?",
     subscribeBeforeChat: "कृपया चैट करने से पहले सदस्यता लें",
-    clickRtConfirm: "",
+    clickRtConfirm: "कृपया पुष्टि के लिए ऊपरी दाहिने कोने पर क्लिक करें",
+    waitUploading: "फ़ाइल अपलोड हो रही है...",
   },
   content: {
     default: "डिफ़ॉल्ट, कहीं भी दिखाई नहीं देना चाहिए",

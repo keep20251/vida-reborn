@@ -93,9 +93,9 @@ export default {
     publishFail: "Publication Échouée",
     delSuccess: "Supprimé avec succès",
     createFeed: "Créer une publication",
-    submitSuccess: "",
-    submitFail: "",
-    reportSuccess: "",
+    submitSuccess: "Soumis avec succès",
+    submitFail: "Échec de la soumission",
+    reportSuccess: "Signalement réussi",
     noSubPlan: "Aucun plan d'abonnement configuré",
   },
   label: {
@@ -261,7 +261,8 @@ export default {
     whetherDelAcc: "Êtes-vous sûr de vouloir supprimer votre compte ?",
     whetherDelArticle: "Êtes-vous sûr de vouloir supprimer ce post ?",
     subscribeBeforeChat: "Merci de vous abonner avant de discuter",
-    clickRtConfirm: "",
+    clickRtConfirm: "Veuillez cliquer en haut à droite pour confirmer",
+    waitUploading: "du fichier...",
   },
   content: {
     default: "Par défaut, ne devrait apparaître nulle part",

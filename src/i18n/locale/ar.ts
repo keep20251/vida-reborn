@@ -88,9 +88,9 @@ export default {
     publishFail: "فشل النشر",
     delSuccess: "تم الحذف بنجاح",
     createFeed: "إنشاء منشور",
-    submitSuccess: "",
-    submitFail: "",
-    reportSuccess: "",
+    submitSuccess: "تم الإرسال بنجاح",
+    submitFail: "فشل الإرسال",
+    reportSuccess: "التبليغ بنجاح",
     noSubPlan: "لم يتم تعيين خطة اشتراك",
   },
   label: {
@@ -256,7 +256,8 @@ export default {
     whetherDelAcc: "هل أنت متأكد من أنك تريد حذف حسابك؟",
     whetherDelArticle: "هل أنت متأكد من أنك تريد حذف هذا المنشور؟",
     subscribeBeforeChat: "يرجى الاشتراك قبل الدردشة",
-    clickRtConfirm: "",
+    clickRtConfirm: "الرجاء الضغط على الزاوية العليا اليمنى للتأكيد",
+    waitUploading: "جارٍ تحميل الملف...",
   },
   content: {
     default: "الافتراضي، لا ينبغي أن تظهر في أي مكان",
