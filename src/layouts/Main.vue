@@ -28,12 +28,9 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
-import { useLocalStorage } from '@vueuse/core'
+import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
-import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
-import { useModalStore } from '@/store/modal'
 import MinePrvwBanner from '@comp/banner/MinePrvwBanner.vue'
 import AuthDialog from '@comp/dialog/AuthDialog.vue'
 import FileSelectDialog from '@comp/dialog/FileSelectDialog.vue'
@@ -43,7 +40,6 @@ import SubPlanDialog from '@comp/dialog/SubPlanDialog.vue'
 import Subscriptions from '@comp/dialog/Subscriptions.vue'
 import Navigator from '@comp/layout/Navigator.vue'
 import NavigatorMobile from '@comp/layout/NavigatorMobile.vue'
-import { LOCAL_STORAGE_KEYS, MODAL_TYPE } from '@const'
 import { isClose, isConnecting, isOpen } from '@/ws'
 
 const isDev = ref(import.meta.env.DEV)
@@ -52,19 +48,19 @@ const appStore = useAppStore()
 const { isDesktop, isMobile } = storeToRefs(appStore)
 
 // 訪客初次進站興趣選擇
-const accountStore = useAccountStore()
-const { isLogin } = storeToRefs(accountStore)
-const modalStore = useModalStore()
-const { open } = modalStore
-const interestedList = useLocalStorage(LOCAL_STORAGE_KEYS.INTERESTED_LIST, [])
-onMounted(() => {
-  if (!isLogin.value && interestedList.value.length === 0) {
-    open(MODAL_TYPE.INTERESTED_PICK, {
-      size: 'xl',
-      confirmAction(data) {
-        interestedList.value.push(...data)
-      },
-    })
-  }
-})
+// const accountStore = useAccountStore()
+// const { isLogin } = storeToRefs(accountStore)
+// const modalStore = useModalStore()
+// const { open } = modalStore
+// const interestedList = useLocalStorage(LOCAL_STORAGE_KEYS.INTERESTED_LIST, [])
+// onMounted(() => {
+//   if (!isLogin.value && interestedList.value.length === 0) {
+//     open(MODAL_TYPE.INTERESTED_PICK, {
+//       size: 'xl',
+//       confirmAction(data) {
+//         interestedList.value.push(...data)
+//       },
+//     })
+//   }
+// })
 </script>
