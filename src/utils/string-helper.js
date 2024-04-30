@@ -75,7 +75,7 @@ export const tsSecondToHumanString = (tsSecond, backupDateString) => {
     return { key: 'label.just' }
   } else if (diff < 60 * 60 * 1000) {
     return { key: 'label.minutesAgo', values: { minutes: Math.floor(diff / 60 / 1000) } }
-  } else if (diff < 23 * 60 * 60 * 1000) {
+  } else if (diff < 24 * 60 * 60 * 1000) {
     return { key: 'label.hoursAgo', values: { hours: Math.floor(diff / 60 / 60 / 1000) } }
   } else if (diff < 48 * 60 * 60 * 1000) {
     return { key: 'label.yesterday' }
