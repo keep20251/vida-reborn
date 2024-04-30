@@ -93,9 +93,9 @@ export default {
     publishFail: "Публикация не удалась",
     delSuccess: "Удалено успешно",
     createFeed: "Создать пост",
-    submitSuccess: "",
-    submitFail: "",
-    reportSuccess: "",
+    submitSuccess: "Отправлено успешно",
+    submitFail: "Отправка не удалась",
+    reportSuccess: "Успешно сообщено",
     noSubPlan: "Нет установленного плана подписки",
   },
   label: {
@@ -261,7 +261,8 @@ export default {
     whetherDelAcc: "Вы уверены, что хотите удалить свой аккаунт?",
     whetherDelArticle: "Вы уверены, что хотите удалить этот пост?",
     subscribeBeforeChat: "Пожалуйста, подпишитесь, прежде чем общаться",
-    clickRtConfirm: "",
+    clickRtConfirm: "Пожалуйста, нажмите в правом верхнем углу для подтверждения",
+    waitUploading: "Загрузка файла...",
   },
   content: {
     default: "По умолчанию, нигде не должен отображаться.",

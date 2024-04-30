@@ -88,9 +88,9 @@ export default {
     publishFail: "公開失敗",
     delSuccess: "削除成功",
     createFeed: "投稿を作成する",
-    submitSuccess: "",
-    submitFail: "",
-    reportSuccess: "",
+    submitSuccess: "提出が成功しました",
+    submitFail: "提出に失敗しました",
+    reportSuccess: "報告が成功しました",
     noSubPlan: "定額購入プランが設定されていません",
   },
   label: {
@@ -256,7 +256,8 @@ export default {
     whetherDelAcc: "アカウントを削除してもよろしいですか？",
     whetherDelArticle: "この投稿を削除してもよろしいですか？",
     subscribeBeforeChat: "チャットする前に購読してください",
-    clickRtConfirm: "",
+    clickRtConfirm: "右上角をクリックして確認してください",
+    waitUploading: "アップロード中...",
   },
   content: {
     default: "デフォルト、どこにも表示されないはずです",

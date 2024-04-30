@@ -261,7 +261,8 @@ export default {
     whetherDelAcc: "Are you sure you want to delete your account?",
     whetherDelArticle: "Are you sure you want to delete this post?",
     subscribeBeforeChat: "Please subscribe before chatting",
-    clickRtConfirm: "Please click on the upper right corner to confirm first",
+    clickRtConfirm: "Please click the top right corner to confirm",
+    waitUploading: "File uploading...",
   },
   content: {
     default: "Default, shouldn't show up anywhere",

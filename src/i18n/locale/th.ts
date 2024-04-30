@@ -93,9 +93,9 @@ export default {
     publishFail: "เผยแพร่ไม่สำเร็จ",
     delSuccess: "ลบสำเร็จ",
     createFeed: "สร้างโพสต์",
-    submitSuccess: "",
-    submitFail: "",
-    reportSuccess: "",
+    submitSuccess: "ส่งสำเร็จ",
+    submitFail: "ส่งไม่สำเร็จ",
+    reportSuccess: "รายงานสำเร็จ",
     noSubPlan: "ยังไม่ได้ตั้งค่าแผนการสมัครสมาชิก",
   },
   label: {
@@ -261,7 +261,8 @@ export default {
     whetherDelAcc: "คุณแน่ใจหรือไม่ว่าต้องการลบบัญชีของคุณ?",
     whetherDelArticle: "คุณแน่ใจหรือไม่ว่าต้องการลบโพสต์นี้?",
     subscribeBeforeChat: "กรุณาสมัครสมาชิกก่อนพูดคุย",
-    clickRtConfirm: "",
+    clickRtConfirm: "กรุณาคลิกที่มุมขวาบนเพื่อยืนยัน",
+    waitUploading: "กำลังอัปโหลดไฟล์...",
   },
   content: {
     default: "ค่าเริ่มต้นไม่ควรปรากฏที่ใดก็ได้",
