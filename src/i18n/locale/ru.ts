@@ -96,6 +96,7 @@ export default {
     submitSuccess: "",
     submitFail: "",
     reportSuccess: "",
+    noSubPlan: "Нет установленного плана подписки",
   },
   label: {
     account: "Имя пользователя",
@@ -165,8 +166,9 @@ export default {
     just: "только что",
     minutesAgo: "{minutes} минут назад",
     hoursAgo: "{hours} часов назад",
+    yesterday: "вчера",
+    goToSet: "Перейти к настройкам",
   },
-  lsnrl: { yesterday: "вчера" },
   placeholder: {
     account: "Пожалуйста, введите имя пользователя",
     password: "Пожалуйста, введите пароль",
@@ -345,6 +347,7 @@ export default {
     annBtn: "Присоединяйтесь к VIDA сейчас",
     tapForUpload: "Нажмите здесь, чтобы загрузить фото или видео",
     afterUpload: "После выбора файла перейдите к следующему шагу, чтобы редактировать содержание поста",
+    createSubBeforePost: "Прежде чем публиковать, сначала завершите ваш план подписки!",
   },
   month: {
     Jan: "Январь",
@@ -437,6 +440,7 @@ export default {
       facebook: "Пожалуйста, введите правильный сайт Facebook",
       confirmPassword: "Пароли не совпадают.",
       withAt: "Не включайте символы {'@'}",
+      account: "Только буквенно-цифровые символы разрешены",
     },
     number: {
       value: "Пожалуйста, введите число.",

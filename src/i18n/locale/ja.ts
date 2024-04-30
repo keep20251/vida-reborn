@@ -91,6 +91,7 @@ export default {
     submitSuccess: "",
     submitFail: "",
     reportSuccess: "",
+    noSubPlan: "定額購入プランが設定されていません",
   },
   label: {
     account: "ユーザー名",
@@ -160,8 +161,9 @@ export default {
     just: "たった今",
     minutesAgo: "{minutes}分前",
     hoursAgo: "{hours}時間前",
+    yesterday: "昨日",
+    goToSet: "設定へ移動",
   },
-  lsnrl: { yesterday: "昨日" },
   placeholder: {
     account: "ユーザー名を入力してください",
     password: "パスワードを入力してください",
@@ -339,6 +341,7 @@ export default {
     annBtn: "今すぐVIDAに参加",
     tapForUpload: "ここをタップして写真または動画をアップロード",
     afterUpload: "ファイルを選択した後、次のステップに進んで投稿内容を編集します",
+    createSubBeforePost: "投稿する前に、まずはあなたの定額購入プランを完成させましょう！",
   },
   month: {
     Jan: "1月",
@@ -431,6 +434,7 @@ export default {
       facebook: "正しいFacebook Webサイトを入力してください",
       confirmPassword: "パスワードが一致しません。",
       withAt: "{'@'}シンボルを含めないでください",
+      account: "英数字のみ許可",
     },
     number: {
       value: "数字を入力してください。",

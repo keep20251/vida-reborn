@@ -91,6 +91,7 @@ export default {
     submitSuccess: "",
     submitFail: "",
     reportSuccess: "",
+    noSubPlan: "구독 계획이 설정되어 있지 않습니다",
   },
   label: {
     account: "사용자 이름",
@@ -160,8 +161,9 @@ export default {
     just: "방금",
     minutesAgo: "{minutes}분 전",
     hoursAgo: "{hours}시간 전",
+    yesterday: "어제",
+    goToSet: "설정으로 이동",
   },
-  lsnrl: { yesterday: "어제" },
   placeholder: {
     account: "사용자 이름을 입력하세요",
     password: "비밀번호를 입력하세요",
@@ -338,6 +340,7 @@ export default {
     annBtn: "지금 VIDA에 가입하세요",
     tapForUpload: "여기를 탭하여 사진 또는 비디오 업로드",
     afterUpload: "파일을 선택한 후, 다음 단계로 넘어가 게시물 내용을 편집하세요",
+    createSubBeforePost: "게시하기 전에 먼저 구독 계획을 완성하세요!",
   },
   month: {
     Jan: "1월",
@@ -429,6 +432,7 @@ export default {
       facebook: "올바른 Facebook 웹 사이트를 입력하십시오",
       confirmPassword: "비밀번호가 일치하지 않습니다.",
       withAt: "{ '@'} 기호를 포함하지 마십시오",
+      account: "영문자와 숫자만 허용됩니다",
     },
     number: {
       value: "숫자를 입력하세요.",

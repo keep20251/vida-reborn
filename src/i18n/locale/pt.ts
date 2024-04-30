@@ -96,6 +96,7 @@ export default {
     submitSuccess: "",
     submitFail: "",
     reportSuccess: "",
+    noSubPlan: "Sem plano de assinatura configurado",
   },
   label: {
     account: "Nome de usuário",
@@ -165,8 +166,9 @@ export default {
     just: "agora mesmo",
     minutesAgo: "há {minutes} minutos",
     hoursAgo: "há {hours} horas",
+    yesterday: "ontem",
+    goToSet: "Ir para configurações",
   },
-  lsnrl: { yesterday: "ontem" },
   placeholder: {
     account: "Por favor, insira o nome de usuário",
     password: "Por favor, insira a senha",
@@ -345,6 +347,7 @@ export default {
     annBtn: "Junte-se ao VIDA agora",
     tapForUpload: "Toque aqui para fazer upload de uma foto ou vídeo",
     afterUpload: "Após selecionar um arquivo, prossiga para a próxima etapa para editar o conteúdo da postagem",
+    createSubBeforePost: "Antes de postar, complete primeiro o seu plano de assinatura!",
   },
   month: {
     Jan: "Janeiro",
@@ -437,6 +440,7 @@ export default {
       facebook: "Por favor, insira o site correto do Facebook",
       confirmPassword: "Senhas não correspondem.",
       withAt: "Não inclua símbolos {'@'}",
+      account: "Apenas caracteres alfanuméricos permitidos",
     },
     number: {
       value: "Por favor, insira um número.",

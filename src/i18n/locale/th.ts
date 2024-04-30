@@ -96,6 +96,7 @@ export default {
     submitSuccess: "",
     submitFail: "",
     reportSuccess: "",
+    noSubPlan: "ยังไม่ได้ตั้งค่าแผนการสมัครสมาชิก",
   },
   label: {
     account: "ชื่อผู้ใช้",
@@ -165,8 +166,9 @@ export default {
     just: "พึ่ง",
     minutesAgo: "{minutes} นาทีที่แล้ว",
     hoursAgo: "{hours} ชั่วโมงที่แล้ว",
+    yesterday: "เมื่อวาน",
+    goToSet: "ไปที่การตั้งค่า",
   },
-  lsnrl: { yesterday: "เมื่อวาน" },
   placeholder: {
     account: "กรุณาใส่ชื่อผู้ใช้",
     password: "กรุณาใส่รหัสผ่าน",
@@ -342,6 +344,7 @@ export default {
     annBtn: "เข้าร่วม VIDA ทันที",
     tapForUpload: "คลิกที่นี่เพื่ออัพโหลดรูปภาพหรือวิดีโอ",
     afterUpload: "ไฟล์ถูกเลือกแล้ว, ไปยังขั้นตอนถัดไปเพื่อแก้ไขเนื้อหาโพสต์",
+    createSubBeforePost: "โพสต์ก่อนที่จะมาทำแผนการสมัครสมาชิกของคุณให้เสร็จก่อน!",
   },
   month: {
     Jan: "มกราคม",
@@ -433,6 +436,7 @@ export default {
       facebook: "กรุณากรอกเว็บไซต์ Facebook ที่ถูกต้อง",
       confirmPassword: "รหัสผ่านไม่ตรงกัน",
       withAt: "อย่ารวมสัญลักษณ์ {'@'}",
+      account: "อนุญาตเฉพาะอักขระอัลฟานูเมอริกเท่านั้น",
     },
     number: {
       value: "โปรดใส่ตัวเลข",
