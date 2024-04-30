@@ -54,4 +54,10 @@ export default {
 
   // 申請成為創作者
   applyCreator: { method: 'post', url: '/api/user/applyCreator' },
+
+  // 訪客興趣清單取得
+  getGuestInterested: { method: 'post', url: '/api/user/getinterested' },
+
+  // 訪客興趣清單儲存
+  setGuestInterested: { method: 'post', url: '/api/user/updateinterested' },
 }

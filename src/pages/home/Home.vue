@@ -63,7 +63,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { useLocalStorage, watchOnce, whenever } from '@vueuse/core'
+import { watchOnce, whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
@@ -81,7 +81,7 @@ import TopSearchBar from '@comp/navigation/TopSearchBar.vue'
 import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import useRequest from '@use/request/index.js'
 import { useInfinite } from '@use/request/infinite'
-import { LOCAL_STORAGE_KEYS, MODAL_TYPE } from '@const'
+import { MODAL_TYPE } from '@const'
 import { TAB_TYPE } from '@const/home'
 
 const appStore = useAppStore()
@@ -143,28 +143,31 @@ function onPageEnd() {
   }
 }
 
-const interestedList = useLocalStorage(LOCAL_STORAGE_KEYS.INTERESTED_LIST, [])
+// const interestedList = useLocalStorage(LOCAL_STORAGE_KEYS.INTERESTED_LIST, [])
 const accountStore = useAccountStore()
 const { isLogin, userData } = storeToRefs(accountStore)
 const { updateUserData } = accountStore
 const modalStore = useModalStore()
 const { open } = modalStore
-function updateIntesreted() {
-  const content = isLogin.value ? userData.value.interested.split(',') : interestedList.value
+async function updateIntesreted() {
+  const content = isLogin.value
+    ? userData.value.interested.split(',')
+    : (await useRequest('User.getGuestInterested', { immediate: true }))?.interested?.split(',')
+
   open(MODAL_TYPE.INTERESTED_PICK, {
     size: 'xl',
     content,
     async confirmAction(data) {
-      if (isLogin.value) {
-        const interested = data.join(',')
-        try {
+      const interested = data.join(',')
+      try {
+        if (isLogin.value) {
           await useRequest('User.modifyInfo', { params: { interested }, immediate: true })
           updateUserData({ interested })
-        } catch (e) {
-          return e.message
+        } else {
+          await useRequest('User.setGuestInterested', { params: { interested }, immediate: true })
         }
-      } else {
-        interestedList.value = data
+      } catch (e) {
+        return e.message
       }
 
       reload()

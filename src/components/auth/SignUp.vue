@@ -57,7 +57,6 @@ import debounce from 'lodash/debounce'
 import { computed, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
-import { useLocalStorage } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAuthRouteStore } from '@/store/auth-route'
@@ -68,7 +67,7 @@ import InputWrap from '@comp/form/InputWrap.vue'
 import PasswordValidation from '@comp/form/PasswordValidation.vue'
 import useRequest from '@use/request/index.js'
 import { useYup } from '@use/validator/yup.js'
-import { AUTH_ROUTES, LOCAL_STORAGE_KEYS, MODAL_TYPE } from '@const'
+import { AUTH_ROUTES, MODAL_TYPE } from '@const'
 
 const authRouteStore = useAuthRouteStore()
 const { to, back, close } = authRouteStore
@@ -155,7 +154,7 @@ async function submit() {
 }
 
 const accountStore = useAccountStore()
-const { login, updateUserData } = accountStore
+const { login } = accountStore
 
 const isLoading = ref(false)
 
@@ -178,11 +177,11 @@ async function register() {
     await login(data.value.token)
 
     // 同步訪客階段初次進站選擇的興趣清單
-    const interestedList = useLocalStorage(LOCAL_STORAGE_KEYS.INTERESTED_LIST, [])
-    const interested = interestedList.value.join(',')
-    await useRequest('User.modifyInfo', { params: { interested }, immediate: true })
-    updateUserData({ interested })
-    interestedList.value = []
+    // const interestedList = useLocalStorage(LOCAL_STORAGE_KEYS.INTERESTED_LIST, [])
+    // const interested = interestedList.value.join(',')
+    // await useRequest('User.modifyInfo', { params: { interested }, immediate: true })
+    // updateUserData({ interested })
+    // interestedList.value = []
 
     close()
     openModal(MODAL_TYPE.SIGN_UP_SUCCESS, {
