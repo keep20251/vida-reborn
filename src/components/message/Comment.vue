@@ -8,7 +8,7 @@
       </p>
       <div class="flex">
         <div class="mr-24 text-sm text-gray-57">
-          {{ $t(...tsSecondToHumanString(item.created_ts, item.created_at)) }}
+          {{ getHumanTime(item.created_ts, item.created_at) }}
         </div>
         <div class="cursor-pointer text-sm text-gray-57" @click="$emit('click:reply', item)">
           {{ $t('label.reply') }}
@@ -28,7 +28,7 @@
           </p>
           <div class="flex">
             <div class="mr-24 text-sm text-gray-57">
-              {{ $t(...tsSecondToHumanString(reply.created_ts, reply.created_at)) }}
+              {{ getHumanTime(reply.created_ts, reply.created_at) }}
             </div>
             <!-- <div class="cursor-pointer text-sm text-gray-57" @click="$emit('reply', item)">回覆</div> -->
             <div class="flex grow cursor-pointer justify-end" @click="$emit('click:like', reply)">
@@ -51,6 +51,7 @@
 </template>
 
 <script setup>
+import { useI18n } from 'vue-i18n'
 import Avatar from '@comp/multimedia/Avatar.vue'
 import { useInfinite } from '@use/request/infinite'
 import { tsSecondToHumanString } from '@/utils/string-helper'
@@ -69,4 +70,10 @@ const {
   params: { article_id: props.item.article_id, reply_comment_id: props.item.id },
   readonly: false,
 })
+
+const { t: $t } = useI18n()
+function getHumanTime(ts, fallbackValue) {
+  const v = tsSecondToHumanString(ts, fallbackValue)
+  return typeof v === 'string' ? v : $t(v.key, v.values)
+}
 </script>

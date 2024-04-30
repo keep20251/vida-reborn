@@ -19,9 +19,7 @@
           <Icon name="link" size="20"></Icon>
         </div>
       </div>
-      <div class="line-clamp-1 shrink-0 text-right text-sm font-medium leading-5 text-gray-57">
-        {{ $ts(tsSecondToHumanString(item.created_ts, item.created_at)) }}
-      </div>
+      <div class="line-clamp-1 shrink-0 text-right text-sm font-medium leading-5 text-gray-57">{{ postTime }}</div>
       <div v-if="!isVisitor && !isSelf" class="flex cursor-pointer items-center" @click.stop="dissSomeone(item.user)">
         <Icon name="moreVertical" size="20"></Icon>
       </div>
@@ -125,11 +123,17 @@ const accountStore = useAccountStore()
 const { userId, isVisitor } = storeToRefs(accountStore)
 const { afterLoginAction } = accountStore
 
+const { t: $t } = useI18n()
+
 const isSelf = computed(() => props.item.aff === userId.value)
 const isBlock = computed(() => props.item.user.is_block)
 const isVideo = computed(() => props.item.resource_type === MEDIA_TYPE.VIDEO)
 const isImage = computed(() => props.item.resource_type === MEDIA_TYPE.IMAGE)
 const tags = computed(() => (props.item.tags ? props.item.tags.split(',') : []))
+const postTime = computed(() => {
+  const v = tsSecondToHumanString(props.item.created_ts, props.item.created_at)
+  return typeof v === 'string' ? v : $t(v.key, v.values)
+})
 
 const content = ref(null)
 const showContentMore = ref(false)
@@ -153,13 +157,4 @@ const toggleLike = afterLoginAction($toggleLike)
 
 const { copy } = useCopyToClipboard()
 const { dissSomeone } = useDialogStore()
-
-const { t: $t } = useI18n()
-function $ts(date) {
-  if (typeof date === 'string' || typeof date === 'object') {
-    if (typeof date === 'object') return $t(date.key, date?.values)
-    else return date
-  }
-  console.warn('toHumanString: date is not string or object')
-}
 </script>
