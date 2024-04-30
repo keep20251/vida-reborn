@@ -159,6 +159,7 @@ import { useAppStore } from '@/store/app'
 import { useMineStore } from '@/store/mine'
 import { useModalStore } from '@/store/modal'
 import { usePublishStore } from '@/store/publish'
+import { useSubPlanStore } from '@/store/sub-plan'
 import Button from '@comp/common/Button.vue'
 import DatePicker from '@comp/form/DatePicker.vue'
 import Dropdown from '@comp/form/Dropdown.vue'
@@ -187,6 +188,8 @@ const { alert, confirm } = useModalStore()
 const accountStore = useAccountStore()
 const { userData } = storeToRefs(accountStore)
 
+const { open: openSubPlanDialog } = useSubPlanStore()
+
 const { reloadPost } = useMineStore()
 
 const { back, to } = useRouters()
@@ -201,12 +204,31 @@ watch(
   async (v) => {
     if (v && isCreate.value) {
       try {
+        // 至少有一個訂閱計畫，幫他預設選第一個
         if (userData.value.subscription_list.length > 0) {
           publishParams.subs.push(userData.value.subscription_list[0].id)
         }
+
+        // 沒有訂閱計畫，彈窗讓他新增
+        else {
+          confirm({
+            title: 'title.noSubPlan',
+            content: 'content.createSubBeforePost',
+            async confirmAction() {
+              openSubPlanDialog()
+            },
+            cancelAction() {
+              clear()
+              back()
+            },
+            confirmText: 'label.goToSet',
+          })
+        }
+
         await startUpload(video)
       } catch (e) {
         console.error(e)
+        clear()
         back()
       }
     }
