@@ -88,7 +88,7 @@ async function createServer(root = process.cwd(), hmrPort = 6173) {
     } catch (e) {
       vite && vite.ssrFixStacktrace(e)
       console.log(e.stack)
-      res.status(500).end(e.stack)
+      res.status(500).set({ 'Content-Type': 'text/plain; charset=utf-8' }).end(e.toString())
     }
   })
 

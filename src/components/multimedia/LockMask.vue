@@ -55,7 +55,7 @@ const { t: $t } = useI18n()
 const btnText = computed(() => {
   if (props.item.article_type === FEED_PERM.SUB) return $t('label.subBtn')
   if (props.item.article_type === FEED_PERM.BUY) return $t('label.buyBtn')
-  throw new Error('未知的帖子類型')
+  throw new Error(`未知的帖子類型: ${props.item.article_type}`)
 })
 
 const { subscribe, shopBuy } = useDialog()
@@ -63,7 +63,7 @@ const { subscribe, shopBuy } = useDialog()
 const clickAction = computed(() => {
   if (props.item.article_type === FEED_PERM.SUB) return subscribe
   if (props.item.article_type === FEED_PERM.BUY) return shopBuy
-  throw new Error('未知的帖子類型')
+  throw new Error(`未知的帖子類型: ${props.item.article_type}`)
 })
 
 const lowestSub = computed(() => {
@@ -74,7 +74,7 @@ const lowestSub = computed(() => {
 const actionParams = computed(() => {
   if (props.item.article_type === FEED_PERM.SUB) return { item: lowestSub.value, creator: props.item.user }
   if (props.item.article_type === FEED_PERM.BUY) return props.item
-  throw new Error('未知的帖子類型')
+  throw new Error(`未知的帖子類型: ${props.item.article_type}`)
 })
 
 const icon = computed(() => (isVideo.value ? 'videoWhite' : isImage.value ? 'cameraWhite' : ''))
