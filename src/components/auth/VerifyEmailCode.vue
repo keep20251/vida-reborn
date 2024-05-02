@@ -13,7 +13,6 @@
               :err-msg="verifyCodeError"
               :first-time="false"
               :label-center="true"
-              focus
               @update:modelValue="verifyCodeError = ''"
               @error="(message) => (serverError = message)"
               @keypress:enter="validate"
