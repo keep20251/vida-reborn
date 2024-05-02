@@ -5,6 +5,7 @@ export const COOKIE_KEY = {
   USERNAME: '__USERNAME',
   AFF: '__AFF',
   UUID: '__UUID',
+  ROLE: '__ROLE',
 }
 
 // 登入與註冊流程的路由設置
