@@ -152,3 +152,10 @@ export const toQueryString = (obj) => {
   Object.keys(obj).forEach((key) => params.append(key, obj[key]))
   return params.toString()
 }
+
+export const commaSplittedToArray = (commaSplitted) => {
+  if (commaSplitted) {
+    return commaSplitted.split(',')
+  }
+  return []
+}

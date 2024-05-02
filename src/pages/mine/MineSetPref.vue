@@ -18,6 +18,7 @@ import { usePopupMessageStore } from '@/store/popup-message'
 import Button from '@comp/common/Button.vue'
 import OptionsPicker from '@comp/form/OptionsPicker.vue'
 import useRequest from '@use/request/index.js'
+import { commaSplittedToArray } from '@/utils/string-helper'
 
 const { open: openMessage } = usePopupMessageStore()
 
@@ -32,7 +33,7 @@ const mineStore = useMineStore()
 const { interested } = storeToRefs(mineStore)
 
 onActivated(() => {
-  interested.value = userData.value.interested.split(',')
+  interested.value = commaSplittedToArray(userData.value.interested)
 })
 
 const serverError = ref('')

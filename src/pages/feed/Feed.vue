@@ -74,6 +74,7 @@ import TopSearchBar from '@comp/navigation/TopSearchBar.vue'
 import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import useRequest from '@use/request'
 import { useInfinite } from '@use/request/infinite'
+import { commaSplittedToArray } from '@/utils/string-helper'
 
 const { t: $t } = useI18n()
 const route = useRoute()
@@ -139,7 +140,7 @@ async function loadSeoHead() {
   await setupHead({
     title: feed.value.title,
     description: feed.value.content,
-    keywords: [feed.value.user?.username, ...feed.value.tags.split(',').filter((t, i) => i !== 0 || t !== '')],
+    keywords: [feed.value.user?.username, ...commaSplittedToArray(feed.value.tags)],
     url: `/${feed.value.user?.username}/${feed.value.id}`,
     image: feed.value.user?.thumb,
   })

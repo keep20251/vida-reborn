@@ -83,6 +83,7 @@ import useRequest from '@use/request/index.js'
 import { useInfinite } from '@use/request/infinite'
 import { MODAL_TYPE } from '@const'
 import { TAB_TYPE } from '@const/home'
+import { commaSplittedToArray } from '@/utils/string-helper'
 
 const appStore = useAppStore()
 const { isDesktop, isMobile } = storeToRefs(appStore)
@@ -150,9 +151,10 @@ const { updateUserData } = accountStore
 const modalStore = useModalStore()
 const { open } = modalStore
 async function updateIntesreted() {
-  const content = isLogin.value
-    ? userData.value.interested.split(',')
-    : (await useRequest('User.getGuestInterested', { immediate: true }))?.interested?.split(',')
+  const interestedSplitByComma = isLogin.value
+    ? userData.value.interested
+    : (await useRequest('User.getGuestInterested', { immediate: true }))?.interested
+  const content = commaSplittedToArray(interestedSplitByComma)
 
   open(MODAL_TYPE.INTERESTED_PICK, {
     size: 'xl',

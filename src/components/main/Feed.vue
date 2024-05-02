@@ -108,7 +108,7 @@ import VideoWrap from '@comp/multimedia/VideoWrap.vue'
 import { useRouters } from '@use/routers'
 import { useCopyToClipboard } from '@use/utils/copyToClipboard'
 import { MEDIA_TYPE } from '@const/publish'
-import { tsSecondToHumanString, tsSecondToYMDhm } from '@/utils/string-helper'
+import { commaSplittedToArray, tsSecondToHumanString, tsSecondToYMDhm } from '@/utils/string-helper'
 
 const props = defineProps({
   item: { type: Object, required: true },
@@ -127,7 +127,7 @@ const isSelf = computed(() => props.item.aff === userId.value)
 const isBlock = computed(() => props.item.user.is_block)
 const isVideo = computed(() => props.item.resource_type === MEDIA_TYPE.VIDEO)
 const isImage = computed(() => props.item.resource_type === MEDIA_TYPE.IMAGE)
-const tags = computed(() => (props.item.tags ? props.item.tags.split(',') : []))
+const tags = computed(() => commaSplittedToArray(props.item.tags))
 const postTime = computed(() => {
   const v = tsSecondToHumanString(props.item.created_ts, props.item.created_at)
   return typeof v === 'string' ? v : $t(v.key, v.values)
