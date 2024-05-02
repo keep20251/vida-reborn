@@ -8,11 +8,15 @@
             <div class="flex grow flex-col space-y-5">
               <div class="flex space-x-5">
                 <div
-                  class="max-w-[6rem] overflow-hidden text-ellipsis whitespace-nowrap text-base font-bold leading-md"
+                  class="max-w-[6rem] cursor-pointer overflow-hidden text-ellipsis whitespace-nowrap text-base font-bold leading-md"
+                  @click="toCreator(item?.username)"
                 >
                   {{ item?.nickname }}
                 </div>
-                <div class="max-w-[6rem] overflow-hidden text-ellipsis whitespace-nowrap text-sm font-normal leading-3">
+                <div
+                  class="max-w-[6rem] cursor-pointer overflow-hidden text-ellipsis whitespace-nowrap text-sm font-normal leading-3"
+                  @click="toCreator(item?.username)"
+                >
                   @{{ item?.username }}
                 </div>
               </div>
