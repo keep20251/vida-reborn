@@ -33,11 +33,8 @@
         <VideoWrap v-else-if="isVideo" :item="item"></VideoWrap>
         <PhotoSwiper v-else-if="isImage" :item="item"></PhotoSwiper>
       </div>
-      <div
-        v-if="![FEED_STATUS.PUBLISHED, FEED_STATUS.REJECT].includes(item.status)"
-        class="absolute left-20 top-20 text-base font-bold text-white"
-      >
-        {{ $t('content.autoPublishAt', { datetime: tsSecondToYMDhm(item.display_ts, item.display_at) }) }}
+      <div v-if="item.display_ts" class="absolute left-20 top-20 text-base font-bold text-white">
+        {{ $t('content.autoPublishAt', { datetime: tsSecondToYMDhm(item.display_ts) }) }}
       </div>
     </div>
 
