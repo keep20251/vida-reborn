@@ -4,11 +4,15 @@
       <Avatar class="mr-10" :radius="35" :src="creator.thumb"></Avatar>
       <div class="flex flex-col justify-center space-y-10">
         <div class="flex items-end space-y-4">
-          <div class="max-w-[6.25rem] overflow-hidden text-ellipsis whitespace-nowrap text-lg font-bold leading-lg">
+          <div
+            class="max-w-[6.25rem] cursor-pointer overflow-hidden text-ellipsis whitespace-nowrap text-lg font-bold leading-lg"
+            @click.stop="toCreator(creator.username)"
+          >
             {{ creator.nickname }}
           </div>
           <div
-            class="max-w-[6.25rem] overflow-hidden text-ellipsis whitespace-nowrap text-sm font-normal leading-3 text-gray-57"
+            class="max-w-[6.25rem] cursor-pointer overflow-hidden text-ellipsis whitespace-nowrap text-sm font-normal leading-3 text-gray-57"
+            @click.stop="toCreator(creator.username)"
           >
             ＠{{ creator.username }}
           </div>
@@ -34,6 +38,7 @@ import { useCreatorStore } from '@/store/creator'
 import { useSubsciptionStore } from '@/store/subscription'
 import Button from '@comp/common/Button.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
+import { useRouters } from '@use/routers'
 
 const props = defineProps({
   username: { type: String, required: true },
@@ -44,6 +49,8 @@ const creatorStore = useCreatorStore()
 const { get: getCreator } = creatorStore
 
 const { open } = useSubsciptionStore()
+
+const { toCreator } = useRouters()
 
 watch(
   () => props.username,
