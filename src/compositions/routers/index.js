@@ -1,11 +1,18 @@
 import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
+import { useCreatorStore } from '@/store/creator'
+import { useModalStore } from '@/store/modal'
 
 export function useRouters() {
   const router = useRouter()
   const accountStore = useAccountStore()
   const { username: $username } = storeToRefs(accountStore)
+
+  const creatorStore = useCreatorStore()
+  const { get: getCreator } = creatorStore
+
+  const { alert } = useModalStore()
 
   function back() {
     if (window.history.state.back === null) {
@@ -30,11 +37,18 @@ export function useRouters() {
     return to(name, { params, query }, true)
   }
 
-  function toMessage(username) {
+  async function toMessage(username) {
     if (username === $username.value) {
       console.warn('你確定你可以跟自己聊天？？')
       return
     }
+
+    const creator = await getCreator(username)
+    if (!creator.is_able_send_message) {
+      alert({ title: 'info.subscribeBeforeChat' })
+      return Promise.resolve()
+    }
+
     return to('message', { params: { to: username } })
   }
 
