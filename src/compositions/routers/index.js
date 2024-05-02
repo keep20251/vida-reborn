@@ -53,6 +53,12 @@ export function useRouters() {
     router.replace({ name: router.currentRoute.name, params, query })
   }
 
+  function reload() {
+    if (!import.meta.env.SSR) {
+      window.location.href = window.location.origin + '/home'
+    }
+  }
+
   return {
     back,
     to,
@@ -61,5 +67,6 @@ export function useRouters() {
     toCreator,
     toFeed,
     updateParams,
+    reload,
   }
 }
