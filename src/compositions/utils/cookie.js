@@ -41,11 +41,15 @@ export function useCookie(key, { default: defaultValue, readonly: isReadonly = f
       switch (typeof defaultValue) {
         case 'undefined':
         case 'string':
+        case 'number':
+        case 'boolean':
           cookieRef = ref(defaultValue)
           break
         case 'function':
           cookieRef = ref(defaultValue())
           break
+        default:
+          throw new Error(`useCookie default value type "${typeof defaultValue}" is not accept...`)
       }
       const cookie = cookieRef.value
       if (cookie !== undefined) {

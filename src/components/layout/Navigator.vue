@@ -1,7 +1,7 @@
 <template>
   <header class="flex shrink-0 grow basis-60 justify-end overflow-x-hidden md:basis-72 xl:basis-[150px]">
     <nav class="fixed flex h-full min-h-[600px] w-60 flex-col overflow-x-hidden md:w-72 xl:w-[150px]">
-      <Link class="mt-10 px-12 pb-20 pt-10 hover:bg-gray-f6" href="/home" title="VIDA" @click="to('home')">
+      <Link class="mt-10 px-12 pb-20 pt-10 hover:bg-gray-f6" href="/home" title="VIDA" @click="reload">
         <img class="h-20 w-36 xl:h-40 xl:w-72" src="@/assets/logo.svg?url" alt="VIDA" />
       </Link>
       <router-link to="/home">
@@ -82,7 +82,7 @@ const atMine = computed(() => route.name.includes('mine'))
 
 const isDev = computed(() => import.meta.env.DEV)
 
-const { to } = useRouters()
+const { to, reload } = useRouters()
 
 const { afterLoginAction } = useAccountStore()
 const { fileSelectDialog } = storeToRefs(useDialogStore())

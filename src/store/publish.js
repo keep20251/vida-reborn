@@ -205,10 +205,9 @@ export const usePublishStore = defineStore('publish', () => {
     publishParams.category = category
     publishParams.title = title
     publishParams.content = content
-    publishParams.tags = tags ? tags.split(',').filter((t, i) => i !== 0 || t !== '') : []
+    publishParams.tags = tags
     publishParams.type = type
     publishParams.perm = perm
-    // publishParams.subs = subs ? subs.split(',').filter((t, i) => i !== 0 || t !== '') : []
     publishParams.subs = subs
     publishParams.price = price
     publishParams.postTime = postTime

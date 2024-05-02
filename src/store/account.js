@@ -16,10 +16,10 @@ export const useAccountStore = defineStore('account-store', () => {
   const usernameCookie = useCookie(COOKIE_KEY.USERNAME, { default: '' })
   const affCookie = useCookie(COOKIE_KEY.AFF, { default: '' })
   const uuidCookie = useCookie(COOKIE_KEY.UUID, { default: '' })
+  const role = useCookie(COOKIE_KEY.ROLE, { default: USER_PERM.VISITOR })
 
   const chatToken = ref(null)
 
-  const role = ref(USER_PERM.VISITOR)
   const userData = ref(null)
 
   const isLogin = computed(() => !!tokenCookie.value && !!userData.value)

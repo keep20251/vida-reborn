@@ -7,7 +7,7 @@
       <div class="py-15 text-base font-bold">#{{ status(item) }}</div>
       <List :items="item.list" item-key="id" divider>
         <template #default="{ item }">
-          <Feed class="py-10" :item="item"></Feed>
+          <Feed class="py-10" :item="item" :show-auto-publish-time="tab === TAB_TYPE.SCH"></Feed>
           <Button class="mb-20" @click="onEdit(item)">{{ $t('label.edit') }}</Button>
         </template>
       </List>
@@ -35,6 +35,7 @@ import { useInfinite } from '@use/request/infinite'
 import { useRouters } from '@use/routers'
 import { POST_TAB_TYPE as TAB_TYPE } from '@const/mine'
 import { FEED_PERM, FEED_STATUS, MEDIA_TYPE } from '@const/publish'
+import { commaSplittedToArray } from '@/utils/string-helper'
 
 const route = useRoute()
 const { to, updateParams } = useRouters()
@@ -222,7 +223,7 @@ function onEdit(item) {
     category: item.category + '',
     title: item.title,
     content: item.content,
-    tags: item.tags,
+    tags: commaSplittedToArray(item.tags),
     type: item.resource_type,
     perm: item.article_type,
     subs: item.user.subscription_list.map((sub) => sub.id),
