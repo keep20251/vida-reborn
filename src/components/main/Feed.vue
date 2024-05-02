@@ -33,8 +33,8 @@
         <VideoWrap v-else-if="isVideo" :item="item"></VideoWrap>
         <PhotoSwiper v-else-if="isImage" :item="item"></PhotoSwiper>
       </div>
-      <div v-if="item.display_ts" class="absolute left-20 top-20 text-base font-bold text-white">
-        {{ $t('content.autoPublishAt', { datetime: tsSecondToYMDhm(item.display_ts) }) }}
+      <div v-if="showAutoPublishTime" class="absolute left-20 top-20 text-base font-bold text-white">
+        {{ $t('content.autoPublishAt', { datetime: tsSecondToYMDhm(item.display_ts, item.display_at) }) }}
       </div>
     </div>
 
@@ -107,13 +107,14 @@ import PhotoSwiper from '@comp/multimedia/PhotoSwiper.vue'
 import VideoWrap from '@comp/multimedia/VideoWrap.vue'
 import { useRouters } from '@use/routers'
 import { useCopyToClipboard } from '@use/utils/copyToClipboard'
-import { FEED_STATUS, MEDIA_TYPE } from '@const/publish'
+import { MEDIA_TYPE } from '@const/publish'
 import { tsSecondToHumanString, tsSecondToYMDhm } from '@/utils/string-helper'
 
 const props = defineProps({
   item: { type: Object, required: true },
   disableToDetail: { type: Boolean, default: false },
   disableContentFold: { type: Boolean, default: false },
+  showAutoPublishTime: { type: Boolean, default: false },
 })
 
 const accountStore = useAccountStore()

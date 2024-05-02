@@ -7,7 +7,7 @@
       <div class="py-15 text-base font-bold">#{{ status(item) }}</div>
       <List :items="item.list" item-key="id" divider>
         <template #default="{ item }">
-          <Feed class="py-10" :item="item"></Feed>
+          <Feed class="py-10" :item="item" :show-auto-publish-time="tab === TAB_TYPE.SCH"></Feed>
           <Button class="mb-20" @click="onEdit(item)">{{ $t('label.edit') }}</Button>
         </template>
       </List>
