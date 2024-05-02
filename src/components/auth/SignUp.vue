@@ -9,7 +9,6 @@
               :err-msg="credential.email.error"
               :label="$t('label.email')"
               :placeholder="$t('placeholder.email')"
-              focus
               @keypress:enter="submit"
             ></InputWrap>
             <InputWrap
