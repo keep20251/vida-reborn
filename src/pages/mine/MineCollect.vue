@@ -5,7 +5,10 @@
       <Feed class="py-20" :item="item"></Feed>
     </template>
     <template #bottom>
-      <div class="flex items-center justify-center py-8 text-gray-a3">
+      <div v-if="!isLoading && items.length === 0">
+        <NoData v-if="items.length === 0">{{ $t('common.noMore') }}</NoData>
+      </div>
+      <div v-else class="flex items-center justify-center py-8 text-gray-a3">
         <Loading v-if="isLoading">{{ $t('common.loading') }}</Loading>
         <span v-if="noMore">{{ $t('common.noMore') }}</span>
       </div>
@@ -16,6 +19,7 @@
 import { computed, onActivated, onDeactivated, ref, watch } from 'vue'
 import { useFeedStore } from '@/store/feed'
 import { useMineStore } from '@/store/mine'
+import NoData from '@comp/info/NoData.vue'
 import Feed from '@comp/main/Feed.vue'
 import { useInfinite } from '@use/request/infinite'
 import { GET_ARTICLE_COLLECT, GET_ARTICLE_LIST, MINE_COLLECT_TAB } from '@const'

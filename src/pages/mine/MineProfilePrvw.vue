@@ -39,7 +39,10 @@
           <Feed :item="item" class="py-20"></Feed>
         </template>
         <template #bottom>
-          <div class="flex items-center justify-center py-8 text-gray-a3">
+          <div v-if="!isLoading && dataList.length === 0">
+            <NoData v-if="dataList.length === 0">{{ $t('common.noMore') }}</NoData>
+          </div>
+          <div v-else class="flex items-center justify-center py-8 text-gray-a3">
             <Loading v-if="isLoading">{{ $t('common.loading') }}</Loading>
             <span v-if="noMore">{{ $t('common.noMore') }}</span>
           </div>
@@ -58,6 +61,7 @@ import { useHydrationStore } from '@/store/hydration'
 import { useMineStore } from '@/store/mine'
 import Button from '@comp/common/Button.vue'
 import SocialIcon from '@comp/common/SocialIcon.vue'
+import NoData from '@comp/info/NoData.vue'
 import Feed from '@comp/main/Feed.vue'
 import SelfIntro from '@comp/main/SelfIntro.vue'
 import { onHydration, onServerClientOnce } from '@use/lifecycle'

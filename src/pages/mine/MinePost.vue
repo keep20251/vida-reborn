@@ -13,7 +13,10 @@
       </List>
     </template>
     <template #bottom>
-      <div class="flex items-center justify-center py-8 text-gray-a3">
+      <div v-if="!isLoading && items.length === 0">
+        <NoData v-if="items.length === 0">{{ $t('common.noMore') }}</NoData>
+      </div>
+      <div v-else class="flex items-center justify-center py-8 text-gray-a3">
         <Loading v-if="isLoading"></Loading>
         <span v-if="noMore">{{ $t('common.noMore') }}</span>
       </div>
@@ -29,6 +32,7 @@ import { storeToRefs } from 'pinia'
 import { useMineStore } from '@/store/mine'
 import { usePublishStore } from '@/store/publish'
 import Button from '@comp/common/Button.vue'
+import NoData from '@comp/info/NoData.vue'
 import Feed from '@comp/main/Feed.vue'
 import ButtonTab from '@comp/navigation/ButtonTab.vue'
 import { useInfinite } from '@use/request/infinite'

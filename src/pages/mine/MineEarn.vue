@@ -116,7 +116,10 @@
           <EarnPostCard :item="item"></EarnPostCard>
         </template>
         <template #bottom>
-          <div class="flex items-center justify-center py-8 text-gray-a3">
+          <div v-if="!isLoading && dataList.length === 0">
+            <NoData v-if="dataList.length === 0">{{ $t('common.noMore') }}</NoData>
+          </div>
+          <div v-else class="flex items-center justify-center py-8 text-gray-a3">
             <Loading v-if="isLoading">{{ $t('common.loading') }}</Loading>
             <span v-if="noMore">{{ $t('common.noMore') }}</span>
           </div>
@@ -132,6 +135,7 @@ import { useEarnStore } from '@/store/earn'
 import { useMineStore } from '@/store/mine'
 import Button from '@comp/common/Button.vue'
 import DatePicker from '@comp/form/DatePicker.vue'
+import NoData from '@comp/info/NoData.vue'
 import EarnPostCard from '@comp/mine/EarnPostCard.vue'
 import Tab from '@comp/navigation/Tab.vue'
 import { useInfinite } from '@use/request/infinite'
