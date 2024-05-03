@@ -141,7 +141,7 @@ function onPageEnd() {
   if (tab.value === TAB_TYPE.REC) {
     next()
   }
-  if (tab.value === TAB_TYPE.SUB) {
+  if (tab.value === TAB_TYPE.SUB && isDesktop.value) {
     creatorsNext()
   }
 }
