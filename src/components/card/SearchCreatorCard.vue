@@ -19,7 +19,7 @@
               <span class="text-center"><Icon name="ellipse" size="3"></Icon></span>
               {{ viewCount }} {{ $t('content.view') }}
             </div>
-            <div class="text-base font-normal leading-5 text-black">
+            <div class="line-clamp-2 text-base font-normal leading-5 text-black">
               {{ props.item?.description }}
             </div>
           </div>
