@@ -37,7 +37,10 @@
               <ViewSubscribeCard class="my-5" :item="item" :theme="(index + 2) % 3"></ViewSubscribeCard>
             </template>
             <template #bottom>
-              <div class="flex items-center justify-center py-8 text-gray-a3">
+              <div v-if="!creatorsIsLoading && creators.length === 0">
+                <NoData v-if="creators.length === 0">{{ $t('common.noMore') }}</NoData>
+              </div>
+              <div v-else class="flex items-center justify-center py-8 text-gray-a3">
                 <Loading v-if="creatorsIsLoading"></Loading>
                 <span v-if="creatorsNoMore">{{ $t('common.noMore') }}</span>
               </div>

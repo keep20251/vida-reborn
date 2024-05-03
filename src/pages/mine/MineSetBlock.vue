@@ -13,7 +13,10 @@
         </div>
       </template>
       <template #bottom>
-        <div class="flex items-center justify-center py-20 text-gray-a3">
+        <div v-if="!isLoading && dataList.length === 0">
+          <NoData v-if="dataList.length === 0">{{ $t('common.noMore') }}</NoData>
+        </div>
+        <div v-else class="flex items-center justify-center py-8 text-gray-a3">
           <Loading v-if="isLoading">{{ $t('common.loading') }}</Loading>
           <span v-if="noMore">{{ $t('common.noMore') }}</span>
         </div>
@@ -27,6 +30,7 @@ import { useFeedStore } from '@/store/feed'
 import { useMineStore } from '@/store/mine'
 import { useModalStore } from '@/store/modal'
 import { usePopupMessageStore } from '@/store/popup-message'
+import NoData from '@comp/info/NoData.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
 import useRequest from '@use/request/index.js'
 import { useInfinite } from '@use/request/infinite'

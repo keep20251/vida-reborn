@@ -6,9 +6,12 @@
           <SearchCreatorCard :item="item" class="mt-20"></SearchCreatorCard>
         </template>
         <template #bottom>
-          <div class="flex items-center justify-center py-8 text-gray-a3">
+          <div v-if="!creatorFetcher.isLoading && creatorFetcher.dataList.length === 0">
+            <NoData v-if="creatorFetcher.dataList.length === 0">{{ $t('common.noMore') }}</NoData>
+          </div>
+          <div v-else class="flex items-center justify-center py-8 text-gray-a3">
             <Loading v-if="creatorFetcher.isLoading"></Loading>
-            <span v-if="creatorFetcher.noMore"> {{ $t('common.noMore') }}</span>
+            <span v-if="creatorFetcher.noMore">{{ $t('common.noMore') }}</span>
           </div>
         </template>
       </List>
@@ -19,7 +22,10 @@
           <Feed class="py-20" :item="item"></Feed>
         </template>
         <template #bottom>
-          <div class="flex items-center justify-center py-8 text-gray-a3">
+          <div v-if="!articleFetcher.isLoading && articleFetcher.dataList.length === 0">
+            <NoData v-if="articleFetcher.dataList.length === 0">{{ $t('common.noMore') }}</NoData>
+          </div>
+          <div v-else class="flex items-center justify-center py-8 text-gray-a3">
             <Loading v-if="articleFetcher.isLoading"></Loading>
             <span v-if="articleFetcher.noMore">{{ $t('common.noMore') }}</span>
           </div>
@@ -32,6 +38,7 @@
 import { storeToRefs } from 'pinia'
 import { useSearchStore } from '@/store/search'
 import SearchCreatorCard from '@comp/card/SearchCreatorCard.vue'
+import NoData from '@comp/info/NoData.vue'
 import Feed from '@comp/main/Feed.vue'
 import { SEARCH_TAB } from '@const'
 
