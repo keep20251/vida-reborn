@@ -57,8 +57,11 @@
             <Feed class="py-20" :item="item"></Feed>
           </template>
           <template #bottom>
-            <div class="flex items-center justify-center py-8 text-gray-a3">
-              <Loading v-if="isLoading"></Loading>
+            <div v-if="!isLoading && items.length === 0">
+              <NoData v-if="items.length === 0">{{ $t('common.noMore') }}</NoData>
+            </div>
+            <div v-else class="flex items-center justify-center py-8 text-gray-a3">
+              <Loading v-if="isLoading">{{ $t('common.loading') }}</Loading>
               <span v-if="noMore">{{ $t('common.noMore') }}</span>
             </div>
           </template>
@@ -100,6 +103,7 @@ import SubscribeCard from '@comp/card/SubscribeCard.vue'
 import Button from '@comp/common/Button.vue'
 import SocialIcon from '@comp/common/SocialIcon.vue'
 import Error from '@comp/info/Error.vue'
+import NoData from '@comp/info/NoData.vue'
 import Feed from '@comp/main/Feed.vue'
 import SelfIntro from '@comp/main/SelfIntro.vue'
 import Head from '@comp/navigation/Head.vue'
