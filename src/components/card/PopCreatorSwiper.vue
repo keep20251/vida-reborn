@@ -1,22 +1,31 @@
 <template>
-  <div class="mt-20 flex h-full flex-col space-y-28">
+  <div class="mt-20 flex h-full flex-col space-y-28" @touchmove.prevent>
     <div class="flex flex-col space-y-10">
       <div class="text-center text-base font-bold">{{ $t('info.popularCreator') }}</div>
       <div class="text-center text-base">{{ $t('info.subscribeToView') }}</div>
     </div>
-    <div class="relative -ml-20 flex w-[calc(100%+2.5rem)] grow items-center justify-center overflow-hidden">
+    <div
+      class="relative -ml-20 flex w-[calc(100%+2.5rem)] grow items-center justify-center overflow-hidden"
+      ref="swiper"
+    >
       <div
         v-for="(item, i) in items"
         :key="item.aff"
-        class="absolute left-[50%] h-full w-2/3 rounded-xl transition-transform"
+        class="absolute left-[50%] h-full w-2/3 rounded-xl"
         :class="{
-          '-translate-x-[260%]': i === currIndex - 2,
-          '-translate-x-[155%]': i === currIndex - 1,
-          '-translate-x-[50%]': i === currIndex,
-          'translate-x-[55%]': i === currIndex + 1,
-          'translate-x-[160%]': i === currIndex + 2,
-          'scale-90': i !== currIndex,
-          hidden: i < currIndex - 2 || i > currIndex + 2,
+          'will-change-transform': i >= index - 2 && i <= index + 2 && index % 1 !== 0,
+          hidden: !(i >= index - 2 && i <= index + 2),
+        }"
+        :style="{
+          transform:
+            i >= index - 2 && i <= index + 2
+              ? // -2: translateX(-260%) scale(0.9)
+                // -1: translateX(-155%) scale(0.9)
+                // 0: translateX(-50%) scale(1)
+                // 1: translateX(55%) scale(0.9)
+                // 2: translateX(160%) scale(0.9)
+                `translateX(${-50 + (i - index) * 105}%) scale(${1 - Math.min(1, Math.abs(i - index)) * 0.1})`
+              : 'none',
         }"
         @click="toCreator(item.username)"
       >
@@ -24,12 +33,10 @@
           <EncryptImage :src="item.background" :border-radius="15" cover></EncryptImage>
         </div>
         <div
-          class="absolute top-0 flex h-full w-full flex-col items-center rounded-inherit p-20"
-          :class="{
-            'bg-gradient-to-b from-[#6466E7] to-[#7FE2D3] opacity-80': i === currIndex,
-            'bg-black opacity-70': i !== currIndex,
-          }"
-        >
+          class="absolute top-0 h-full w-full rounded-inherit bg-gradient-to-b from-[#6466E7] to-[#7FE2D3]"
+          :style="{ opacity: 0.8 - 0.7 * Math.min(1, Math.abs(i - index)) }"
+        ></div>
+        <div class="absolute top-0 flex h-full w-full flex-col items-center rounded-inherit p-20">
           <!-- 暫隱藏 -->
           <!-- <div class="self-end">
             <Icon name="closeWhite" size="20"></Icon>
@@ -45,22 +52,6 @@
           </div>
         </div>
       </div>
-      <div class="absolute left-10 top-0 flex h-full w-40 items-center">
-        <div class="flex h-40 w-40 items-center justify-start pl-10" @click.stop="swipe(-1)">
-          <div class="flex h-20 w-20 cursor-pointer items-center justify-center rounded-full bg-gray-f6 opacity-60">
-            <Icon name="back" size="16"></Icon>
-          </div>
-        </div>
-      </div>
-      <div class="absolute right-10 top-0 flex h-full w-40 items-center">
-        <div class="flex h-40 w-40 items-center justify-end pr-10" @click.stop="swipe(1)">
-          <div
-            class="flex h-20 w-20 rotate-180 cursor-pointer items-center justify-center rounded-full bg-gray-f6 opacity-60"
-          >
-            <Icon name="back" size="16"></Icon>
-          </div>
-        </div>
-      </div>
       <Loading v-if="items.length === 0"></Loading>
     </div>
     <div class="flex">
@@ -70,10 +61,11 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useSubsciptionStore } from '@/store/subscription'
 import Button from '@comp/common/Button.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
+import { useSwipe } from '@use/gesture/swipe'
 import { useRouters } from '@use/routers'
 
 const props = defineProps({
@@ -82,20 +74,18 @@ const props = defineProps({
 
 const emits = defineEmits(['load', 'reload'])
 
-const currIndex = ref(0)
-function swipe(delta) {
-  if ((currIndex.value === 0 && delta < 0) || (currIndex.value === props.items.length - 1 && delta > 0)) {
-    return
-  }
-  currIndex.value += delta
+const swiper = ref(null)
+const items = computed(() => props.items)
+const { index, reset } = useSwipe(swiper, items)
 
-  if (currIndex.value >= props.items.length - 2) {
+watch(index, (v) => {
+  if (v === props.items.length - 2) {
     emits('load')
   }
-}
+})
 
 function reload() {
-  currIndex.value = 0
+  reset()
   emits('reload')
 }
 
