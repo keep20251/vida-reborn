@@ -26,7 +26,7 @@
     </div>
 
     <!-- media -->
-    <div class="relative inline-block w-full rounded-md">
+    <div class="relative inline-block w-full cursor-auto rounded-md" @click.stop>
       <div class="mt-[60%]"></div>
       <div class="absolute left-0 top-0 h-full w-full rounded-inherit">
         <BlockMask v-if="isBlock" :item="item"></BlockMask>
