@@ -69,6 +69,7 @@ import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useDialogStore } from '@/store/dialog'
+import { useModalStore } from '@/store/modal'
 import { usePublishStore } from '@/store/publish'
 import Link from '@comp/common/Link.vue'
 import { useRouters } from '@use/routers'
@@ -84,15 +85,23 @@ const isDev = computed(() => import.meta.env.DEV)
 
 const { to, reload } = useRouters()
 
-const { afterLoginAction } = useAccountStore()
+const accountStore = useAccountStore()
+const { isCreator } = storeToRefs(accountStore)
+const { afterLoginAction } = accountStore
 const { fileSelectDialog } = storeToRefs(useDialogStore())
+const { confirm } = useModalStore()
 
 const toMessage = afterLoginAction(() => to('message'))
 
 const publishStore = usePublishStore()
 const { isEditing } = storeToRefs(publishStore)
 const onPublishClick = afterLoginAction(() => {
-  if (isEditing.value) {
+  if (!isCreator.value) {
+    confirm({
+      title: 'title.beCreatorFirst',
+      confirmAction: () => to('mine').then(() => to('mine-creator-agreement')),
+    })
+  } else if (isEditing.value) {
     to('publish')
   } else {
     fileSelectDialog.value = true
