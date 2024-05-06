@@ -20,7 +20,7 @@
         </div>
       </template>
       <template #bottom>
-        <NoData v-if="!isLoading && dataList.length === 0 && noMore"></NoData>
+        <NoData v-if="noData"></NoData>
         <div v-else class="flex items-center justify-center py-8 text-gray-a3">
           <Loading v-if="isLoading">{{ $t('common.loading') }}</Loading>
           <span v-if="noMore">{{ $t('common.noMore') }}</span>
@@ -38,7 +38,7 @@ import { useInfinite } from '@use/request/infinite'
 import { tsSecondToYMDhm } from '@/utils/string-helper'
 import { WITHDRAW_LIST_STATUS } from '@/constant/index.js'
 
-const { dataList, isLoading, noMore, init, next } = useInfinite('User.listWithdraw', {
+const { dataList, isLoading, noMore, noData, init, next } = useInfinite('User.listWithdraw', {
   params: {},
 })
 

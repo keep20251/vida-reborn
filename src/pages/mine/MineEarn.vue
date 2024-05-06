@@ -116,7 +116,7 @@
           <EarnPostCard :item="item"></EarnPostCard>
         </template>
         <template #bottom>
-          <NoData v-if="!isLoading && dataList.length === 0 && noMore"></NoData>
+          <NoData v-if="noData"></NoData>
           <div v-else class="flex items-center justify-center py-8 text-gray-a3">
             <Loading v-if="isLoading">{{ $t('common.loading') }}</Loading>
             <span v-if="noMore">{{ $t('common.noMore') }}</span>
@@ -181,7 +181,7 @@ const params = {
   end_time: toDateYmd(endDate.value),
 }
 
-const { dataList, init, next, reload, isLoading, noMore } = useInfinite('Article.stats', {
+const { dataList, init, next, reload, isLoading, noMore, noData } = useInfinite('Article.stats', {
   params,
 })
 

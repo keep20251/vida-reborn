@@ -99,7 +99,7 @@ const onPublishClick = afterLoginAction(() => {
   if (!isCreator.value) {
     confirm({
       title: 'title.beCreatorFirst',
-      confirmAction: () => to('mine').then(() => to('mine-creator-agreement')),
+      confirmAction: () => to('mine').then(() => to('mine-creator-agreement')), // 想到 mine 子層不先到 mine 會被卡在 mine 下不去
     })
   } else if (isEditing.value) {
     to('publish')

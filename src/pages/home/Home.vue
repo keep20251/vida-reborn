@@ -13,7 +13,7 @@
             <Feed class="py-20" :item="item"></Feed>
           </template>
           <template #bottom>
-            <NoData v-if="!isLoading && items.length === 0 && noMore"></NoData>
+            <NoData v-if="noData"></NoData>
             <div v-else class="flex items-center justify-center py-8 text-gray-a3">
               <Loading v-if="isLoading"></Loading>
               <span v-if="noMore">{{ $t('common.noMore') }}</span>
@@ -38,7 +38,7 @@
               <ViewSubscribeCard class="my-5" :item="item" :theme="(index + 2) % 3"></ViewSubscribeCard>
             </template>
             <template #bottom>
-              <NoData v-if="!creatorsIsLoading && creators.length === 0 && creatorsNoMore"></NoData>
+              <NoData v-if="creatorsNoData"></NoData>
               <div v-else class="flex items-center justify-center py-8 text-gray-a3">
                 <Loading v-if="creatorsIsLoading"></Loading>
                 <span v-if="creatorsNoMore">{{ $t('common.noMore') }}</span>
@@ -96,6 +96,7 @@ const {
   dataExtra,
   isLoading,
   noMore,
+  noData,
   init,
   revert,
   next,
@@ -127,6 +128,7 @@ const {
   dataList: creators,
   isLoading: creatorsIsLoading,
   noMore: creatorsNoMore,
+  noData: creatorsNoData,
   init: creatorsInit,
   next: creatorsNext,
   reload: creatorsReload,

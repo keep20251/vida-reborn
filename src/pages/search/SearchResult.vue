@@ -6,9 +6,7 @@
           <SearchCreatorCard :item="item" class="mt-20"></SearchCreatorCard>
         </template>
         <template #bottom>
-          <NoData
-            v-if="!creatorFetcher.isLoading && creatorFetcher.dataList.length === 0 && creatorFetcher.noMore"
-          ></NoData>
+          <NoData v-if="creatorFetcher.noData"></NoData>
           <div v-else class="flex items-center justify-center py-8 text-gray-a3">
             <Loading v-if="creatorFetcher.isLoading"></Loading>
             <span v-if="creatorFetcher.noMore">{{ $t('common.noMore') }}</span>
@@ -22,9 +20,7 @@
           <Feed class="py-20" :item="item"></Feed>
         </template>
         <template #bottom>
-          <NoData
-            v-if="!articleFetcher.isLoading && articleFetcher.dataList.length === 0 && articleFetcher.noMore"
-          ></NoData>
+          <NoData v-if="articleFetcher.noData"></NoData>
           <div v-else class="flex items-center justify-center py-8 text-gray-a3">
             <Loading v-if="articleFetcher.isLoading"></Loading>
             <span v-if="articleFetcher.noMore">{{ $t('common.noMore') }}</span>

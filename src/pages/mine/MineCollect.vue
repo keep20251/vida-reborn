@@ -5,7 +5,7 @@
       <Feed class="py-20" :item="item"></Feed>
     </template>
     <template #bottom>
-      <NoData v-if="!isLoading && items.length === 0 && noMore"></NoData>
+      <NoData v-if="noData"></NoData>
       <div v-else class="flex items-center justify-center py-8 text-gray-a3">
         <Loading v-if="isLoading">{{ $t('common.loading') }}</Loading>
         <span v-if="noMore">{{ $t('common.noMore') }}</span>
@@ -58,6 +58,7 @@ const items = computed(() => pages[tab.value].infinite.dataList.value)
 const total = computed(() => pages[tab.value].infinite.dataExtra.value?.total || 0)
 const isLoading = computed(() => pages[tab.value].infinite.isLoading.value)
 const noMore = computed(() => pages[tab.value].infinite.noMore.value)
+const noData = computed(() => pages[tab.value].infinite.noData.value)
 
 const mineStore = useMineStore()
 const { setTab, clearTab, setNextFn, clearNextFn, setReloadFn, clearReloadFn } = mineStore
