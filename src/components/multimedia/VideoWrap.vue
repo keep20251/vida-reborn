@@ -19,5 +19,5 @@ const isLock = computed(() => !props.item.is_unlock)
 // const isLock = computed(() => false)
 
 const playEnd = ref(false)
-const showLockMask = computed(() => isLock.value && playEnd.value)
+const showLockMask = computed(() => isLock.value && (url.value === '' || playEnd.value))
 </script>
