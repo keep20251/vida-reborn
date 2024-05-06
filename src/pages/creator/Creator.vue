@@ -20,7 +20,7 @@
                 <!-- <div class="flex cursor-pointer items-center" @click="toMessage(creator?.username)">
                   <Icon name="comment" size="20"></Icon>
                 </div> -->
-                <div v-if="isLogin" class="flex cursor-pointer items-center" @click="dissSomeone(creator)">
+                <div v-if="isLogin" class="flex cursor-pointer items-center" @click="dissSomeone()">
                   <Icon name="report" size="20"></Icon>
                 </div>
                 <div class="flex cursor-pointer items-center" @click="copy(creator.share_url)">
@@ -124,7 +124,22 @@ const { afterLoginAction } = accountStore
 const creatorStore = useCreatorStore()
 const { get: getCreator, revert: revertCreator } = creatorStore
 
-const { dissSomeone } = useDialogStore()
+function unblockAction(action) {
+  return async function () {
+    const ctx = this
+    const args = arguments
+
+    const isBlock = (await getCreator(creator.value.username)).is_block
+    if (!isBlock) {
+      action.apply(ctx, args)
+    }
+  }
+}
+
+const { dissSomeone: $dissSomeone } = useDialogStore()
+async function dissSomeone() {
+  $dissSomeone(await getCreator(creator.value.username))
+}
 
 const feedStore = useFeedStore()
 const {
@@ -142,7 +157,7 @@ const {
 
 const route = useRoute()
 const { toMessage: $toMessage } = useRouters()
-const toMessage = afterLoginAction($toMessage)
+const toMessage = afterLoginAction(unblockAction($toMessage))
 
 const creator = ref(null)
 const errMsg = ref(null)
@@ -170,8 +185,10 @@ function nextArticleList() {
   next()
 }
 
-const { subscribe } = useDialog()
-const { open } = useSubsciptionStore()
+const { subscribe: $subscribe } = useDialog()
+const { open: $open } = useSubsciptionStore()
+const subscribe = unblockAction($subscribe)
+const open = unblockAction($open)
 const lowestSub = computed(() =>
   creator.value?.subscription_list?.reduce((acc, cur) => (Number(acc.price) < Number(cur.price) ? acc : cur)),
 )
