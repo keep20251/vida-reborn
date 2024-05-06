@@ -97,6 +97,7 @@ export default {
     submitFail: "Submission Failed",
     reportSuccess: "Report successfully",
     noSubPlan: "No subscription plan set",
+    beCreatorFirst: "Please become a creator first before posting!",
   },
   label: {
     account: "Username",
@@ -161,7 +162,7 @@ export default {
     subPlanName: "Subscription plan name",
     subPlanCtn: "Subscription plan content",
     subBtn: "Subscribe to unlock full content",
-    buyBtn: "Pay per item to unlock content",
+    buyBtn: "Pay to unlock content",
     eventAd: "VIDA Events and Ads",
     just: "just now",
     minutesAgo: "{minutes} minutes ago",
@@ -504,7 +505,7 @@ export default {
       confirm: "{'$'}{price} per month Go to Pay",
     },
     shopBuy: {
-      1: "Will unlock the content of {nickname} in this work",
+      1: "Will unlock {nickname}'s content of this work",
       2: "{nickname}will receive your payment in full",
       confirm: "Unlock now ({'$'}{price})",
     },

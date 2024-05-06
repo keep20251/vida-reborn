@@ -97,6 +97,7 @@ export default {
     submitFail: "Gửi không thành công",
     reportSuccess: "Báo cáo thành công",
     noSubPlan: "Chưa thiết lập kế hoạch đăng ký",
+    beCreatorFirst: "Hãy trở thành người sáng tạo trước khi đăng bài!",
   },
   label: {
     account: "Tên người dùng",
@@ -504,7 +505,7 @@ export default {
       confirm: "{'$'}{price} mỗi tháng Chuyển đến phần Thanh toán",
     },
     shopBuy: {
-      1: "Sẽ mở khóa nội dung của {nickname} trong tác phẩm này",
+      1: "Sẽ mở khóa nội dung của tác phẩm này của {nickname}",
       2: "{nickname}sẽ nhận được đầy đủ khoản thanh toán của bạn",
       confirm: "Mở khóa ngay ({'$'}{price})",
     },
@@ -515,8 +516,8 @@ export default {
     },
     shopBuySuc: {
       1: "tuyệt vời! Đã thanh toán thành công để mở khóa bài đăng",
-      2: "Chọn vào bài viết để xem, hoặc ở lại màn hình gốc để duyệt!",
-      confirm: "Đi tới bài viết",
+      2: "Chọn vào bài viết để xem, hoặc ở lại màn hình gốc để duyệt nhé!",
+      confirm: "Đi tới bài đăng",
     },
     title: { paySuc: "Thanh toán được thực hiện thành công" },
     paying: { title: "Thanh toán đang được xử lý" },

@@ -97,6 +97,7 @@ export default {
     submitFail: "Gagal mengirim",
     reportSuccess: "Laporan berhasil",
     noSubPlan: "Belum ada rencana langganan yang diset",
+    beCreatorFirst: "Harap menjadi kreator terlebih dahulu sebelum memposting!",
   },
   label: {
     account: "Nama pengguna",
@@ -504,7 +505,7 @@ export default {
       confirm: "{'$'}{price} per bulan Buka Bayar",
     },
     shopBuy: {
-      1: "Akan membuka kunci konten {nickname} dalam karya ini",
+      1: "Akan membuka konten {nickname} pada karya ini",
       2: "{nickname}akan menerima pembayaran Anda secara penuh",
       confirm: "Buka kunci sekarang ({'$'}{price})",
     },
