@@ -78,13 +78,19 @@ const { dataList, isLoading, noMore, noData, next, init, reload } = useInfinite(
   transformer: feedStore.sync,
 })
 
-const { setNextFn, clearNextFn } = useMineStore()
+const { setNextFn, clearNextFn, setReloadFn, clearReloadFn } = useMineStore()
 
 onMounted(async () => init())
-onUnmounted(() => clearNextFn(next))
+onUnmounted(() => {
+  clearNextFn(next)
+  clearReloadFn()
+})
 onActivated(() => {
   setNextFn(next)
-  reload()
+  setReloadFn(reload)
 })
-onDeactivated(() => clearNextFn(next))
+onDeactivated(() => {
+  clearNextFn(next)
+  clearReloadFn()
+})
 </script>

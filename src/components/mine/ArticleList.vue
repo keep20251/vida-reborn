@@ -54,6 +54,7 @@ const {
   transformer: feedStore.sync,
 })
 
+// 因為手機版這邊會被隱藏，所以就沒有加上 setReloadFn, clearReloadFn
 const { setNextFn, clearNextFn } = useMineStore()
 onMounted(() => init())
 onUnmounted(() => clearNextFn(next))
