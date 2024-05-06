@@ -164,6 +164,7 @@ import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
+import { useDialogStore } from '@/store/dialog'
 import { useMineStore } from '@/store/mine'
 import { useModalStore } from '@/store/modal'
 import { usePublishStore } from '@/store/publish'
@@ -198,6 +199,9 @@ const { userData } = storeToRefs(accountStore)
 
 const { open: openSubPlanDialog } = useSubPlanStore()
 
+const dialogStore = useDialogStore()
+const { subPlanDialog } = storeToRefs(dialogStore)
+
 const { reloadPost } = useMineStore()
 
 const { back, to } = useRouters()
@@ -212,25 +216,14 @@ watch(
   async (v) => {
     if (v && isCreate.value) {
       try {
-        // 至少有一個訂閱計畫，幫他預設選第一個
-        if (userData.value.subscription_list.length > 0) {
-          publishParams.subs.push(userData.value.subscription_list[0].id)
+        // 沒有訂閱計畫，彈窗讓他新增
+        if (userData.value.subscription_list.length === 0) {
+          openCreateSubConfirm()
         }
 
-        // 沒有訂閱計畫，彈窗讓他新增
+        // 至少有一個訂閱計畫，幫他預設選第一個
         else {
-          confirm({
-            title: 'title.noSubPlan',
-            content: 'content.createSubBeforePost',
-            async confirmAction() {
-              openSubPlanDialog()
-            },
-            cancelAction() {
-              clear()
-              back()
-            },
-            confirmText: 'label.goToSet',
-          })
+          publishParams.subs.push(userData.value.subscription_list[0].id)
         }
 
         await startUpload(video)
@@ -243,6 +236,11 @@ watch(
   },
   { immediate: true },
 )
+watch(subPlanDialog, (v) => {
+  if (!v && userData.value.subscription_list.length === 0 && isEditing.value) {
+    openCreateSubConfirm()
+  }
+})
 
 const appStore = useAppStore()
 const { categories } = storeToRefs(appStore)
@@ -286,6 +284,21 @@ function afterActionSuccess(toMinePostTab) {
   } else {
     back()
   }
+}
+
+function openCreateSubConfirm() {
+  confirm({
+    title: 'title.noSubPlan',
+    content: $t('content.createSubBeforePost'),
+    async confirmAction() {
+      openSubPlanDialog()
+    },
+    cancelAction() {
+      clear()
+      back()
+    },
+    confirmText: $t('label.goToSet'),
+  })
 }
 
 function onDelete() {
