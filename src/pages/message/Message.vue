@@ -7,8 +7,8 @@
           <List :items="sortedUsers" item-key="uuid">
             <template #default="{ item, last }">
               <div
-                class="flex cursor-pointer space-x-15 px-20 py-10 hover:bg-gray-f6"
-                :class="{ 'bg-gray-f6': item.uuid === msgingUUID }"
+                class="flex cursor-pointer space-x-15 px-20 py-10"
+                :class="{ 'bg-gray-f6': item.uuid === msgingUUID, 'hover:bg-gray-f6': isDesktop }"
                 @click="messageTo(item)"
               >
                 <Avatar :radius="30" :src="item.avatar"></Avatar>
