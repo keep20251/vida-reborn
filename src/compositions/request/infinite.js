@@ -1,4 +1,4 @@
-import { readonly, ref, shallowRef } from 'vue'
+import { computed, readonly, ref, shallowRef } from 'vue'
 import useRequest from '.'
 
 /**
@@ -9,9 +9,11 @@ import useRequest from '.'
  * @param {Function} transformer 資料轉換函式
  *
  * @returns {Array} infinite.dataList 資料陣列(ref)
+ * @returns {Array} infinite.dataExtra 資料陣列以外的其他資料(shallowRef)
  * @returns {Error} infinite.error 請求時發生錯誤
  * @returns {boolean} infinite.isLoading 請求執行中
  * @returns {boolean} infinite.noMore 沒有資料了
+ * @returns {boolean} infinite.noData 已載入完成且沒有任何一筆資料
  * @returns {Function} infinite.init 第一次發出請求
  * @returns {Function} infinite.reset 重置狀態
  * @returns {Function} infinite.reload 重新載入(reset + init)
@@ -27,6 +29,9 @@ export function useInfinite(apiKey, { params = {}, limit = 10, readonly: ro = tr
 
   // 沒有更多了，當判斷到回傳資料數量小於 limit 就會被判定為沒有更多資料
   const noMore = ref(false)
+
+  // 已載入完成且沒有任何一筆資料
+  const noData = computed(() => !isLoading.value && noMore.value && dataList.value.length === 0)
 
   const { data, error, isLoading, execute, cancel } = useRequest(apiKey, { readonly: ro })
 
@@ -118,6 +123,7 @@ export function useInfinite(apiKey, { params = {}, limit = 10, readonly: ro = tr
     error,
     isLoading,
     noMore: readonly(noMore),
+    noData,
     init,
     reset,
     reload,

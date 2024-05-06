@@ -13,7 +13,7 @@
         </div>
       </template>
       <template #bottom>
-        <NoData v-if="!isLoading && dataList.length === 0 && noMore"></NoData>
+        <NoData v-if="noData"></NoData>
         <div v-else class="flex items-center justify-center py-8 text-gray-a3">
           <Loading v-if="isLoading">{{ $t('common.loading') }}</Loading>
           <span v-if="noMore">{{ $t('common.noMore') }}</span>
@@ -40,7 +40,7 @@ const { open } = useModalStore() // 解構出 open 方法
 const feedStore = useFeedStore()
 const { toggleBlock } = feedStore
 
-const { dataList, isLoading, noMore, init, next, reload } = useInfinite('User.listBlock', {
+const { dataList, isLoading, noMore, noData, init, next, reload } = useInfinite('User.listBlock', {
   params: {},
 })
 

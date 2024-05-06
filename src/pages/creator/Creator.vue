@@ -57,7 +57,7 @@
             <Feed class="py-20" :item="item"></Feed>
           </template>
           <template #bottom>
-            <NoData v-if="!isLoading && items.length === 0 && noMore"></NoData>
+            <NoData v-if="noData"></NoData>
             <div v-else class="flex items-center justify-center py-8 text-gray-a3">
               <Loading v-if="isLoading">{{ $t('common.loading') }}</Loading>
               <span v-if="noMore">{{ $t('common.noMore') }}</span>
@@ -132,6 +132,7 @@ const {
   dataExtra,
   isLoading,
   noMore,
+  noData,
   revert,
   reload,
   next,

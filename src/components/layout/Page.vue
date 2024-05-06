@@ -208,7 +208,7 @@ onMounted(() => {
   useSwipe(document, {
     threshold: 0,
     onSwipe(evt) {
-      if (!props.pullToReload) return
+      if (!active || !props.pullToReload) return
       const scrollTop = document.documentElement.scrollTop
       const [{ screenY }] = evt.touches
       if (scrollTop === 0) {
@@ -221,7 +221,7 @@ onMounted(() => {
       }
     },
     onSwipeEnd() {
-      if (!props.pullToReload) return
+      if (!active || !props.pullToReload) return
       if (reloadRate.value >= 1) {
         emits('reload')
         reloadRate.value = 0

@@ -40,7 +40,7 @@
           <Feed class="py-20" :item="item"></Feed>
         </template>
         <template #bottom>
-          <NoData v-if="!isLoading && dataList.length === 0 && noMore"></NoData>
+          <NoData v-if="noData"></NoData>
           <div v-else class="flex items-center justify-center py-8 text-gray-a3">
             <Loading v-if="isLoading">{{ $t('common.loading') }}</Loading>
             <span v-if="noMore">{{ $t('common.noMore') }}</span>
@@ -73,7 +73,7 @@ const { open: openSubPlanDialog } = useSubPlanStore()
 const { userData } = storeToRefs(useAccountStore())
 
 const feedStore = useFeedStore()
-const { dataList, isLoading, noMore, next, init, reload } = useInfinite('Article.list', {
+const { dataList, isLoading, noMore, noData, next, init, reload } = useInfinite('Article.list', {
   params: { uuid: userData.value?.uuid, filter_by: 0, include_my_article: 1 },
   transformer: feedStore.sync,
 })
