@@ -25,7 +25,7 @@ import { ref } from 'vue'
 import { iconMap } from '@const/icon-map'
 
 const icons = Object.entries(iconMap).reduce((acc, [key, value]) => {
-  const [category] = value.split('/')
+  const [category] = value.path.split('/')
   if (!acc[category]) {
     acc[category] = []
   }

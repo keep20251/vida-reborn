@@ -7,6 +7,7 @@ import { init } from '@/utils/video-store'
 import { createI18n } from '@/i18n'
 import '@/style.scss'
 import { createApp } from './main'
+import { preloadIcon } from './utils/icon'
 
 // 初始化 video-store
 init()
@@ -24,10 +25,10 @@ createApp()
 
       setupStoreHydrate(store)
       setupAppleInit()
+      preloadIcon()
 
       app.mount('#app')
       hydrated()
-
       console.log('[Hydrated] client side is mounted')
     })
   })

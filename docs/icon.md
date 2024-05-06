@@ -8,7 +8,12 @@
 ```javascript
 export const iconMap = {
   ...
-  camera: 'folder/icon-name', // icon名稱key: '資料夾名稱/檔案名稱'，不要副檔名
+  /**
+   * key: icon 名稱
+   * path: '資料夾名稱/檔案名稱'，不要副檔名
+   * preload(optional): 是否在 Client 端預先載入，可以不給
+   */
+  camera: { path: 'folder/icon-name', preload: true }, 
 }
 ```
 

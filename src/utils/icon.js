@@ -2,8 +2,20 @@ import { iconMap } from '@const/icon-map'
 
 const modules = Object.freeze(import.meta.glob('../assets/icons/*/*.svg'))
 
+function _getModule(path) {
+  return modules[`../assets/icons/${path}.svg`]
+}
+
 export function getModuleLoader(name) {
-  return modules[`../assets/icons/${iconMap[name]}.svg`]
+  const path = Object.entries(iconMap).find(([key, value]) => key === name)[1].path
+  return _getModule(path)
+}
+
+/** 預先載入icon */
+export function preloadIcon() {
+  Object.values(iconMap)
+    .filter((icon) => icon.preload === true)
+    .forEach((icon) => _getModule(icon.path)())
 }
 
 export const sizes = {
