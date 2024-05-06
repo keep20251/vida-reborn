@@ -8,7 +8,13 @@
       </div>
     </div>
     <div class="absolute top-0 flex h-full w-full flex-col items-center justify-center space-y-18 rounded-inherit">
-      <Icon v-if="isVideo" name="replay" size="40" class="cursor-pointer" @click.stop="$emit('replay')"></Icon>
+      <Icon
+        v-if="isVideo && item.url[0]?.url !== ''"
+        name="replay"
+        size="40"
+        class="cursor-pointer"
+        @click.stop="$emit('replay')"
+      ></Icon>
       <div @click.stop>
         <Button @click="clickAction(actionParams)">{{ btnText }}</Button>
       </div>
