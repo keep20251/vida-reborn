@@ -203,7 +203,6 @@ const {
   status,
   subList,
   addSubPlan,
-  subPlanContent,
   subUnlockDayAfter,
   subId,
   subPicture,
@@ -310,7 +309,7 @@ watch(subPicture, (newSubPicture) => {
 })
 
 watch(subList, (newSubList) => {
-  if (newSubList && data.value.length > 0) {
+  if (newSubList && data.value.length > 0 && data.value.length !== index.value) {
     credential.subPlanName.value = newSubList[index.value].name
     credential.subPlanContent.value = newSubList[index.value].content
     credential.subPlanPrice.value = newSubList[index.value].price

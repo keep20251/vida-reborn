@@ -38,15 +38,24 @@ import { useInfinite } from '@use/request/infinite'
 import { tsSecondToYMDhm } from '@/utils/string-helper'
 import { WITHDRAW_LIST_STATUS } from '@/constant/index.js'
 
-const { dataList, isLoading, noMore, noData, init, next } = useInfinite('User.listWithdraw', {
+const { dataList, isLoading, noMore, noData, init, next, reload } = useInfinite('User.listWithdraw', {
   params: {},
 })
 
-const { setNextFn, clearNextFn } = useMineStore()
+const { setNextFn, clearNextFn, setReloadFn, clearReloadFn } = useMineStore()
 onMounted(() => init())
-onUnmounted(() => clearNextFn(next))
-onActivated(() => setNextFn(next))
-onDeactivated(() => clearNextFn(next))
+onUnmounted(() => {
+  clearNextFn(next)
+  clearReloadFn()
+})
+onActivated(() => {
+  setNextFn(next)
+  setReloadFn(reload)
+})
+onDeactivated(() => {
+  clearNextFn(next)
+  clearReloadFn()
+})
 
 const { t: $t } = useI18n()
 const statusShow = computed(() => {

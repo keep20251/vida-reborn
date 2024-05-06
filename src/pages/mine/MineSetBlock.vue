@@ -44,14 +44,20 @@ const { dataList, isLoading, noMore, noData, init, next, reload } = useInfinite(
   params: {},
 })
 
-const { setNextFn, clearNextFn } = useMineStore()
+const { setNextFn, clearNextFn, setReloadFn, clearReloadFn } = useMineStore()
 onMounted(() => init())
-onUnmounted(() => clearNextFn(next))
+onUnmounted(() => {
+  clearNextFn(next)
+  clearReloadFn()
+})
 onActivated(() => {
   setNextFn(next)
-  reload()
+  setReloadFn(reload)
 })
-onDeactivated(() => clearNextFn(next))
+onDeactivated(() => {
+  clearNextFn()
+  clearReloadFn()
+})
 
 async function unblock(aff_blocked) {
   try {

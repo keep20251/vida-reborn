@@ -73,6 +73,7 @@ const onWithdraw = async () => {
     await useRequest('User.applyWithdraw', { params: { amount: credential.wdrlAmount.value }, immediate: true })
     balance.value = balance.value - credential.wdrlAmount.value
     push({ name: 'mine-earn-wdrl-hist' })
+    credential.wdrlAmount.value = ''
   } catch (e) {
     alert({
       title: 'title.publishFail',
