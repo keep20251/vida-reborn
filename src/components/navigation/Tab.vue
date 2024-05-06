@@ -3,7 +3,8 @@
     <div class="flex h-full w-full flex-row space-x-2">
       <div
         v-for="option in options"
-        class="flex grow cursor-pointer flex-col items-center justify-center hover:bg-gray-f6"
+        class="flex grow cursor-pointer flex-col items-center justify-center"
+        :class="{ 'hover:bg-gray-f6': isDesktop }"
         :key="option[optionValue]"
         @click="onClick(option[optionValue])"
       >
@@ -28,6 +29,9 @@
 </template>
 
 <script setup>
+import { storeToRefs } from 'pinia'
+import { useAppStore } from '@/store/app'
+
 defineProps({
   modelValue: { required: true },
   options: { type: Array, required: true },
@@ -41,4 +45,7 @@ const emits = defineEmits(['update:modelValue', 'feature'])
 function onClick(v) {
   emits('update:modelValue', v)
 }
+
+const appStore = useAppStore()
+const { isDesktop } = storeToRefs(appStore)
 </script>

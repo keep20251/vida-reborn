@@ -3,7 +3,7 @@
     <div class="flex space-x-5">
       <div
         v-for="option in options"
-        class="flex cursor-pointer items-center justify-center rounded-full bg-gray-f6 px-15 py-5 hover:bg-gray-f6"
+        class="flex cursor-pointer items-center justify-center rounded-full bg-gray-f6 px-15 py-5"
         :key="option[optionValue]"
         @click="onClick(option[optionValue])"
       >
