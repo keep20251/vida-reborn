@@ -92,6 +92,7 @@ export default {
     submitFail: "제출 실패",
     reportSuccess: "신고 성공",
     noSubPlan: "구독 계획이 설정되어 있지 않습니다",
+    beCreatorFirst: "게시하기 전에 먼저 창작자가 되세요!",
   },
   label: {
     account: "사용자 이름",
@@ -497,7 +498,7 @@ export default {
       confirm: "월별 {'$'}{price} 결제로 이동",
     },
     shopBuy: {
-      1: "이 작품에서 {nickname}의 콘텐츠가 잠금 해제됩니다.",
+      1: "이 작품의 {nickname} 콘텐츠를 잠금 해제합니다",
       2: "{nickname}결제 금액 전액을 받게 됩니다.",
       confirm: "지금 잠금 해제하세요({'$'}{price})",
     },

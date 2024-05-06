@@ -38,7 +38,7 @@ export default {
     cookie: "Acepta y no vuelvas a mostrar este mensaje",
     check: "Verificar",
     subscribe: "suscripción",
-    subscribed: "suscrito",
+    subscribed: "Suscrito",
     cancelSubscribe: "Cancelar",
     restoreSubscribe: "Reanudar",
     reSubscribe: "Resuscribir",
@@ -97,6 +97,7 @@ export default {
     submitFail: "Envío fallido",
     reportSuccess: "Informe exitoso",
     noSubPlan: "Sin plan de suscripción configurado",
+    beCreatorFirst: "¡Por favor, conviértete primero en creador antes de publicar!",
   },
   label: {
     account: "Nombre de usuario",
@@ -265,7 +266,7 @@ export default {
     waitUploading: "Subiendo archivo...",
   },
   content: {
-    default: "Predeterminado, no debería aparecer en ninguna parte",
+    default: "Predeterminado, no debería aparecer en ningún lado",
     welcomeToVIDA: "¡Bienvenido a VIDA, únete a nosotros!",
     verifyAccount:
       "¡Apresúrate a verificar tu buzón! Ve a 【Mi cuenta>Configuración de la cuenta】 para completar la verificación",
@@ -506,7 +507,7 @@ export default {
       confirm: "{'$'}{price} por mes Ir a Pagar",
     },
     shopBuy: {
-      1: "Desbloqueará el contenido de {nickname} en este trabajo.",
+      1: "Desbloqueará el contenido de {nickname} de este trabajo.",
       2: "{nickname}recibirá su pago completo",
       confirm: "Desbloquear ahora ({'$'}{price})",
     },
@@ -517,7 +518,7 @@ export default {
     },
     shopBuySuc: {
       1: "¡maravilloso! Pago exitoso para desbloquear la publicación",
-      2: "¡Elige ir a la publicación para verla o permanecer en la pantalla original para navegar!",
+      2: "¡Elija ir a la publicación para verla o permanecer en la pantalla original para navegar!",
       confirm: "Ir a la publicación",
     },
     title: { paySuc: "Pago hecho satisfactoriamente" },

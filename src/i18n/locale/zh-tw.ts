@@ -92,6 +92,7 @@ export default {
     submitFail: "提交失敗",
     reportSuccess: "檢舉成功",
     noSubPlan: "尚未建置訂閱計畫",
+    beCreatorFirst: "請先成為創作者後再來發布文章吧！",
   },
   label: {
     account: "用戶名",
@@ -156,7 +157,7 @@ export default {
     subPlanName: "訂閱方案名稱",
     subPlanCtn: "訂閱方案內容",
     subBtn: "訂閱解鎖完整內容",
-    buyBtn: "單筆付費解鎖內容",
+    buyBtn: "付費解鎖內容",
     eventAd: "VIDA 活動與廣告",
     just: "剛剛",
     minutesAgo: "{minutes} 分鐘前",

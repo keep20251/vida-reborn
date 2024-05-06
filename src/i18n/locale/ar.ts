@@ -92,6 +92,7 @@ export default {
     submitFail: "فشل الإرسال",
     reportSuccess: "التبليغ بنجاح",
     noSubPlan: "لم يتم تعيين خطة اشتراك",
+    beCreatorFirst: "من فضلك كن منشئًا أولاً قبل النشر!",
   },
   label: {
     account: "اسم المستخدم",
@@ -496,7 +497,7 @@ export default {
       confirm: "{'$'}{price} شهريًا انتقل إلى الدفع",
     },
     shopBuy: {
-      1: "سيتم فتح محتوى {nickname} في هذا العمل",
+      1: "سيتم فتح محتوى {nickname} لهذا العمل",
       2: "{nickname}سوف يتلقى دفعتك بالكامل",
       confirm: "فتح القفل الآن ({'$'}{price})",
     },
