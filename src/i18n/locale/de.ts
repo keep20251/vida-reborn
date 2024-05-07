@@ -267,7 +267,7 @@ export default {
   },
   content: {
     default: "Standardmäßig, sollte nirgendwo auftauchen",
-    welcomeToVIDA: "Willkommen bei VIDA, treten Sie uns bei!",
+    welcomeToVida: "Willkommen bei VIDA, treten Sie uns bei!",
     verifyAccount:
       "Überprüfen Sie schnell Ihren Posteingang! Gehen Sie zu 【Mein Konto>Kontoeinstellungen】 um die Verifizierung abzuschließen",
     termsDeclaration:
