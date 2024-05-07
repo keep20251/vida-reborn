@@ -48,7 +48,7 @@ const socials = ref([
     </div>
     <div class="official-footer-policys-second">
       <div class="official-footer-policys">
-        <a href="/official/aup">{{ $t('official.footer.aup') }}</a>
+        <!-- <a href="/official/aup">{{ $t('official.footer.aup') }}</a> -->
         <a href="/official/cookie-policy">{{ $t('official.footer.cookiePolicy') }}</a>
         <a href="/official/complaints-policy">{{ $t('official.footer.complaintsPolicy') }}</a>
       </div>
@@ -83,10 +83,10 @@ const socials = ref([
   &-policys {
     @apply flex flex-col space-y-16 text-center font-light leading-5 lg:col-span-2 lg:col-start-4 lg:text-left;
     &-first {
-      @apply lg:col-start-8 lg:pt-30;
+      @apply lg:col-start-8 lg:col-end-10 lg:pt-30;
     }
     &-second {
-      @apply lg:pt-30;
+      @apply pt-16 lg:col-start-10 lg:col-end-12 lg:pt-30;
     }
   }
 }
