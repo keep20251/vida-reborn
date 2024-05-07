@@ -267,7 +267,7 @@ export default {
   },
   content: {
     default: "Par défaut, ne devrait apparaître nulle part",
-    welcomeToVIDA: "Bienvenue chez VIDA, rejoignez-nous !",
+    welcomeToVida: "Bienvenue chez VIDA, rejoignez-nous !",
     verifyAccount:
       "Dépêchez-vous de vérifier votre boîte aux lettres ! Allez à 【Mon compte>Paramètres du compte】 pour compléter la vérification",
     termsDeclaration:
@@ -513,7 +513,7 @@ export default {
     },
     subscribeSuc: {
       1: "merveilleux! Vous vous êtes abonné avec succès à {nickname} !",
-      2: "Choisissez d'aller sur la page d'accueil du créateur, ou restez sur l'écran d'origine et parcourez !",
+      2: "Choisissez d'accéder à la page d'accueil du créateur ou de rester sur l'écran d'origine et de naviguer !",
       confirm: "Aller à la page du créateur",
     },
     shopBuySuc: {

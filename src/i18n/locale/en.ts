@@ -267,7 +267,7 @@ export default {
   },
   content: {
     default: "Default, shouldn't show up anywhere",
-    welcomeToVIDA: "Welcome to VIDA, join us!",
+    welcomeToVida: "Welcome to VIDA, join us!",
     verifyAccount: "Hurry to verify your mailbox! Go to 【My>Account Settings】 to complete the verification",
     termsDeclaration:
       "By continuing, you confirm that you are 18 years old or older, and agree to VIDA's {tos}, and have read VIDA's {pp}.",
@@ -511,7 +511,7 @@ export default {
     },
     subscribeSuc: {
       1: "marvelous! Successfully subscribed to {nickname}!",
-      2: "Choose to go to the creator's homepage, or stay on the original screen and browse!",
+      2: "Choose to go to the creator’s homepage, or stay on the original screen and browse!",
       confirm: "Go to creator page",
     },
     shopBuySuc: {

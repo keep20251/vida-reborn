@@ -258,7 +258,7 @@ export default {
   },
   content: {
     default: "預設，不應該顯示在任何地方",
-    welcomeToVIDA: "歡迎你加入VIDA成為我們的一員！",
+    welcomeToVida: "歡迎你加入VIDA成為我們的一員！",
     verifyAccount: "趕緊去認證信箱吧！至【我的>帳戶設置】即可完成認證",
     termsDeclaration: "繼續操作，即表示您確認您已年滿18歲，並同意VIDA的{tos}，並已閱讀VIDA的{pp}。",
     tos: "服務條款",

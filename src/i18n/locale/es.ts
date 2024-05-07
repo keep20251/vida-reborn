@@ -267,7 +267,7 @@ export default {
   },
   content: {
     default: "Predeterminado, no debería aparecer en ningún lado",
-    welcomeToVIDA: "¡Bienvenido a VIDA, únete a nosotros!",
+    welcomeToVida: "¡Bienvenido a VIDA, únete a nosotros!",
     verifyAccount:
       "¡Apresúrate a verificar tu buzón! Ve a 【Mi cuenta>Configuración de la cuenta】 para completar la verificación",
     termsDeclaration:
@@ -518,7 +518,7 @@ export default {
     },
     shopBuySuc: {
       1: "¡maravilloso! Pago exitoso para desbloquear la publicación",
-      2: "¡Elija ir a la publicación para verla o permanecer en la pantalla original para navegar!",
+      2: "¡Elige ir a la publicación para verla o permanecer en la pantalla original para navegar!",
       confirm: "Ir a la publicación",
     },
     title: { paySuc: "Pago hecho satisfactoriamente" },

@@ -267,7 +267,7 @@ export default {
   },
   content: {
     default: "Mặc định, không nên hiển thị ở bất cứ đâu",
-    welcomeToVIDA: "Chào mừng bạn đến với VIDA, hãy gia nhập chúng tôi!",
+    welcomeToVida: "Chào mừng bạn đến với VIDA, hãy gia nhập chúng tôi!",
     verifyAccount:
       "Hãy nhanh chóng xác minh hộp thư của bạn! Đi đến 【Tài khoản của tôi>Cài đặt tài khoản】 để hoàn thành xác minh",
     termsDeclaration:
@@ -517,7 +517,7 @@ export default {
     shopBuySuc: {
       1: "tuyệt vời! Đã thanh toán thành công để mở khóa bài đăng",
       2: "Chọn vào bài viết để xem, hoặc ở lại màn hình gốc để duyệt nhé!",
-      confirm: "Đi tới bài đăng",
+      confirm: "Đi tới bài viết",
     },
     title: { paySuc: "Thanh toán được thực hiện thành công" },
     paying: { title: "Thanh toán đang được xử lý" },

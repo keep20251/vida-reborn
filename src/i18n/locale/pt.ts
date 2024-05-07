@@ -267,7 +267,7 @@ export default {
   },
   content: {
     default: "Padrão, não deve aparecer em lugar nenhum",
-    welcomeToVIDA: "Bem-vindo ao VIDA, junte-se a nós!",
+    welcomeToVida: "Bem-vindo ao VIDA, junte-se a nós!",
     verifyAccount:
       "Corra para verificar sua caixa de correio! Vá para 【Minha conta>Configurações de conta】 para concluir a verificação",
     termsDeclaration:

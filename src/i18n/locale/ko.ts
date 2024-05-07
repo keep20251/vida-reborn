@@ -262,7 +262,7 @@ export default {
   },
   content: {
     default: "기본값은 어디에도 표시되지 않아야 합니다.",
-    welcomeToVIDA: "VIDA에 오신 것을 환영합니다, 함께해요!",
+    welcomeToVida: "VIDA에 오신 것을 환영합니다, 함께해요!",
     verifyAccount: "메일함을 서둘러 인증하세요! 【내 계정>계정 설정】으로 이동하여 인증을 완료하세요",
     termsDeclaration:
       "계속 진행하면 18세 이상임을 확인하며 VIDA의 {tos}에 동의하고 VIDA의 {pp}를 읽었다는 것을 확인하는 것입니다.",
@@ -508,7 +508,7 @@ export default {
       confirm: "크리에이터 페이지로 이동",
     },
     shopBuySuc: {
-      1: "기이! 게시물 잠금 해제를 위한 결제가 완료되었습니다.",
+      1: "기이! 게시물 잠금 해제를 위해 성공적으로 결제됨",
       2: "게시물로 이동하여 시청하거나 원래 화면에 머물면서 탐색하도록 선택하세요!",
       confirm: "게시물로 이동",
     },
