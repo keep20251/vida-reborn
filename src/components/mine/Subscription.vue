@@ -1,10 +1,12 @@
 <template>
   <div class="pb-20 pt-20">
     <div class="flex grow items-center justify-between space-x-10">
-      <Avatar :radius="15" :src="item.thumb"></Avatar>
+      <Avatar @click="toCreator(item?.username)" :radius="15" :src="item.thumb" class="cursor-pointer"></Avatar>
       <div class="flex grow flex-col space-y-5">
         <div class="flex space-x-5">
-          <div class="text-base font-bold leading-md">{{ item.nickname }}</div>
+          <div class="cursor-pointer text-base font-bold leading-md" @click="toCreator(item?.username)">
+            {{ item.nickname }}
+          </div>
           <div class="text-sm font-normal leading-3">@{{ item.username }}</div>
         </div>
         <div class="flex items-center space-x-5">
@@ -61,18 +63,20 @@ import Button from '@comp/common/Button.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
 import { useDialog } from '@use/modal'
 import useRequest from '@use/request/index.js'
+import { useRouters } from '@use/routers'
 import { CANCEL_SUB_TYPE, SUB_STATUS } from '@const'
 
 const { t: $t } = useI18n()
 const { confirm } = useModalStore()
 const { open: openMessage } = usePopupMessageStore()
 const { subscribe } = useDialog()
+const { toCreator } = useRouters()
 
 defineProps({
   item: { type: Object, required: true },
 })
 
-const emits = defineEmits(['reload'])
+const emits = defineEmits(['reload', 'toCreator'])
 
 const onSubStatus = (item) => {
   const _item = {
