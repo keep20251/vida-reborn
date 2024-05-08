@@ -505,7 +505,7 @@ export default {
       confirm: "{'$'}{price} mỗi tháng Chuyển đến phần Thanh toán",
     },
     shopBuy: {
-      1: "Sẽ mở khóa nội dung của tác phẩm này của {nickname}",
+      1: "Sẽ mở khóa nội dung của {nickname} trong tác phẩm này",
       2: "{nickname}sẽ nhận được đầy đủ khoản thanh toán của bạn",
       confirm: "Mở khóa ngay ({'$'}{price})",
     },
