@@ -506,7 +506,7 @@ export default {
       confirm: "{'$'}{price} por mês Vá para pagar",
     },
     shopBuy: {
-      1: "Irá desbloquear o conteúdo deste trabalho de {nickname}",
+      1: "Irá desbloquear o conteúdo de {nickname} neste trabalho",
       2: "{nickname}receberá seu pagamento integralmente",
       confirm: "Desbloquear agora ({'$'}{price})",
     },

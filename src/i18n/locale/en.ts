@@ -505,7 +505,7 @@ export default {
       confirm: "{'$'}{price} per month Go to Pay",
     },
     shopBuy: {
-      1: "Will unlock {nickname}'s content of this work",
+      1: "Will unlock the content of {nickname} in this work",
       2: "{nickname}will receive your payment in full",
       confirm: "Unlock now ({'$'}{price})",
     },
