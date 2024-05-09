@@ -5,7 +5,10 @@
         <img class="h-20 w-36 xl:h-40 xl:w-72" src="@/assets/logo.svg?url" alt="VIDA" />
       </Link>
       <router-link to="/home">
-        <div class="flex items-center justify-center space-x-20 px-12 py-10 hover:bg-gray-f6 xl:justify-start">
+        <div
+          class="flex items-center justify-center space-x-20 px-12 py-10 hover:bg-gray-f6 xl:justify-start"
+          @click="checkHomeAgain"
+        >
           <Icon v-if="atHome" name="home" size="30"></Icon>
           <Icon v-else name="homeOutline" size="30"></Icon>
           <div class="hidden text-base xl:block" :class="[atHome ? 'font-bold' : 'font-normal']">
@@ -65,46 +68,13 @@
 </template>
 <script setup>
 import { computed } from 'vue'
-import { useRoute } from 'vue-router'
-import { storeToRefs } from 'pinia'
-import { useAccountStore } from '@/store/account'
-import { useDialogStore } from '@/store/dialog'
-import { useModalStore } from '@/store/modal'
-import { usePublishStore } from '@/store/publish'
 import Link from '@comp/common/Link.vue'
+import { useNavigator } from '@use/navigator'
 import { useRouters } from '@use/routers'
 import devRoutes from '@/router/routes/dev'
 
-const route = useRoute()
-const atHome = computed(() => route.name === 'home')
-const atSearch = computed(() => route.name === 'search')
-const atMessage = computed(() => route.name === 'message')
-const atMine = computed(() => route.name.includes('mine'))
+const { atHome, atSearch, atMessage, atMine, toMessage, onPublishClick, checkHomeAgain } = useNavigator()
+const { reload } = useRouters()
 
 const isDev = computed(() => import.meta.env.DEV)
-
-const { to, reload } = useRouters()
-
-const accountStore = useAccountStore()
-const { isCreator } = storeToRefs(accountStore)
-const { afterLoginAction } = accountStore
-const { fileSelectDialog } = storeToRefs(useDialogStore())
-const { confirm } = useModalStore()
-
-const toMessage = afterLoginAction(() => to('message'))
-
-const publishStore = usePublishStore()
-const { isEditing } = storeToRefs(publishStore)
-const onPublishClick = afterLoginAction(() => {
-  if (!isCreator.value) {
-    confirm({
-      title: 'title.beCreatorFirst',
-      confirmAction: () => to('mine').then(() => to('mine-creator-agreement')), // 想到 mine 子層不先到 mine 會被卡在 mine 下不去
-    })
-  } else if (isEditing.value) {
-    to('publish')
-  } else {
-    fileSelectDialog.value = true
-  }
-})
 </script>

@@ -4,7 +4,7 @@
     :class="{ 'translate-y-full': !isShow }"
   >
     <router-link class="grow" to="/home">
-      <div class="flex items-center justify-center space-x-16 px-12 py-16">
+      <div class="flex items-center justify-center space-x-16 px-12 py-16" @click="checkHomeAgain">
         <Icon v-if="atHome" name="home" size="30"></Icon>
         <Icon v-else name="homeOutline" size="30"></Icon>
       </div>
@@ -36,39 +36,13 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
-import { useAccountStore } from '@/store/account'
-import { useDialogStore } from '@/store/dialog'
 import { useNavStore } from '@/store/nav'
-import { usePublishStore } from '@/store/publish'
 import Link from '@comp/common/Link.vue'
-import { useRouters } from '@use/routers'
+import { useNavigator } from '@use/navigator'
 
-const route = useRoute()
-const atHome = computed(() => route.name === 'home')
-const atSearch = computed(() => route.name === 'search')
-const atMessage = computed(() => route.name === 'message')
-const atMine = computed(() => route.name.includes('mine'))
+const { atHome, atSearch, atMessage, atMine, toMessage, onPublishClick, checkHomeAgain } = useNavigator()
 
 const navStore = useNavStore()
 const { isShow } = storeToRefs(navStore)
-
-const { to } = useRouters()
-
-const { afterLoginAction } = useAccountStore()
-const { fileSelectDialog } = storeToRefs(useDialogStore())
-
-const toMessage = afterLoginAction(() => to('message'))
-
-const publishStore = usePublishStore()
-const { isEditing } = storeToRefs(publishStore)
-const onPublishClick = afterLoginAction(() => {
-  if (isEditing.value) {
-    to('publish')
-  } else {
-    fileSelectDialog.value = true
-  }
-})
 </script>

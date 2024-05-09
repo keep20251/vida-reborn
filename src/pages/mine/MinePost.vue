@@ -229,7 +229,7 @@ function onEdit(item) {
     tags: commaSplittedToArray(item.tags),
     type: item.resource_type,
     perm: item.article_type,
-    subs: item.user.subscription_list.map((sub) => sub.id),
+    subs: item.subscription_list.map((sub) => sub.id),
     price: item.price,
     postTime: new Date(item.display_ts * 1000),
     urls: item.url,

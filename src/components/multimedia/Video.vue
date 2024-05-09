@@ -5,7 +5,7 @@
 <script setup>
 import { onActivated, onBeforeUnmount, onDeactivated, onMounted, ref } from 'vue'
 import lazyloader from '@/utils/lazyloader'
-import { add, remove } from '@/utils/video-autoplay-controller'
+// import { add, remove } from '@/utils/video-autoplay-controller'
 import { get, release } from '@/utils/video-store'
 
 const props = defineProps({
@@ -16,8 +16,6 @@ const props = defineProps({
 
 const emits = defineEmits(['play', 'ended'])
 
-let videoAutoplayController
-
 const videoWrap = ref(null)
 const videoElement = ref(null)
 const videoCurrentTime = ref(0)
@@ -25,8 +23,28 @@ const isLoading = ref(true)
 // const isWaiting = ref(false)
 const errMsg = ref('')
 
-let autoPlayEnable = true
-let videoActionId
+// 自動播放相關配置
+// let videoAutoplayController
+// let autoPlayEnable = true
+// let videoActionId
+// function autoPlay() {
+//   const video = videoElement.value
+//   if (!video || !video.paused || !autoPlayEnable) {
+//     return
+//   }
+
+//   video.play().catch((e) => console.error('video.play() error:', e))
+// }
+// function autoPause() {
+//   const video = videoElement.value
+//   if (!video || video.paused) {
+//     autoPlayEnable = false
+//     return
+//   }
+
+//   autoPlayEnable = true
+//   videoElement.value.pause()
+// }
 
 function setupVideo() {
   if (videoElement.value !== null) return
@@ -40,6 +58,7 @@ function setupVideo() {
         videoCurrentTime.value = videoElement.value?.currentTime || 0
 
         // 尼瑪 der 視頻會出現播放完畢當下 currentTime 比 duration 還小的情況
+        // 某些瀏覽器(safari)可能發生 ended 事件沒觸發到
         // 我尼瑪 der 只好在這邊判斷比 duration 還小兩秒就送 ended 事件
         const { currentTime, duration } = videoElement.value
         if (Math.floor(currentTime) >= Math.floor(duration) - 2) {
@@ -50,21 +69,21 @@ function setupVideo() {
     })
     videoWrap.value.appendChild(videoElement.value)
 
-    videoAutoplayController = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            videoActionId = add({ play: autoPlay, pause: autoPause })
-          } else {
-            remove(videoActionId)
-          }
-        })
-      },
-      {
-        threshold: 0.5,
-      },
-    )
-    videoAutoplayController.observe(videoWrap.value)
+    // videoAutoplayController = new IntersectionObserver(
+    //   (entries) => {
+    //     entries.forEach((entry) => {
+    //       if (entry.isIntersecting) {
+    //         videoActionId = add({ play: autoPlay, pause: autoPause })
+    //       } else {
+    //         remove(videoActionId)
+    //       }
+    //     })
+    //   },
+    //   {
+    //     threshold: 0.5,
+    //   },
+    // )
+    // videoAutoplayController.observe(videoWrap.value)
   } catch (e) {
     console.error(e)
   }
@@ -73,11 +92,11 @@ function setupVideo() {
 function releaseVideo() {
   if (videoElement.value === null) return
 
-  remove(videoActionId)
-  if (videoAutoplayController) {
-    videoAutoplayController.unobserve(videoWrap.value)
-    videoAutoplayController.disconnect()
-  }
+  // remove(videoActionId)
+  // if (videoAutoplayController) {
+  //   videoAutoplayController.unobserve(videoWrap.value)
+  //   videoAutoplayController.disconnect()
+  // }
 
   release(videoElement.value)
   videoElement.value = null
@@ -94,26 +113,6 @@ function closeLazy() {
   releaseVideo()
   if (!videoWrap.value) return
   lazyloader.unobserve(videoWrap.value)
-}
-
-function autoPlay() {
-  const video = videoElement.value
-  if (!video || !video.paused || !autoPlayEnable) {
-    return
-  }
-
-  video.play().catch((e) => console.error('video.play() error:', e))
-}
-
-function autoPause() {
-  const video = videoElement.value
-  if (!video || video.paused) {
-    autoPlayEnable = false
-    return
-  }
-
-  autoPlayEnable = true
-  videoElement.value.pause()
 }
 
 onMounted(() => {
