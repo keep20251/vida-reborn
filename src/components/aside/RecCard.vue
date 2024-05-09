@@ -21,8 +21,11 @@
                 </div>
               </div>
               <div class="flex items-end space-x-5">
-                <div class="text-sm font-normal leading-3 text-gray-57">
+                <div v-if="false" class="text-sm font-normal leading-3 text-gray-57">
                   {{ item?.subscriber_count }} {{ $t('content.subscribers') }}
+                </div>
+                <div class="text-sm font-normal leading-3 text-gray-57">
+                  {{ item?.post_num }} {{ $t('info.perPost') }}
                 </div>
                 <div class="text-sm font-normal leading-3 text-gray-57">•</div>
                 <div class="text-sm font-normal leading-3 text-gray-57">

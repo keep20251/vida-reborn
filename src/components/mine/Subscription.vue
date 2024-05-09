@@ -10,9 +10,10 @@
           <div class="text-sm font-normal leading-3">@{{ item.username }}</div>
         </div>
         <div class="flex items-center space-x-5">
-          <div class="text-sm font-normal leading-3 text-gray-57">
+          <div v-if="false" class="text-sm font-normal leading-3 text-gray-57">
             {{ item.subscriber_count }} {{ $t('content.subscribers') }}
           </div>
+          <div class="text-sm font-normal leading-3 text-gray-57">{{ item.post_num }} {{ $t('info.perPost') }}</div>
           <div class="text-sm font-normal leading-3 text-gray-57">•</div>
           <div class="text-sm font-normal leading-3 text-gray-57">{{ item.videos_count }} {{ $t('content.view') }}</div>
         </div>
@@ -21,9 +22,9 @@
           {{
             item.status === SUB_STATUS.CANCEL_SUB
               ? $t('content.renew')
-              : item.status === SUB_STATUS.RESTORE_SUB
-                ? $t('content.expiration')
-                : $t('content.beExpired')
+              : item.status === SUB_STATUS.RE_SUB
+                ? $t('content.beExpired')
+                : $t('content.expiration')
           }}
         </div>
         <div class="text-sm font-semibold leading-normal text-primary">{{ item.subscription_title }}</div>
