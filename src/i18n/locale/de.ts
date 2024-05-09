@@ -191,7 +191,7 @@ export default {
     error: {
       subscribeSelf: "Ich kann mich nicht selbst abonnieren",
       shopBuySelf: "Sie können keine eigenen Produkte kaufen",
-      subscriptionNotFound: "Kein Abonnementplan verfügbar",
+      subscriptionNotFound: "Kein Abonnement verfügbar",
     },
     sending: "Senden",
     failure: "Fehlgeschlagen",
@@ -321,7 +321,7 @@ export default {
     customStyle: "Benutzerdefinierter Stil",
     subUnlockDayAfter: "Erlaubt das Entsperren die letzten Tage seit dem Kauf?",
     tokenExpired: "Die Anmeldesitzung ist abgelaufen. Bitte melden Sie sich erneut an.",
-    clearSearchHistory: "Sind Sie sicher, dass Sie Ihren Suchverlauf löschen möchten?",
+    clearSearchHistory: "Möchten Sie Ihren Suchverlauf wirklich löschen?",
     uploadVideoLimit: {
       format:
         "Das aktuell hochgeladene Videoformat ({format}) wird nicht unterstützt. Bitte konvertieren Sie es in das MP4- oder MOV-Format und versuchen Sie es erneut.",
@@ -507,7 +507,7 @@ export default {
       confirm: "{'$'}{price} pro Monat Gehen Sie zu Bezahlen",
     },
     shopBuy: {
-      1: "Wird den Inhalt von {nickname} in dieser Arbeit freischalten",
+      1: "Wird den Inhalt dieser Arbeit durch {nickname} freischalten",
       2: "{nickname}wird Ihre Zahlung vollständig erhalten",
       confirm: "Jetzt freischalten ({'$'}{price})",
     },
