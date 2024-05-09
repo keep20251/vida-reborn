@@ -16,11 +16,11 @@
       </div>
       <div v-if="showBgData" class="absolute left-1/2 top-1/2 w-full -translate-x-2/4 -translate-y-2/4">
         <div class="flex justify-around">
-          <div class="flex w-[175px] flex-col items-center space-y-5">
+          <div v-if="false" class="flex w-[175px] flex-col items-center space-y-5">
             <p class="text-xl font-bold leading-xl text-white drop-shadow-lg">{{ item.subscriber_count }}</p>
             <p class="text-sm font-normal leading-3 text-white drop-shadow-lg">{{ $t('info.perSubscriber') }}</p>
           </div>
-          <div class="h-25 w-1 bg-[#DCDCDC]"></div>
+          <div v-if="false" class="h-25 w-1 bg-[#DCDCDC]"></div>
           <div class="flex w-[175px] flex-col items-center space-y-5">
             <p class="text-xl font-bold leading-xl text-white drop-shadow-lg">{{ item.post_num }}</p>
             <p class="text-sm font-normal leading-3 text-white drop-shadow-lg">{{ $t('info.perPost') }}</p>
