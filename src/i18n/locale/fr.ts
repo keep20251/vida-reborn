@@ -500,14 +500,14 @@ export default {
   },
   modal: {
     subscribe: {
-      1: "Accès complet à toutes les œuvres des derniers {days}",
+      1: "Accès complet à toutes les œuvres des {days} passés",
       2: "Possibilité d'envoyer des messages directement aux créateurs",
       3: "Une interaction plus étroite",
       4: "Vous pouvez annuler votre abonnement à tout moment",
       confirm: "{'$'}{price} par mois Aller au paiement",
     },
     shopBuy: {
-      1: "Déverrouillera le contenu de {nickname} dans ce travail",
+      1: "Déverrouillera le contenu de cette œuvre de {nickname}",
       2: "{nickname} recevra votre paiement dans son intégralité",
       confirm: "Débloquez maintenant ({'$'}{price})",
     },

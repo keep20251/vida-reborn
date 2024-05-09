@@ -507,7 +507,7 @@ export default {
       confirm: "{'$'}{price} por mes Ir a Pagar",
     },
     shopBuy: {
-      1: "Desbloqueará el contenido de {nickname} en este trabajo.",
+      1: "Desbloqueará el contenido de {nickname} de este trabajo.",
       2: "{nickname}recibirá su pago completo",
       confirm: "Desbloquear ahora ({'$'}{price})",
     },
@@ -518,7 +518,7 @@ export default {
     },
     shopBuySuc: {
       1: "¡maravilloso! Pago exitoso para desbloquear la publicación",
-      2: "¡Elija ir a la publicación para verla o permanecer en la pantalla original para navegar!",
+      2: "¡Elige ir a la publicación para verla o permanecer en la pantalla original para navegar!",
       confirm: "Ir a la publicación",
     },
     title: { paySuc: "Pago hecho satisfactoriamente" },

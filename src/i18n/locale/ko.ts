@@ -498,7 +498,7 @@ export default {
       confirm: "월별 {'$'}{price} 결제로 이동",
     },
     shopBuy: {
-      1: "이 작품에서 {nickname}의 콘텐츠가 잠금 해제됩니다.",
+      1: "이 작품의 {nickname} 콘텐츠를 잠금 해제합니다",
       2: "{nickname}결제 금액 전액을 받게 됩니다.",
       confirm: "지금 잠금 해제하세요({'$'}{price})",
     },
