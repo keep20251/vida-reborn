@@ -113,7 +113,10 @@
         <!-- 指定訂閱組 -->
         <div v-if="publishParams.perm === FEED_PERM.SUB" class="flex flex-col space-y-10">
           <label class="text-left text-base leading-md">{{ $t('label.pickSub') }}</label>
-          <OptionsPicker v-model="publishParams.subs" :options="subOptions"></OptionsPicker>
+          <OptionsPicker v-model="publishParams.subs" :options="subOptions" can-pick-none></OptionsPicker>
+          <div v-if="subsError" class="text-left text-sm font-normal not-italic leading-md text-warning">
+            {{ subsError }}
+          </div>
         </div>
 
         <!-- Price -->
@@ -219,11 +222,6 @@ watch(
         // 沒有訂閱計畫，彈窗讓他新增
         if (userData.value.subscription_list.length === 0) {
           openCreateSubConfirm()
-        }
-
-        // 至少有一個訂閱計畫，幫他預設選第一個
-        else {
-          publishParams.subs.push(userData.value.subscription_list[0].id)
         }
 
         await startUpload(video)
@@ -396,6 +394,8 @@ const titleError = ref('')
 const contentSchema = Yup.string().required()
 const contentError = ref('')
 const tagError = ref('')
+const subsSchema = Yup.array().min(1)
+const subsError = ref('')
 const priceSchema = Yup.number().positive().max(90)
 const priceError = ref('')
 function validation() {
@@ -421,6 +421,16 @@ function validation() {
   } catch (e) {
     contentError.value = parseError(e)
     result = false
+  }
+
+  subsError.value = ''
+  if (publishParams.perm === FEED_PERM.SUB) {
+    try {
+      subsSchema.validateSync(publishParams.subs)
+    } catch (e) {
+      subsError.value = parseError(e)
+      result = false
+    }
   }
 
   priceError.value = ''

@@ -178,7 +178,6 @@ const { updateUserData } = accountStore
 
 const publishStore = usePublishStore()
 const { isEditing } = storeToRefs(publishStore)
-const { publishParams } = publishStore
 
 const radioValue = ref(0)
 const customValue = ref(0)
@@ -193,7 +192,7 @@ const subUnlockDayAfterValue = computed(() => {
 const { t: $t } = useI18n()
 const { Yup, validate } = useYup()
 const subPlanStore = useSubPlanStore()
-const { alert, confirm, open } = useModalStore()
+const { alert, confirm } = useModalStore()
 const { open: openMessage } = usePopupMessageStore()
 const { back, close } = subPlanStore
 const {
@@ -417,9 +416,8 @@ const onSubmit = async () => {
         back()
 
         // 正在編輯帖子的話代表是沒有任何訂閱計畫時點擊發布帖子後被引導過來這的
-        // 這時候要幫她設定第一個編輯的訂閱計畫然後直接關閉繼續編輯帖子
+        // 這時候要直接關閉繼續編輯帖子
         if (isEditing.value) {
-          publishParams.subs.push(subList.value[0].id)
           close()
         }
       } catch (e) {
