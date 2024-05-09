@@ -85,6 +85,7 @@ import useRequest from '@use/request/index.js'
 import { useInfinite } from '@use/request/infinite'
 import { MODAL_TYPE } from '@const'
 import { TAB_TYPE } from '@const/home'
+import { whenHomeAgain } from '@/utils/nav-again'
 import { commaSplittedToArray } from '@/utils/string-helper'
 
 const appStore = useAppStore()
@@ -188,6 +189,12 @@ async function updateIntesreted() {
 }
 
 whenever(isLogin, () => {
+  reload()
+  creatorsReload()
+})
+
+whenHomeAgain(() => {
+  tab.value = TAB_TYPE.REC
   reload()
   creatorsReload()
 })

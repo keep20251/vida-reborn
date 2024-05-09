@@ -5,7 +5,10 @@
         <img class="h-20 w-36 xl:h-40 xl:w-72" src="@/assets/logo.svg?url" alt="VIDA" />
       </Link>
       <router-link to="/home">
-        <div class="flex items-center justify-center space-x-20 px-12 py-10 hover:bg-gray-f6 xl:justify-start">
+        <div
+          class="flex items-center justify-center space-x-20 px-12 py-10 hover:bg-gray-f6 xl:justify-start"
+          @click="checkHomeAgain"
+        >
           <Icon v-if="atHome" name="home" size="30"></Icon>
           <Icon v-else name="homeOutline" size="30"></Icon>
           <div class="hidden text-base xl:block" :class="[atHome ? 'font-bold' : 'font-normal']">
@@ -70,7 +73,7 @@ import { useNavigator } from '@use/navigator'
 import { useRouters } from '@use/routers'
 import devRoutes from '@/router/routes/dev'
 
-const { atHome, atSearch, atMessage, atMine, toMessage, onPublishClick } = useNavigator()
+const { atHome, atSearch, atMessage, atMine, toMessage, onPublishClick, checkHomeAgain } = useNavigator()
 const { reload } = useRouters()
 
 const isDev = computed(() => import.meta.env.DEV)

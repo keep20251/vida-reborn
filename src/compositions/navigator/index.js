@@ -6,6 +6,7 @@ import { useDialogStore } from '@/store/dialog'
 import { useModalStore } from '@/store/modal'
 import { usePublishStore } from '@/store/publish'
 import { useRouters } from '@use/routers'
+import { navHomeAgain } from '@/utils/nav-again'
 
 export function useNavigator() {
   const route = useRoute()
@@ -39,12 +40,21 @@ export function useNavigator() {
     }
   })
 
+  function checkHomeAgain() {
+    if (atHome.value) {
+      navHomeAgain()
+    }
+  }
+
   return {
     atHome,
     atSearch,
     atMessage,
     atMine,
+
     toMessage,
     onPublishClick,
+
+    checkHomeAgain,
   }
 }

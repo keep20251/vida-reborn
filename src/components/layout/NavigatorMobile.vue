@@ -4,7 +4,7 @@
     :class="{ 'translate-y-full': !isShow }"
   >
     <router-link class="grow" to="/home">
-      <div class="flex items-center justify-center space-x-16 px-12 py-16">
+      <div class="flex items-center justify-center space-x-16 px-12 py-16" @click="checkHomeAgain">
         <Icon v-if="atHome" name="home" size="30"></Icon>
         <Icon v-else name="homeOutline" size="30"></Icon>
       </div>
@@ -41,7 +41,7 @@ import { useNavStore } from '@/store/nav'
 import Link from '@comp/common/Link.vue'
 import { useNavigator } from '@use/navigator'
 
-const { atHome, atSearch, atMessage, atMine, toMessage, onPublishClick } = useNavigator()
+const { atHome, atSearch, atMessage, atMine, toMessage, onPublishClick, checkHomeAgain } = useNavigator()
 
 const navStore = useNavStore()
 const { isShow } = storeToRefs(navStore)
