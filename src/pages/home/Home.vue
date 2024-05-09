@@ -21,7 +21,7 @@
           </template>
         </List>
       </div>
-      <div v-show="tab === TAB_TYPE.SUB" :class="{ 'h-[calc(100vh-12.75rem)]': isMobile }">
+      <div v-show="tab === TAB_TYPE.SUB" :style="{ height: subTabHeight }">
         <PopCreatorSwiper
           v-if="isMobile"
           :items="creators"
@@ -64,8 +64,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { watchOnce, whenever } from '@vueuse/core'
+import { computed, ref } from 'vue'
+import { useWindowSize, watchOnce, whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
@@ -90,6 +90,16 @@ import { commaSplittedToArray } from '@/utils/string-helper'
 const appStore = useAppStore()
 const { isDesktop, isMobile } = storeToRefs(appStore)
 
+// safari 100vh 的爛坑，只能拿 window height 來算
+const { height: windowHeight } = useWindowSize()
+const subTabHeight = computed(() => (isMobile.value ? `calc(${windowHeight.value}px - 12.75rem)` : ''))
+
+const tab = ref(TAB_TYPE.REC)
+const tabOptions = ref([
+  { label: 'tab.recommand', value: TAB_TYPE.REC },
+  { label: 'tab.subscribe', value: TAB_TYPE.SUB },
+])
+
 const feedStore = useFeedStore()
 const {
   dataList: items,
@@ -106,24 +116,6 @@ const {
   transformer: feedStore.sync,
 })
 
-const tab = ref(TAB_TYPE.REC)
-const tabOptions = ref([
-  { label: 'tab.recommand', value: TAB_TYPE.REC },
-  { label: 'tab.subscribe', value: TAB_TYPE.SUB },
-])
-
-const hydrationStore = useHydrationStore()
-const { forYou } = storeToRefs(hydrationStore)
-onServerClientOnce(async (isSSR) => {
-  await init()
-  if (isSSR) {
-    forYou.value = { dataList: items.value, dataExtra: dataExtra.value }
-  }
-})
-onHydration(() => {
-  revert(forYou.value)
-})
-
 const {
   dataList: creators,
   isLoading: creatorsIsLoading,
@@ -137,6 +129,18 @@ watchOnce(tab, (tab) => {
   if (tab === TAB_TYPE.SUB) {
     creatorsInit()
   }
+})
+
+const hydrationStore = useHydrationStore()
+const { forYou } = storeToRefs(hydrationStore)
+onServerClientOnce(async (isSSR) => {
+  await init()
+  if (isSSR) {
+    forYou.value = { dataList: items.value, dataExtra: dataExtra.value }
+  }
+})
+onHydration(() => {
+  revert(forYou.value)
 })
 
 function onPageEnd() {
