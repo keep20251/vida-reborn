@@ -10,7 +10,7 @@
             <Icon name="closeWhite" size="20" @click="close"></Icon>
           </div>
         </div>
-        <div class="select-none px-30 py-20">
+        <div v-if="items.length > 0" class="select-none px-30 py-20">
           <div class="scrollbar-md max-h-[65vh] overflow-y-scroll">
             <div class="flex flex-col divide-y pr-25">
               <div v-for="(item, index) in items" :key="`subscribe-card-${index}`" class="py-20">
@@ -19,6 +19,7 @@
             </div>
           </div>
         </div>
+        <NoData v-else class="py-30"></NoData>
       </div>
     </template>
   </BaseDialog>
@@ -28,6 +29,7 @@ import { storeToRefs } from 'pinia'
 import { useDialogStore } from '@/store/dialog'
 import { useSubsciptionStore } from '@/store/subscription'
 import SubscribeCard from '@comp/card/SubscribeCard.vue'
+import NoData from '@comp/info/NoData.vue'
 import { useDialog } from '@use/modal'
 import BaseDialog from './BaseDialog.vue'
 
