@@ -104,6 +104,7 @@
           :placeholder="'9.99'"
           :append-text="$t('label.priceTip', { price: 90 })"
           :maxLength="5"
+          step
         ></InputWrap>
         <div class="grid space-y-10">
           <label class="text-left text-base font-normal not-italic leading-md">{{

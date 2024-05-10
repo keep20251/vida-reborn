@@ -41,7 +41,7 @@
               <div class="grid space-y-10">
                 <div class="flex items-end justify-between">
                   <div class="flex flex-row items-end">
-                    <div class="pr-4 text-xl font-bold leading-xl">${{ removeDecimal(item.price) }}</div>
+                    <div class="pr-4 text-xl font-bold leading-xl">${{ removeDecimalIfHundred(item.price) }}</div>
                     <div class="text-base font-normal leading-lg">/{{ $t('content.month') }}</div>
                   </div>
                   <div class="text-base font-bold leading-md text-primary">{{ item.name }}</div>
@@ -103,7 +103,14 @@ function subPlanEdit(d, index) {
   lastIndex.value = index
 }
 
-function removeDecimal(v) {
-  return v.replace('.00', '')
+function removeDecimalIfHundred(value) {
+  const num = Number(value) // 因為後端拿回來是字串
+
+  // 判斷是否是百位數以上的整數
+  if (!isNaN(num) && Number.isInteger(num) && num >= 100) {
+    return Math.trunc(num) // 去掉小數點
+  } else {
+    return num
+  }
 }
 </script>
