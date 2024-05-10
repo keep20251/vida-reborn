@@ -10,7 +10,7 @@
             <Icon name="closeWhite" size="20" @click="close"></Icon>
           </div>
         </div>
-        <div v-if="items.length > 0" class="select-none px-30 py-20">
+        <div v-if="items.length > 0" class="select-none p-30">
           <div class="scrollbar-md max-h-[65vh] overflow-y-scroll">
             <div class="flex flex-col divide-y pr-25">
               <div v-for="(item, index) in items" :key="`subscribe-card-${index}`" class="py-20">
@@ -19,7 +19,7 @@
             </div>
           </div>
         </div>
-        <NoData v-else class="py-30"></NoData>
+        <NoData v-else class="p-30 !pt-30"></NoData>
       </div>
     </template>
   </BaseDialog>
