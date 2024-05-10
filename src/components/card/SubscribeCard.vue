@@ -3,7 +3,7 @@
     <div class="flex flex-col space-y-10">
       <div class="flex items-center justify-between">
         <div class="text-base font-normal leading-lg">
-          <span class="text-xl font-bold leading-xl">{{ props.item.price }}</span> /
+          <span class="text-xl font-bold leading-xl">${{ removeDecimal(props.item.price) }}</span> /
           {{ $t('unit.day', { days: props.item.expire_days }) }}
         </div>
         <div class="text-base font-bold leading-md text-subscribe-orange">{{ props.item.name }}</div>
@@ -57,5 +57,9 @@ useResizeObserver(content, () => (showContentMore.value = content.value.scrollHe
 
 function toggleFold() {
   fold.value = !fold.value
+}
+
+function removeDecimal(value) {
+  return value.replace('.00', '')
 }
 </script>
