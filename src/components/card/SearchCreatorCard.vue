@@ -14,10 +14,10 @@
               <div class="text-lg font-bold leading-5 text-black">{{ props.item?.nickname }}</div>
               <div class="text-sm font-normal leading-3 text-black">@{{ props.item?.username }}</div>
             </div>
-            <div class="text-sm font-normal leading-3 text-black">
-              {{ $t('content.posts') }} {{ props.item?.post_num }}
-              <span class="text-center"><Icon name="ellipse" size="3"></Icon></span>
-              {{ viewCount }} {{ $t('content.view') }}
+            <div class="flex text-sm font-normal leading-3 text-black">
+              <div>{{ props.item?.post_num }} {{ $t('content.posts') }}</div>
+              <div class="mx-2 text-sm font-normal leading-3 text-gray-57">•</div>
+              <div>{{ viewCount }} {{ $t('content.view') }}</div>
             </div>
             <div class="line-clamp-2 text-base font-normal leading-5 text-black">
               {{ props.item?.description }}
