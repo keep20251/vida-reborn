@@ -21,6 +21,7 @@
             'pr-52': !!appendIconBtn,
             'pr-48': !!password,
           }"
+          :step="step"
           class="h-35 w-full shrink-0 appearance-none divide-solid rounded-2xl border-gray-cc bg-white px-20 py-12 text-sm font-normal not-italic leading-3 text-gray-57 shadow-input outline-none placeholder:text-sm placeholder:text-gray-a3"
           @keypress.enter="emits('keypress:enter')"
         />
@@ -103,6 +104,7 @@ const props = defineProps({
   errMsg: { type: String, default: '' },
   typingAppend: { type: Boolean, default: false },
   focus: { type: Boolean, default: false },
+  step: { type: String, default: '0.01' },
 })
 
 const emits = defineEmits(['update:modelValue', 'click:prepend', 'click:append', 'keypress:enter'])
