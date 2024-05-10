@@ -17,7 +17,10 @@
         </div>
       </router-link>
       <router-link to="/search">
-        <div class="flex items-center justify-center space-x-20 px-12 py-10 hover:bg-gray-f6 xl:justify-start">
+        <div
+          class="flex items-center justify-center space-x-20 px-12 py-10 hover:bg-gray-f6 xl:justify-start"
+          @click="checkSearchAgain"
+        >
           <Icon v-if="atSearch" name="search" size="30"></Icon>
           <Icon v-else name="searchOutline" size="30"></Icon>
           <div class="hidden text-base xl:block" :class="[atSearch ? 'font-bold' : 'font-normal']">
@@ -26,7 +29,10 @@
         </div>
       </router-link>
       <Link href="/message" @click="toMessage">
-        <div class="flex items-center justify-center space-x-20 px-12 py-10 hover:bg-gray-f6 xl:justify-start">
+        <div
+          class="flex items-center justify-center space-x-20 px-12 py-10 hover:bg-gray-f6 xl:justify-start"
+          @click="checkMessageAgain"
+        >
           <Icon v-if="atMessage" name="message" size="30"></Icon>
           <Icon v-else name="messageOutline" size="30"></Icon>
           <div class="hidden text-base xl:block" :class="[atMessage ? 'font-bold' : 'font-normal']">
@@ -35,7 +41,10 @@
         </div>
       </Link>
       <router-link to="/mine">
-        <div class="flex items-center justify-center space-x-20 px-12 py-10 hover:bg-gray-f6 xl:justify-start">
+        <div
+          class="flex items-center justify-center space-x-20 px-12 py-10 hover:bg-gray-f6 xl:justify-start"
+          @click="checkMineAgain"
+        >
           <Icon v-if="atMine" name="mine" size="30"></Icon>
           <Icon v-else name="mineOutline" size="30"></Icon>
           <div class="hidden text-base xl:block" :class="[atMine ? 'font-bold' : 'font-normal']">
@@ -73,7 +82,18 @@ import { useNavigator } from '@use/navigator'
 import { useRouters } from '@use/routers'
 import devRoutes from '@/router/routes/dev'
 
-const { atHome, atSearch, atMessage, atMine, toMessage, onPublishClick, checkHomeAgain } = useNavigator()
+const {
+  atHome,
+  atSearch,
+  atMessage,
+  atMine,
+  toMessage,
+  onPublishClick,
+  checkHomeAgain,
+  checkSearchAgain,
+  checkMessageAgain,
+  checkMineAgain,
+} = useNavigator()
 const { reload } = useRouters()
 
 const isDev = computed(() => import.meta.env.DEV)

@@ -10,7 +10,7 @@
       </div>
     </router-link>
     <router-link class="grow" to="/search">
-      <div class="flex items-center justify-center space-x-16 px-12 py-16">
+      <div class="flex items-center justify-center space-x-16 px-12 py-16" @click="checkSearchAgain">
         <Icon v-if="atSearch" name="search" size="30"></Icon>
         <Icon v-else name="searchOutline" size="30"></Icon>
       </div>
@@ -21,13 +21,13 @@
       </div>
     </Link>
     <Link class="grow" href="/message" @click="toMessage">
-      <div class="flex items-center justify-center space-x-16 px-12 py-16">
+      <div class="flex items-center justify-center space-x-16 px-12 py-16" @click="checkMessageAgain">
         <Icon v-if="atMessage" name="message" size="30"></Icon>
         <Icon v-else name="messageOutline" size="30"></Icon>
       </div>
     </Link>
     <router-link class="grow" to="/mine">
-      <div class="flex items-center justify-center space-x-16 px-12 py-16">
+      <div class="flex items-center justify-center space-x-16 px-12 py-16" @click="checkMineAgain">
         <Icon v-if="atMine" name="mine" size="30"></Icon>
         <Icon v-else name="mineOutline" size="30"></Icon>
       </div>
@@ -41,7 +41,18 @@ import { useNavStore } from '@/store/nav'
 import Link from '@comp/common/Link.vue'
 import { useNavigator } from '@use/navigator'
 
-const { atHome, atSearch, atMessage, atMine, toMessage, onPublishClick, checkHomeAgain } = useNavigator()
+const {
+  atHome,
+  atSearch,
+  atMessage,
+  atMine,
+  toMessage,
+  onPublishClick,
+  checkHomeAgain,
+  checkSearchAgain,
+  checkMessageAgain,
+  checkMineAgain,
+} = useNavigator()
 
 const navStore = useNavStore()
 const { isShow } = storeToRefs(navStore)
