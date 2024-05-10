@@ -15,7 +15,7 @@
           </div>
           <div class="text-sm font-normal leading-3 text-gray-57">{{ item.post_num }} {{ $t('info.perPost') }}</div>
           <div class="text-sm font-normal leading-3 text-gray-57">•</div>
-          <div class="text-sm font-normal leading-3 text-gray-57">{{ item.videos_count }} {{ $t('content.view') }}</div>
+          <div class="text-sm font-normal leading-3 text-gray-57">{{ item.view_count }} {{ $t('content.view') }}</div>
         </div>
         <div class="text-sm font-normal leading-4 text-gray-a3">
           {{ $t('content.subIn') }} {{ formatDate(item.expire_time) }}

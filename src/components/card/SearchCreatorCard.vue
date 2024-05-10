@@ -56,5 +56,5 @@ const props = defineProps({
   },
 })
 
-const viewCount = computed(() => toKiloRoundString(props.item?.videos_count ?? 0, 1))
+const viewCount = computed(() => toKiloRoundString(props.item?.view_count ?? 0, 1))
 </script>
