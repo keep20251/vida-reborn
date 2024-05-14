@@ -11,12 +11,12 @@
         <div class="text-lg font-bold leading-5">{{ $t('info.loginOr') }}{{ $t('info.quickRegister') }}</div>
         <div class="flex w-full flex-col justify-center space-y-10 px-20">
           <InputWrap
-            v-model="email"
-            :err-msg="error"
+            v-model="credential.email.value"
+            :err-msg="credential.email.error"
             :label="$t('label.email')"
             :placeholder="$t('placeholder.email')"
             label-center
-            @update:modelValue="() => (error = '')"
+            @update:modelValue="() => (credential.email.error = '')"
             @keypress:enter="next"
           ></InputWrap>
           <Button :loading="isLoading" @click="next">{{ $t('common.next') }}</Button>
@@ -80,26 +80,28 @@ const { Yup, parseError } = useYup()
 const schema = Yup.string().email().required()
 
 const emailLoginStore = useEmailLoginStore()
-const { email } = storeToRefs(emailLoginStore)
+const { credential } = storeToRefs(emailLoginStore)
 const { sendEmailCode } = useMultiAuth()
 
-const error = ref('')
 const isLoading = ref(false)
 
 async function next() {
   try {
     isLoading.value = true
-    await schema.validate(email.value)
-    const isEmailExist = await useRequest('Account.isUsedEmail', { params: { email: email.value }, immediate: true })
+    await schema.validate(credential.value.email.value)
+    const isEmailExist = await useRequest('Account.isUsedEmail', {
+      params: { email: credential.value.email.value },
+      immediate: true,
+    })
 
     if (isEmailExist) {
-      await sendEmailCode({ email: email.value })
+      await sendEmailCode({ email: credential.value.email.value })
       to(AUTH_ROUTES.VERIFY_EMAIL_CODE)
     } else {
       to(AUTH_ROUTES.SIGN_UP)
     }
   } catch (e) {
-    error.value = parseError(e)
+    credential.value.email.error = parseError(e)
   } finally {
     isLoading.value = false
   }

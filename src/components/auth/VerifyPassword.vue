@@ -37,7 +37,7 @@ import { AUTH_ROUTES } from '@const'
 const { to, back, close } = useAuthRouteStore()
 
 const emailLoginStore = useEmailLoginStore()
-const { email, password } = storeToRefs(emailLoginStore)
+const { credential, password } = storeToRefs(emailLoginStore)
 
 const { Yup, parseError } = useYup()
 const pwdSchema = Yup.string().required()
@@ -61,7 +61,7 @@ async function loginByPassword() {
   const { data, execute } = useRequest('Account.loginByPassword')
   try {
     await execute({
-      account: email.value,
+      account: credential.value.email.value,
       password: password.value,
     })
     await login(data.value.token)

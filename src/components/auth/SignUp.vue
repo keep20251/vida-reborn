@@ -53,12 +53,13 @@
 </template>
 <script setup>
 import debounce from 'lodash/debounce'
-import { computed, reactive, ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAuthRouteStore } from '@/store/auth-route'
+import { useEmailLoginStore } from '@/store/email-login'
 import { useModalStore } from '@/store/modal'
 import Button from '@comp/common/Button.vue'
 import DialogHeader from '@comp/dialog/DialogHeader.vue'
@@ -72,30 +73,31 @@ const authRouteStore = useAuthRouteStore()
 const { to, back, close } = authRouteStore
 const { history } = storeToRefs(authRouteStore)
 const showBack = computed(() => history.value.length > 0)
-
+const emailLoginStore = useEmailLoginStore()
+const { credential } = storeToRefs(emailLoginStore)
 const { Yup, validate } = useYup()
 const { string } = Yup
 
-const credential = reactive({
-  email: {
-    value: '',
-    error: '',
-    check: false,
-    schema: Yup.string().required().email(),
-  },
-  account: {
-    value: '',
-    error: '',
-    check: false,
-    schema: Yup.string().required().account(),
-  },
-  password: {
-    value: '',
-    error: '',
-    check: false,
-    schema: Yup.string().required(),
-  },
-})
+// const credential = reactive({
+//   email: {
+//     value: '',
+//     error: '',
+//     check: false,
+//     schema: Yup.string().required().email(),
+//   },
+//   account: {
+//     value: '',
+//     error: '',
+//     check: false,
+//     schema: Yup.string().required().account(),
+//   },
+//   password: {
+//     value: '',
+//     error: '',
+//     check: false,
+//     schema: Yup.string().required(),
+//   },
+// })
 
 const { execute } = useRequest('Account.emailUsed')
 
@@ -103,22 +105,22 @@ const checkEmailExist = ref(false)
 async function checkEmail(email) {
   try {
     await execute({ email })
-    credential.email.error = ''
-    credential.email.check = true
+    credential.value.email.error = ''
+    credential.value.email.check = true
     checkEmailExist.value = true
   } catch (e) {
-    credential.email.error = e.message
-    credential.email.check = false
+    credential.value.email.error = e.message
+    credential.value.email.check = false
     checkEmailExist.value = false
   }
 }
 
-watch(() => credential.email.value, debounce(checkEmail, 800))
+watch(() => credential.value.email.value, debounce(checkEmail, 800))
 
 const passwordValidation = ref(false)
-const weakSchema = computed(() => string().weakPassword().isValidSync(credential.password.value))
-const mediumSchema = computed(() => string().mediumPassword().isValidSync(credential.password.value))
-const strongSchema = computed(() => string().strongPassword().isValidSync(credential.password.value))
+const weakSchema = computed(() => string().weakPassword().isValidSync(credential.value.password.value))
+const mediumSchema = computed(() => string().mediumPassword().isValidSync(credential.value.password.value))
+const strongSchema = computed(() => string().strongPassword().isValidSync(credential.value.password.value))
 
 const strengthText = computed(() => {
   const schema = [weakSchema, mediumSchema, strongSchema].filter((item) => item.value !== false)
@@ -137,12 +139,12 @@ const strengthText = computed(() => {
 async function submit() {
   try {
     await Promise.all([
-      validate(credential.email.schema, credential.email),
-      validate(credential.account.schema, credential.account),
-      validate(credential.password.schema, credential.password),
+      validate(credential.value.email.schema, credential.value.email),
+      validate(credential.value.account.schema, credential.value.account),
+      validate(credential.value.password.schema, credential.value.password),
     ])
 
-    if (Object.values(credential).some((item) => item.check === false)) return
+    if (Object.values(credential.value).some((item) => item.check === false)) return
     if (checkEmailExist.value === false) return
     if (passwordValidation.value === false) return
 
@@ -168,9 +170,9 @@ async function register() {
   const { data, execute } = useRequest('Account.registerByPassword')
   try {
     await execute({
-      email: credential.email.value,
-      account: credential.account.value,
-      password: credential.password.value,
+      email: credential.value.email.value,
+      account: credential.value.account.value,
+      password: credential.value.password.value,
     })
 
     await login(data.value.token)
@@ -200,7 +202,7 @@ async function register() {
     })
   } catch (e) {
     console.error(e)
-    credential.account.error = e.message
+    credential.value.account.error = e.message
   } finally {
     isLoading.value = false
   }
