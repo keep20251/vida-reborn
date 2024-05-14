@@ -264,6 +264,8 @@ export default {
     subscribeBeforeChat: "Merci de vous abonner avant de discuter",
     clickRtConfirm: "Veuillez cliquer en haut à droite pour confirmer",
     waitUploading: "du fichier...",
+    unboundMailPrompt:
+      "Cette adresse e-mail n'est pas liée à un compte. Si vous avez un compte, vous pouvez vous connecter avec votre nom d'utilisateur ci-dessous.",
   },
   content: {
     default: "Par défaut, ne devrait apparaître nulle part",
@@ -507,13 +509,13 @@ export default {
       confirm: "{'$'}{price} par mois Aller au paiement",
     },
     shopBuy: {
-      1: "Déverrouillera le contenu de cette œuvre de {nickname}",
+      1: "Déverrouillera le contenu de {nickname} dans ce travail",
       2: "{nickname} recevra votre paiement dans son intégralité",
       confirm: "Débloquez maintenant ({'$'}{price})",
     },
     subscribeSuc: {
       1: "merveilleux! Vous vous êtes abonné avec succès à {nickname} !",
-      2: "Choisissez d'accéder à la page d'accueil du créateur ou de rester sur l'écran d'origine et de naviguer !",
+      2: "Choisissez d'accéder à la page d'accueil du créateur, ou restez sur l'écran d'origine et parcourez !",
       confirm: "Aller à la page du créateur",
     },
     shopBuySuc: {

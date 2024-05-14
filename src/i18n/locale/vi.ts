@@ -264,6 +264,8 @@ export default {
     subscribeBeforeChat: "Vui lòng đăng ký trước khi trò chuyện",
     clickRtConfirm: "Vui lòng nhấp vào góc phải trên cùng để xác nhận",
     waitUploading: "Đang tải lên tệp...",
+    unboundMailPrompt:
+      "Địa chỉ email này chưa được liên kết với bất kỳ tài khoản nào. Nếu bạn đã có tài khoản, bạn có thể đăng nhập bằng tên người dùng bên dưới.",
   },
   content: {
     default: "Mặc định, không nên hiển thị ở bất cứ đâu",
@@ -505,7 +507,7 @@ export default {
       confirm: "{'$'}{price} mỗi tháng Chuyển đến phần Thanh toán",
     },
     shopBuy: {
-      1: "Sẽ mở khóa nội dung của tác phẩm này của {nickname}",
+      1: "Sẽ mở khóa nội dung của {nickname} trong tác phẩm này",
       2: "{nickname}sẽ nhận được đầy đủ khoản thanh toán của bạn",
       confirm: "Mở khóa ngay ({'$'}{price})",
     },
@@ -516,8 +518,8 @@ export default {
     },
     shopBuySuc: {
       1: "tuyệt vời! Đã thanh toán thành công để mở khóa bài đăng",
-      2: "Chọn vào bài viết để xem, hoặc ở lại màn hình gốc để duyệt!",
-      confirm: "Đi tới bài đăng",
+      2: "Chọn vào bài viết để xem, hoặc ở lại màn hình gốc để duyệt nhé!",
+      confirm: "Đi tới bài viết",
     },
     title: { paySuc: "Thanh toán được thực hiện thành công" },
     paying: { title: "Thanh toán đang được xử lý" },
