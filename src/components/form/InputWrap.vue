@@ -1,8 +1,11 @@
 <template>
   <div class="flex flex-col space-y-10">
-    <label v-if="label" class="text-base font-normal not-italic leading-md" :class="[labelCenter]"
+    <label v-if="label" class="flex text-base font-normal not-italic leading-md" :class="[labelCenter]"
       >{{ label }}
       <span v-if="sublabel" class="text-sm font-normal not-italic leading-3 text-gray-57">{{ sublabel }}</span>
+      <div v-if="labelIcon" class="flex cursor-pointer items-center pl-4">
+        <Icon :name="labelIcon" size="8" @click="emits('click:labelIcon')"></Icon>
+      </div>
     </label>
     <div class="flex flex-col space-y-2">
       <div class="relative flex items-center">
@@ -89,6 +92,7 @@ const props = defineProps({
   label: { type: String },
   labelCenter: { type: Boolean, default: false },
   sublabel: { type: String },
+  labelIcon: { type: String },
   modelValue: { type: [String, Number], required: true },
   placeholder: { type: String, default: '输入文字...' },
   password: { type: Boolean, default: false },
@@ -107,7 +111,7 @@ const props = defineProps({
   step: { type: String, default: '0.01' },
 })
 
-const emits = defineEmits(['update:modelValue', 'click:prepend', 'click:append', 'keypress:enter'])
+const emits = defineEmits(['update:modelValue', 'click:prepend', 'click:append', 'keypress:enter', 'click:labelIcon'])
 
 const value = computed({
   get() {

@@ -9,6 +9,8 @@
               :err-msg="credential.email.error"
               :label="$t('label.email')"
               :placeholder="$t('placeholder.email')"
+              :label-icon="'info'"
+              @click:labelIcon="openMessage('info.unboundMailPrompt')"
               @keypress:enter="submit"
             ></InputWrap>
             <InputWrap
@@ -61,6 +63,7 @@ import { useAccountStore } from '@/store/account'
 import { useAuthRouteStore } from '@/store/auth-route'
 import { useEmailLoginStore } from '@/store/email-login'
 import { useModalStore } from '@/store/modal'
+import { usePopupMessageStore } from '@/store/popup-message'
 import Button from '@comp/common/Button.vue'
 import DialogHeader from '@comp/dialog/DialogHeader.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
@@ -69,6 +72,8 @@ import useRequest from '@use/request/index.js'
 import { useYup } from '@use/validator/yup.js'
 import { AUTH_ROUTES, MODAL_TYPE } from '@const'
 
+const { open: openMessage } = usePopupMessageStore()
+const { open } = useModalStore()
 const authRouteStore = useAuthRouteStore()
 const { to, back, close } = authRouteStore
 const { history } = storeToRefs(authRouteStore)
