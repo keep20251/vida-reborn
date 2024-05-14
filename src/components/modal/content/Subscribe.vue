@@ -2,9 +2,7 @@
   <div class="flex h-full w-full flex-col items-center justify-center space-y-30">
     <div class="flex flex-col items-center justify-center space-y-6">
       <div class="text-base font-normal leading-lg">
-        <span class="text-xl font-bold leading-xl">
-          {{ content?.price }}
-        </span>
+        <span class="text-xl font-bold leading-xl"> ${{ removeDecimalIfHundred(content?.price) }} </span>
         / {{ $t('unit.day', { days: content?.expire_days }) }}
       </div>
       <div class="text-base font-bold leading-md text-subscribe-orange">{{ content?.name }}</div>
@@ -40,4 +38,15 @@ useConfirmData(() => {
   const window = openWindow()
   return { window }
 })
+
+function removeDecimalIfHundred(value) {
+  const num = Number(value) // 因為後端拿回來是字串
+
+  // 判斷是否是百位數以上的整數
+  if (!isNaN(num) && Number.isInteger(num) && num >= 100) {
+    return Math.trunc(num) // 去掉小數點
+  } else {
+    return num
+  }
+}
 </script>
