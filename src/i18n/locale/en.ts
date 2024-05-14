@@ -264,6 +264,8 @@ export default {
     subscribeBeforeChat: "Please subscribe before chatting",
     clickRtConfirm: "Please click the top right corner to confirm",
     waitUploading: "File uploading...",
+    unboundMailPrompt:
+      "This email address is not currently associated with any account. If you already have an account, you can log in using your username below",
   },
   content: {
     default: "Default, shouldn't show up anywhere",
@@ -505,7 +507,7 @@ export default {
       confirm: "{'$'}{price} per month Go to Pay",
     },
     shopBuy: {
-      1: "Will unlock {nickname}'s content of this work",
+      1: "Will unlock the content of {nickname} in this work",
       2: "{nickname}will receive your payment in full",
       confirm: "Unlock now ({'$'}{price})",
     },

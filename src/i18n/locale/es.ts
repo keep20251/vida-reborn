@@ -264,9 +264,11 @@ export default {
     subscribeBeforeChat: "Por favor suscríbete antes de chatear.",
     clickRtConfirm: "Por favor, haz clic en la esquina superior derecha para confirmar",
     waitUploading: "Subiendo archivo...",
+    unboundMailPrompt:
+      "Esta dirección de correo electrónico no está asociada a ninguna cuenta. Si ya tienes una cuenta, puedes iniciar sesión con tu nombre de usuario a continuación.",
   },
   content: {
-    default: "Predeterminado, no debería aparecer en ninguna parte",
+    default: "Predeterminado, no debería aparecer en ningún lado",
     welcomeToVida: "¡Bienvenido a VIDA, únete a nosotros!",
     verifyAccount:
       "¡Apresúrate a verificar tu buzón! Ve a 【Mi cuenta>Configuración de la cuenta】 para completar la verificación",
@@ -507,7 +509,7 @@ export default {
       confirm: "{'$'}{price} por mes Ir a Pagar",
     },
     shopBuy: {
-      1: "Desbloqueará el contenido de {nickname} de este trabajo.",
+      1: "Desbloqueará el contenido de {nickname} en este trabajo.",
       2: "{nickname}recibirá su pago completo",
       confirm: "Desbloquear ahora ({'$'}{price})",
     },

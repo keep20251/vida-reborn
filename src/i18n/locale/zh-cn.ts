@@ -255,6 +255,7 @@ export default {
     subscribeBeforeChat: "请先订阅才能聊天",
     clickRtConfirm: "请先点击右上角确认",
     waitUploading: "文件上传中...",
+    unboundMailPrompt: "该邮箱尚未绑定任何帐号，若已有帐户可由下方使用用户名登入。",
   },
   content: {
     default: "预设，不应该显示在任何地方",

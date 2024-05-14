@@ -33,7 +33,7 @@ export default {
     cookie: "このメッセージを受け入れて見ないでください",
     check: "確認する",
     subscribe: "サブスクリプション",
-    subscribed: "購読しました",
+    subscribed: "購読済み",
     cancelSubscribe: "キャンセル",
     restoreSubscribe: "再開",
     reSubscribe: "再購読",
@@ -186,7 +186,7 @@ export default {
     error: {
       subscribeSelf: "自分自身を購読できません",
       shopBuySelf: "自分の商品が買えない",
-      subscriptionNotFound: "利用可能なサブスクリプションプランはありません",
+      subscriptionNotFound: "利用可能なサブスクリプション プランはありません",
     },
     sending: "送信",
     failure: "失敗した",
@@ -259,6 +259,8 @@ export default {
     subscribeBeforeChat: "チャットする前に購読してください",
     clickRtConfirm: "右上角をクリックして確認してください",
     waitUploading: "アップロード中...",
+    unboundMailPrompt:
+      "このメールアドレスはどのアカウントにも紐付けられていません。アカウントをお持ちの場合は、以下のユーザー名を使用してログインできます。",
   },
   content: {
     default: "デフォルト、どこにも表示されないはずです",
@@ -500,8 +502,8 @@ export default {
       confirm: "月額 {'$'}{price} 支払いに進む",
     },
     shopBuy: {
-      1: "{nickname} のこの作品のコンテンツのロックを解除します",
-      2: "{nickname}がお支払いを全額受け取ります",
+      1: "この作品では {nickname} のコンテンツがアンロックされます",
+      2: "{nickname}はあなたの支払いを全額受け取ります",
       confirm: "今すぐロックを解除します ({'$'}{price})",
     },
     subscribeSuc: {
@@ -511,7 +513,7 @@ export default {
     },
     shopBuySuc: {
       1: "素晴らしい！投稿のロックを解除するために支払いが完了しました",
-      2: "投稿に移動して視聴するか、元の画面に留まって閲覧するかを選択してください。",
+      2: "投稿に移動して見るか、元の画面に留まって閲覧するかを選択してください。",
       confirm: "投稿に移動",
     },
     title: { paySuc: "支払いが正常に完了しました" },

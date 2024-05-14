@@ -259,6 +259,8 @@ export default {
     subscribeBeforeChat: "채팅하기 전에 구독해주세요",
     clickRtConfirm: "오른쪽 상단을 클릭하여 확인하세요",
     waitUploading: "파일 업로드 중...",
+    unboundMailPrompt:
+      "이 이메일 주소는 어떤 계정에도 연결되어 있지 않습니다. 계정이 있다면 아래의 사용자 이름을 사용하여 로그인할 수 있습니다.",
   },
   content: {
     default: "기본값은 어디에도 표시되지 않아야 합니다.",
@@ -498,7 +500,7 @@ export default {
       confirm: "월별 {'$'}{price} 결제로 이동",
     },
     shopBuy: {
-      1: "이 작품의 {nickname} 콘텐츠를 잠금 해제합니다",
+      1: "이 작품에서 {nickname}의 콘텐츠가 잠금 해제됩니다.",
       2: "{nickname}결제 금액 전액을 받게 됩니다.",
       confirm: "지금 잠금 해제하세요({'$'}{price})",
     },

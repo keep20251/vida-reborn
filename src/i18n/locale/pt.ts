@@ -264,6 +264,8 @@ export default {
     subscribeBeforeChat: "Por favor, inscreva-se antes de conversar",
     clickRtConfirm: "Por favor, clique no canto superior direito para confirmar",
     waitUploading: "Enviando arquivo...",
+    unboundMailPrompt:
+      "Este endereço de email não está vinculado a nenhuma conta. Se você tem uma conta, pode entrar usando seu nome de usuário abaixo.",
   },
   content: {
     default: "Padrão, não deve aparecer em lugar nenhum",
@@ -506,9 +508,9 @@ export default {
       confirm: "{'$'}{price} por mês Vá para pagar",
     },
     shopBuy: {
-      1: "Irá desbloquear o conteúdo deste trabalho de {nickname}",
+      1: "Irá desbloquear o conteúdo de {nickname} neste trabalho",
       2: "{nickname}receberá seu pagamento integralmente",
-      confirm: "Desbloqueie agora ({'$'}{price})",
+      confirm: "Desbloquear agora ({'$'}{price})",
     },
     subscribeSuc: {
       1: "maravilhoso! Inscrito em {nickname} com sucesso!",
