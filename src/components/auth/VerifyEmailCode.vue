@@ -5,11 +5,11 @@
         <div class="flex flex-col space-y-32">
           <div class="flex flex-col space-y-30">
             <div class="px-auto text-center text-sm font-normal leading-5">
-              {{ $t('info.mailCodeSent', { mail: email }) }}
+              {{ $t('info.mailCodeSent', { mail: credential.email.value }) }}
             </div>
             <InputEmailCode
               v-model="verifyCode"
-              :onResend="() => sendEmailCode({ email })"
+              :onResend="() => sendEmailCode({ email: credential.email.value })"
               :err-msg="verifyCodeError"
               :first-time="false"
               :label-center="true"
@@ -49,7 +49,7 @@ const { t: $t } = useI18n()
 const { to, back, close } = useAuthRouteStore()
 
 const emailLoginStore = useEmailLoginStore()
-const { email, verifyCode } = storeToRefs(emailLoginStore)
+const { credential, verifyCode } = storeToRefs(emailLoginStore)
 const { sendEmailCode } = useMultiAuth()
 
 const { Yup, parseError } = useYup()
@@ -78,7 +78,7 @@ async function loginByEmailCode() {
   const { data, execute } = useRequest('Account.loginByEmail')
   try {
     await execute({
-      email: email.value,
+      email: credential.value.email.value,
       code: verifyCode.value,
     })
     await login(data.value.token)
