@@ -73,6 +73,7 @@ export const iconMap = {
   focal: { path: 'function/focal' },
   questionOutline: { path: 'function/question-outline' },
   ellipse: { path: 'function/ellipse' },
+  info: { path: 'function/info' },
 
   comment: { path: 'interaction/comment' },
   likeOutline: { path: 'interaction/like-outline', preload: true },
