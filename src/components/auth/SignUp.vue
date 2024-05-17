@@ -10,9 +10,11 @@
               :label="$t('label.email')"
               :placeholder="$t('placeholder.email')"
               :label-icon="'info'"
-              @click:labelIcon="openMessage('info.unboundMailPrompt')"
+              :tip="tip"
+              @click:labelIcon="openTip"
               @keypress:enter="submit"
-            ></InputWrap>
+            >
+            </InputWrap>
             <InputWrap
               v-model="credential.account.value"
               :err-msg="credential.account.error"
@@ -63,7 +65,6 @@ import { useAccountStore } from '@/store/account'
 import { useAuthRouteStore } from '@/store/auth-route'
 import { useEmailLoginStore } from '@/store/email-login'
 import { useModalStore } from '@/store/modal'
-import { usePopupMessageStore } from '@/store/popup-message'
 import Button from '@comp/common/Button.vue'
 import DialogHeader from '@comp/dialog/DialogHeader.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
@@ -72,7 +73,6 @@ import useRequest from '@use/request/index.js'
 import { useYup } from '@use/validator/yup.js'
 import { AUTH_ROUTES, MODAL_TYPE } from '@const'
 
-const { open: openMessage } = usePopupMessageStore()
 const { open } = useModalStore()
 const authRouteStore = useAuthRouteStore()
 const { to, back, close } = authRouteStore
@@ -83,26 +83,19 @@ const { credential } = storeToRefs(emailLoginStore)
 const { Yup, validate } = useYup()
 const { string } = Yup
 
-// const credential = reactive({
-//   email: {
-//     value: '',
-//     error: '',
-//     check: false,
-//     schema: Yup.string().required().email(),
-//   },
-//   account: {
-//     value: '',
-//     error: '',
-//     check: false,
-//     schema: Yup.string().required().account(),
-//   },
-//   password: {
-//     value: '',
-//     error: '',
-//     check: false,
-//     schema: Yup.string().required(),
-//   },
-// })
+const showTip = ref(false)
+const tip = computed(() => {
+  return showTip.value ? $t('info.unboundMailPrompt') : ''
+})
+const openTip = () => {
+  setTimeout(() => {
+    showTip.value = true
+    setTimeout(() => {
+      showTip.value = false
+    }, 3000)
+  }, 100)
+}
+openTip()
 
 const { execute } = useRequest('Account.emailUsed')
 

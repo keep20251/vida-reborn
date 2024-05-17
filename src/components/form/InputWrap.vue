@@ -6,6 +6,22 @@
       <div v-if="labelIcon" class="flex cursor-pointer items-center pl-4">
         <Icon :name="labelIcon" size="8" @click="emits('click:labelIcon')"></Icon>
       </div>
+      <transition
+        enter-active-class="transition duration-500 ease-in"
+        leave-active-class="transition duration-500 ease-out"
+        enter-from-class="transform -translate-x-5 opacity-0"
+        leave-to-class="transform -translate-x-5 opacity-0"
+        enter-to-class="transform translate-x-0 opacity-100"
+        leave-from-class="transform translate-x-0 opacity-100"
+      >
+        <div v-if="tip" class="relative flex flex-1">
+          <div
+            class="absolute -top-[75%] ml-4 flex -translate-y-1/2 rounded-bl-[0.15rem] rounded-br-2xl rounded-tl-3xl rounded-tr-2xl bg-gray-500 bg-opacity-50 py-4 pl-12 pr-8 text-xs text-white sm:-top-[25%]"
+          >
+            {{ tip }}
+          </div>
+        </div>
+      </transition>
     </label>
     <div class="flex flex-col space-y-2">
       <div class="relative flex items-center">
@@ -93,6 +109,7 @@ const props = defineProps({
   labelCenter: { type: Boolean, default: false },
   sublabel: { type: String },
   labelIcon: { type: String },
+  tip: { type: String },
   modelValue: { type: [String, Number], required: true },
   placeholder: { type: String, default: '输入文字...' },
   password: { type: Boolean, default: false },

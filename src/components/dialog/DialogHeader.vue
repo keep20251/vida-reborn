@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-[30.5rem] flex-col space-y-32 xl:lg:md:h-[37.5rem]">
+  <div class="flex h-[30.5rem] flex-col space-y-32 overflow-y-scroll xl:lg:md:h-[37.5rem]">
     <div class="relative text-center">
       <div v-if="props.showBack" class="absolute left-0 top-0">
         <button @click="emits('back')">
