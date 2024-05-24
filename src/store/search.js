@@ -53,7 +53,7 @@ export const useSearchStore = defineStore('search-store', () => {
 
   async function fetchPopularTags() {
     const data = await useRequest('Article.hotKeywords', { immediate: true })
-    popularTags.value = data.list.map((tag) => ({ value: tag.name, label: tag.name }))
+    popularTags.value = data.map((tag) => ({ value: tag.name, label: tag.name }))
   }
 
   const historyTags = useLocalStorage(LOCAL_STORAGE_KEYS.HISTORY_TAGS, [])
