@@ -80,7 +80,7 @@ const { Yup, parseError } = useYup()
 const schema = Yup.string().email().required()
 
 const emailLoginStore = useEmailLoginStore()
-const { credential } = storeToRefs(emailLoginStore)
+const { credential, checkEmailExist } = storeToRefs(emailLoginStore)
 const { sendEmailCode } = useMultiAuth()
 
 const isLoading = ref(false)
@@ -93,6 +93,7 @@ async function next() {
       params: { email: credential.value.email.value },
       immediate: true,
     })
+    checkEmailExist.value = true
 
     if (isEmailExist) {
       await sendEmailCode({ email: credential.value.email.value })
