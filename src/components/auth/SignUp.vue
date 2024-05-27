@@ -79,7 +79,7 @@ const { to, back, close } = authRouteStore
 const { history } = storeToRefs(authRouteStore)
 const showBack = computed(() => history.value.length > 0)
 const emailLoginStore = useEmailLoginStore()
-const { credential } = storeToRefs(emailLoginStore)
+const { credential, checkEmailExist } = storeToRefs(emailLoginStore)
 const { Yup, validate } = useYup()
 const { string } = Yup
 
@@ -99,7 +99,6 @@ openTip()
 
 const { execute } = useRequest('Account.emailUsed')
 
-const checkEmailExist = ref(false)
 async function checkEmail(email) {
   try {
     await execute({ email })

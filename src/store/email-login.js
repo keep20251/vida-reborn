@@ -5,9 +5,9 @@ import { useYup } from '@use/validator/yup.js'
 export const useEmailLoginStore = defineStore('email-login-store', () => {
   const verifyCode = ref('')
   const password = ref('')
+  const checkEmailExist = ref(false)
 
   const { Yup } = useYup()
-  const { string } = Yup
 
   const credential = reactive({
     email: {
@@ -34,5 +34,6 @@ export const useEmailLoginStore = defineStore('email-login-store', () => {
     password,
     verifyCode,
     credential,
+    checkEmailExist,
   }
 })
