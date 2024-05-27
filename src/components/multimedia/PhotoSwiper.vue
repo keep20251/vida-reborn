@@ -46,10 +46,12 @@ import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import LockMask from '@comp/multimedia/LockMask.vue'
 import { useSwipe } from '@use/gesture/swipe'
+import { useStat } from '@use/utils/stat'
 
 const props = defineProps({
   item: { type: Object, required: true },
   index: { type: Number, default: 0 },
+  stat: { type: Boolean, default: false },
 })
 
 const appStore = useAppStore()
@@ -67,4 +69,14 @@ whenever(
   () => transitioning.value === false,
   () => (currIndex.value = animIndex.value),
 )
+
+// 統計觀看數據
+let startTime
+if (props.stat) {
+  useStat(swiper, {
+    id: props.item.id,
+    activeFn: () => (startTime = Date.now()),
+    activeMs: () => Date.now() - startTime,
+  })
+}
 </script>

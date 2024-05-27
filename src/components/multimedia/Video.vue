@@ -14,7 +14,7 @@ const props = defineProps({
   preview: { type: Boolean, default: false },
 })
 
-const emits = defineEmits(['play', 'ended'])
+const emits = defineEmits(['play', 'ended', 'timeupdate'])
 
 const videoWrap = ref(null)
 const videoElement = ref(null)
@@ -56,6 +56,8 @@ function setupVideo() {
       onEnded: () => emits('ended'),
       onTimeupdate: () => {
         videoCurrentTime.value = videoElement.value?.currentTime || 0
+
+        emits('timeupdate', videoCurrentTime.value)
 
         // 尼瑪 der 視頻會出現播放完畢當下 currentTime 比 duration 還小的情況
         // 某些瀏覽器(safari)可能發生 ended 事件沒觸發到

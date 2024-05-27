@@ -30,8 +30,8 @@
       <div class="mt-[60%]"></div>
       <div class="absolute left-0 top-0 h-full w-full rounded-inherit">
         <BlockMask v-if="isBlock" :item="item"></BlockMask>
-        <VideoWrap v-else-if="isVideo" :item="item"></VideoWrap>
-        <PhotoSwiper v-else-if="isImage" :item="item"></PhotoSwiper>
+        <VideoWrap v-else-if="isVideo" :item="item" stat></VideoWrap>
+        <PhotoSwiper v-else-if="isImage" :item="item" stat></PhotoSwiper>
       </div>
       <div v-if="showAutoPublishTime" class="absolute left-20 top-20 text-base font-bold text-white">
         {{ $t('content.autoPublishAt', { datetime: tsSecondToYMDhm(item.display_ts, item.display_at) }) }}
