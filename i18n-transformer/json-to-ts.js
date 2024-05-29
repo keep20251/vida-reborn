@@ -33,8 +33,7 @@ async function main() {
   langKeys.forEach((language) => {
     fs.writeFileSync(
       `./src/i18n/locale/${language}.ts`,
-      `/* eslint-disable prettier/prettier */
-      export default${JSON.stringify(result[language])};`.replace(/"([^(")"]+)":/g, '$1:'),
+      `export default${JSON.stringify(result[language])};`.replace(/"([^(")"]+)":/g, '$1:'),
       'utf8',
     )
   })
