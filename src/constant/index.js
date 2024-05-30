@@ -24,6 +24,10 @@ export const SUB_PLAN = {
   SET: 2,
 }
 
+export const PAYMENT_ROUTES = {
+  MAIN_PAGE: 1,
+}
+
 export const LOCAL_STORAGE_KEYS = {
   ACCOUNT_INFO: '__ACCOUNT_INFO',
   LOCALE: '__LOCALE',
@@ -52,7 +56,6 @@ export const MODAL_TYPE = {
   SHOP_BUY: 32,
   SUBSCRIBE_SUCCESS: 33,
   SHOP_BUY_SUCCESS: 34,
-  PAYMENT: 35,
 
   PRIVACY_POLICY: 97,
   TERMS_OF_SERVICE: 98,

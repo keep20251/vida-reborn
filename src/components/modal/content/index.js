@@ -16,7 +16,6 @@ import SubscribeSuccess from './SubscribeSuccess.vue'
 import TermsOfService from './TermsOfService.vue'
 import Test from './Test.vue'
 import Text from './Text.vue'
-import Payment from './payment/index.vue'
 
 export default Object.freeze({
   [MODAL_TYPE.ALERT]: Text,
@@ -36,7 +35,6 @@ export default Object.freeze({
   [MODAL_TYPE.PAYING]: Paying,
   [MODAL_TYPE.SUBSCRIBE_SUCCESS]: SubscribeSuccess,
   [MODAL_TYPE.SHOP_BUY_SUCCESS]: ShopBuySuccess,
-  [MODAL_TYPE.PAYMENT]: Payment,
 
   [MODAL_TYPE.PRIVACY_POLICY]: PrivacyPolicy,
   [MODAL_TYPE.TERMS_OF_SERVICE]: TermsOfService,
