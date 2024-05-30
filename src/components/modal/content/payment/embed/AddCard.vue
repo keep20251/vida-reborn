@@ -7,7 +7,13 @@
         <button class="hidden" type="submit"></button>
       </form>
     </div>
-    <div></div>
+    <Checkbox
+      v-model="adultCheck"
+      info="勾選此處確認您至少滿18歲，並在居住地達到成年年齡"
+      error="這是錯誤"
+      mark-color="gray"
+      size="sm"
+    ></Checkbox>
     <div class="flex flex-row space-x-10">
       <div v-for="image in images" :key="`credit-card-${image.alt}`">
         <img :src="image.src" :alt="image.src" />
@@ -19,11 +25,15 @@
   </div>
 </template>
 <script setup>
+import { ref } from 'vue'
 import Discover from '@/assets/images/payment/credit-card/discover.png'
 import JCB from '@/assets/images/payment/credit-card/jcb.png'
 import Maestro from '@/assets/images/payment/credit-card/maestro.png'
 import MasterCard from '@/assets/images/payment/credit-card/master-card.png'
 import Visa from '@/assets/images/payment/credit-card/visa.png'
+import Checkbox from '@/components/form/Checkbox.vue'
+
+const adultCheck = ref(false)
 
 const images = [
   { src: Discover, alt: 'Discover' },
