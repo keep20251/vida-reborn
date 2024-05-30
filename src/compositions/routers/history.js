@@ -6,8 +6,10 @@ import { computed, ref } from 'vue'
  * 以及前進後退的狀態
  * */
 export function useHistory({ initValue }) {
-  const now = ref(initValue)
-  const history = ref([initValue])
+  const now = ref(null)
+  const history = ref([])
+
+  init(initValue)
 
   function goto(value) {
     history.value.push(now.value)
@@ -21,9 +23,13 @@ export function useHistory({ initValue }) {
     now.value = history.value.pop()
   }
 
+  function init(value) {
+    now.value = value
+  }
+
   // 這裡使用 computed 是為了避免 hydrate 時的問題
   const historyProxy = computed(() => history.value)
   const nowProxy = computed(() => now.value)
 
-  return { now: nowProxy, history: historyProxy, goto, back }
+  return { now: nowProxy, history: historyProxy, goto, back, init }
 }
