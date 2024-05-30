@@ -1,6 +1,14 @@
 <template>
   <div class="flex h-full w-full flex-col justify-center space-y-30">
-    <DialogHeader :title="$t('label.register')" :history="history" :show-back="showBack" @back="back" @close="close">
+    <DialogHeader
+      :title="$t('label.register')"
+      :history="history"
+      :show-back="showBack"
+      @back="back"
+      @close="close"
+      fixed-height
+      scroll-y
+    >
       <template #default>
         <div class="flex flex-col space-y-32">
           <div class="flex flex-col space-y-16">
