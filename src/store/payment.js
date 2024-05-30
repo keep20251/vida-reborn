@@ -11,17 +11,20 @@ export const usePaymentStore = defineStore('payment-store', () => {
   const { openPayment, closePayment } = dialogStore
 
   const isOpen = computed(() => paymentDialog.value)
-  function open() {
+
+  const routes = [{ value: PAYMENT_ROUTES.MAIN_PAGE, component: MainPage }]
+  const { now, goto, back, init } = useHistory({ initValue: PAYMENT_ROUTES.MAIN_PAGE })
+  const activeComponent = computed(() => routes.find((route) => route.value === now.value)?.component)
+
+  function open(value = PAYMENT_ROUTES.MAIN_PAGE) {
     console.log('payment dialog is open')
     openPayment()
+    init(value)
   }
   function close() {
     closePayment()
+    init(PAYMENT_ROUTES.MAIN_PAGE)
   }
-
-  const routes = [{ value: PAYMENT_ROUTES.MAIN_PAGE, component: MainPage }]
-  const { now, goto, back } = useHistory({ initValue: PAYMENT_ROUTES.MAIN_PAGE })
-  const activeComponent = computed(() => routes.find((route) => route.value === now.value)?.component)
 
   return {
     isOpen,
