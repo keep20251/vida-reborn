@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-row items-center space-x-10">
-    <BaseOutline>
+    <BaseOutline :outlined="selected">
       <template #default>
         <div class="text-sm text-gray-a3">{{ brand }} **** **** **** {{ last4 }}</div>
         <div v-if="defaultable" class="absolute right-5 top-5" @click="$emit('crad:set-default')">
