@@ -8,7 +8,8 @@ import SignUp from '@comp/auth/SignUp.vue'
 import SignUpSuccess from '@comp/auth/SignUpSuccess.vue'
 import VerifyEmailCode from '@comp/auth/VerifyEmailCode.vue'
 import VerifyPassword from '@comp/auth/VerifyPassword.vue'
-import { AUTH_ROUTES } from '@const'
+import { AUTH_ROUTES } from '@const/index'
+import { useHistory } from '@/compositions/routers/history'
 
 // import { trackEvent } from '@/gtm'
 
@@ -24,24 +25,8 @@ export const useAuthRouteStore = defineStore('authRoute', () => {
     { value: AUTH_ROUTES.SIGN_UP_SUCCESS, component: SignUpSuccess },
   ]
 
-  const now = ref(AUTH_ROUTES.MAIN_PAGE)
-  const history = ref([])
-  const historyProxy = computed(() => history.value)
-
+  const { now, history, goto, back } = useHistory({ initValue: AUTH_ROUTES.MAIN_PAGE })
   const authComponent = computed(() => routes.find((route) => route.value === now.value).component)
-
-  function to(value) {
-    // triggerGtm(value)
-    history.value.push(now.value)
-    now.value = value
-  }
-
-  function back() {
-    if (history.value.length <= 0) {
-      throw new Error('[Auth Route Error] History is empty, you shoud not call back()')
-    }
-    now.value = history.value.pop()
-  }
 
   const emailLoginStore = useEmailLoginStore()
 
@@ -77,5 +62,5 @@ export const useAuthRouteStore = defineStore('authRoute', () => {
   //     }
   //   }
 
-  return { authComponent, history: historyProxy, to, back, close, open }
+  return { authComponent, history, to: goto, back, close, open }
 })
