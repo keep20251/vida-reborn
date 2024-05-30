@@ -42,6 +42,9 @@ export default {
       md: '0.0625rem 0.0625rem 0.25rem rgba(0,0,0,0.1)', // 1px 1px 4px
       lg: '0.0625rem 0.0625rem 0.3125rem rgba(0,0,0,0.1)', // 1px 1px 5px
       none: '0 0 #000',
+      'active-sm': '0 0 0 1px #6567E8',
+      'active-md': '0 0 0 2px #6567E8',
+      'active-lg': '0 0 0 3px #6567E8',
     },
     extend: {
       gridTemplateColumns: {
