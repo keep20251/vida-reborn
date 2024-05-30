@@ -1,6 +1,8 @@
 import { reactive, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useFeedStore } from '@/store/feed'
 import { useModalStore } from '@/store/modal'
+import { usePopupMessageStore } from '@/store/popup-message'
 // import { notifyBuy, notifyCampaign, notifySub } from '@/utils/state-broadcast'
 import { toQueryString } from '@/utils/string-helper'
 import useRequest from '@/compositions/request'
@@ -13,7 +15,9 @@ import API from '@/http'
 // import { sendDonateMessage } from '@/ws'
 
 export function usePayment() {
+  const { open } = usePopupMessageStore()
   const { close } = useModalStore()
+  const { $t } = useI18n()
 
   const frequency = 5000 // 5 秒輪詢一次
 
@@ -30,6 +34,13 @@ export function usePayment() {
     onCancel: null,
     onTimeout: null,
   })
+
+  const setupAction = ({ onSuccess, onFailure, onCancel, onTimeout }) => {
+    actions.onSuccess = onSuccess
+    actions.onFailure = onFailure
+    actions.onCancel = onCancel
+    actions.onTimeout = onTimeout
+  }
 
   /**
    * 支付程序
@@ -51,10 +62,7 @@ export function usePayment() {
   } = {}) {
     try {
       window = newWindow
-      actions.onSuccess = onSuccess
-      actions.onFailure = onFailure
-      actions.onCancel = onCancel
-      actions.onTimeout = onTimeout
+      setupAction({ onSuccess, onFailure, onCancel, onTimeout })
 
       const response = await useRequest(apiKey, { params: data, immediate: true })
       console.log('create payment response:', response)
@@ -83,11 +91,14 @@ export function usePayment() {
     } catch (e) {
       console.error('[Payment Error]', e)
       setTimeout(
-        onFailed(() => actions.onFailure && actions.onFailure(e.message)),
+        onFailed(e.message, () => actions.onFailure && actions.onFailure(e.message)),
         1500,
       )
     }
   }
+
+  // TODO 等待後端 API
+  async function payStripe() {}
 
   /**
    * 輪詢支付結果
@@ -105,7 +116,7 @@ export function usePayment() {
     try {
       if (tick >= timeout) {
         setTimeout(
-          onFailed(() => actions.onTimeout && actions.onTimeout()),
+          onFailed('payment procedure time out.', () => actions.onTimeout && actions.onTimeout()),
           1500,
         )
         return
@@ -116,6 +127,7 @@ export function usePayment() {
 
       if (response.success) {
         close()
+        open($t('message.payment.success'))
         actions.onSuccess && actions.onSuccess()
 
         // trackEvent({ key: 47, ...gtmData })
@@ -153,16 +165,17 @@ export function usePayment() {
       console.error('[fetchPollingResult] Polling Failed...', e)
       isContinue.value = false
       setTimeout(
-        onFailed(() => actions.onFailure && actions.onFailure(e.message)),
+        onFailed(e.message, () => actions.onFailure && actions.onFailure(e.message)),
         1500,
       )
     }
   }
 
-  function onFailed(fn = null) {
+  function onFailed(errMessage, fn = null) {
     window.close()
     close()
     fn && fn()
+    open(`${$t('message.payment.failed')}: ${errMessage}`)
   }
 
   /**
@@ -223,6 +236,7 @@ export function usePayment() {
 
     isContinue.value = false
     if (window) window.close()
+    open($t('message.payment.cancel'))
     actions.onCancel && actions.onCancel()
   }
 

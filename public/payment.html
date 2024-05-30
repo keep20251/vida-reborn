@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="loading" id="loading">Loading...</div>
+    </div>
+
+    <style>
+      #pay_form {
+        display: none;
+      }
+
+      .container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .loading {
+          font-size: 24px;
+          font-weight: bold;
+          color: #000;
+        }
+      }
+    </style>
+    <form id="pay_form" action="" method="POST">
+      <input type="text" id="shop_id" name="SHOP_ID" value="" />
+      <input type="text" id="order_id" name="ORDER_ID" value="" />
+      <input type="text" id="order_item" name="ORDER_ITEM" value="" />
+      <input type="text" id="order_amount" name="AMOUNT" value="" />
+      <input type="text" id="prod_id" name="PROD_ID" value="" />
+      <input type="text" id="currency" name="CURRENCY" value="" />
+      <input type="text" id="shop_para" name="SHOP_PARA" value="" />
+      <input type="text" id="check_code" name="CHECK_CODE" value="" />
+      <button type="submit">submit</button>
+      <div id="flush"></div>
+      <script type="text/javascript">
+        const queryString = window.location.search
+        const urlParams = new URLSearchParams(queryString)
+
+        if (
+          urlParams.get('SHOP_ID') &&
+          urlParams.get('ORDER_ID') &&
+          urlParams.get('ORDER_ITEM') &&
+          urlParams.get('AMOUNT') &&
+          urlParams.get('PROD_ID') &&
+          urlParams.get('CURRENCY') &&
+          urlParams.get('CHECK_CODE') &&
+          urlParams.get('POST_URL')
+        ) {
+          document.getElementById('shop_id').value = urlParams.get('SHOP_ID')
+          document.getElementById('order_id').value = urlParams.get('ORDER_ID')
+          document.getElementById('order_item').value = urlParams.get('ORDER_ITEM')
+          document.getElementById('order_amount').value = urlParams.get('AMOUNT')
+          document.getElementById('prod_id').value = urlParams.get('PROD_ID')
+          document.getElementById('currency').value = urlParams.get('CURRENCY')
+          document.getElementById('check_code').value = urlParams.get('CHECK_CODE')
+
+          const form = document.getElementById('pay_form')
+          form.action = decodeURIComponent(urlParams.get('POST_URL'))
+          form.submit()
+        } else {
+          document.getElementById('loading').innerText = 'Invalid request'
+        }
+      </script>
+    </form>
+  </body>
+</html>
