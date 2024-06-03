@@ -3,10 +3,11 @@ import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useModalStore } from '@/store/modal'
+import { usePaymentStore } from '@/store/payment'
 import { usePopupMessageStore } from '@/store/popup-message'
 import { usePayment } from '@use/payment'
 import { useRouters } from '@use/routers'
-import { CONSUME_TYPE, MODAL_TYPE } from '@const'
+import { CONSUME_TYPE, MODAL_TYPE } from '@const/index'
 import uploadImage from '@/http/upload/uploadImage'
 
 export function useDialog() {
@@ -74,28 +75,31 @@ export function useDialog() {
       return
     }
 
+    const { open: openPaymentDialog } = usePaymentStore()
+
     open(MODAL_TYPE.SUBSCRIBE, {
       size: 'sm',
       imageTitle: item.picture,
       content: item,
       confirmText: $t('modal.subscribe.confirm', { price: item.price }),
-      confirmAction: (data) => {
-        pay({
-          apiKey: 'Payment.sub',
-          data: { item_id: item.id },
-          newWindow: data.window,
-          paymentType: CONSUME_TYPE.SUBSCRIBE,
-          onSuccess: () => {
-            subscribeSuccess(creator)
-          },
-          onFailure: failed,
-          onCancel: () => console.log('取消付款啦'),
-          onTimeout: () => console.log('付款逾時啦'),
-        })
-      },
+      confirmAction: () => {},
+      // confirmAction: (data) => {
+      //   pay({
+      //     apiKey: 'Payment.sub',
+      //     data: { item_id: item.id },
+      //     newWindow: data.window,
+      //     paymentType: CONSUME_TYPE.SUBSCRIBE,
+      //     onSuccess: () => {
+      //       subscribeSuccess(creator)
+      //     },
+      //     onFailure: failed,
+      //     onCancel: () => console.log('取消付款啦'),
+      //     onTimeout: () => console.log('付款逾時啦'),
+      //   })
+      // },
       showClose: true,
       gradientConfirm: true,
-      nextAction: paying,
+      nextAction: () => openPaymentDialog(),
     })
   }
 

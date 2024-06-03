@@ -22,6 +22,9 @@
     <div class="sm:px-0 md:px-20 lg:px-20 xl:px-20">
       <slot></slot>
     </div>
+    <div v-if="$slots['buttons']" class="sm:px-0 md:px-20 lg:px-20 xl:px-20">
+      <slot name="buttons"></slot>
+    </div>
   </div>
 </template>
 <script setup>
