@@ -95,7 +95,7 @@ function useRequest(
 
     // 開發模式下需要給debug key才能啟用後端API的debug模式
     if (import.meta.env.DEV) {
-      reqParams.debug = 'VjTdTfVx1kEyr4IV'
+      reqParams.debug = 'vida'
     }
 
     // 塞 oauth
