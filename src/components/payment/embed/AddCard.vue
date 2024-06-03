@@ -26,6 +26,7 @@
 </template>
 <script setup>
 import { ref } from 'vue'
+import DinersClub from '@/assets/images/payment/credit-card/diners-club.png'
 import Discover from '@/assets/images/payment/credit-card/discover.png'
 import JCB from '@/assets/images/payment/credit-card/jcb.png'
 import Maestro from '@/assets/images/payment/credit-card/maestro.png'
@@ -36,10 +37,11 @@ import Checkbox from '@/components/form/Checkbox.vue'
 const adultCheck = ref(false)
 
 const images = [
+  { src: Visa, alt: 'Visa' },
+  { src: MasterCard, alt: 'MasterCard' },
+  { src: Maestro, alt: 'Maestro' },
+  { src: DinersClub, alt: 'DinersClub' },
   { src: Discover, alt: 'Discover' },
   { src: JCB, alt: 'JCB' },
-  { src: Maestro, alt: 'Maestro' },
-  { src: MasterCard, alt: 'MasterCard' },
-  { src: Visa, alt: 'Visa' },
 ]
 </script>
