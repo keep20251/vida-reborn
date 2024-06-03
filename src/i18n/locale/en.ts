@@ -249,7 +249,7 @@ export default {
     exitPrvw: 'Exit preview',
     recFormat: 'Supports JPG/PNG format, recommended size is 480x280',
     uploadCapacityLimit: 'No more than 1 MB each',
-    videoFormat: 'Supports mp4/mov format, not exceeding 100 MB',
+    videoFormat: 'Supports mp4/mov format.',
     imageFormat: 'Supports JPG/PNG format, each not exceeding 1MB',
     uploadProgress: 'Upload Progress {progress}%',
     pickMessage: 'Pick a message',
@@ -506,13 +506,13 @@ export default {
       confirm: "{'$'}{price} per month Go to Pay",
     },
     shopBuy: {
-      1: "Will unlock {nickname}'s content of this work",
+      1: 'Will unlock the content of {nickname} in this work',
       2: '{nickname}will receive your payment in full',
       confirm: "Unlock now ({'$'}{price})",
     },
     subscribeSuc: {
       1: 'marvelous! Successfully subscribed to {nickname}!',
-      2: "Choose to go to the creator's homepage, or stay on the original screen and browse!",
+      2: 'Choose to go to the creator’s homepage, or stay on the original screen and browse!',
       confirm: 'Go to creator page',
     },
     shopBuySuc: {

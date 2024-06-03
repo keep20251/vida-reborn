@@ -240,7 +240,7 @@ export default {
     exitPrvw: '退出预览',
     recFormat: '支持JPG/PNG格式，建议尺寸为480x280',
     uploadCapacityLimit: '每张不超过 1 MB',
-    videoFormat: '支持mp4/mov格式，不超过 100 MB',
+    videoFormat: '支持mp4/mov格式。',
     imageFormat: '支持JPG/PNG格式，每张不超过1MB',
     uploadProgress: '上传进度 {progress}%',
     pickMessage: '选择信息',

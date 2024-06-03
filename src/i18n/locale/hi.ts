@@ -244,7 +244,7 @@ export default {
     exitPrvw: 'पूर्वावलोकन से बाहर निकलें',
     recFormat: 'JPG/PNG प्रारूप का समर्थन करता है, अनुशंसित आकार 480x280 है',
     uploadCapacityLimit: 'प्रत्येक 1 MB से अधिक नहीं',
-    videoFormat: 'mp4/mov प्रारूप का समर्थन करता है, 100 MB से अधिक नहीं',
+    videoFormat: 'mp4/mov प्रारूप का समर्थन करता है।',
     imageFormat: 'JPG/PNG प्रारूप का समर्थन करता है, प्रत्येक 1MB से अधिक नहीं',
     uploadProgress: 'अपलोड प्रगति {progress}%',
     pickMessage: 'एक संदेश चुनें',
@@ -487,7 +487,7 @@ export default {
       confirm: "{'$'}{price} प्रति माह भुगतान पर जाएं",
     },
     shopBuy: {
-      1: 'इस कार्य की सामग्री को अनलॉक कर देंगे',
+      1: 'इस कार्य में {nickname} की सामग्री को अनलॉक करेंगे',
       2: '{nickname}आपका पूरा भुगतान प्राप्त होगा',
       confirm: "अभी अनलॉक करें ({'$'}{price})",
     },

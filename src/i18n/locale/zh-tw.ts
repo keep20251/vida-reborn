@@ -240,7 +240,7 @@ export default {
     exitPrvw: '退出預覽',
     recFormat: '支援JPG/PNG格式，建議尺寸為480x280',
     uploadCapacityLimit: '每張不超過 1 MB',
-    videoFormat: '支援mp4/mov格式，不超過 100 MB',
+    videoFormat: '支援mp4/mov格式。',
     imageFormat: '支援JPG/PNG格式，每張不超過1MB',
     uploadProgress: '上傳進度 {progress}%',
     pickMessage: '選擇訊息',
