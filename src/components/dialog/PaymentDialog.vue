@@ -1,7 +1,9 @@
 <template>
   <BaseDialog v-if="isOpen" size="sm">
     <template #default>
-      <component :is="activeComponent" />
+      <keep-alive>
+        <component :is="activeComponent" />
+      </keep-alive>
     </template>
   </BaseDialog>
 </template>
