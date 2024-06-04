@@ -159,3 +159,22 @@ export const commaSplittedToArray = (commaSplitted) => {
   }
   return []
 }
+
+export const toCapitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1)
+
+/**
+ * 將全大寫的 SnakeCase 轉換成 CamelCase
+ * @param {String} str
+ * @param {Boolean} isLower 小駝峰還是大駝峰
+ */
+export const upperSnackToCamel = (str, isLower = true) => {
+  const words = str.toLowerCase().split('_')
+  words.forEach((word, index) => {
+    if (isLower) {
+      if (index !== 0) words[index] = toCapitalize(word)
+    } else {
+      words[index] = toCapitalize(word)
+    }
+  })
+  return words.join('')
+}
