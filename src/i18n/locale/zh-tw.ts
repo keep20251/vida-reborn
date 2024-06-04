@@ -92,6 +92,7 @@ export default {
     reportSuccess: '檢舉成功',
     noSubPlan: '尚未建置訂閱計畫',
     beCreatorFirst: '請先成為創作者後再來發布文章吧！',
+    officeEmail: '官方信箱',
   },
   label: {
     account: '用戶名',

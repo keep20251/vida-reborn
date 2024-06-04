@@ -92,6 +92,7 @@ export default {
     reportSuccess: '신고 성공',
     noSubPlan: '구독 계획이 설정되어 있지 않습니다',
     beCreatorFirst: '게시하기 전에 먼저 창작자가 되세요!',
+    officeEmail: '공식 이메일',
   },
   label: {
     account: '사용자 이름',
@@ -492,7 +493,7 @@ export default {
   },
   modal: {
     subscribe: {
-      1: '지난 {days}의 모든 작업에 대한 전체 액세스 권한',
+      1: '지난 {days}의 모든 작품에 대한 전체 접근 권한',
       2: '제작자에게 직접 메시지를 보내는 기능',
       3: '더 긴밀한 상호작용',
       4: '언제든지 구독을 취소할 수 있습니다',

@@ -97,6 +97,7 @@ export default {
     reportSuccess: 'Report successfully',
     noSubPlan: 'No subscription plan set',
     beCreatorFirst: 'Please become a creator first before posting!',
+    officeEmail: 'Official email',
   },
   label: {
     account: 'Username',

@@ -97,6 +97,7 @@ export default {
     reportSuccess: 'รายงานสำเร็จ',
     noSubPlan: 'ยังไม่ได้ตั้งค่าแผนการสมัครสมาชิก',
     beCreatorFirst: 'โปรดเป็นผู้สร้างก่อนโพสต์',
+    officeEmail: 'อีเมลอย่างเป็นทางการ',
   },
   label: {
     account: 'ชื่อผู้ใช้',

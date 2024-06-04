@@ -92,6 +92,7 @@ export default {
     reportSuccess: 'التبليغ بنجاح',
     noSubPlan: 'لم يتم تعيين خطة اشتراك',
     beCreatorFirst: 'من فضلك كن منشئًا أولاً قبل النشر!',
+    officeEmail: 'البريد الإلكتروني الرسمي',
   },
   label: {
     account: 'اسم المستخدم',
