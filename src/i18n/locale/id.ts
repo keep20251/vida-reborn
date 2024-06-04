@@ -97,6 +97,7 @@ export default {
     reportSuccess: 'Laporan berhasil',
     noSubPlan: 'Belum ada rencana langganan yang diset',
     beCreatorFirst: 'Harap menjadi kreator terlebih dahulu sebelum memposting!',
+    officeEmail: 'Email resmi',
   },
   label: {
     account: 'Nama pengguna',

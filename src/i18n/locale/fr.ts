@@ -97,6 +97,7 @@ export default {
     reportSuccess: 'Signalement réussi',
     noSubPlan: "Aucun plan d'abonnement configuré",
     beCreatorFirst: "Veuillez d'abord devenir créateur avant de publier !",
+    officeEmail: 'Courriel officiel',
   },
   label: {
     account: 'Nom d’utilisateur',
@@ -501,20 +502,20 @@ export default {
   },
   modal: {
     subscribe: {
-      1: 'Accès complet à toutes les œuvres des derniers {days}',
+      1: 'Accès complet à toutes les œuvres des {days} passés',
       2: "Possibilité d'envoyer des messages directement aux créateurs",
       3: 'Une interaction plus étroite',
       4: 'Vous pouvez annuler votre abonnement à tout moment',
       confirm: "{'$'}{price} par mois Aller au paiement",
     },
     shopBuy: {
-      1: 'Déverrouillera le contenu de {nickname} dans cette œuvre',
+      1: 'Déverrouillera le contenu de {nickname} dans ce travail',
       2: '{nickname} recevra votre paiement dans son intégralité',
       confirm: "Débloquez maintenant ({'$'}{price})",
     },
     subscribeSuc: {
       1: 'merveilleux! Vous vous êtes abonné avec succès à {nickname} !',
-      2: "Choisissez d'accéder à la page d'accueil du créateur, ou restez sur l'écran d'origine et parcourez !",
+      2: "Choisissez d'accéder à la page d'accueil du créateur ou de rester sur l'écran d'origine et de naviguer !",
       confirm: 'Aller à la page du créateur',
     },
     shopBuySuc: {

@@ -92,6 +92,7 @@ export default {
     reportSuccess: '举报成功',
     noSubPlan: '尚未建置订阅计划',
     beCreatorFirst: '请先成为创作者后再来发布文章吧！',
+    officeEmail: '官方邮箱',
   },
   label: {
     account: '用户名',

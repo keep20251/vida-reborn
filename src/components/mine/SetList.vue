@@ -203,6 +203,15 @@
         <span class="text-base">{{ $t('title.logout') }}</span>
       </div>
     </div>
+    <div v-if="perm.officeEmail" class="grid space-y-15 py-10">
+      <div class="flex items-center justify-between">
+        <div class="flex cursor-pointer items-center space-x-18">
+          <Icon name="mineAbout" size="20"></Icon>
+          <span class="text-base">{{ $t('title.officeEmail') }}</span>
+        </div>
+        <a href="mailto:official@vida.contact" class="text-base text-primary">official@vida.contact</a>
+      </div>
+    </div>
   </div>
 </template>
 <script setup>

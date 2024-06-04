@@ -97,6 +97,7 @@ export default {
     reportSuccess: 'Relatório bem-sucedido',
     noSubPlan: 'Sem plano de assinatura configurado',
     beCreatorFirst: 'Por favor, torne-se um criador antes de postar!',
+    officeEmail: 'E-mail oficial',
   },
   label: {
     account: 'Nome de usuário',

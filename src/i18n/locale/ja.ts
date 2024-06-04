@@ -92,6 +92,7 @@ export default {
     reportSuccess: '報告が成功しました',
     noSubPlan: '定額購入プランが設定されていません',
     beCreatorFirst: '投稿する前にまずクリエーターになりましょう！',
+    officeEmail: '公式メール',
   },
   label: {
     account: 'ユーザー名',
@@ -185,7 +186,7 @@ export default {
     error: {
       subscribeSelf: '自分自身を購読できません',
       shopBuySelf: '自分の商品が買えない',
-      subscriptionNotFound: '利用可能なサブスクリプション プランはありません',
+      subscriptionNotFound: '利用可能なサブスクリプションプランはありません',
     },
     sending: '送信',
     failure: '失敗した',
@@ -502,7 +503,7 @@ export default {
     },
     shopBuy: {
       1: 'この作品では {nickname} のコンテンツがアンロックされます',
-      2: '{nickname}はあなたの支払いを全額受け取ります',
+      2: '{nickname}がお支払いを全額受け取ります',
       confirm: "今すぐロックを解除します ({'$'}{price})",
     },
     subscribeSuc: {
