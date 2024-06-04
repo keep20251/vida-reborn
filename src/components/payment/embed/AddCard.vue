@@ -1,12 +1,12 @@
 <template>
   <div class="flex flex-col space-y-10">
-    <div class="text-sm font-normal leading-3 text-gray-57">完全符合支付卡行业数据安全标准</div>
+    <div class="text-sm font-normal leading-3 text-gray-57">{{ $t('payment.addCard.security') }}</div>
     <form id="payment-form" @submit.prevent="onSubmit">
       <div class="flex flex-col space-y-10">
         <div id="stripe-element"></div>
         <Checkbox
           v-model="checkbox.value"
-          info="勾選此處確認您至少滿18歲，並在居住地達到成年年齡"
+          :info="$t('payment.addCard.check')"
           :error="checkbox.error"
           mark-color="gray"
           size="sm"
@@ -14,7 +14,7 @@
         ></Checkbox>
         <div v-if="stripeError" class="text-sm text-red-500">{{ stripeError }}</div>
       </div>
-      <button id="payment-submit-btn" class="rounded-sm bg-primary px-4 py-2 text-white" type="submit">submit</button>
+      <button id="payment-submit-btn" class="hidden rounded-sm bg-primary px-4 py-2 text-white" type="submit"></button>
     </form>
     <div class="flex flex-row space-x-10">
       <div v-for="image in images" :key="`credit-card-${image.alt}`">
@@ -22,13 +22,14 @@
       </div>
     </div>
     <div class="text-xs font-medium leading-3 text-gray-57">
-      Ripple Mic Limited, Apartment 206, Jantzen House, Ealing Road, Brentford,England, TW8 0GF
+      {{ $t('payment.addCard.address') }}
     </div>
   </div>
 </template>
 <script setup>
 import { loadStripe } from '@stripe/stripe-js'
 import { onActivated, onDeactivated, reactive, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import DinersClub from '@/assets/images/payment/credit-card/diners-club.png'
 import Discover from '@/assets/images/payment/credit-card/discover.png'
 import JCB from '@/assets/images/payment/credit-card/jcb.png'
@@ -40,6 +41,7 @@ import useRequest from '@/compositions/request'
 import { useYup } from '@/compositions/validator/yup'
 
 const emits = defineEmits(['complete'])
+const { t: $t } = useI18n()
 
 const checkbox = reactive({
   value: false,
