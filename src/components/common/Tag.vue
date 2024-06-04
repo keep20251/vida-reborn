@@ -4,6 +4,7 @@
     @click="$emit('click', value)"
     :class="{
       'bg-primary text-white': active,
+      'cursor-not-allowed opacity-50': disabled,
     }"
   >
     {{ label }}
@@ -13,10 +14,8 @@
 defineProps({
   label: { type: String, default: '' },
   value: { type: [String, Number], default: '' },
-  active: {
-    type: Boolean,
-    default: false,
-  },
+  active: { type: Boolean, default: false },
+  disabled: { type: Boolean, default: false },
 })
 
 defineEmits(['click'])
