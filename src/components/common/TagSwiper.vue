@@ -7,6 +7,7 @@
         :value="item[`${props.itemValue}`]"
         :label="item[`${itemLabel}`]"
         :active="modelValue === item[`${props.itemValue}`]"
+        :disabled="!item[`${itemDisabled}`]"
         @click="onTagClick(item)"
         ref="itemRefs"
       ></Tag>
@@ -43,6 +44,7 @@ const props = defineProps({
   items: { type: Array, required: true },
   itemValue: { type: String, default: 'value' },
   itemLabel: { type: String, default: 'label' },
+  itemDisabled: { type: String, default: 'disabled' },
   checker: { type: Function, required: false },
 })
 

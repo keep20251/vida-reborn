@@ -99,7 +99,7 @@ export function useDialog() {
       // },
       showClose: true,
       gradientConfirm: true,
-      nextAction: () => openPaymentDialog(),
+      nextAction: () => openPaymentDialog({ amount: item.price }),
     })
   }
 
