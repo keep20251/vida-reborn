@@ -133,15 +133,15 @@ async function onAppleLoginSuccess(event) {
 
 const loginOptions = [
   { label: 'info.loginByAccount', icon: 'account', onClick: () => to(AUTH_ROUTES.LOGIN) },
-  {
-    label: 'info.loginByApple',
-    icon: 'apple',
-    onClick: () =>
-      onAppleSignIn({
-        onSuccess: onAppleLoginSuccess,
-        onFailure: (e) => console.error(`Apple SignIn Failed`, e),
-      }),
-  },
+  // {
+  //   label: 'info.loginByApple',
+  //   icon: 'apple',
+  //   onClick: () =>
+  //     onAppleSignIn({
+  //       onSuccess: onAppleLoginSuccess,
+  //       onFailure: (e) => console.error(`Apple SignIn Failed`, e),
+  //     }),
+  // },
   { label: 'info.loginByGoogle', icon: 'google', onClick: googleLogin },
   { label: 'info.loginByTwitter', icon: 'twitter', onClick: twitterLogin },
 ]

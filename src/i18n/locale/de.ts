@@ -97,6 +97,7 @@ export default {
     reportSuccess: 'Meldung erfolgreich',
     noSubPlan: 'Kein Abonnementplan festgelegt',
     beCreatorFirst: 'Bitte werden Sie zuerst ein Creator, bevor Sie posten!',
+    officeEmail: 'Offizielle E-Mail',
   },
   label: {
     account: 'Benutzername',
@@ -249,7 +250,7 @@ export default {
     exitPrvw: 'Vorschau beenden',
     recFormat: 'Unterstützt JPG/PNG-Format, empfohlene Größe ist 480x280',
     uploadCapacityLimit: 'Nicht mehr als 1 MB pro Bild',
-    videoFormat: 'Unterstützt mp4/mov-Format, nicht überschreitend 100 MB',
+    videoFormat: 'Unterstützt mp4/mov-Format.',
     imageFormat: 'Unterstützt JPG/PNG-Format, jedes nicht überschreitend 1MB',
     uploadProgress: 'Upload-Fortschritt {progress}%',
     pickMessage: 'Eine Nachricht auswählen',
@@ -322,7 +323,7 @@ export default {
     customStyle: 'Benutzerdefinierter Stil',
     subUnlockDayAfter: 'Erlaubt das Entsperren die letzten Tage seit dem Kauf?',
     tokenExpired: 'Die Anmeldesitzung ist abgelaufen. Bitte melden Sie sich erneut an.',
-    clearSearchHistory: 'Sind Sie sicher, dass Sie Ihren Suchverlauf löschen möchten?',
+    clearSearchHistory: 'Möchten Sie Ihren Suchverlauf wirklich löschen?',
     uploadVideoLimit: {
       format:
         'Das aktuell hochgeladene Videoformat ({format}) wird nicht unterstützt. Bitte konvertieren Sie es in das MP4- oder MOV-Format und versuchen Sie es erneut.',
@@ -508,7 +509,7 @@ export default {
       confirm: "{'$'}{price} pro Monat Gehen Sie zu Bezahlen",
     },
     shopBuy: {
-      1: 'Wird den Inhalt dieser Arbeit durch {nickname} freischalten',
+      1: 'Wird den Inhalt von {nickname} in dieser Arbeit freischalten',
       2: '{nickname}wird Ihre Zahlung vollständig erhalten',
       confirm: "Jetzt freischalten ({'$'}{price})",
     },

@@ -10,6 +10,7 @@ export const PERM_TABLE = {
     beCreator: true,
     settings: false,
     logout: false,
+    officeEmail: true,
   },
   [USER_PERM.USER]: {
     avatar: true,
@@ -20,6 +21,7 @@ export const PERM_TABLE = {
     beCreator: true,
     settings: true,
     logout: true,
+    officeEmail: true,
   },
   [USER_PERM.CREATOR]: {
     avatar: true,
@@ -30,6 +32,7 @@ export const PERM_TABLE = {
     beCreator: false,
     settings: true,
     logout: true,
+    officeEmail: true,
   },
 }
 

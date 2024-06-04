@@ -97,6 +97,7 @@ export default {
     reportSuccess: 'Báo cáo thành công',
     noSubPlan: 'Chưa thiết lập kế hoạch đăng ký',
     beCreatorFirst: 'Hãy trở thành người sáng tạo trước khi đăng bài!',
+    officeEmail: 'Email chính thức',
   },
   label: {
     account: 'Tên người dùng',
@@ -249,7 +250,7 @@ export default {
     exitPrvw: 'Thoát xem trước',
     recFormat: 'Hỗ trợ định dạng JPG/PNG, kích thước đề nghị là 480x280',
     uploadCapacityLimit: 'Mỗi hình không quá 1 MB',
-    videoFormat: 'Hỗ trợ định dạng mp4/mov, không vượt quá 100 MB',
+    videoFormat: 'Hỗ trợ định dạng mp4/mov',
     imageFormat: 'Hỗ trợ định dạng JPG/PNG, mỗi ảnh không vượt quá 1MB',
     uploadProgress: 'Tiến trình tải lên {progress}%',
     pickMessage: 'Chọn một tin nhắn',
@@ -506,7 +507,7 @@ export default {
       confirm: "{'$'}{price} mỗi tháng Chuyển đến phần Thanh toán",
     },
     shopBuy: {
-      1: 'Sẽ mở khóa nội dung của tác phẩm này của {nickname}',
+      1: 'Sẽ mở khóa nội dung của {nickname} trong tác phẩm này',
       2: '{nickname}sẽ nhận được đầy đủ khoản thanh toán của bạn',
       confirm: "Mở khóa ngay ({'$'}{price})",
     },
@@ -517,7 +518,7 @@ export default {
     },
     shopBuySuc: {
       1: 'tuyệt vời! Đã thanh toán thành công để mở khóa bài đăng',
-      2: 'Chọn vào bài viết để xem, hoặc ở lại màn hình gốc để duyệt nhé!',
+      2: 'Chọn vào bài viết để xem, hoặc ở lại màn hình gốc để duyệt!',
       confirm: 'Đi tới bài đăng',
     },
     title: { paySuc: 'Thanh toán được thực hiện thành công' },

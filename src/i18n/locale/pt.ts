@@ -97,6 +97,7 @@ export default {
     reportSuccess: 'Relatório bem-sucedido',
     noSubPlan: 'Sem plano de assinatura configurado',
     beCreatorFirst: 'Por favor, torne-se um criador antes de postar!',
+    officeEmail: 'E-mail oficial',
   },
   label: {
     account: 'Nome de usuário',
@@ -249,7 +250,7 @@ export default {
     exitPrvw: 'Sair da visualização',
     recFormat: 'Suporta formato JPG/PNG, tamanho recomendado é 480x280',
     uploadCapacityLimit: 'Não mais que 1 MB cada',
-    videoFormat: 'Suporta formato mp4/mov, não excedendo 100 MB',
+    videoFormat: 'Suporta formato mp4/mov.',
     imageFormat: 'Suporta formato JPG/PNG, cada um não excedendo 1MB',
     uploadProgress: 'Progresso do Upload {progress}%',
     pickMessage: 'Escolher uma mensagem',
@@ -507,9 +508,9 @@ export default {
       confirm: "{'$'}{price} por mês Vá para pagar",
     },
     shopBuy: {
-      1: 'Irá desbloquear o conteúdo deste trabalho de {nickname}',
+      1: 'Irá desbloquear o conteúdo de {nickname} neste trabalho',
       2: '{nickname}receberá seu pagamento integralmente',
-      confirm: "Desbloquear agora ({'$'}{price})",
+      confirm: "Desbloqueie agora ({'$'}{price})",
     },
     subscribeSuc: {
       1: 'maravilhoso! Inscrito em {nickname} com sucesso!',
