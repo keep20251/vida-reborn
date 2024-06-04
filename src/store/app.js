@@ -35,6 +35,12 @@ export const useAppStore = defineStore('app', () => {
     }
   }
 
+  const allPayments = ref([])
+  async function syncAllPaymentConfig() {
+    const response = await useRequest('Payment.getAllPayment', { immediate: true })
+    allPayments.value = response.map((item) => ({ ...item, pay_type_ids: item.pay_type_ids.split(',').map(Number) }))
+  }
+
   const categories = ref([])
   async function initCategories() {
     const categories = await getCategories(async () => {
@@ -59,5 +65,8 @@ export const useAppStore = defineStore('app', () => {
     categories: readonly(categories),
     initCategories,
     setCategories,
+
+    allPayments: readonly(allPayments),
+    syncAllPaymentConfig,
   }
 })
