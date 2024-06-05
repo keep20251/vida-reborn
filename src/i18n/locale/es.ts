@@ -37,7 +37,7 @@ export default {
     cookie: 'Acepta y no vuelvas a mostrar este mensaje',
     check: 'Verificar',
     subscribe: 'suscripción',
-    subscribed: 'Suscrito',
+    subscribed: 'suscrito',
     cancelSubscribe: 'Cancelar',
     restoreSubscribe: 'Reanudar',
     reSubscribe: 'Resuscribir',
@@ -419,6 +419,7 @@ export default {
   },
   boundary: { start: 'Volver al Comienzo' },
   yup: {
+    boolean: { required: 'Por favor, marque esta opción.', oneOf: 'Por favor, marque esta opción.' },
     mixed: {
       default: 'Validación Fallida',
       required: 'Por favor, no lo dejes en blanco.',
@@ -500,6 +501,25 @@ export default {
     10: 'NSFW (orientado a hombres)',
     11: 'NSFW (orientado a mujeres)',
   },
+  payment: {
+    title: 'Elegir un método de pago',
+    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'Tarjeta de crédito', other: 'Otro' },
+    popup: {
+      ali: { title: 'Alipay seleccionado' },
+      union: { title: 'UnionPay seleccionado' },
+      other: { title: 'Otro seleccionado' },
+      info: 'Después de la presentación, se le redirigirá para completar de manera segura los siguientes pasos en una nueva página.',
+    },
+    error: { amountRange: "El monto del pago debe estar entre {'$'}{min} y {max}" },
+    cardList: { add: 'Añadir tarjeta de crédito' },
+    addCard: {
+      security:
+        'Totalmente compatible con los estándares de seguridad de datos de la industria de tarjetas de pago (PCI DSS)',
+      check:
+        'Marque aquí para confirmar que tiene al menos 18 años y ha alcanzado la mayoría de edad en su lugar de residencia.',
+      address: 'Ripple Mic Limited, Apartment 206, Jantzen House, Ealing Road, Brentford,England, TW8 0GF',
+    },
+  },
   modal: {
     subscribe: {
       1: 'Acceso completo a todos los trabajos de los últimos {days}',
@@ -509,7 +529,7 @@ export default {
       confirm: "{'$'}{price} por mes Ir a Pagar",
     },
     shopBuy: {
-      1: 'Desbloqueará el contenido de {nickname} en este trabajo.',
+      1: 'Desbloqueará el contenido de {nickname} de este trabajo.',
       2: '{nickname}recibirá su pago completo',
       confirm: "Desbloquear ahora ({'$'}{price})",
     },
@@ -520,7 +540,7 @@ export default {
     },
     shopBuySuc: {
       1: '¡maravilloso! Pago exitoso para desbloquear la publicación',
-      2: '¡Elija ir a la publicación para verla o permanecer en la pantalla original para navegar!',
+      2: '¡Elige ir a la publicación para verla o permanecer en la pantalla original para navegar!',
       confirm: 'Ir a la publicación',
     },
     title: { paySuc: 'Pago hecho satisfactoriamente' },

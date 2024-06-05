@@ -417,6 +417,7 @@ export default {
   },
   boundary: { start: 'Quay lại Đầu' },
   yup: {
+    boolean: { required: 'Vui lòng chọn tùy chọn này.', oneOf: 'Vui lòng chọn tùy chọn này.' },
     mixed: {
       default: 'Xác nhận thất bại',
       required: 'Vui lòng không để trống.',
@@ -498,6 +499,23 @@ export default {
     10: 'NSFW (hướng nam)',
     11: 'NSFW (hướng nữ)',
   },
+  payment: {
+    title: 'Chọn phương thức thanh toán',
+    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'Thẻ tín dụng', other: 'Khác' },
+    popup: {
+      ali: { title: 'Đã chọn Alipay' },
+      union: { title: 'Đã chọn UnionPay' },
+      other: { title: 'Đã chọn khác' },
+      info: 'Sau khi nộp, bạn sẽ được chuyển hướng để hoàn thành các bước tiếp theo một cách an toàn trên một trang mới.',
+    },
+    error: { amountRange: "Số tiền thanh toán phải nằm trong khoảng {'$'}{min} đến {max}" },
+    cardList: { add: 'Thêm thẻ tín dụng' },
+    addCard: {
+      security: 'Hoàn toàn tuân thủ các Tiêu chuẩn Bảo mật Dữ liệu của Ngành Thẻ Thanh toán (PCI DSS)',
+      check: 'Đánh dấu vào đây để xác nhận bạn ít nhất 18 tuổi và đạt độ tuổi trưởng thành tại nơi cư trú của bạn.',
+      address: 'Ripple Mic Limited, Apartment 206, Jantzen House, Ealing Road, Brentford,England, TW8 0GF',
+    },
+  },
   modal: {
     subscribe: {
       1: 'Toàn quyền truy cập vào tất cả các tác phẩm trong {days} vừa qua',
@@ -507,7 +525,7 @@ export default {
       confirm: "{'$'}{price} mỗi tháng Chuyển đến phần Thanh toán",
     },
     shopBuy: {
-      1: 'Sẽ mở khóa nội dung của {nickname} trong tác phẩm này',
+      1: 'Sẽ mở khóa nội dung của tác phẩm này của {nickname}',
       2: '{nickname}sẽ nhận được đầy đủ khoản thanh toán của bạn',
       confirm: "Mở khóa ngay ({'$'}{price})",
     },

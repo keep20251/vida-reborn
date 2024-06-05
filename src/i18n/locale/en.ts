@@ -417,6 +417,7 @@ export default {
   },
   boundary: { start: 'Back to the Beginning' },
   yup: {
+    boolean: { required: 'Please check this option.', oneOf: 'Please check this option.' },
     mixed: {
       default: 'Validation Failed',
       required: 'Please do not leave it blank.',
@@ -498,6 +499,23 @@ export default {
     10: 'NSFW (male-oriented)',
     11: 'NSFW (female-oriented)',
   },
+  payment: {
+    title: 'Choose a payment method',
+    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'Credit Card', other: 'Other' },
+    popup: {
+      ali: { title: 'Alipay selected' },
+      union: { title: 'UnionPay selected' },
+      other: { title: 'Other selected' },
+      info: 'After submission, you will be redirected to securely complete the next steps on a new page.',
+    },
+    error: { amountRange: "Payment amount must be between {'$'}{min} and {max}" },
+    cardList: { add: 'Add credit card' },
+    addCard: {
+      security: 'Fully compliant with Payment Card Industry Data Security Standards (PCI DSS)',
+      check: 'Check here to confirm you are at least 18 years old and the age of majority in your place of residence.',
+      address: 'Ripple Mic Limited, Apartment 206, Jantzen House, Ealing Road, Brentford,England, TW8 0GF',
+    },
+  },
   modal: {
     subscribe: {
       1: 'Full access to all works from the past {days}',
@@ -507,13 +525,13 @@ export default {
       confirm: "{'$'}{price} per month Go to Pay",
     },
     shopBuy: {
-      1: 'Will unlock the content of {nickname} in this work',
+      1: "Will unlock {nickname}'s content of this work",
       2: '{nickname}will receive your payment in full',
       confirm: "Unlock now ({'$'}{price})",
     },
     subscribeSuc: {
       1: 'marvelous! Successfully subscribed to {nickname}!',
-      2: 'Choose to go to the creator’s homepage, or stay on the original screen and browse!',
+      2: "Choose to go to the creator's homepage, or stay on the original screen and browse!",
       confirm: 'Go to creator page',
     },
     shopBuySuc: {

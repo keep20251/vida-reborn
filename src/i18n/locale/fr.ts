@@ -419,6 +419,7 @@ export default {
   },
   boundary: { start: 'Retour au Début' },
   yup: {
+    boolean: { required: 'Veuillez cocher cette option.', oneOf: 'Veuillez cocher cette option.' },
     mixed: {
       default: 'Validation Échouée',
       required: 'Veuillez ne pas laisser vide.',
@@ -500,6 +501,25 @@ export default {
     10: 'NSFW (orienté vers les hommes)',
     11: 'NSFW (orienté vers les femmes)',
   },
+  payment: {
+    title: 'Choisissez un mode de paiement',
+    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'Carte de crédit', other: 'Autre' },
+    popup: {
+      ali: { title: 'Alipay sélectionné' },
+      union: { title: 'UnionPay sélectionné' },
+      other: { title: 'Autre sélectionné' },
+      info: 'Après soumission, vous serez redirigé pour compléter en toute sécurité les prochaines étapes sur une nouvelle page.',
+    },
+    error: { amountRange: "Le montant du paiement doit être compris entre {'$'}{min} et {max}" },
+    cardList: { add: 'Ajouter une carte de crédit' },
+    addCard: {
+      security:
+        "Entièrement conforme aux normes de sécurité des données de l'industrie des cartes de paiement (PCI DSS)",
+      check:
+        "Cochez ici pour confirmer que vous avez au moins 18 ans et que vous avez atteint l'âge de la majorité dans votre lieu de résidence.",
+      address: 'Ripple Mic Limited, Apartment 206, Jantzen House, Ealing Road, Brentford,England, TW8 0GF',
+    },
+  },
   modal: {
     subscribe: {
       1: 'Accès complet à toutes les œuvres des {days} passés',
@@ -509,13 +529,13 @@ export default {
       confirm: "{'$'}{price} par mois Aller au paiement",
     },
     shopBuy: {
-      1: 'Déverrouillera le contenu de {nickname} dans ce travail',
+      1: 'Déverrouillera le contenu de cette œuvre de {nickname}',
       2: '{nickname} recevra votre paiement dans son intégralité',
       confirm: "Débloquez maintenant ({'$'}{price})",
     },
     subscribeSuc: {
       1: 'merveilleux! Vous vous êtes abonné avec succès à {nickname} !',
-      2: "Choisissez d'accéder à la page d'accueil du créateur ou de rester sur l'écran d'origine et de naviguer !",
+      2: "Choisissez d'accéder à la page d'accueil du créateur, ou restez sur l'écran d'origine et parcourez !",
       confirm: 'Aller à la page du créateur',
     },
     shopBuySuc: {

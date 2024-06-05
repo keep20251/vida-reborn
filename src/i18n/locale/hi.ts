@@ -410,6 +410,7 @@ export default {
   },
   boundary: { start: 'प्रारंभ में वापस जाएं' },
   yup: {
+    boolean: { required: 'कृपया इस विकल्प को चुनें।', oneOf: 'कृपया इस विकल्प को चुनें।' },
     mixed: {
       default: 'मान्यता असफल',
       required: 'कृपया इसे खाली न छोड़ें।',
@@ -479,6 +480,23 @@ export default {
   },
   up: { object: { adult: 'आपको कम से कम 18 साल की आयु होनी चाहिए।' } },
   category: { 1: '', 2: '', 3: '', 4: '', 5: '', 6: '', 7: '', 8: '', 9: '', 10: '', 11: '' },
+  payment: {
+    title: 'भुगतान विधि चुनें',
+    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'क्रेडिट कार्ड', other: 'अन्य' },
+    popup: {
+      ali: { title: 'Alipay चयनित' },
+      union: { title: 'UnionPay चयनित' },
+      other: { title: 'अन्य चयनित' },
+      info: 'सबमिशन के बाद, आपको नए पेज पर सुरक्षित रूप से अगले चरणों को पूरा करने के लिए रीडायरेक्ट कर दिया जाएगा।',
+    },
+    error: { amountRange: "भुगतान राशि {'$'}{min} और {max} के बीच होनी चाहिए" },
+    cardList: { add: 'क्रेडिट कार्ड जोड़ें' },
+    addCard: {
+      security: 'भुगतान कार्ड उद्योग डेटा सुरक्षा मानकों (PCI DSS) के साथ पूरी तरह से संगत',
+      check: 'यहां चेक करें कि आप कम से कम 18 साल के हैं और अपने निवास स्थान पर बहुमत की आयु प्राप्त कर चुके हैं।',
+      address: 'Ripple Mic Limited, Apartment 206, Jantzen House, Ealing Road, Brentford,England, TW8 0GF',
+    },
+  },
   modal: {
     subscribe: {
       1: 'पिछले {days} के सभी कार्यों तक पूर्ण पहुंच',
@@ -488,7 +506,7 @@ export default {
       confirm: "{'$'}{price} प्रति माह भुगतान पर जाएं",
     },
     shopBuy: {
-      1: 'इस कार्य में {nickname} की सामग्री को अनलॉक करेगा',
+      1: 'इस कार्य की सामग्री को अनलॉक कर देंगे',
       2: '{nickname}आपका पूरा भुगतान प्राप्त होगा',
       confirm: "अभी अनलॉक करें ({'$'}{price})",
     },

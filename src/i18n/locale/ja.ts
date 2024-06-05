@@ -80,7 +80,7 @@ export default {
     earnWdrlHist: '引き出し記録',
     clearSearchHistory: '検索履歴をクリア',
     search: { history: '履歴検索', clear: '人気の検索', popular: 'クリア' },
-    subscription: '定期購入プラン',
+    subscription: '定期購読プラン',
     publishSuccess: '公開成功',
     updateSuccess: '更新完了',
     updateFail: '更新失敗',
@@ -186,7 +186,7 @@ export default {
     error: {
       subscribeSelf: '自分自身を購読できません',
       shopBuySelf: '自分の商品が買えない',
-      subscriptionNotFound: '利用可能なサブスクリプションプランはありません',
+      subscriptionNotFound: '利用可能なサブスクリプション プランはありません',
     },
     sending: '送信',
     failure: '失敗した',
@@ -412,6 +412,7 @@ export default {
   },
   boundary: { start: '最初に戻る' },
   yup: {
+    boolean: { required: 'このオプションをチェックしてください。', oneOf: 'このオプションをチェックしてください。' },
     mixed: {
       default: '検証に失敗しました',
       required: '空白のままにしないでください。',
@@ -493,6 +494,24 @@ export default {
     10: 'NSFW（男性向け）',
     11: 'NSFW（女性向け）',
   },
+  payment: {
+    title: '支払い方法を選択',
+    payway: { aliPay: '支付宝', unionPay: '銀聯カード', creditCard: 'クレジットカード', other: 'その他' },
+    popup: {
+      ali: { title: 'Alipayを選択しました' },
+      union: { title: '銀聯カードを選択しました' },
+      other: { title: '他のものを選択しました' },
+      info: '送信後、新しいページで次の手順を安全に完了するためにリダイレクトされます。',
+    },
+    error: { amountRange: "支払い金額は {'$'}{min} から {max} の間でなければなりません" },
+    cardList: { add: 'クレジットカードを追加' },
+    addCard: {
+      security: '支払いカード業界データセキュリティ標準（PCI DSS）に完全準拠',
+      check:
+        'ここにチェックを入れて、あなたが少なくとも18歳であり、居住地で成人年齢に達していることを確認してください。',
+      address: 'Ripple Mic Limited, Apartment 206, Jantzen House, Ealing Road, Brentford,England, TW8 0GF',
+    },
+  },
   modal: {
     subscribe: {
       1: '過去 {days} のすべての作品に完全にアクセスできます',
@@ -502,18 +521,18 @@ export default {
       confirm: "月額 {'$'}{price} 支払いに進む",
     },
     shopBuy: {
-      1: 'この作品では {nickname} のコンテンツがアンロックされます',
-      2: '{nickname}がお支払いを全額受け取ります',
+      1: '{nickname} のこの作品のコンテンツのロックを解除します',
+      2: '{nickname}はあなたの支払いを全額受け取ります',
       confirm: "今すぐロックを解除します ({'$'}{price})",
     },
     subscribeSuc: {
       1: '素晴らしい！ {nickname} に正常に登録されました。',
-      2: 'クリエイターのホームページに移動するか、元の画面に留まって閲覧するかを選択してください。',
+      2: '作成者のホームページに移動するか、元の画面に留まって閲覧するかを選択してください。',
       confirm: 'クリエイターページへ行く',
     },
     shopBuySuc: {
       1: '素晴らしい！投稿のロックを解除するために支払いが完了しました',
-      2: '投稿に移動して視聴するか、元の画面に留まって閲覧するかを選択してください。',
+      2: '投稿に移動して見るか、元の画面に留まって閲覧するかを選択してください。',
       confirm: '投稿に移動',
     },
     title: { paySuc: '支払いが正常に完了しました' },

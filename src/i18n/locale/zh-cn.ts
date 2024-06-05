@@ -400,6 +400,7 @@ export default {
   },
   boundary: { start: '又回到最初的起点' },
   yup: {
+    boolean: { required: '请勾选此选项。', oneOf: '请勾选此选项。' },
     mixed: {
       default: '验证失败',
       required: '请勿留空。',
@@ -480,6 +481,23 @@ export default {
     9: '大尺度内容',
     10: 'NSFW( 男性向)',
     11: 'NSFW( 女性向)',
+  },
+  payment: {
+    title: '选择支付方式',
+    payway: { aliPay: '支付宝', unionPay: '银联卡', creditCard: '银行卡', other: '其他' },
+    popup: {
+      ali: { title: '已选择支付宝' },
+      union: { title: '已选择银联卡' },
+      other: { title: '已选择其他' },
+      info: '提交后，您将被跳转，在新的页面安全地完成后续步骤。',
+    },
+    error: { amountRange: "支付金额须介于 {'$'}{min}至{max}之间" },
+    cardList: { add: '添加信用卡' },
+    addCard: {
+      security: '完全符合支付卡行业数据安全标准',
+      check: '勾选此处确认您至少满18岁，并在居住地达到成年年龄',
+      address: 'Ripple Mic Limited, Apartment 206, Jantzen House, Ealing Road, Brentford,England, TW8 0GF',
+    },
   },
   modal: {
     subscribe: {

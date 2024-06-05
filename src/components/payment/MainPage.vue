@@ -1,5 +1,5 @@
 <template>
-  <DialogHeader title="支付選項" :show-back="showBack" @back="closeBack">
+  <DialogHeader :title="$t('payment.title')" :show-back="showBack" @back="closeBack" @close="close">
     <template #default>
       <div class="flex flex-col space-y-10">
         <TagSwiper
