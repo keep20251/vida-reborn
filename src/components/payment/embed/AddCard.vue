@@ -1,10 +1,11 @@
 <template>
   <div class="flex flex-col space-y-10">
-    <div class="text-sm font-normal leading-3 text-gray-57">{{ $t('payment.addCard.security') }}</div>
+    <div v-show="isReady" class="text-sm font-normal leading-3 text-gray-57">{{ $t('payment.addCard.security') }}</div>
     <form id="payment-form" @submit.prevent="onSubmit">
       <div class="flex flex-col space-y-10">
         <div id="stripe-element"></div>
         <Checkbox
+          v-show="isReady"
           v-model="checkbox.value"
           :info="$t('payment.addCard.check')"
           :error="checkbox.error"
@@ -16,13 +17,19 @@
       </div>
       <button id="payment-submit-btn" class="hidden rounded-sm bg-primary px-4 py-2 text-white" type="submit"></button>
     </form>
-    <div class="flex flex-row space-x-10">
+    <div v-show="isReady" class="flex flex-row space-x-10">
       <div v-for="image in images" :key="`credit-card-${image.alt}`">
         <img :src="image.src" :alt="image.src" />
       </div>
     </div>
-    <div class="text-xs font-medium leading-3 text-gray-57">
+    <div v-show="isReady" class="text-xs font-medium leading-3 text-gray-57">
       {{ $t('payment.addCard.address') }}
+    </div>
+    <div v-show="!isReady" class="flex animate-pulse flex-col space-y-10">
+      <div class="h-12 w-full rounded-sm bg-gray-cc"></div>
+      <div class="h-12 w-full rounded-sm bg-gray-cc"></div>
+      <div class="h-24 w-full rounded-sm bg-gray-cc"></div>
+      <div class="h-24 w-full rounded-sm bg-gray-cc"></div>
     </div>
   </div>
 </template>
@@ -30,6 +37,7 @@
 import { loadStripe } from '@stripe/stripe-js'
 import { onActivated, onDeactivated, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useStripeAppearance } from '@use/payment/stripe-appearance'
 import DinersClub from '@/assets/images/payment/credit-card/diners-club.png'
 import Discover from '@/assets/images/payment/credit-card/discover.png'
 import JCB from '@/assets/images/payment/credit-card/jcb.png'
@@ -71,10 +79,12 @@ const isReady = ref(false)
 
 async function createStripePayment() {
   const { client_secret, publishable_key } = await useRequest('Payment.getStripeKey', { immediate: true })
-  // clientSecret = client_secret
   stripe = await loadStripe(publishable_key)
+
+  const { themeDefault } = useStripeAppearance()
   elements = stripe.elements({
     clientSecret: client_secret,
+    appearance: themeDefault,
   })
 
   const paymentElement = elements.create('payment')
@@ -134,7 +144,9 @@ async function onSubmit(e) {
   }
 }
 
-onActivated(async () => await createStripePayment())
+onActivated(async () => {
+  await createStripePayment()
+})
 onDeactivated(() => {
   stripeError.value = ''
   checkbox.value = false
