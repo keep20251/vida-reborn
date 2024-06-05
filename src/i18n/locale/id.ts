@@ -417,6 +417,7 @@ export default {
   },
   boundary: { start: 'Kembali ke Awal' },
   yup: {
+    boolean: { required: 'Silakan pilih opsi ini.', oneOf: 'Silakan pilih opsi ini.' },
     mixed: {
       default: 'Validasi Gagal',
       required: 'Harap jangan meninggalkannya kosong.',
@@ -498,6 +499,24 @@ export default {
     10: 'NSFW (berorientasi pria)',
     11: 'NSFW (berorientasi wanita)',
   },
+  payment: {
+    title: 'Pilih metode pembayaran',
+    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'Kartu kredit', other: 'Lainnya' },
+    popup: {
+      ali: { title: 'Alipay terpilih' },
+      union: { title: 'UnionPay terpilih' },
+      other: { title: 'Lainnya terpilih' },
+      info: 'Setelah pengiriman, Anda akan dialihkan untuk menyelesaikan langkah berikutnya dengan aman di halaman baru.',
+    },
+    error: { amountRange: "Jumlah pembayaran harus antara {'$'}{min} dan {max}" },
+    cardList: { add: 'Tambahkan kartu kredit' },
+    addCard: {
+      security: 'Sepenuhnya sesuai dengan Standar Keamanan Data Industri Kartu Pembayaran (PCI DSS)',
+      check:
+        'Centang di sini untuk mengonfirmasi bahwa Anda berusia minimal 18 tahun dan telah mencapai usia dewasa di tempat tinggal Anda.',
+      address: 'Ripple Mic Limited, Apartment 206, Jantzen House, Ealing Road, Brentford,England, TW8 0GF',
+    },
+  },
   modal: {
     subscribe: {
       1: 'Akses penuh ke semua karya dari {days} terakhir',
@@ -507,13 +526,13 @@ export default {
       confirm: "{'$'}{price} per bulan Buka Bayar",
     },
     shopBuy: {
-      1: 'Akan membuka kunci konten {nickname} dalam karya ini',
+      1: 'Akan membuka kunci konten {nickname} pada karya ini',
       2: '{nickname}akan menerima pembayaran Anda secara penuh',
       confirm: "Buka kunci sekarang ({'$'}{price})",
     },
     subscribeSuc: {
       1: 'menakjubkan! Berhasil berlangganan {nickname}!',
-      2: 'Pilih untuk membuka beranda pembuat konten, atau tetap berada di layar asli dan menjelajah!',
+      2: 'Pilih untuk membuka beranda pembuat konten, atau tetap berada di layar asli dan jelajahi!',
       confirm: 'Buka halaman pembuat',
     },
     shopBuySuc: {

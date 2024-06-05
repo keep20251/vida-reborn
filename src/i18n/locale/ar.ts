@@ -409,6 +409,7 @@ export default {
   },
   boundary: { start: 'العودة إلى البداية' },
   yup: {
+    boolean: { required: 'يرجى تحديد هذا الخيار.', oneOf: 'يرجى تحديد هذا الخيار.' },
     mixed: {
       default: 'فشل التحقق',
       required: 'من فضلك لا تتركه فارغًا.',
@@ -490,6 +491,23 @@ export default {
     10: 'NSFW (موجه للذكور)',
     11: 'NSFW (موجه للإناث)',
   },
+  payment: {
+    title: 'اختر طريقة الدفع',
+    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'بطاقة ائتمان', other: 'أخرى' },
+    popup: {
+      ali: { title: 'تم اختيار Alipay' },
+      union: { title: 'تم اختيار UnionPay' },
+      other: { title: 'تم اختيار أخرى' },
+      info: 'بعد الإرسال، سيتم إعادة توجيهك لإكمال الخطوات التالية بأمان على صفحة جديدة.',
+    },
+    error: { amountRange: "يجب أن يكون مبلغ الدفع بين {'$'}{min} و {max}" },
+    cardList: { add: 'أضف بطاقة ائتمان' },
+    addCard: {
+      security: 'متوافق تمامًا مع معايير أمان بيانات صناعة بطاقات الدفع (PCI DSS)',
+      check: 'حدد هنا لتأكيد أنك تبلغ من العمر 18 عامًا على الأقل وبلغت سن الرشد في مكان إقامتك.',
+      address: 'Ripple Mic Limited, Apartment 206, Jantzen House, Ealing Road, Brentford,England, TW8 0GF',
+    },
+  },
   modal: {
     subscribe: {
       1: 'الوصول الكامل إلى جميع الأعمال من {days} الماضية',
@@ -499,7 +517,7 @@ export default {
       confirm: "{'$'}{price} شهريًا انتقل إلى الدفع",
     },
     shopBuy: {
-      1: 'سيتم فتح محتوى {nickname} في هذا العمل',
+      1: 'سيتم فتح محتوى {nickname} لهذا العمل',
       2: '{nickname}سوف يتلقى دفعتك بالكامل',
       confirm: "فتح القفل الآن ({'$'}{price})",
     },

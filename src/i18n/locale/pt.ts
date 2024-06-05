@@ -418,6 +418,7 @@ export default {
   },
   boundary: { start: 'Voltar ao Início' },
   yup: {
+    boolean: { required: 'Por favor, marque esta opção.', oneOf: 'Por favor, marque esta opção.' },
     mixed: {
       default: 'Validação Falhou',
       required: 'Por favor, não deixe em branco.',
@@ -499,6 +500,25 @@ export default {
     10: 'NSFW (orientado para homens)',
     11: 'NSFW (orientado para mulheres)',
   },
+  payment: {
+    title: 'Escolha um método de pagamento',
+    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'Cartão de crédito', other: 'Outro' },
+    popup: {
+      ali: { title: 'Alipay selecionado' },
+      union: { title: 'UnionPay selecionado' },
+      other: { title: 'Outro selecionado' },
+      info: 'Após o envio, você será redirecionado para concluir com segurança as próximas etapas em uma nova página.',
+    },
+    error: { amountRange: "O valor do pagamento deve estar entre {'$'}{min} e {max}" },
+    cardList: { add: 'Adicionar cartão de crédito' },
+    addCard: {
+      security:
+        'Totalmente compatível com os padrões de segurança de dados da indústria de cartões de pagamento (PCI DSS)',
+      check:
+        'Marque aqui para confirmar que você tem pelo menos 18 anos de idade e atingiu a maioridade no seu local de residência.',
+      address: 'Ripple Mic Limited, Apartment 206, Jantzen House, Ealing Road, Brentford,England, TW8 0GF',
+    },
+  },
   modal: {
     subscribe: {
       1: 'Acesso total a todas as obras dos últimos {days}',
@@ -508,7 +528,7 @@ export default {
       confirm: "{'$'}{price} por mês Vá para pagar",
     },
     shopBuy: {
-      1: 'Irá desbloquear o conteúdo de {nickname} neste trabalho',
+      1: 'Irá desbloquear o conteúdo deste trabalho de {nickname}',
       2: '{nickname}receberá seu pagamento integralmente',
       confirm: "Desbloqueie agora ({'$'}{price})",
     },

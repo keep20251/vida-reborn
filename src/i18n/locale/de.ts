@@ -191,7 +191,7 @@ export default {
     error: {
       subscribeSelf: 'Ich kann mich nicht selbst abonnieren',
       shopBuySelf: 'Sie können keine eigenen Produkte kaufen',
-      subscriptionNotFound: 'Kein Abonnementplan verfügbar',
+      subscriptionNotFound: 'Kein Abonnement verfügbar',
     },
     sending: 'Senden',
     failure: 'Fehlgeschlagen',
@@ -419,6 +419,7 @@ export default {
   },
   boundary: { start: 'Zurück zum Anfang' },
   yup: {
+    boolean: { required: 'Bitte wählen Sie diese Option aus.', oneOf: 'Bitte wählen Sie diese Option aus.' },
     mixed: {
       default: 'Validierung fehlgeschlagen',
       required: 'Bitte nicht leer lassen.',
@@ -500,6 +501,24 @@ export default {
     10: 'NSFW (männlich orientiert)',
     11: 'NSFW (weiblich orientiert)',
   },
+  payment: {
+    title: 'Wählen Sie eine Zahlungsmethode',
+    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'Kreditkarte', other: 'Andere' },
+    popup: {
+      ali: { title: 'Alipay ausgewählt' },
+      union: { title: 'UnionPay ausgewählt' },
+      other: { title: 'Andere ausgewählt' },
+      info: 'Nach der Übermittlung werden Sie weitergeleitet, um die nächsten Schritte sicher auf einer neuen Seite abzuschließen.',
+    },
+    error: { amountRange: "Der Zahlungsbetrag muss zwischen {'$'}{min} und {max} liegen" },
+    cardList: { add: 'Kreditkarte hinzufügen' },
+    addCard: {
+      security: 'Vollständig konform mit den Datensicherheitsstandards der Zahlungsverkehrsindustrie (PCI DSS)',
+      check:
+        'Aktivieren Sie dieses Kästchen, um zu bestätigen, dass Sie mindestens 18 Jahre alt sind und das Volljährigkeitsalter an Ihrem Wohnort erreicht haben.',
+      address: 'Ripple Mic Limited, Apartment 206, Jantzen House, Ealing Road, Brentford,England, TW8 0GF',
+    },
+  },
   modal: {
     subscribe: {
       1: 'Voller Zugriff auf alle Werke der letzten {days}',
@@ -509,7 +528,7 @@ export default {
       confirm: "{'$'}{price} pro Monat Gehen Sie zu Bezahlen",
     },
     shopBuy: {
-      1: 'Wird den Inhalt von {nickname} in dieser Arbeit freischalten',
+      1: 'Wird den Inhalt dieser Arbeit durch {nickname} freischalten',
       2: '{nickname}wird Ihre Zahlung vollständig erhalten',
       confirm: "Jetzt freischalten ({'$'}{price})",
     },
