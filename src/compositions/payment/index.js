@@ -4,16 +4,9 @@ import { useFeedStore } from '@/store/feed'
 import { useModalStore } from '@/store/modal'
 import { usePaymentStore } from '@/store/payment'
 import { usePopupMessageStore } from '@/store/popup-message'
-// import { notifyBuy, notifyCampaign, notifySub } from '@/utils/state-broadcast'
 import { toQueryString } from '@/utils/string-helper'
 import useRequest from '@/compositions/request'
 import { CONSUME_TYPE } from '@/constant'
-// import { trackEvent } from '@/gtm'
-import API from '@/http'
-
-// import { $t } from '@/i18n'
-
-// import { sendDonateMessage } from '@/ws'
 
 export function usePayment() {
   const { open } = usePopupMessageStore()
@@ -206,26 +199,6 @@ export function usePayment() {
     paymentStore.close()
     fn && fn()
     open(`${$t('message.payment.failed')}: ${errMessage}`)
-  }
-
-  /**
-   * 根據支付類型取得輪詢 API
-   * @param {String} paymentType
-   * @returns
-   */
-  const getPollingAPI = (paymentType) => {
-    switch (paymentType) {
-      case CONSUME_TYPE.REWARD:
-        return API.Home.rewardCheck
-      case CONSUME_TYPE.SUBSCRIBE:
-        return API.Home.checkSubscribePay
-      case CONSUME_TYPE.SHOP_BUY:
-        return API.Home.shopCheckBuy
-      case CONSUME_TYPE.UNLOCK:
-        return API.Home.unlockCheckBuy
-      default:
-        throw new Error('Payment Type Error')
-    }
   }
 
   const getGtmKey = (paymentType) => {
