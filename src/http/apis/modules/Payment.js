@@ -19,4 +19,19 @@ export default {
 
   /** 取得目前金流與金流Group */
   getAllPayment: { method: 'post', url: '/api/home/getPayTypeWithId' },
+
+  /** 查询用户信用卡 */
+  getCardList: { method: 'post', url: '/api/user/getPaymentMethods' },
+
+  /** 刪除用戶信用卡 */
+  deleteCard: { method: 'post', url: '/api/user/delPaymentMethod' },
+
+  /** 設定預設信用卡 */
+  bindDefaultCard: { method: 'post', url: '/api/user/bindDefaultPayment' },
+
+  /** 內嵌支付 */
+  embedPay: { method: 'post', url: '/api/user/offSessionPay' },
+
+  /** 輪詢內嵌支付狀態 */
+  checkEmbedPay: { method: 'post', url: '/api/user/checkPayment' },
 }
