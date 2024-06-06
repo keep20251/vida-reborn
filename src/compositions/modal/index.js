@@ -21,6 +21,7 @@ export function useDialog() {
   const { userData } = storeToRefs(accountStore)
 
   const { open: openMessage } = usePopupMessageStore()
+  const { open: openPaymentDialog } = usePaymentStore()
 
   async function uploadImageDialog(file, callback = null) {
     try {
@@ -75,31 +76,29 @@ export function useDialog() {
       return
     }
 
-    const { open: openPaymentDialog } = usePaymentStore()
-
     open(MODAL_TYPE.SUBSCRIBE, {
       size: 'sm',
       imageTitle: item.picture,
       content: item,
       confirmText: $t('modal.subscribe.confirm', { price: item.price }),
       confirmAction: () => {},
-      // confirmAction: (data) => {
-      //   pay({
-      //     apiKey: 'Payment.sub',
-      //     data: { item_id: item.id },
-      //     newWindow: data.window,
-      //     paymentType: CONSUME_TYPE.SUBSCRIBE,
-      //     onSuccess: () => {
-      //       subscribeSuccess(creator)
-      //     },
-      //     onFailure: failed,
-      //     onCancel: () => console.log('取消付款啦'),
-      //     onTimeout: () => console.log('付款逾時啦'),
-      //   })
-      // },
       showClose: true,
       gradientConfirm: true,
-      nextAction: () => openPaymentDialog({ amount: item.price }),
+      nextAction: () =>
+        openPaymentDialog({
+          amount: item.price,
+          paymentConfig: {
+            apiKey: 'Payment.sub',
+            data: { item_id: item.id, aff: creator.aff, amount: item.price },
+            paymentType: CONSUME_TYPE.SUBSCRIBE,
+            onSuccess: () => {
+              subscribeSuccess(creator)
+            },
+            onFailure: failed,
+            onCancel: () => console.log('取消付款啦'),
+            onTimeout: () => console.log('付款逾時啦'),
+          },
+        }),
     })
   }
 
@@ -116,10 +115,15 @@ export function useDialog() {
       content: feed,
       confirmText: $t('modal.shopBuy.confirm', { price: feed.price }),
       confirmAction: (data) => {
-        pay({
+        pay()
+      },
+      showClose: true,
+      gradientConfirm: true,
+      nextAction: openPaymentDialog({
+        amount: feed.price,
+        paymentConfig: {
           apiKey: 'Payment.buy',
-          data: { item_id: feed.id },
-          newWindow: data.window,
+          data: { item_id: feed.id, aff: feed.user.aff, amount: feed.price },
           paymentType: CONSUME_TYPE.SHOP_BUY,
           onSuccess: () => {
             shopBuySuccess(feed)
@@ -127,11 +131,8 @@ export function useDialog() {
           onFailure: failed,
           onCancel: () => console.log('取消付款啦'),
           onTimeout: () => console.log('付款逾時啦'),
-        })
-      },
-      showClose: true,
-      gradientConfirm: true,
-      nextAction: paying,
+        },
+      }),
     })
   }
 

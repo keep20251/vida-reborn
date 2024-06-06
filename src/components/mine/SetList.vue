@@ -38,6 +38,14 @@
         <span class="text-base">{{ $t('title.mineBuy') }}</span>
       </router-link>
       <router-link
+        :to="{ name: 'mine-card' }"
+        :class="{ 'font-bold': $route.name === 'mine-card' }"
+        class="flex cursor-pointer items-center space-x-18"
+      >
+        <Icon name="mineBuy" size="20"></Icon>
+        <span class="text-base">{{ $t('title.mineCard') }}</span>
+      </router-link>
+      <router-link
         :to="{ name: 'mine-collect' }"
         :class="{ 'font-bold': $route.name === 'mine-collect' }"
         class="flex cursor-pointer items-center space-x-18"

@@ -4,7 +4,7 @@
       <template #default>
         <div class="text-sm text-gray-a3">{{ brand }} **** **** **** {{ last4 }}</div>
         <div v-if="defaultable" class="absolute right-5 top-5" @click="$emit('crad:set-default')">
-          <button class="rounded-xl bg-primary px-10 py-6 text-white">預設</button>
+          <button class="rounded-xl bg-primary px-10 py-6 text-white">{{ $t('common.setDefault') }}</button>
         </div>
       </template>
     </BaseOutline>

@@ -86,6 +86,7 @@ export const MINE_TITLE = {
   'mine-earn-wdrl-req': 'title.earnWdrlReq',
   'mine-earn-wdrl-hist': 'title.earnWdrlHist',
   'mine-buy': 'title.mineBuy',
+  'mine-card': 'title.mineCard',
   'mine-post': 'title.minePost',
   'mine-collect': 'title.mineCollect',
   'mine-creator': 'title.beCreator',
