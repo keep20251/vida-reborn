@@ -4,6 +4,7 @@ import MineAboutPP from '@/pages/mine/MineAboutPP.vue'
 import MineAboutTOS from '@/pages/mine/MineAboutTOS.vue'
 import MineBeCreator from '@/pages/mine/MineBeCreator.vue'
 import MineBuy from '@/pages/mine/MineBuy.vue'
+import MineCard from '@/pages/mine/MineCard.vue'
 import MineCollect from '@/pages/mine/MineCollect.vue'
 import MineEarn from '@/pages/mine/MineEarn.vue'
 import MineEarnWdrlHist from '@/pages/mine/MineEarnWdrlHist.vue'
@@ -62,6 +63,12 @@ export default [
     name: `${prefix}-buy`,
     path: `buy`,
     component: MineBuy,
+    meta: { permissionKey: 'buyCollect' },
+  },
+  {
+    name: `${prefix}-card`,
+    path: `card`,
+    component: MineCard,
     meta: { permissionKey: 'buyCollect' },
   },
   {
