@@ -27,7 +27,7 @@
     <template #buttons>
       <div class="flex flex-row space-x-10">
         <Button class="flex-grow" cancel @click="close">{{ $t('common.cancel') }}</Button>
-        <Button class="flex-grow" @click="confirm">{{ $t('common.confirm') }}</Button>
+        <Button :loading="isLoading" class="flex-grow" @click="onExecute(confirm)">{{ $t('common.confirm') }}</Button>
       </div>
     </template>
   </DialogHeader>
@@ -45,6 +45,7 @@ import { usePaymentStore } from '@/store/payment'
 import { upperSnackToCamel } from '@/utils/string-helper'
 import TagSwiper from '@/components/common/TagSwiper.vue'
 import { usePayment } from '@/compositions/payment'
+import { useExecutionLock } from '@/compositions/utils/execution-lock'
 import { useLocale } from '@/compositions/utils/locale'
 import { useWindow } from '@/compositions/utils/window'
 import { MODAL_TYPE } from '@/constant'
@@ -73,8 +74,8 @@ const activeCondition = (groupId) => {
   const payment = paymentCondition(groupId)
   if (!payment) return false
   return (
-    paymentConfig.value.data.amount >= Number(payment.min_money) &&
-    paymentConfig.value.data.amount <= Number(payment.max_money)
+    Number(paymentConfig.value.data.amount) >= Number(payment.min_money) &&
+    Number(paymentConfig.value.data.amount) <= Number(payment.max_money)
   )
 }
 
@@ -137,7 +138,10 @@ function checkAmount(item) {
   const payment = allPayments.value.find((p) => p.pay_type_id === item.id)
   if (!payment) throw new Error('payment not found')
 
-  if (paymentConfig.value.data.amount > payment.max_money || paymentConfig.value.data.amount < payment.min_money) {
+  if (
+    Number(paymentConfig.value.data.amount) > Number(payment.max_money) ||
+    Number(paymentConfig.value.data.amount) < Number(payment.min_money)
+  ) {
     paymentError.value = $t('payment.error.amountRange', {
       payment: item.name,
       min: payment.min_money,
@@ -171,15 +175,20 @@ function recallComplete() {
   }).then((r) => (r ? { intent: stripeIntent.value } : false))
 }
 
+const { disabled: isLoading, onExecute } = useExecutionLock()
+
 async function confirm() {
   if (activeOption.value.type === PAYMENT_GROUP.CREDIT_CARD) {
     isComplete.value = false
+
     const submitBtn = document.querySelector('#payment-submit-btn')
     if (!submitBtn) throw new Error('Payment dialog confirm error: Can not find submit button')
     submitBtn.click()
+
     const completeResult = await recallComplete()
     if (!completeResult) return
-    console.log('confirm', completeResult)
+
+    paying()
 
     const payload = {
       m_id: paymentConfig.value.data.item_id,
@@ -189,12 +198,13 @@ async function confirm() {
       amount: paymentConfig.value.data.amount,
     }
 
-    payStripe({
+    await payStripe({
       ...paymentConfig.value,
       data: payload,
     })
   } else {
     // TODO 彈出其他支付方式的窗口
+    paying()
     const { openWindow } = useWindow()
     const window = openWindow()
 
@@ -203,13 +213,15 @@ async function confirm() {
       pay_type_id: payway.value,
     }
 
-    pay({
+    await pay({
       ...paymentConfig.value,
       newWindow: window,
       data: payload,
     })
   }
+}
 
+function paying() {
   open(MODAL_TYPE.PAYING, {
     title: 'modal.paying.title',
     size: 'sm',

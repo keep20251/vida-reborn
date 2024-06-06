@@ -43,6 +43,8 @@ export default {
     append: '追加',
     publish: '公開',
     replace: '一新しいものに交換する',
+    setDefault: 'デフォルトに設定',
+    addCard: 'クレジットカードを追加する',
     whetherCancelSub: '本当にサブスクリプションをキャンセルしてもよろしいですか？',
     whetherCrestoreSub: '本当にサブスクリプションを再開してもよろしいですか？',
     reSubErr: '再サブスクリプションに失敗',
@@ -80,7 +82,7 @@ export default {
     earnWdrlHist: '引き出し記録',
     clearSearchHistory: '検索履歴をクリア',
     search: { history: '履歴検索', clear: '人気の検索', popular: 'クリア' },
-    subscription: '定期購読プラン',
+    subscription: '定期購入プラン',
     publishSuccess: '公開成功',
     updateSuccess: '更新完了',
     updateFail: '更新失敗',
@@ -93,6 +95,7 @@ export default {
     noSubPlan: '定額購入プランが設定されていません',
     beCreatorFirst: '投稿する前にまずクリエーターになりましょう！',
     officeEmail: '公式メール',
+    mineCard: 'カードを管理する',
   },
   label: {
     account: 'ユーザー名',
@@ -186,7 +189,7 @@ export default {
     error: {
       subscribeSelf: '自分自身を購読できません',
       shopBuySelf: '自分の商品が買えない',
-      subscriptionNotFound: '利用可能なサブスクリプション プランはありません',
+      subscriptionNotFound: '利用可能なサブスクリプションプランはありません',
     },
     sending: '送信',
     failure: '失敗した',
@@ -261,6 +264,7 @@ export default {
     waitUploading: 'アップロード中...',
     unboundMailPrompt:
       'このメールアドレスはどのアカウントにも紐付けられていません。アカウントをお持ちの場合は、以下のユーザー名を使用してログインできます。',
+    cardLimit: '追加されたクレジットカード {length}/{max}',
   },
   content: {
     default: 'デフォルト、どこにも表示されないはずです',
@@ -522,12 +526,12 @@ export default {
     },
     shopBuy: {
       1: '{nickname} のこの作品のコンテンツのロックを解除します',
-      2: '{nickname}はあなたの支払いを全額受け取ります',
+      2: '{nickname}がお支払いを全額受け取ります',
       confirm: "今すぐロックを解除します ({'$'}{price})",
     },
     subscribeSuc: {
       1: '素晴らしい！ {nickname} に正常に登録されました。',
-      2: '作成者のホームページに移動するか、元の画面に留まって閲覧するかを選択してください。',
+      2: 'クリエイターのホームページに移動するか、元の画面に留まって閲覧するかを選択してください。',
       confirm: 'クリエイターページへ行く',
     },
     shopBuySuc: {
@@ -548,6 +552,11 @@ export default {
     leastCategory: '',
     moreCategory: 'さらに{count}個のトピックを選択してください',
     completeCategory: '素晴らしい！',
+    delete: { title: '削除を確認する', content: 'このクレジットカード情報を削除してもよろしいですか？' },
+    cardLimit: {
+      title: 'カードの限界に達しました',
+      content: '他のカードを追加する前に、カードを1枚削除してください。',
+    },
   },
   beCreator: {
     id: { passport: 'パスポート', idCard: '身分証明書', driverLicense: '運転免許証' },

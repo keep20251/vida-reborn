@@ -48,6 +48,8 @@ export default {
     append: 'Ajouter',
     publish: 'Publier',
     replace: 'Remplacer',
+    setDefault: 'Définir par défaut',
+    addCard: 'Ajouter une carte de crédit',
     whetherCancelSub: 'Êtes-vous sûr de vouloir annuler votre abonnement ?',
     whetherCrestoreSub: 'Êtes-vous sûr de vouloir reprendre votre abonnement ?',
     reSubErr: 'La réabonnement a échoué',
@@ -98,6 +100,7 @@ export default {
     noSubPlan: "Aucun plan d'abonnement configuré",
     beCreatorFirst: "Veuillez d'abord devenir créateur avant de publier !",
     officeEmail: 'Courriel officiel',
+    mineCard: 'Gérer les cartes',
   },
   label: {
     account: 'Nom d’utilisateur',
@@ -266,6 +269,7 @@ export default {
     waitUploading: 'du fichier...',
     unboundMailPrompt:
       "Cette adresse e-mail n'est pas liée à un compte. Si vous avez un compte, vous pouvez vous connecter avec votre nom d'utilisateur ci-dessous.",
+    cardLimit: 'Cartes de crédit ajoutées {length}/{max}',
   },
   content: {
     default: 'Par défaut, ne devrait apparaître nulle part',
@@ -556,6 +560,14 @@ export default {
     leastCategory: 'Choisissez au moins {count} sujets',
     moreCategory: 'Choisissez {count} sujets de plus',
     completeCategory: 'Super !',
+    delete: {
+      title: 'Confirmer la suppression',
+      content: 'Êtes-vous sûr de vouloir supprimer ces informations de carte de crédit?',
+    },
+    cardLimit: {
+      title: 'Limite de cartes atteint',
+      content: "Veuillez supprimer une carte avant d'en ajouter une autre.",
+    },
   },
   beCreator: {
     id: { passport: 'Passeport', idCard: "Carte d'Identité", driverLicense: 'Permis de Conduire' },
