@@ -40,11 +40,14 @@ import { computed, onActivated, onDeactivated, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
+import { useModalStore } from '@/store/modal'
 import { usePaymentStore } from '@/store/payment'
 import { upperSnackToCamel } from '@/utils/string-helper'
 import TagSwiper from '@/components/common/TagSwiper.vue'
+import { usePayment } from '@/compositions/payment'
 import { useLocale } from '@/compositions/utils/locale'
 import { useWindow } from '@/compositions/utils/window'
+import { MODAL_TYPE } from '@/constant'
 import { PAYMENT_GROUP, PAYMENT_TYPE } from '@/constant/payment'
 import Button from '../common/Button.vue'
 import DialogHeader from '../dialog/DialogHeader.vue'
@@ -60,13 +63,19 @@ const { syncAllPaymentConfig } = appStore
 
 const paymentStore = usePaymentStore()
 const { close } = paymentStore
-const { amount } = storeToRefs(paymentStore)
+const { paymentConfig } = storeToRefs(paymentStore)
+
+const { pay, payStripe, cancel } = usePayment()
+const { open } = useModalStore()
 
 const paymentCondition = (groupId) => allPayments.value.find((p) => p.payment_type === groupId)
 const activeCondition = (groupId) => {
   const payment = paymentCondition(groupId)
   if (!payment) return false
-  return amount.value >= Number(payment.min_money) && amount.value <= Number(payment.max_money)
+  return (
+    paymentConfig.value.data.amount >= Number(payment.min_money) &&
+    paymentConfig.value.data.amount <= Number(payment.max_money)
+  )
 }
 
 const STATIC_EMBED_PAYWAY = 78
@@ -85,8 +94,7 @@ const paywayOptions = computed(() => {
     componentType: PAYMENT_TYPE.POPUP,
     id: 0,
     name: $t('payment.payway.other'),
-    // TODO 後端還沒好，先設定 false
-    active: false,
+    active: true,
   }
 
   if (appConfig.value.multi_payment_lang.includes(locale.value)) {
@@ -129,7 +137,7 @@ function checkAmount(item) {
   const payment = allPayments.value.find((p) => p.pay_type_id === item.id)
   if (!payment) throw new Error('payment not found')
 
-  if (amount.value > payment.max_money || amount.value < payment.min_money) {
+  if (paymentConfig.value.data.amount > payment.max_money || paymentConfig.value.data.amount < payment.min_money) {
     paymentError.value = $t('payment.error.amountRange', {
       payment: item.name,
       min: payment.min_money,
@@ -172,12 +180,42 @@ async function confirm() {
     const completeResult = await recallComplete()
     if (!completeResult) return
     console.log('confirm', completeResult)
+
+    const payload = {
+      m_id: paymentConfig.value.data.item_id,
+      to_aff: paymentConfig.value.data.aff,
+      type: paymentConfig.value.paymentType,
+      user_payment_method_id: completeResult.intent.payment_method,
+      amount: paymentConfig.value.data.amount,
+    }
+
+    payStripe({
+      ...paymentConfig.value,
+      data: payload,
+    })
   } else {
     // TODO 彈出其他支付方式的窗口
     const { openWindow } = useWindow()
-    openWindow()
-    console.log('confirm')
+    const window = openWindow()
+
+    const payload = {
+      item_id: paymentConfig.value.data.item_id,
+      pay_type_id: payway.value,
+    }
+
+    pay({
+      ...paymentConfig.value,
+      newWindow: window,
+      data: payload,
+    })
   }
+
+  open(MODAL_TYPE.PAYING, {
+    title: 'modal.paying.title',
+    size: 'sm',
+    confirmText: $t('common.cancel'),
+    confirmAction: () => cancel(),
+  })
 }
 
 const showBack = ref(false)

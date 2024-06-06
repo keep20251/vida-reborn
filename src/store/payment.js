@@ -19,8 +19,11 @@ export const usePaymentStore = defineStore('payment-store', () => {
   const _amount = ref(null)
   const amount = computed(() => Number(_amount.value))
 
-  function open({ route = PAYMENT_ROUTES.MAIN_PAGE, amount = null }) {
+  const _paymentConfig = ref(null)
+
+  function open({ route = PAYMENT_ROUTES.MAIN_PAGE, amount, paymentConfig }) {
     _amount.value = amount
+    _paymentConfig.value = paymentConfig
     console.log('payment dialog is open')
     init(route)
     openPayment()
@@ -28,6 +31,7 @@ export const usePaymentStore = defineStore('payment-store', () => {
   function close() {
     closePayment()
     init(PAYMENT_ROUTES.MAIN_PAGE)
+    _paymentConfig.value = null
     _amount.value = null
   }
 
@@ -35,6 +39,7 @@ export const usePaymentStore = defineStore('payment-store', () => {
     isOpen,
     activeComponent,
     amount: readonly(amount),
+    paymentConfig: readonly(_paymentConfig),
     open,
     close,
     goto,

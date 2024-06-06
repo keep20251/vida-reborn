@@ -2,6 +2,7 @@ import { reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useFeedStore } from '@/store/feed'
 import { useModalStore } from '@/store/modal'
+import { usePaymentStore } from '@/store/payment'
 import { usePopupMessageStore } from '@/store/popup-message'
 // import { notifyBuy, notifyCampaign, notifySub } from '@/utils/state-broadcast'
 import { toQueryString } from '@/utils/string-helper'
@@ -17,7 +18,9 @@ import API from '@/http'
 export function usePayment() {
   const { open } = usePopupMessageStore()
   const { close } = useModalStore()
-  const { $t } = useI18n()
+  const paymentStore = usePaymentStore()
+
+  const { t: $t } = useI18n()
 
   const frequency = 5000 // 5 秒輪詢一次
 
@@ -97,8 +100,34 @@ export function usePayment() {
     }
   }
 
-  // TODO 等待後端 API
-  async function payStripe() {}
+  async function payStripe({
+    data,
+    paymentType,
+    userUUID = null,
+    onSuccess = null,
+    onFailure = null,
+    onCancel = null,
+  }) {
+    setupAction({ onSuccess, onFailure, onCancel })
+
+    try {
+      const response = await useRequest('Payment.embedPay', { params: data, immediate: true })
+      if (!response.order_id) throw new Error('Order number is missing')
+
+      isContinue.value = true
+      fetchPollingResult({
+        apiKey: 'Payment.checkEmbedPay',
+        orderId: response.order_id,
+        payload: data,
+        paymentType,
+        userUUID,
+      })
+    } catch (e) {
+      setTimeout(() => {
+        onFailed(e.message, () => actions.onFailure && actions.onFailure(e.message))
+      }, 1500)
+    }
+  }
 
   /**
    * 輪詢支付結果
@@ -172,8 +201,9 @@ export function usePayment() {
   }
 
   function onFailed(errMessage, fn = null) {
-    window.close()
+    window && window.close()
     close()
+    paymentStore.close()
     fn && fn()
     open(`${$t('message.payment.failed')}: ${errMessage}`)
   }
@@ -236,9 +266,10 @@ export function usePayment() {
 
     isContinue.value = false
     if (window) window.close()
+    paymentStore.close()
     open($t('message.payment.cancel'))
     actions.onCancel && actions.onCancel()
   }
 
-  return { pay, cancel }
+  return { pay, payStripe, cancel }
 }

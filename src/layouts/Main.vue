@@ -13,8 +13,8 @@
       <Subscriptions></Subscriptions>
       <ReportBlockPicker></ReportBlockPicker>
       <MinePrvwBanner></MinePrvwBanner>
-      <PopupMessage></PopupMessage>
       <PaymentDialog />
+      <PopupMessage></PopupMessage>
     </ClientOnly>
   </div>
   <NavigatorMobile v-if="isMobile"></NavigatorMobile>
