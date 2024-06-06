@@ -43,6 +43,8 @@ export default {
     append: '添加',
     publish: '發布',
     replace: '換一批',
+    setDefault: '設為預設',
+    addCard: '新增信用卡',
     whetherCancelSub: '您是否确定要取消订阅？',
     whetherCrestoreSub: '您是否确定要恢复订阅？',
     reSubErr: '重新订阅失败',
@@ -93,6 +95,7 @@ export default {
     noSubPlan: '尚未建置訂閱計畫',
     beCreatorFirst: '請先成為創作者後再來發布文章吧！',
     officeEmail: '官方信箱',
+    mineCard: '卡片管理',
   },
   label: {
     account: '用戶名',
@@ -256,6 +259,7 @@ export default {
     clickRtConfirm: '請先點擊右上角確認',
     waitUploading: '檔案上傳中...',
     unboundMailPrompt: '該郵箱尚未綁定任何帳號，若已有帳戶可由下方使用用戶名登入。',
+    cardLimit: '已添加信用卡 {length}/{max}',
   },
   content: {
     default: '預設，不應該顯示在任何地方',
@@ -528,6 +532,8 @@ export default {
     leastCategory: '至少選擇 {count} 個主題',
     moreCategory: '再選擇 {count} 個主題',
     completeCategory: '太棒了！',
+    delete: { title: '確定刪除', content: '確定要刪除信用卡資訊嗎？' },
+    cardLimit: { title: '卡片已達上限', content: '請先刪除一張卡片再新增' },
   },
   beCreator: {
     id: { passport: '護照', idCard: '身份證', driverLicense: '駕照' },

@@ -48,6 +48,8 @@ export default {
     append: 'Thêm vào',
     publish: 'Xuất bản',
     replace: 'Thay một nhóm',
+    setDefault: 'Đặt làm mặc định',
+    addCard: 'Thêm thẻ tín dụng',
     whetherCancelSub: 'Bạn có chắc chắn muốn hủy đăng ký không?',
     whetherCrestoreSub: 'Bạn có chắc chắn muốn khôi phục đăng ký không?',
     reSubErr: 'Gặp lỗi khi đăng ký lại',
@@ -98,6 +100,7 @@ export default {
     noSubPlan: 'Chưa thiết lập kế hoạch đăng ký',
     beCreatorFirst: 'Hãy trở thành người sáng tạo trước khi đăng bài!',
     officeEmail: 'Email chính thức',
+    mineCard: 'Quản lý thẻ',
   },
   label: {
     account: 'Tên người dùng',
@@ -266,6 +269,7 @@ export default {
     waitUploading: 'Đang tải lên tệp...',
     unboundMailPrompt:
       'Địa chỉ email này chưa được liên kết với bất kỳ tài khoản nào. Nếu bạn đã có tài khoản, bạn có thể đăng nhập bằng tên người dùng bên dưới.',
+    cardLimit: 'Đã thêm thẻ tín dụng {length}/{max}',
   },
   content: {
     default: 'Mặc định, không nên hiển thị ở bất cứ đâu',
@@ -537,7 +541,7 @@ export default {
     shopBuySuc: {
       1: 'tuyệt vời! Đã thanh toán thành công để mở khóa bài đăng',
       2: 'Chọn vào bài viết để xem, hoặc ở lại màn hình gốc để duyệt!',
-      confirm: 'Đi tới bài đăng',
+      confirm: 'Đi tới bài viết',
     },
     title: { paySuc: 'Thanh toán được thực hiện thành công' },
     paying: { title: 'Thanh toán đang được xử lý' },
@@ -552,6 +556,8 @@ export default {
     leastCategory: '',
     moreCategory: 'Chọn thêm {count} chủ đề nữa',
     completeCategory: 'Tuyệt vời!',
+    delete: { title: 'Xác nhận xóa', content: 'Bạn có chắc chắn muốn xóa thông tin thẻ tín dụng này không?' },
+    cardLimit: { title: 'Giới hạn thẻ đã đạt', content: 'Vui lòng xóa một thẻ trước khi thêm một thẻ khác.' },
   },
   beCreator: {
     id: { passport: 'Hộ chiếu', idCard: 'Thẻ căn cước', driverLicense: 'Giấy phép lái xe' },

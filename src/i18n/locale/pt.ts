@@ -48,6 +48,8 @@ export default {
     append: 'Anexar',
     publish: 'Publicar',
     replace: 'Substituir',
+    setDefault: 'Definir como padrão',
+    addCard: 'Adicionar cartão de crédito',
     whetherCancelSub: 'Tem certeza de que deseja cancelar sua assinatura?',
     whetherCrestoreSub: 'Tem certeza de que deseja retomar sua assinatura?',
     reSubErr: 'Falha na reinscrição',
@@ -98,6 +100,7 @@ export default {
     noSubPlan: 'Sem plano de assinatura configurado',
     beCreatorFirst: 'Por favor, torne-se um criador antes de postar!',
     officeEmail: 'E-mail oficial',
+    mineCard: 'Gerenciar cartões',
   },
   label: {
     account: 'Nome de usuário',
@@ -266,6 +269,7 @@ export default {
     waitUploading: 'Enviando arquivo...',
     unboundMailPrompt:
       'Este endereço de email não está vinculado a nenhuma conta. Se você tem uma conta, pode entrar usando seu nome de usuário abaixo.',
+    cardLimit: 'Cartões de crédito adicionados {length}/{max}',
   },
   content: {
     default: 'Padrão, não deve aparecer em lugar nenhum',
@@ -555,6 +559,14 @@ export default {
     leastCategory: '',
     moreCategory: 'Escolha mais {count} tópicos',
     completeCategory: 'Ótimo!',
+    delete: {
+      title: 'Confirmar exclusão',
+      content: 'Tem certeza de que deseja excluir essas informações do cartão de crédito?',
+    },
+    cardLimit: {
+      title: 'Limite de cartões alcançado',
+      content: 'Por favor, exclua um cartão antes de adicionar outro.',
+    },
   },
   beCreator: {
     id: { passport: 'Passaporte', idCard: 'Cartão de Identidade', driverLicense: 'Carteira de Motorista' },

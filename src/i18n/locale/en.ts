@@ -48,6 +48,8 @@ export default {
     append: 'Append',
     publish: 'Publish',
     replace: 'Replace',
+    setDefault: 'Set as Default',
+    addCard: 'Add Credit Card',
     whetherCancelSub: 'Are you sure you want to cancel your subscription?',
     whetherCrestoreSub: 'Are you sure you want to resume your subscription?',
     reSubErr: 'Resubscription failed',
@@ -98,6 +100,7 @@ export default {
     noSubPlan: 'No subscription plan set',
     beCreatorFirst: 'Please become a creator first before posting!',
     officeEmail: 'Official email',
+    mineCard: 'Manage Cards',
   },
   label: {
     account: 'Username',
@@ -266,6 +269,7 @@ export default {
     waitUploading: 'File uploading...',
     unboundMailPrompt:
       'This email address is not currently associated with any account. If you already have an account, you can log in using your username below',
+    cardLimit: 'Credit Cards Added {length}/{max}',
   },
   content: {
     default: "Default, shouldn't show up anywhere",
@@ -531,7 +535,7 @@ export default {
     },
     subscribeSuc: {
       1: 'marvelous! Successfully subscribed to {nickname}!',
-      2: "Choose to go to the creator's homepage, or stay on the original screen and browse!",
+      2: 'Choose to go to the creator’s homepage, or stay on the original screen and browse!',
       confirm: 'Go to creator page',
     },
     shopBuySuc: {
@@ -552,6 +556,8 @@ export default {
     leastCategory: 'Choose at least {count} topics',
     moreCategory: 'Choose {count} more topics',
     completeCategory: 'Great!',
+    delete: { title: 'Confirm Deletion', content: 'Are you sure you want to delete this credit card information?' },
+    cardLimit: { title: 'Card Limit Reached', content: 'Please delete a card before adding another.' },
   },
   beCreator: {
     id: { passport: 'Passport', idCard: 'ID Card', driverLicense: "Driver's License" },

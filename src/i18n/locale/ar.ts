@@ -43,6 +43,8 @@ export default {
     append: 'إلحاق',
     publish: 'نشر',
     replace: 'استبدال',
+    setDefault: 'تعيين كافتراضي',
+    addCard: 'إضافة بطاقة ائتمان',
     whetherCancelSub: 'هل أنت متأكد من أنك تريد إلغاء الاشتراك؟',
     whetherCrestoreSub: 'هل أنت متأكد من أنك تريد استئناف الاشتراك؟',
     reSubErr: 'فشل إعادة الاشتراك',
@@ -93,6 +95,7 @@ export default {
     noSubPlan: 'لم يتم تعيين خطة اشتراك',
     beCreatorFirst: 'من فضلك كن منشئًا أولاً قبل النشر!',
     officeEmail: 'البريد الإلكتروني الرسمي',
+    mineCard: 'إدارة البطاقات',
   },
   label: {
     account: 'اسم المستخدم',
@@ -261,6 +264,7 @@ export default {
     waitUploading: 'جارٍ تحميل الملف...',
     unboundMailPrompt:
       'هذا العنوان الإلكتروني لم يتم ربطه بأي حساب. إذا كان لديك حساب، يمكنك تسجيل الدخول باستخدام اسم المستخدم أدناه.',
+    cardLimit: 'بطاقات الائتمان المضافة {length}/{max}',
   },
   content: {
     default: 'الافتراضي، لا ينبغي أن تظهر في أي مكان',
@@ -544,6 +548,8 @@ export default {
     leastCategory: '',
     moreCategory: 'اختر {count} مواضيع أخرى',
     completeCategory: 'رائع!',
+    delete: { title: 'تأكيد الحذف', content: 'هل أنت متأكد أنك تريد حذف معلومات هذه البطاقة الائتمانية؟' },
+    cardLimit: { title: 'تم الوصول للحد الأقصى للبطاقات', content: 'يرجى حذف بطاقة واحدة قبل إضافة أخرى.' },
   },
   beCreator: {
     id: { passport: 'جواز سفر', idCard: 'بطاقة هوية', driverLicense: 'رخصة القيادة' },

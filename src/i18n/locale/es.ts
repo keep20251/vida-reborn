@@ -37,7 +37,7 @@ export default {
     cookie: 'Acepta y no vuelvas a mostrar este mensaje',
     check: 'Verificar',
     subscribe: 'suscripción',
-    subscribed: 'suscrito',
+    subscribed: 'Suscrito',
     cancelSubscribe: 'Cancelar',
     restoreSubscribe: 'Reanudar',
     reSubscribe: 'Resuscribir',
@@ -48,6 +48,8 @@ export default {
     append: 'Añadir',
     publish: 'Publicar',
     replace: 'Cambiar',
+    setDefault: 'Establecer como predeterminado',
+    addCard: 'Añadir tarjeta de crédito',
     whetherCancelSub: '¿Está seguro de que desea cancelar su suscripción?',
     whetherCrestoreSub: '¿Está seguro de que desea reanudar su suscripción?',
     reSubErr: 'Falló la reinscripción',
@@ -98,6 +100,7 @@ export default {
     noSubPlan: 'Sin plan de suscripción configurado',
     beCreatorFirst: '¡Por favor, conviértete primero en creador antes de publicar!',
     officeEmail: 'Correo oficial',
+    mineCard: 'Gestionar tarjetas',
   },
   label: {
     account: 'Nombre de usuario',
@@ -266,6 +269,7 @@ export default {
     waitUploading: 'Subiendo archivo...',
     unboundMailPrompt:
       'Esta dirección de correo electrónico no está asociada a ninguna cuenta. Si ya tienes una cuenta, puedes iniciar sesión con tu nombre de usuario a continuación.',
+    cardLimit: 'Tarjetas de crédito añadidas {length}/{max}',
   },
   content: {
     default: 'Predeterminado, no debería aparecer en ningún lado',
@@ -540,7 +544,7 @@ export default {
     },
     shopBuySuc: {
       1: '¡maravilloso! Pago exitoso para desbloquear la publicación',
-      2: '¡Elige ir a la publicación para verla o permanecer en la pantalla original para navegar!',
+      2: '¡Elija ir a la publicación para verla o permanecer en la pantalla original para navegar!',
       confirm: 'Ir a la publicación',
     },
     title: { paySuc: 'Pago hecho satisfactoriamente' },
@@ -557,6 +561,14 @@ export default {
     leastCategory: 'Elige al menos {count} temas',
     moreCategory: 'Elige {count} temas más',
     completeCategory: '¡Genial!',
+    delete: {
+      title: 'Confirmar eliminación',
+      content: '¿Está seguro de que desea eliminar esta información de la tarjeta de crédito?',
+    },
+    cardLimit: {
+      title: 'Límite de tarjetas alcanzado',
+      content: 'Por favor, elimine una tarjeta antes de añadir otra.',
+    },
   },
   beCreator: {
     id: { passport: 'Pasaporte', idCard: 'Tarjeta de Identidad', driverLicense: 'Licencia de Conducir' },

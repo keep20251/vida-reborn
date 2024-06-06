@@ -43,6 +43,8 @@ export default {
     append: '추가',
     publish: '게시',
     replace: '교체하기',
+    setDefault: '기본으로 설정',
+    addCard: '신용카드 추가',
     whetherCancelSub: '구독을 취소하시겠습니까?',
     whetherCrestoreSub: '구독을 재개하시겠습니까?',
     reSubErr: '재구독 실패',
@@ -93,6 +95,7 @@ export default {
     noSubPlan: '구독 계획이 설정되어 있지 않습니다',
     beCreatorFirst: '게시하기 전에 먼저 창작자가 되세요!',
     officeEmail: '공식 이메일',
+    mineCard: '카드 관리',
   },
   label: {
     account: '사용자 이름',
@@ -261,6 +264,7 @@ export default {
     waitUploading: '파일 업로드 중...',
     unboundMailPrompt:
       '이 이메일 주소는 어떤 계정에도 연결되어 있지 않습니다. 계정이 있다면 아래의 사용자 이름을 사용하여 로그인할 수 있습니다.',
+    cardLimit: '추가된 신용카드 {length}/{max}',
   },
   content: {
     default: '기본값은 어디에도 표시되지 않아야 합니다.',
@@ -528,7 +532,7 @@ export default {
       confirm: '크리에이터 페이지로 이동',
     },
     shopBuySuc: {
-      1: '기이! 게시물 잠금 해제를 위한 결제가 완료되었습니다.',
+      1: '기이! 게시물 잠금 해제를 위해 성공적으로 결제됨',
       2: '게시물로 이동하여 시청하거나 원래 화면에 머물면서 탐색하도록 선택하세요!',
       confirm: '게시물로 이동',
     },
@@ -542,6 +546,8 @@ export default {
     leastCategory: '',
     moreCategory: '{count}개의 주제를 더 선택하세요',
     completeCategory: '훌륭해요!',
+    delete: { title: '삭제 확인', content: '이 신용카드 정보를 삭제하시겠습니까?' },
+    cardLimit: { title: '카드 한도 도달', content: '다른 카드를 추가하기 전에 카드 한 장을 삭제하십시오.' },
   },
   beCreator: {
     id: { passport: '여권', idCard: '신분증', driverLicense: '운전 면허증' },

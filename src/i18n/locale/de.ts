@@ -48,6 +48,8 @@ export default {
     append: 'Anhängen',
     publish: 'Veröffentlichen',
     replace: 'Ersetzen',
+    setDefault: 'Als Standard setzen',
+    addCard: 'Kreditkarte hinzufügen',
     whetherCancelSub: 'Sind Sie sicher, dass Sie Ihr Abonnement kündigen möchten?',
     whetherCrestoreSub: 'Sind Sie sicher, dass Sie Ihr Abonnement wieder aufnehmen möchten?',
     reSubErr: 'Wiedervereinigung fehlgeschlagen',
@@ -98,6 +100,7 @@ export default {
     noSubPlan: 'Kein Abonnementplan festgelegt',
     beCreatorFirst: 'Bitte werden Sie zuerst ein Creator, bevor Sie posten!',
     officeEmail: 'Offizielle E-Mail',
+    mineCard: 'Karten verwalten',
   },
   label: {
     account: 'Benutzername',
@@ -266,6 +269,7 @@ export default {
     waitUploading: 'Datei wird hochgeladen...',
     unboundMailPrompt:
       'Diese E-Mail-Adresse ist keinem Konto zugeordnet. Wenn Sie ein Konto haben, können Sie sich unten mit Ihrem Benutzernamen anmelden.',
+    cardLimit: 'Hinzugefügte Kreditkarten {length}/{max}',
   },
   content: {
     default: 'Standardmäßig, sollte nirgendwo auftauchen',
@@ -539,7 +543,7 @@ export default {
     },
     shopBuySuc: {
       1: 'fabelhaft! Erfolgreich bezahlt, um den Beitrag freizuschalten',
-      2: 'Gehen Sie entweder zum Beitrag, um ihn anzusehen, oder bleiben Sie zum Durchsuchen auf dem Originalbildschirm!',
+      2: 'Gehen Sie zum Ansehen des Beitrags oder bleiben Sie zum Durchsuchen auf dem Originalbildschirm!',
       confirm: 'Zum Posten gehen',
     },
     title: { paySuc: 'Zahlung erfolgreich durchgeführt' },
@@ -555,6 +559,14 @@ export default {
     leastCategory: 'Wählen Sie mindestens {count} Themen',
     moreCategory: 'Wählen Sie {count} weitere Themen',
     completeCategory: 'Großartig!',
+    delete: {
+      title: 'Löschung bestätigen',
+      content: 'Sind Sie sicher, dass Sie diese Kreditkarteninformationen löschen möchten?',
+    },
+    cardLimit: {
+      title: 'Kartenlimit erreicht',
+      content: 'Bitte löschen Sie eine Karte, bevor Sie eine weitere hinzufügen.',
+    },
   },
   beCreator: {
     id: { passport: 'Reisepass', idCard: 'Personalausweis', driverLicense: 'Führerschein' },
@@ -615,7 +627,7 @@ export default {
       17: 'Weitere Informationen und Kontakte',
       18: 'Weitere Informationen darüber, wie VIDA Ihre personenbezogenen Daten verarbeitet, finden Sie in der Datenschutzrichtlinie von VIDA (hier) und auf der Seite „Respektieren Ihrer Privatsphäre“ im Sicherheits- und Transparenzzentrum von VIDA (hier).',
       19: 'Weitere Informationen darüber, warum VIDA diese Identitätsüberprüfungs- und Authentifizierungsprüfungen durchführen muss, finden Sie auf der Seite „Alters- und Identitätsverifizierung“ in unserem Online-Sicherheits- und Transparenzzentrum (hier).',
-      20: "Wenn Sie Fragen haben, wenden Sie sich bitte an Privacy{'@'}VIDA.com.",
+      20: "Bei Fragen wenden Sie sich bitte an Privacy{'@'}VIDA.com.",
       21: 'Ihre Zustimmung',
       22: 'Indem Sie auf „[Ich stimme zu]“ klicken, verstehen und akzeptieren Sie, dass: Sie der Erfassung und Verarbeitung Ihrer biometrischen Gesichtsdaten zustimmen (d.h. diese mit dem Foto auf Ihrem Identitätsdokument abgleichen), ausschließlich zum Zweck der Überprüfung Ihres Alters und der Überprüfung und Authentifizierung Ihrer Identität. Sie haben die in dieser Mitteilung enthaltenen Informationen gelesen und verstanden.',
       23: 'Sie sind mindestens 18 Jahre alt.',

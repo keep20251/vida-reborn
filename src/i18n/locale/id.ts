@@ -48,6 +48,8 @@ export default {
     append: 'Menambahkan',
     publish: 'Menerbitkan',
     replace: 'Ganti',
+    setDefault: 'Atur sebagai Baku',
+    addCard: 'Tambah Kartu Kredit',
     whetherCancelSub: 'Apakah Anda yakin ingin membatalkan langganan?',
     whetherCrestoreSub: 'Apakah Anda yakin ingin melanjutkan langganan?',
     reSubErr: 'Gagal Berlangganan Kembali',
@@ -98,6 +100,7 @@ export default {
     noSubPlan: 'Belum ada rencana langganan yang diset',
     beCreatorFirst: 'Harap menjadi kreator terlebih dahulu sebelum memposting!',
     officeEmail: 'Email resmi',
+    mineCard: 'Kelola Kartu',
   },
   label: {
     account: 'Nama pengguna',
@@ -266,6 +269,7 @@ export default {
     waitUploading: 'Mengunggah file...',
     unboundMailPrompt:
       'Alamat email ini belum terikat dengan akun mana pun. Jika Anda memiliki akun, Anda dapat masuk menggunakan nama pengguna di bawah ini.',
+    cardLimit: 'Kartu Kredit yang Ditambahkan {length}/{max}',
   },
   content: {
     default: 'Defaultnya, seharusnya tidak muncul di mana pun',
@@ -532,7 +536,7 @@ export default {
     },
     subscribeSuc: {
       1: 'menakjubkan! Berhasil berlangganan {nickname}!',
-      2: 'Pilih untuk membuka beranda pembuat konten, atau tetap berada di layar asli dan jelajahi!',
+      2: 'Pilih untuk membuka beranda pembuat konten, atau tetap berada di layar asli dan menjelajah!',
       confirm: 'Buka halaman pembuat',
     },
     shopBuySuc: {
@@ -553,6 +557,8 @@ export default {
     leastCategory: '',
     moreCategory: 'Pilih {count} topik lagi',
     completeCategory: 'Luar biasa!',
+    delete: { title: 'Konfirmasi Penghapusan', content: 'Anda yakin ingin menghapus informasi kartu kredit ini?' },
+    cardLimit: { title: 'Batas Kartu Terpenuhi', content: 'Silakan hapus satu kartu sebelum menambahkan kartu lain.' },
   },
   beCreator: {
     id: { passport: 'Paspor', idCard: 'Kartu Identitas', driverLicense: 'Surat Izin Mengemudi' },

@@ -43,6 +43,8 @@ export default {
     append: 'जोड़ें',
     publish: 'प्रकाशित करें',
     replace: 'बदलें',
+    setDefault: 'डिफ़ॉल्ट सेट करें',
+    addCard: 'क्रेडिट कार्ड जोड़ें',
     whetherCancelSub: 'क्या आप सुनिश्चित हैं कि आप सदस्यता रद्द करना चाहते हैं?',
     whetherCrestoreSub: 'क्या आप सुनिश्चित हैं कि आप सदस्यता फिर से शुरू करना चाहते हैं?',
     reSubErr: 'पुन: सदस्यता विफल',
@@ -93,6 +95,7 @@ export default {
     noSubPlan: 'सदस्यता योजना नहीं बनाई गई है',
     beCreatorFirst: 'कृपया पोस्ट करने से पहले एक निर्माता बनें!',
     officeEmail: 'आधिकारिक ईमेल',
+    mineCard: 'कार्ड प्रबंधन',
   },
   label: {
     account: 'उपयोगकर्ता नाम',
@@ -261,6 +264,7 @@ export default {
     waitUploading: 'फ़ाइल अपलोड हो रही है...',
     unboundMailPrompt:
       'यह ईमेल पता किसी खाते से नहीं जुड़ा है। यदि आपके पास खाता है, तो आप नीचे दिए गए उपयोगकर्ता नाम का उपयोग करके लॉग इन कर सकते हैं।',
+    cardLimit: 'जोड़े गए क्रेडिट कार्ड {length}/{max}',
   },
   content: {
     default: 'डिफ़ॉल्ट, कहीं भी दिखाई नहीं देना चाहिए',
@@ -533,6 +537,8 @@ export default {
     leastCategory: '',
     moreCategory: 'और {count} विषय चुनें',
     completeCategory: 'बहुत बढ़िया!',
+    delete: { title: 'हटाने की पुष्टि करें', content: 'क्या आप वाकई इस क्रेडिट कार्ड की जानकारी हटाना चाहते हैं?' },
+    cardLimit: { title: 'कार्ड की सीमा पहुँच गई है', content: 'कृपया दूसरा कार्ड जोड़ने से पहले एक कार्ड हटा दें।' },
   },
   beCreator: {
     id: { passport: 'पासपोर्ट', idCard: 'पहचान पत्र', driverLicense: 'ड्राइवर का लाइसेंस' },
