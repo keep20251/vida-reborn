@@ -49,7 +49,7 @@ import { usePayment } from '@/compositions/payment'
 import { useExecutionLock } from '@/compositions/utils/execution-lock'
 import { useLocale } from '@/compositions/utils/locale'
 import { useWindow } from '@/compositions/utils/window'
-import { MODAL_TYPE } from '@/constant'
+import { CONSUME_TYPE, MODAL_TYPE } from '@/constant'
 import { PAYMENT_GROUP, PAYMENT_TYPE } from '@/constant/payment'
 import Button from '../common/Button.vue'
 import DialogHeader from '../dialog/DialogHeader.vue'
@@ -178,6 +178,14 @@ function recallComplete() {
 
 const { disabled: isLoading, onExecute } = useExecutionLock()
 
+// src/constant/index.js
+// import {CONSUME_TYPE} from '@/constant'
+const convertType = (typeId) => {
+  if (typeId === CONSUME_TYPE.SUBSCRIBE) return 1
+  if (typeId === CONSUME_TYPE.SHOP_BUY) return 5
+  throw new Error('consumeType not found')
+}
+
 async function confirm() {
   if (activeOption.value.type === PAYMENT_GROUP.CREDIT_CARD && defaultCard.value) {
     console.log('payment with default card')
@@ -185,12 +193,12 @@ async function confirm() {
     paying()
 
     const payload = {
-      mid: defaultCard.value.mid,
-      m_id: paymentConfig.value.data.item_id,
-      to_aff: paymentConfig.value.data.aff,
-      type: paymentConfig.value.paymentType,
+      item_id: paymentConfig.value.data.item_id,
+      // to_aff: paymentConfig.value.data.aff,
+      // type: paymentConfig.value.paymentType,
+      type: convertType(paymentConfig.value.paymentType),
       user_payment_method_id: defaultCard.value.id,
-      amount: paymentConfig.value.data.amount,
+      // amount: paymentConfig.value.data.amount,
     }
 
     await payStripe({
@@ -211,11 +219,11 @@ async function confirm() {
     paying()
 
     const payload = {
-      m_id: paymentConfig.value.data.item_id,
-      to_aff: paymentConfig.value.data.aff,
-      type: paymentConfig.value.paymentType,
+      item_id: paymentConfig.value.data.item_id,
+      // to_aff: paymentConfig.value.data.aff,
+      type: convertType(paymentConfig.value.paymentType),
       user_payment_method_id: completeResult.intent.payment_method,
-      amount: paymentConfig.value.data.amount,
+      // amount: paymentConfig.value.data.amount,
     }
 
     await payStripe({
@@ -230,7 +238,7 @@ async function confirm() {
 
     const payload = {
       item_id: paymentConfig.value.data.item_id,
-      pay_type_id: payway.value,
+      pay_type_id: convertType(payway.value),
     }
 
     await pay({
