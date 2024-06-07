@@ -32,7 +32,7 @@ export default {
     cookie: 'このメッセージを受け入れて見ないでください',
     check: '確認する',
     subscribe: 'サブスクリプション',
-    subscribed: '購読済み',
+    subscribed: '購読しました',
     cancelSubscribe: 'キャンセル',
     restoreSubscribe: '再開',
     reSubscribe: '再購読',
@@ -82,7 +82,7 @@ export default {
     earnWdrlHist: '引き出し記録',
     clearSearchHistory: '検索履歴をクリア',
     search: { history: '履歴検索', clear: '人気の検索', popular: 'クリア' },
-    subscription: '定期購入プラン',
+    subscription: '定期購読プラン',
     publishSuccess: '公開成功',
     updateSuccess: '更新完了',
     updateFail: '更新失敗',
@@ -189,7 +189,7 @@ export default {
     error: {
       subscribeSelf: '自分自身を購読できません',
       shopBuySelf: '自分の商品が買えない',
-      subscriptionNotFound: '利用可能なサブスクリプションプランはありません',
+      subscriptionNotFound: '利用可能なサブスクリプション プランはありません',
     },
     sending: '送信',
     failure: '失敗した',
@@ -526,12 +526,12 @@ export default {
     },
     shopBuy: {
       1: '{nickname} のこの作品のコンテンツのロックを解除します',
-      2: '{nickname}がお支払いを全額受け取ります',
+      2: '{nickname}はあなたの支払いを全額受け取ります',
       confirm: "今すぐロックを解除します ({'$'}{price})",
     },
     subscribeSuc: {
       1: '素晴らしい！ {nickname} に正常に登録されました。',
-      2: 'クリエイターのホームページに移動するか、元の画面に留まって閲覧するかを選択してください。',
+      2: '作成者のホームページに移動するか、元の画面に留まって閲覧するかを選択してください。',
       confirm: 'クリエイターページへ行く',
     },
     shopBuySuc: {
