@@ -32,7 +32,7 @@ export default {
     cookie: 'このメッセージを受け入れて見ないでください',
     check: '確認する',
     subscribe: 'サブスクリプション',
-    subscribed: '購読しました',
+    subscribed: '購読済み',
     cancelSubscribe: 'キャンセル',
     restoreSubscribe: '再開',
     reSubscribe: '再購読',

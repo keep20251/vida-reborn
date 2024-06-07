@@ -37,7 +37,7 @@ export default {
     cookie: 'Acepta y no vuelvas a mostrar este mensaje',
     check: 'Verificar',
     subscribe: 'suscripción',
-    subscribed: 'Suscrito',
+    subscribed: 'suscrito',
     cancelSubscribe: 'Cancelar',
     restoreSubscribe: 'Reanudar',
     reSubscribe: 'Resuscribir',
