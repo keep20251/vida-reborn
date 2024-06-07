@@ -1,5 +1,6 @@
 import { computed, readonly, ref } from 'vue'
 import { defineStore, storeToRefs } from 'pinia'
+import useRequest from '@use/request'
 import MainPage from '@/components/payment/MainPage.vue'
 import { useHistory } from '@/compositions/routers/history'
 import { PAYMENT_ROUTES } from '@/constant'
@@ -35,6 +36,45 @@ export const usePaymentStore = defineStore('payment-store', () => {
     _amount.value = null
   }
 
+  const creditCardList = ref([])
+  const defaultCard = ref({})
+
+  const { execute: cardList } = useRequest('Payment.getCardList')
+  async function getCreditCardList() {
+    try {
+      const response = await cardList({})
+      console.log('信用卡列表有東西嗎?', response)
+      creditCardList.value = response
+      // defaultCard.value = creditCardList.value.find((card) => card.is_default) || creditCardList.value[0]
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
+  const { execute: delCard } = useRequest('Payment.deleteCard')
+  async function onDelCard(card) {
+    try {
+      const data = { payment_method_id: card.id }
+      await delCard(data)
+      console.log('你刪除的是哪個:', card.id)
+      await getCreditCardList()
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
+  const { execute: bindDefaultCard } = useRequest('Payment.bindDefaultCard')
+  async function onBindDefaultCard(card) {
+    defaultCard.value = card
+    try {
+      console.log(`預設信用卡: ${card.id}`)
+      await bindDefaultCard({ data: { payment_method_id: card.id } })
+      await getCreditCardList()
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
   return {
     isOpen,
     activeComponent,
@@ -44,5 +84,10 @@ export const usePaymentStore = defineStore('payment-store', () => {
     close,
     goto,
     back,
+    creditCardList,
+    getCreditCardList,
+    onDelCard,
+    defaultCard,
+    onBindDefaultCard,
   }
 })

@@ -9,7 +9,7 @@
       </template>
     </BaseOutline>
     <div v-if="removable" class="flex items-center" @click="$emit('card:remove')">
-      <Icon name="mineSetDelAcc" size="20"></Icon>
+      <Icon name="mineSetDelAcc" size="20" class="cursor-pointer"></Icon>
     </div>
   </div>
 </template>
