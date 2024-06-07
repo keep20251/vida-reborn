@@ -192,7 +192,7 @@ export default {
   message: {
     payment: { failed: 'Thanh toán thất bại', success: 'Thanh toán thành công', cancel: 'Thanh toán đã hủy' },
     error: {
-      subscribeSelf: 'Không thể đăng ký cho chính mình',
+      subscribeSelf: 'Không thể đăng ký cho chính tôi',
       shopBuySelf: 'Không thể mua sản phẩm của riêng bạn',
       subscriptionNotFound: 'Không có gói đăng ký nào',
     },
@@ -540,7 +540,7 @@ export default {
     },
     shopBuySuc: {
       1: 'tuyệt vời! Đã thanh toán thành công để mở khóa bài đăng',
-      2: 'Chọn vào bài viết để xem, hoặc ở lại màn hình gốc để duyệt!',
+      2: 'Chọn vào bài viết để xem, hoặc ở lại màn hình gốc để duyệt nhé!',
       confirm: 'Đi tới bài viết',
     },
     title: { paySuc: 'Thanh toán được thực hiện thành công' },

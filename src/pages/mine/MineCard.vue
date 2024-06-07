@@ -67,10 +67,10 @@ function onCardAdd() {
     })
   } else {
     open(MODAL_TYPE.ADD_CREDIT_CARD, {
-      title: '新增信用卡',
+      title: 'common.addCard',
       size: 'sm',
       confirmAction: (data) => {
-        console.log('哈嚕嚕', data)
+        console.log(data)
       },
       cancelAction: () => {},
     })
