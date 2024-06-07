@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col space-y-10">
-    <Card brand="Visa" last4="9999"></Card>
+    <Card v-if="card" :brand="card?.brand" :last4="card?.last4"></Card>
     <BaseOutline>
       <template #default>
         <div @click="$emit('add:card')">
@@ -18,4 +18,5 @@ import BaseOutline from '@/components/common/BaseOutline.vue'
 import Card from '@/components/payment/Card.vue'
 
 defineEmits(['add:card'])
+const props = defineProps({ card: Object })
 </script>

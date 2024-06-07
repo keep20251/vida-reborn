@@ -20,6 +20,7 @@
             :back="showBack"
             @back:close="closeBack"
             @complete="onSubmitComplte"
+            @cardload="onCardLoad"
           ></component>
         </keep-alive>
       </div>
@@ -178,9 +179,28 @@ function recallComplete() {
 const { disabled: isLoading, onExecute } = useExecutionLock()
 
 async function confirm() {
-  if (activeOption.value.type === PAYMENT_GROUP.CREDIT_CARD) {
-    isComplete.value = false
+  if (activeOption.value.type === PAYMENT_GROUP.CREDIT_CARD && defaultCard.value) {
+    console.log('payment with default card')
 
+    paying()
+
+    const payload = {
+      mid: defaultCard.value.mid,
+      m_id: paymentConfig.value.data.item_id,
+      to_aff: paymentConfig.value.data.aff,
+      type: paymentConfig.value.paymentType,
+      user_payment_method_id: defaultCard.value.id,
+      amount: paymentConfig.value.data.amount,
+    }
+
+    await payStripe({
+      ...paymentConfig.value,
+      data: payload,
+    })
+  } else if (activeOption.value.type === PAYMENT_GROUP.CREDIT_CARD) {
+    console.log('payment with new card')
+
+    isComplete.value = false
     const submitBtn = document.querySelector('#payment-submit-btn')
     if (!submitBtn) throw new Error('Payment dialog confirm error: Can not find submit button')
     submitBtn.click()
@@ -244,4 +264,8 @@ onDeactivated(() => {
   paymentError.value = ''
   console.log('onDeactivated appConfig', { appConfig: appConfig.value })
 })
+const defaultCard = ref(null)
+const onCardLoad = (card) => {
+  if (card) defaultCard.value = card
+}
 </script>
