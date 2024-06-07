@@ -327,7 +327,7 @@ export default {
     customStyle: 'Benutzerdefinierter Stil',
     subUnlockDayAfter: 'Erlaubt das Entsperren die letzten Tage seit dem Kauf?',
     tokenExpired: 'Die Anmeldesitzung ist abgelaufen. Bitte melden Sie sich erneut an.',
-    clearSearchHistory: 'Möchten Sie Ihren Suchverlauf wirklich löschen?',
+    clearSearchHistory: 'Sind Sie sicher, dass Sie Ihren Suchverlauf löschen möchten?',
     uploadVideoLimit: {
       format:
         'Das aktuell hochgeladene Videoformat ({format}) wird nicht unterstützt. Bitte konvertieren Sie es in das MP4- oder MOV-Format und versuchen Sie es erneut.',
@@ -627,7 +627,7 @@ export default {
       17: 'Weitere Informationen und Kontakte',
       18: 'Weitere Informationen darüber, wie VIDA Ihre personenbezogenen Daten verarbeitet, finden Sie in der Datenschutzrichtlinie von VIDA (hier) und auf der Seite „Respektieren Ihrer Privatsphäre“ im Sicherheits- und Transparenzzentrum von VIDA (hier).',
       19: 'Weitere Informationen darüber, warum VIDA diese Identitätsüberprüfungs- und Authentifizierungsprüfungen durchführen muss, finden Sie auf der Seite „Alters- und Identitätsverifizierung“ in unserem Online-Sicherheits- und Transparenzzentrum (hier).',
-      20: "Bei Fragen wenden Sie sich bitte an Privacy{'@'}VIDA.com.",
+      20: "Wenn Sie Fragen haben, wenden Sie sich bitte an Privacy{'@'}VIDA.com.",
       21: 'Ihre Zustimmung',
       22: 'Indem Sie auf „[Ich stimme zu]“ klicken, verstehen und akzeptieren Sie, dass: Sie der Erfassung und Verarbeitung Ihrer biometrischen Gesichtsdaten zustimmen (d.h. diese mit dem Foto auf Ihrem Identitätsdokument abgleichen), ausschließlich zum Zweck der Überprüfung Ihres Alters und der Überprüfung und Authentifizierung Ihrer Identität. Sie haben die in dieser Mitteilung enthaltenen Informationen gelesen und verstanden.',
       23: 'Sie sind mindestens 18 Jahre alt.',

@@ -539,7 +539,7 @@ export default {
     },
     subscribeSuc: {
       1: 'merveilleux! Vous vous êtes abonné avec succès à {nickname} !',
-      2: "Choisissez d'accéder à la page d'accueil du créateur, ou restez sur l'écran d'origine et parcourez !",
+      2: "Choisissez d'accéder à la page d'accueil du créateur ou de rester sur l'écran d'origine et de naviguer !",
       confirm: 'Aller à la page du créateur',
     },
     shopBuySuc: {
