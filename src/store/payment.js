@@ -45,7 +45,8 @@ export const usePaymentStore = defineStore('payment-store', () => {
       const response = await cardList({})
       console.log('信用卡列表有東西嗎?', response)
       creditCardList.value = response
-      // defaultCard.value = creditCardList.value.find((card) => card.is_default) || creditCardList.value[0]
+      defaultCard.value = creditCardList.value.find((card) => card.is_default) || creditCardList.value[0]
+      console.log('defaultCard的卡片內容為：', defaultCard.value)
     } catch (e) {
       console.error(e)
     }
@@ -65,10 +66,10 @@ export const usePaymentStore = defineStore('payment-store', () => {
 
   const { execute: bindDefaultCard } = useRequest('Payment.bindDefaultCard')
   async function onBindDefaultCard(card) {
-    defaultCard.value = card
+    defaultCard.value.id = card.id
     try {
       console.log(`預設信用卡: ${card.id}`)
-      await bindDefaultCard({ data: { payment_method_id: card.id } })
+      await bindDefaultCard({ payment_method_id: card.id })
       await getCreditCardList()
     } catch (e) {
       console.error(e)
