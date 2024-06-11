@@ -20,7 +20,6 @@
             :back="showBack"
             @back:close="closeBack"
             @complete="onSubmitComplte"
-            @cardload="onCardLoad"
           ></component>
         </keep-alive>
       </div>
@@ -49,7 +48,7 @@ import { usePayment } from '@/compositions/payment'
 import { useExecutionLock } from '@/compositions/utils/execution-lock'
 import { useLocale } from '@/compositions/utils/locale'
 import { useWindow } from '@/compositions/utils/window'
-import { CONSUME_TYPE, MODAL_TYPE } from '@/constant'
+import { MODAL_TYPE } from '@/constant'
 import { PAYMENT_GROUP, PAYMENT_TYPE } from '@/constant/payment'
 import Button from '../common/Button.vue'
 import DialogHeader from '../dialog/DialogHeader.vue'
@@ -65,7 +64,7 @@ const { syncAllPaymentConfig } = appStore
 
 const paymentStore = usePaymentStore()
 const { close } = paymentStore
-const { paymentConfig } = storeToRefs(paymentStore)
+const { paymentConfig, defaultCard } = storeToRefs(paymentStore)
 
 const { pay, payStripe, cancel } = usePayment()
 const { open } = useModalStore()
@@ -178,34 +177,26 @@ function recallComplete() {
 
 const { disabled: isLoading, onExecute } = useExecutionLock()
 
-// src/constant/index.js
-// import {CONSUME_TYPE} from '@/constant'
-const convertType = (typeId) => {
-  if (typeId === CONSUME_TYPE.SUBSCRIBE) return 1
-  if (typeId === CONSUME_TYPE.SHOP_BUY) return 5
-  throw new Error('consumeType not found')
-}
+const isCardList = computed(() => activeOption.value.type === PAYMENT_GROUP.CREDIT_CARD && defaultCard.value)
+const isAddCard = computed(() => activeOption.value.type === PAYMENT_GROUP.CREDIT_CARD || showBack.value)
 
 async function confirm() {
-  if (activeOption.value.type === PAYMENT_GROUP.CREDIT_CARD && defaultCard.value) {
+  if (isCardList.value) {
     console.log('payment with default card')
 
     paying()
 
     const payload = {
       item_id: paymentConfig.value.data.item_id,
-      // to_aff: paymentConfig.value.data.aff,
-      // type: paymentConfig.value.paymentType,
-      type: convertType(paymentConfig.value.paymentType),
+      type: paymentConfig.value.paymentType,
       user_payment_method_id: defaultCard.value.id,
-      // amount: paymentConfig.value.data.amount,
     }
 
     await payStripe({
       ...paymentConfig.value,
       data: payload,
     })
-  } else if (activeOption.value.type === PAYMENT_GROUP.CREDIT_CARD) {
+  } else if (isAddCard.value) {
     console.log('payment with new card')
 
     isComplete.value = false
@@ -220,10 +211,8 @@ async function confirm() {
 
     const payload = {
       item_id: paymentConfig.value.data.item_id,
-      // to_aff: paymentConfig.value.data.aff,
-      type: convertType(paymentConfig.value.paymentType),
+      type: paymentConfig.value.paymentType,
       user_payment_method_id: completeResult.intent.payment_method,
-      // amount: paymentConfig.value.data.amount,
     }
 
     await payStripe({
@@ -231,14 +220,13 @@ async function confirm() {
       data: payload,
     })
   } else {
-    // TODO 彈出其他支付方式的窗口
     paying()
     const { openWindow } = useWindow()
     const window = openWindow()
 
     const payload = {
       item_id: paymentConfig.value.data.item_id,
-      pay_type_id: convertType(payway.value),
+      pay_type_id: payway.value,
     }
 
     await pay({
@@ -262,18 +250,9 @@ const showBack = ref(false)
 const openBack = () => (showBack.value = true)
 const closeBack = () => (showBack.value = false)
 
-onActivated(async () => {
-  await syncAllPaymentConfig()
-  console.log('onActivated appConfig', { appConfig: appConfig.value })
-})
-
+onActivated(async () => await syncAllPaymentConfig())
 onDeactivated(() => {
   payway.value = STATIC_EMBED_PAYWAY
   paymentError.value = ''
-  console.log('onDeactivated appConfig', { appConfig: appConfig.value })
 })
-const defaultCard = ref(null)
-const onCardLoad = (card) => {
-  if (card) defaultCard.value = card
-}
 </script>

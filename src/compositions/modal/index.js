@@ -5,14 +5,12 @@ import { useAccountStore } from '@/store/account'
 import { useModalStore } from '@/store/modal'
 import { usePaymentStore } from '@/store/payment'
 import { usePopupMessageStore } from '@/store/popup-message'
-import { usePayment } from '@use/payment'
 import { useRouters } from '@use/routers'
 import { CONSUME_TYPE, MODAL_TYPE } from '@const/index'
 import uploadImage from '@/http/upload/uploadImage'
 
 export function useDialog() {
   const { t: $t } = useI18n()
-  const { pay, cancel } = usePayment()
   const { open, close, alert: $alert } = useModalStore()
   const { toCreator, toFeed } = useRouters()
 
@@ -43,15 +41,6 @@ export function useDialog() {
     } finally {
       close()
     }
-  }
-
-  function paying() {
-    open(MODAL_TYPE.PAYING, {
-      title: 'modal.paying.title',
-      size: 'sm',
-      confirmText: $t('common.cancel'),
-      confirmAction: () => cancel(),
-    })
   }
 
   function failed(reason) {
@@ -114,9 +103,7 @@ export function useDialog() {
       avatarTitle: feed.user.thumb,
       content: feed,
       confirmText: $t('modal.shopBuy.confirm', { price: feed.price }),
-      confirmAction: (data) => {
-        pay()
-      },
+      confirmAction: () => {},
       showClose: true,
       gradientConfirm: true,
       nextAction: openPaymentDialog({
@@ -161,7 +148,6 @@ export function useDialog() {
   return {
     uploadImageDialog,
 
-    paying,
     subscribe: afterLoginAction(subscribe),
     shopBuy: afterLoginAction(shopBuy),
     subscribeSuccess,

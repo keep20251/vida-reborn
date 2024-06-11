@@ -1,13 +1,16 @@
 <template>
   <div class="flex flex-col space-y-5">
-    <div v-if="!isLoading">
+    <div v-if="isLoading" class="flex animate-pulse flex-col space-y-10">
+      <div class="h-35 w-full rounded-xl bg-gray-cc"></div>
+      <div class="h-35 w-full rounded-xl bg-gray-cc"></div>
+    </div>
+    <div v-else>
       <keep-alive>
         <component
-          :card="defaultCard"
+          :card="defaultCard?.card"
           :is="activeComponent"
           @complete="(res) => emits('complete', res)"
           @add:card="onCardAdd"
-          :card-add-action="cardAddAction"
           :back="back"
         ></component>
       </keep-alive>
@@ -15,8 +18,10 @@
   </div>
 </template>
 <script setup>
-import { computed, onActivated, onDeactivated, onMounted, ref, watch } from 'vue'
-import useRequest from '@use/request'
+import { computed, onActivated, onDeactivated } from 'vue'
+import { storeToRefs } from 'pinia'
+import { usePaymentStore } from '@/store/payment'
+import { useExecutionLock } from '@/compositions/utils/execution-lock'
 import AddCard from './AddCard.vue'
 import CardList from './CardList.vue'
 
@@ -27,41 +32,15 @@ const props = defineProps({
 
 const emits = defineEmits(['complete', 'back:close'])
 
-const { data, execute, isLoading } = useRequest('Payment.getCardList', { params: {} })
-const cardAlreadyExist = ref(false)
+const paymentStore = usePaymentStore()
+const { getCreditCardList } = paymentStore
+const { defaultCard } = storeToRefs(paymentStore)
 
-const activeComponent = computed(() => (cardAlreadyExist.value && !props.back ? CardList : AddCard))
-const onCardAdd = () => {
-  console.log('onCardAdd')
-  props.cardAddAction && props.cardAddAction()
-}
+const activeComponent = computed(() => (!!defaultCard.value && !props.back ? CardList : AddCard))
 
-onActivated(() => {
-  cardAlreadyExist.value = false
-  execute()
-})
+const onCardAdd = () => props.cardAddAction && props.cardAddAction()
 
-const defaultCard = computed(() => data.value?.find((card) => card.is_default)?.card || null)
-
-watch(
-  data,
-  (newData) => {
-    console.log('watch data', newData)
-    console.log('watch data', newData)
-    console.log('watch data', newData)
-    cardAlreadyExist.value = newData != null
-    if (!newData) return
-
-    const targetCard = newData.find((card) => card.is_default) || null
-    const cardObj = { ...targetCard.card, id: targetCard.id }
-
-    if (cardAlreadyExist.value) emits('cardload', cardObj)
-  },
-  { immediate: true, deep: true },
-)
-
-onDeactivated(() => {
-  emits('back:close')
-  cardAlreadyExist.value = false
-})
+const { disabled: isLoading, onExecute } = useExecutionLock()
+onActivated(() => onExecute(async () => await getCreditCardList()))
+onDeactivated(() => emits('back:close'))
 </script>

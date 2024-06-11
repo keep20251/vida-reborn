@@ -188,9 +188,9 @@ export const GET_ARTICLE_COLLECT = {
 
 // 消費類型
 export const CONSUME_TYPE = {
-  REWARD: 1,
-  SUBSCRIBE: 5,
-  SHOP_BUY: 10,
+  SUBSCRIBE: 1,
+  SHOP_BUY: 5,
+  REWARD: 10,
   UNLOCK: 15,
 }
 
