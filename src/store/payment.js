@@ -37,7 +37,7 @@ export const usePaymentStore = defineStore('payment-store', () => {
   }
 
   const creditCardList = ref([])
-  const defaultCard = ref({})
+  const defaultCard = ref(null)
 
   const { execute: cardList } = useRequest('Payment.getCardList')
   async function getCreditCardList() {
@@ -81,14 +81,17 @@ export const usePaymentStore = defineStore('payment-store', () => {
     activeComponent,
     amount: readonly(amount),
     paymentConfig: readonly(_paymentConfig),
+
     open,
     close,
     goto,
     back,
+
     creditCardList,
     getCreditCardList,
-    onDelCard,
+
     defaultCard,
+    onDelCard,
     onBindDefaultCard,
   }
 })
