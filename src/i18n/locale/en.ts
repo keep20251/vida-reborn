@@ -535,7 +535,7 @@ export default {
     },
     subscribeSuc: {
       1: 'marvelous! Successfully subscribed to {nickname}!',
-      2: "Choose to go to the creator's homepage, or stay on the original screen and browse!",
+      2: 'Choose to go to the creator’s homepage, or stay on the original screen and browse!',
       confirm: 'Go to creator page',
     },
     shopBuySuc: {
