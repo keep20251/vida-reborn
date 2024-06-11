@@ -327,7 +327,7 @@ export default {
     customStyle: 'Benutzerdefinierter Stil',
     subUnlockDayAfter: 'Erlaubt das Entsperren die letzten Tage seit dem Kauf?',
     tokenExpired: 'Die Anmeldesitzung ist abgelaufen. Bitte melden Sie sich erneut an.',
-    clearSearchHistory: 'Möchten Sie Ihren Suchverlauf wirklich löschen?',
+    clearSearchHistory: 'Sind Sie sicher, dass Sie Ihren Suchverlauf löschen möchten?',
     uploadVideoLimit: {
       format:
         'Das aktuell hochgeladene Videoformat ({format}) wird nicht unterstützt. Bitte konvertieren Sie es in das MP4- oder MOV-Format und versuchen Sie es erneut.',
