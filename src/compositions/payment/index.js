@@ -1,19 +1,19 @@
 import { reactive, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useFeedStore } from '@/store/feed'
 import { useModalStore } from '@/store/modal'
-// import { notifyBuy, notifyCampaign, notifySub } from '@/utils/state-broadcast'
+import { usePaymentStore } from '@/store/payment'
+import { usePopupMessageStore } from '@/store/popup-message'
 import { toQueryString } from '@/utils/string-helper'
 import useRequest from '@/compositions/request'
 import { CONSUME_TYPE } from '@/constant'
-// import { trackEvent } from '@/gtm'
-import API from '@/http'
-
-// import { $t } from '@/i18n'
-
-// import { sendDonateMessage } from '@/ws'
 
 export function usePayment() {
+  const { open } = usePopupMessageStore()
   const { close } = useModalStore()
+  const paymentStore = usePaymentStore()
+
+  const { t: $t } = useI18n()
 
   const frequency = 5000 // 5 秒輪詢一次
 
@@ -30,6 +30,13 @@ export function usePayment() {
     onCancel: null,
     onTimeout: null,
   })
+
+  const setupAction = ({ onSuccess, onFailure, onCancel, onTimeout }) => {
+    actions.onSuccess = onSuccess
+    actions.onFailure = onFailure
+    actions.onCancel = onCancel
+    actions.onTimeout = onTimeout
+  }
 
   /**
    * 支付程序
@@ -51,10 +58,7 @@ export function usePayment() {
   } = {}) {
     try {
       window = newWindow
-      actions.onSuccess = onSuccess
-      actions.onFailure = onFailure
-      actions.onCancel = onCancel
-      actions.onTimeout = onTimeout
+      setupAction({ onSuccess, onFailure, onCancel, onTimeout })
 
       const response = await useRequest(apiKey, { params: data, immediate: true })
       console.log('create payment response:', response)
@@ -83,9 +87,38 @@ export function usePayment() {
     } catch (e) {
       console.error('[Payment Error]', e)
       setTimeout(
-        onFailed(() => actions.onFailure && actions.onFailure(e.message)),
+        onFailed(e.message, () => actions.onFailure && actions.onFailure(e.message)),
         1500,
       )
+    }
+  }
+
+  async function payStripe({
+    data,
+    paymentType,
+    userUUID = null,
+    onSuccess = null,
+    onFailure = null,
+    onCancel = null,
+  }) {
+    setupAction({ onSuccess, onFailure, onCancel })
+
+    try {
+      const response = await useRequest('Payment.embedPay', { params: data, immediate: true })
+      if (!response.order_id) throw new Error('Order number is missing')
+
+      isContinue.value = true
+      fetchPollingResult({
+        apiKey: 'Payment.checkEmbedPay',
+        orderId: response.order_id,
+        payload: data,
+        paymentType,
+        userUUID,
+      })
+    } catch (e) {
+      setTimeout(() => {
+        onFailed(e.message, () => actions.onFailure && actions.onFailure(e.message))
+      }, 1500)
     }
   }
 
@@ -105,7 +138,7 @@ export function usePayment() {
     try {
       if (tick >= timeout) {
         setTimeout(
-          onFailed(() => actions.onTimeout && actions.onTimeout()),
+          onFailed('payment procedure time out.', () => actions.onTimeout && actions.onTimeout()),
           1500,
         )
         return
@@ -116,6 +149,7 @@ export function usePayment() {
 
       if (response.success) {
         close()
+        open($t('message.payment.success'))
         actions.onSuccess && actions.onSuccess()
 
         // trackEvent({ key: 47, ...gtmData })
@@ -153,36 +187,18 @@ export function usePayment() {
       console.error('[fetchPollingResult] Polling Failed...', e)
       isContinue.value = false
       setTimeout(
-        onFailed(() => actions.onFailure && actions.onFailure(e.message)),
+        onFailed(e.message, () => actions.onFailure && actions.onFailure(e.message)),
         1500,
       )
     }
   }
 
-  function onFailed(fn = null) {
-    window.close()
+  function onFailed(errMessage, fn = null) {
+    window && window.close()
     close()
+    paymentStore.close()
     fn && fn()
-  }
-
-  /**
-   * 根據支付類型取得輪詢 API
-   * @param {String} paymentType
-   * @returns
-   */
-  const getPollingAPI = (paymentType) => {
-    switch (paymentType) {
-      case CONSUME_TYPE.REWARD:
-        return API.Home.rewardCheck
-      case CONSUME_TYPE.SUBSCRIBE:
-        return API.Home.checkSubscribePay
-      case CONSUME_TYPE.SHOP_BUY:
-        return API.Home.shopCheckBuy
-      case CONSUME_TYPE.UNLOCK:
-        return API.Home.unlockCheckBuy
-      default:
-        throw new Error('Payment Type Error')
-    }
+    open(`${$t('message.payment.failed')}: ${errMessage}`)
   }
 
   const getGtmKey = (paymentType) => {
@@ -223,8 +239,10 @@ export function usePayment() {
 
     isContinue.value = false
     if (window) window.close()
+    paymentStore.close()
+    open($t('message.payment.cancel'))
     actions.onCancel && actions.onCancel()
   }
 
-  return { pay, cancel }
+  return { pay, payStripe, cancel }
 }

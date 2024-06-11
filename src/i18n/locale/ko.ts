@@ -43,6 +43,8 @@ export default {
     append: '추가',
     publish: '게시',
     replace: '교체하기',
+    setDefault: '기본으로 설정',
+    addCard: '신용카드 추가',
     whetherCancelSub: '구독을 취소하시겠습니까?',
     whetherCrestoreSub: '구독을 재개하시겠습니까?',
     reSubErr: '재구독 실패',
@@ -93,6 +95,7 @@ export default {
     noSubPlan: '구독 계획이 설정되어 있지 않습니다',
     beCreatorFirst: '게시하기 전에 먼저 창작자가 되세요!',
     officeEmail: '공식 이메일',
+    mineCard: '카드 관리',
   },
   label: {
     account: '사용자 이름',
@@ -261,6 +264,7 @@ export default {
     waitUploading: '파일 업로드 중...',
     unboundMailPrompt:
       '이 이메일 주소는 어떤 계정에도 연결되어 있지 않습니다. 계정이 있다면 아래의 사용자 이름을 사용하여 로그인할 수 있습니다.',
+    cardLimit: '추가된 신용카드 {length}/{max}',
   },
   content: {
     default: '기본값은 어디에도 표시되지 않아야 합니다.',
@@ -410,6 +414,7 @@ export default {
   },
   boundary: { start: '처음으로 돌아가기' },
   yup: {
+    boolean: { required: '이 옵션을 선택해 주세요.', oneOf: '이 옵션을 선택해 주세요.' },
     mixed: {
       default: '확인 실패',
       required: '공백으로 두지 마십시오.',
@@ -491,6 +496,23 @@ export default {
     10: 'NSFW (남성 지향)',
     11: 'NSFW (여성 지향)',
   },
+  payment: {
+    title: '결제 방법 선택',
+    payway: { aliPay: '알리페이', unionPay: '유니온페이', creditCard: '신용카드', other: '기타' },
+    popup: {
+      ali: { title: 'Alipay 선택됨' },
+      union: { title: 'UnionPay 선택됨' },
+      other: { title: '기타 선택됨' },
+      info: '제출 후 새 페이지에서 다음 단계를 안전하게 완료하도록 리디렉션됩니다.',
+    },
+    error: { amountRange: "결제 금액은 {'$'}{min} 에서 {max} 사이여야 합니다" },
+    cardList: { add: '신용카드 추가' },
+    addCard: {
+      security: '결제 카드 업계 데이터 보안 표준 (PCI DSS) 을 완전히 준수',
+      check: '여기에 체크하여 귀하가 18세 이상이고 거주지에서 성인임을 확인하십시오.',
+      address: 'Ripple Mic Limited, Apartment 206, Jantzen House, Ealing Road, Brentford,England, TW8 0GF',
+    },
+  },
   modal: {
     subscribe: {
       1: '지난 {days}의 모든 작품에 대한 전체 접근 권한',
@@ -500,7 +522,7 @@ export default {
       confirm: "월별 {'$'}{price} 결제로 이동",
     },
     shopBuy: {
-      1: '이 작품에서 {nickname}의 콘텐츠가 잠금 해제됩니다.',
+      1: '이 작품의 {nickname} 콘텐츠를 잠금 해제합니다',
       2: '{nickname}결제 금액 전액을 받게 됩니다.',
       confirm: "지금 잠금 해제하세요({'$'}{price})",
     },
@@ -524,6 +546,8 @@ export default {
     leastCategory: '',
     moreCategory: '{count}개의 주제를 더 선택하세요',
     completeCategory: '훌륭해요!',
+    delete: { title: '삭제 확인', content: '이 신용카드 정보를 삭제하시겠습니까?' },
+    cardLimit: { title: '카드 한도 도달', content: '다른 카드를 추가하기 전에 카드 한 장을 삭제하십시오.' },
   },
   beCreator: {
     id: { passport: '여권', idCard: '신분증', driverLicense: '운전 면허증' },

@@ -32,7 +32,7 @@ export default {
     cookie: 'このメッセージを受け入れて見ないでください',
     check: '確認する',
     subscribe: 'サブスクリプション',
-    subscribed: '購読しました',
+    subscribed: '購読済み',
     cancelSubscribe: 'キャンセル',
     restoreSubscribe: '再開',
     reSubscribe: '再購読',
@@ -43,6 +43,8 @@ export default {
     append: '追加',
     publish: '公開',
     replace: '一新しいものに交換する',
+    setDefault: 'デフォルトに設定',
+    addCard: 'クレジットカードを追加する',
     whetherCancelSub: '本当にサブスクリプションをキャンセルしてもよろしいですか？',
     whetherCrestoreSub: '本当にサブスクリプションを再開してもよろしいですか？',
     reSubErr: '再サブスクリプションに失敗',
@@ -93,6 +95,7 @@ export default {
     noSubPlan: '定額購入プランが設定されていません',
     beCreatorFirst: '投稿する前にまずクリエーターになりましょう！',
     officeEmail: '公式メール',
+    mineCard: 'カードを管理する',
   },
   label: {
     account: 'ユーザー名',
@@ -186,7 +189,7 @@ export default {
     error: {
       subscribeSelf: '自分自身を購読できません',
       shopBuySelf: '自分の商品が買えない',
-      subscriptionNotFound: '利用可能なサブスクリプションプランはありません',
+      subscriptionNotFound: '利用可能なサブスクリプション プランはありません',
     },
     sending: '送信',
     failure: '失敗した',
@@ -261,6 +264,7 @@ export default {
     waitUploading: 'アップロード中...',
     unboundMailPrompt:
       'このメールアドレスはどのアカウントにも紐付けられていません。アカウントをお持ちの場合は、以下のユーザー名を使用してログインできます。',
+    cardLimit: '追加されたクレジットカード {length}/{max}',
   },
   content: {
     default: 'デフォルト、どこにも表示されないはずです',
@@ -412,6 +416,7 @@ export default {
   },
   boundary: { start: '最初に戻る' },
   yup: {
+    boolean: { required: 'このオプションをチェックしてください。', oneOf: 'このオプションをチェックしてください。' },
     mixed: {
       default: '検証に失敗しました',
       required: '空白のままにしないでください。',
@@ -493,6 +498,24 @@ export default {
     10: 'NSFW（男性向け）',
     11: 'NSFW（女性向け）',
   },
+  payment: {
+    title: '支払い方法を選択',
+    payway: { aliPay: '支付宝', unionPay: '銀聯カード', creditCard: 'クレジットカード', other: 'その他' },
+    popup: {
+      ali: { title: 'Alipayを選択しました' },
+      union: { title: '銀聯カードを選択しました' },
+      other: { title: '他のものを選択しました' },
+      info: '送信後、新しいページで次の手順を安全に完了するためにリダイレクトされます。',
+    },
+    error: { amountRange: "支払い金額は {'$'}{min} から {max} の間でなければなりません" },
+    cardList: { add: 'クレジットカードを追加' },
+    addCard: {
+      security: '支払いカード業界データセキュリティ標準（PCI DSS）に完全準拠',
+      check:
+        'ここにチェックを入れて、あなたが少なくとも18歳であり、居住地で成人年齢に達していることを確認してください。',
+      address: 'Ripple Mic Limited, Apartment 206, Jantzen House, Ealing Road, Brentford,England, TW8 0GF',
+    },
+  },
   modal: {
     subscribe: {
       1: '過去 {days} のすべての作品に完全にアクセスできます',
@@ -502,7 +525,7 @@ export default {
       confirm: "月額 {'$'}{price} 支払いに進む",
     },
     shopBuy: {
-      1: 'この作品では {nickname} のコンテンツがアンロックされます',
+      1: '{nickname} のこの作品のコンテンツのロックを解除します',
       2: '{nickname}がお支払いを全額受け取ります',
       confirm: "今すぐロックを解除します ({'$'}{price})",
     },
@@ -529,6 +552,11 @@ export default {
     leastCategory: '',
     moreCategory: 'さらに{count}個のトピックを選択してください',
     completeCategory: '素晴らしい！',
+    delete: { title: '削除を確認する', content: 'このクレジットカード情報を削除してもよろしいですか？' },
+    cardLimit: {
+      title: 'カードの限界に達しました',
+      content: '他のカードを追加する前に、カードを1枚削除してください。',
+    },
   },
   beCreator: {
     id: { passport: 'パスポート', idCard: '身分証明書', driverLicense: '運転免許証' },

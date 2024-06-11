@@ -48,6 +48,8 @@ export default {
     append: 'เพิ่ม',
     publish: 'เผยแพร่',
     replace: 'เปลี่ยนชุดใหม่',
+    setDefault: 'ตั้งเป็นค่าเริ่มต้น',
+    addCard: 'เพิ่มบัตรเครดิต',
     whetherCancelSub: 'คุณแน่ใจหรือไม่ว่าต้องการยกเลิกการสมัครสมาชิก?',
     whetherCrestoreSub: 'คุณแน่ใจหรือไม่ว่าต้องการเริ่มการสมัครสมาชิกอีกครั้ง?',
     reSubErr: 'การสมัครสมาชิกใหม่ล้มเหลว',
@@ -98,6 +100,7 @@ export default {
     noSubPlan: 'ยังไม่ได้ตั้งค่าแผนการสมัครสมาชิก',
     beCreatorFirst: 'โปรดเป็นผู้สร้างก่อนโพสต์',
     officeEmail: 'อีเมลอย่างเป็นทางการ',
+    mineCard: 'จัดการบัตร',
   },
   label: {
     account: 'ชื่อผู้ใช้',
@@ -189,7 +192,7 @@ export default {
   message: {
     payment: { failed: 'การชำระเงินล้มเหลว', success: 'การชำระเงินสำเร็จ', cancel: 'การชำระเงินถูกยกเลิก' },
     error: {
-      subscribeSelf: 'ไม่สามารถสมัครเป็นสมาชิกของตัวเองได้',
+      subscribeSelf: 'ไม่สามารถสมัครสมาชิกกับตัวเองได้',
       shopBuySelf: 'ไม่สามารถซื้อสินค้าของตัวเองได้',
       subscriptionNotFound: 'ไม่มีแผนการสมัครสมาชิก',
     },
@@ -266,6 +269,7 @@ export default {
     waitUploading: 'กำลังอัปโหลดไฟล์...',
     unboundMailPrompt:
       'ที่อยู่อีเมลนี้ยังไม่ได้ผูกกับบัญชีใด ๆ หากคุณมีบัญชีแล้ว คุณสามารถเข้าสู่ระบบด้วยชื่อผู้ใช้ด้านล่างได้',
+    cardLimit: 'บัตรเครดิตที่เพิ่ม {length}/{max}',
   },
   content: {
     default: 'ค่าเริ่มต้นไม่ควรปรากฏที่ใดก็ได้',
@@ -414,6 +418,7 @@ export default {
   },
   boundary: { start: 'กลับไปต้นแบบ' },
   yup: {
+    boolean: { required: 'กรุณาเลือกตัวเลือกนี้', oneOf: 'กรุณาเลือกตัวเลือกนี้' },
     mixed: {
       default: 'การตรวจสอบล้มเหลว',
       required: 'โปรดอย่าปล่อยให้ว่างเปล่า',
@@ -495,6 +500,23 @@ export default {
     10: 'NSFW (เน้นผู้ชาย)',
     11: 'NSFW (เน้นผู้หญิง)',
   },
+  payment: {
+    title: 'เลือกวิธีการชำระเงิน',
+    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'บัตรเครดิต', other: 'อื่น ๆ' },
+    popup: {
+      ali: { title: 'เลือก Alipay แล้ว' },
+      union: { title: 'เลือก UnionPay แล้ว' },
+      other: { title: 'เลือกตัวเลือกอื่นแล้ว' },
+      info: 'หลังจากส่งแล้ว คุณจะถูกเปลี่ยนเส้นทางไปยังหน้าที่ปลอดภัยเพื่อตรวจสอบขั้นตอนถัดไป',
+    },
+    error: { amountRange: "จำนวนเงินชำระต้องอยู่ระหว่าง {'$'}{min} ถึง {max}" },
+    cardList: { add: 'เพิ่มบัตรเครดิต' },
+    addCard: {
+      security: 'เป็นไปตามมาตรฐานความปลอดภัยของข้อมูลบัตรชำระเงิน (PCI DSS)',
+      check: 'เลือกที่นี่เพื่อยืนยันว่าคุณมีอายุอย่างน้อย 18 ปีและเป็นผู้ใหญ่ตามกฎหมายในที่อยู่อาศัยของคุณ',
+      address: 'Ripple Mic Limited, Apartment 206, Jantzen House, Ealing Road, Brentford,England, TW8 0GF',
+    },
+  },
   modal: {
     subscribe: {
       1: 'เข้าถึงงานทั้งหมดโดยสมบูรณ์จาก {days} ที่ผ่านมา',
@@ -504,7 +526,7 @@ export default {
       confirm: "{'$'}{price} ต่อเดือน ไปที่การชำระเงิน",
     },
     shopBuy: {
-      1: 'จะปลดล็อคเนื้อหาของ {nickname} ในงานนี้',
+      1: 'จะปลดล็อกเนื้อหาของงานนี้ของ {nickname}',
       2: '{nickname}จะได้รับการชำระเงินของคุณเต็มจำนวน',
       confirm: "ปลดล็อคตอนนี้ ({'$'}{price})",
     },
@@ -531,6 +553,8 @@ export default {
     leastCategory: '',
     moreCategory: 'เลือกหัวข้อเพิ่มอีก {count} หัวข้อ',
     completeCategory: 'ดีมาก!',
+    delete: { title: 'ยืนยันการลบ', content: 'คุณแน่ใจหรือว่าต้องการลบข้อมูลบัตรเครดิตนี้?' },
+    cardLimit: { title: 'บัตรเต็มแล้ว', content: 'โปรดลบบัตรหนึ่งใบก่อนเพิ่มอีกใบ' },
   },
   beCreator: {
     id: { passport: 'หนังสือเดินทาง', idCard: 'บัตรประชาชน', driverLicense: 'ใบขับขี่' },

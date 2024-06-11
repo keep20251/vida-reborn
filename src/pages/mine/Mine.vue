@@ -53,7 +53,7 @@ import SetList from '@comp/mine/SetList.vue'
 import Head from '@comp/navigation/Head.vue'
 import Tab from '@comp/navigation/Tab.vue'
 import TopSearchBar from '@comp/navigation/TopSearchBar.vue'
-import { MINE_TITLE } from '@const'
+import { MINE_TITLE } from '@const/index.js'
 
 const { tab, tabOptions, nextFn, reloadFn, isPreviewMode } = storeToRefs(useMineStore())
 const { userData } = storeToRefs(useAccountStore())

@@ -13,6 +13,7 @@
       <Subscriptions></Subscriptions>
       <ReportBlockPicker></ReportBlockPicker>
       <MinePrvwBanner></MinePrvwBanner>
+      <PaymentDialog />
       <PopupMessage></PopupMessage>
     </ClientOnly>
   </div>
@@ -40,6 +41,7 @@ import SubPlanDialog from '@comp/dialog/SubPlanDialog.vue'
 import Subscriptions from '@comp/dialog/Subscriptions.vue'
 import Navigator from '@comp/layout/Navigator.vue'
 import NavigatorMobile from '@comp/layout/NavigatorMobile.vue'
+import PaymentDialog from '@/components/dialog/PaymentDialog.vue'
 import { isClose, isConnecting, isOpen } from '@/ws'
 
 const isDev = ref(import.meta.env.DEV)

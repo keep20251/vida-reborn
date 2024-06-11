@@ -1,7 +1,7 @@
 {
   "name": "vida",
   "private": true,
-  "version": "1.0.18",
+  "version": "1.1.0-alpha",
   "type": "module",
   "scripts": {
     "dev": "HMR_SSL=false node server",
@@ -22,6 +22,7 @@
   "dependencies": {
     "@gtm-support/vue-gtm": "^2.2.0",
     "@rollup/plugin-terser": "^0.4.4",
+    "@stripe/stripe-js": "^3.5.0",
     "@unhead/ssr": "^1.8.9",
     "@unhead/vue": "^1.8.8",
     "@vueuse/core": "^10.6.1",

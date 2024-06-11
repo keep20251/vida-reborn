@@ -6,7 +6,7 @@
         :class="[modalSize]"
       >
         <div v-if="!!title" class="mb-20 text-center font-bold leading-lg" :class="[titleFontSize]">
-          {{ title !== null ? $t(title) : '' }}
+          {{ title !== null ? (title.includes('.') ? $t(title) : title) : '' }}
         </div>
         <div v-if="!!imageTitle" class="absolute -top-50 flex w-full items-center justify-center">
           <EncryptImage :src="imageTitle" :border-radius="15" :width="180" :height="120" cover></EncryptImage>

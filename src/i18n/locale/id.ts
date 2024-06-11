@@ -48,6 +48,8 @@ export default {
     append: 'Menambahkan',
     publish: 'Menerbitkan',
     replace: 'Ganti',
+    setDefault: 'Atur sebagai Baku',
+    addCard: 'Tambah Kartu Kredit',
     whetherCancelSub: 'Apakah Anda yakin ingin membatalkan langganan?',
     whetherCrestoreSub: 'Apakah Anda yakin ingin melanjutkan langganan?',
     reSubErr: 'Gagal Berlangganan Kembali',
@@ -98,6 +100,7 @@ export default {
     noSubPlan: 'Belum ada rencana langganan yang diset',
     beCreatorFirst: 'Harap menjadi kreator terlebih dahulu sebelum memposting!',
     officeEmail: 'Email resmi',
+    mineCard: 'Kelola Kartu',
   },
   label: {
     account: 'Nama pengguna',
@@ -266,6 +269,7 @@ export default {
     waitUploading: 'Mengunggah file...',
     unboundMailPrompt:
       'Alamat email ini belum terikat dengan akun mana pun. Jika Anda memiliki akun, Anda dapat masuk menggunakan nama pengguna di bawah ini.',
+    cardLimit: 'Kartu Kredit yang Ditambahkan {length}/{max}',
   },
   content: {
     default: 'Defaultnya, seharusnya tidak muncul di mana pun',
@@ -417,6 +421,7 @@ export default {
   },
   boundary: { start: 'Kembali ke Awal' },
   yup: {
+    boolean: { required: 'Silakan pilih opsi ini.', oneOf: 'Silakan pilih opsi ini.' },
     mixed: {
       default: 'Validasi Gagal',
       required: 'Harap jangan meninggalkannya kosong.',
@@ -498,6 +503,24 @@ export default {
     10: 'NSFW (berorientasi pria)',
     11: 'NSFW (berorientasi wanita)',
   },
+  payment: {
+    title: 'Pilih metode pembayaran',
+    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'Kartu kredit', other: 'Lainnya' },
+    popup: {
+      ali: { title: 'Alipay terpilih' },
+      union: { title: 'UnionPay terpilih' },
+      other: { title: 'Lainnya terpilih' },
+      info: 'Setelah pengiriman, Anda akan dialihkan untuk menyelesaikan langkah berikutnya dengan aman di halaman baru.',
+    },
+    error: { amountRange: "Jumlah pembayaran harus antara {'$'}{min} dan {max}" },
+    cardList: { add: 'Tambahkan kartu kredit' },
+    addCard: {
+      security: 'Sepenuhnya sesuai dengan Standar Keamanan Data Industri Kartu Pembayaran (PCI DSS)',
+      check:
+        'Centang di sini untuk mengonfirmasi bahwa Anda berusia minimal 18 tahun dan telah mencapai usia dewasa di tempat tinggal Anda.',
+      address: 'Ripple Mic Limited, Apartment 206, Jantzen House, Ealing Road, Brentford,England, TW8 0GF',
+    },
+  },
   modal: {
     subscribe: {
       1: 'Akses penuh ke semua karya dari {days} terakhir',
@@ -507,7 +530,7 @@ export default {
       confirm: "{'$'}{price} per bulan Buka Bayar",
     },
     shopBuy: {
-      1: 'Akan membuka kunci konten {nickname} dalam karya ini',
+      1: 'Akan membuka kunci konten {nickname} pada karya ini',
       2: '{nickname}akan menerima pembayaran Anda secara penuh',
       confirm: "Buka kunci sekarang ({'$'}{price})",
     },
@@ -534,6 +557,8 @@ export default {
     leastCategory: '',
     moreCategory: 'Pilih {count} topik lagi',
     completeCategory: 'Luar biasa!',
+    delete: { title: 'Konfirmasi Penghapusan', content: 'Anda yakin ingin menghapus informasi kartu kredit ini?' },
+    cardLimit: { title: 'Batas Kartu Terpenuhi', content: 'Silakan hapus satu kartu sebelum menambahkan kartu lain.' },
   },
   beCreator: {
     id: { passport: 'Paspor', idCard: 'Kartu Identitas', driverLicense: 'Surat Izin Mengemudi' },

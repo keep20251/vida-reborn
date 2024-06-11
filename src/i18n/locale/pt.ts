@@ -48,6 +48,8 @@ export default {
     append: 'Anexar',
     publish: 'Publicar',
     replace: 'Substituir',
+    setDefault: 'Definir como padrão',
+    addCard: 'Adicionar cartão de crédito',
     whetherCancelSub: 'Tem certeza de que deseja cancelar sua assinatura?',
     whetherCrestoreSub: 'Tem certeza de que deseja retomar sua assinatura?',
     reSubErr: 'Falha na reinscrição',
@@ -98,6 +100,7 @@ export default {
     noSubPlan: 'Sem plano de assinatura configurado',
     beCreatorFirst: 'Por favor, torne-se um criador antes de postar!',
     officeEmail: 'E-mail oficial',
+    mineCard: 'Gerenciar cartões',
   },
   label: {
     account: 'Nome de usuário',
@@ -266,6 +269,7 @@ export default {
     waitUploading: 'Enviando arquivo...',
     unboundMailPrompt:
       'Este endereço de email não está vinculado a nenhuma conta. Se você tem uma conta, pode entrar usando seu nome de usuário abaixo.',
+    cardLimit: 'Cartões de crédito adicionados {length}/{max}',
   },
   content: {
     default: 'Padrão, não deve aparecer em lugar nenhum',
@@ -418,6 +422,7 @@ export default {
   },
   boundary: { start: 'Voltar ao Início' },
   yup: {
+    boolean: { required: 'Por favor, marque esta opção.', oneOf: 'Por favor, marque esta opção.' },
     mixed: {
       default: 'Validação Falhou',
       required: 'Por favor, não deixe em branco.',
@@ -499,6 +504,25 @@ export default {
     10: 'NSFW (orientado para homens)',
     11: 'NSFW (orientado para mulheres)',
   },
+  payment: {
+    title: 'Escolha um método de pagamento',
+    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'Cartão de crédito', other: 'Outro' },
+    popup: {
+      ali: { title: 'Alipay selecionado' },
+      union: { title: 'UnionPay selecionado' },
+      other: { title: 'Outro selecionado' },
+      info: 'Após o envio, você será redirecionado para concluir com segurança as próximas etapas em uma nova página.',
+    },
+    error: { amountRange: "O valor do pagamento deve estar entre {'$'}{min} e {max}" },
+    cardList: { add: 'Adicionar cartão de crédito' },
+    addCard: {
+      security:
+        'Totalmente compatível com os padrões de segurança de dados da indústria de cartões de pagamento (PCI DSS)',
+      check:
+        'Marque aqui para confirmar que você tem pelo menos 18 anos de idade e atingiu a maioridade no seu local de residência.',
+      address: 'Ripple Mic Limited, Apartment 206, Jantzen House, Ealing Road, Brentford,England, TW8 0GF',
+    },
+  },
   modal: {
     subscribe: {
       1: 'Acesso total a todas as obras dos últimos {days}',
@@ -508,7 +532,7 @@ export default {
       confirm: "{'$'}{price} por mês Vá para pagar",
     },
     shopBuy: {
-      1: 'Irá desbloquear o conteúdo de {nickname} neste trabalho',
+      1: 'Irá desbloquear o conteúdo deste trabalho de {nickname}',
       2: '{nickname}receberá seu pagamento integralmente',
       confirm: "Desbloqueie agora ({'$'}{price})",
     },
@@ -535,6 +559,14 @@ export default {
     leastCategory: '',
     moreCategory: 'Escolha mais {count} tópicos',
     completeCategory: 'Ótimo!',
+    delete: {
+      title: 'Confirmar exclusão',
+      content: 'Tem certeza de que deseja excluir essas informações do cartão de crédito?',
+    },
+    cardLimit: {
+      title: 'Limite de cartões alcançado',
+      content: 'Por favor, exclua um cartão antes de adicionar outro.',
+    },
   },
   beCreator: {
     id: { passport: 'Passaporte', idCard: 'Cartão de Identidade', driverLicense: 'Carteira de Motorista' },

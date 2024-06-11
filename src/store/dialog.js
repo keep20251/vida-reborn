@@ -1,4 +1,4 @@
-import { ref, shallowRef } from 'vue'
+import { readonly, ref, shallowRef } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useDialogStore = defineStore('dialog-store', () => {
@@ -26,6 +26,10 @@ export const useDialogStore = defineStore('dialog-store', () => {
     reportBlockUser.value = null
   }
 
+  const paymentDialog = ref(false)
+  const openPayment = () => (paymentDialog.value = true)
+  const closePayment = () => (paymentDialog.value = false)
+
   return {
     authDialog,
     fileSelectDialog,
@@ -36,5 +40,9 @@ export const useDialogStore = defineStore('dialog-store', () => {
     reportBlockUser,
     dissSomeone,
     closeDiss,
+
+    paymentDialog: readonly(paymentDialog),
+    openPayment,
+    closePayment,
   }
 })

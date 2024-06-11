@@ -24,6 +24,10 @@ export const SUB_PLAN = {
   SET: 2,
 }
 
+export const PAYMENT_ROUTES = {
+  MAIN_PAGE: 1,
+}
+
 export const LOCAL_STORAGE_KEYS = {
   ACCOUNT_INFO: '__ACCOUNT_INFO',
   LOCALE: '__LOCALE',
@@ -52,6 +56,7 @@ export const MODAL_TYPE = {
   SHOP_BUY: 32,
   SUBSCRIBE_SUCCESS: 33,
   SHOP_BUY_SUCCESS: 34,
+  ADD_CREDIT_CARD: 35,
 
   PRIVACY_POLICY: 97,
   TERMS_OF_SERVICE: 98,
@@ -82,6 +87,7 @@ export const MINE_TITLE = {
   'mine-earn-wdrl-req': 'title.earnWdrlReq',
   'mine-earn-wdrl-hist': 'title.earnWdrlHist',
   'mine-buy': 'title.mineBuy',
+  'mine-card': 'title.mineCard',
   'mine-post': 'title.minePost',
   'mine-collect': 'title.mineCollect',
   'mine-creator': 'title.beCreator',
@@ -182,9 +188,9 @@ export const GET_ARTICLE_COLLECT = {
 
 // 消費類型
 export const CONSUME_TYPE = {
-  REWARD: 1,
-  SUBSCRIBE: 5,
-  SHOP_BUY: 10,
+  SUBSCRIBE: 1,
+  SHOP_BUY: 5,
+  REWARD: 10,
   UNLOCK: 15,
 }
 

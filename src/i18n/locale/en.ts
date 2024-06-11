@@ -48,6 +48,8 @@ export default {
     append: 'Append',
     publish: 'Publish',
     replace: 'Replace',
+    setDefault: 'Set as Default',
+    addCard: 'Add Credit Card',
     whetherCancelSub: 'Are you sure you want to cancel your subscription?',
     whetherCrestoreSub: 'Are you sure you want to resume your subscription?',
     reSubErr: 'Resubscription failed',
@@ -98,6 +100,7 @@ export default {
     noSubPlan: 'No subscription plan set',
     beCreatorFirst: 'Please become a creator first before posting!',
     officeEmail: 'Official email',
+    mineCard: 'Manage Cards',
   },
   label: {
     account: 'Username',
@@ -266,6 +269,7 @@ export default {
     waitUploading: 'File uploading...',
     unboundMailPrompt:
       'This email address is not currently associated with any account. If you already have an account, you can log in using your username below',
+    cardLimit: 'Credit Cards Added {length}/{max}',
   },
   content: {
     default: "Default, shouldn't show up anywhere",
@@ -417,6 +421,7 @@ export default {
   },
   boundary: { start: 'Back to the Beginning' },
   yup: {
+    boolean: { required: 'Please check this option.', oneOf: 'Please check this option.' },
     mixed: {
       default: 'Validation Failed',
       required: 'Please do not leave it blank.',
@@ -498,6 +503,23 @@ export default {
     10: 'NSFW (male-oriented)',
     11: 'NSFW (female-oriented)',
   },
+  payment: {
+    title: 'Choose a payment method',
+    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'Credit Card', other: 'Other' },
+    popup: {
+      ali: { title: 'Alipay selected' },
+      union: { title: 'UnionPay selected' },
+      other: { title: 'Other selected' },
+      info: 'After submission, you will be redirected to securely complete the next steps on a new page.',
+    },
+    error: { amountRange: "Payment amount must be between {'$'}{min} and {max}" },
+    cardList: { add: 'Add credit card' },
+    addCard: {
+      security: 'Fully compliant with Payment Card Industry Data Security Standards (PCI DSS)',
+      check: 'Check here to confirm you are at least 18 years old and the age of majority in your place of residence.',
+      address: 'Ripple Mic Limited, Apartment 206, Jantzen House, Ealing Road, Brentford,England, TW8 0GF',
+    },
+  },
   modal: {
     subscribe: {
       1: 'Full access to all works from the past {days}',
@@ -507,7 +529,7 @@ export default {
       confirm: "{'$'}{price} per month Go to Pay",
     },
     shopBuy: {
-      1: 'Will unlock the content of {nickname} in this work',
+      1: "Will unlock {nickname}'s content of this work",
       2: '{nickname}will receive your payment in full',
       confirm: "Unlock now ({'$'}{price})",
     },
@@ -534,6 +556,8 @@ export default {
     leastCategory: 'Choose at least {count} topics',
     moreCategory: 'Choose {count} more topics',
     completeCategory: 'Great!',
+    delete: { title: 'Confirm Deletion', content: 'Are you sure you want to delete this credit card information?' },
+    cardLimit: { title: 'Card Limit Reached', content: 'Please delete a card before adding another.' },
   },
   beCreator: {
     id: { passport: 'Passport', idCard: 'ID Card', driverLicense: "Driver's License" },

@@ -3,15 +3,14 @@ import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useModalStore } from '@/store/modal'
+import { usePaymentStore } from '@/store/payment'
 import { usePopupMessageStore } from '@/store/popup-message'
-import { usePayment } from '@use/payment'
 import { useRouters } from '@use/routers'
-import { CONSUME_TYPE, MODAL_TYPE } from '@const'
+import { CONSUME_TYPE, MODAL_TYPE } from '@const/index'
 import uploadImage from '@/http/upload/uploadImage'
 
 export function useDialog() {
   const { t: $t } = useI18n()
-  const { pay, cancel } = usePayment()
   const { open, close, alert: $alert } = useModalStore()
   const { toCreator, toFeed } = useRouters()
 
@@ -20,6 +19,7 @@ export function useDialog() {
   const { userData } = storeToRefs(accountStore)
 
   const { open: openMessage } = usePopupMessageStore()
+  const { open: openPaymentDialog } = usePaymentStore()
 
   async function uploadImageDialog(file, callback = null) {
     try {
@@ -41,15 +41,6 @@ export function useDialog() {
     } finally {
       close()
     }
-  }
-
-  function paying() {
-    open(MODAL_TYPE.PAYING, {
-      title: 'modal.paying.title',
-      size: 'sm',
-      confirmText: $t('common.cancel'),
-      confirmAction: () => cancel(),
-    })
   }
 
   function failed(reason) {
@@ -79,23 +70,24 @@ export function useDialog() {
       imageTitle: item.picture,
       content: item,
       confirmText: $t('modal.subscribe.confirm', { price: item.price }),
-      confirmAction: (data) => {
-        pay({
-          apiKey: 'Payment.sub',
-          data: { item_id: item.id },
-          newWindow: data.window,
-          paymentType: CONSUME_TYPE.SUBSCRIBE,
-          onSuccess: () => {
-            subscribeSuccess(creator)
-          },
-          onFailure: failed,
-          onCancel: () => console.log('取消付款啦'),
-          onTimeout: () => console.log('付款逾時啦'),
-        })
-      },
+      confirmAction: () => {},
       showClose: true,
       gradientConfirm: true,
-      nextAction: paying,
+      nextAction: () =>
+        openPaymentDialog({
+          amount: item.price,
+          paymentConfig: {
+            apiKey: 'Payment.sub',
+            data: { item_id: item.id, aff: creator.aff, amount: item.price },
+            paymentType: CONSUME_TYPE.SUBSCRIBE,
+            onSuccess: () => {
+              subscribeSuccess(creator)
+            },
+            onFailure: failed,
+            onCancel: () => console.log('取消付款啦'),
+            onTimeout: () => console.log('付款逾時啦'),
+          },
+        }),
     })
   }
 
@@ -111,23 +103,24 @@ export function useDialog() {
       avatarTitle: feed.user.thumb,
       content: feed,
       confirmText: $t('modal.shopBuy.confirm', { price: feed.price }),
-      confirmAction: (data) => {
-        pay({
-          apiKey: 'Payment.buy',
-          data: { item_id: feed.id },
-          newWindow: data.window,
-          paymentType: CONSUME_TYPE.SHOP_BUY,
-          onSuccess: () => {
-            shopBuySuccess(feed)
-          },
-          onFailure: failed,
-          onCancel: () => console.log('取消付款啦'),
-          onTimeout: () => console.log('付款逾時啦'),
-        })
-      },
+      confirmAction: () => {},
       showClose: true,
       gradientConfirm: true,
-      nextAction: paying,
+      nextAction: () =>
+        openPaymentDialog({
+          amount: feed.price,
+          paymentConfig: {
+            apiKey: 'Payment.buy',
+            data: { item_id: feed.id, aff: feed.user.aff, amount: feed.price },
+            paymentType: CONSUME_TYPE.SHOP_BUY,
+            onSuccess: () => {
+              shopBuySuccess(feed)
+            },
+            onFailure: failed,
+            onCancel: () => console.log('取消付款啦'),
+            onTimeout: () => console.log('付款逾時啦'),
+          },
+        }),
     })
   }
 
@@ -156,7 +149,6 @@ export function useDialog() {
   return {
     uploadImageDialog,
 
-    paying,
     subscribe: afterLoginAction(subscribe),
     shopBuy: afterLoginAction(shopBuy),
     subscribeSuccess,

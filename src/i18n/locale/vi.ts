@@ -48,6 +48,8 @@ export default {
     append: 'Thêm vào',
     publish: 'Xuất bản',
     replace: 'Thay một nhóm',
+    setDefault: 'Đặt làm mặc định',
+    addCard: 'Thêm thẻ tín dụng',
     whetherCancelSub: 'Bạn có chắc chắn muốn hủy đăng ký không?',
     whetherCrestoreSub: 'Bạn có chắc chắn muốn khôi phục đăng ký không?',
     reSubErr: 'Gặp lỗi khi đăng ký lại',
@@ -98,6 +100,7 @@ export default {
     noSubPlan: 'Chưa thiết lập kế hoạch đăng ký',
     beCreatorFirst: 'Hãy trở thành người sáng tạo trước khi đăng bài!',
     officeEmail: 'Email chính thức',
+    mineCard: 'Quản lý thẻ',
   },
   label: {
     account: 'Tên người dùng',
@@ -189,7 +192,7 @@ export default {
   message: {
     payment: { failed: 'Thanh toán thất bại', success: 'Thanh toán thành công', cancel: 'Thanh toán đã hủy' },
     error: {
-      subscribeSelf: 'Không thể đăng ký cho chính mình',
+      subscribeSelf: 'Không thể đăng ký cho chính tôi',
       shopBuySelf: 'Không thể mua sản phẩm của riêng bạn',
       subscriptionNotFound: 'Không có gói đăng ký nào',
     },
@@ -266,6 +269,7 @@ export default {
     waitUploading: 'Đang tải lên tệp...',
     unboundMailPrompt:
       'Địa chỉ email này chưa được liên kết với bất kỳ tài khoản nào. Nếu bạn đã có tài khoản, bạn có thể đăng nhập bằng tên người dùng bên dưới.',
+    cardLimit: 'Đã thêm thẻ tín dụng {length}/{max}',
   },
   content: {
     default: 'Mặc định, không nên hiển thị ở bất cứ đâu',
@@ -417,6 +421,7 @@ export default {
   },
   boundary: { start: 'Quay lại Đầu' },
   yup: {
+    boolean: { required: 'Vui lòng chọn tùy chọn này.', oneOf: 'Vui lòng chọn tùy chọn này.' },
     mixed: {
       default: 'Xác nhận thất bại',
       required: 'Vui lòng không để trống.',
@@ -498,6 +503,23 @@ export default {
     10: 'NSFW (hướng nam)',
     11: 'NSFW (hướng nữ)',
   },
+  payment: {
+    title: 'Chọn phương thức thanh toán',
+    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'Thẻ tín dụng', other: 'Khác' },
+    popup: {
+      ali: { title: 'Đã chọn Alipay' },
+      union: { title: 'Đã chọn UnionPay' },
+      other: { title: 'Đã chọn khác' },
+      info: 'Sau khi nộp, bạn sẽ được chuyển hướng để hoàn thành các bước tiếp theo một cách an toàn trên một trang mới.',
+    },
+    error: { amountRange: "Số tiền thanh toán phải nằm trong khoảng {'$'}{min} đến {max}" },
+    cardList: { add: 'Thêm thẻ tín dụng' },
+    addCard: {
+      security: 'Hoàn toàn tuân thủ các Tiêu chuẩn Bảo mật Dữ liệu của Ngành Thẻ Thanh toán (PCI DSS)',
+      check: 'Đánh dấu vào đây để xác nhận bạn ít nhất 18 tuổi và đạt độ tuổi trưởng thành tại nơi cư trú của bạn.',
+      address: 'Ripple Mic Limited, Apartment 206, Jantzen House, Ealing Road, Brentford,England, TW8 0GF',
+    },
+  },
   modal: {
     subscribe: {
       1: 'Toàn quyền truy cập vào tất cả các tác phẩm trong {days} vừa qua',
@@ -507,7 +529,7 @@ export default {
       confirm: "{'$'}{price} mỗi tháng Chuyển đến phần Thanh toán",
     },
     shopBuy: {
-      1: 'Sẽ mở khóa nội dung của {nickname} trong tác phẩm này',
+      1: 'Sẽ mở khóa nội dung của tác phẩm này của {nickname}',
       2: '{nickname}sẽ nhận được đầy đủ khoản thanh toán của bạn',
       confirm: "Mở khóa ngay ({'$'}{price})",
     },
@@ -518,8 +540,8 @@ export default {
     },
     shopBuySuc: {
       1: 'tuyệt vời! Đã thanh toán thành công để mở khóa bài đăng',
-      2: 'Chọn vào bài viết để xem, hoặc ở lại màn hình gốc để duyệt!',
-      confirm: 'Đi tới bài đăng',
+      2: 'Chọn vào bài viết để xem, hoặc ở lại màn hình gốc để duyệt nhé!',
+      confirm: 'Đi tới bài viết',
     },
     title: { paySuc: 'Thanh toán được thực hiện thành công' },
     paying: { title: 'Thanh toán đang được xử lý' },
@@ -534,6 +556,8 @@ export default {
     leastCategory: '',
     moreCategory: 'Chọn thêm {count} chủ đề nữa',
     completeCategory: 'Tuyệt vời!',
+    delete: { title: 'Xác nhận xóa', content: 'Bạn có chắc chắn muốn xóa thông tin thẻ tín dụng này không?' },
+    cardLimit: { title: 'Giới hạn thẻ đã đạt', content: 'Vui lòng xóa một thẻ trước khi thêm một thẻ khác.' },
   },
   beCreator: {
     id: { passport: 'Hộ chiếu', idCard: 'Thẻ căn cước', driverLicense: 'Giấy phép lái xe' },

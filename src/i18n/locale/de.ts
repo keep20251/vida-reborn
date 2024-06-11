@@ -48,6 +48,8 @@ export default {
     append: 'Anhängen',
     publish: 'Veröffentlichen',
     replace: 'Ersetzen',
+    setDefault: 'Als Standard setzen',
+    addCard: 'Kreditkarte hinzufügen',
     whetherCancelSub: 'Sind Sie sicher, dass Sie Ihr Abonnement kündigen möchten?',
     whetherCrestoreSub: 'Sind Sie sicher, dass Sie Ihr Abonnement wieder aufnehmen möchten?',
     reSubErr: 'Wiedervereinigung fehlgeschlagen',
@@ -98,6 +100,7 @@ export default {
     noSubPlan: 'Kein Abonnementplan festgelegt',
     beCreatorFirst: 'Bitte werden Sie zuerst ein Creator, bevor Sie posten!',
     officeEmail: 'Offizielle E-Mail',
+    mineCard: 'Karten verwalten',
   },
   label: {
     account: 'Benutzername',
@@ -266,6 +269,7 @@ export default {
     waitUploading: 'Datei wird hochgeladen...',
     unboundMailPrompt:
       'Diese E-Mail-Adresse ist keinem Konto zugeordnet. Wenn Sie ein Konto haben, können Sie sich unten mit Ihrem Benutzernamen anmelden.',
+    cardLimit: 'Hinzugefügte Kreditkarten {length}/{max}',
   },
   content: {
     default: 'Standardmäßig, sollte nirgendwo auftauchen',
@@ -419,6 +423,7 @@ export default {
   },
   boundary: { start: 'Zurück zum Anfang' },
   yup: {
+    boolean: { required: 'Bitte wählen Sie diese Option aus.', oneOf: 'Bitte wählen Sie diese Option aus.' },
     mixed: {
       default: 'Validierung fehlgeschlagen',
       required: 'Bitte nicht leer lassen.',
@@ -500,6 +505,24 @@ export default {
     10: 'NSFW (männlich orientiert)',
     11: 'NSFW (weiblich orientiert)',
   },
+  payment: {
+    title: 'Wählen Sie eine Zahlungsmethode',
+    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'Kreditkarte', other: 'Andere' },
+    popup: {
+      ali: { title: 'Alipay ausgewählt' },
+      union: { title: 'UnionPay ausgewählt' },
+      other: { title: 'Andere ausgewählt' },
+      info: 'Nach der Übermittlung werden Sie weitergeleitet, um die nächsten Schritte sicher auf einer neuen Seite abzuschließen.',
+    },
+    error: { amountRange: "Der Zahlungsbetrag muss zwischen {'$'}{min} und {max} liegen" },
+    cardList: { add: 'Kreditkarte hinzufügen' },
+    addCard: {
+      security: 'Vollständig konform mit den Datensicherheitsstandards der Zahlungsverkehrsindustrie (PCI DSS)',
+      check:
+        'Aktivieren Sie dieses Kästchen, um zu bestätigen, dass Sie mindestens 18 Jahre alt sind und das Volljährigkeitsalter an Ihrem Wohnort erreicht haben.',
+      address: 'Ripple Mic Limited, Apartment 206, Jantzen House, Ealing Road, Brentford,England, TW8 0GF',
+    },
+  },
   modal: {
     subscribe: {
       1: 'Voller Zugriff auf alle Werke der letzten {days}',
@@ -509,7 +532,7 @@ export default {
       confirm: "{'$'}{price} pro Monat Gehen Sie zu Bezahlen",
     },
     shopBuy: {
-      1: 'Wird den Inhalt von {nickname} in dieser Arbeit freischalten',
+      1: 'Wird den Inhalt dieser Arbeit durch {nickname} freischalten',
       2: '{nickname}wird Ihre Zahlung vollständig erhalten',
       confirm: "Jetzt freischalten ({'$'}{price})",
     },
@@ -520,7 +543,7 @@ export default {
     },
     shopBuySuc: {
       1: 'fabelhaft! Erfolgreich bezahlt, um den Beitrag freizuschalten',
-      2: 'Gehen Sie entweder zum Beitrag, um ihn anzusehen, oder bleiben Sie zum Durchsuchen auf dem Originalbildschirm!',
+      2: 'Gehen Sie zum Ansehen des Beitrags oder bleiben Sie zum Durchsuchen auf dem Originalbildschirm!',
       confirm: 'Zum Posten gehen',
     },
     title: { paySuc: 'Zahlung erfolgreich durchgeführt' },
@@ -536,6 +559,14 @@ export default {
     leastCategory: 'Wählen Sie mindestens {count} Themen',
     moreCategory: 'Wählen Sie {count} weitere Themen',
     completeCategory: 'Großartig!',
+    delete: {
+      title: 'Löschung bestätigen',
+      content: 'Sind Sie sicher, dass Sie diese Kreditkarteninformationen löschen möchten?',
+    },
+    cardLimit: {
+      title: 'Kartenlimit erreicht',
+      content: 'Bitte löschen Sie eine Karte, bevor Sie eine weitere hinzufügen.',
+    },
   },
   beCreator: {
     id: { passport: 'Reisepass', idCard: 'Personalausweis', driverLicense: 'Führerschein' },

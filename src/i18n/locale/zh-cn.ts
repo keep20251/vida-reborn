@@ -43,6 +43,8 @@ export default {
     append: '添加',
     publish: '发布',
     replace: '换一批',
+    setDefault: '设置为默认',
+    addCard: '新增信用卡',
     whetherCancelSub: '您是否確定要取消訂閱？',
     whetherCrestoreSub: '您是否確定要恢復訂閱？',
     reSubErr: '重新訂閱失敗',
@@ -93,6 +95,7 @@ export default {
     noSubPlan: '尚未建置订阅计划',
     beCreatorFirst: '请先成为创作者后再来发布文章吧！',
     officeEmail: '官方邮箱',
+    mineCard: '卡片管理',
   },
   label: {
     account: '用户名',
@@ -256,6 +259,7 @@ export default {
     clickRtConfirm: '请先点击右上角确认',
     waitUploading: '文件上传中...',
     unboundMailPrompt: '该邮箱尚未绑定任何帐号，若已有帐户可由下方使用用户名登入。',
+    cardLimit: '已添加信用卡 {length}/{max}',
   },
   content: {
     default: '预设，不应该显示在任何地方',
@@ -400,6 +404,7 @@ export default {
   },
   boundary: { start: '又回到最初的起点' },
   yup: {
+    boolean: { required: '请勾选此选项。', oneOf: '请勾选此选项。' },
     mixed: {
       default: '验证失败',
       required: '请勿留空。',
@@ -481,6 +486,23 @@ export default {
     10: 'NSFW( 男性向)',
     11: 'NSFW( 女性向)',
   },
+  payment: {
+    title: '选择支付方式',
+    payway: { aliPay: '支付宝', unionPay: '银联卡', creditCard: '银行卡', other: '其他' },
+    popup: {
+      ali: { title: '已选择支付宝' },
+      union: { title: '已选择银联卡' },
+      other: { title: '已选择其他' },
+      info: '提交后，您将被跳转，在新的页面安全地完成后续步骤。',
+    },
+    error: { amountRange: "支付金额须介于 {'$'}{min}至{max}之间" },
+    cardList: { add: '添加信用卡' },
+    addCard: {
+      security: '完全符合支付卡行业数据安全标准',
+      check: '勾选此处确认您至少满18岁，并在居住地达到成年年龄',
+      address: 'Ripple Mic Limited, Apartment 206, Jantzen House, Ealing Road, Brentford,England, TW8 0GF',
+    },
+  },
   modal: {
     subscribe: {
       1: '完全访问过去{days}日所有作品',
@@ -510,6 +532,8 @@ export default {
     leastCategory: '至少选择 {count} 个主题',
     moreCategory: '再选择 {count} 个主题',
     completeCategory: '太棒了！',
+    delete: { title: '确定删除', content: '确定要删除信用卡信息吗？' },
+    cardLimit: { title: '卡片已达上限', content: '请先删除一张卡片再新增' },
   },
   beCreator: {
     id: { passport: '护照', idCard: '身份证', driverLicense: '驾照' },
