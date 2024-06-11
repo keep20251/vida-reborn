@@ -106,20 +106,21 @@ export function useDialog() {
       confirmAction: () => {},
       showClose: true,
       gradientConfirm: true,
-      nextAction: openPaymentDialog({
-        amount: feed.price,
-        paymentConfig: {
-          apiKey: 'Payment.buy',
-          data: { item_id: feed.id, aff: feed.user.aff, amount: feed.price },
-          paymentType: CONSUME_TYPE.SHOP_BUY,
-          onSuccess: () => {
-            shopBuySuccess(feed)
+      nextAction: () =>
+        openPaymentDialog({
+          amount: feed.price,
+          paymentConfig: {
+            apiKey: 'Payment.buy',
+            data: { item_id: feed.id, aff: feed.user.aff, amount: feed.price },
+            paymentType: CONSUME_TYPE.SHOP_BUY,
+            onSuccess: () => {
+              shopBuySuccess(feed)
+            },
+            onFailure: failed,
+            onCancel: () => console.log('取消付款啦'),
+            onTimeout: () => console.log('付款逾時啦'),
           },
-          onFailure: failed,
-          onCancel: () => console.log('取消付款啦'),
-          onTimeout: () => console.log('付款逾時啦'),
-        },
-      }),
+        }),
     })
   }
 

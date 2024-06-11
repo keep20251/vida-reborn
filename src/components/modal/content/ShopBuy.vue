@@ -14,7 +14,6 @@ import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useModalStore } from '@/store/modal'
 import { useConfirmData } from '@use/modal/confirm-data'
-import { useWindow } from '@use/utils/window'
 
 const { content } = storeToRefs(useModalStore())
 
@@ -24,10 +23,5 @@ const documents = [
   computed(() => $t('modal.shopBuy.2', { nickname: content.value?.user?.nickname })),
 ]
 
-const { openWindow } = useWindow()
-
-useConfirmData(() => {
-  const window = openWindow()
-  return { window }
-})
+useConfirmData(() => true)
 </script>
