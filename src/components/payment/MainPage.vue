@@ -177,7 +177,9 @@ function recallComplete() {
 
 const { disabled: isLoading, onExecute } = useExecutionLock()
 
-const isCardList = computed(() => activeOption.value.type === PAYMENT_GROUP.CREDIT_CARD && defaultCard.value)
+const isCardList = computed(
+  () => activeOption.value.type === PAYMENT_GROUP.CREDIT_CARD && defaultCard.value && !showBack.value,
+)
 const isAddCard = computed(() => activeOption.value.type === PAYMENT_GROUP.CREDIT_CARD || showBack.value)
 
 async function confirm() {
