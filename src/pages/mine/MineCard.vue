@@ -60,7 +60,8 @@ function removeCard(card) {
 }
 
 function onCardAdd() {
-  if (creditCardList.value.length >= maxCardCount) {
+  console.log(creditCardList.value)
+  if ((creditCardList.value || []).length >= maxCardCount) {
     alert({
       title: $t('modal.cardLimit.title'),
       content: $t('modal.cardLimit.content'),
