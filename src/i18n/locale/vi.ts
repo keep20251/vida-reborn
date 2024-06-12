@@ -541,7 +541,7 @@ export default {
     shopBuySuc: {
       1: 'tuyệt vời! Đã thanh toán thành công để mở khóa bài đăng',
       2: 'Chọn vào bài viết để xem, hoặc ở lại màn hình gốc để duyệt!',
-      confirm: 'Đi tới bài viết',
+      confirm: 'Đi tới bài đăng',
     },
     title: { paySuc: 'Thanh toán được thực hiện thành công' },
     paying: { title: 'Thanh toán đang được xử lý' },

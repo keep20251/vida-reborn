@@ -534,7 +534,7 @@ export default {
     shopBuy: {
       1: 'Irá desbloquear o conteúdo deste trabalho de {nickname}',
       2: '{nickname}receberá seu pagamento integralmente',
-      confirm: "Desbloquear agora ({'$'}{price})",
+      confirm: "Desbloqueie agora ({'$'}{price})",
     },
     subscribeSuc: {
       1: 'maravilhoso! Inscrito em {nickname} com sucesso!',
