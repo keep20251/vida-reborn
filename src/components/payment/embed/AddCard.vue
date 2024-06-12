@@ -35,7 +35,7 @@
 </template>
 <script setup>
 import { loadStripe } from '@stripe/stripe-js'
-import { onActivated, onDeactivated, reactive, ref } from 'vue'
+import { onActivated, onDeactivated, onMounted, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useStripeAppearance } from '@use/payment/stripe-appearance'
 import DinersClub from '@/assets/images/payment/credit-card/diners-club.png'
@@ -48,6 +48,15 @@ import Checkbox from '@/components/form/Checkbox.vue'
 import useRequest from '@/compositions/request'
 import { useYup } from '@/compositions/validator/yup'
 
+const props = defineProps({
+  /**
+   * KeepAlive 適用於每次進入時都需要初始化 Stripe Payment Element 的情況
+   * 比如說在卡片管理時，每次進入都需要重新初始化 Payment Element
+   * 新增完卡片後，Modal還是 KeepAlive ，這時再次進入就應該拿到新的 Payment Element
+   * 不然會拿到上次的 client_secret
+   */
+  keepAlive: { type: Boolean, default: false },
+})
 const emits = defineEmits(['complete'])
 const { t: $t } = useI18n()
 
@@ -74,8 +83,17 @@ const stripeError = ref('')
 let stripe
 let elements
 let clientSecret
+let paymentElement
 
 const isReady = ref(false)
+
+function unmountPayment() {
+  paymentElement.unmount()
+  stripe = null
+  elements = null
+  clientSecret = null
+  paymentElement = null
+}
 
 async function createStripePayment() {
   const { client_secret, publishable_key } = await useRequest('Payment.getStripeKey', { immediate: true })
@@ -87,7 +105,7 @@ async function createStripePayment() {
     appearance: themeDefault,
   })
 
-  const paymentElement = elements.create('payment')
+  paymentElement = elements.create('payment')
   paymentElement.mount('#stripe-element')
   paymentElement.on('ready', () => {
     console.log('Stripe Payment Element is ready')
@@ -144,12 +162,20 @@ async function onSubmit(e) {
   }
 }
 
-onActivated(async () => {
+const isMounted = ref(false)
+
+onMounted(async () => {
   await createStripePayment()
+  isMounted.value = true
+})
+onActivated(async () => {
+  if (props.keepAlive && isMounted.value) await createStripePayment()
 })
 onDeactivated(() => {
   stripeError.value = ''
-  checkbox.value = false
   checkbox.error = ''
+  isReady.value = false
+
+  if (props.keepAlive) unmountPayment()
 })
 </script>

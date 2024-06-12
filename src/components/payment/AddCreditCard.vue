@@ -1,6 +1,6 @@
 <template>
   <div class="mb-20 text-center text-sm font-normal leading-lg text-gray-57">
-    <AddCard @complete="onSubmitComplte" />
+    <AddCard keep-alive @complete="onSubmitComplte" />
   </div>
 </template>
 
