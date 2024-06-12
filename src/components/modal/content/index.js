@@ -44,6 +44,5 @@ const obj = {
 
   [MODAL_TYPE.TEST]: Test,
 }
-console.log('1111111', obj)
 
 export default Object.freeze(obj)

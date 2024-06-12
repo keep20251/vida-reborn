@@ -79,13 +79,15 @@ const activeCondition = (groupId) => {
   )
 }
 
-const STATIC_EMBED_PAYWAY = 78
+const EMBED_STRIPE = 78
+const POPUP_STRIPE = 0
+
 const paywayOptions = computed(() => {
   const options = [
     {
       type: PAYMENT_GROUP.CREDIT_CARD,
       componentType: PAYMENT_TYPE.EMBED,
-      id: STATIC_EMBED_PAYWAY, // 寫死，內嵌用不上這個 id
+      id: EMBED_STRIPE, // 寫死，內嵌用不上這個 id
       name: $t('payment.payway.creditCard'),
       active: true,
     },
@@ -102,7 +104,7 @@ const paywayOptions = computed(() => {
     const _arr = []
     Object.entries(PAYMENT_GROUP).forEach(([key, value], index) => {
       const payment = paymentCondition(value)
-      if (!payment) return
+      if (!payment || payment?.pay_type_id === POPUP_STRIPE) return
 
       _arr.push({
         type: value,
@@ -254,7 +256,7 @@ const closeBack = () => (showBack.value = false)
 
 onActivated(async () => await syncAllPaymentConfig())
 onDeactivated(() => {
-  payway.value = STATIC_EMBED_PAYWAY
+  payway.value = EMBED_STRIPE
   paymentError.value = ''
 })
 </script>
