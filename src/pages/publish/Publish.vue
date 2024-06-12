@@ -217,6 +217,12 @@ const video = ref(null)
 watch(
   isEditing,
   async (v) => {
+    console.log('watch isEditing', v)
+    console.log('watch isEditing', v)
+    console.log('watch isEditing', v)
+    console.log('watch isEditing', v)
+    console.log('watch isEditing', v)
+    console.log('watch isEditing', v)
     if (v && isCreate.value) {
       try {
         // 沒有訂閱計畫，彈窗讓他新增
@@ -235,6 +241,12 @@ watch(
   { immediate: true },
 )
 watch(subPlanDialog, (v) => {
+  console.log('watch subPlanDialog', v)
+  console.log('watch subPlanDialog', v)
+  console.log('watch subPlanDialog', v)
+  console.log('watch subPlanDialog', v)
+  console.log('watch subPlanDialog', v)
+  console.log('watch subPlanDialog', v)
   if (!v && userData.value.subscription_list.length === 0 && isEditing.value) {
     openCreateSubConfirm()
   }

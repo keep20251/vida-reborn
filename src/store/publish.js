@@ -1,3 +1,4 @@
+import { CanceledError } from 'axios'
 import imageCompression from 'browser-image-compression'
 import { computed, reactive, readonly, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -5,6 +6,7 @@ import { defineStore, storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { FEED_PERM, IMAGE_LIMIT_COUNT, MEDIA_TYPE, UPLOAD_STATUS } from '@/constant/publish'
 import uploadImage from '@/http/upload/uploadImage'
+import uploadMultipart from '@/http/upload/uploadMultipart'
 import uploadVideo from '@/http/upload/uploadVideo'
 
 // 使用者所選的檔案
@@ -339,21 +341,51 @@ function videoPropertyExtract(videoRef) {
     })
 }
 
-function videoUpload(uploadFile) {
-  return new Promise((resolve, reject) => {
-    uploadFile.status = UPLOAD_STATUS.UPLOADING
-    uploadVideo(uploadFile.file, (p) => (uploadFile.progress = p))
-      .then(({ publicUrl, uploadName }) => {
-        uploadFile.status = UPLOAD_STATUS.DONE
-        uploadFile.url = uploadName
-        resolve(uploadFile)
-      })
-      .catch((err) => {
-        uploadFile.status = UPLOAD_STATUS.FAIL
-        uploadFile.failMsg = err.message
-      })
-  })
-  // console.log('videoUpload', uploadFile)
+// function videoUpload(uploadFile) {
+//   return new Promise((resolve, reject) => {
+//     uploadFile.status = UPLOAD_STATUS.UPLOADING
+//     uploadVideo(uploadFile.file, (p) => (uploadFile.progress = p))
+//       .then(({ publicUrl, uploadName }) => {
+//         uploadFile.status = UPLOAD_STATUS.DONE
+//         uploadFile.url = uploadName
+//         resolve(uploadFile)
+//       })
+//       .catch((err) => {
+//         uploadFile.status = UPLOAD_STATUS.FAIL
+//         uploadFile.failMsg = err.message
+//       })
+//   })
+//   // console.log('videoUpload', uploadFile)
+// }
+//
+const VIDEO_SIZE_THRESHOLD = 50 * 1024 * 1024
+
+function videoUpload(onCancel) {
+  return (uploadFile) =>
+    new Promise((resolve, reject) => {
+      const uploader = uploadFile.file.size < VIDEO_SIZE_THRESHOLD ? uploadVideo : uploadMultipart
+      uploadFile.status = UPLOAD_STATUS.UPLOADING
+      uploader(
+        uploadFile.file,
+        (p, m) => {
+          uploadFile.progress = p
+          uploadFile.progressMsg = m
+        },
+        onCancel,
+      )
+        .then(({ publicUrl, uploadName }) => {
+          uploadFile.status = UPLOAD_STATUS.DONE
+          uploadFile.url = uploadName
+          resolve(uploadFile)
+        })
+        .catch((err) => {
+          if (err instanceof CanceledError) {
+            return
+          }
+          uploadFile.status = UPLOAD_STATUS.FAIL
+          uploadFile.failMsg = err.message
+        })
+    })
 }
 
 function imageCompress(uploadFile) {
