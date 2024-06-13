@@ -1,4 +1,3 @@
-// src/http/upload/uploadMultipart.js
 import axios, { CanceledError } from 'axios'
 import { useLocalStorage } from '@vueuse/core'
 import { useAppStore } from '@/store/app'

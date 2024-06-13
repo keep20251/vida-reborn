@@ -13,6 +13,9 @@ import uploadVideo from '@/http/upload/uploadVideo'
 // https://developer.mozilla.org/en-US/docs/Web/API/File
 let fileList = null
 
+// 上傳過程中被中段的 callback
+const cnacelUploadFnList = []
+
 const compressOptions = {
   maxSizeMB: 3,
   maxWidthOrHeight: 1920,
@@ -245,12 +248,7 @@ export const usePublishStore = defineStore('publish', () => {
       await preprocessing(uploadFiles.value[0])
         .then(videoObjectUrlExtract)
         .then(videoPropertyExtract(videoRef))
-        .then(
-          videoUpload(() => {
-            // TODO: reset cancel fn
-            console.log('startUpload onCancel')
-          }),
-        )
+        .then(videoUpload(onCancelUpload))
     }
 
     if (isImage.value) {
@@ -283,6 +281,14 @@ export const usePublishStore = defineStore('publish', () => {
     }
   }
 
+  function onCancelUpload(fn) {
+    cnacelUploadFnList.push(fn)
+  }
+
+  function cancelUpload() {
+    cnacelUploadFnList.forEach((cancel) => cancel())
+  }
+
   function clear() {
     onFileInput.value = null
 
@@ -294,6 +300,8 @@ export const usePublishStore = defineStore('publish', () => {
     }
 
     fileList = null
+
+    cnacelUploadFnList.length = 0
   }
 
   return {
@@ -319,6 +327,7 @@ export const usePublishStore = defineStore('publish', () => {
     addImageFile,
     removeUploadFile,
     reUploadFile,
+    cancelUpload,
     clear,
   }
 })
