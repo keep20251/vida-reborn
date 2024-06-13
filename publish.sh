@@ -16,7 +16,7 @@ function changePackageJson() {
     echo "更新檔案: package.json"
 
     # 刷新 package-lock.json
-    npm install
+    # npm install
 }
 
 function generateReport() {
