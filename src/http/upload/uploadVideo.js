@@ -46,7 +46,7 @@ function getUploadResource() {
 
 // 檔案片段切割大小，-1 不切割
 // const CHUNK_SIZE = -1 // 1024 * 1024 * 104
-const CHUNK_SIZE = 1024 * 1024 * 10 // 1024 * 1024 * 104
+const CHUNK_SIZE = -1 // 1024 * 1024 * 104
 
 /**
  * 片段上傳，內部會遞迴呼叫，直到 offset >= file.size 結束

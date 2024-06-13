@@ -72,6 +72,8 @@ export const usePublishStore = defineStore('publish', () => {
   // }
   const uploadFiles = ref([])
 
+  const onFileInput = ref(null)
+
   const isCreate = computed(() => publishParams.id === null)
   const isUpdate = computed(() => publishParams.id !== null)
 
@@ -103,6 +105,8 @@ export const usePublishStore = defineStore('publish', () => {
     for (const file of files) {
       pushUploadFile(file)
     }
+
+    // onFileInput.value = new Date().getTime()
 
     publishParams.category = categories.value[0].value
 
@@ -241,7 +245,12 @@ export const usePublishStore = defineStore('publish', () => {
       await preprocessing(uploadFiles.value[0])
         .then(videoObjectUrlExtract)
         .then(videoPropertyExtract(videoRef))
-        .then(videoUpload)
+        .then(
+          videoUpload(() => {
+            // TODO: reset cancel fn
+            console.log('startUpload onCancel')
+          }),
+        )
     }
 
     if (isImage.value) {
@@ -275,6 +284,8 @@ export const usePublishStore = defineStore('publish', () => {
   }
 
   function clear() {
+    onFileInput.value = null
+
     startEditTimestamp.value = null
     uploadFiles.value = []
 
@@ -286,6 +297,7 @@ export const usePublishStore = defineStore('publish', () => {
   }
 
   return {
+    onFileInput: readonly(onFileInput),
     startEditTimestamp: readonly(startEditTimestamp),
 
     uploadFiles,
@@ -341,28 +353,11 @@ function videoPropertyExtract(videoRef) {
     })
 }
 
-// function videoUpload(uploadFile) {
-//   return new Promise((resolve, reject) => {
-//     uploadFile.status = UPLOAD_STATUS.UPLOADING
-//     uploadVideo(uploadFile.file, (p) => (uploadFile.progress = p))
-//       .then(({ publicUrl, uploadName }) => {
-//         uploadFile.status = UPLOAD_STATUS.DONE
-//         uploadFile.url = uploadName
-//         resolve(uploadFile)
-//       })
-//       .catch((err) => {
-//         uploadFile.status = UPLOAD_STATUS.FAIL
-//         uploadFile.failMsg = err.message
-//       })
-//   })
-//   // console.log('videoUpload', uploadFile)
-// }
-//
 const VIDEO_SIZE_THRESHOLD = 50 * 1024 * 1024
 
 function videoUpload(onCancel) {
-  return (uploadFile) =>
-    new Promise((resolve, reject) => {
+  return (uploadFile) => {
+    return new Promise((resolve, reject) => {
       const uploader = uploadFile.file.size < VIDEO_SIZE_THRESHOLD ? uploadVideo : uploadMultipart
       uploadFile.status = UPLOAD_STATUS.UPLOADING
       uploader(
@@ -386,6 +381,7 @@ function videoUpload(onCancel) {
           uploadFile.failMsg = err.message
         })
     })
+  }
 }
 
 function imageCompress(uploadFile) {

@@ -13,13 +13,19 @@ const PROGRESS_PERCENTAGE_HASH = 0.2
 const PROGRESS_PERCENTAGE_UPLOAD = 0.8
 
 export default async function uploadMultipart(file, onProgress, onCancel) {
+  console.log('MultipartUpload start')
+  console.log(`\tfile name: ${file.name}`)
+  console.log(`\tfile size: ${file.size}`)
+  console.log(`\tfile type: ${file.type}`)
+  console.log('onProgress:', onProgress)
+  console.log('onCancel:', onCancel)
+
   // 檔案 hash 和切片
   const { filehash, slices } = await createHashAndSlices(
     file,
     (progress) => onProgress(progress * PROGRESS_PERCENTAGE_HASH, 'label.fileProcess'),
     onCancel,
   )
-
   console.log('MultipartUpload hash and slice:')
   console.log(`\thash: ${filehash}`)
   console.log(`\tfile size: ${file.size}`)
@@ -140,6 +146,7 @@ async function uploadStatus(filehash, slices, onCancel) {
  */
 async function createMultipartUpload(partTotal, onCancel) {
   const { appConfig } = useAppStore()
+
   const { upload_multipart_start: url, upload_mp4_big_key: signKey } = appConfig.config
 
   const { timestamp, sign } = signData(signKey)
