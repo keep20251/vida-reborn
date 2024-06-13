@@ -1,3 +1,4 @@
+import { CanceledError } from 'axios'
 import imageCompression from 'browser-image-compression'
 import { computed, reactive, readonly, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -5,11 +6,15 @@ import { defineStore, storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { FEED_PERM, IMAGE_LIMIT_COUNT, MEDIA_TYPE, UPLOAD_STATUS } from '@/constant/publish'
 import uploadImage from '@/http/upload/uploadImage'
+import uploadMultipart from '@/http/upload/uploadMultipart'
 import uploadVideo from '@/http/upload/uploadVideo'
 
 // 使用者所選的檔案
 // https://developer.mozilla.org/en-US/docs/Web/API/File
 let fileList = null
+
+// 上傳過程中被中段的 callback
+const cnacelUploadFnList = []
 
 const compressOptions = {
   maxSizeMB: 3,
@@ -70,6 +75,8 @@ export const usePublishStore = defineStore('publish', () => {
   // }
   const uploadFiles = ref([])
 
+  const onFileInput = ref(null)
+
   const isCreate = computed(() => publishParams.id === null)
   const isUpdate = computed(() => publishParams.id !== null)
 
@@ -101,6 +108,8 @@ export const usePublishStore = defineStore('publish', () => {
     for (const file of files) {
       pushUploadFile(file)
     }
+
+    // onFileInput.value = new Date().getTime()
 
     publishParams.category = categories.value[0].value
 
@@ -239,7 +248,7 @@ export const usePublishStore = defineStore('publish', () => {
       await preprocessing(uploadFiles.value[0])
         .then(videoObjectUrlExtract)
         .then(videoPropertyExtract(videoRef))
-        .then(videoUpload)
+        .then(videoUpload(onCancelUpload))
     }
 
     if (isImage.value) {
@@ -272,7 +281,17 @@ export const usePublishStore = defineStore('publish', () => {
     }
   }
 
+  function onCancelUpload(fn) {
+    cnacelUploadFnList.push(fn)
+  }
+
+  function cancelUpload() {
+    cnacelUploadFnList.forEach((cancel) => cancel())
+  }
+
   function clear() {
+    onFileInput.value = null
+
     startEditTimestamp.value = null
     uploadFiles.value = []
 
@@ -281,9 +300,12 @@ export const usePublishStore = defineStore('publish', () => {
     }
 
     fileList = null
+
+    cnacelUploadFnList.length = 0
   }
 
   return {
+    onFileInput: readonly(onFileInput),
     startEditTimestamp: readonly(startEditTimestamp),
 
     uploadFiles,
@@ -305,6 +327,7 @@ export const usePublishStore = defineStore('publish', () => {
     addImageFile,
     removeUploadFile,
     reUploadFile,
+    cancelUpload,
     clear,
   }
 })
@@ -339,21 +362,35 @@ function videoPropertyExtract(videoRef) {
     })
 }
 
-function videoUpload(uploadFile) {
-  return new Promise((resolve, reject) => {
-    uploadFile.status = UPLOAD_STATUS.UPLOADING
-    uploadVideo(uploadFile.file, (p) => (uploadFile.progress = p))
-      .then(({ publicUrl, uploadName }) => {
-        uploadFile.status = UPLOAD_STATUS.DONE
-        uploadFile.url = uploadName
-        resolve(uploadFile)
-      })
-      .catch((err) => {
-        uploadFile.status = UPLOAD_STATUS.FAIL
-        uploadFile.failMsg = err.message
-      })
-  })
-  // console.log('videoUpload', uploadFile)
+const VIDEO_SIZE_THRESHOLD = 50 * 1024 * 1024
+
+function videoUpload(onCancel) {
+  return (uploadFile) => {
+    return new Promise((resolve, reject) => {
+      const uploader = uploadFile.file.size < VIDEO_SIZE_THRESHOLD ? uploadVideo : uploadMultipart
+      uploadFile.status = UPLOAD_STATUS.UPLOADING
+      uploader(
+        uploadFile.file,
+        (p, m) => {
+          uploadFile.progress = p
+          uploadFile.progressMsg = m
+        },
+        onCancel,
+      )
+        .then(({ publicUrl, uploadName }) => {
+          uploadFile.status = UPLOAD_STATUS.DONE
+          uploadFile.url = uploadName
+          resolve(uploadFile)
+        })
+        .catch((err) => {
+          if (err instanceof CanceledError) {
+            return
+          }
+          uploadFile.status = UPLOAD_STATUS.FAIL
+          uploadFile.failMsg = err.message
+        })
+    })
+  }
 }
 
 function imageCompress(uploadFile) {

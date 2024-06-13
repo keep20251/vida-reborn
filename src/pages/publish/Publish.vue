@@ -162,7 +162,7 @@
 </template>
 
 <script setup>
-import { computed, ref, watch } from 'vue'
+import { computed, onDeactivated, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
@@ -191,9 +191,10 @@ import { toDateTimeString } from '@/utils/string-helper'
 const { t: $t } = useI18n()
 
 const publishStore = usePublishStore()
-const { uploadFiles, publishTimeOpen, isCreate, isUpdate, isVideo, isImage, isEditing, isUploading } =
+const { onFileInput, uploadFiles, publishTimeOpen, isCreate, isUpdate, isVideo, isImage, isEditing, isUploading } =
   storeToRefs(publishStore)
-const { publishParams, startUpload, clear, changeVideoFile, addImageFile, removeUploadFile } = publishStore
+const { publishParams, startUpload, clear, changeVideoFile, addImageFile, removeUploadFile, cancelUpload } =
+  publishStore
 
 const { alert, confirm } = useModalStore()
 
@@ -313,6 +314,12 @@ function onDelete() {
     cancelAction() {},
   })
 }
+
+function cancelEdit() {
+  cancelUpload()
+}
+
+onDeactivated(() => cancelEdit())
 
 function publish() {
   if (!validation()) return
