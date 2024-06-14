@@ -29,7 +29,7 @@
         </div>
         <div class="flex items-center space-x-10">
           <Icon :name="videoPlay ? 'pauseBtn' : 'playBtn'" size="12" class="cursor-pointer" @click.stop="togglePlay" />
-          <div class="grow select-none text-base text-white">
+          <div class="grow select-none font-mono text-sm text-white">
             {{ `${toVideoTimeFormat(videoCurrentTime)} / ${toVideoTimeFormat(videoDuration)}` }}
           </div>
           <Icon
