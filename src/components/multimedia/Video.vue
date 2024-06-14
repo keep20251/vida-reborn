@@ -3,7 +3,7 @@
     <div v-show="!videoPlay || isSwiping || showControl" class="absolute top-0 h-full w-full rounded-inherit">
       <div class="absolute bottom-0 w-full p-20">
         <div
-          class="relative h-24 w-full cursor-pointer"
+          class="relative h-27 w-full cursor-pointer"
           ref="timeBar"
           @touchstart.stop="onStart"
           @touchmove.stop="onMove"
@@ -27,8 +27,8 @@
             :style="{ transform: `translateX(${timeBarWidth * videoTimeRate}px)` }"
           ></div>
         </div>
-        <div class="flex items-center space-x-10">
-          <Icon :name="videoPlay ? 'pauseBtn' : 'playBtn'" size="12" class="cursor-pointer" @click.stop="togglePlay" />
+        <div class="flex items-center space-x-10 px-10">
+          <Icon :name="videoPlay ? 'pauseBtn' : 'playBtn'" size="16" class="cursor-pointer" @click.stop="togglePlay" />
           <div class="grow select-none font-mono text-sm text-white">
             {{ `${toVideoTimeFormat(videoCurrentTime)} / ${toVideoTimeFormat(videoDuration)}` }}
           </div>
@@ -95,6 +95,7 @@ const { isSwiping, onStart, onMove, onEnd } = useTimeBarSwipe(
   () => {
     const video = videoElement.value
     if (!video) return
+    openControl()
     if (videoPlay.value) {
       video.play()
     }
