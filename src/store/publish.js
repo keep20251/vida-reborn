@@ -302,6 +302,8 @@ export const usePublishStore = defineStore('publish', () => {
     fileList = null
 
     cnacelUploadFnList.length = 0
+
+    cancelUpload()
   }
 
   return {

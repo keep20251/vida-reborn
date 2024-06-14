@@ -1,7 +1,12 @@
 <template>
   <Page>
     <template #main-top>
-      <Head :title="$t('title.publish')" :feature-icon="isUpdate ? 'bin' : ''" @back="clear" @feature="onDelete"></Head>
+      <Head
+        :title="$t('title.publish')"
+        :feature-icon="isUpdate ? 'bin' : ''"
+        @back="handleClear"
+        @feature="onDelete"
+      ></Head>
     </template>
     <template #default>
       <div class="flex flex-col space-y-20 pb-30">
@@ -315,11 +320,10 @@ function onDelete() {
   })
 }
 
-function cancelEdit() {
-  cancelUpload()
+function handleClear() {
+  // TODO: add confirm dialog
+  clear()
 }
-
-onDeactivated(() => cancelEdit())
 
 function publish() {
   if (!validation()) return
