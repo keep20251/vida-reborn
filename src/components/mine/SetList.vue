@@ -42,7 +42,7 @@
         :class="{ 'font-bold': $route.name === 'mine-card' }"
         class="flex cursor-pointer items-center space-x-18"
       >
-        <Icon name="mineBuy" size="20"></Icon>
+        <Icon name="mineCard" size="20"></Icon>
         <span class="text-base">{{ $t('title.mineCard') }}</span>
       </router-link>
       <router-link
