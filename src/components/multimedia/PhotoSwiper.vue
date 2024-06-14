@@ -14,12 +14,13 @@
         cover
       ></EncryptImage>
     </div>
-    <div v-if="imgs.length > 1" class="absolute bottom-20 right-20 select-none text-base text-white">
-      {{ `${currIndex + 1}/${imgs.length}` }}
+    <div v-if="imgs.length > 1" class="absolute bottom-20 right-20 flex select-none space-x-5">
+      <Icon name="cameraWhite" size="20"></Icon>
+      <span class="text-base text-white">{{ `${currIndex + 1}/${imgs.length}` }}</span>
     </div>
-    <LockMask v-if="isLock" :item="item"></LockMask>
+    <LockMask v-if="isLock" :item="item" :meta="`${currIndex + 1}/${imgs.length}`"></LockMask>
     <div
-      v-if="isDesktop && imgs.length > 1"
+      v-if="isDesktop && imgs.length > 1 && currIndex >= 1"
       class="absolute left-0 top-0 flex h-full w-40 cursor-pointer items-center justify-end"
       @click.stop="prev()"
     >
@@ -28,7 +29,7 @@
       </div>
     </div>
     <div
-      v-if="isDesktop && imgs.length > 1"
+      v-if="isDesktop && imgs.length > 1 && currIndex < imgs.length - 1"
       class="absolute right-0 top-0 flex h-full w-40 cursor-pointer items-center justify-start"
       @click.stop="next()"
     >
