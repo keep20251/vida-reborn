@@ -22,7 +22,6 @@ function makeNewVideoElement() {
   videoElement._vida_count = count
   videoElement._vida_sign = SIGN
   videoElement.setAttribute('playsinline', true)
-  videoElement.setAttribute('controls', true)
   // 补充安卓playsinline的兼容
   videoElement.setAttribute('webkit-playsinline', true)
   videoElement.setAttribute('x5-playsinline', true)
@@ -80,23 +79,10 @@ export function get(
   videoElement.ontimeupdate = onTimeupdate
   videoElement.onerror = onError
 
-  __disableControls(videoElement)
-
   videoElement.load()
 
   // console.log(`video ${videoElement._vida_count} 被取用`, VIDEO_STORE.map((v) => v._vida_count).sort())
   return videoElement
-}
-
-/**
- * 禁用播放速度、下載、遠端播放 (only on Chrome)
- * 禁用右鍵、畫中畫
- * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/controlsList
- * */
-function __disableControls(videoElement) {
-  videoElement.controlsList = 'noplaybackrate nodownload noremoteplayback'
-  videoElement.disablePictureInPicture = true
-  videoElement.oncontextmenu = (e) => e.preventDefault()
 }
 
 export function release(videoElement) {

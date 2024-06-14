@@ -3,6 +3,7 @@ import { useEventListener } from '@vueuse/core'
 import { defineStore } from 'pinia'
 import useRequest from '@use/request'
 import { isMobile as checkMobile } from '@/utils/device'
+import { setMuted } from '@/utils/video-store'
 
 const DESKTOP = 'desktop'
 const MOBILE = 'mobile'
@@ -49,6 +50,13 @@ export const useAppStore = defineStore('app', () => {
     categories.value = [...data]
   }
 
+  // 視頻播放器靜音 switch 整個應用程式共用
+  const videoMuted = ref(true)
+  function toggleVideoMuted() {
+    videoMuted.value = !videoMuted.value
+    setMuted(videoMuted.value)
+  }
+
   return {
     isDesktop,
     isMobile,
@@ -63,5 +71,8 @@ export const useAppStore = defineStore('app', () => {
 
     allPayments: readonly(allPayments),
     syncAllPaymentConfig,
+
+    videoMuted: readonly(videoMuted),
+    toggleVideoMuted,
   }
 })
