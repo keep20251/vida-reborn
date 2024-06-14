@@ -74,6 +74,7 @@ export const usePublishStore = defineStore('publish', () => {
   //   url,                                 // from imageUpload
   // }
   const uploadFiles = ref([])
+  const noUploadFiles = computed(() => uploadFiles.value.length === 0)
 
   const onFileInput = ref(null)
 
@@ -311,6 +312,7 @@ export const usePublishStore = defineStore('publish', () => {
     startEditTimestamp: readonly(startEditTimestamp),
 
     uploadFiles,
+    noUploadFiles,
 
     publishParams,
     isCreate,
