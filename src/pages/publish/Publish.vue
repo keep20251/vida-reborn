@@ -167,7 +167,7 @@
 </template>
 
 <script setup>
-import { computed, onDeactivated, ref, watch } from 'vue'
+import { computed, onActivated, onBeforeMount, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
@@ -324,6 +324,13 @@ function handleClear() {
   // TODO: add confirm dialog
   clear()
 }
+
+const verifyIsAllowStateToActivePage = () => {
+  if (!isEditing.value) to('home')
+}
+
+onBeforeMount(verifyIsAllowStateToActivePage)
+onActivated(verifyIsAllowStateToActivePage)
 
 function publish() {
   if (!validation()) return
