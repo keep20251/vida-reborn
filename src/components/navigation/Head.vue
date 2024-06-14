@@ -15,16 +15,18 @@
 <script setup>
 import { useRouters } from '@use/routers'
 
-defineProps({
+const props = defineProps({
   title: { type: String },
   featureIcon: { type: String },
   divider: { type: Boolean, default: false },
+  preBackFn: { type: Function, default: undefined },
 })
 
 const emits = defineEmits(['back', 'feature'])
 
 const { back } = useRouters()
+const routeBack = () => back().then(() => emits('back'))
 function onBack() {
-  back().then(() => emits('back'))
+  props.preBackFn ? props.preBackFn().then(() => routeBack()) : routeBack()
 }
 </script>

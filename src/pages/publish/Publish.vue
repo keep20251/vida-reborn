@@ -4,6 +4,7 @@
       <Head
         :title="$t('title.publish')"
         :feature-icon="isUpdate ? 'bin' : ''"
+        :preBackFn="preClear"
         @back="handleClear"
         @feature="onDelete"
       ></Head>
@@ -320,8 +321,18 @@ function onDelete() {
   })
 }
 
+const preClear = () => {
+  return new Promise((resolve, reject) => {
+    confirm({
+      title: 'title.clear',
+      content: $t('content.clearContent'),
+      confirmAction: resolve,
+      cancelAction: reject,
+    })
+  })
+}
+
 function handleClear() {
-  // TODO: add confirm dialog
   clear()
 }
 
