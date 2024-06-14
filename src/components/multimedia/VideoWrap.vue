@@ -1,6 +1,12 @@
 <template>
   <div class="flex h-full items-center justify-center rounded-inherit" @click.stop>
-    <LockMask v-if="showLockMask" :item="item" show-image @replay="playEnd = false"></LockMask>
+    <LockMask
+      v-if="showLockMask"
+      :item="item"
+      :meta="toVideoTimeFormat(item.url[0]?.video_time || 0)"
+      show-image
+      @replay="playEnd = false"
+    ></LockMask>
     <Video
       v-else
       ref="video"
@@ -18,6 +24,7 @@ import { computed, ref } from 'vue'
 import LockMask from '@comp/multimedia/LockMask.vue'
 import Video from '@comp/multimedia/Video.vue'
 import { useStat } from '@use/utils/stat'
+import { toVideoTimeFormat } from '@/utils/string-helper'
 
 const props = defineProps({
   item: { type: Object, required: true },

@@ -13,6 +13,7 @@ export const iconMap = {
   mineAddOutline: { path: 'mine/add-outline' },
   minePost: { path: 'mine/post' },
   mineEarn: { path: 'mine/earn' },
+  mineCard: { path: 'mine/credit-card' },
   mineBuy: { path: 'mine/buy' },
   mineCollect: { path: 'mine/collect' },
   mineBeCreator: { path: 'mine/be-creator' },
@@ -74,6 +75,10 @@ export const iconMap = {
   questionOutline: { path: 'function/question-outline' },
   ellipse: { path: 'function/ellipse' },
   info: { path: 'function/info' },
+  playBtn: { path: 'function/play-btn' },
+  pauseBtn: { path: 'function/pause-btn' },
+  volume: { path: 'function/volume' },
+  mute: { path: 'function/mute' },
 
   comment: { path: 'interaction/comment' },
   likeOutline: { path: 'interaction/like-outline', preload: true },

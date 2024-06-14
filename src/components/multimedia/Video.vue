@@ -1,10 +1,57 @@
 <template>
-  <div ref="videoWrap" class="h-full w-full overflow-hidden"></div>
+  <div ref="videoWrap" class="relative h-full w-full overflow-hidden rounded-inherit" @mousemove="openControl">
+    <div v-show="!videoPlay || isSwiping || showControl" class="absolute top-0 h-full w-full rounded-inherit">
+      <div class="absolute bottom-0 w-full p-20">
+        <div
+          class="relative h-27 w-full cursor-pointer"
+          ref="timeBar"
+          @touchstart.stop="onStart"
+          @touchmove.stop="onMove"
+          @touchend.stop="onEnd"
+          @mousedown.stop="onStart"
+          @mousemove.stop="onMove"
+          @mouseup.stop="onEnd"
+        >
+          <div
+            class="absolute top-16 h-2 w-full rounded-full"
+            :style="{
+              backgroundImage: `linear-gradient(
+                                  to right,
+                                  #7FE2D3 ${videoTimeRate * 100}%,
+                                  rgba(217,217,217,0.5) ${videoTimeRate * 100}%
+                                )`,
+            }"
+          ></div>
+          <div
+            class="absolute top-15 h-4 w-2 rounded-[1px] bg-gray-f6 will-change-transform"
+            :style="{ transform: `translateX(${timeBarWidth * videoTimeRate}px)` }"
+          ></div>
+        </div>
+        <div class="flex items-center space-x-10 px-10">
+          <Icon :name="videoPlay ? 'pauseBtn' : 'playBtn'" size="16" class="cursor-pointer" @click.stop="togglePlay" />
+          <div class="grow select-none font-mono text-sm text-white">
+            {{ `${toVideoTimeFormat(videoCurrentTime)} / ${toVideoTimeFormat(videoDuration)}` }}
+          </div>
+          <Icon
+            :name="videoMuted ? 'mute' : 'volume'"
+            size="16"
+            class="cursor-pointer"
+            @click.stop="toggleVideoMuted"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup>
 import { onActivated, onBeforeUnmount, onDeactivated, onMounted, ref } from 'vue'
+import { useElementSize } from '@vueuse/core'
+import { storeToRefs } from 'pinia'
+import { useAppStore } from '@/store/app'
+import { useTimeBarSwipe } from '@use/gesture/timeBarSwipe'
 import lazyloader from '@/utils/lazyloader'
+import { toVideoTimeFormat } from '@/utils/string-helper'
 // import { add, remove } from '@/utils/video-autoplay-controller'
 import { get, release } from '@/utils/video-store'
 
@@ -16,13 +63,68 @@ const props = defineProps({
 
 const emits = defineEmits(['play', 'ended', 'timeupdate'])
 
+const appStore = useAppStore()
+const { videoMuted } = storeToRefs(appStore)
+const { toggleVideoMuted } = appStore
+
 const videoWrap = ref(null)
 const videoElement = ref(null)
 const videoCurrentTime = ref(0)
+const videoDuration = ref(0)
+const videoTimeRate = ref(0)
+const videoPlay = ref(false)
 const isLoading = ref(true)
 // const isWaiting = ref(false)
 const errMsg = ref('')
 
+const timeBar = ref(null)
+const { width: timeBarWidth } = useElementSize(timeBar)
+const { isSwiping, onStart, onMove, onEnd } = useTimeBarSwipe(
+  timeBar,
+  (newRate) => {
+    const video = videoElement.value
+    if (!video) return
+    if (newRate === null) {
+      video.currentTime = videoDuration.value * videoTimeRate.value
+    } else {
+      video.pause()
+      videoTimeRate.value = newRate
+      video.currentTime = videoDuration.value * newRate
+    }
+  },
+  () => {
+    const video = videoElement.value
+    if (!video) return
+    openControl()
+    if (videoPlay.value) {
+      video.play()
+    }
+  },
+)
+
+function togglePlay() {
+  const video = videoElement.value
+  if (!video || togglePlay.playPromise) return
+  if (videoPlay.value) {
+    video.pause()
+    videoPlay.value = false
+  } else {
+    const promise = video.play()
+    if (promise) {
+      togglePlay.playPromise = promise
+      promise.then(() => (videoPlay.value = true)).finally(() => delete togglePlay.playPromise)
+    } else {
+      videoPlay.value = true
+    }
+  }
+}
+
+const showControl = ref(false)
+function openControl() {
+  clearTimeout(openControl.timerId)
+  showControl.value = true
+  openControl.timerId = setTimeout(() => (showControl.value = false), 3000)
+}
 // 自動播放相關配置
 // let videoAutoplayController
 // let autoPlayEnable = true
@@ -57,6 +159,8 @@ function setupVideo() {
       onTimeupdate: () => {
         videoCurrentTime.value = videoElement.value?.currentTime || 0
 
+        videoTimeRate.value = videoDuration.value === 0 ? 0 : videoCurrentTime.value / videoDuration.value
+
         emits('timeupdate', videoCurrentTime.value)
 
         // 尼瑪 der 視頻會出現播放完畢當下 currentTime 比 duration 還小的情況
@@ -69,7 +173,10 @@ function setupVideo() {
       },
       isPreview: props.preview,
     })
-    videoWrap.value.appendChild(videoElement.value)
+    videoWrap.value.prepend(videoElement.value)
+
+    // 視頻時長更新回呼
+    videoElement.value.ondurationchange = () => (videoDuration.value = videoElement.value?.duration || 0)
 
     // videoAutoplayController = new IntersectionObserver(
     //   (entries) => {
@@ -99,6 +206,12 @@ function releaseVideo() {
   //   videoAutoplayController.unobserve(videoWrap.value)
   //   videoAutoplayController.disconnect()
   // }
+
+  // 清掉客製掛上去的視頻時長更新回呼
+  videoElement.value.ondurationchange = undefined
+
+  // 紀錄當前播放到的時間，下次回來直接從此處開始播
+  videoCurrentTime.value = videoElement.value.currentTime
 
   release(videoElement.value)
   videoElement.value = null

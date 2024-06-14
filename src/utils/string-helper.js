@@ -32,6 +32,9 @@ export const toFixedString = (number, fixed) => {
   return number.toFixed(fixed)
 }
 
+export const toVideoTimeFormat = (number) =>
+  `${String(Math.floor(number / 60)).padStart(2, '0')}:${String(Math.floor(number % 60)).padStart(2, '0')}`
+
 export const repairZero = (number) => {
   number = number || 0
   return number < 10 ? '0' + number : number

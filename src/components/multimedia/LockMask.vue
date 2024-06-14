@@ -4,7 +4,7 @@
     <div class="absolute top-0 h-full w-full rounded-inherit bg-[rgba(0,0,0,0.5)] backdrop-blur">
       <div class="absolute bottom-20 right-20 flex space-x-5">
         <Icon v-if="icon" :name="icon" size="20"></Icon>
-        <span class="text-base text-white">{{ count }}</span>
+        <span v-if="meta" class="text-base text-white">{{ meta }}</span>
       </div>
     </div>
     <div class="absolute top-0 flex h-full w-full flex-col items-center justify-center space-y-18 rounded-inherit">
@@ -32,6 +32,7 @@ import { FEED_PERM, MEDIA_TYPE } from '@const/publish'
 const props = defineProps({
   item: { type: Object, required: true },
   showImage: { type: Boolean, default: false },
+  meta: { type: String },
 })
 
 defineEmits(['replay'])
@@ -44,15 +45,6 @@ const url = computed(() => {
   }
   if (isImage.value) {
     return props.item.url[0]?.url
-  }
-  return ''
-})
-const count = computed(() => {
-  if (isVideo.value) {
-    return 1
-  }
-  if (isImage.value) {
-    return props.item.url.length
   }
   return ''
 })
