@@ -101,6 +101,7 @@ export default {
     beCreatorFirst: 'Por favor, torne-se um criador antes de postar!',
     officeEmail: 'E-mail oficial',
     mineCard: 'Gerenciar cartões',
+    cancelUpload: 'Cancelar upload',
   },
   label: {
     account: 'Nome de usuário',
@@ -130,9 +131,9 @@ export default {
     scheduledRelease: 'Lançamento regular',
     overallPerf: 'Desempenho geral',
     postPerf: 'Desempenho do post',
-    texn: 'Transações',
+    texn: 'Fatura',
     subs: 'Assinaturas',
-    artPur: 'Artigo comprado',
+    artPur: 'Comprado',
     purItems: 'Itens comprados',
     orderNumber: 'Número do pedido',
     cardNumber: 'Número do cartão',
@@ -356,6 +357,7 @@ export default {
     tapForUpload: 'Toque aqui para fazer upload de uma foto ou vídeo',
     afterUpload: 'Após selecionar um arquivo, prossiga para a próxima etapa para editar o conteúdo da postagem',
     createSubBeforePost: 'Antes de postar, complete primeiro o seu plano de assinatura!',
+    cancelUpload: 'O arquivo está sendo carregado. Tem certeza de que deseja cancelar?',
   },
   month: {
     Jan: 'Janeiro',
@@ -532,7 +534,7 @@ export default {
       confirm: "{'$'}{price} por mês Vá para pagar",
     },
     shopBuy: {
-      1: 'Irá desbloquear o conteúdo deste trabalho de {nickname}',
+      1: 'Irá desbloquear o conteúdo de {nickname} neste trabalho',
       2: '{nickname}receberá seu pagamento integralmente',
       confirm: "Desbloqueie agora ({'$'}{price})",
     },
@@ -733,6 +735,12 @@ export default {
       aup: 'Acceptable Use Policy',
       cookiePolicy: 'Cookie Policy',
       complaintsPolicy: 'Complaints Policy',
+    },
+  },
+  cancel: {
+    publish: {
+      title: 'Cancelar publicação',
+      content: 'Se você sair agora, perderá todo o conteúdo atual. Tem certeza de que deseja sair?',
     },
   },
 }

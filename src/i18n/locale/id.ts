@@ -101,6 +101,7 @@ export default {
     beCreatorFirst: 'Harap menjadi kreator terlebih dahulu sebelum memposting!',
     officeEmail: 'Email resmi',
     mineCard: 'Kelola Kartu',
+    cancelUpload: 'Batalkan pengunggahan',
   },
   label: {
     account: 'Nama pengguna',
@@ -130,9 +131,9 @@ export default {
     scheduledRelease: 'Rilis terjadwal',
     overallPerf: 'Kinerja keseluruhan',
     postPerf: 'Kinerja posting',
-    texn: 'Transaksi',
+    texn: 'Tagihan',
     subs: 'Langganan',
-    artPur: 'Barang yang dibeli',
+    artPur: 'Dibeli',
     purItems: 'Item yang dibeli',
     orderNumber: 'Nomor pesanan',
     cardNumber: 'Nomor kartu',
@@ -356,6 +357,7 @@ export default {
     tapForUpload: 'Klik di sini untuk mengunggah foto atau video',
     afterUpload: 'Setelah memilih file, lanjutkan ke langkah berikutnya untuk mengedit konten postingan',
     createSubBeforePost: 'Sebelum memposting, selesaikan dulu rencana langganan Anda!',
+    cancelUpload: 'File sedang diunggah. Anda yakin ingin membatalkan?',
   },
   month: {
     Jan: 'Januari',
@@ -530,13 +532,13 @@ export default {
       confirm: "{'$'}{price} per bulan Buka Bayar",
     },
     shopBuy: {
-      1: 'Akan membuka kunci konten {nickname} pada karya ini',
+      1: 'Akan membuka kunci konten {nickname} dalam karya ini',
       2: '{nickname}akan menerima pembayaran Anda secara penuh',
       confirm: "Buka kunci sekarang ({'$'}{price})",
     },
     subscribeSuc: {
       1: 'menakjubkan! Berhasil berlangganan {nickname}!',
-      2: 'Pilih untuk membuka beranda pembuat konten, atau tetap berada di layar asli dan jelajahi!',
+      2: 'Pilih untuk membuka beranda pembuat konten, atau tetap berada di layar asli dan menjelajah!',
       confirm: 'Buka halaman pembuat',
     },
     shopBuySuc: {
@@ -725,6 +727,12 @@ export default {
       aup: 'Acceptable Use Policy',
       cookiePolicy: 'Cookie Policy',
       complaintsPolicy: 'Complaints Policy',
+    },
+  },
+  cancel: {
+    publish: {
+      title: 'Batalkan penerbitan',
+      content: 'Jika Anda keluar sekarang, Anda akan kehilangan semua konten saat ini. Anda yakin ingin keluar?',
     },
   },
 }

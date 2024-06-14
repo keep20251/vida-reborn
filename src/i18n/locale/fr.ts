@@ -101,6 +101,7 @@ export default {
     beCreatorFirst: "Veuillez d'abord devenir créateur avant de publier !",
     officeEmail: 'Courriel officiel',
     mineCard: 'Gérer les cartes',
+    cancelUpload: 'Annuler le téléchargement',
   },
   label: {
     account: 'Nom d’utilisateur',
@@ -130,9 +131,9 @@ export default {
     scheduledRelease: 'Publication régulière',
     overallPerf: 'Performance globale',
     postPerf: 'Performance de la publication',
-    texn: 'Transactions',
+    texn: 'Facture',
     subs: 'Abonnements',
-    artPur: 'Article acheté',
+    artPur: 'Acheté',
     purItems: 'Articles achetés',
     orderNumber: 'Numéro de commande',
     cardNumber: 'Numéro de carte',
@@ -357,6 +358,7 @@ export default {
     afterUpload:
       "Après avoir sélectionné un fichier, passez à l'étape suivante pour éditer le contenu de la publication",
     createSubBeforePost: "Avant de publier, complétez d'abord votre plan d'abonnement !",
+    cancelUpload: 'Le fichier est en cours de téléchargement. Êtes-vous sûr de vouloir annuler ?',
   },
   month: {
     Jan: 'Janvier',
@@ -526,14 +528,14 @@ export default {
   },
   modal: {
     subscribe: {
-      1: 'Accès complet à toutes les œuvres des {days} passés',
+      1: 'Accès complet à toutes les œuvres des derniers {days}',
       2: "Possibilité d'envoyer des messages directement aux créateurs",
       3: 'Une interaction plus étroite',
       4: 'Vous pouvez annuler votre abonnement à tout moment',
       confirm: "{'$'}{price} par mois Aller au paiement",
     },
     shopBuy: {
-      1: 'Déverrouillera le contenu de cette œuvre de {nickname}',
+      1: 'Déverrouillera le contenu de {nickname} dans ce travail',
       2: '{nickname} recevra votre paiement dans son intégralité',
       confirm: "Débloquez maintenant ({'$'}{price})",
     },
@@ -734,6 +736,12 @@ export default {
       aup: 'Acceptable Use Policy',
       cookiePolicy: 'Cookie Policy',
       complaintsPolicy: 'Complaints Policy',
+    },
+  },
+  cancel: {
+    publish: {
+      title: 'Annuler la publication',
+      content: 'Si vous partez maintenant, vous perdrez tout le contenu actuel. Êtes-vous sûr de vouloir partir ?',
     },
   },
 }

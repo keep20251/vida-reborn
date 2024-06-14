@@ -96,6 +96,7 @@ export default {
     beCreatorFirst: '投稿する前にまずクリエーターになりましょう！',
     officeEmail: '公式メール',
     mineCard: 'カードを管理する',
+    cancelUpload: 'アップロードをキャンセルする',
   },
   label: {
     account: 'ユーザー名',
@@ -125,9 +126,9 @@ export default {
     scheduledRelease: '定期リリース',
     overallPerf: '全体的なパフォーマンス',
     postPerf: '投稿のパフォーマンス',
-    texn: 'トランザクション',
+    texn: '請求書',
     subs: 'サブスクリプション',
-    artPur: '購入した記事',
+    artPur: '購入済みの投稿',
     purItems: '購入したアイテム',
     orderNumber: '注文番号',
     cardNumber: 'カード番号',
@@ -189,7 +190,7 @@ export default {
     error: {
       subscribeSelf: '自分自身を購読できません',
       shopBuySelf: '自分の商品が買えない',
-      subscriptionNotFound: '利用可能なサブスクリプションプランはありません',
+      subscriptionNotFound: '利用可能なサブスクリプション プランはありません',
     },
     sending: '送信',
     failure: '失敗した',
@@ -350,6 +351,7 @@ export default {
     tapForUpload: 'ここをタップして写真または動画をアップロード',
     afterUpload: 'ファイルを選択した後、次のステップに進んで投稿内容を編集します',
     createSubBeforePost: '投稿する前に、まずはあなたの定額購入プランを完成させましょう！',
+    cancelUpload: 'ファイルがアップロード中です。キャンセルしますか？',
   },
   month: {
     Jan: '1月',
@@ -525,13 +527,13 @@ export default {
       confirm: "月額 {'$'}{price} 支払いに進む",
     },
     shopBuy: {
-      1: '{nickname} のこの作品のコンテンツのロックを解除します',
+      1: 'この作品では {nickname} のコンテンツがアンロックされます',
       2: '{nickname}はあなたの支払いを全額受け取ります',
       confirm: "今すぐロックを解除します ({'$'}{price})",
     },
     subscribeSuc: {
       1: '素晴らしい！ {nickname} に正常に登録されました。',
-      2: '作成者のホームページに移動するか、元の画面に留まって閲覧するかを選択してください。',
+      2: 'クリエイターのホームページに移動するか、元の画面に留まって閲覧するかを選択してください。',
       confirm: 'クリエイターページへ行く',
     },
     shopBuySuc: {
@@ -723,6 +725,12 @@ export default {
       aup: 'Acceptable Use Policy',
       cookiePolicy: 'Cookie Policy',
       complaintsPolicy: 'Complaints Policy',
+    },
+  },
+  cancel: {
+    publish: {
+      title: '公開をキャンセルする',
+      content: '今離れると、現在のすべてのコンテンツが失われます。本当に離れますか？',
     },
   },
 }

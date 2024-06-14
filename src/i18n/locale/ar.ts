@@ -96,6 +96,7 @@ export default {
     beCreatorFirst: 'من فضلك كن منشئًا أولاً قبل النشر!',
     officeEmail: 'البريد الإلكتروني الرسمي',
     mineCard: 'إدارة البطاقات',
+    cancelUpload: 'إلغاء التحميل',
   },
   label: {
     account: 'اسم المستخدم',
@@ -125,9 +126,9 @@ export default {
     scheduledRelease: 'الإصدار بانتظام',
     overallPerf: 'الأداء العام',
     postPerf: 'أداء المنشور',
-    texn: 'المعاملات',
+    texn: 'فاتورة',
     subs: 'الاشتراكات',
-    artPur: 'المقال المشترى',
+    artPur: 'تم شراؤها',
     purItems: 'العناصر المشتراة',
     orderNumber: 'رقم الطلب',
     cardNumber: 'رقم البطاقة',
@@ -348,6 +349,7 @@ export default {
     tapForUpload: 'انقر هنا لتحميل صورة أو فيديو',
     afterUpload: 'بعد اختيار ملف، انتقل إلى الخطوة التالية لتحرير محتوى المنشور',
     createSubBeforePost: 'قبل النشر، قم أولاً بإكمال خطة الاشتراك الخاصة بك!',
+    cancelUpload: 'الملف يتم تحميله. هل أنت متأكد من أنك تريد الإلغاء؟',
   },
   month: {
     Jan: 'يناير',
@@ -521,7 +523,7 @@ export default {
       confirm: "{'$'}{price} شهريًا انتقل إلى الدفع",
     },
     shopBuy: {
-      1: 'سيتم فتح محتوى {nickname} لهذا العمل',
+      1: 'سيتم فتح محتوى {nickname} في هذا العمل',
       2: '{nickname}سوف يتلقى دفعتك بالكامل',
       confirm: "فتح القفل الآن ({'$'}{price})",
     },
@@ -710,6 +712,12 @@ export default {
       aup: 'Acceptable Use Policy',
       cookiePolicy: 'Cookie Policy',
       complaintsPolicy: 'Complaints Policy',
+    },
+  },
+  cancel: {
+    publish: {
+      title: 'إلغاء النشر',
+      content: 'إذا غادرت الآن، ستفقد جميع المحتويات الحالية. هل أنت متأكد أنك تريد المغادرة؟',
     },
   },
 }

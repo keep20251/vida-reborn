@@ -101,6 +101,7 @@ export default {
     beCreatorFirst: 'Hãy trở thành người sáng tạo trước khi đăng bài!',
     officeEmail: 'Email chính thức',
     mineCard: 'Quản lý thẻ',
+    cancelUpload: 'Hủy tải lên',
   },
   label: {
     account: 'Tên người dùng',
@@ -130,9 +131,9 @@ export default {
     scheduledRelease: 'Phát hành định kỳ',
     overallPerf: 'Hiệu suất chung',
     postPerf: 'Hiệu suất bài đăng',
-    texn: 'Giao dịch',
+    texn: 'Hóa đơn',
     subs: 'Đăng ký',
-    artPur: 'Bài viết đã mua',
+    artPur: 'Đã mua',
     purItems: 'Mặt hàng đã mua',
     orderNumber: 'Số đơn hàng',
     cardNumber: 'Số thẻ',
@@ -192,7 +193,7 @@ export default {
   message: {
     payment: { failed: 'Thanh toán thất bại', success: 'Thanh toán thành công', cancel: 'Thanh toán đã hủy' },
     error: {
-      subscribeSelf: 'Không thể đăng ký cho chính mình',
+      subscribeSelf: 'Không thể đăng ký cho chính tôi',
       shopBuySelf: 'Không thể mua sản phẩm của riêng bạn',
       subscriptionNotFound: 'Không có gói đăng ký nào',
     },
@@ -355,6 +356,7 @@ export default {
     tapForUpload: 'Nhấn vào đây để tải ảnh hoặc video lên',
     afterUpload: 'Sau khi chọn tệp, tiếp tục sang bước tiếp theo để chỉnh sửa nội dung bài viết',
     createSubBeforePost: 'Trước khi đăng bài, hãy hoàn thành kế hoạch đăng ký của bạn trước!',
+    cancelUpload: 'Tệp đang được tải lên. Bạn có chắc chắn muốn hủy không?',
   },
   month: {
     Jan: 'Tháng Một',
@@ -529,7 +531,7 @@ export default {
       confirm: "{'$'}{price} mỗi tháng Chuyển đến phần Thanh toán",
     },
     shopBuy: {
-      1: 'Sẽ mở khóa nội dung của tác phẩm này của {nickname}',
+      1: 'Sẽ mở khóa nội dung của {nickname} trong tác phẩm này',
       2: '{nickname}sẽ nhận được đầy đủ khoản thanh toán của bạn',
       confirm: "Mở khóa ngay ({'$'}{price})",
     },
@@ -540,7 +542,7 @@ export default {
     },
     shopBuySuc: {
       1: 'tuyệt vời! Đã thanh toán thành công để mở khóa bài đăng',
-      2: 'Chọn vào bài viết để xem, hoặc ở lại màn hình gốc để duyệt!',
+      2: 'Chọn vào bài viết để xem, hoặc ở lại màn hình gốc để duyệt nhé!',
       confirm: 'Đi tới bài đăng',
     },
     title: { paySuc: 'Thanh toán được thực hiện thành công' },
@@ -724,6 +726,12 @@ export default {
       aup: 'Acceptable Use Policy',
       cookiePolicy: 'Cookie Policy',
       complaintsPolicy: 'Complaints Policy',
+    },
+  },
+  cancel: {
+    publish: {
+      title: 'Hủy bỏ công bố',
+      content: 'Nếu bạn rời đi bây giờ, bạn sẽ mất tất cả nội dung hiện tại. Bạn có chắc chắn muốn rời đi không?',
     },
   },
 }

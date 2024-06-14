@@ -96,6 +96,7 @@ export default {
     beCreatorFirst: 'कृपया पोस्ट करने से पहले एक निर्माता बनें!',
     officeEmail: 'आधिकारिक ईमेल',
     mineCard: 'कार्ड प्रबंधन',
+    cancelUpload: 'अपलोड रद्द करें',
   },
   label: {
     account: 'उपयोगकर्ता नाम',
@@ -125,9 +126,9 @@ export default {
     scheduledRelease: 'नियमित रूप से जारी करें',
     overallPerf: 'समग्र प्रदर्शन',
     postPerf: 'पोस्ट का प्रदर्शन',
-    texn: 'लेन-देन',
+    texn: 'बिल',
     subs: 'सदस्यताएँ',
-    artPur: 'खरीदा गया लेख',
+    artPur: 'खरीदा हुआ',
     purItems: 'खरीदी गई वस्तुएँ',
     orderNumber: 'ऑर्डर नंबर',
     cardNumber: 'कार्ड नंबर',
@@ -349,6 +350,7 @@ export default {
     tapForUpload: 'फोटो या वीडियो अपलोड करने के लिए यहां टैप करें',
     afterUpload: 'फाइल चुनने के बाद, पोस्ट कंटेंट एडिट करने के लिए अगले चरण में जाएं',
     createSubBeforePost: 'पोस्टिंग से पहले, अपनी सदस्यता योजना पहले पूरी करें!',
+    cancelUpload: 'फाइल अपलोड हो रही है। क्या आप निश्चित रूप से रद्द करना चाहते हैं?',
   },
   month: {
     Jan: 'जनवरी',
@@ -510,7 +512,7 @@ export default {
       confirm: "{'$'}{price} प्रति माह भुगतान पर जाएं",
     },
     shopBuy: {
-      1: 'इस कार्य की सामग्री को अनलॉक कर देंगे',
+      1: 'इस कार्य में {nickname} की सामग्री को अनलॉक करेगा',
       2: '{nickname}आपका पूरा भुगतान प्राप्त होगा',
       confirm: "अभी अनलॉक करें ({'$'}{price})",
     },
@@ -682,6 +684,12 @@ export default {
       aup: 'Acceptable Use Policy',
       cookiePolicy: 'Cookie Policy',
       complaintsPolicy: 'Complaints Policy',
+    },
+  },
+  cancel: {
+    publish: {
+      title: 'प्रकाशन रद्द करें',
+      content: 'अगर आप अभी छोड़ते हैं, तो आप सभी वर्तमान सामग्री खो देंगे। क्या आप सच में छोड़ना चाहते हैं?',
     },
   },
 }

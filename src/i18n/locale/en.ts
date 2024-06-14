@@ -101,6 +101,7 @@ export default {
     beCreatorFirst: 'Please become a creator first before posting!',
     officeEmail: 'Official email',
     mineCard: 'Manage Cards',
+    cancelUpload: 'Cancel Upload',
   },
   label: {
     account: 'Username',
@@ -130,9 +131,9 @@ export default {
     scheduledRelease: 'Release regularly',
     overallPerf: 'Overall performance',
     postPerf: 'Post performance',
-    texn: 'Transactions',
+    texn: 'Bill',
     subs: 'Subscriptions',
-    artPur: 'Article purchased',
+    artPur: 'Purchased',
     purItems: 'Purchase items',
     orderNumber: 'Order number',
     cardNumber: 'Card number',
@@ -355,6 +356,7 @@ export default {
     tapForUpload: 'Tap here to upload a photo or video',
     afterUpload: 'After selecting a file, proceed to the next step to edit the post content',
     createSubBeforePost: 'Before posting, first complete your subscription plan!',
+    cancelUpload: 'The file is uploading. Are you sure you want to cancel?',
   },
   month: {
     Jan: 'January',
@@ -529,13 +531,13 @@ export default {
       confirm: "{'$'}{price} per month Go to Pay",
     },
     shopBuy: {
-      1: "Will unlock {nickname}'s content of this work",
+      1: 'Will unlock the content of {nickname} in this work',
       2: '{nickname}will receive your payment in full',
       confirm: "Unlock now ({'$'}{price})",
     },
     subscribeSuc: {
       1: 'marvelous! Successfully subscribed to {nickname}!',
-      2: "Choose to go to the creator's homepage, or stay on the original screen and browse!",
+      2: 'Choose to go to the creator’s homepage, or stay on the original screen and browse!',
       confirm: 'Go to creator page',
     },
     shopBuySuc: {
@@ -724,6 +726,12 @@ export default {
       aup: 'Acceptable Use Policy',
       cookiePolicy: 'Cookie Policy',
       complaintsPolicy: 'Complaints Policy',
+    },
+  },
+  cancel: {
+    publish: {
+      title: 'Cancel Publication',
+      content: 'If you leave now, you will lose all current content. Are you sure you want to leave?',
     },
   },
 }

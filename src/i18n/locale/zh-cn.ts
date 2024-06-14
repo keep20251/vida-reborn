@@ -96,6 +96,7 @@ export default {
     beCreatorFirst: '请先成为创作者后再来发布文章吧！',
     officeEmail: '官方邮箱',
     mineCard: '卡片管理',
+    cancelUpload: '取消上传',
   },
   label: {
     account: '用户名',
@@ -125,7 +126,7 @@ export default {
     scheduledRelease: '定时发布',
     overallPerf: '整体表现',
     postPerf: '帖子表现',
-    texn: '交易',
+    texn: '账单',
     subs: '订阅',
     artPur: '已购买帖子',
     purItems: '购买项目',
@@ -340,6 +341,7 @@ export default {
     tapForUpload: '点击这里上传图片或视频',
     afterUpload: '选择文件后，进入下一步编辑帖子内容',
     createSubBeforePost: '发布帖子之前，先来完成属于你的订阅计划吧！',
+    cancelUpload: '文件正在上传，确定取消吗？',
   },
   month: {
     Jan: '一月',
@@ -696,4 +698,5 @@ export default {
       complaintsPolicy: 'Complaints Policy',
     },
   },
+  cancel: { publish: { title: '取消发布', content: '离开后失去当前所有内容，确定要离开吗？' } },
 }

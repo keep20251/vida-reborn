@@ -96,6 +96,7 @@ export default {
     beCreatorFirst: '게시하기 전에 먼저 창작자가 되세요!',
     officeEmail: '공식 이메일',
     mineCard: '카드 관리',
+    cancelUpload: '업로드 취소',
   },
   label: {
     account: '사용자 이름',
@@ -125,9 +126,9 @@ export default {
     scheduledRelease: '정기적으로 출시',
     overallPerf: '전체 성능',
     postPerf: '포스트 성능',
-    texn: '거래',
+    texn: '청구서',
     subs: '구독',
-    artPur: '구매한 글',
+    artPur: '구매한 게시물',
     purItems: '구매 항목',
     orderNumber: '주문 번호',
     cardNumber: '카드 번호',
@@ -349,6 +350,7 @@ export default {
     tapForUpload: '여기를 탭하여 사진 또는 비디오 업로드',
     afterUpload: '파일을 선택한 후, 다음 단계로 넘어가 게시물 내용을 편집하세요',
     createSubBeforePost: '게시하기 전에 먼저 구독 계획을 완성하세요!',
+    cancelUpload: '파일이 업로드 중입니다. 취소하시겠습니까?',
   },
   month: {
     Jan: '1월',
@@ -522,7 +524,7 @@ export default {
       confirm: "월별 {'$'}{price} 결제로 이동",
     },
     shopBuy: {
-      1: '이 작품의 {nickname} 콘텐츠를 잠금 해제합니다',
+      1: '이 작품에서 {nickname}의 콘텐츠가 잠금 해제됩니다.',
       2: '{nickname}결제 금액 전액을 받게 됩니다.',
       confirm: "지금 잠금 해제하세요({'$'}{price})",
     },
@@ -716,4 +718,5 @@ export default {
       complaintsPolicy: 'Complaints Policy',
     },
   },
+  cancel: { publish: { title: '발행 취소', content: '지금 나가면 현재의 모든 내용을 잃게 됩니다. 나가시겠습니까?' } },
 }

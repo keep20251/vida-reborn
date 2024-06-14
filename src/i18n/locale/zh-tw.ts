@@ -96,6 +96,7 @@ export default {
     beCreatorFirst: '請先成為創作者後再來發布文章吧！',
     officeEmail: '官方信箱',
     mineCard: '卡片管理',
+    cancelUpload: '取消上傳',
   },
   label: {
     account: '用戶名',
@@ -125,7 +126,7 @@ export default {
     scheduledRelease: '定時發布',
     overallPerf: '整體表現',
     postPerf: '貼文表現',
-    texn: '交易',
+    texn: '帳單',
     subs: '訂閱',
     artPur: '已購買貼文',
     purItems: '購買項目',
@@ -340,6 +341,7 @@ export default {
     tapForUpload: '點擊這裡上傳圖片或影片',
     afterUpload: '選擇檔案後，進入下一步編輯貼文內容',
     createSubBeforePost: '發布貼文之前，先來完成屬於你的訂閱計畫吧！',
+    cancelUpload: '檔案正在上傳，確定取消嗎？',
   },
   month: {
     Jan: '一月',
@@ -696,4 +698,5 @@ export default {
       complaintsPolicy: 'Complaints Policy',
     },
   },
+  cancel: { publish: { title: '取消發佈', content: '離開後失去當前所有內容，確定要離開嗎？' } },
 }

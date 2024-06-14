@@ -101,6 +101,7 @@ export default {
     beCreatorFirst: 'Bitte werden Sie zuerst ein Creator, bevor Sie posten!',
     officeEmail: 'Offizielle E-Mail',
     mineCard: 'Karten verwalten',
+    cancelUpload: 'Upload abbrechen',
   },
   label: {
     account: 'Benutzername',
@@ -130,9 +131,9 @@ export default {
     scheduledRelease: 'Regelmäßige Veröffentlichung',
     overallPerf: 'Gesamtleistung',
     postPerf: 'Leistung des Beitrags',
-    texn: 'Transaktionen',
+    texn: 'Rechnung',
     subs: 'Abonnements',
-    artPur: 'Gekaufter Artikel',
+    artPur: 'Gekauft',
     purItems: 'Gekaufte Artikel',
     orderNumber: 'Bestellnummer',
     cardNumber: 'Kartennummer',
@@ -327,7 +328,7 @@ export default {
     customStyle: 'Benutzerdefinierter Stil',
     subUnlockDayAfter: 'Erlaubt das Entsperren die letzten Tage seit dem Kauf?',
     tokenExpired: 'Die Anmeldesitzung ist abgelaufen. Bitte melden Sie sich erneut an.',
-    clearSearchHistory: 'Möchten Sie Ihren Suchverlauf wirklich löschen?',
+    clearSearchHistory: 'Sind Sie sicher, dass Sie Ihren Suchverlauf löschen möchten?',
     uploadVideoLimit: {
       format:
         'Das aktuell hochgeladene Videoformat ({format}) wird nicht unterstützt. Bitte konvertieren Sie es in das MP4- oder MOV-Format und versuchen Sie es erneut.',
@@ -357,6 +358,7 @@ export default {
     afterUpload:
       'Nachdem Sie eine Datei ausgewählt haben, gehen Sie zum nächsten Schritt, um den Beitrag zu bearbeiten',
     createSubBeforePost: 'Bevor Sie posten, vervollständigen Sie zuerst Ihren Abonnementplan!',
+    cancelUpload: 'Die Datei wird hochgeladen. Sind Sie sicher, dass Sie abbrechen möchten?',
   },
   month: {
     Jan: 'Januar',
@@ -532,7 +534,7 @@ export default {
       confirm: "{'$'}{price} pro Monat Gehen Sie zu Bezahlen",
     },
     shopBuy: {
-      1: 'Wird den Inhalt dieser Arbeit durch {nickname} freischalten',
+      1: 'Wird den Inhalt von {nickname} in dieser Arbeit freischalten',
       2: '{nickname}wird Ihre Zahlung vollständig erhalten',
       confirm: "Jetzt freischalten ({'$'}{price})",
     },
@@ -733,6 +735,12 @@ export default {
       aup: 'Acceptable Use Policy',
       cookiePolicy: 'Cookie Policy',
       complaintsPolicy: 'Complaints Policy',
+    },
+  },
+  cancel: {
+    publish: {
+      title: 'Veröffentlichung abbrechen',
+      content: 'Wenn Sie jetzt gehen, verlieren Sie alle aktuellen Inhalte. Sind Sie sicher, dass Sie gehen möchten?',
     },
   },
 }
