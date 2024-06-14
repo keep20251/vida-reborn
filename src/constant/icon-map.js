@@ -13,6 +13,7 @@ export const iconMap = {
   mineAddOutline: { path: 'mine/add-outline' },
   minePost: { path: 'mine/post' },
   mineEarn: { path: 'mine/earn' },
+  mineCard: { path: 'mine/credit-card' },
   mineBuy: { path: 'mine/buy' },
   mineCollect: { path: 'mine/collect' },
   mineBeCreator: { path: 'mine/be-creator' },
