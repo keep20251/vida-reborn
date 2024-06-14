@@ -324,8 +324,8 @@ function onDelete() {
 const preClear = () => {
   return new Promise((resolve, reject) => {
     confirm({
-      title: 'title.clear',
-      content: $t('content.clearContent'),
+      title: 'cancel.publish.title',
+      content: $t('cancel.publish.content'),
       confirmAction: resolve,
       cancelAction: reject,
     })
