@@ -1,7 +1,16 @@
 <template>
   <div ref="videoWrap" class="relative h-full w-full overflow-hidden rounded-inherit" @mousemove="openControl">
-    <div v-show="!videoPlay || isSwiping || showControl" class="absolute top-0 h-full w-full rounded-inherit">
-      <div class="absolute bottom-0 w-full p-20">
+    <div
+      v-if="videoCurrentTime === 0 && !videoPlay"
+      class="absolute top-0 flex h-full w-full cursor-pointer items-center justify-center rounded-inherit"
+      @click.stop="togglePlay"
+    >
+      <div class="flex h-50 w-50 items-center justify-center rounded-md bg-white bg-opacity-50">
+        <Icon name="playBtn" size="20"></Icon>
+      </div>
+    </div>
+    <div v-else v-show="!videoPlay || isSwiping || showControl" class="absolute top-0 h-full w-full rounded-inherit">
+      <div class="absolute bottom-0 w-full px-20 pb-20">
         <div
           class="relative h-27 w-full cursor-pointer"
           ref="timeBar"
@@ -123,7 +132,7 @@ const showControl = ref(false)
 function openControl() {
   clearTimeout(openControl.timerId)
   showControl.value = true
-  openControl.timerId = setTimeout(() => (showControl.value = false), 3000)
+  openControl.timerId = setTimeout(() => (showControl.value = false), 2000)
 }
 // 自動播放相關配置
 // let videoAutoplayController

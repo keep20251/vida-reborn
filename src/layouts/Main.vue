@@ -11,7 +11,6 @@
       <FileSelectDialog></FileSelectDialog>
       <SubPlanDialog></SubPlanDialog>
       <Subscriptions></Subscriptions>
-      <ReportBlockPicker></ReportBlockPicker>
       <MinePrvwBanner></MinePrvwBanner>
       <PaymentDialog />
       <PopupMessage></PopupMessage>
@@ -36,7 +35,6 @@ import MinePrvwBanner from '@comp/banner/MinePrvwBanner.vue'
 import AuthDialog from '@comp/dialog/AuthDialog.vue'
 import FileSelectDialog from '@comp/dialog/FileSelectDialog.vue'
 import PopupMessage from '@comp/dialog/PopupMessage.vue'
-import ReportBlockPicker from '@comp/dialog/ReportBlockPicker.vue'
 import SubPlanDialog from '@comp/dialog/SubPlanDialog.vue'
 import Subscriptions from '@comp/dialog/Subscriptions.vue'
 import Navigator from '@comp/layout/Navigator.vue'
