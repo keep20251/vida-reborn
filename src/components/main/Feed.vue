@@ -20,8 +20,35 @@
         </div>
       </div>
       <div class="line-clamp-1 shrink-0 text-right text-sm font-medium leading-5 text-gray-57">{{ postTime }}</div>
-      <div v-if="!isVisitor && !isSelf" class="flex cursor-pointer items-center" @click.stop="dissSomeone(item.user)">
-        <Icon name="moreVertical" size="20"></Icon>
+      <div v-if="!isVisitor && !isSelf" class="relative flex cursor-pointer select-none items-center" ref="dissToggler">
+        <Icon name="moreVertical" size="20" @click.stop="toggleDissPanel"></Icon>
+        <transition
+          enter-active-class="transition-transform duration-100 ease-out origin-top"
+          enter-from-class="transform scale-y-0"
+          enter-to-class="transform scale-y-100"
+          leave-active-class="transition-transform duration-100 ease-out origin-top"
+          leave-from-class="transform scale-y-100"
+          leave-to-class="transform scale-y-0"
+        >
+          <div
+            v-if="showDissPanel"
+            class="absolute right-16 top-full z-10 min-w-max rounded-sm bg-white py-4 drop-shadow"
+            ref="dissPanel"
+          >
+            <div
+              class="flex cursor-pointer items-center space-x-5 px-26 py-6 hover:bg-primary hover:text-white"
+              @click.stop="report"
+            >
+              <div class="text-base">{{ $t('label.report') }}</div>
+            </div>
+            <div
+              class="flex cursor-pointer items-center space-x-5 px-26 py-6 hover:bg-primary hover:text-white"
+              @click.stop="block(isBlocked)"
+            >
+              <div class="text-base">{{ isBlocked ? $t('content.unblock') : $t('label.block') }}</div>
+            </div>
+          </div>
+        </transition>
       </div>
     </div>
 
@@ -95,16 +122,16 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useResizeObserver } from '@vueuse/core'
+import { onClickOutside, useResizeObserver } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
-import { useDialogStore } from '@/store/dialog'
 import { useFeedStore } from '@/store/feed'
 import Link from '@comp/common/Link.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
 import BlockMask from '@comp/multimedia/BlockMask.vue'
 import PhotoSwiper from '@comp/multimedia/PhotoSwiper.vue'
 import VideoWrap from '@comp/multimedia/VideoWrap.vue'
+import { useDissSomeone } from '@use/feed/dissSomeone'
 import { useRouters } from '@use/routers'
 import { useCopyToClipboard } from '@use/utils/copyToClipboard'
 import { MEDIA_TYPE } from '@const/publish'
@@ -154,5 +181,14 @@ const { toggleLike: $toggleLike } = useFeedStore()
 const toggleLike = afterLoginAction($toggleLike)
 
 const { copy } = useCopyToClipboard()
-const { dissSomeone } = useDialogStore()
+
+const dissToggler = ref(null)
+const dissPanel = ref(null)
+const showDissPanel = ref(false)
+function toggleDissPanel() {
+  showDissPanel.value = !showDissPanel.value
+}
+onClickOutside(dissPanel, () => (showDissPanel.value = false), { ignore: [dissToggler] })
+const isBlocked = computed(() => props.item.user.is_block)
+const { report, block } = useDissSomeone(props.item.user, () => (showDissPanel.value = false))
 </script>
