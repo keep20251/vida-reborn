@@ -1,5 +1,5 @@
 <template>
-  <div :class="[fullScreenClass]">
+  <div v-if="config.isActivated" :class="[fullScreenClass]">
     <div :class="[fullScreenBackClass]" @click="config.handleBackDrop"></div>
     <div :class="[fullScreenContentClass]">
       <component :is="baseComponent" :config="config">
@@ -23,23 +23,29 @@ import { useAppStore } from '@/store/app'
 const Desktop = defineAsyncComponent(() => import('./FullscreenDesktop.vue'))
 const Mobile = defineAsyncComponent(() => import('./FullscreenMobile.vue'))
 
+const { isDesktop } = storeToRefs(useAppStore())
 const baseComponent = computed(() => (isDesktop.value ? Desktop : Mobile))
+
+const props = defineProps({
+  backdrop: { type: Boolean, default: true },
+  showCloseBtn: { type: Boolean, default: undefined },
+})
 
 const config = ref({
   isActivated: true,
-  backDrop: true,
+  backdrop: props?.backdrop ?? true,
+  showCloseBtn: props?.showCloseBtn ?? true,
   close: async () => {
-    if (config.value.backDrop) config.value.isActivated = false
+    config.value.isActivated = false
   },
   open: async () => {
     config.value.isActivated = true
   },
   handleBackDrop: () => {
-    if (config.value.backDrop && config.value.isActivated) config.value.isActivated = false
+    console.log('handleBackDrop')
+    if (config.value.backdrop && config.value.isActivated) config.value.isActivated = false
   },
 })
-
-const { isDesktop } = storeToRefs(useAppStore())
 
 const fullScreenClass = computed(() => {
   let baseClass = 'fixed left-0 top-0 z-30 h-screen w-full flex items-center justify-center '
