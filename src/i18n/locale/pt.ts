@@ -22,6 +22,7 @@ export default {
     subscribe: 'Assinar',
     relatedAuthor: 'Autores relacionados',
     relatedPost: 'Artigos relacionados',
+    subscription: { recommend: 'Plano Recomendado', other: 'Outros Planos' },
   },
   common: {
     next: 'Próximo',
@@ -41,7 +42,7 @@ export default {
     cancelSubscribe: 'Cancelar',
     restoreSubscribe: 'Retomar',
     reSubscribe: 'Reinscrever-se',
-    beforehandSubscribe: 'Renovar cedo',
+    beforehandSubscribe: 'Estender o Tempo',
     editPersonalPage: 'Editar Perfil',
     toPersonalPage: 'Ir para o perfil',
     reSelect: 'Re-selecionar',
@@ -120,6 +121,7 @@ export default {
     edit: 'Editar',
     add: 'Adicionar',
     submit: 'Enviar',
+    delete: '',
     nowPw: 'Senha atual',
     newPw: 'Nova senha',
     newPwCfm: 'Confirmação de senha',
@@ -248,6 +250,7 @@ export default {
     reviewPass: 'Passou',
     underReview: 'Em análise',
     reviewFail: 'Revisão falhada',
+    formating: 'Convertendo',
     paid: 'Pago',
     published: 'Publicado',
     time: 'Tempo',
@@ -271,6 +274,10 @@ export default {
     unboundMailPrompt:
       'Este endereço de email não está vinculado a nenhuma conta. Se você tem uma conta, pode entrar usando seu nome de usuário abaixo.',
     cardLimit: 'Cartões de crédito adicionados {length}/{max}',
+    subscription: {
+      recommend: 'Permite desbloquear esta postagem com o plano adequado',
+      other: 'Não inclui um plano adequado para desbloquear esta postagem',
+    },
   },
   content: {
     default: 'Padrão, não deve aparecer em lugar nenhum',
@@ -534,9 +541,9 @@ export default {
       confirm: "{'$'}{price} por mês Vá para pagar",
     },
     shopBuy: {
-      1: 'Irá desbloquear o conteúdo de {nickname} neste trabalho',
+      1: 'Irá desbloquear o conteúdo deste trabalho de {nickname}',
       2: '{nickname}receberá seu pagamento integralmente',
-      confirm: "Desbloqueie agora ({'$'}{price})",
+      confirm: "Desbloquear agora ({'$'}{price})",
     },
     subscribeSuc: {
       1: 'maravilhoso! Inscrito em {nickname} com sucesso!',

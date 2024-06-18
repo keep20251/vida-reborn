@@ -22,6 +22,7 @@ export default {
     subscribe: 'สมัครสมาชิก',
     relatedAuthor: 'ผู้เขียนที่เกี่ยวข้อง',
     relatedPost: 'บทความที่เกี่ยวข้อง',
+    subscription: { recommend: 'แผนแนะนำ', other: 'แผนอื่นๆ' },
   },
   common: {
     next: 'ต่อไป',
@@ -41,7 +42,7 @@ export default {
     cancelSubscribe: 'ยกเลิกการสมัคร',
     restoreSubscribe: 'กลับมาสมัครใหม่',
     reSubscribe: 'สมัครสมาชิกอีกครั้ง',
-    beforehandSubscribe: 'ต่ออายุเร็ว',
+    beforehandSubscribe: 'ขยายเวลา',
     editPersonalPage: 'แก้ไขโปรไฟล์',
     toPersonalPage: 'ไปที่โปรไฟล์',
     reSelect: 'เลือกใหม่',
@@ -120,6 +121,7 @@ export default {
     edit: 'แก้ไข',
     add: 'เพิ่ม',
     submit: 'ส่ง',
+    delete: '',
     nowPw: 'รหัสผ่านปัจจุบัน',
     newPw: 'รหัสผ่านใหม่',
     newPwCfm: 'ยืนยันรหัสผ่าน',
@@ -193,7 +195,7 @@ export default {
   message: {
     payment: { failed: 'การชำระเงินล้มเหลว', success: 'การชำระเงินสำเร็จ', cancel: 'การชำระเงินถูกยกเลิก' },
     error: {
-      subscribeSelf: 'ไม่สามารถสมัครเป็นสมาชิกของตัวเองได้',
+      subscribeSelf: 'ไม่สามารถสมัครสมาชิกกับตัวเองได้',
       shopBuySelf: 'ไม่สามารถซื้อสินค้าของตัวเองได้',
       subscriptionNotFound: 'ไม่มีแผนการสมัครสมาชิก',
     },
@@ -248,6 +250,7 @@ export default {
     reviewPass: 'ผ่านแล้ว',
     underReview: 'อยู่ระหว่างการตรวจสอบ',
     reviewFail: 'การตรวจสอบไม่ผ่าน',
+    formating: 'กำลังแปลง',
     paid: 'จ่ายแล้ว',
     published: 'ได้รับการเผยแพร่',
     time: 'เวลา',
@@ -271,6 +274,10 @@ export default {
     unboundMailPrompt:
       'ที่อยู่อีเมลนี้ยังไม่ได้ผูกกับบัญชีใด ๆ หากคุณมีบัญชีแล้ว คุณสามารถเข้าสู่ระบบด้วยชื่อผู้ใช้ด้านล่างได้',
     cardLimit: 'บัตรเครดิตที่เพิ่ม {length}/{max}',
+    subscription: {
+      recommend: 'อนุญาตให้ปลดล็อกโพสต์นี้ด้วยแผนที่เหมาะสม',
+      other: 'ไม่มีแผนที่เหมาะสมในการปลดล็อกโพสต์นี้',
+    },
   },
   content: {
     default: 'ค่าเริ่มต้นไม่ควรปรากฏที่ใดก็ได้',
@@ -528,13 +535,13 @@ export default {
       confirm: "{'$'}{price} ต่อเดือน ไปที่การชำระเงิน",
     },
     shopBuy: {
-      1: 'จะปลดล็อคเนื้อหาของ {nickname} ในงานนี้',
+      1: 'จะปลดล็อกเนื้อหาของงานนี้ของ {nickname}',
       2: '{nickname}จะได้รับการชำระเงินของคุณเต็มจำนวน',
       confirm: "ปลดล็อคตอนนี้ ({'$'}{price})",
     },
     subscribeSuc: {
       1: 'มหัศจรรย์! สมัครรับข้อมูล {nickname} สำเร็จแล้ว!',
-      2: 'เลือกที่จะไปที่หน้าแรกของผู้สร้างหรืออยู่บนหน้าจอดั้งเดิมแล้วเรียกดู!',
+      2: 'เลือกที่จะไปที่หน้าแรกของผู้สร้าง หรืออยู่บนหน้าจอดั้งเดิมแล้วเรียกดู!',
       confirm: 'ไปที่หน้าผู้สร้าง',
     },
     shopBuySuc: {

@@ -22,6 +22,7 @@ export default {
     subscribe: 'Subscribe',
     relatedAuthor: 'Related authors',
     relatedPost: 'related articles',
+    subscription: { recommend: 'Recommended Plan', other: 'Other Plans' },
   },
   common: {
     next: 'Next',
@@ -41,7 +42,7 @@ export default {
     cancelSubscribe: 'Cancel',
     restoreSubscribe: 'Resume',
     reSubscribe: 'Re-subscribe',
-    beforehandSubscribe: 'Renew early',
+    beforehandSubscribe: 'Extend Time',
     editPersonalPage: 'Edit profile',
     toPersonalPage: 'Go to Profile',
     reSelect: 'Re-select',
@@ -120,6 +121,7 @@ export default {
     edit: 'Edit',
     add: 'Add',
     submit: 'Submit',
+    delete: 'Delete',
     nowPw: 'Current password',
     newPw: 'New password',
     newPwCfm: 'Password confirmation',
@@ -248,6 +250,7 @@ export default {
     reviewPass: 'Passed',
     underReview: 'Under Review',
     reviewFail: 'Review Failed',
+    formating: 'Converting',
     paid: 'Paid',
     published: 'Published',
     time: 'Time',
@@ -271,6 +274,10 @@ export default {
     unboundMailPrompt:
       'This email address is not currently associated with any account. If you already have an account, you can log in using your username below',
     cardLimit: 'Credit Cards Added {length}/{max}',
+    subscription: {
+      recommend: 'Allows unlocking this post with suitable plan',
+      other: 'Does not include a suitable plan to unlock this post',
+    },
   },
   content: {
     default: "Default, shouldn't show up anywhere",
@@ -531,13 +538,13 @@ export default {
       confirm: "{'$'}{price} per month Go to Pay",
     },
     shopBuy: {
-      1: 'Will unlock the content of {nickname} in this work',
+      1: "Will unlock {nickname}'s content of this work",
       2: '{nickname}will receive your payment in full',
       confirm: "Unlock now ({'$'}{price})",
     },
     subscribeSuc: {
       1: 'marvelous! Successfully subscribed to {nickname}!',
-      2: 'Choose to go to the creator’s homepage, or stay on the original screen and browse!',
+      2: "Choose to go to the creator's homepage, or stay on the original screen and browse!",
       confirm: 'Go to creator page',
     },
     shopBuySuc: {

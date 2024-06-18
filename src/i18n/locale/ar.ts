@@ -17,7 +17,13 @@ export default {
     hi: 'हिन्दी',
   },
   nav: { home: 'الصفحة الرئيسية', search: 'بحث', publish: 'إنشاء', message: 'رسالة', mine: 'لي' },
-  tab: { recommand: 'لك', subscribe: 'الاشتراك', relatedAuthor: 'المؤلفين ذات الصلة', relatedPost: 'مقالات ذات صلة' },
+  tab: {
+    recommand: 'لك',
+    subscribe: 'الاشتراك',
+    relatedAuthor: 'المؤلفين ذات الصلة',
+    relatedPost: 'مقالات ذات صلة',
+    subscription: { recommend: 'الخطة الموصى بها', other: 'خطط أخرى' },
+  },
   common: {
     next: 'التالي',
     getAround: 'تصفح',
@@ -36,7 +42,7 @@ export default {
     cancelSubscribe: 'إلغاء الاشتراك',
     restoreSubscribe: 'استئناف الاشتراك',
     reSubscribe: 'إعادة الاشتراك',
-    beforehandSubscribe: 'تجديد مبكر',
+    beforehandSubscribe: 'تمديد الوقت',
     editPersonalPage: 'تعديل الملف الشخصي',
     toPersonalPage: 'الذهاب إلى الملف الشخصي',
     reSelect: 'إعادة الاختيار',
@@ -115,6 +121,7 @@ export default {
     edit: 'تحرير',
     add: 'إضافة',
     submit: 'يُقدِّم',
+    delete: '',
     nowPw: 'كلمة المرور الحالية',
     newPw: 'كلمة المرور الجديدة',
     newPwCfm: 'تأكيد كلمة المرور',
@@ -243,6 +250,7 @@ export default {
     reviewPass: 'تم الاجتياز',
     underReview: 'قيد المراجعة',
     reviewFail: 'مراجعة فاشلة',
+    formating: 'جارٍ التحويل',
     paid: 'تم الدفع',
     published: 'تم النشر',
     time: 'الوقت',
@@ -266,6 +274,10 @@ export default {
     unboundMailPrompt:
       'هذا العنوان الإلكتروني لم يتم ربطه بأي حساب. إذا كان لديك حساب، يمكنك تسجيل الدخول باستخدام اسم المستخدم أدناه.',
     cardLimit: 'بطاقات الائتمان المضافة {length}/{max}',
+    subscription: {
+      recommend: 'يسمح بفتح هذه المشاركة بالخطة المناسبة',
+      other: 'لا يتضمن خطة مناسبة لفتح هذه المشاركة',
+    },
   },
   content: {
     default: 'الافتراضي، لا ينبغي أن تظهر في أي مكان',
@@ -523,7 +535,7 @@ export default {
       confirm: "{'$'}{price} شهريًا انتقل إلى الدفع",
     },
     shopBuy: {
-      1: 'سيتم فتح محتوى {nickname} في هذا العمل',
+      1: 'سيتم فتح محتوى {nickname} لهذا العمل',
       2: '{nickname}سوف يتلقى دفعتك بالكامل',
       confirm: "فتح القفل الآن ({'$'}{price})",
     },

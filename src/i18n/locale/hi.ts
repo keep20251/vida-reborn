@@ -17,7 +17,13 @@ export default {
     hi: 'हिन्दी',
   },
   nav: { home: 'मुख पृष्ठ', search: 'खोजें', publish: 'बनाएँ', message: 'संदेश', mine: 'मेरा' },
-  tab: { recommand: 'आपके लिए', subscribe: 'सदस्यता लें', relatedAuthor: 'संबंधित लेखक', relatedPost: 'संबंधित आलेख' },
+  tab: {
+    recommand: 'आपके लिए',
+    subscribe: 'सदस्यता लें',
+    relatedAuthor: 'संबंधित लेखक',
+    relatedPost: 'संबंधित आलेख',
+    subscription: { recommend: 'अनुशंसित योजना', other: 'अन्य योजनाएँ' },
+  },
   common: {
     next: 'अगला',
     getAround: 'चारों ओर देखें',
@@ -36,7 +42,7 @@ export default {
     cancelSubscribe: 'सदस्यता रद्द करें',
     restoreSubscribe: 'सदस्यता फिर से शुरू करें',
     reSubscribe: 'पुनः सदस्यता लें',
-    beforehandSubscribe: 'जल्दी नवीनीकरण',
+    beforehandSubscribe: 'समय बढ़ाएँ',
     editPersonalPage: 'प्रोफ़ाइल संपादित करें',
     toPersonalPage: 'प्रोफ़ाइल पर जाएं',
     reSelect: 'पुनः चयन करें',
@@ -115,6 +121,7 @@ export default {
     edit: 'संपादित करें',
     add: 'जोड़ें',
     submit: 'जमा करना',
+    delete: '',
     nowPw: 'वर्तमान पासवर्ड',
     newPw: 'नया पासवर्ड',
     newPwCfm: 'पासवर्ड पुष्टिकरण',
@@ -243,6 +250,7 @@ export default {
     reviewPass: 'पास हो गया',
     underReview: 'समीक्षाधीन',
     reviewFail: 'समीक्षा असफल',
+    formating: 'रूपांतरित किया जा रहा है',
     paid: 'भुगतान किया गया',
     published: 'प्रकाशित हुआ',
     time: 'समय',
@@ -266,6 +274,10 @@ export default {
     unboundMailPrompt:
       'यह ईमेल पता किसी खाते से नहीं जुड़ा है। यदि आपके पास खाता है, तो आप नीचे दिए गए उपयोगकर्ता नाम का उपयोग करके लॉग इन कर सकते हैं।',
     cardLimit: 'जोड़े गए क्रेडिट कार्ड {length}/{max}',
+    subscription: {
+      recommend: 'इस पोस्ट को उपयुक्त योजना से अनलॉक करने की अनुमति देता है',
+      other: 'इस पोस्ट को अनलॉक करने के लिए उपयुक्त योजना शामिल नहीं है',
+    },
   },
   content: {
     default: 'डिफ़ॉल्ट, कहीं भी दिखाई नहीं देना चाहिए',
@@ -512,7 +524,7 @@ export default {
       confirm: "{'$'}{price} प्रति माह भुगतान पर जाएं",
     },
     shopBuy: {
-      1: 'इस कार्य में {nickname} की सामग्री को अनलॉक करेगा',
+      1: 'इस कार्य की सामग्री को अनलॉक कर देंगे',
       2: '{nickname}आपका पूरा भुगतान प्राप्त होगा',
       confirm: "अभी अनलॉक करें ({'$'}{price})",
     },

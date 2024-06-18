@@ -17,7 +17,13 @@ export default {
     hi: 'हिन्दी',
   },
   nav: { home: '홈', search: '검색', publish: '만들기', message: '메시지', mine: '내 것' },
-  tab: { recommand: '당신을 위해', subscribe: '구독', relatedAuthor: '관련 작가', relatedPost: '관련 기사' },
+  tab: {
+    recommand: '당신을 위해',
+    subscribe: '구독',
+    relatedAuthor: '관련 작가',
+    relatedPost: '관련 기사',
+    subscription: { recommend: '추천 플랜', other: '기타 계획' },
+  },
   common: {
     next: '다음',
     getAround: '둘러보기',
@@ -36,7 +42,7 @@ export default {
     cancelSubscribe: '구독 취소',
     restoreSubscribe: '구독 재개',
     reSubscribe: '재구독',
-    beforehandSubscribe: '조기 갱신',
+    beforehandSubscribe: '시간을 연장하다',
     editPersonalPage: '프로필 수정',
     toPersonalPage: '프로필로 이동',
     reSelect: '다시 선택',
@@ -115,6 +121,7 @@ export default {
     edit: '편집',
     add: '추가하기',
     submit: '제출하다',
+    delete: '',
     nowPw: '현재 비밀번호',
     newPw: '새 비밀번호',
     newPwCfm: '비밀번호 확인',
@@ -243,6 +250,7 @@ export default {
     reviewPass: '통과함',
     underReview: '심사 중',
     reviewFail: '심사 실패',
+    formating: '변환 중',
     paid: '지불됨',
     published: '게시됨',
     time: '시간',
@@ -266,6 +274,10 @@ export default {
     unboundMailPrompt:
       '이 이메일 주소는 어떤 계정에도 연결되어 있지 않습니다. 계정이 있다면 아래의 사용자 이름을 사용하여 로그인할 수 있습니다.',
     cardLimit: '추가된 신용카드 {length}/{max}',
+    subscription: {
+      recommend: '적절한 계획으로 이 게시물을 잠금 해제할 수 있습니다',
+      other: '이 게시물을 잠금 해제하기 위한 적절한 계획이 포함되어 있지 않습니다',
+    },
   },
   content: {
     default: '기본값은 어디에도 표시되지 않아야 합니다.',
@@ -524,7 +536,7 @@ export default {
       confirm: "월별 {'$'}{price} 결제로 이동",
     },
     shopBuy: {
-      1: '이 작품에서 {nickname}의 콘텐츠가 잠금 해제됩니다.',
+      1: '이 작품의 {nickname} 콘텐츠를 잠금 해제합니다',
       2: '{nickname}결제 금액 전액을 받게 됩니다.',
       confirm: "지금 잠금 해제하세요({'$'}{price})",
     },
