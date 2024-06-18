@@ -278,6 +278,11 @@ export default {
       recommend: 'Permite desbloquear esta postagem com o plano adequado',
       other: 'Não inclui um plano adequado para desbloquear esta postagem',
     },
+    valid: 'Válido',
+    totalCount: '# Total {count}',
+    validInfo: 'Esses planos de assinatura estão atualmente válidos.',
+    invalid: 'Expirado',
+    invalidInfo: 'Esses planos de assinatura expiraram.',
   },
   content: {
     default: 'Padrão, não deve aparecer em lugar nenhum',

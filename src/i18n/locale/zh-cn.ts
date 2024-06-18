@@ -270,6 +270,11 @@ export default {
     unboundMailPrompt: '该邮箱尚未绑定任何帐号，若已有帐户可由下方使用用户名登入。',
     cardLimit: '已添加信用卡 {length}/{max}',
     subscription: { recommend: '允许解锁此帖子所适方案', other: '不含解锁此帖子所适方案' },
+    valid: '有效中',
+    totalCount: '# 共 {count} 个',
+    validInfo: '这些订阅方案，目前持续有效中。',
+    invalid: '已过期',
+    invalidInfo: '这些订阅方案，已经过期了。',
   },
   content: {
     default: '预设，不应该显示在任何地方',

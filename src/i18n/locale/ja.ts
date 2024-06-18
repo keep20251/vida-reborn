@@ -278,6 +278,11 @@ export default {
       recommend: '適切なプランでこの投稿のロックを解除できるようにする',
       other: 'この投稿のロックを解除するための適切なプランは含まれていません',
     },
+    valid: '有効中',
+    totalCount: '# 合計 {count}',
+    validInfo: 'これらのサブスクリプションプランは現在有効です。',
+    invalid: '期限切れ',
+    invalidInfo: 'これらのサブスクリプションプランは期限切れです。',
   },
   content: {
     default: 'デフォルト、どこにも表示されないはずです',

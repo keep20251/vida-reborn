@@ -278,6 +278,11 @@ export default {
       recommend: 'Permitir desbloquear esta publicación con el plan adecuado',
       other: 'No incluye un plan adecuado para desbloquear esta publicación',
     },
+    valid: 'Válido',
+    totalCount: '# Total {count}',
+    validInfo: 'Estos planes de suscripción están actualmente válidos.',
+    invalid: 'Caducado',
+    invalidInfo: 'Estos planes de suscripción han caducado.',
   },
   content: {
     default: 'Predeterminado, no debería aparecer en ningún lado',

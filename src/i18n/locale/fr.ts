@@ -278,6 +278,11 @@ export default {
       recommend: 'Permet de déverrouiller ce post avec un plan adapté',
       other: "N'inclut pas de plan adapté pour déverrouiller ce post",
     },
+    valid: 'Valide',
+    totalCount: '# Total {count}',
+    validInfo: "Ces plans d'abonnement sont actuellement valides.",
+    invalid: 'Expiré',
+    invalidInfo: "Ces plans d'abonnement ont expiré.",
   },
   content: {
     default: 'Par défaut, ne devrait apparaître nulle part',

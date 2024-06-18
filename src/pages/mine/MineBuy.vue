@@ -2,14 +2,54 @@
   <div v-if="tab === MINE_BUY_TAB.PURCHASED_ARTICLE" class="pt-20 text-base font-bold leading-lg">
     {{ $t('content.allPosts') }} {{ total }}
   </div>
-  <List :items="items" item-key="id" divider>
+
+  <div v-if="tab === MINE_BUY_TAB.SUBSCRIPTION">
+    <div class="flex items-center justify-between pb-10 pt-20">
+      <div class="text-lg font-bold">{{ $t('info.valid') }}</div>
+      <i18n-t keypath="info.totalCount" tag="div" class="text-sm text-primary">
+        <template #count>
+          {{ count }}
+        </template>
+      </i18n-t>
+    </div>
+    <div class="text-sm text-gray-a3">{{ $t('info.validInfo') }}</div>
+    <List :items="items" item-key="id" divider>
+      <template #default="{ item }">
+        <Subscription :item="item" @reload="pages[MINE_BUY_TAB.SUBSCRIPTION].infinite.reload"></Subscription>
+      </template>
+      <template #bottom>
+        <NoData v-if="noData"></NoData>
+        <div v-else class="flex items-center justify-center py-10 text-gray-a3">
+          <Loading v-if="isLoading">{{ $t('common.loading') }}</Loading>
+        </div>
+      </template>
+    </List>
+
+    <div class="flex items-center justify-between pt-20">
+      <div class="font-bold">{{ $t('info.invalid') }}</div>
+      <i18n-t keypath="info.totalCount" tag="div" class="text-sm text-primary">
+        <template #count>
+          {{ totalSubExpired }}
+        </template>
+      </i18n-t>
+    </div>
+    <div class="text-sm text-gray-a3">{{ $t('info.invalidInfo') }}</div>
+    <List :items="itemsSubExpired" item-key="id" divider>
+      <template #default="{ item }">
+        <Subscription :item="item" @reload="pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED].infinite.reload"></Subscription>
+      </template>
+      <template #bottom>
+        <NoData v-if="noDataSubExpired"></NoData>
+        <div v-else class="flex items-center justify-center py-10 text-gray-a3">
+          <Loading v-if="isLoadingSubExpired">{{ $t('common.loading') }}</Loading>
+        </div>
+      </template>
+    </List>
+  </div>
+
+  <List v-else :items="items" item-key="id" divider>
     <template #default="{ item }">
       <Transaction v-if="tab === MINE_BUY_TAB.TRANSACTION" :item="item"></Transaction>
-      <Subscription
-        v-else-if="tab === MINE_BUY_TAB.SUBSCRIPTION"
-        :item="item"
-        @reload="pages[MINE_BUY_TAB.SUBSCRIPTION].infinite.reload"
-      ></Subscription>
       <Feed v-else-if="tab === MINE_BUY_TAB.PURCHASED_ARTICLE" class="py-20" :item="item"></Feed>
     </template>
     <template #bottom>
@@ -48,7 +88,15 @@ const pages = {
   },
   [MINE_BUY_TAB.SUBSCRIPTION]: {
     inited: false,
-    infinite: useInfinite('User.listSubs'),
+    infinite: useInfinite('User.listSubs', {
+      params: { position: 1 },
+    }),
+  },
+  [MINE_BUY_TAB.SUBSCRIPTION_EXPIRED]: {
+    inited: false,
+    infinite: useInfinite('User.listSubs', {
+      params: { position: 2 },
+    }),
   },
   [MINE_BUY_TAB.PURCHASED_ARTICLE]: {
     inited: false,
@@ -58,24 +106,36 @@ const pages = {
     }),
   },
 }
+
 const items = computed(() => pages[tab.value].infinite.dataList.value)
 const total = computed(() => pages[tab.value].infinite.dataExtra.value?.total || 0)
+const count = computed(() => pages[tab.value].infinite.dataExtra.value?.count || 0)
 const isLoading = computed(() => pages[tab.value].infinite.isLoading.value)
 const noMore = computed(() => pages[tab.value].infinite.noMore.value)
 const noData = computed(() => pages[tab.value].infinite.noData.value)
+
+const itemsSubExpired = computed(() => pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED].infinite.dataList.value)
+const isLoadingSubExpired = computed(() => pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED].infinite.isLoading.value)
+const noDataSubExpired = computed(() => pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED].infinite.noData.value)
+const totalSubExpired = computed(() => pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED].infinite.dataExtra.value?.count || 0)
 
 const mineStore = useMineStore()
 const { setTab, clearTab, setNextFn, clearNextFn, setReloadFn, clearReloadFn } = mineStore
 watch(
   tab,
   (tab) => {
-    const page = pages[tab]
-    if (!page.inited) {
-      page.inited = true
-      page.infinite.init()
+    const initPage = (page) => {
+      if (!page.inited) {
+        page.inited = true
+        page.infinite.init()
+      }
+      setNextFn(page.infinite.next)
+      setReloadFn(page.infinite.reload)
     }
-    setNextFn(page.infinite.next)
-    setReloadFn(page.infinite.reload)
+    initPage(pages[tab])
+    if (tab === MINE_BUY_TAB.SUBSCRIPTION) {
+      initPage(pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED])
+    }
   },
   { immediate: true },
 )
