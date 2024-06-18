@@ -15,5 +15,7 @@ export default {
   otherList: { method: 'post', url: '/api/subscription/listSubscriptionByUuid' },
 
   // 刪除訂閱方案
-  bulkDel: { method: 'post', url: '/api/subscription/bulkDel'},
+  bulkDel: { method: 'post', url: '/api/subscription/bulkDel' },
+
+  getArticleSubscription: { method: 'post', url: '/api/article/getArticleSubscription' },
 }
