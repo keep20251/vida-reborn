@@ -4,7 +4,7 @@
     <button v-else class="z-50 rounded-full bg-black/50 p-2 text-white" @click="config.close()">close</button>
   </div>
   <div class="h-[calc(100vh-3rem)]">
-    <slot v-if="$slots.content" name="content" :config="config"> </slot>
+    <slot v-if="$slots.content" name="content" :config="config" @click.stop> </slot>
     <div v-else>Need Setup Conetnt Here</div>
   </div>
 </template>
