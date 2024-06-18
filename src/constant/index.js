@@ -149,6 +149,7 @@ export const MINE_BUY_TAB = {
   TRANSACTION: 1,
   SUBSCRIPTION: 2,
   PURCHASED_ARTICLE: 3,
+  SUBSCRIPTION_EXPIRED: 4,
 }
 
 // 我的購買 - 訂閱狀態

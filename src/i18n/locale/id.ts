@@ -278,6 +278,11 @@ export default {
       recommend: 'Memungkinkan membuka kunci postingan ini dengan rencana yang sesuai',
       other: 'Tidak termasuk rencana yang sesuai untuk membuka kunci postingan ini',
     },
+    valid: 'Berlaku',
+    totalCount: '# Total {count}',
+    validInfo: 'Rencana berlangganan ini saat ini masih berlaku.',
+    invalid: 'Kedaluwarsa',
+    invalidInfo: 'Rencana berlangganan ini telah kedaluwarsa.',
   },
   content: {
     default: 'Defaultnya, seharusnya tidak muncul di mana pun',

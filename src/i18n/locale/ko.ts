@@ -278,6 +278,11 @@ export default {
       recommend: '적절한 계획으로 이 게시물을 잠금 해제할 수 있습니다',
       other: '이 게시물을 잠금 해제하기 위한 적절한 계획이 포함되어 있지 않습니다',
     },
+    valid: '유효',
+    totalCount: '# 총 {count}',
+    validInfo: '이 구독 계획은 현재 유효합니다.',
+    invalid: '만료',
+    invalidInfo: '이 구독 계획은 만료되었습니다.',
   },
   content: {
     default: '기본값은 어디에도 표시되지 않아야 합니다.',

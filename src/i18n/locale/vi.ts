@@ -278,6 +278,11 @@ export default {
       recommend: 'Cho phép mở khóa bài viết này với gói phù hợp',
       other: 'Không bao gồm gói phù hợp để mở khóa bài viết này',
     },
+    valid: 'Hợp lệ',
+    totalCount: '# Tổng {count}',
+    validInfo: 'Các gói đăng ký này hiện đang có hiệu lực.',
+    invalid: 'Hết hạn',
+    invalidInfo: 'Các gói đăng ký này đã hết hạn.',
   },
   content: {
     default: 'Mặc định, không nên hiển thị ở bất cứ đâu',

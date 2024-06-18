@@ -278,6 +278,11 @@ export default {
       recommend: 'Allows unlocking this post with suitable plan',
       other: 'Does not include a suitable plan to unlock this post',
     },
+    valid: 'Valid',
+    totalCount: '# Total {count}',
+    validInfo: 'These subscription plans are currently valid.',
+    invalid: 'Expired',
+    invalidInfo: 'These subscription plans have expired.',
   },
   content: {
     default: "Default, shouldn't show up anywhere",

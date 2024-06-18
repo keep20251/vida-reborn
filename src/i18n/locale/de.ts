@@ -278,6 +278,11 @@ export default {
       recommend: 'Ermöglicht das Entsperren dieses Beitrags mit einem geeigneten Plan',
       other: 'Enthält keinen geeigneten Plan zum Entsperren dieses Beitrags',
     },
+    valid: 'Gültig',
+    totalCount: '# Gesamt {count}',
+    validInfo: 'Diese Abonnementpläne sind derzeit gültig.',
+    invalid: 'Abgelaufen',
+    invalidInfo: 'Diese Abonnementpläne sind abgelaufen.',
   },
   content: {
     default: 'Standardmäßig, sollte nirgendwo auftauchen',
