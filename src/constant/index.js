@@ -211,3 +211,10 @@ export const MINE_HOME_REG = {
   MINE_COLLECT_TAB: 1,
   MINE_BUY_TAB: 2,
 }
+
+// 特定帖子適用的訂閱方案
+export const SUBSCRIPTION_TYPE = {
+  ALL: 0, // 全部
+  RECOMMEND: 1, // 推薦
+  OTHER: 2, // 其他
+}

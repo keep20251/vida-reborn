@@ -12,6 +12,7 @@
       <SubPlanDialog></SubPlanDialog>
       <Subscriptions></Subscriptions>
       <MinePrvwBanner></MinePrvwBanner>
+      <FeedSubscription></FeedSubscription>
       <PaymentDialog />
       <PopupMessage></PopupMessage>
     </ClientOnly>
@@ -39,6 +40,7 @@ import SubPlanDialog from '@comp/dialog/SubPlanDialog.vue'
 import Subscriptions from '@comp/dialog/Subscriptions.vue'
 import Navigator from '@comp/layout/Navigator.vue'
 import NavigatorMobile from '@comp/layout/NavigatorMobile.vue'
+import FeedSubscription from '@/components/dialog/FeedSubscription.vue'
 import PaymentDialog from '@/components/dialog/PaymentDialog.vue'
 import { isClose, isConnecting, isOpen } from '@/ws'
 
