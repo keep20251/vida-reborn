@@ -7,8 +7,15 @@
       <div class="py-15 text-base font-bold">#{{ status(item) }}</div>
       <List :items="item.list" item-key="id" divider>
         <template #default="{ item }">
-          <Feed class="py-10" :item="item" :show-auto-publish-time="tab === TAB_TYPE.SCH"></Feed>
-          <Button class="mb-20" @click="onEdit(item)">{{ $t('label.edit') }}</Button>
+          <Feed
+            class="py-10"
+            :item="item"
+            :show-auto-publish-time="tab === TAB_TYPE.SCH"
+            disable-to-detail
+            edit-mode
+            @edit="onEdit(item)"
+            @delete="onDelete(item)"
+          ></Feed>
         </template>
       </List>
     </template>
@@ -28,15 +35,16 @@ import { useRoute } from 'vue-router'
 import { whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useMineStore } from '@/store/mine'
+import { useModalStore } from '@/store/modal'
 import { usePublishStore } from '@/store/publish'
-import Button from '@comp/common/Button.vue'
 import NoData from '@comp/info/NoData.vue'
 import Feed from '@comp/main/Feed.vue'
 import ButtonTab from '@comp/navigation/ButtonTab.vue'
+import useRequest from '@use/request'
 import { useInfinite } from '@use/request/infinite'
 import { useRouters } from '@use/routers'
 import { POST_TAB_TYPE as TAB_TYPE } from '@const/mine'
-import { FEED_PERM, FEED_STATUS, MEDIA_TYPE } from '@const/publish'
+import { FEED_PERM, FEED_STATUS, FEED_STATUS_FORMATING, MEDIA_TYPE } from '@const/publish'
 import { commaSplittedToArray } from '@/utils/string-helper'
 
 const route = useRoute()
@@ -163,19 +171,21 @@ const items = computed(() => {
   const datas = pages[`${tab.value}${tabBtn.value}`].infinite.dataList.value.slice()
 
   // 先排序
-  // 順序為 REJECT(5) > REVIEW(1) > PASS(3) > PUBLISHED(2)
-  // 所以 REVIEW 直接改成 4 剛好就是對應大小
+  // 順序為 REJECT(5) > REVIEW(1) > READY_SLICE(4) = SLICING(15) = CODEC(20) > PASS(3) > PUBLISHED(2)
+  // 所以 REVIEW 改成 4.5
+  //     READY_SLICE, SLICING, CODEC 改成 4
   datas.sort((a, b) => {
-    const av = a.status === FEED_STATUS.REVIEW ? 4 : a.status
-    const bv = b.status === FEED_STATUS.REVIEW ? 4 : b.status
+    const av = a.status === FEED_STATUS.REVIEW ? 4.5 : FEED_STATUS_FORMATING.includes(a.status) ? 4 : a.status
+    const bv = b.status === FEED_STATUS.REVIEW ? 4.5 : FEED_STATUS_FORMATING.includes(b.status) ? 4 : b.status
     return bv - av
   })
 
   // 再分群
-  // [{ status: 5, list: []},{ status: 1, list: []}, { status: 3, list: []}, { status: 2, list: []}, ]
+  // [{ status: 5, list: []}, { status: 1, list: []}, { status: 4 | 15 | 20, list: []}, { status: 3, list: []}, { status: 2, list: []}]
   return datas.reduce((a, d) => {
-    if (a.length === 0 || a[a.length - 1].status !== d.status) {
-      a.push({ status: d.status, list: [d] })
+    const status = FEED_STATUS_FORMATING.includes(d.status) ? FEED_STATUS.READY_SLICE : d.status
+    if (a.length === 0 || a[a.length - 1].status !== status) {
+      a.push({ status, list: [d] })
     } else {
       a[a.length - 1].list.push(d)
     }
@@ -216,10 +226,12 @@ function status(item) {
   if (item.status === FEED_STATUS.REJECT) return $t('info.reviewFail')
   if (item.status === FEED_STATUS.PASS) return $t('info.reviewPass')
   if (item.status === FEED_STATUS.PUBLISHED) return $t('info.published')
+  if (FEED_STATUS_FORMATING.includes(item.status)) return $t('info.formating')
 }
 
 const publishStore = usePublishStore()
 const { toUpdate } = publishStore
+const { confirm } = useModalStore()
 function onEdit(item) {
   toUpdate({
     id: item.id,
@@ -236,5 +248,19 @@ function onEdit(item) {
   })
 
   to('publish')
+}
+function onDelete(item) {
+  confirm({
+    title: 'info.whetherDelArticle',
+    async confirmAction() {
+      try {
+        await useRequest('Article.delete', { params: { article_id: item.id }, immediate: true })
+        pages[`${tab.value}${tabBtn.value}`].infinite.reload()
+      } catch (e) {
+        return e.message
+      }
+    },
+    cancelAction() {},
+  })
 }
 </script>

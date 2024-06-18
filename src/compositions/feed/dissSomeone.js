@@ -4,7 +4,7 @@ import { useModalStore } from '@/store/modal'
 import useRequest from '@use/request'
 import { BLOCK_ACTION, MODAL_TYPE } from '@const'
 
-export function useDissSomeone(reportBlockUser, closeDiss) {
+export function useDissSomeone(reportBlockUser) {
   const modalStore = useModalStore()
   const { open, alert } = modalStore
 
@@ -19,7 +19,6 @@ export function useDissSomeone(reportBlockUser, closeDiss) {
     if (isReportLoading.value) return
 
     const uuid = reportBlockUser.uuid
-    closeDiss()
     open(MODAL_TYPE.REPORT, {
       title: 'label.report',
       size: 'lg',
@@ -31,7 +30,7 @@ export function useDissSomeone(reportBlockUser, closeDiss) {
           return e.message
         }
       },
-      cancelAction: closeDiss,
+      cancelAction: () => {},
     })
   }
 
@@ -48,7 +47,6 @@ export function useDissSomeone(reportBlockUser, closeDiss) {
       .then(() => {
         toggleBlockInCreator(reportBlockUser.username, !isBlock)
         toggleBlockInFeed(reportBlockUser.aff, !isBlock)
-        closeDiss()
       })
       .catch((e) => console.error(e))
   }
