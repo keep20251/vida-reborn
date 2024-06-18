@@ -6,7 +6,35 @@
           <span class="text-xl font-bold leading-xl">${{ removeDecimalIfHundred(props.item.price) }}</span> /
           {{ $t('unit.day', { days: props.item.expire_days }) }}
         </div>
-        <div class="text-base font-bold leading-md text-subscribe-orange">{{ props.item.name }}</div>
+        <div class="flex flex-row items-center justify-center">
+          <span class="text-base font-bold leading-md text-subscribe-orange">
+            {{ props.item.name }}
+          </span>
+          <div v-if="props.editMode" class="relative flex select-none flex-row items-center justify-center">
+            <Icon name="moreVertical" size="20" class="cursor-pointer" @click="toggleEditing"></Icon>
+            <transition
+              enter-active-class="transition duration-300 ease-out"
+              enter-from-class="transform scale-0 -translate-y-75 translate-x-75"
+              enter-to-class="transform scale-100 translate-y-0 translate-x-0"
+              leave-active-class="transition duration-300 ease-out"
+              leave-from-class="transform scale-100 translate-y-0 translate-x-0"
+              leave-to-class="transform scale-0 -translate-y-75 translate-x-55"
+            >
+              <div v-show="isEditing" class="absolute right-10 top-20 w-100 rounded bg-white">
+                <div class="flex flex-col">
+                  <div
+                    v-for="(editOption, index) in editOptions"
+                    :key="`edit-option-${index}`"
+                    class="cursor-pointer px-12 py-6 hover:bg-primary hover:text-white"
+                    @click="editOption.action"
+                  >
+                    {{ $t(editOption.label) }}
+                  </div>
+                </div>
+              </div>
+            </transition>
+          </div>
+        </div>
       </div>
       <div class="h-[11.875rem]">
         <EncryptImage :src="props.item.picture" :borderRadius="15" cover></EncryptImage>
@@ -32,7 +60,7 @@ import { ref } from 'vue'
 import { useResizeObserver } from '@vueuse/core'
 import Button from '@comp/common/Button.vue'
 
-const emit = defineEmits(['click'])
+const emit = defineEmits(['click', 'move:up', 'move:down', 'edit', 'delete'])
 
 const props = defineProps({
   item: {
@@ -47,6 +75,7 @@ const props = defineProps({
       picture: '',
     }),
   },
+  editMode: { type: Boolean, default: false },
 })
 
 const fold = ref(true)
@@ -69,4 +98,18 @@ function removeDecimalIfHundred(value) {
     return num
   }
 }
+
+const isEditing = ref(false)
+const toggleEditing = () => (isEditing.value = !isEditing.value)
+const closeEditing = (fn) => {
+  isEditing.value = false
+  fn()
+}
+
+const editOptions = [
+  { label: 'common.editSubscription.moveUp', action: () => closeEditing(() => emit('move:up', props.item)) },
+  { label: 'common.editSubscription.moveDown', action: () => closeEditing(() => emit('move:down', props.item)) },
+  { label: 'common.editSubscription.edit', action: () => closeEditing(() => emit('edit', props.item)) },
+  { label: 'common.editSubscription.delete', action: () => closeEditing(() => emit('delete', props.item)) },
+]
 </script>
