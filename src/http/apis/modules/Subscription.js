@@ -17,5 +17,9 @@ export default {
   // 刪除訂閱方案
   bulkDel: { method: 'post', url: '/api/subscription/bulkDel' },
 
+  // 訂閱帖子的訂閱列表
   getArticleSubscription: { method: 'post', url: '/api/article/getArticleSubscription' },
+
+  // 編輯訂閱方案排序
+  updateSort: { method: 'post', url: '/api/subscription/updateSort' },
 }

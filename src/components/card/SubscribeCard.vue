@@ -21,7 +21,7 @@
               leave-to-class="transform scale-0 -translate-y-75 translate-x-55"
             >
               <div v-show="isEditing" class="absolute right-10 top-20 w-100 rounded bg-white">
-                <div class="flex flex-col shadow-sm">
+                <div class="flex flex-col shadow-lg">
                   <div
                     v-for="(editOption, index) in editOptions"
                     :key="`edit-option-${index}`"
