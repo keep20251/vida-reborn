@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-import { computed, defineAsyncComponent, ref, watch } from 'vue'
+import { computed, defineAsyncComponent, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useFullscreenStore } from '@/store/fullscreen'

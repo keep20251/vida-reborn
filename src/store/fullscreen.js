@@ -21,7 +21,6 @@ export const useFullscreenStore = defineStore('fullscreen', () => {
   }
 
   const open = async (props) => {
-    console.log('open', props)
     if (isActivated.value) return
 
     _setupActiveDefault()

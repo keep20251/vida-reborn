@@ -52,7 +52,7 @@
 </template>
 
 <script setup>
-import { computed, ref, watch } from 'vue'
+import { computed, ref } from 'vue'
 import { whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
@@ -94,35 +94,4 @@ if (props.stat) {
 }
 const { open } = useFullscreenStore()
 const handleActiveFullScreen = (props) => open(props)
-
-const emits = defineEmits(['update:currIndex'])
-
-const propsIndex = ref(props.index)
-
-// watch(
-//   propsIndex,
-//   (val) => {
-//     console.log('props.index', val)
-//     console.log('props.index', val)
-//     console.log('props.index', val)
-//   },
-//   // { immediate: true },
-// )
-
-watch(
-  currIndex,
-  () => {
-    console.log('currIndex', currIndex.value)
-    console.log('currIndex animIndex', animIndex.value)
-    console.log('currIndex transitioning', transitioning.value)
-
-    emits('update:currIndex', {
-      index: currIndex.value,
-      total: imgs.value.length,
-      imgs: imgs.value,
-      img: imgs.value[currIndex.value],
-    })
-  },
-  { immediate: true },
-)
 </script>
