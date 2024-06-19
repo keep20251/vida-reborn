@@ -100,13 +100,14 @@ whenever(
   () => (currIndex.value = animIndex.value),
 )
 
-watch(isActivated, () => {
-  if (!isActivated.value) {
+whenever(
+  () => !isActivated.value,
+  () => {
     reset()
     index.value = 0
     currIndex.value = 0
-  }
-})
+  },
+)
 
 const { isSwiping, direction } = vuseSwip(swiper)
 whenever(
