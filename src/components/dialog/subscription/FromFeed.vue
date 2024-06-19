@@ -7,7 +7,11 @@
     <div class="scrollbar-md max-h-[65vh] overflow-y-scroll pr-20">
       <List :items="data" item-key="id" divider>
         <template #default="{ item }">
-          <SubscribeCard :item="item" @click="subscribe({ item, creator })"></SubscribeCard>
+          <SubscribeCard
+            :item="item"
+            @click="subscribe({ item, creator })"
+            @click:contain="onContainClicked"
+          ></SubscribeCard>
         </template>
         <template #bottom>
           <NoData v-if="data?.length <= 0"></NoData>
@@ -31,11 +35,12 @@ import NoData from '@/components/info/NoData.vue'
 import Tab from '@/components/navigation/Tab.vue'
 import { useDialog } from '@/compositions/modal'
 import useRequest from '@/compositions/request'
-import { SUBSCRIPTION_TYPE } from '@/constant'
+import { SUBSCRIPTION_ROUTE, SUBSCRIPTION_TYPE } from '@/constant'
 
 const { subscribe } = useDialog()
 
 const subscriptionStore = useSubsciptionStore()
+const { goto, setSubscriptionDetail, setDetail } = subscriptionStore
 const { isOpen, currentTab, feed, creator } = storeToRefs(subscriptionStore)
 const infoText = computed(() =>
   currentTab.value === SUBSCRIPTION_TYPE.RECOMMEND ? 'info.subscription.recommend' : 'info.subscription.other',
@@ -52,4 +57,5 @@ watch(
   ([_isOpen, _tab]) => (_isOpen ? execute({ article_id: feed.value.id, rmd: _tab }) : void 0),
   { immediate: true },
 )
+const onContainClicked = (item) => setDetail({ activeSubscription: item, subscriptions: data })
 </script>

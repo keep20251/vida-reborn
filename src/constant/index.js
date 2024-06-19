@@ -219,3 +219,15 @@ export const SUBSCRIPTION_TYPE = {
   RECOMMEND: 1, // 推薦
   OTHER: 2, // 其他
 }
+
+// 訂閱彈窗 - 頁籤路由
+export const SUBSCRIPTION_ROUTE = {
+  LIST: 1,
+  DETAIL: 2,
+}
+
+// 訂閱方案的帖子類型
+export const SUBSCRIPTION_ARTICLE_TYPE = {
+  CONTAIN: 1, // 有被訂閱方案包含在內的帖子
+  EXPIRED: 2, // 訂閱方案已過期的帖子
+}

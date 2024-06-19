@@ -1,6 +1,7 @@
 import { computed, readonly, ref } from 'vue'
 import { defineStore, storeToRefs } from 'pinia'
-import { SUBSCRIPTION_TYPE } from '@/constant'
+import { useHistory } from '@/compositions/routers/history'
+import { SUBSCRIPTION_ROUTE, SUBSCRIPTION_TYPE } from '@/constant'
 import { useAccountStore } from './account'
 import { useDialogStore } from './dialog'
 
@@ -28,34 +29,59 @@ export const useSubsciptionStore = defineStore('subscription-store', () => {
     subscriptionDialog.value = true
   }
 
-  function close() {
-    _items.value = []
-    _creator.value = null
-    subscriptionDialog.value = false
-  }
-
   function openFromFeed({ feed, creator }) {
     _feed.value = feed
     _creator.value = creator
     subscriptionDialog.value = true
   }
-  function closeFromFeed() {
+
+  function _reset() {
+    subscriptionDialog.value = false
+    _items.value = []
     _feed.value = null
     _creator.value = null
-    subscriptionDialog.value = false
+    _subscriptions.value = []
+    activeSubscription.value = null
     currentTab.value = SUBSCRIPTION_TYPE.RECOMMEND
+    init(SUBSCRIPTION_ROUTE.LIST)
+  }
+
+  const { now, goto, back, init } = useHistory({ initValue: SUBSCRIPTION_ROUTE.LIST })
+  const isList = computed(() => now.value === SUBSCRIPTION_ROUTE.LIST)
+  const isDetail = computed(() => now.value === SUBSCRIPTION_ROUTE.DETAIL)
+
+  /**
+   * 以下這邊都是訂閱詳情的狀態
+   */
+  const activeSubscription = ref(null)
+  const _subscriptions = ref([])
+
+  const setDetail = ({ activeSubscription: activeOption, subscriptions }) => {
+    activeSubscription.value = activeOption
+    _subscriptions.value = subscriptions
+    goto(SUBSCRIPTION_ROUTE.DETAIL)
   }
 
   return {
     open,
-    close,
+    close: _reset,
     openFromFeed: afterLoginAction(openFromFeed),
-    closeFromFeed,
+    closeFromFeed: _reset,
     isOpen: readonly(subscriptionDialog),
     items: readonly(_items),
     creator: readonly(_creator),
     feed: readonly(_feed),
     currentTab,
     isFeedSubscription,
+
+    now,
+    isList,
+    isDetail,
+    goto,
+    back,
+
+    subscriptions: readonly(_subscriptions),
+    activeSubscription,
+    setDetail,
   }
 })
