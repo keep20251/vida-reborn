@@ -2,9 +2,9 @@
   <div class="absolute left-0 top-0 h-full w-full rounded-inherit">
     <EncryptImage v-if="showImage" :src="url" :border-radius="10" cover></EncryptImage>
     <div class="absolute top-0 h-full w-full rounded-inherit bg-[rgba(0,0,0,0.5)] backdrop-blur">
-      <div class="absolute bottom-20 right-20 flex space-x-5">
-        <Icon v-if="icon" :name="icon" size="20"></Icon>
-        <span v-if="meta" class="text-base text-white">{{ meta }}</span>
+      <div :class="[pageClass]">
+        <Icon v-if="icon && !isFullscreen" :name="icon" size="20"></Icon>
+        <span v-if="meta" :class="[pageMetaClass]">{{ meta }}</span>
       </div>
     </div>
     <div class="absolute top-0 flex h-full w-full flex-col items-center justify-center space-y-18 rounded-inherit">
@@ -33,6 +33,7 @@ const props = defineProps({
   item: { type: Object, required: true },
   showImage: { type: Boolean, default: false },
   meta: { type: String },
+  isFullscreen: { type: Boolean, default: false },
 })
 
 defineEmits(['replay'])
@@ -76,4 +77,14 @@ const actionParams = computed(() => {
 })
 
 const icon = computed(() => (isVideo.value ? 'videoWhite' : isImage.value ? 'cameraWhite' : ''))
+
+const pageClass = computed(() => {
+  if (props.isFullscreen) return 'absolute right-[calc(50%-1rem)] top-20 flex space-x-5'
+  return 'absolute bottom-20 right-20 flex space-x-5'
+})
+
+const pageMetaClass = computed(() => {
+  if (props.isFullscreen) return 'text-base text-white tracking-wide leading-8'
+  return 'text-base text-white'
+})
 </script>
