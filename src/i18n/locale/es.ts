@@ -57,7 +57,6 @@ export default {
       edit: 'Editar',
       delete: 'Eliminar',
     },
-    whetherCancelSub: '¿Está seguro de que desea cancelar su suscripción?',
     whetherCrestoreSub: '¿Está seguro de que desea reanudar su suscripción?',
     reSubErr: 'Falló la reinscripción',
     subInAdvanceErr: 'Renovación anticipada fallida',
@@ -290,6 +289,8 @@ export default {
     validInfo: 'Estos planes de suscripción están actualmente válidos.',
     invalid: 'Caducado',
     invalidInfo: 'Estos planes de suscripción han caducado.',
+    firstItem: 'Ya es el primero.',
+    lastItem: 'Ya es el último.',
   },
   content: {
     default: 'Predeterminado, no debería aparecer en ningún lado',
@@ -741,7 +742,7 @@ export default {
         content: {
           1: 'VIDA es una plataforma de suscripción de miembros meticulosamente elaborada diseñada exclusivamente para los creadores. Alienta a los creadores a interactuar con sus fanáticos y monetizar su contenido de manera efectiva. Proporcionamos un conjunto integral de servicios centrados en los creadores, incluyendo "crowdfunding" y "consulta estratégica de marca.',
           2: 'Además, ofrecemos diversos niveles de membresía y opciones de módulos versátiles, lo que permite a los creadores que se expresen libremente.',
-          3: 'Actualmente, servimos con orgullo a una comunidad de más de 5000 creadores y fanáticos, que abarca más de 20 países. Mientras inspiramos a los creadores a buscar excelencia y producir contenido de alta calidad,',
+          3: 'Actualmente, nos enorgullece servir a una comunidad de más de 5,000 creadores y fanáticos, que abarcan más de 20 países. A medida que inspiramos a los creadores a buscar la excelencia y producir contenido de alta calidad,',
           4: 'Vida está igualmente comprometida con forjar conexiones más fuertes entre los creadores y su devota base de fanáticos, fomentando un profundo sentido de unidad comunitaria.',
         },
       },

@@ -57,7 +57,6 @@ export default {
       edit: 'Bearbeiten',
       delete: 'Löschen',
     },
-    whetherCancelSub: 'Sind Sie sicher, dass Sie Ihr Abonnement kündigen möchten?',
     whetherCrestoreSub: 'Sind Sie sicher, dass Sie Ihr Abonnement wieder aufnehmen möchten?',
     reSubErr: 'Wiedervereinigung fehlgeschlagen',
     subInAdvanceErr: 'Vorzeitige Erneuerung fehlgeschlagen',
@@ -204,7 +203,7 @@ export default {
     error: {
       subscribeSelf: 'Ich kann mich nicht selbst abonnieren',
       shopBuySelf: 'Sie können keine eigenen Produkte kaufen',
-      subscriptionNotFound: 'Kein Abonnementplan verfügbar',
+      subscriptionNotFound: 'Kein Abonnement verfügbar',
     },
     sending: 'Senden',
     failure: 'Fehlgeschlagen',
@@ -290,6 +289,8 @@ export default {
     validInfo: 'Diese Abonnementpläne sind derzeit gültig.',
     invalid: 'Abgelaufen',
     invalidInfo: 'Diese Abonnementpläne sind abgelaufen.',
+    firstItem: 'Dies ist bereits das erste.',
+    lastItem: 'Dies ist bereits das letzte.',
   },
   content: {
     default: 'Standardmäßig, sollte nirgendwo auftauchen',
@@ -739,7 +740,7 @@ export default {
         content: {
           1: 'VIDA ist eine sorgfältig gefertigte Abonnementplattform, die exklusiv für Schöpfer entwickelt wurde. Es ermutigt die Schöpfer, sich mit ihren Fans zu beschäftigen, und ihre Inhalte monetarisieren effektiv. Wir bieten eine umfassende Suite von Dienstleistungen, die sich um Macher konzentrieren, einschließlich "Crowdfunding" und "Strategic Branding Consultation.',
           2: 'Darüber hinaus bieten wir verschiedene Mitgliedsebenen und vielseitige Moduloptionen an und befähigen die Schöpfer, sich frei auszudrücken.',
-          3: 'Derzeit dienen wir stolz eine Community von über 5000 Schöpfer und Fans, die über mehr als 20 Länder erstrecken. Während wir Schöpfer inspirieren, Exzellenz zu verfolgen und qualitativ hochwertige Inhalte zu produzieren,',
+          3: 'Derzeit bedienen wir stolz eine Gemeinschaft von über 5.000 Schöpfern und Fans in mehr als 20 Ländern. Während wir die Schöpfer dazu inspirieren, Exzellenz zu verfolgen und hochwertigen Inhalt zu produzieren,',
           4: 'VIDA ist gleichermaßen verpflichtet, stärkere Verbindungen zwischen Schöpfer und ihrer ergebenen Fangemeinde herzustellen und ein tiefes Gefühl der Einheit der Gemeinschaft zu fördern.',
         },
       },

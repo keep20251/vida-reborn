@@ -52,7 +52,6 @@ export default {
     setDefault: 'Atur sebagai Baku',
     addCard: 'Tambah Kartu Kredit',
     editSubscription: { moveUp: 'Pindahkan ke atas', moveDown: 'Pindahkan ke bawah', edit: 'Edit', delete: 'Hapus' },
-    whetherCancelSub: 'Apakah Anda yakin ingin membatalkan langganan?',
     whetherCrestoreSub: 'Apakah Anda yakin ingin melanjutkan langganan?',
     reSubErr: 'Gagal Berlangganan Kembali',
     subInAdvanceErr: 'Gagal Perpanjangan Dini',
@@ -285,6 +284,8 @@ export default {
     validInfo: 'Rencana berlangganan ini saat ini masih berlaku.',
     invalid: 'Kedaluwarsa',
     invalidInfo: 'Rencana berlangganan ini telah kedaluwarsa.',
+    firstItem: 'Sudah yang pertama.',
+    lastItem: 'Sudah yang terakhir.',
   },
   content: {
     default: 'Defaultnya, seharusnya tidak muncul di mana pun',
@@ -547,7 +548,7 @@ export default {
       confirm: "{'$'}{price} per bulan Buka Bayar",
     },
     shopBuy: {
-      1: 'Akan membuka konten {nickname} pada karya ini',
+      1: 'Akan membuka kunci konten {nickname} pada karya ini',
       2: '{nickname}akan menerima pembayaran Anda secara penuh',
       confirm: "Buka kunci sekarang ({'$'}{price})",
     },
@@ -726,7 +727,7 @@ export default {
         content: {
           1: 'Vida adalah platform berlangganan anggota yang dibuat dengan cermat yang dirancang khusus untuk pencipta. Ini mendorong pencipta untuk terlibat dengan penggemar mereka dan memonetisasi konten mereka secara efektif. Kami menyediakan rangkaian layanan komprehensif yang berpusat di sekitar pencipta, termasuk "crowdfunding" dan "konsultasi branding strategis.',
           2: 'Selain itu, kami menawarkan tingkatan keanggotaan yang beragam dan opsi modul serbaguna, memberdayakan pencipta untuk mengekspresikan diri secara bebas.',
-          3: 'Saat ini, kami dengan bangga melayani komunitas dengan lebih dari 5000 pencipta dan penggemar, yang mencakup 20+ negara. Saat kami menginspirasi pencipta untuk mengejar keunggulan dan menghasilkan konten berkualitas tinggi,',
+          3: 'Saat ini, kami dengan bangga melayani komunitas lebih dari 5.000 pembuat dan penggemar yang mencakup lebih dari 20 negara. Saat kami menginspirasi pembuat untuk mengejar keunggulan dan menghasilkan konten berkualitas tinggi,',
           4: 'Vida sama -sama berkomitmen untuk menempa koneksi yang lebih kuat antara pencipta dan basis penggemar yang setia, menumbuhkan rasa kesatuan masyarakat yang mendalam.',
         },
       },

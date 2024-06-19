@@ -52,7 +52,6 @@ export default {
     setDefault: 'Đặt làm mặc định',
     addCard: 'Thêm thẻ tín dụng',
     editSubscription: { moveUp: 'Di chuyển lên', moveDown: 'Di chuyển xuống', edit: 'Chỉnh sửa', delete: 'Xóa' },
-    whetherCancelSub: 'Bạn có chắc chắn muốn hủy đăng ký không?',
     whetherCrestoreSub: 'Bạn có chắc chắn muốn khôi phục đăng ký không?',
     reSubErr: 'Gặp lỗi khi đăng ký lại',
     subInAdvanceErr: 'Gia hạn sớm thất bại',
@@ -197,7 +196,7 @@ export default {
   message: {
     payment: { failed: 'Thanh toán thất bại', success: 'Thanh toán thành công', cancel: 'Thanh toán đã hủy' },
     error: {
-      subscribeSelf: 'Không thể đăng ký cho chính tôi',
+      subscribeSelf: 'Không thể đăng ký cho chính mình',
       shopBuySelf: 'Không thể mua sản phẩm của riêng bạn',
       subscriptionNotFound: 'Không có gói đăng ký nào',
     },
@@ -285,6 +284,8 @@ export default {
     validInfo: 'Các gói đăng ký này hiện đang có hiệu lực.',
     invalid: 'Hết hạn',
     invalidInfo: 'Các gói đăng ký này đã hết hạn.',
+    firstItem: 'Đã là cái đầu tiên rồi.',
+    lastItem: 'Đã là cái cuối cùng rồi.',
   },
   content: {
     default: 'Mặc định, không nên hiển thị ở bất cứ đâu',
@@ -558,7 +559,7 @@ export default {
     shopBuySuc: {
       1: 'tuyệt vời! Đã thanh toán thành công để mở khóa bài đăng',
       2: 'Chọn vào bài viết để xem, hoặc ở lại màn hình gốc để duyệt!',
-      confirm: 'Đi tới bài viết',
+      confirm: 'Đi tới bài đăng',
     },
     title: { paySuc: 'Thanh toán được thực hiện thành công' },
     paying: { title: 'Thanh toán đang được xử lý' },
@@ -725,7 +726,7 @@ export default {
         content: {
           1: 'VIDA là một nền tảng đăng ký thành viên được chế tạo tỉ mỉ được thiết kế dành riêng cho người sáng tạo. Nó khuyến khích người sáng tạo tham gia với người hâm mộ của họ và kiếm tiền từ nội dung của họ một cách hiệu quả.',
           2: 'Ngoài ra, chúng tôi cung cấp các tầng thành viên đa dạng và các tùy chọn mô -đun đa năng, trao quyền cho người sáng tạo thể hiện bản thân một cách tự do.',
-          3: 'Hiện tại, chúng tôi tự hào phục vụ một cộng đồng gồm hơn 5000 người sáng tạo và người hâm mộ, kéo dài hơn 20 quốc gia. Khi chúng tôi truyền cảm hứng cho những người sáng tạo theo đuổi sự xuất sắc và sản xuất nội dung chất lượng cao,',
+          3: 'Hiện tại, chúng tôi tự hào phục vụ cộng đồng gồm hơn 5.000 nhà sáng tạo và người hâm mộ, bao gồm hơn 20 quốc gia. Khi chúng tôi truyền cảm hứng cho các nhà sáng tạo theo đuổi sự xuất sắc và sản xuất nội dung chất lượng cao,',
           4: 'VIDA cũng cam kết không kém về việc tạo ra các kết nối mạnh mẽ hơn giữa những người sáng tạo và cơ sở người hâm mộ tận tụy của họ, thúc đẩy ý thức sâu sắc về sự thống nhất của cộng đồng.',
         },
       },

@@ -8,7 +8,7 @@
     </div>
     <div class="select-none p-30 pr-15">
       <div class="scrollbar-md max-h-[65vh] overflow-y-scroll pr-15" :class="{ 'my-10': subList.length === 0 }">
-        <div @click="subPlanAdd" class="cursor-pointer text-start text-base font-bold leading-md text-gray-57">
+        <div @click="subPlanAdd" class="cursor-pointer text-center text-base font-bold leading-md text-gray-57">
           ＋ {{ $t('content.AddNewSubPlan') }}
           <label
             v-if="subList.length === 0"
@@ -58,7 +58,6 @@
 import debounce from 'lodash/debounce'
 import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
-import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
 import { useModalStore } from '@/store/modal'
 import { usePopupMessageStore } from '@/store/popup-message'
@@ -69,8 +68,6 @@ import { SUB_PLAN } from '@const'
 import SubscribeCard from '@/components/card/SubscribeCard.vue'
 
 const { t: $t } = useI18n()
-const accountStore = useAccountStore()
-const { updateUserData } = accountStore
 const { open: openMessage } = usePopupMessageStore()
 const { confirm } = useModalStore()
 const { appConfig } = useAppStore()
@@ -114,9 +111,10 @@ function subPlanEdit(d, index) {
 const toUp = debounce((subList, index) => {
   if (index > 0) {
     const temp = subList[index]
+    const toUpId = subList[index].id
     subList.splice(index, 1)
     subList.splice(index - 1, 0, temp)
-    updateSort(subList[index].id, 'up')
+    updateSort(toUpId, 'up')
     openMessage('common.editSubscription.moveUp')
   } else {
     openMessage('info.firstItem')
@@ -126,9 +124,12 @@ const toUp = debounce((subList, index) => {
 const toDown = debounce((subList, index) => {
   if (index < subList.length - 1) {
     const temp = subList[index]
+    const toDownId = subList[index].id
     subList.splice(index, 1)
     subList.splice(index + 1, 0, temp)
-    updateSort(subList[index].id, 'down')
+    updateSort(toDownId, 'down')
+    console.log(subList)
+
     openMessage('common.editSubscription.moveDown')
   } else {
     openMessage('info.lastItem')
@@ -141,7 +142,6 @@ const updateSort = async (id, direction) => {
     const data = { id, sort: direction }
     console.log('data:', data)
     await changeSort({ id, sort: direction })
-    updateUserData({ subscription_list: subList })
   } catch (e) {
     console.error(e)
   }
@@ -160,7 +160,6 @@ const delSubPlan = async (subList, index) => {
   try {
     await subPlanDel({ ids: subList[index].id })
     subList.splice(index, 1)
-    // updateUserData({ subscription_list: subList })
     openMessage('title.delSuccess')
   } catch (e) {
     console.error(e)

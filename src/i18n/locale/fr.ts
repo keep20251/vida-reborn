@@ -57,7 +57,6 @@ export default {
       edit: 'Modifier',
       delete: 'Supprimer',
     },
-    whetherCancelSub: 'Êtes-vous sûr de vouloir annuler votre abonnement ?',
     whetherCrestoreSub: 'Êtes-vous sûr de vouloir reprendre votre abonnement ?',
     reSubErr: 'La réabonnement a échoué',
     subInAdvanceErr: 'Renouvellement anticipé échoué',
@@ -290,6 +289,8 @@ export default {
     validInfo: "Ces plans d'abonnement sont actuellement valides.",
     invalid: 'Expiré',
     invalidInfo: "Ces plans d'abonnement ont expiré.",
+    firstItem: "C'est déjà le premier.",
+    lastItem: "C'est déjà le dernier.",
   },
   content: {
     default: 'Par défaut, ne devrait apparaître nulle part',
@@ -548,7 +549,7 @@ export default {
   },
   modal: {
     subscribe: {
-      1: 'Accès complet à toutes les œuvres des derniers {days}',
+      1: 'Accès complet à toutes les œuvres des {days} passés',
       2: "Possibilité d'envoyer des messages directement aux créateurs",
       3: 'Une interaction plus étroite',
       4: 'Vous pouvez annuler votre abonnement à tout moment',
@@ -740,7 +741,7 @@ export default {
         content: {
           1: "VIDA est une plate-forme d'abonnement aux membres méticuleusement conçue conçue exclusivement pour les créateurs.",
           2: "De plus, nous offrons divers niveaux d'adhésion et options de modules polyvalents, ce qui permet aux créateurs de s'exprimer librement.",
-          3: "Actuellement, nous servons fièrement une communauté de plus de 5000 créateurs et fans, couvrant plus de 20 pays. Alors que nous inspirons les créateurs à poursuivre l'excellence et à produire un contenu de haute qualité,",
+          3: "Actuellement, nous servons fièrement une communauté de plus de 5 000 créateurs et fans, répartis dans plus de 20 pays. Alors que nous inspirons les créateurs à poursuivre l'excellence et à produire du contenu de haute qualité,",
           4: "Vida est également déterminée à forger des liens plus forts entre les créateurs et leur base de fans dévoués, favorisant un profond sentiment d'unité communautaire.",
         },
       },
