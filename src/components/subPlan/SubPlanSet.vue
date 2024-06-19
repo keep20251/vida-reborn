@@ -27,7 +27,7 @@
             <div class="leading-3">{{ $t('info.uploadCapacityLimit') }}</div>
           </div>
           <div>
-            <Button @click="() => inputImage.click()" contrast size="md" class="w-max">{{
+            <Button @click="() => inputImage.click()" contrast size="sm" class="px-11 py-8 !font-bold">{{
               $t('content.customStyle')
             }}</Button>
             <input
@@ -90,21 +90,21 @@
           :label="$t('label.subPlanName')"
           :placeholder="$t('placeholder.subPlanName')"
         ></InputWrap>
-        <InputWrap
+        <TextareaWrap
           v-model="credential.subPlanContent.value"
           :err-msg="credential.subPlanContent.error"
           :label="$t('label.subPlanCtn')"
           :placeholder="$t('placeholder.subPlanCtn')"
-        ></InputWrap>
+          :line="8"
+        ></TextareaWrap>
         <InputWrap
           v-model="credential.subPlanPrice.value"
           :err-msg="credential.subPlanPrice.error"
-          :label="$t('label.price')"
+          :label="$t('label.subPlanPrice')"
           :sublabel="$t('label.priceSub')"
-          :placeholder="'9.99'"
-          :append-text="$t('label.priceTip', { price: 90 })"
-          :maxLength="5"
+          :placeholder="'$ 14.99'"
           step
+          @keyup="priceValidate"
         ></InputWrap>
         <div class="grid space-y-10">
           <label class="text-left text-base font-normal not-italic leading-md">{{
@@ -168,6 +168,7 @@ import { useSubPlanStore } from '@/store/sub-plan'
 import Button from '@comp/common/Button.vue'
 import InputRadio from '@comp/form/InputRadio.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
+import TextareaWrap from '@comp/form/TextareaWrap.vue'
 import useRequest from '@use/request'
 import { useYup } from '@use/validator/yup'
 import { SUB_PLAN_STATUS } from '@const'
@@ -228,11 +229,26 @@ const credential = reactive({
     value: data.value[index.value]?.price || 0,
     error: '',
     check: false,
-    schema: Yup.number().required($t('yup.number.positive')).max(90),
+    schema: Yup.number()
+      .typeError($t('yup.number.round'))
+      .test('is-decimal', $t('yup.number.twoDecimal'), (value) => {
+        const decimalPart = (value + '').split('.')[1]
+        return !decimalPart || decimalPart.length <= 2
+      })
+      .required($t('yup.number.positive'))
+      .max(999, $t('yup.number.max', { max: 999 })),
   },
 })
 const showBack = computed(() => history.value.length > 0)
 const serverError = ref('')
+
+async function priceValidate() {
+  try {
+    await validate(credential.subPlanPrice.schema, credential.subPlanPrice)
+  } catch (e) {
+    credential.subPlanPrice.error = e
+  }
+}
 
 onMounted(() => {
   credential.subPlanName.value = data.value[index.value]?.name
