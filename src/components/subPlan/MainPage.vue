@@ -8,7 +8,7 @@
     </div>
     <div class="select-none p-30 pr-15">
       <div class="scrollbar-md max-h-[65vh] overflow-y-scroll pr-15" :class="{ 'my-10': subList.length === 0 }">
-        <div @click="subPlanAdd()" class="cursor-pointer text-start text-base font-bold leading-md text-gray-57">
+        <div @click="subPlanAdd" class="cursor-pointer text-start text-base font-bold leading-md text-gray-57">
           ＋ {{ $t('content.AddNewSubPlan') }}
           <label
             v-if="subList.length === 0"
@@ -37,8 +37,17 @@
         </div>
         <List :items="subList" item-key="id" divider>
           <template #default="{ item, index }">
-            <SubscribeCard :item="item" subscript-btn edit-mode :height="260" class="mt-30"></SubscribeCard>
-            <Button class="my-20" @click="subPlanEdit(subList, index)" gradient>{{ $t('label.edit') }}</Button>
+            <SubscribeCard
+              @move:up="toUp(subList, index)"
+              @move:down="toDown(subList, index)"
+              @edit="subPlanEdit(subList, index)"
+              @delete="onDelete(subList, index)"
+              :item="item"
+              subscript-btn
+              edit-mode
+              :height="260"
+              class="mb-20 mt-30"
+            ></SubscribeCard>
           </template>
         </List>
       </div>
@@ -46,14 +55,24 @@
   </div>
 </template>
 <script setup>
+import debounce from 'lodash/debounce'
+import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
+import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
+import { useModalStore } from '@/store/modal'
+import { usePopupMessageStore } from '@/store/popup-message'
 import { useSubPlanStore } from '@/store/sub-plan'
-import Button from '@comp/common/Button.vue'
 import List from '@comp/common/List.vue'
+import useRequest from '@use/request'
 import { SUB_PLAN } from '@const'
 import SubscribeCard from '@/components/card/SubscribeCard.vue'
 
+const { t: $t } = useI18n()
+const accountStore = useAccountStore()
+const { updateUserData } = accountStore
+const { open: openMessage } = usePopupMessageStore()
+const { confirm } = useModalStore()
 const { appConfig } = useAppStore()
 const { to, close } = useSubPlanStore()
 const {
@@ -92,14 +111,59 @@ function subPlanEdit(d, index) {
   lastIndex.value = index
 }
 
-function removeDecimalIfHundred(value) {
-  const num = Number(value) // 因為後端拿回來是字串
-
-  // 判斷是否是百位數以上的整數
-  if (!isNaN(num) && Number.isInteger(num) && num >= 100) {
-    return Math.trunc(num) // 去掉小數點
+const toUp = debounce((subList, index) => {
+  if (index > 0) {
+    const temp = subList[index]
+    subList.splice(index, 1)
+    subList.splice(index - 1, 0, temp)
+    updateSort(subList[index].id, 'up')
+    openMessage('common.editSubscription.moveUp')
   } else {
-    return num
+    openMessage('info.firstItem')
+  }
+})
+
+const toDown = debounce((subList, index) => {
+  if (index < subList.length - 1) {
+    const temp = subList[index]
+    subList.splice(index, 1)
+    subList.splice(index + 1, 0, temp)
+    updateSort(subList[index].id, 'down')
+    openMessage('common.editSubscription.moveDown')
+  } else {
+    openMessage('info.lastItem')
+  }
+})
+
+const updateSort = async (id, direction) => {
+  const { execute: changeSort } = useRequest('Subscription.updateSort')
+  try {
+    const data = { id, sort: direction }
+    console.log('data:', data)
+    await changeSort({ id, sort: direction })
+    updateUserData({ subscription_list: subList })
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+const onDelete = (subList, index) => {
+  confirm({
+    size: 'sm',
+    title: 'beCreator.title.reConfirm',
+    content: $t('content.delSubPlan'),
+    confirmAction: () => delSubPlan(subList, index),
+  })
+}
+const delSubPlan = async (subList, index) => {
+  const { execute: subPlanDel } = useRequest('Subscription.bulkDel')
+  try {
+    await subPlanDel({ ids: subList[index].id })
+    subList.splice(index, 1)
+    // updateUserData({ subscription_list: subList })
+    openMessage('title.delSuccess')
+  } catch (e) {
+    console.error(e)
   }
 }
 </script>
