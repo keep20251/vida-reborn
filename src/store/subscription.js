@@ -1,6 +1,7 @@
 import { computed, readonly, ref } from 'vue'
 import { defineStore, storeToRefs } from 'pinia'
 import { SUBSCRIPTION_TYPE } from '@/constant'
+import { useAccountStore } from './account'
 import { useDialogStore } from './dialog'
 
 /**
@@ -8,6 +9,7 @@ import { useDialogStore } from './dialog'
  */
 export const useSubsciptionStore = defineStore('subscription-store', () => {
   const { subscriptionDialog } = storeToRefs(useDialogStore())
+  const { afterLoginAction } = useAccountStore()
 
   const _items = ref([])
 
@@ -47,7 +49,7 @@ export const useSubsciptionStore = defineStore('subscription-store', () => {
   return {
     open,
     close,
-    openFromFeed,
+    openFromFeed: afterLoginAction(openFromFeed),
     closeFromFeed,
     isOpen: readonly(subscriptionDialog),
     items: readonly(_items),
