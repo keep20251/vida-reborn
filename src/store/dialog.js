@@ -14,6 +14,9 @@ export const useDialogStore = defineStore('dialog-store', () => {
   // 創作者訂閱方案展示
   const subscriptionDialog = ref(false)
 
+  // 帖子適用的訂閱方案展示
+  const feedSubscriptionDialog = ref(false)
+
   const paymentDialog = ref(false)
   const openPayment = () => (paymentDialog.value = true)
   const closePayment = () => (paymentDialog.value = false)
@@ -23,6 +26,7 @@ export const useDialogStore = defineStore('dialog-store', () => {
     fileSelectDialog,
     subPlanDialog,
     subscriptionDialog,
+    feedSubscriptionDialog,
 
     paymentDialog: readonly(paymentDialog),
     openPayment,

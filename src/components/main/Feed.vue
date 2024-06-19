@@ -20,8 +20,12 @@
         </div>
       </div>
       <div class="line-clamp-1 shrink-0 text-right text-sm font-medium leading-5 text-gray-57">{{ postTime }}</div>
-      <div v-if="!isVisitor && !isSelf" class="relative flex cursor-pointer select-none items-center" ref="dissToggler">
-        <Icon name="moreVertical" size="20" @click.stop="toggleDissPanel"></Icon>
+      <div
+        v-if="editMode || (!isVisitor && !isSelf)"
+        class="relative flex cursor-pointer select-none items-center"
+        ref="moreToggler"
+      >
+        <Icon name="moreVertical" size="20" @click.stop="toggleMorePanel"></Icon>
         <transition
           enter-active-class="transition-transform duration-100 ease-out origin-top"
           enter-from-class="transform scale-y-0"
@@ -31,21 +35,21 @@
           leave-to-class="transform scale-y-0"
         >
           <div
-            v-if="showDissPanel"
+            v-if="showMorePanel"
             class="absolute right-16 top-full z-10 min-w-max rounded-sm bg-white py-4 drop-shadow"
-            ref="dissPanel"
+            ref="morePanel"
           >
             <div
               class="flex cursor-pointer items-center space-x-5 px-26 py-6 hover:bg-primary hover:text-white"
-              @click.stop="report"
+              @click.stop="onMore1"
             >
-              <div class="text-base">{{ $t('label.report') }}</div>
+              <div class="text-base">{{ more1Text }}</div>
             </div>
             <div
               class="flex cursor-pointer items-center space-x-5 px-26 py-6 hover:bg-primary hover:text-white"
-              @click.stop="block(isBlocked)"
+              @click.stop="onMore2"
             >
-              <div class="text-base">{{ isBlocked ? $t('content.unblock') : $t('label.block') }}</div>
+              <div class="text-base">{{ more2Text }}</div>
             </div>
           </div>
         </transition>
@@ -59,6 +63,14 @@
         <BlockMask v-if="isBlock" :item="item"></BlockMask>
         <VideoWrap v-else-if="isVideo" :item="item" stat></VideoWrap>
         <PhotoSwiper v-else-if="isImage" :item="item" stat></PhotoSwiper>
+      </div>
+      <div
+        v-if="editMode && [FEED_STATUS.REVIEW, ...FEED_STATUS_FORMATING].includes(item.status)"
+        class="absolute top-0 flex h-full w-full items-center justify-center rounded-inherit bg-light-gray bg-opacity-50"
+      >
+        <span class="text-lg font-bold text-white drop-shadow-md">{{
+          item.status === FEED_STATUS.REVIEW ? $t('info.underReview') : $t('info.formating')
+        }}</span>
       </div>
       <div v-if="showAutoPublishTime" class="absolute left-20 top-20 text-base font-bold text-white">
         {{ $t('content.autoPublishAt', { datetime: tsSecondToYMDhm(item.display_ts, item.display_at) }) }}
@@ -82,6 +94,10 @@
       <div class="flex space-x-10">
         <Icon name="play" size="20"></Icon>
         <div class="text-sm font-medium leading-5">{{ item.view_num }}</div>
+      </div>
+      <div v-if="editMode" class="flex space-x-10">
+        <Icon name="mineSetPw" size="20"></Icon>
+        <div class="text-sm font-medium leading-5">{{ item.buy }}</div>
       </div>
     </div>
 
@@ -134,15 +150,18 @@ import VideoWrap from '@comp/multimedia/VideoWrap.vue'
 import { useDissSomeone } from '@use/feed/dissSomeone'
 import { useRouters } from '@use/routers'
 import { useCopyToClipboard } from '@use/utils/copyToClipboard'
-import { MEDIA_TYPE } from '@const/publish'
+import { FEED_STATUS, FEED_STATUS_FORMATING, MEDIA_TYPE } from '@const/publish'
 import { commaSplittedToArray, tsSecondToHumanString, tsSecondToYMDhm } from '@/utils/string-helper'
 
 const props = defineProps({
   item: { type: Object, required: true },
   disableToDetail: { type: Boolean, default: false },
   disableContentFold: { type: Boolean, default: false },
+  editMode: { type: Boolean, default: false },
   showAutoPublishTime: { type: Boolean, default: false },
 })
+
+const emits = defineEmits('edit', 'delete')
 
 const accountStore = useAccountStore()
 const { userId, isVisitor } = storeToRefs(accountStore)
@@ -182,13 +201,22 @@ const toggleLike = afterLoginAction($toggleLike)
 
 const { copy } = useCopyToClipboard()
 
-const dissToggler = ref(null)
-const dissPanel = ref(null)
-const showDissPanel = ref(false)
-function toggleDissPanel() {
-  showDissPanel.value = !showDissPanel.value
-}
-onClickOutside(dissPanel, () => (showDissPanel.value = false), { ignore: [dissToggler] })
+const moreToggler = ref(null)
+const morePanel = ref(null)
+const showMorePanel = ref(false)
+onClickOutside(morePanel, () => (showMorePanel.value = false), { ignore: [moreToggler] })
+const toggleMorePanel = () => (showMorePanel.value = !showMorePanel.value)
 const isBlocked = computed(() => props.item.user.is_block)
-const { report, block } = useDissSomeone(props.item.user, () => (showDissPanel.value = false))
+const { report, block } = useDissSomeone(props.item.user, () => (showMorePanel.value = false))
+
+const more1Text = computed(() => (props.editMode ? $t('label.edit') : $t('label.report')))
+const more2Text = computed(() => (props.editMode ? $t('label.delete') : isBlocked.value ? $t('content.unblock') : $t('label.block'))) // prettier-ignore
+function onMore1() {
+  showMorePanel.value = false
+  props.editMode ? emits('edit') : report()
+}
+function onMore2() {
+  showMorePanel.value = false
+  props.editMode ? emits('delete') : block(isBlocked.value)
+}
 </script>

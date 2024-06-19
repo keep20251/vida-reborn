@@ -9,18 +9,9 @@
         <Icon name="playBtn" size="20"></Icon>
       </div>
     </div>
-    <div v-else v-show="!videoPlay || isSwiping || showControl" class="absolute top-0 h-full w-full rounded-inherit">
+    <div v-else v-show="!videoPlay || isDragging || showControl" class="absolute top-0 h-full w-full rounded-inherit">
       <div class="absolute bottom-0 w-full px-20 pb-20">
-        <div
-          class="relative h-27 w-full cursor-pointer"
-          ref="timeBar"
-          @touchstart.stop="onStart"
-          @touchmove.stop="onMove"
-          @touchend.stop="onEnd"
-          @mousedown.stop="onStart"
-          @mousemove.stop="onMove"
-          @mouseup.stop="onEnd"
-        >
+        <div class="relative h-27 w-full cursor-pointer" ref="timeBar">
           <div
             class="absolute top-16 h-2 w-full rounded-full"
             :style="{
@@ -58,7 +49,7 @@ import { onActivated, onBeforeUnmount, onDeactivated, onMounted, ref } from 'vue
 import { useElementSize } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
-import { useTimeBarSwipe } from '@use/gesture/timeBarSwipe'
+import { useDrag } from '@use/gesture/drag'
 import lazyloader from '@/utils/lazyloader'
 import { toVideoTimeFormat } from '@/utils/string-helper'
 // import { add, remove } from '@/utils/video-autoplay-controller'
@@ -88,9 +79,8 @@ const errMsg = ref('')
 
 const timeBar = ref(null)
 const { width: timeBarWidth } = useElementSize(timeBar)
-const { isSwiping, onStart, onMove, onEnd } = useTimeBarSwipe(
-  timeBar,
-  (newRate) => {
+const { isDragging } = useDrag(timeBar, {
+  onUpdate(newRate) {
     const video = videoElement.value
     if (!video) return
     if (newRate === null) {
@@ -101,7 +91,7 @@ const { isSwiping, onStart, onMove, onEnd } = useTimeBarSwipe(
       video.currentTime = videoDuration.value * newRate
     }
   },
-  () => {
+  onEnd() {
     const video = videoElement.value
     if (!video) return
     openControl()
@@ -109,7 +99,7 @@ const { isSwiping, onStart, onMove, onEnd } = useTimeBarSwipe(
       video.play()
     }
   },
-)
+})
 
 function togglePlay() {
   const video = videoElement.value
@@ -224,6 +214,7 @@ function releaseVideo() {
 
   release(videoElement.value)
   videoElement.value = null
+  videoPlay.value = false
   isLoading.value = true
   errMsg.value = ''
 }

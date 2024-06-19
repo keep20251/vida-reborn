@@ -1,7 +1,9 @@
 <template>
-  <div class="pb-20 pt-20">
-    <div class="flex grow items-center justify-between space-x-10">
-      <Avatar @click="toCreator(item?.username)" :radius="15" :src="item.thumb" class="cursor-pointer"></Avatar>
+  <div class="pb-20 pt-20 last:border-b">
+    <div class="flex grow justify-between space-x-10">
+      <div class="flex items-center justify-center">
+        <Avatar @click="toCreator(item?.username)" :radius="15" :src="item.thumb" class="cursor-pointer"></Avatar>
+      </div>
       <div class="flex grow flex-col space-y-5">
         <div class="flex space-x-5">
           <div class="cursor-pointer text-base font-bold leading-md" @click="toCreator(item?.username)">
@@ -29,28 +31,32 @@
         </div>
         <div class="text-sm font-semibold leading-normal text-primary">{{ item.subscription_title }}</div>
       </div>
-      <div>
+      <div
+        class="flex items-center justify-center"
+        v-if="item.status === SUB_STATUS.CANCEL_SUB || item.status === SUB_STATUS.RE_SUB"
+      >
         <Button
           @click="onSubStatus(item)"
           :class="{
             'bg-gray-a3': item.status === SUB_STATUS.CANCEL_SUB,
-            'bg-contrast': item.status === SUB_STATUS.RESTORE_SUB,
             'bg-primary': item.status === SUB_STATUS.RE_SUB,
-            'bg-subscribe-light-pink': item.status === SUB_STATUS.SUB_IN_ADVANCE,
           }"
           contrast
           size="sm"
           class="whitespace-nowrap"
-          >{{
-            item.status === SUB_STATUS.CANCEL_SUB
-              ? $t('common.cancelSubscribe')
-              : item.status === SUB_STATUS.RESTORE_SUB
-                ? $t('common.restoreSubscribe')
-                : item.status === SUB_STATUS.RE_SUB
-                  ? $t('common.reSubscribe')
-                  : $t('common.beforehandSubscribe')
-          }}</Button
+          >{{ item.status === SUB_STATUS.CANCEL_SUB ? $t('common.cancelSubscribe') : $t('common.reSubscribe') }}</Button
         >
+      </div>
+      <div
+        v-if="item.status === SUB_STATUS.RESTORE_SUB || item.status === SUB_STATUS.SUB_IN_ADVANCE"
+        class="flex items-end text-sm underline"
+        @click="onSubStatus(item)"
+        :class="{
+          'text-contrast': item.status === SUB_STATUS.RESTORE_SUB,
+          'text-subscribe-light-pink': item.status === SUB_STATUS.SUB_IN_ADVANCE,
+        }"
+      >
+        {{ item.status === SUB_STATUS.RESTORE_SUB ? $t('common.restoreSubscribe') : $t('common.beforehandSubscribe') }}
       </div>
     </div>
   </div>
