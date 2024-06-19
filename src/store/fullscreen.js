@@ -42,7 +42,7 @@ export const useFullscreenStore = defineStore('fullscreen', () => {
     const { isDesktop } = useAppStore()
     if (isDesktop) {
       backdrop.value = true
-      showCloseBtn.value = false
+      showCloseBtn.value = true
     } else {
       backdrop.value = false
       showCloseBtn.value = true

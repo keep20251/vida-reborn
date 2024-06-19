@@ -1,24 +1,55 @@
 <template>
-  <BaseMedia>
+  <BaseMedia v-if="isActivated">
     <template v-slot:closeBtn="{ config }">
       <button class="text-white" @click="config.close()">x</button>
     </template>
 
     <template v-slot:content="{}">
-      <PhotoSwiper
-        v-if="mediaType == 'image'"
-        :item="mediaContainer.item"
-        stat
-        :index="swiperIndex"
-        @update:currIndex="handleIndexChange"
-      ></PhotoSwiper>
+      <div class="relative h-full w-full overflow-hidden rounded-inherit" ref="swiper">
+        <div
+          v-for="(img, i) in imgs"
+          class="absolute top-0 h-full w-full"
+          :class="{ 'will-change-transform': animIndex % 1 !== 0 }"
+          :style="{ transform: `translateX(${(i - animIndex) * 100}%)` }"
+          :key="i"
+        >
+          <EncryptImage
+            :src="img.url"
+            :border-radius="10"
+            :active="i >= currIndex - 1 && i <= currIndex + 1"
+          ></EncryptImage>
+        </div>
+
+        <div v-if="imgs.length > 1" class="absolute bottom-20 right-20 flex select-none space-x-5">
+          <Icon name="cameraWhite" size="20"></Icon>
+          <span class="text-base text-white">{{ `${currIndex + 1}/${imgs.length}` }}</span>
+        </div>
+        <LockMask v-if="isLock" :item="item" :meta="`${currIndex + 1}/${imgs.length}`"></LockMask>
+        <!-- <div -->
+        <!--   v-if="isDesktop && imgs.length > 1 && currIndex >= 1" -->
+        <!--   class="absolute left-0 top-0 flex h-full w-40 cursor-pointer items-center justify-end" -->
+        <!--   @click.stop="prev()" -->
+        <!-- > -->
+        <!--   <div class="flex h-20 w-20 items-center justify-center rounded-full bg-gray-f6 opacity-60"> -->
+        <!--     <Icon name="back" size="16"></Icon> -->
+        <!--   </div> -->
+        <!-- </div> -->
+        <!-- <div -->
+        <!--   v-if="isDesktop && imgs.length > 1 && currIndex < imgs.length - 1" -->
+        <!--   class="absolute right-0 top-0 flex h-full w-40 cursor-pointer items-center justify-start" -->
+        <!--   @click.stop="next()" -->
+        <!-- > -->
+        <!--   <div class="flex h-20 w-20 rotate-180 items-center justify-center rounded-full bg-gray-f6 opacity-60"> -->
+        <!--     <Icon name="back" size="16"></Icon> -->
+        <!--   </div> -->
+        <!-- </div> -->
+      </div>
     </template>
 
     <template v-slot:dots="{}">
       <ul class="flex items-baseline justify-center space-x-5 p-5 text-white">
         <li
-          @click="handleSelectItem(itemIndex)"
-          class="m-2 cursor-pointer p-2"
+          class="px-4"
           :class="{ 'text-blue-500': swiperIndex === itemIndex, 'text-xl': swiperIndex === itemIndex }"
           v-for="(item, itemIndex) in swiperImgs"
           :key="itemIndex"
@@ -31,32 +62,36 @@
 </template>
 
 <script setup>
-import { computed, defineAsyncComponent, ref } from 'vue'
+import { computed, defineAsyncComponent, ref, watch } from 'vue'
+import { whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useFullscreenStore } from '@/store/fullscreen'
+import LockMask from '@comp/multimedia/LockMask.vue'
+import { useSwipe } from '@use/gesture/swipe'
 
 const BaseMedia = defineAsyncComponent(() => import('./base/Fullscreen.vue'))
 
-const PhotoSwiper = defineAsyncComponent(() => import('./PhotoSwiper.vue'))
+const { mediaContainer, isActivated } = storeToRefs(useFullscreenStore())
 
-const { mediaType, mediaContainer } = storeToRefs(useFullscreenStore())
-
-const { isDesktop } = storeToRefs(useAppStore())
+const appStore = useAppStore()
+const { isDesktop } = storeToRefs(appStore)
 
 const swiperImgs = ref([])
 const swiperIndex = ref(0)
 
-const handleIndexChange = (params) => {
-  console.log('handleIndexChange', params)
-  const { index, total, imgs, img } = params
-  console.log('handleIndexChange', index, total, imgs, img)
-  swiperImgs.value = imgs
-  swiperIndex.value = index
-}
-const handleSelectItem = (index) => {
-  console.log('handleSelectItem', index)
-  swiperIndex.value = index
-  console.log('swiperIndex.value', swiperIndex.value)
-}
+const index = ref(0)
+const item = computed(() => mediaContainer.value.item)
+const currIndex = ref(index.value)
+const imgs = computed(() => mediaContainer.value.item.url)
+
+const isLock = computed(() => !mediaContainer.value.item.is_unlock && (imgs.value.length === 1 || animIndex.value > 0))
+
+const swiper = ref(null)
+const { index: animIndex, transitioning, prev, next } = useSwipe(swiper, imgs, { initIndex: index.value })
+
+whenever(
+  () => transitioning.value === false,
+  () => (currIndex.value = animIndex.value),
+)
 </script>

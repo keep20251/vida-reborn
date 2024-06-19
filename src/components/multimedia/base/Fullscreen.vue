@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isActivated" :class="[fullScreenClass]" ref="fullScreenContainer">
+  <div :class="[fullScreenClass]" ref="fullScreenContainer">
     <div :class="[fullScreenBackClass]" @click="handleBackDrop"></div>
     <div :class="[fullScreenContentClass]">
       <component :is="baseComponent" :config="config">
@@ -58,7 +58,7 @@ const fullScreenClass = computed(() => {
       const { width } = rect
       if (width < 414) {
         // extra small
-        baseClass += 'items-start pt-30'
+        baseClass += 'items-start '
       } else {
         baseClass += 'items-center '
       }
@@ -83,11 +83,11 @@ const fullScreenContentClass = computed(() => {
   baseClass += ' '
 
   if (isDesktop.value) {
-    baseClass += ''
+    baseClass += 'w-full h-full'
 
     // baseClass += 'bg-black/50'
   } else {
-    baseClass += 'h-[calc(100vh-20rem)] h-full' // mobile center height
+    baseClass += ' h-full w-full' // mobile center height
   }
 
   return baseClass
