@@ -21,7 +21,7 @@
               leave-to-class="transform scale-0 -translate-y-75 translate-x-55"
             >
               <div v-show="isEditing" class="absolute right-10 top-20 w-100 rounded bg-white">
-                <div class="flex flex-col">
+                <div class="flex flex-col shadow-sm">
                   <div
                     v-for="(editOption, index) in editOptions"
                     :key="`edit-option-${index}`"
@@ -36,11 +36,11 @@
           </div>
         </div>
       </div>
-      <div class="h-[11.875rem]">
-        <EncryptImage :src="props.item.picture" :borderRadius="15" cover></EncryptImage>
+      <div :class="{ 'h-[11.875rem]': !height }">
+        <EncryptImage :src="props.item.picture" :borderRadius="15" cover :height="height"></EncryptImage>
       </div>
       <div>
-        <div class="text-sm font-medium leading-normal text-gray-a3" @click.stop="toggleFold">
+        <div class="whitespace-pre-wrap text-sm font-medium leading-normal text-gray-a3" @click.stop="toggleFold">
           <p :class="{ 'line-clamp-3': fold }" ref="content">{{ props.item.content }}</p>
         </div>
         <div
@@ -52,7 +52,7 @@
         </div>
       </div>
     </div>
-    <Button gradient @click="emit('click', props.item)">{{ $t('common.subscribe') }}</Button>
+    <Button v-if="!subscriptBtn" gradient @click="emit('click', props.item)">{{ $t('common.subscribe') }}</Button>
   </div>
 </template>
 <script setup>
@@ -76,6 +76,8 @@ const props = defineProps({
     }),
   },
   editMode: { type: Boolean, default: false },
+  subscriptBtn: { type: Boolean, default: false },
+  height: { type: Number },
 })
 
 const fold = ref(true)
