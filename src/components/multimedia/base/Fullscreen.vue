@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-import { computed, defineAsyncComponent, ref } from 'vue'
+import { computed, defineAsyncComponent, ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useFullscreenStore } from '@/store/fullscreen'
@@ -47,7 +47,7 @@ const config = computed(() => ({
 }))
 
 const fullScreenClass = computed(() => {
-  let baseClass = 'fixed left-0 top-0 z-30 h-screen w-full flex  justify-center '
+  let baseClass = 'fixed left-0 top-0 z-30 h-screen w-full flex  justify-center   '
   baseClass += ' '
 
   if (isDesktop.value) {

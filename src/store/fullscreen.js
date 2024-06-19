@@ -12,15 +12,10 @@ export const useFullscreenStore = defineStore('fullscreen', () => {
 
   const mediaContainer = ref({})
 
-  const setupProps = async (props) => {
-    const ins = useFullscreenStore
-    for (const key in props) {
-      if (ins[key]) ins[key] = props[key]
-    }
-  }
-
   const close = async () => {
     isActivated.value = false
+    const html = document.getElementsByTagName('html')[0]
+    if (html.style.overflow) html.style.overflow = ''
   }
 
   const open = async (props) => {
@@ -30,8 +25,10 @@ export const useFullscreenStore = defineStore('fullscreen', () => {
     _setupActiveDefault()
 
     mediaContainer.value = props
-    console.log('mediaContainer', mediaContainer.value)
     isActivated.value = true
+
+    const html = document.getElementsByTagName('html')[0]
+    html.style.overflow = 'hidden'
   }
 
   const handleBackDrop = () => {
@@ -58,7 +55,6 @@ export const useFullscreenStore = defineStore('fullscreen', () => {
     showCloseBtn,
     close,
     open,
-    setupProps,
     mediaContainer,
     handleBackDrop,
   }
