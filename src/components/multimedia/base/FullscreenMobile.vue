@@ -1,6 +1,6 @@
 <template>
-  <div class="h-full">
-    <div v-if="config.showCloseBtn" class="fixed z-10 flex w-full items-center justify-end p-20">
+  <div class="relative h-full">
+    <div v-if="config.showCloseBtn" class="absolute right-20 top-20 z-10 flex">
       <slot v-if="$slots.closeBtn" name="closeBtn" :config="config"> </slot>
       <button v-else class="z-50 rounded-full bg-black/50 p-2 text-white" @click="config.close()">close</button>
     </div>

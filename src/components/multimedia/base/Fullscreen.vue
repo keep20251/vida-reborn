@@ -81,11 +81,8 @@ const fullScreenBackClass = computed(() => {
 const fullScreenContentClass = computed(() => {
   let baseClass = 'z-10  '
   baseClass += ' '
-
   if (isDesktop.value) {
     baseClass += 'w-full h-full'
-
-    // baseClass += 'bg-black/50'
   } else {
     baseClass += ' h-full w-full' // mobile center height
   }

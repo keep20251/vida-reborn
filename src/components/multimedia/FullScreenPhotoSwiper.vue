@@ -20,29 +20,32 @@
           ></EncryptImage>
         </div>
 
-        <div v-if="imgs.length > 1" class="absolute bottom-20 right-20 flex select-none space-x-5">
-          <Icon name="cameraWhite" size="20"></Icon>
-          <span class="text-base text-white">{{ `${currIndex + 1}/${imgs.length}` }}</span>
+        <!-- page -->
+        <div v-if="imgs.length > 1" class="absolute right-[calc(50%-1rem)] top-20 flex select-none space-x-5 leading-8">
+          <span class="text-base tracking-wide text-white">{{ `${currIndex + 1} / ${imgs.length}` }}</span>
         </div>
-        <LockMask v-if="isLock" :item="item" :meta="`${currIndex + 1}/${imgs.length}`"></LockMask>
-        <!-- <div -->
-        <!--   v-if="isDesktop && imgs.length > 1 && currIndex >= 1" -->
-        <!--   class="absolute left-0 top-0 flex h-full w-40 cursor-pointer items-center justify-end" -->
-        <!--   @click.stop="prev()" -->
-        <!-- > -->
-        <!--   <div class="flex h-20 w-20 items-center justify-center rounded-full bg-gray-f6 opacity-60"> -->
-        <!--     <Icon name="back" size="16"></Icon> -->
-        <!--   </div> -->
-        <!-- </div> -->
-        <!-- <div -->
-        <!--   v-if="isDesktop && imgs.length > 1 && currIndex < imgs.length - 1" -->
-        <!--   class="absolute right-0 top-0 flex h-full w-40 cursor-pointer items-center justify-start" -->
-        <!--   @click.stop="next()" -->
-        <!-- > -->
-        <!--   <div class="flex h-20 w-20 rotate-180 items-center justify-center rounded-full bg-gray-f6 opacity-60"> -->
-        <!--     <Icon name="back" size="16"></Icon> -->
-        <!--   </div> -->
-        <!-- </div> -->
+        <!-- lock -->
+        <LockMask v-if="isLock" :item="item" :meta="`${currIndex + 1} / ${imgs.length}`" isFullscreen></LockMask>
+        <!-- prev -->
+        <div
+          v-if="isDesktop && imgs.length > 1 && currIndex >= 1"
+          class="absolute left-0 top-0 flex h-full w-40 cursor-pointer items-center justify-end"
+          @click.stop="prev()"
+        >
+          <div class="flex h-20 w-20 items-center justify-center rounded-full bg-gray-f6 opacity-60">
+            <Icon name="back" size="16"></Icon>
+          </div>
+        </div>
+        <!-- next -->
+        <div
+          v-if="isDesktop && imgs.length > 1 && currIndex < imgs.length - 1"
+          class="absolute right-0 top-0 flex h-full w-40 cursor-pointer items-center justify-start"
+          @click.stop="next()"
+        >
+          <div class="flex h-20 w-20 rotate-180 items-center justify-center rounded-full bg-gray-f6 opacity-60">
+            <Icon name="back" size="16"></Icon>
+          </div>
+        </div>
       </div>
     </template>
 
@@ -88,10 +91,18 @@ const imgs = computed(() => mediaContainer.value.item.url)
 const isLock = computed(() => !mediaContainer.value.item.is_unlock && (imgs.value.length === 1 || animIndex.value > 0))
 
 const swiper = ref(null)
-const { index: animIndex, transitioning, prev, next } = useSwipe(swiper, imgs, { initIndex: index.value })
+const { index: animIndex, transitioning, prev, next, reset } = useSwipe(swiper, imgs, { initIndex: index.value })
 
 whenever(
   () => transitioning.value === false,
   () => (currIndex.value = animIndex.value),
 )
+
+watch(isActivated, () => {
+  if (!isActivated.value) {
+    reset()
+    index.value = 0
+    currIndex.value = 0
+  }
+})
 </script>
