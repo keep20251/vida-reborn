@@ -25,6 +25,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useSubsciptionStore } from '@/store/subscription'
 import Button from '@comp/common/Button.vue'
 import { useDialog } from '@use/modal'
 import { FEED_PERM, MEDIA_TYPE } from '@const/publish'
@@ -57,10 +58,11 @@ const btnText = computed(() => {
   throw new Error(`未知的帖子類型: ${props.item.article_type}`)
 })
 
-const { subscribe, shopBuy } = useDialog()
+const { shopBuy } = useDialog()
+const { openFromFeed } = useSubsciptionStore()
 
 const clickAction = computed(() => {
-  if (props.item.article_type === FEED_PERM.SUB) return subscribe
+  if (props.item.article_type === FEED_PERM.SUB) return openFromFeed
   if (props.item.article_type === FEED_PERM.BUY) return shopBuy
   throw new Error(`未知的帖子類型: ${props.item.article_type}`)
 })
@@ -71,7 +73,7 @@ const lowestSub = computed(() => {
 })
 
 const actionParams = computed(() => {
-  if (props.item.article_type === FEED_PERM.SUB) return { item: lowestSub.value, creator: props.item.user }
+  if (props.item.article_type === FEED_PERM.SUB) return { feed: props.item, creator: props.item.user }
   if (props.item.article_type === FEED_PERM.BUY) return props.item
   throw new Error(`未知的帖子類型: ${props.item.article_type}`)
 })

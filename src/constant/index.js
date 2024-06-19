@@ -149,6 +149,7 @@ export const MINE_BUY_TAB = {
   TRANSACTION: 1,
   SUBSCRIPTION: 2,
   PURCHASED_ARTICLE: 3,
+  SUBSCRIPTION_EXPIRED: 4,
 }
 
 // 我的購買 - 訂閱狀態
@@ -210,4 +211,11 @@ export const MINE_EARN_TAB = {
 export const MINE_HOME_REG = {
   MINE_COLLECT_TAB: 1,
   MINE_BUY_TAB: 2,
+}
+
+// 特定帖子適用的訂閱方案
+export const SUBSCRIPTION_TYPE = {
+  ALL: 0, // 全部
+  RECOMMEND: 1, // 推薦
+  OTHER: 2, // 其他
 }

@@ -22,6 +22,7 @@ export default {
     subscribe: 'S’abonner',
     relatedAuthor: 'Auteurs associés',
     relatedPost: 'Articles Liés',
+    subscription: { recommend: 'Plan recommandé', other: 'Autres plans' },
   },
   common: {
     next: 'Suivant',
@@ -41,7 +42,7 @@ export default {
     cancelSubscribe: 'Annuler',
     restoreSubscribe: 'Reprendre',
     reSubscribe: 'Réabonner',
-    beforehandSubscribe: 'Renouveler tôt',
+    beforehandSubscribe: 'Prolonger le Temps',
     editPersonalPage: 'Editer le profil',
     toPersonalPage: 'Aller au profil',
     reSelect: 'Resélectionner',
@@ -120,6 +121,7 @@ export default {
     edit: 'Éditer',
     add: 'Ajouter',
     submit: 'Soumettre',
+    delete: '',
     nowPw: 'Mot de passe actuel',
     newPw: 'Nouveau mot de passe',
     newPwCfm: 'Confirmation du mot de passe',
@@ -248,6 +250,7 @@ export default {
     reviewPass: 'Approuvé',
     underReview: 'En cours de révision',
     reviewFail: 'Révision échouée',
+    formating: 'Conversion en cours',
     paid: 'Payé',
     published: 'Publié',
     time: 'Temps',
@@ -271,6 +274,15 @@ export default {
     unboundMailPrompt:
       "Cette adresse e-mail n'est pas liée à un compte. Si vous avez un compte, vous pouvez vous connecter avec votre nom d'utilisateur ci-dessous.",
     cardLimit: 'Cartes de crédit ajoutées {length}/{max}',
+    subscription: {
+      recommend: 'Permet de déverrouiller ce post avec un plan adapté',
+      other: "N'inclut pas de plan adapté pour déverrouiller ce post",
+    },
+    valid: 'Valide',
+    totalCount: '# Total {count}',
+    validInfo: "Ces plans d'abonnement sont actuellement valides.",
+    invalid: 'Expiré',
+    invalidInfo: "Ces plans d'abonnement ont expiré.",
   },
   content: {
     default: 'Par défaut, ne devrait apparaître nulle part',
@@ -535,7 +547,7 @@ export default {
       confirm: "{'$'}{price} par mois Aller au paiement",
     },
     shopBuy: {
-      1: 'Déverrouillera le contenu de {nickname} dans ce travail',
+      1: 'Déverrouillera le contenu de cette œuvre de {nickname}',
       2: '{nickname} recevra votre paiement dans son intégralité',
       confirm: "Débloquez maintenant ({'$'}{price})",
     },

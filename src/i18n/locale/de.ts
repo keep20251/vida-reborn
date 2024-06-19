@@ -22,6 +22,7 @@ export default {
     subscribe: 'Abonnieren',
     relatedAuthor: 'Verwandte Autoren',
     relatedPost: 'In Verbindung stehende Artikel',
+    subscription: { recommend: 'Empfohlener Plan', other: 'Andere Pläne' },
   },
   common: {
     next: 'Nächster',
@@ -41,7 +42,7 @@ export default {
     cancelSubscribe: 'Abbrechen',
     restoreSubscribe: 'Wiederaufnehmen',
     reSubscribe: 'Erneut abonnieren',
-    beforehandSubscribe: 'Früh verlängern',
+    beforehandSubscribe: 'Zeit verlängern',
     editPersonalPage: 'Profil bearbeiten',
     toPersonalPage: 'Zum Profil gehen',
     reSelect: 'Neu auswählen',
@@ -120,6 +121,7 @@ export default {
     edit: 'Bearbeiten',
     add: 'Hinzufügen',
     submit: 'Einreichen',
+    delete: '',
     nowPw: 'Aktuelles Passwort',
     newPw: 'Neues Passwort',
     newPwCfm: 'Passwortbestätigung',
@@ -248,6 +250,7 @@ export default {
     reviewPass: 'Genehmigt',
     underReview: 'In Überprüfung',
     reviewFail: 'Überprüfung fehlgeschlagen',
+    formating: 'Konvertieren',
     paid: 'Bezahlt',
     published: 'Veröffentlicht',
     time: 'Zeit',
@@ -271,6 +274,15 @@ export default {
     unboundMailPrompt:
       'Diese E-Mail-Adresse ist keinem Konto zugeordnet. Wenn Sie ein Konto haben, können Sie sich unten mit Ihrem Benutzernamen anmelden.',
     cardLimit: 'Hinzugefügte Kreditkarten {length}/{max}',
+    subscription: {
+      recommend: 'Ermöglicht das Entsperren dieses Beitrags mit einem geeigneten Plan',
+      other: 'Enthält keinen geeigneten Plan zum Entsperren dieses Beitrags',
+    },
+    valid: 'Gültig',
+    totalCount: '# Gesamt {count}',
+    validInfo: 'Diese Abonnementpläne sind derzeit gültig.',
+    invalid: 'Abgelaufen',
+    invalidInfo: 'Diese Abonnementpläne sind abgelaufen.',
   },
   content: {
     default: 'Standardmäßig, sollte nirgendwo auftauchen',
@@ -328,7 +340,7 @@ export default {
     customStyle: 'Benutzerdefinierter Stil',
     subUnlockDayAfter: 'Erlaubt das Entsperren die letzten Tage seit dem Kauf?',
     tokenExpired: 'Die Anmeldesitzung ist abgelaufen. Bitte melden Sie sich erneut an.',
-    clearSearchHistory: 'Sind Sie sicher, dass Sie Ihren Suchverlauf löschen möchten?',
+    clearSearchHistory: 'Möchten Sie Ihren Suchverlauf wirklich löschen?',
     uploadVideoLimit: {
       format:
         'Das aktuell hochgeladene Videoformat ({format}) wird nicht unterstützt. Bitte konvertieren Sie es in das MP4- oder MOV-Format und versuchen Sie es erneut.',
@@ -534,7 +546,7 @@ export default {
       confirm: "{'$'}{price} pro Monat Gehen Sie zu Bezahlen",
     },
     shopBuy: {
-      1: 'Wird den Inhalt von {nickname} in dieser Arbeit freischalten',
+      1: 'Wird den Inhalt dieser Arbeit durch {nickname} freischalten',
       2: '{nickname}wird Ihre Zahlung vollständig erhalten',
       confirm: "Jetzt freischalten ({'$'}{price})",
     },

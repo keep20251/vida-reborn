@@ -22,6 +22,7 @@ export default {
     subscribe: 'Đăng ký',
     relatedAuthor: 'tác giả liên quan',
     relatedPost: 'Những bài viết liên quan',
+    subscription: { recommend: 'Gói đề xuất', other: 'Gói khác' },
   },
   common: {
     next: 'Tiếp theo',
@@ -41,7 +42,7 @@ export default {
     cancelSubscribe: 'Hủy đăng ký',
     restoreSubscribe: 'Khôi phục đăng ký',
     reSubscribe: 'Đăng ký lại',
-    beforehandSubscribe: 'Gia hạn sớm',
+    beforehandSubscribe: 'Gia hạn thời gian',
     editPersonalPage: 'Chỉnh sửa hồ sơ',
     toPersonalPage: 'Đi đến Hồ sơ',
     reSelect: 'Chọn lại',
@@ -120,6 +121,7 @@ export default {
     edit: 'Chỉnh sửa',
     add: 'Thêm',
     submit: 'Nộp',
+    delete: '',
     nowPw: 'Mật khẩu hiện tại',
     newPw: 'Mật khẩu mới',
     newPwCfm: 'Xác nhận mật khẩu',
@@ -248,6 +250,7 @@ export default {
     reviewPass: 'Đã thông qua',
     underReview: 'Đang được xem xét',
     reviewFail: 'Xem xét thất bại',
+    formating: 'Đang chuyển đổi',
     paid: 'Đã thanh toán',
     published: 'Đã xuất bản',
     time: 'Thời gian',
@@ -271,6 +274,15 @@ export default {
     unboundMailPrompt:
       'Địa chỉ email này chưa được liên kết với bất kỳ tài khoản nào. Nếu bạn đã có tài khoản, bạn có thể đăng nhập bằng tên người dùng bên dưới.',
     cardLimit: 'Đã thêm thẻ tín dụng {length}/{max}',
+    subscription: {
+      recommend: 'Cho phép mở khóa bài viết này với gói phù hợp',
+      other: 'Không bao gồm gói phù hợp để mở khóa bài viết này',
+    },
+    valid: 'Hợp lệ',
+    totalCount: '# Tổng {count}',
+    validInfo: 'Các gói đăng ký này hiện đang có hiệu lực.',
+    invalid: 'Hết hạn',
+    invalidInfo: 'Các gói đăng ký này đã hết hạn.',
   },
   content: {
     default: 'Mặc định, không nên hiển thị ở bất cứ đâu',
@@ -531,7 +543,7 @@ export default {
       confirm: "{'$'}{price} mỗi tháng Chuyển đến phần Thanh toán",
     },
     shopBuy: {
-      1: 'Sẽ mở khóa nội dung của {nickname} trong tác phẩm này',
+      1: 'Sẽ mở khóa nội dung của tác phẩm này của {nickname}',
       2: '{nickname}sẽ nhận được đầy đủ khoản thanh toán của bạn',
       confirm: "Mở khóa ngay ({'$'}{price})",
     },
@@ -542,8 +554,8 @@ export default {
     },
     shopBuySuc: {
       1: 'tuyệt vời! Đã thanh toán thành công để mở khóa bài đăng',
-      2: 'Chọn vào bài viết để xem, hoặc ở lại màn hình gốc để duyệt nhé!',
-      confirm: 'Đi tới bài đăng',
+      2: 'Chọn vào bài viết để xem, hoặc ở lại màn hình gốc để duyệt!',
+      confirm: 'Đi tới bài viết',
     },
     title: { paySuc: 'Thanh toán được thực hiện thành công' },
     paying: { title: 'Thanh toán đang được xử lý' },
