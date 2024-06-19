@@ -8,7 +8,7 @@
     </div>
     <div class="select-none p-30 pr-15">
       <div class="scrollbar-md max-h-[65vh] overflow-y-scroll pr-15" :class="{ 'my-10': subList.length === 0 }">
-        <div @click="subPlanAdd()" class="cursor-pointer text-center text-base font-bold leading-md text-gray-57">
+        <div @click="subPlanAdd()" class="cursor-pointer text-start text-base font-bold leading-md text-gray-57">
           ＋ {{ $t('content.AddNewSubPlan') }}
           <label
             v-if="subList.length === 0"
@@ -37,20 +37,8 @@
         </div>
         <List :items="subList" item-key="id" divider>
           <template #default="{ item, index }">
-            <div class="grid space-y-30 py-30">
-              <div class="grid space-y-10">
-                <div class="flex items-end justify-between">
-                  <div class="flex flex-row items-end">
-                    <div class="pr-4 text-xl font-bold leading-xl">${{ removeDecimalIfHundred(item.price) }}</div>
-                    <div class="text-base font-normal leading-lg">/{{ $t('content.month') }}</div>
-                  </div>
-                  <div class="text-base font-bold leading-md text-primary">{{ item.name }}</div>
-                </div>
-                <EncryptImage :src="item.picture" cover :borderRadius="10" :height="260"></EncryptImage>
-                <div class="text-sm leading-md text-gray-57">{{ item.content }}</div>
-                <Button class="mt-10" @click="subPlanEdit(subList, index)" gradient>{{ $t('label.edit') }}</Button>
-              </div>
-            </div>
+            <SubscribeCard :item="item" subscript-btn edit-mode :height="260" class="mt-30"></SubscribeCard>
+            <Button class="my-20" @click="subPlanEdit(subList, index)" gradient>{{ $t('label.edit') }}</Button>
           </template>
         </List>
       </div>
@@ -64,6 +52,7 @@ import { useSubPlanStore } from '@/store/sub-plan'
 import Button from '@comp/common/Button.vue'
 import List from '@comp/common/List.vue'
 import { SUB_PLAN } from '@const'
+import SubscribeCard from '@/components/card/SubscribeCard.vue'
 
 const { appConfig } = useAppStore()
 const { to, close } = useSubPlanStore()
