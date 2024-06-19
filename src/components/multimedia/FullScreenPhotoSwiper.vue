@@ -1,7 +1,7 @@
 <template>
   <BaseMedia v-if="isActivated">
     <template v-slot:closeBtn="{ config }">
-      <button class="text-white" @click="config.close()">x</button>
+      <Icon name="closeWhite" size="15" @click="config.close()"></Icon>
     </template>
 
     <template v-slot:content="{}">
@@ -21,7 +21,7 @@
         </div>
 
         <!-- page -->
-        <div v-if="imgs.length > 1" class="absolute right-[calc(50%-1rem)] top-20 flex select-none space-x-5 leading-8">
+        <div v-if="imgs.length > 1" class="absolute right-[calc(50%-1rem)] top-20 flex select-none space-x-5">
           <span class="text-base tracking-wide text-white">{{ `${currIndex + 1} / ${imgs.length}` }}</span>
         </div>
         <!-- lock -->
@@ -66,7 +66,7 @@
 
 <script setup>
 import { computed, defineAsyncComponent, ref, watch } from 'vue'
-import { whenever } from '@vueuse/core'
+import { useSwipe as vuseSwip, whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useFullscreenStore } from '@/store/fullscreen'
@@ -75,7 +75,9 @@ import { useSwipe } from '@use/gesture/swipe'
 
 const BaseMedia = defineAsyncComponent(() => import('./base/Fullscreen.vue'))
 
-const { mediaContainer, isActivated } = storeToRefs(useFullscreenStore())
+const fullscreenStore = useFullscreenStore()
+const { close } = fullscreenStore
+const { mediaContainer, isActivated } = storeToRefs(fullscreenStore)
 
 const appStore = useAppStore()
 const { isDesktop } = storeToRefs(appStore)
@@ -105,4 +107,10 @@ watch(isActivated, () => {
     currIndex.value = 0
   }
 })
+
+const { isSwiping, direction } = vuseSwip(swiper)
+whenever(
+  () => isSwiping.value && direction.value === 'up',
+  () => close(),
+)
 </script>

@@ -84,7 +84,7 @@ const pageClass = computed(() => {
 })
 
 const pageMetaClass = computed(() => {
-  if (props.isFullscreen) return 'text-base text-white tracking-wide leading-8'
+  if (props.isFullscreen) return 'text-base text-white tracking-wide '
   return 'text-base text-white'
 })
 </script>
