@@ -93,11 +93,21 @@ const imgs = computed(() => mediaContainer.value.item.url)
 const isLock = computed(() => !mediaContainer.value.item.is_unlock && (imgs.value.length === 1 || animIndex.value > 0))
 
 const swiper = ref(null)
+
 const { index: animIndex, transitioning, prev, next, reset } = useSwipe(swiper, imgs, { initIndex: index.value })
 
 whenever(
   () => transitioning.value === false,
   () => (currIndex.value = animIndex.value),
+)
+whenever(
+  () => isActivated.value,
+  () => {
+    const targetIndex = mediaContainer.value.mediaCurrentIndex
+    reset(targetIndex)
+    index.value = targetIndex
+    currIndex.value = targetIndex
+  },
 )
 
 whenever(
