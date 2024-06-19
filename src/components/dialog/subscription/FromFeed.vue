@@ -7,7 +7,9 @@
     <div class="scrollbar-md max-h-[65vh] overflow-y-scroll pr-20">
       <List :items="data" item-key="id" divider>
         <template #default="{ item }">
-          <SubscribeCard :item="item" @click="subscribe({ item, creator })"></SubscribeCard>
+          <div class="py-20">
+            <SubscribeCard :item="item" @click="subscribe({ item, creator })"></SubscribeCard>
+          </div>
         </template>
         <template #bottom>
           <NoData v-if="data?.length <= 0"></NoData>
