@@ -14,8 +14,10 @@ export const useFullscreenStore = defineStore('fullscreen', () => {
 
   const close = async () => {
     isActivated.value = false
-    const html = document.getElementsByTagName('html')[0]
-    if (html.style.overflow) html.style.overflow = ''
+    setTimeout(() => {
+      const html = document.getElementsByTagName('html')[0]
+      if (html.style.overflow) html.style.overflow = ''
+    }, 300)
   }
 
   const open = async (props) => {
