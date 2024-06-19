@@ -52,7 +52,6 @@ export default {
     setDefault: 'Definir como padrão',
     addCard: 'Adicionar cartão de crédito',
     editSubscription: { moveUp: 'Mover para cima', moveDown: 'Mover para baixo', edit: 'Editar', delete: 'Excluir' },
-    whetherCancelSub: 'Tem certeza de que deseja cancelar sua assinatura?',
     whetherCrestoreSub: 'Tem certeza de que deseja retomar sua assinatura?',
     reSubErr: 'Falha na reinscrição',
     subInAdvanceErr: 'Falha na renovação antecipada',
@@ -285,6 +284,8 @@ export default {
     validInfo: 'Esses planos de assinatura estão atualmente válidos.',
     invalid: 'Expirado',
     invalidInfo: 'Esses planos de assinatura expiraram.',
+    firstItem: 'Este já é o primeiro.',
+    lastItem: 'Este já é o último.',
   },
   content: {
     default: 'Padrão, não deve aparecer em lugar nenhum',
@@ -734,7 +735,7 @@ export default {
         content: {
           1: 'A VIDA é uma plataforma de assinatura de membros meticulosamente criada, projetada exclusivamente para criadores. Incentiva os criadores a se envolverem com seus fãs e monetizar seu conteúdo de maneira eficaz. Fornecemos um conjunto abrangente de serviços centrados em criadores, incluindo "crowdfunding" e "Strategic Consulta.',
           2: 'Além disso, oferecemos diversas camadas de associação e opções versáteis do módulo, capacitando os criadores a se expressar livremente.',
-          3: 'Atualmente, servimos orgulhosamente uma comunidade de mais de 5000 criadores e fãs, abrangendo mais de 20 países. Enquanto inspiramos os criadores a buscar a excelência e produzir conteúdo de alta qualidade,',
+          3: 'Atualmente, atendemos com orgulho uma comunidade de mais de 5.000 criadores e fãs, abrangendo mais de 20 países. À medida que inspiramos os criadores a buscar a excelência e produzir conteúdo de alta qualidade,',
           4: 'A VIDA está igualmente comprometida em forjar conexões mais fortes entre os criadores e sua base de fãs dedicada, promovendo um profundo senso de unidade comunitária.',
         },
       },

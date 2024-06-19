@@ -52,7 +52,6 @@ export default {
     setDefault: 'Set as Default',
     addCard: 'Add Credit Card',
     editSubscription: { moveUp: 'Move Up', moveDown: 'Move Down', edit: 'Edit', delete: 'Delete' },
-    whetherCancelSub: 'Are you sure you want to cancel your subscription?',
     whetherCrestoreSub: 'Are you sure you want to resume your subscription?',
     reSubErr: 'Resubscription failed',
     subInAdvanceErr: 'Early renewal failed',
@@ -285,6 +284,8 @@ export default {
     validInfo: 'These subscription plans are currently valid.',
     invalid: 'Expired',
     invalidInfo: 'These subscription plans have expired.',
+    firstItem: 'This is already the first one.',
+    lastItem: 'This is already the last one.',
   },
   content: {
     default: "Default, shouldn't show up anywhere",
@@ -725,7 +726,7 @@ export default {
         content: {
           1: 'Vida is a meticulously crafted member subscription platform designed exclusively for creators. It encourages creators to engage with their fans and monetise their content effectively. We provide a comprehensive suite of services centred around creators, including Crowdfunding and Strategic Branding Consultation.',
           2: 'Additionally, we offer diverse membership tiers and versatile module options, empowering creators to express themselves freely.',
-          3: 'Currently, we proudly serve a community of over 5,000 creators and fans, spanning 20+ countries. As we inspire creators to pursue excellence and produce high-quality content, Vida is equally committed to forging stronger connections between creators and their devoted fan base, fostering a profound sense of community unity.”',
+          3: 'Currently, we proudly serve a community of over 5,000 creators and fans, spanning 20+ countries. As we inspire creators to pursue excellence and produce high-quality content,',
           4: 'Vida is equally committed to forging stronger connections between creators and their devoted fan base, fostering a profound sense of community unity.',
         },
       },
