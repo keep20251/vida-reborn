@@ -6,7 +6,7 @@
         <Dropdown v-model="reason" :options="reasons" inset></Dropdown>
       </div>
     </div>
-    <TextareaWrap v-model="desc" :label="$t('label.reportDesc')" :errMsg="descErrMsg"></TextareaWrap>
+    <TextareaWrap v-model="desc" :label="$t('label.reportDesc')" :errMsg="descErrMsg" :line="6" leading></TextareaWrap>
   </div>
 </template>
 

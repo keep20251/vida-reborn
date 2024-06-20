@@ -142,6 +142,8 @@
           :label="$t('label.content')"
           :err-msg="contentError"
           :line="6"
+          leading
+          resize
         ></TextareaWrap>
 
         <!-- Tag -->
