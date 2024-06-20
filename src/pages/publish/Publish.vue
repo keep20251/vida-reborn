@@ -151,16 +151,16 @@
 
         <!-- 誰可以看到 -->
         <div class="flex flex-col space-y-10">
-          <label class="text-left text-base leading-md">
-            {{ $t('label.pickPerm') }}
-            <span class="text-sm leading-3 text-gray-57">{{ $t('label.pickPermSub') }}</span>
-          </label>
+          <label class="text-left text-base leading-md">{{ $t('label.pickPerm') }}</label>
           <OptionsPicker v-model="publishParams.perm" :options="permOptions"></OptionsPicker>
         </div>
 
         <!-- 指定訂閱組 -->
         <div v-if="publishParams.perm === FEED_PERM.SUB" class="flex flex-col space-y-10">
-          <label class="text-left text-base leading-md">{{ $t('label.pickSub') }}</label>
+          <label class="text-left text-base leading-md">
+            {{ $t('label.pickSub') }}
+            <span class="text-sm leading-3 text-gray-57">{{ $t('label.pickPermSub') }}</span></label
+          >
           <OptionsPicker v-model="publishParams.subs" :options="subOptions" can-pick-none></OptionsPicker>
           <div v-if="subsError" class="text-left text-sm font-normal not-italic leading-md text-warning">
             {{ subsError }}
