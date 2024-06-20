@@ -5,6 +5,7 @@
         <div v-for="(item, index) in items" :key="`subscribe-card-${index}`" class="py-20">
           <SubscribeCard
             :item="item"
+            show-contain
             @click="subscribe({ item, creator })"
             @click:contain="onContainClicked"
           ></SubscribeCard>
@@ -22,9 +23,9 @@ import NoData from '@/components/info/NoData.vue'
 import { useDialog } from '@/compositions/modal'
 
 const subscriptionStore = useSubsciptionStore()
-const { setDetail } = subscriptionStore
+const { openDetail } = subscriptionStore
 const { items, creator } = storeToRefs(subscriptionStore)
 const { subscribe } = useDialog()
 
-const onContainClicked = (item) => setDetail({ activeSubscription: item, subscriptions: items.value })
+const onContainClicked = (item) => openDetail({ activeSubscription: item, subscriptions: items.value })
 </script>

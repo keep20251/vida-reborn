@@ -44,10 +44,11 @@
           {{ $t('info.subscription.unlockSubscribe', { days: props.item.unlock_day_after_subscribe }) }}
         </div>
         <div
+          v-show="props.showContain"
           class="cursor-pointer text-sm font-normal leading-3 text-primary underline"
           @click="emit('click:contain', props.item)"
         >
-          {{ $t('info.subscription.containFeeds', { feeds: props.item.article_contain }) }}
+          {{ $t('info.subscription.containFeeds', { feeds: props.item.article_contain ?? 0 }) }}
         </div>
       </div>
       <div>
@@ -88,6 +89,7 @@ const props = defineProps({
   },
   editMode: { type: Boolean, default: false },
   subscriptBtn: { type: Boolean, default: false },
+  showContain: { type: Boolean, default: false },
   height: { type: Number },
 })
 

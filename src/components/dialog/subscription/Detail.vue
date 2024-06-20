@@ -6,15 +6,21 @@
           <div>
             <div class="flex flex-col space-y-10">
               <div class="flex justify-between">
-                <div class="text-lg font-bold leading-lg">方案選擇</div>
+                <div class="text-lg font-bold leading-lg">{{ $t('dialog.subscription.detail.choose') }}</div>
+                <div v-if="activeSubscription.is_subscribe" class="text-sm font-bold leading-3 text-primary">
+                  {{ $t('dialog.subscription.detail.owned') }}
+                </div>
                 <div
-                  class="text-sm font-bold leading-3 text-primary"
-                  :class="{ 'cursor-pointer': !activeSubscription.is_subscribe }"
+                  v-else
+                  class="cursor-pointer text-sm font-bold leading-3 text-primary"
+                  @click="subscribe({ creator, item: activeSubscription })"
                 >
-                  {{ subscriptionStatusText }}
+                  {{ $t('common.buy') }}
                 </div>
               </div>
-              <div class="text-sm font-normal leading-3 text-gray-a3">創作者提供之訂閱方案</div>
+              <div class="text-sm font-normal leading-3 text-gray-a3">
+                {{ $t('dialog.subscription.detail.fromCreator') }}
+              </div>
             </div>
             <TagGroup
               v-model="activeSubscription"
@@ -29,36 +35,47 @@
             <template #text>
               <div class="flex flex-col space-y-10">
                 <div class="flex justify-between">
-                  <div class="text-lg font-bold leading-lg">包含帖子</div>
+                  <div class="text-lg font-bold leading-lg">{{ $t('dialog.subscription.detail.containFeeds') }}</div>
                   <div class="text-sm font-normal leading-3 text-primary">
-                    #包含{{ activeSubscription.article_contain }}篇訂閱帖子
+                    {{ $t('dialog.subscription.detail.containTag', { count: activeSubscription.article_contain }) }}
                   </div>
                 </div>
-                <div class="text-sm font-normal leading-3 text-gray-a3">訂閱方案後，即可觀看下列帖子</div>
+                <div class="text-sm font-normal leading-3 text-gray-a3">
+                  {{ $t('dialog.subscription.detail.containInfo') }}
+                </div>
               </div>
             </template>
           </ContainFeedList>
           <Divider></Divider>
-          <!-- <div>
-            <pre>{{ activeSubscription }}</pre>
-          </div>
-          <div>
-            <pre>{{ subscriptions }}</pre>
-          </div> -->
+          <ContainFeedList :feed-id="activeSubscription.id" :article-type="SUBSCRIPTION_ARTICLE_TYPE.EXPIRED">
+            <template #text>
+              <div class="flex flex-col space-y-10">
+                <div class="flex justify-between">
+                  <div class="text-lg font-bold leading-lg">{{ $t('common.expired') }}</div>
+                  <div class="text-sm font-normal leading-3 text-primary">
+                    {{ $t('dialog.subscription.detail.expiredTag') }}
+                  </div>
+                </div>
+                <div class="text-sm font-normal leading-3 text-gray-a3">
+                  {{ $t('dialog.subscription.detail.expiredInfo') }}
+                </div>
+              </div>
+            </template>
+          </ContainFeedList>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script setup>
-import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useSubsciptionStore } from '@/store/subscription'
 import Divider from '@/components/common/Divider.vue'
 import TagGroup from '@/components/common/TagGroup.vue'
 import ContainFeedList from '@/components/subscription/ContainFeedList.vue'
+import { useDialog } from '@/compositions/modal'
 import { SUBSCRIPTION_ARTICLE_TYPE } from '@/constant'
 
-const { activeSubscription, subscriptions } = storeToRefs(useSubsciptionStore())
-const subscriptionStatusText = computed(() => (activeSubscription.value.is_subscribe ? '已擁有此方案' : '購買'))
+const { activeSubscription, subscriptions, creator } = storeToRefs(useSubsciptionStore())
+const { subscribe } = useDialog()
 </script>

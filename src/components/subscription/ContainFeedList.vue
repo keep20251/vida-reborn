@@ -3,7 +3,7 @@
     <slot name="text"></slot>
     <List :items="dataList">
       <template #default="{ item }">
-        <ContainFeed :item="item"></ContainFeed>
+        <ContainFeed :item="item" :expired="isExpired"></ContainFeed>
       </template>
       <template #bottom>
         <div ref="el">
@@ -18,9 +18,10 @@
   </div>
 </template>
 <script setup>
-import { onMounted, ref, watch } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import { useInfinite } from '@/compositions/request/infinite'
 import { useIntersection } from '@/compositions/utils/intersection'
+import { SUBSCRIPTION_ARTICLE_TYPE } from '@/constant'
 import List from '../common/List.vue'
 import Loading from '../common/Loading.vue'
 import NoData from '../info/NoData.vue'
@@ -30,6 +31,8 @@ const props = defineProps({
   feedId: { type: Number, required: true },
   articleType: { type: Number, required: true },
 })
+
+const isExpired = computed(() => props.articleType === SUBSCRIPTION_ARTICLE_TYPE.EXPIRED)
 
 const { dataList, isLoading, noMore, noData, init, reload, next } = useInfinite(
   'Subscription.getSubscriptionArticles',
@@ -43,7 +46,11 @@ const { dataList, isLoading, noMore, noData, init, reload, next } = useInfinite(
 
 const el = ref(null)
 useIntersection(el, {
-  onEnter: () => (!isLoading.value && !noMore.value ? next() : void 0),
+  onEnter: () => {
+    if (noMore.value) console.log('dataList is no more data.')
+    else if (isLoading.value) console.log('dataList is loading.')
+    else next()
+  },
   onLeave: () => {},
 })
 

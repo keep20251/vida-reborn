@@ -9,16 +9,17 @@
         <template #default="{ item }">
           <SubscribeCard
             :item="item"
+            show-contain
             @click="subscribe({ item, creator })"
             @click:contain="onContainClicked"
           ></SubscribeCard>
         </template>
         <template #bottom>
-          <NoData v-if="data?.length <= 0"></NoData>
-          <div v-else class="flex items-center justify-center py-8 text-gray-a3">
+          <div v-if="data" class="flex items-center justify-center py-8 text-gray-a3">
             <Loading v-if="isLoading"></Loading>
             <span v-else>{{ $t('common.noMore') }}</span>
           </div>
+          <NoData v-else></NoData>
         </template>
       </List>
     </div>
@@ -35,12 +36,12 @@ import NoData from '@/components/info/NoData.vue'
 import Tab from '@/components/navigation/Tab.vue'
 import { useDialog } from '@/compositions/modal'
 import useRequest from '@/compositions/request'
-import { SUBSCRIPTION_ROUTE, SUBSCRIPTION_TYPE } from '@/constant'
+import { SUBSCRIPTION_TYPE } from '@/constant'
 
 const { subscribe } = useDialog()
 
 const subscriptionStore = useSubsciptionStore()
-const { goto, setSubscriptionDetail, setDetail } = subscriptionStore
+const { openDetail } = subscriptionStore
 const { isOpen, currentTab, feed, creator } = storeToRefs(subscriptionStore)
 const infoText = computed(() =>
   currentTab.value === SUBSCRIPTION_TYPE.RECOMMEND ? 'info.subscription.recommend' : 'info.subscription.other',
@@ -57,5 +58,5 @@ watch(
   ([_isOpen, _tab]) => (_isOpen ? execute({ article_id: feed.value.id, rmd: _tab }) : void 0),
   { immediate: true },
 )
-const onContainClicked = (item) => setDetail({ activeSubscription: item, subscriptions: data })
+const onContainClicked = (item) => openDetail({ activeSubscription: item, subscriptions: data })
 </script>

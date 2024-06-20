@@ -10,7 +10,7 @@
             <Icon name="closeWhite" size="20" @click="closeFn"></Icon>
           </div>
           <div v-show="isDetail" class="absolute left-0 top-0 cursor-pointer pl-15 pt-15">
-            <Icon name="back" size="20" @click="back"></Icon>
+            <Icon name="backWhite" size="20" @click="back"></Icon>
           </div>
         </div>
         <component :is="currentComponent"></component>

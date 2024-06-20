@@ -56,9 +56,15 @@ export const useSubsciptionStore = defineStore('subscription-store', () => {
   const activeSubscription = ref(null)
   const _subscriptions = ref([])
 
-  const setDetail = ({ activeSubscription: activeOption, subscriptions }) => {
-    activeSubscription.value = activeOption
-    _subscriptions.value = subscriptions
+  /**
+   * 打開訂閱詳情
+   * @param {Object} detailConfig
+   * @param {Object} detailConfig.activeSubscription - 當前訂閱方案
+   * @param {Array} detailConfig.subscriptions - 訂閱方案列表
+   */
+  const openDetail = (detailConfig = { activeSubscription: {}, subscriptions: [] }) => {
+    activeSubscription.value = detailConfig.activeSubscription
+    _subscriptions.value = detailConfig.subscriptions
     goto(SUBSCRIPTION_ROUTE.DETAIL)
   }
 
@@ -82,6 +88,6 @@ export const useSubsciptionStore = defineStore('subscription-store', () => {
 
     subscriptions: readonly(_subscriptions),
     activeSubscription,
-    setDetail,
+    openDetail,
   }
 })
