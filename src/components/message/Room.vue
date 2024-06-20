@@ -53,7 +53,7 @@
         :line="inputLine"
         disable-enter-new-line
         @keypress:enter="sendText"
-        @keypress:alt:enter="input += '\n'"
+        @keypress:help:enter="input += '\n'"
       ></TextareaWrap>
       <div class="flex h-36 items-center">
         <div class="flex h-30 w-40 cursor-pointer items-center justify-center rounded-xl bg-primary" @click="sendText">

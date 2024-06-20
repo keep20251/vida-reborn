@@ -2,7 +2,9 @@
   <div class="flex flex-col space-y-10">
     <label v-if="label" class="flex text-base font-normal not-italic leading-md" :class="[labelCenter]"
       >{{ label }}
-      <span v-if="sublabel" class="text-sm font-normal not-italic leading-3 text-gray-57">{{ sublabel }}</span>
+      <span v-if="sublabel" class="translate-y-2 pl-5 text-sm font-normal not-italic leading-3 text-gray-57">{{
+        sublabel
+      }}</span>
       <div v-if="labelIcon" class="flex cursor-pointer items-center pl-4">
         <Icon :name="labelIcon" size="8" @click="emits('click:labelIcon')"></Icon>
       </div>

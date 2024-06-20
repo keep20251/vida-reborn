@@ -54,7 +54,6 @@ import { useDialogStore } from '@/store/dialog'
 import { usePublishStore } from '@/store/publish'
 import BaseDialog from '@comp/dialog/BaseDialog.vue'
 import { useRouters } from '@use/routers'
-import VideoLengthOverlimitError from '@/errors/VideoLengthOverlimitError'
 
 const { fileSelectDialog } = storeToRefs(useDialogStore())
 
@@ -75,65 +74,4 @@ async function onFile(evt) {
     }
   }
 }
-
-// const { onFileInput, uploadFiles, noUploadFiles, isCreate, isUpdate, isVideo, isImage, isHorizontal, isVertical } =
-//   storeToRefs(publishStore)
-// const { startUpload, addVideoFile, addImageFile, removeUploadFile, reUploadFile, cancelUpload, publishParams } =
-//   publishStore
-
-// const publishStore = usePublishStore()
-// const { onFileInput } = storeToRefs(publishStore)
-
-// const { startUpload } = publishStore
-
-// const emits = defineEmits(['videoOverlimit', 'uploadFail'])
-
-// const video = ref(null)
-// watch(onFileInput, async (v) => {
-//   console.log('watch onFileInput', v)
-//   console.log('watch onFileInput', v)
-//   console.log('watch onFileInput', v)
-//   console.log('watch onFileInput', v)
-//   console.log('watch onFileInput', v)
-//   console.log('watch onFileInput', v)
-//   if (v) {
-//     try {
-//       await startUpload(video)
-//     } catch (e) {
-//       if (e instanceof VideoLengthOverlimitError) {
-//         emits('videoOverlimit')
-//       } else {
-//         emits('uploadFail', e.message)
-//       }
-//     }
-//   }
-// })
-
-// async function onFile(evt) {
-//   const files = evt.target.files
-//   if (files.length > 0) {
-//     try {
-//       await setFile(files, service.value)
-//       emits('toEdit')
-//     } catch (e) {
-//       $alert({
-//         title: $t('content.publish.createFail'),
-//         content: e.message,
-//         confirm: () => {},
-//         showClose: false,
-//       }).open()
-//     }
-//   }
-// }
 </script>
-
-<!-- function onVideoFile(evt) { -->
-<!--   addVideoFile(evt.target.files[0], video) -->
-<!-- } -->
-
-<!-- function onImageFile(evt) { -->
-<!--   const files = evt.target.files -->
-<!--   if (files.length > 0) { -->
-<!--     addImageFile(files) -->
-<!--   } -->
-<!-- } -->
