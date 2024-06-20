@@ -233,18 +233,8 @@ import { toDateTimeString } from '@/utils/string-helper'
 const { t: $t } = useI18n()
 
 const publishStore = usePublishStore()
-const {
-  onFileInput,
-  uploadFiles,
-  publishTimeOpen,
-  isCreate,
-  isUpdate,
-  isVideo,
-  isImage,
-  isEditing,
-  isUploading,
-  noUploadFiles,
-} = storeToRefs(publishStore)
+const { uploadFiles, publishTimeOpen, isCreate, isUpdate, isVideo, isImage, isEditing, isUploading, noUploadFiles } =
+  storeToRefs(publishStore)
 const { publishParams, startUpload, clear, changeVideoFile, addImageFile, removeUploadFile, cancelUpload } =
   publishStore
 
