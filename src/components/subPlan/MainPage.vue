@@ -6,8 +6,11 @@
         <Icon name="closeWhite"></Icon>
       </button>
     </div>
-    <div class="select-none p-30 pr-15">
-      <div class="scrollbar-md max-h-[65vh] overflow-y-scroll pr-15" :class="{ 'my-10': subList.length === 0 }">
+    <div class="select-none p-30 pr-10">
+      <div
+        class="max-h-[65vh] overflow-y-scroll pr-10"
+        :class="{ 'my-10': subList.length === 0, 'hover-scrollbar': isDesktop, 'pr-20': !isDesktop }"
+      >
         <div @click="subPlanAdd" class="cursor-pointer text-center text-base font-bold leading-md text-gray-57">
           ＋ {{ $t('content.AddNewSubPlan') }}
           <label
@@ -71,6 +74,7 @@ const { t: $t } = useI18n()
 const { open: openMessage } = usePopupMessageStore()
 const { confirm } = useModalStore()
 const { appConfig } = useAppStore()
+const { isDesktop } = storeToRefs(useAppStore())
 const { to, close } = useSubPlanStore()
 const {
   data,
