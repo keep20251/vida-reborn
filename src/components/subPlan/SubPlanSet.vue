@@ -13,7 +13,10 @@
         <Icon name="bin"></Icon>
       </button>
     </div>
-    <div class="scrollbar-md mr-15 max-h-[65vh] overflow-y-scroll px-25">
+    <div
+      class="mr-10 max-h-[65vh] overflow-y-scroll pl-25"
+      :class="{ 'hover-scrollbar pr-5': isDesktop, 'pr-10': !isDesktop }"
+    >
       <div class="flex flex-col space-y-10">
         <div class="flex flex-row items-start space-x-5">
           <div class="text-base font-normal leading-md">{{ $t('content.subStyle') }}</div>
@@ -177,6 +180,7 @@ import uploadImage from '@/http/upload/uploadImage'
 
 const accountStore = useAccountStore()
 const { updateUserData } = accountStore
+const { isDesktop } = storeToRefs(useAppStore())
 
 const publishStore = usePublishStore()
 const { isEditing } = storeToRefs(publishStore)
