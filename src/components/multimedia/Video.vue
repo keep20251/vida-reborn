@@ -9,9 +9,12 @@
     </div>
     <div
       v-if="videoCurrentTime === 0 && !videoPlay && !isWaiting"
-      class="absolute top-0 flex h-full w-full cursor-pointer items-center justify-center rounded-inherit"
+      class="absolute top-0 h-full w-full cursor-pointer rounded-inherit"
     >
-      <div class="flex h-50 w-50 items-center justify-center rounded-md bg-white bg-opacity-50">
+      <EncryptImage :src="posterUrl" :border-radius="10" cover></EncryptImage>
+      <div
+        class="absolute left-1/2 top-1/2 flex h-50 w-50 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-md bg-white bg-opacity-50"
+      >
         <Icon name="playBtn" size="20"></Icon>
       </div>
     </div>
@@ -62,6 +65,7 @@ import { get, release } from '@/utils/video-store'
 const props = defineProps({
   id: { type: Number },
   url: { type: String, required: true },
+  posterUrl: { type: String },
   preview: { type: Boolean, default: false },
   replaySignal: { type: Object },
 })

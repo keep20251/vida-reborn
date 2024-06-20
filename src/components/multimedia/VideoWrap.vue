@@ -4,6 +4,7 @@
       v-if="url !== ''"
       ref="video"
       :url="url"
+      :poster-url="posterUrl"
       :preview="isLock"
       :replay-signal="replaySignal"
       @play="playEnd = false"
@@ -33,6 +34,7 @@ const props = defineProps({
 })
 
 const url = computed(() => props.item.url[0]?.url)
+const posterUrl = computed(() => props.item.url[1]?.url)
 const isLock = computed(() => !props.item.is_unlock)
 // const isLock = computed(() => false)
 
