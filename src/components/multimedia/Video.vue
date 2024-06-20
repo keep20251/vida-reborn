@@ -49,7 +49,7 @@
 </template>
 
 <script setup>
-import { onActivated, onBeforeUnmount, onDeactivated, onMounted, ref } from 'vue'
+import { onActivated, onBeforeUnmount, onDeactivated, onMounted, ref, watch } from 'vue'
 import { useElementSize } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
@@ -63,6 +63,7 @@ const props = defineProps({
   id: { type: Number },
   url: { type: String, required: true },
   preview: { type: Boolean, default: false },
+  replaySignal: { type: Object },
 })
 
 const emits = defineEmits(['play', 'ended', 'timeupdate'])
@@ -121,6 +122,14 @@ function togglePlay() {
     }
   }
 }
+watch(
+  () => props.replaySignal,
+  () => {
+    if (!videoPlay.value) {
+      togglePlay()
+    }
+  },
+)
 
 const showControl = ref(false)
 function openControl() {
@@ -174,6 +183,12 @@ function setupVideo() {
         const { currentTime, duration } = videoElement.value
         if (Math.floor(currentTime) >= Math.floor(duration) - 2) {
           emits('ended')
+          const video = videoElement.value
+          if (video) {
+            video.pause()
+            video.currentTime = 0
+          }
+          videoPlay.value = false
         }
       },
       isPreview: props.preview,
