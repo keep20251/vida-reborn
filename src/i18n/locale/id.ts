@@ -25,6 +25,8 @@ export default {
     subscription: { recommend: 'Rencana yang Direkomendasikan', other: 'Rencana Lainnya' },
   },
   common: {
+    expired: 'Kadaluarsa',
+    buy: 'Beli',
     next: 'Selanjutnya',
     getAround: 'Jelajahi',
     goNow: 'Pergi sekarang',
@@ -206,6 +208,21 @@ export default {
     newMessage: 'Anda memiliki {count} pesan baru',
   },
   copy: { link: 'Salin tautan', fail: 'Salinan gagal' },
+  dialog: {
+    subscription: {
+      detail: {
+        choose: 'Pilihan rencana',
+        owned: 'Rencana sudah dimiliki',
+        fromCreator: 'Rencana berlangganan yang ditawarkan oleh pencipta',
+        containFeeds: 'Mengandung postingan',
+        containTag: "{'#'} Mengandung {count} postingan berlangganan",
+        containInfo: 'Setelah berlangganan, Anda dapat melihat postingan berikut',
+        expiredFeeds: 'Kadaluarsa',
+        expiredTag: "{'#'} Melebihi Periode yang Diizinkan Rencana",
+        expiredInfo: 'Pelanggan sebelum kadaluarsa akan terus memiliki hak tayang',
+      },
+    },
+  },
   info: {
     bindThirdPartyLogin: 'Mengikat login pihak ketiga',
     bindGoogle: 'Bind Google',
@@ -276,8 +293,10 @@ export default {
       'Alamat email ini belum terikat dengan akun mana pun. Jika Anda memiliki akun, Anda dapat masuk menggunakan nama pengguna di bawah ini.',
     cardLimit: 'Kartu Kredit yang Ditambahkan {length}/{max}',
     subscription: {
-      recommend: 'Memungkinkan membuka kunci postingan ini dengan rencana yang sesuai',
-      other: 'Tidak termasuk rencana yang sesuai untuk membuka kunci postingan ini',
+      recommend: 'Mengizinkan membuka kunci postingan ini di bawah paket yang sesuai',
+      other: 'Tidak termasuk paket untuk membuka kunci postingan ini',
+      unlockSubscribe: 'Buka kunci postingan dari {days} hari yang lalu',
+      containFeeds: '# Mengandung {feeds} postingan berlangganan',
     },
     valid: 'Berlaku',
     totalCount: '# Total {count}',
@@ -548,13 +567,13 @@ export default {
       confirm: "{'$'}{price} per bulan Buka Bayar",
     },
     shopBuy: {
-      1: 'Akan membuka kunci konten {nickname} pada karya ini',
+      1: 'Akan membuka kunci konten {nickname} dalam karya ini',
       2: '{nickname}akan menerima pembayaran Anda secara penuh',
       confirm: "Buka kunci sekarang ({'$'}{price})",
     },
     subscribeSuc: {
       1: 'menakjubkan! Berhasil berlangganan {nickname}!',
-      2: 'Pilih untuk membuka beranda pembuat konten, atau tetap berada di layar asli dan jelajahi!',
+      2: 'Pilih untuk membuka beranda pembuat konten, atau tetap berada di layar asli dan menjelajah!',
       confirm: 'Buka halaman pembuat',
     },
     shopBuySuc: {

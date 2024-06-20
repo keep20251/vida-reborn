@@ -5,7 +5,17 @@
     </div>
     <div class="text-sm font-normal leading-3 text-gray-a3">{{ $t(infoText) }}</div>
     <div class="scrollbar-md max-h-[65vh] overflow-y-scroll pr-20">
-      <List :items="data" item-key="id" divider>
+      <div v-if="disabled" class="mb-40 flex w-full animate-pulse flex-col space-y-10">
+        <div class="h-27 rounded-md bg-gray-a3"></div>
+        <div class="h-[11.875rem] rounded-md bg-gray-a3"></div>
+        <div class="flex justify-between">
+          <div class="h-12 w-100 rounded-md bg-gray-a3"></div>
+          <div class="h-12 w-100 rounded-md bg-gray-a3"></div>
+        </div>
+        <div class="h-18 rounded-md bg-gray-a3"></div>
+        <div class="h-36 rounded-full bg-gray-a3"></div>
+      </div>
+      <List v-else :items="data" item-key="id" divider>
         <template #default="{ item }">
           <SubscribeCard
             :item="item"
@@ -15,7 +25,7 @@
           ></SubscribeCard>
         </template>
         <template #bottom>
-          <div v-if="data" class="flex items-center justify-center py-8 text-gray-a3">
+          <div v-if="data && data?.length > 0" class="flex items-center justify-center py-8 text-gray-a3">
             <Loading v-if="isLoading"></Loading>
             <span v-else>{{ $t('common.noMore') }}</span>
           </div>
@@ -36,6 +46,7 @@ import NoData from '@/components/info/NoData.vue'
 import Tab from '@/components/navigation/Tab.vue'
 import { useDialog } from '@/compositions/modal'
 import useRequest from '@/compositions/request'
+import { useExecutionLock } from '@/compositions/utils/execution-lock'
 import { SUBSCRIPTION_TYPE } from '@/constant'
 
 const { subscribe } = useDialog()
@@ -53,9 +64,11 @@ const tabOptions = [
 ]
 
 const { data, isLoading, execute } = useRequest('Subscription.getArticleSubscription')
+
+const { disabled, onExecute } = useExecutionLock()
 watch(
   [isOpen, currentTab],
-  ([_isOpen, _tab]) => (_isOpen ? execute({ article_id: feed.value.id, rmd: _tab }) : void 0),
+  ([_isOpen, _tab]) => (_isOpen ? onExecute(() => execute({ article_id: feed.value.id, rmd: _tab })) : void 0),
   { immediate: true },
 )
 const onContainClicked = (item) => openDetail({ activeSubscription: item, subscriptions: data })

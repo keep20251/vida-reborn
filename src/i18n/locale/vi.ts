@@ -25,6 +25,8 @@ export default {
     subscription: { recommend: 'Gói đề xuất', other: 'Gói khác' },
   },
   common: {
+    expired: 'Đã hết hạn',
+    buy: 'Mua',
     next: 'Tiếp theo',
     getAround: 'Xem quanh',
     goNow: 'Đi ngay',
@@ -206,6 +208,21 @@ export default {
     newMessage: 'Bạn có {count} tin nhắn mới',
   },
   copy: { link: 'Sao chép liên kết', fail: 'Sao chép thất bại' },
+  dialog: {
+    subscription: {
+      detail: {
+        choose: 'Lựa chọn kế hoạch',
+        owned: 'Đã sở hữu kế hoạch này',
+        fromCreator: 'Kế hoạch đăng ký do người sáng tạo cung cấp',
+        containFeeds: 'Chứa bài viết',
+        containTag: "{'#'} Chứa {count} bài viết đã đăng ký",
+        containInfo: 'Sau khi đăng ký, bạn có thể xem các bài viết sau đây',
+        expiredFeeds: 'Đã hết hạn',
+        expiredTag: "{'#'} Quá thời hạn cho phép của kế hoạch",
+        expiredInfo: 'Người đăng ký trước khi hết hạn sẽ tiếp tục có quyền xem',
+      },
+    },
+  },
   info: {
     bindThirdPartyLogin: 'Liên kết đăng nhập của bên thứ ba',
     bindGoogle: 'Liên kết Google',
@@ -276,8 +293,10 @@ export default {
       'Địa chỉ email này chưa được liên kết với bất kỳ tài khoản nào. Nếu bạn đã có tài khoản, bạn có thể đăng nhập bằng tên người dùng bên dưới.',
     cardLimit: 'Đã thêm thẻ tín dụng {length}/{max}',
     subscription: {
-      recommend: 'Cho phép mở khóa bài viết này với gói phù hợp',
-      other: 'Không bao gồm gói phù hợp để mở khóa bài viết này',
+      recommend: 'Cho phép mở khóa bài đăng này theo gói phù hợp',
+      other: 'Không bao gồm gói mở khóa bài đăng này',
+      unlockSubscribe: 'Mở khóa các bài đăng trong {days} ngày qua',
+      containFeeds: '# Chứa {feeds} bài viết đã đăng ký',
     },
     valid: 'Hợp lệ',
     totalCount: '# Tổng {count}',
@@ -547,7 +566,7 @@ export default {
       confirm: "{'$'}{price} mỗi tháng Chuyển đến phần Thanh toán",
     },
     shopBuy: {
-      1: 'Sẽ mở khóa nội dung của tác phẩm này của {nickname}',
+      1: 'Sẽ mở khóa nội dung của {nickname} trong tác phẩm này',
       2: '{nickname}sẽ nhận được đầy đủ khoản thanh toán của bạn',
       confirm: "Mở khóa ngay ({'$'}{price})",
     },

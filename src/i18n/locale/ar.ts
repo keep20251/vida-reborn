@@ -25,6 +25,8 @@ export default {
     subscription: { recommend: 'الخطة الموصى بها', other: 'خطط أخرى' },
   },
   common: {
+    expired: 'منتهي الصلاحية',
+    buy: 'شراء',
     next: 'التالي',
     getAround: 'تصفح',
     goNow: 'اذهب الآن',
@@ -158,7 +160,7 @@ export default {
     pickPermSub: 'السماح لخطط اشتراك محددة بالعرض',
     pickSub: 'تحديد مجموعة الاشتراك',
     price: 'السعر',
-    priceSub: 'دولار أمريكي $',
+    priceSub: 'USD $',
     priceTip: 'الحد الأقصى المحدد {price}',
     schedule: 'جدولة النشر',
     sub: 'المشتركون',
@@ -206,6 +208,21 @@ export default {
     newMessage: 'لديك {count} رسالة جديدة',
   },
   copy: { link: 'نسخ الرابط', fail: 'فشل النسخ' },
+  dialog: {
+    subscription: {
+      detail: {
+        choose: 'اختيار الخطة',
+        owned: 'الخطة مملوكة بالفعل',
+        fromCreator: 'الخطط المقدمة من قبل المنشئ',
+        containFeeds: 'يحتوي على المشاركات',
+        containTag: "{'#'} يحتوي على {count} مشاركات مشترك فيها",
+        containInfo: 'بعد الاشتراك، يمكنك مشاهدة المشاركات التالية',
+        expiredFeeds: 'منتهي الصلاحية',
+        expiredTag: "{'#'} تجاوز الفترة المسموح بها للخطة",
+        expiredInfo: 'المشتركون قبل انتهاء الصلاحية سيواصلون امتلاك حقوق المشاهدة',
+      },
+    },
+  },
   info: {
     bindThirdPartyLogin: 'ربط تسجيل الدخول إلى الطرف الثالث',
     bindGoogle: 'ربط جوجل',
@@ -276,8 +293,10 @@ export default {
       'هذا العنوان الإلكتروني لم يتم ربطه بأي حساب. إذا كان لديك حساب، يمكنك تسجيل الدخول باستخدام اسم المستخدم أدناه.',
     cardLimit: 'بطاقات الائتمان المضافة {length}/{max}',
     subscription: {
-      recommend: 'يسمح بفتح هذه المشاركة بالخطة المناسبة',
-      other: 'لا يتضمن خطة مناسبة لفتح هذه المشاركة',
+      recommend: 'يسمح بفتح قفل هذه المشاركة بموجب الخطة المناسبة',
+      other: 'لا يشمل الخطة لفتح قفل هذه المشاركة',
+      unlockSubscribe: 'فتح المشاركات من {days} الأيام الماضية',
+      containFeeds: '# يحتوي على {feeds} مشاركات مشترك فيها',
     },
     valid: 'صالح',
     totalCount: '# الإجمالي {count}',
@@ -544,7 +563,7 @@ export default {
       confirm: "{'$'}{price} شهريًا انتقل إلى الدفع",
     },
     shopBuy: {
-      1: 'سيتم فتح محتوى {nickname} لهذا العمل',
+      1: 'سيتم فتح محتوى {nickname} في هذا العمل',
       2: '{nickname}سوف يتلقى دفعتك بالكامل',
       confirm: "فتح القفل الآن ({'$'}{price})",
     },
