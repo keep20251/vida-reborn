@@ -25,6 +25,8 @@ export default {
     subscription: { recommend: '추천 플랜', other: '기타 계획' },
   },
   common: {
+    expired: '만료됨',
+    buy: '구매',
     next: '다음',
     getAround: '둘러보기',
     goNow: '지금 가기',
@@ -206,6 +208,21 @@ export default {
     newMessage: '새 메시지 {count}개가 있습니다',
   },
   copy: { link: '링크 복사하기', fail: '복사 실패' },
+  dialog: {
+    subscription: {
+      detail: {
+        choose: '플랜 선택',
+        owned: '이미 소유한 플랜',
+        fromCreator: '창작자가 제공하는 구독 플랜',
+        containFeeds: '게시물 포함',
+        containTag: "{'#'} 구독한 {count}개의 게시물 포함",
+        containInfo: '구독 후 다음 게시물을 볼 수 있습니다',
+        expiredFeeds: '만료됨',
+        expiredTag: "{'#'} 계획 허용 기간 초과",
+        expiredInfo: '만료 전 구독자는 계속해서 시청 권한을 가집니다',
+      },
+    },
+  },
   info: {
     bindThirdPartyLogin: '제 3 자 로그인 바인드',
     bindGoogle: '구글 바인드',
@@ -276,8 +293,10 @@ export default {
       '이 이메일 주소는 어떤 계정에도 연결되어 있지 않습니다. 계정이 있다면 아래의 사용자 이름을 사용하여 로그인할 수 있습니다.',
     cardLimit: '추가된 신용카드 {length}/{max}',
     subscription: {
-      recommend: '적절한 계획으로 이 게시물을 잠금 해제할 수 있습니다',
-      other: '이 게시물을 잠금 해제하기 위한 적절한 계획이 포함되어 있지 않습니다',
+      recommend: '적절한 계획에 따라 이 게시물을 잠금 해제할 수 있습니다',
+      other: '이 게시물을 잠금 해제할 계획이 포함되어 있지 않습니다',
+      unlockSubscribe: '지난 {days}일간의 게시물을 잠금 해제',
+      containFeeds: '# 구독한 {feeds}개의 게시물 포함',
     },
     valid: '유효',
     totalCount: '# 총 {count}',
@@ -545,7 +564,7 @@ export default {
       confirm: "월별 {'$'}{price} 결제로 이동",
     },
     shopBuy: {
-      1: '이 작품의 {nickname} 콘텐츠를 잠금 해제합니다',
+      1: '이 작품에서 {nickname}의 콘텐츠가 잠금 해제됩니다.',
       2: '{nickname}결제 금액 전액을 받게 됩니다.',
       confirm: "지금 잠금 해제하세요({'$'}{price})",
     },
@@ -555,7 +574,7 @@ export default {
       confirm: '크리에이터 페이지로 이동',
     },
     shopBuySuc: {
-      1: '기이! 게시물 잠금 해제를 위해 성공적으로 결제됨',
+      1: '기이! 게시물 잠금 해제를 위한 결제가 완료되었습니다.',
       2: '게시물로 이동하여 시청하거나 원래 화면에 머물면서 탐색하도록 선택하세요!',
       confirm: '게시물로 이동',
     },

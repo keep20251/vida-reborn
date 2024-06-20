@@ -25,6 +25,8 @@ export default {
     subscription: { recommend: 'Recommended Plan', other: 'Other Plans' },
   },
   common: {
+    expired: 'Expired',
+    buy: 'Buy',
     next: 'Next',
     getAround: 'Browse around',
     goNow: 'Go now',
@@ -157,7 +159,7 @@ export default {
     pickPerm: 'Who Can See',
     pickPermSub: 'Allow specific subscription plans to view',
     pickSub: 'Specify subscription group',
-    price: 'Price',
+    price: 'Unlock Fee',
     priceSub: 'USD $',
     priceTip: 'Maximum set to {price}',
     schedule: 'Schedule Publishing',
@@ -206,6 +208,21 @@ export default {
     newMessage: 'You have {count} new messages',
   },
   copy: { link: 'Copy Link', fail: 'Copy Failed' },
+  dialog: {
+    subscription: {
+      detail: {
+        choose: 'Plan Selection',
+        owned: 'Already Own This Plan',
+        fromCreator: 'Subscription Plans Offered by the Creator',
+        containFeeds: 'Contains Posts',
+        containTag: "{'#'} Contains {count} Subscribed Posts",
+        containInfo: 'After subscribing, you can view the following posts',
+        expiredFeeds: 'Expired',
+        expiredTag: "{'#'} Exceeded the Plan's Allowed Period",
+        expiredInfo: 'Subscribers before expiration will continue to have viewing rights',
+      },
+    },
+  },
   info: {
     bindThirdPartyLogin: 'Bind third party login',
     bindGoogle: 'Bind Google',
@@ -276,8 +293,10 @@ export default {
       'This email address is not currently associated with any account. If you already have an account, you can log in using your username below',
     cardLimit: 'Credit Cards Added {length}/{max}',
     subscription: {
-      recommend: 'Allows unlocking this post with suitable plan',
-      other: 'Does not include a suitable plan to unlock this post',
+      recommend: 'Allows unlocking this post under the appropriate plan',
+      other: 'Does not include the plan to unlock this post',
+      unlockSubscribe: 'Unlock posts from the past {days} days',
+      containFeeds: '# Contains {feeds} Subscribed Posts',
     },
     valid: 'Valid',
     totalCount: '# Total {count}',
@@ -547,13 +566,13 @@ export default {
       confirm: "{'$'}{price} per month Go to Pay",
     },
     shopBuy: {
-      1: "Will unlock {nickname}'s content of this work",
+      1: 'Will unlock the content of {nickname} in this work',
       2: '{nickname}will receive your payment in full',
       confirm: "Unlock now ({'$'}{price})",
     },
     subscribeSuc: {
       1: 'marvelous! Successfully subscribed to {nickname}!',
-      2: "Choose to go to the creator's homepage, or stay on the original screen and browse!",
+      2: 'Choose to go to the creator’s homepage, or stay on the original screen and browse!',
       confirm: 'Go to creator page',
     },
     shopBuySuc: {

@@ -25,6 +25,8 @@ export default {
     subscription: { recommend: 'Plan recomendado', other: 'Otros planes' },
   },
   common: {
+    expired: 'Expirado',
+    buy: 'Comprar',
     next: 'Siguiente',
     getAround: 'Echar un vistazo',
     goNow: 'Ir ahora',
@@ -38,7 +40,7 @@ export default {
     cookie: 'Acepta y no vuelvas a mostrar este mensaje',
     check: 'Verificar',
     subscribe: 'suscripción',
-    subscribed: 'suscrito',
+    subscribed: 'Suscrito',
     cancelSubscribe: 'Cancelar',
     restoreSubscribe: 'Reanudar',
     reSubscribe: 'Resuscribir',
@@ -211,6 +213,21 @@ export default {
     newMessage: 'Tienes {count} mensajes nuevos',
   },
   copy: { link: 'Copiar enlace', fail: 'Copia fallida' },
+  dialog: {
+    subscription: {
+      detail: {
+        choose: 'Selección de plan',
+        owned: 'Plan ya adquirido',
+        fromCreator: 'Planes de suscripción ofrecidos por el creador',
+        containFeeds: 'Contiene publicaciones',
+        containTag: "{'#'} Contiene {count} publicaciones suscritas",
+        containInfo: 'Después de suscribirse, puede ver las siguientes publicaciones',
+        expiredFeeds: 'Expirado',
+        expiredTag: "{'#'} Excedió el período permitido del plan",
+        expiredInfo: 'Los suscriptores antes de la expiración seguirán teniendo derechos de visualización',
+      },
+    },
+  },
   info: {
     bindThirdPartyLogin: 'Bind Iniciar sesión en terceros',
     bindGoogle: 'Bind Google',
@@ -281,8 +298,10 @@ export default {
       'Esta dirección de correo electrónico no está asociada a ninguna cuenta. Si ya tienes una cuenta, puedes iniciar sesión con tu nombre de usuario a continuación.',
     cardLimit: 'Tarjetas de crédito añadidas {length}/{max}',
     subscription: {
-      recommend: 'Permitir desbloquear esta publicación con el plan adecuado',
-      other: 'No incluye un plan adecuado para desbloquear esta publicación',
+      recommend: 'Permitir desbloquear esta publicación bajo el plan adecuado',
+      other: 'No incluye el plan para desbloquear esta publicación',
+      unlockSubscribe: 'Desbloquear publicaciones de los últimos {days} días',
+      containFeeds: '# Contiene {feeds} publicaciones suscritas',
     },
     valid: 'Válido',
     totalCount: '# Total {count}',
@@ -556,7 +575,7 @@ export default {
       confirm: "{'$'}{price} por mes Ir a Pagar",
     },
     shopBuy: {
-      1: 'Desbloqueará el contenido de {nickname} de este trabajo.',
+      1: 'Desbloqueará el contenido de {nickname} en este trabajo.',
       2: '{nickname}recibirá su pago completo',
       confirm: "Desbloquear ahora ({'$'}{price})",
     },

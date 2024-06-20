@@ -25,6 +25,8 @@ export default {
     subscription: { recommend: 'Plan recommandé', other: 'Autres plans' },
   },
   common: {
+    expired: 'Expiré',
+    buy: 'Acheter',
     next: 'Suivant',
     getAround: 'Faire le tour',
     goNow: 'Aller maintenant',
@@ -211,6 +213,21 @@ export default {
     newMessage: 'Vous avez {count} nouveaux messages',
   },
   copy: { link: 'Copier le lien', fail: 'Copie échouée' },
+  dialog: {
+    subscription: {
+      detail: {
+        choose: 'Sélection du plan',
+        owned: 'Plan déjà acquis',
+        fromCreator: "Plans d'abonnement proposés par le créateur",
+        containFeeds: 'Contient des publications',
+        containTag: "{'#'} Contient {count} publications abonnées",
+        containInfo: "Après l'abonnement, vous pouvez voir les publications suivantes",
+        expiredFeeds: 'Expiré',
+        expiredTag: "{'#'} A dépassé la période autorisée du plan",
+        expiredInfo: "Les abonnés avant l'expiration continueront d'avoir des droits de visualisation",
+      },
+    },
+  },
   info: {
     bindThirdPartyLogin: 'Lier la connexion tierce',
     bindGoogle: 'Lier Google',
@@ -281,8 +298,10 @@ export default {
       "Cette adresse e-mail n'est pas liée à un compte. Si vous avez un compte, vous pouvez vous connecter avec votre nom d'utilisateur ci-dessous.",
     cardLimit: 'Cartes de crédit ajoutées {length}/{max}',
     subscription: {
-      recommend: 'Permet de déverrouiller ce post avec un plan adapté',
-      other: "N'inclut pas de plan adapté pour déverrouiller ce post",
+      recommend: 'Permet de débloquer ce message sous le plan approprié',
+      other: "N'inclut pas le plan pour débloquer ce message",
+      unlockSubscribe: 'Débloquer les messages des {days} jours passés',
+      containFeeds: '# Contient {feeds} publications abonnées',
     },
     valid: 'Valide',
     totalCount: '# Total {count}',
@@ -556,7 +575,7 @@ export default {
       confirm: "{'$'}{price} par mois Aller au paiement",
     },
     shopBuy: {
-      1: 'Déverrouillera le contenu de cette œuvre de {nickname}',
+      1: 'Déverrouillera le contenu de {nickname} dans ce travail',
       2: '{nickname} recevra votre paiement dans son intégralité',
       confirm: "Débloquez maintenant ({'$'}{price})",
     },

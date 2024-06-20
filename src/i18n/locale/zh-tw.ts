@@ -25,6 +25,8 @@ export default {
     subscription: { recommend: '推薦方案', other: '其他方案' },
   },
   common: {
+    expired: '已過期',
+    buy: '購買',
     next: '下一步',
     getAround: '先逛逛',
     goNow: '立即前往',
@@ -157,7 +159,7 @@ export default {
     pickPerm: '誰可以看到',
     pickPermSub: '允許特定訂閱方案查看',
     pickSub: '指定訂閱組',
-    price: '價格',
+    price: '帖子解鎖金額',
     priceSub: '美元 $',
     priceTip: '最高設置為 {price} 元',
     schedule: '排定發布',
@@ -206,6 +208,21 @@ export default {
     newMessage: '您有 {count} 則新訊息',
   },
   copy: { link: '複製連結', fail: '複製失敗' },
+  dialog: {
+    subscription: {
+      detail: {
+        choose: '方案選擇',
+        owned: '已擁有此方案',
+        fromCreator: '創作者提供之訂閱方案',
+        containFeeds: '包含帖子',
+        containTag: "{'#'}包含{count}篇訂閱帖子",
+        containInfo: '訂閱方案後，即可觀看下列帖子',
+        expiredFeeds: '已過期',
+        expiredTag: "{'#'}已超過方案允許期限",
+        expiredInfo: '過期前已訂閱者，將會持續擁有觀看權限',
+      },
+    },
+  },
   info: {
     bindThirdPartyLogin: '綁定第三方登入',
     bindGoogle: '綁定 Google',
@@ -270,7 +287,12 @@ export default {
     waitUploading: '檔案上傳中...',
     unboundMailPrompt: '該郵箱尚未綁定任何帳號，若已有帳戶可由下方使用用戶名登入。',
     cardLimit: '已添加信用卡 {length}/{max}',
-    subscription: { recommend: '允许解锁此帖子所适方案', other: '不含解锁此帖子所适方案' },
+    subscription: {
+      recommend: '允許解鎖此帖子所適方案',
+      other: '不含解鎖此帖子所適方案',
+      unlockSubscribe: '解鎖過去{days}天帖子',
+      containFeeds: '#包含{feeds}篇訂閱帖子',
+    },
     valid: '有效中',
     totalCount: '# 共 {count} 個',
     validInfo: '這些訂閱方案，目前持續有效中。',

@@ -25,6 +25,8 @@ export default {
     subscription: { recommend: 'Plano Recomendado', other: 'Outros Planos' },
   },
   common: {
+    expired: 'Expirado',
+    buy: 'Comprar',
     next: 'Próximo',
     getAround: 'Dar uma olhada',
     goNow: 'Ir agora',
@@ -206,6 +208,21 @@ export default {
     newMessage: 'Você tem {count} novas mensagens',
   },
   copy: { link: 'Copiar link', fail: 'Cópia falhou' },
+  dialog: {
+    subscription: {
+      detail: {
+        choose: 'Seleção de plano',
+        owned: 'Plano já adquirido',
+        fromCreator: 'Planos de assinatura oferecidos pelo criador',
+        containFeeds: 'Contém postagens',
+        containTag: "{'#'} Contém {count} postagens subscritas",
+        containInfo: 'Após a assinatura, você pode ver as seguintes postagens',
+        expiredFeeds: 'Expirado',
+        expiredTag: "{'#'} Excedeu o período permitido do plano",
+        expiredInfo: 'Os assinantes antes da expiração continuarão a ter direitos de visualização',
+      },
+    },
+  },
   info: {
     bindThirdPartyLogin: 'Vincular o login de terceiros',
     bindGoogle: 'Vincular o google',
@@ -276,8 +293,10 @@ export default {
       'Este endereço de email não está vinculado a nenhuma conta. Se você tem uma conta, pode entrar usando seu nome de usuário abaixo.',
     cardLimit: 'Cartões de crédito adicionados {length}/{max}',
     subscription: {
-      recommend: 'Permite desbloquear esta postagem com o plano adequado',
-      other: 'Não inclui um plano adequado para desbloquear esta postagem',
+      recommend: 'Permite desbloquear esta postagem no plano apropriado',
+      other: 'Não inclui o plano para desbloquear esta postagem',
+      unlockSubscribe: 'Desbloquear postagens dos últimos {days} dias',
+      containFeeds: '# Contém {feeds} postagens subscritas',
     },
     valid: 'Válido',
     totalCount: '# Total {count}',
@@ -550,7 +569,7 @@ export default {
       confirm: "{'$'}{price} por mês Vá para pagar",
     },
     shopBuy: {
-      1: 'Irá desbloquear o conteúdo deste trabalho de {nickname}',
+      1: 'Irá desbloquear o conteúdo de {nickname} neste trabalho',
       2: '{nickname}receberá seu pagamento integralmente',
       confirm: "Desbloquear agora ({'$'}{price})",
     },
