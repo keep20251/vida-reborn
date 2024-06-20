@@ -12,11 +12,17 @@
           :class="{ 'will-change-transform': animIndex % 1 !== 0 }"
           :style="{ transform: `translateX(${(i - animIndex) * 100}%)` }"
           :key="i"
+          :ref="collectRefs.bind(null, i)"
+          @mousedown="handleDargImgMouseDown"
         >
           <EncryptImage
             :src="img.url"
             :border-radius="10"
             :active="i >= currIndex - 1 && i <= currIndex + 1"
+            :draggable="false"
+            :relative="true"
+            @mouseenter="isMouseHoverImage = true"
+            @mouseleave="isMouseHoverImage = false"
           ></EncryptImage>
         </div>
 
@@ -30,7 +36,7 @@
         <div
           v-if="isDesktop && imgs.length > 1 && currIndex >= 1"
           class="absolute left-0 top-0 flex h-full w-40 cursor-pointer items-center justify-end"
-          @click.stop="prev()"
+          @click.stop="prev(), resetGrag()"
         >
           <div class="flex h-20 w-20 items-center justify-center rounded-full bg-gray-f6 opacity-60">
             <Icon name="back" size="16"></Icon>
@@ -40,7 +46,7 @@
         <div
           v-if="isDesktop && imgs.length > 1 && currIndex < imgs.length - 1"
           class="absolute right-0 top-0 flex h-full w-40 cursor-pointer items-center justify-start"
-          @click.stop="next()"
+          @click.stop="next(), resetGrag()"
         >
           <div class="flex h-20 w-20 rotate-180 items-center justify-center rounded-full bg-gray-f6 opacity-60">
             <Icon name="back" size="16"></Icon>
@@ -65,8 +71,8 @@
 </template>
 
 <script setup>
-import { computed, defineAsyncComponent, ref } from 'vue'
-import { useSwipe as vuseSwip, whenever } from '@vueuse/core'
+import { computed, defineAsyncComponent, reactive, ref, watch } from 'vue'
+import { useMouse, useMousePressed, usePointer, useSwipe as vuseSwip, whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useFullscreenStore } from '@/store/fullscreen'
@@ -116,6 +122,8 @@ whenever(
     reset()
     index.value = 0
     currIndex.value = 0
+    imgElements.value = []
+    targetElement.value = null
   },
 )
 
@@ -124,4 +132,51 @@ whenever(
   () => isSwiping.value && direction.value === 'down',
   () => close(),
 )
+
+const imgElements = ref([])
+
+const collectRefs = (index, el) => {
+  if (el) imgElements.value[index] = el
+}
+
+const [pos1, pos2, pos3, pos4] = [ref(0), ref(0), ref(0), ref(0)]
+const targetElement = ref(null)
+
+const handleDargImgMouseDown = (e) => {
+  e = e || window.event
+  e.preventDefault()
+  pos3.value = e.clientX
+  pos4.value = e.clientY
+  targetElement.value = e.target
+  targetElement.value.onmouseup = closeDragElement
+  targetElement.value.onmousemove = handleDragMove
+}
+
+const closeDragElement = () => {
+  targetElement.value.onmouseup = null
+  targetElement.value.onmousemove = null
+}
+
+const handleDragMove = (e) => {
+  e = e || window.event
+  e.preventDefault()
+  pos1.value = pos3.value - e.clientX
+  pos2.value = pos4.value - e.clientY
+  pos3.value = e.clientX
+  pos4.value = e.clientY
+  targetElement.value.style.top = targetElement.value.offsetTop - pos2.value + 'px'
+  targetElement.value.style.left = targetElement.value.offsetLeft - pos1.value + 'px'
+}
+
+const resetGrag = () => {
+  if (!targetElement.value) return
+  targetElement.value.onmouseup = null
+  targetElement.value.onmousemove = null
+  pos1.value = 0
+  pos2.value = 0
+  pos3.value = 0
+  pos4.value = 0
+  targetElement.value.style.top = 0
+  targetElement.value.style.left = 0
+}
 </script>
