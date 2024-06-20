@@ -1,5 +1,5 @@
 <template>
-  <BaseDialog v-if="isOpen" no-padding @click:around="closeFn">
+  <BaseDialog v-if="isOpen" size="md" no-padding @click:around="closeFn">
     <template #default>
       <div class="h-full w-full rounded-xl">
         <div class="relative flex w-full items-center justify-center rounded-t-xl bg-primary py-16">

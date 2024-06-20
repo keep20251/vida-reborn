@@ -6,6 +6,16 @@
       :class="{ 'will-change-transform': animIndex % 1 !== 0 }"
       :style="{ transform: `translateX(${(i - animIndex) * 100}%)` }"
       :key="i"
+      @click="
+        handleActiveFullScreen({
+          mediaList: imgs,
+          mediaCurrentIndex: i,
+          isLock: isLock,
+          item: item,
+          index: index,
+          stat: stat,
+        })
+      "
     >
       <EncryptImage
         :src="img.url"
@@ -14,6 +24,7 @@
         cover
       ></EncryptImage>
     </div>
+
     <div v-if="imgs.length > 1" class="absolute bottom-20 right-20 flex select-none space-x-5">
       <Icon name="cameraWhite" size="20"></Icon>
       <span class="text-base text-white">{{ `${currIndex + 1}/${imgs.length}` }}</span>
@@ -45,6 +56,7 @@ import { computed, ref } from 'vue'
 import { whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
+import { useFullscreenStore } from '@/store/fullscreen'
 import LockMask from '@comp/multimedia/LockMask.vue'
 import { useSwipe } from '@use/gesture/swipe'
 import { useStat } from '@use/utils/stat'
@@ -80,4 +92,6 @@ if (props.stat) {
     activeMs: () => Date.now() - startTime,
   })
 }
+const { open } = useFullscreenStore()
+const handleActiveFullScreen = (props) => open(props)
 </script>

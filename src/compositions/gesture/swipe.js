@@ -28,6 +28,7 @@ export function useSwipe(
   const { reset: resetVelocity, updatePosition, getVelocity } = velocityCalculator()
 
   const index = ref(initIndex)
+  // const index = computed(() => initIndex)
 
   const { width, height } = useElementSize(eleRef)
 
@@ -155,9 +156,9 @@ export function useSwipe(
     }
   })
 
-  function reset() {
+  function reset(defaultIndex = 0) {
     pause()
-    index.value = 0
+    index.value = defaultIndex
   }
 
   return {
