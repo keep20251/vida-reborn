@@ -1,5 +1,6 @@
 <template>
-  <div ref="videoWrap" class="relative h-full w-full overflow-hidden rounded-inherit" @mousemove="openControl">
+  <div class="relative h-full w-full overflow-hidden rounded-inherit" @mousemove="openControl">
+    <div ref="videoWrap" class="absolute top-0 h-full w-full rounded-inherit"></div>
     <div
       v-if="videoCurrentTime === 0 && !videoPlay"
       class="absolute top-0 flex h-full w-full cursor-pointer items-center justify-center rounded-inherit"
@@ -172,7 +173,7 @@ function setupVideo() {
       },
       isPreview: props.preview,
     })
-    videoWrap.value.prepend(videoElement.value)
+    videoWrap.value.appendChild(videoElement.value)
 
     // 視頻時長更新回呼
     videoElement.value.ondurationchange = () => (videoDuration.value = videoElement.value?.duration || 0)
