@@ -2,7 +2,13 @@
   <div class="relative h-full w-full overflow-hidden rounded-inherit" @mousemove="openControl">
     <div ref="videoWrap" class="absolute top-0 h-full w-full rounded-inherit"></div>
     <div
-      v-if="videoCurrentTime === 0 && !videoPlay"
+      v-if="isWaiting"
+      class="absolute left-1/2 top-1/2 flex h-50 w-50 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-sm bg-white bg-opacity-75"
+    >
+      <Loading></Loading>
+    </div>
+    <div
+      v-if="videoCurrentTime === 0 && !videoPlay && !isWaiting"
       class="absolute top-0 flex h-full w-full cursor-pointer items-center justify-center rounded-inherit"
       @click.stop="togglePlay"
     >
@@ -75,7 +81,7 @@ const videoDuration = ref(0)
 const videoTimeRate = ref(0)
 const videoPlay = ref(false)
 const isLoading = ref(true)
-// const isWaiting = ref(false)
+const isWaiting = ref(false)
 const errMsg = ref('')
 
 const timeBar = ref(null)
@@ -154,6 +160,8 @@ function setupVideo() {
   try {
     videoElement.value = get(props.url, {
       currentTime: videoCurrentTime.value,
+      onWaiting: () => (isWaiting.value = true),
+      onPlaying: () => (isWaiting.value = false),
       onPlay: () => emits('play'),
       onEnded: () => emits('ended'),
       onTimeupdate: () => {
