@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col space-y-20">
+  <div class="flex select-none flex-col space-y-20">
     <div class="flex flex-col space-y-10">
       <div class="flex items-center justify-between">
         <div class="text-base font-normal leading-lg">
@@ -39,6 +39,18 @@
       <div :class="{ 'h-[11.875rem]': !height }">
         <EncryptImage :src="props.item.picture" :borderRadius="15" cover :height="height"></EncryptImage>
       </div>
+      <div class="flex w-full justify-between">
+        <div class="text-sm font-normal leading-3 text-gray-a3">
+          {{ $t('info.subscription.unlockSubscribe', { days: props.item.unlock_day_after_subscribe }) }}
+        </div>
+        <div
+          v-show="props.showContain"
+          class="cursor-pointer text-sm font-normal leading-3 text-primary underline"
+          @click="emit('click:contain', props.item)"
+        >
+          {{ $t('info.subscription.containFeeds', { feeds: props.item.article_contain ?? 0 }) }}
+        </div>
+      </div>
       <div>
         <div class="whitespace-pre-wrap text-sm font-medium leading-normal text-gray-a3" @click.stop="toggleFold">
           <p :class="{ 'line-clamp-3': fold }" ref="content">{{ props.item.content }}</p>
@@ -60,7 +72,7 @@ import { ref } from 'vue'
 import { useResizeObserver } from '@vueuse/core'
 import Button from '@comp/common/Button.vue'
 
-const emit = defineEmits(['click', 'move:up', 'move:down', 'edit', 'delete'])
+const emit = defineEmits(['click', 'click:contain', 'move:up', 'move:down', 'edit', 'delete'])
 
 const props = defineProps({
   item: {
@@ -77,6 +89,7 @@ const props = defineProps({
   },
   editMode: { type: Boolean, default: false },
   subscriptBtn: { type: Boolean, default: false },
+  showContain: { type: Boolean, default: false },
   height: { type: Number },
 })
 
