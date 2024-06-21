@@ -8,12 +8,14 @@
       <div class="relative h-full w-full overflow-hidden rounded-inherit" ref="swiper">
         <div
           v-for="(img, i) in imgs"
+          id="imageZoomContainer"
           class="absolute top-0 h-full w-full"
           :class="{ 'will-change-transform': animIndex % 1 !== 0 }"
           :style="{ transform: `translateX(${(i - animIndex) * 100}%)` }"
           :key="i"
           :ref="collectRefs.bind(null, i)"
           @mousedown="handleDargImgMouseDown"
+          @wheel="handleImgScroll"
         >
           <EncryptImage
             :src="img.url"
@@ -36,7 +38,7 @@
         <div
           v-if="isDesktop && imgs.length > 1 && currIndex >= 1"
           class="absolute left-0 top-0 flex h-full w-40 cursor-pointer items-center justify-end"
-          @click.stop="prev(), resetGrag()"
+          @click.stop="prev(), resetGrag(), resetScale()"
         >
           <div class="flex h-20 w-20 items-center justify-center rounded-full bg-gray-f6 opacity-60">
             <Icon name="back" size="16"></Icon>
@@ -46,7 +48,7 @@
         <div
           v-if="isDesktop && imgs.length > 1 && currIndex < imgs.length - 1"
           class="absolute right-0 top-0 flex h-full w-40 cursor-pointer items-center justify-start"
-          @click.stop="next(), resetGrag()"
+          @click.stop="next(), resetGrag(), resetScale()"
         >
           <div class="flex h-20 w-20 rotate-180 items-center justify-center rounded-full bg-gray-f6 opacity-60">
             <Icon name="back" size="16"></Icon>
@@ -71,7 +73,7 @@
 </template>
 
 <script setup>
-import { computed, defineAsyncComponent, reactive, ref, watch } from 'vue'
+import { computed, defineAsyncComponent, onMounted, reactive, ref, watch } from 'vue'
 import { useMouse, useMousePressed, usePointer, useSwipe as vuseSwip, whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
@@ -178,5 +180,65 @@ const resetGrag = () => {
   pos4.value = 0
   targetElement.value.style.top = 0
   targetElement.value.style.left = 0
+}
+
+const originalScale = ref(1)
+const scaleStep = ref(0.1)
+const minScale = ref(0.5)
+const maxScale = ref(2)
+const scale = ref(originalScale.value)
+const changeScale = (e) => {
+  e.preventDefault()
+  if (e.deltaY < 0) {
+    scale.value = Math.min(scale.value + scaleStep.value, maxScale.value)
+  } else {
+    scale.value = Math.max(scale.value - scaleStep.value, minScale.value)
+  }
+  targetElement.value.style.transform = `scale(${scale.value})`
+}
+
+const resetScale = () => {
+  scale.value = originalScale.value
+  targetElement.value.style.transform = `scale(${scale.value})`
+  // reset position
+  targetElement.value.style.left = 0
+  targetElement.value.style.top = 0
+}
+const changePositionWhenScale = (e) => {
+  e.preventDefault()
+  if (e.target.tagName !== 'IMG') return
+  e = e || window.event
+  e.preventDefault()
+  targetElement.value = e.target
+
+  // get mouse position in target element
+  const mouseX = e.clientX - targetElement.value.offsetLeft
+  const mouseY = e.clientY - targetElement.value.offsetTop
+
+  // change position
+  targetElement.value.style.left = mouseX - (mouseX - targetElement.value.offsetLeft) * scale.value + 'px'
+  targetElement.value.style.top = mouseY - (mouseY - targetElement.value.offsetTop) * scale.value + 'px'
+}
+
+const handleImgScroll = (e) => {
+  e.preventDefault()
+
+  if (e.target.tagName !== 'IMG') return
+
+  e = e || window.event
+  e.preventDefault()
+  targetElement.value = e.target
+
+  console.log('scroll', targetElement.value)
+  console.log('e', e)
+  // get mouse position in target element
+  const mouseX = e.clientX - targetElement.value.offsetLeft
+  const mouseY = e.clientY - targetElement.value.offsetTop
+
+  console.log('mouseX', mouseX)
+  console.log('mouseY', mouseY)
+
+  changeScale(e)
+  // changePositionWhenScale(e)
 }
 </script>
