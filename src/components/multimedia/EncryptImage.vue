@@ -5,8 +5,8 @@
       v-else-if="url"
       :src="url"
       :alt="alt"
-      class="h-full w-full rounded-inherit"
-      :class="{ 'object-contain': !cover, 'object-cover': cover, relative: relative }"
+      class="w-full rounded-inherit"
+      :class="{ 'object-contain': !cover, 'object-cover': cover, relative: relative, 'h-full': fullHeight }"
       :draggable="draggable"
     />
     <div v-else class="h-full w-full rounded-inherit bg-gray-f6"></div>
@@ -40,6 +40,7 @@ const props = defineProps({
   disableLazy: { type: Boolean, default: false },
   draggable: { type: Boolean, default: true },
   relative: { type: Boolean, default: false },
+  fullHeight: { type: Boolean, default: true },
 })
 
 const emits = defineEmits(['loadeddata', 'error'])

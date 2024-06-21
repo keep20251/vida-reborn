@@ -1,7 +1,7 @@
 <template>
   <BaseMedia>
-    <template v-slot:closeBtn="{ config }">
-      <Icon name="closeWhite" size="15" @click="config.close()"></Icon>
+    <template v-slot:closeBtn="{}">
+      <Icon name="closeWhite" size="15" @click="closeAndReset()"></Icon>
     </template>
 
     <template v-slot:content="{}">
@@ -23,6 +23,7 @@
             :active="i >= currIndex - 1 && i <= currIndex + 1"
             :draggable="false"
             :relative="true"
+            :fullHeight="true"
             @mouseenter="isMouseHoverImage = true"
             @mouseleave="isMouseHoverImage = false"
           ></EncryptImage>
@@ -74,7 +75,7 @@
 
 <script setup>
 import { computed, defineAsyncComponent, onMounted, reactive, ref, watch } from 'vue'
-import { useMouse, useMousePressed, usePointer, useSwipe as vuseSwip, whenever } from '@vueuse/core'
+import { onKeyStroke, useMouse, useMousePressed, usePointer, useSwipe as vuseSwip, whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useFullscreenStore } from '@/store/fullscreen'
@@ -115,6 +116,7 @@ whenever(
     reset(targetIndex)
     index.value = targetIndex
     currIndex.value = targetIndex
+    bundKey()
   },
 )
 
@@ -126,6 +128,7 @@ whenever(
     currIndex.value = 0
     imgElements.value = []
     targetElement.value = null
+    unbindKey()
   },
 )
 
@@ -187,9 +190,9 @@ const scaleStep = ref(0.1)
 const minScale = ref(0.5)
 const maxScale = ref(2)
 const scale = ref(originalScale.value)
-const changeScale = (e) => {
-  e.preventDefault()
-  if (e.deltaY < 0) {
+
+const changeScale = (isScaleUp) => {
+  if (isScaleUp) {
     scale.value = Math.min(scale.value + scaleStep.value, maxScale.value)
   } else {
     scale.value = Math.max(scale.value - scaleStep.value, minScale.value)
@@ -198,47 +201,64 @@ const changeScale = (e) => {
 }
 
 const resetScale = () => {
+  originalScale.value = 1
+  scaleStep.value = 0.1
+  minScale.value = 0.5
+  maxScale.value = 2
   scale.value = originalScale.value
+
+  if (!targetElement.value) return
   targetElement.value.style.transform = `scale(${scale.value})`
-  // reset position
   targetElement.value.style.left = 0
   targetElement.value.style.top = 0
-}
-const changePositionWhenScale = (e) => {
-  e.preventDefault()
-  if (e.target.tagName !== 'IMG') return
-  e = e || window.event
-  e.preventDefault()
-  targetElement.value = e.target
-
-  // get mouse position in target element
-  const mouseX = e.clientX - targetElement.value.offsetLeft
-  const mouseY = e.clientY - targetElement.value.offsetTop
-
-  // change position
-  targetElement.value.style.left = mouseX - (mouseX - targetElement.value.offsetLeft) * scale.value + 'px'
-  targetElement.value.style.top = mouseY - (mouseY - targetElement.value.offsetTop) * scale.value + 'px'
 }
 
 const handleImgScroll = (e) => {
   e.preventDefault()
-
   if (e.target.tagName !== 'IMG') return
 
   e = e || window.event
   e.preventDefault()
   targetElement.value = e.target
-
-  console.log('scroll', targetElement.value)
-  console.log('e', e)
-  // get mouse position in target element
-  const mouseX = e.clientX - targetElement.value.offsetLeft
-  const mouseY = e.clientY - targetElement.value.offsetTop
-
-  console.log('mouseX', mouseX)
-  console.log('mouseY', mouseY)
-
-  changeScale(e)
-  // changePositionWhenScale(e)
+  changeScale(e.deltaY < 0)
 }
+
+const closeAndReset = () => {
+  resetGrag()
+  resetScale()
+  close()
+}
+
+const handleKey = (keyName) => (e) => {
+  targetElement.value = imgElements.value[currIndex.value]
+
+  switch (e.key) {
+    case 'Escape':
+      closeAndReset()
+      break
+    case 'ArrowLeft':
+      prev()
+      break
+    case 'ArrowRight':
+      next()
+      break
+    case 'ArrowUp':
+      if (isLock.value) return
+      changeScale(true)
+      break
+    case 'ArrowDown':
+      if (isLock.value) return
+      changeScale(false)
+      break
+  }
+}
+
+const handleEscape = handleKey('Escape')
+const handleLeft = handleKey('ArrowLeft')
+const handleRight = handleKey('ArrowRight')
+const handleUp = handleKey('ArrowUp')
+const handleDown = handleKey('ArrowDown')
+
+const bundKey = () => window.addEventListener('keydown', handleEscape)
+const unbindKey = () => window.removeEventListener('keydown', handleEscape)
 </script>
