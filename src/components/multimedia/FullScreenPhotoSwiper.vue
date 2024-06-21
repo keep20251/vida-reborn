@@ -8,7 +8,6 @@
       <div class="relative h-full w-full overflow-hidden rounded-inherit" ref="swiper">
         <div
           v-for="(img, i) in imgs"
-          id="imageZoomContainer"
           class="absolute top-0 h-full w-full"
           :class="{ 'will-change-transform': animIndex % 1 !== 0 }"
           :style="{ transform: `translateX(${(i - animIndex) * 100}%)` }"
@@ -24,8 +23,6 @@
             :draggable="false"
             :relative="true"
             :fullHeight="true"
-            @mouseenter="isMouseHoverImage = true"
-            @mouseleave="isMouseHoverImage = false"
           ></EncryptImage>
         </div>
 
@@ -56,19 +53,6 @@
           </div>
         </div>
       </div>
-    </template>
-
-    <template v-slot:dots="{}">
-      <ul class="flex items-baseline justify-center space-x-5 p-5 text-white">
-        <li
-          class="px-4"
-          :class="{ 'text-blue-500': swiperIndex === itemIndex, 'text-xl': swiperIndex === itemIndex }"
-          v-for="(item, itemIndex) in swiperImgs"
-          :key="itemIndex"
-        >
-          <div>。</div>
-        </li>
-      </ul>
     </template>
   </BaseMedia>
 </template>
@@ -229,7 +213,7 @@ const closeAndReset = () => {
   close()
 }
 
-const handleKey = (keyName) => (e) => {
+const handleKey = (e) => {
   targetElement.value = imgElements.value[currIndex.value]
 
   switch (e.key) {
@@ -253,12 +237,6 @@ const handleKey = (keyName) => (e) => {
   }
 }
 
-const handleEscape = handleKey('Escape')
-const handleLeft = handleKey('ArrowLeft')
-const handleRight = handleKey('ArrowRight')
-const handleUp = handleKey('ArrowUp')
-const handleDown = handleKey('ArrowDown')
-
-const bundKey = () => window.addEventListener('keydown', handleEscape)
-const unbindKey = () => window.removeEventListener('keydown', handleEscape)
+const bundKey = () => window.addEventListener('keydown', handleKey)
+const unbindKey = () => window.removeEventListener('keydown', handleKey)
 </script>
