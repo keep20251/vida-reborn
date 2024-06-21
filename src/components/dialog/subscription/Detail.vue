@@ -1,6 +1,6 @@
 <template>
   <div class="select-none px-20 py-30">
-    <div class="scrollbar-md h-[65vh] max-h-[65vh] overflow-x-hidden overflow-y-scroll">
+    <div class="scrollbar-md h-[65vh] max-h-[65vh] overflow-y-auto overflow-x-hidden">
       <div class="pr-20">
         <div class="flex flex-col space-y-20">
           <div>

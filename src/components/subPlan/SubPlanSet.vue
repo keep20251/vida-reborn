@@ -14,7 +14,7 @@
       </button>
     </div>
     <div
-      class="mr-10 max-h-[65vh] overflow-y-scroll pl-25"
+      class="mr-10 max-h-[65vh] overflow-y-auto pl-25"
       :class="{ 'hover-scrollbar pr-5': isDesktop, 'pr-10': !isDesktop }"
     >
       <div class="flex flex-col space-y-10">

@@ -4,7 +4,7 @@
       {{ $t('beCreator.agreement.title') }}
     </div>
     <div
-      class="scrollbar-md mb-30 h-[530px] min-h-[250px] space-y-2 overflow-y-scroll rounded-md bg-gray-f6 p-20 text-base font-normal leading-lg text-gray-57"
+      class="scrollbar-md mb-30 h-[530px] min-h-[250px] space-y-2 overflow-y-auto rounded-md bg-gray-f6 p-20 text-base font-normal leading-lg text-gray-57"
     >
       <p>
         {{ $t('beCreator.agreement.1') }}
