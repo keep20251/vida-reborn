@@ -8,6 +8,7 @@
   </BaseDialog>
 </template>
 <script setup>
+import { useEventListener } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAuthRouteStore } from '@/store/auth-route'
 import { useDialogStore } from '@/store/dialog'
@@ -17,4 +18,12 @@ const { authDialog } = storeToRefs(useDialogStore())
 
 const authRoute = useAuthRouteStore()
 const { authComponent } = storeToRefs(authRoute)
+const { close } = authRoute
+
+// 快捷鍵關閉登入彈窗 ctrl + shift + C
+useEventListener('keypress', (evt) => {
+  if (evt.ctrlKey && evt.shiftKey && ['c', 'C'].includes(evt.key)) {
+    close()
+  }
+})
 </script>
