@@ -3,7 +3,7 @@
     class="flex flex-col space-y-32"
     :class="{
       'h-[30.5rem] xl:lg:md:h-[37.5rem]': fixedHeight,
-      'overflow-y-scroll': scrollY,
+      'overflow-y-auto': scrollY,
     }"
   >
     <div class="relative text-center">

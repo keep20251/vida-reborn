@@ -4,7 +4,7 @@
       <Tab v-model="currentTab" :options="tabOptions"></Tab>
     </div>
     <div class="text-sm font-normal leading-3 text-gray-a3">{{ $t(infoText) }}</div>
-    <div class="scrollbar-md max-h-[65vh] overflow-y-scroll pr-20">
+    <div class="scrollbar-md max-h-[65vh] overflow-y-auto pr-20">
       <div v-if="disabled" class="mb-40 flex w-full animate-pulse flex-col space-y-10">
         <div class="h-27 rounded-md bg-gray-a3"></div>
         <div class="h-[11.875rem] rounded-md bg-gray-a3"></div>

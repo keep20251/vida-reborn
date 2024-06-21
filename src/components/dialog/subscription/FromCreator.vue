@@ -1,6 +1,6 @@
 <template>
   <div v-if="items.length > 0" class="select-none p-30">
-    <div class="scrollbar-md max-h-[65vh] overflow-y-scroll">
+    <div class="scrollbar-md max-h-[65vh] overflow-y-auto">
       <div class="flex flex-col divide-y pr-25">
         <div v-for="(item, index) in items" :key="`subscribe-card-${index}`" class="py-20">
           <SubscribeCard

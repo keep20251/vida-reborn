@@ -8,7 +8,7 @@
     </div>
     <div class="select-none p-30 pr-10">
       <div
-        class="max-h-[65vh] overflow-y-scroll pr-10"
+        class="max-h-[65vh] overflow-y-auto pr-10"
         :class="{ 'my-10': subList.length === 0, 'hover-scrollbar': isDesktop, 'pr-20': !isDesktop }"
       >
         <div @click="subPlanAdd" class="cursor-pointer text-center text-base font-bold leading-md text-gray-57">
