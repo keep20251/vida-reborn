@@ -21,7 +21,9 @@
 </template>
 
 <script setup>
+import { onActivated, onDeactivated, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useEventListener } from '@vueuse/core'
 import { useAuthRouteStore } from '@/store/auth-route'
 import { useModalStore } from '@/store/modal'
 import Button from '@comp/common/Button.vue'
@@ -39,4 +41,15 @@ function openTermsOfService() {
     confirmAction: () => {},
   })
 }
+
+// 快捷鍵開啟登入彈窗 ctrl + shift + L
+let active = false
+onMounted(() => (active = true))
+onActivated(() => (active = true))
+onDeactivated(() => (active = false))
+useEventListener('keypress', (evt) => {
+  if (active && evt.ctrlKey && evt.shiftKey && ['l', 'L'].includes(evt.key)) {
+    openAuthDialog(AUTH_ROUTES.LOGIN)
+  }
+})
 </script>
