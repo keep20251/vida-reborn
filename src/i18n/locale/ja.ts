@@ -305,6 +305,11 @@ export default {
     invalidInfo: 'これらのサブスクリプションプランは期限切れです。',
     firstItem: 'すでに最初のアイテムです。',
     lastItem: 'すでに最後のアイテムです。',
+    within30days: '30日以内',
+    within90days: '90日以内',
+    within360days: '360日以内',
+    allDays: '全日',
+    customDays: 'カスタム日数',
   },
   content: {
     default: 'デフォルト、どこにも表示されないはずです',
@@ -359,7 +364,7 @@ export default {
     AddNewSubPlan: '新しいサブスクリプションプランを追加するにはクリックしてください',
     AddFirstSubPlan: '最初のサブスクリプション プランを追加してください。',
     subStyle: 'アップロードスタイル',
-    customStyle: 'カスタムスタイル',
+    style: 'スタイル',
     subUnlockDayAfter: '購入から数日以内に投稿のロックを解除できますか？',
     tokenExpired: 'ログインセッションの有効期限が切れました。再度ログインしてください。',
     clearSearchHistory: '検索履歴を消去してもよろしいですか?',
@@ -568,7 +573,7 @@ export default {
     },
     shopBuy: {
       1: 'この作品では {nickname} のコンテンツがアンロックされます',
-      2: '{nickname}がお支払いを全額受け取ります',
+      2: '{nickname}はあなたの支払いを全額受け取ります',
       confirm: "今すぐロックを解除します ({'$'}{price})",
     },
     subscribeSuc: {

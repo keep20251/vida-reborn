@@ -310,6 +310,11 @@ export default {
     invalidInfo: "Ces plans d'abonnement ont expiré.",
     firstItem: "C'est déjà le premier.",
     lastItem: "C'est déjà le dernier.",
+    within30days: 'Dans les 30 jours',
+    within90days: 'Dans les 90 jours',
+    within360days: 'Dans les 360 jours',
+    allDays: 'Tous les jours',
+    customDays: 'Jours personnalisés',
   },
   content: {
     default: 'Par défaut, ne devrait apparaître nulle part',
@@ -364,7 +369,7 @@ export default {
     AddNewSubPlan: "Cliquez pour ajouter un nouveau plan d'abonnement",
     AddFirstSubPlan: "Ajoutez votre premier plan d'abonnement !",
     subStyle: 'Style de téléchargement',
-    customStyle: 'Style personnalisé',
+    style: 'Style',
     subUnlockDayAfter: "Permettre de débloquer les publications quelques jours après l'achat ?",
     tokenExpired: 'La session de connexion a expiré, veuillez vous reconnecter.',
     clearSearchHistory: 'Êtes-vous sûr de vouloir effacer votre historique de recherche ?',
@@ -581,7 +586,7 @@ export default {
     },
     subscribeSuc: {
       1: 'merveilleux! Vous vous êtes abonné avec succès à {nickname} !',
-      2: "Choisissez d'accéder à la page d'accueil du créateur, ou restez sur l'écran d'origine et parcourez !",
+      2: "Choisissez d'accéder à la page d'accueil du créateur ou de rester sur l'écran d'origine et de naviguer !",
       confirm: 'Aller à la page du créateur',
     },
     shopBuySuc: {
