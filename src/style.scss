@@ -48,4 +48,25 @@
       background: #f6f6f6;
     }
   }
+
+  .hover-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    transition: scrollbar-color .3s;
+    
+    &:hover {
+      scrollbar-color: #ccc transparent;
+    }
+    &:not(:hover)::-webkit-scrollbar-thumb {
+      background: transparent;
+    }
+    &::-webkit-scrollbar {
+      width: 0.1875rem;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      transition: background 0.3s;
+      background: #ccc;
+    }
+  }
 }
