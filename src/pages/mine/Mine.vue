@@ -1,17 +1,23 @@
 <template>
   <Page infinite @load="nextFn" :pull-to-reload="reloadFn !== null" @reload="reloadFn">
     <template #app-top v-if="!excludeRoutes.includes(route.name) && headerTitle">
-      <Head :title="headerTitle.includes('.') ? $t(headerTitle) : headerTitle"></Head>
+      <ClientOnly>
+        <Head :title="headerTitle.includes('.') ? $t(headerTitle) : headerTitle"></Head>
+      </ClientOnly>
     </template>
     <template #main-top v-if="tab">
-      <Tab v-model="tab" :options="tabOptions"></Tab>
+      <ClientOnly>
+        <Tab v-model="tab" :options="tabOptions"></Tab>
+      </ClientOnly>
     </template>
     <template #default>
-      <router-view v-slot="{ Component }">
-        <keep-alive>
-          <component :is="Component"></component>
-        </keep-alive>
-      </router-view>
+      <ClientOnly>
+        <router-view v-slot="{ Component }">
+          <keep-alive>
+            <component :is="Component"></component>
+          </keep-alive>
+        </router-view>
+      </ClientOnly>
     </template>
     <template #aside-top>
       <TopSearchBar to-search></TopSearchBar>
@@ -28,7 +34,7 @@
         <div v-show="!isPreviewMode" class="grid space-y-20">
           <SetList />
           <div class="grid space-y-5">
-            <Carousel :items="cats" interval-time :label="$t('label.eventAd')"></Carousel>
+            <Carousel interval-time :label="$t('label.eventAd')"></Carousel>
             <p class="text-xs font-normal leading-3 text-gray-400">
               Terms of Service Privacy Policy Cookie Policy Ad info About @ 2023 VIDA corp
             </p>
@@ -57,15 +63,6 @@ import { MINE_TITLE } from '@const/index.js'
 
 const { tab, tabOptions, nextFn, reloadFn, isPreviewMode } = storeToRefs(useMineStore())
 const { userData } = storeToRefs(useAccountStore())
-
-const cats = ref([
-  { img: 'https://i.postimg.cc/3RTHR6kh/4edca499dd436a67fa25e5fbf3cb5582.png' },
-  { img: 'https://images.pexels.com/photos/1056251/pexels-photo-1056251.jpeg' },
-  { img: 'https://images.pexels.com/photos/57416/cat-sweet-kitty-animals-57416.jpeg' },
-  { img: 'https://images.pexels.com/photos/3054570/pexels-photo-3054570.jpeg' },
-  { img: 'https://images.pexels.com/photos/2071882/pexels-photo-2071882.jpeg' },
-  { img: 'https://images.pexels.com/photos/1440403/pexels-photo-1440403.jpeg' },
-])
 
 const route = useRoute()
 const { t: $t } = useI18n()

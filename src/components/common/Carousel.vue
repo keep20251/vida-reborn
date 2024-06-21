@@ -10,7 +10,7 @@
         <li
           class="h-6 w-6 cursor-pointer rounded-full bg-[#D9D9D9]"
           v-for="(item, i) in images"
-          :class="{ 'bg-black': getActiveSlide(i) }"
+          :class="{ 'bg-black': i === activeSlide }"
           @click="showSlide(i)"
           :key="i"
         ></li>
@@ -38,11 +38,10 @@ const props = defineProps({
 const images = ref([{ img: ad_1 }, { img: ad_2 }, { img: ad_3 }])
 
 const activeSlide = ref(0)
-let time
 
 const showSlide = (n) => {
   activeSlide.value = n
-  restartInterval()
+  restart()
 }
 
 const showNext = () => {
@@ -53,44 +52,31 @@ const showNext = () => {
   } else {
     activeSlide.value = images.value.length - 1
   }
-  restartInterval()
+  setupNext()
 }
 
-const showPrev = () => {
-  if (activeSlide.value >= 1) {
-    activeSlide.value -= 1
-  } else if (activeSlide.value === 0) {
-    activeSlide.value = images.value.length - 1
-  } else {
-    activeSlide.value = 0
-  }
-  restartInterval()
-}
+// const showPrev = () => {
+//   if (activeSlide.value >= 1) {
+//     activeSlide.value -= 1
+//   } else if (activeSlide.value === 0) {
+//     activeSlide.value = images.value.length - 1
+//   } else {
+//     activeSlide.value = 0
+//   }
+//   time = setTimeout(showNext, 3000)
+// }
 
-const getActiveSlide = (i) => i === activeSlide.value
-
-onMounted(() => {
-  restartInterval()
-})
-
-onActivated(() => {
-  restartInterval()
-})
-
-onBeforeUnmount(() => {
-  clearInterval(time)
-})
-
-onDeactivated(() => {
-  clearInterval(time)
-})
-
-const restartInterval = () => {
-  clearInterval(time)
+const setupNext = () => (setupNext.timerId = setTimeout(showNext, 3000))
+const stop = () => clearTimeout(setupNext.timerId)
+const restart = () => {
   if (props.intervalTime) {
-    time = setInterval(() => {
-      showNext()
-    }, 3000)
+    stop()
+    setupNext()
   }
 }
+
+onMounted(restart)
+onActivated(restart)
+onBeforeUnmount(stop)
+onDeactivated(stop)
 </script>
