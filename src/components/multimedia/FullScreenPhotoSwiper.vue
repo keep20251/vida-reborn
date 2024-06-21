@@ -116,7 +116,7 @@ whenever(
 const { isSwiping, direction } = vuseSwip(swiper)
 whenever(
   () => isSwiping.value && direction.value === 'down',
-  () => close(),
+  () => closeAndReset(),
 )
 
 const imgElements = ref([])
