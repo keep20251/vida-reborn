@@ -36,7 +36,7 @@
     <div class="overflow-x-hidden">
       <List :items="dataList" item-key="id" divider>
         <template #default="{ item }">
-          <Feed :item="item" class="py-20"></Feed>
+          <Feed :item="item" class="py-20" disable-stat></Feed>
         </template>
         <template #bottom>
           <NoData v-if="noData"></NoData>

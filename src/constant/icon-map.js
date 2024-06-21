@@ -80,6 +80,8 @@ export const iconMap = {
   pauseBtn: { path: 'function/pause-btn' },
   volume: { path: 'function/volume' },
   mute: { path: 'function/mute' },
+  fullscreen: { path: 'function/fullscreen' },
+  fullscreenExit: { path: 'function/fullscreen-exit' },
 
   comment: { path: 'interaction/comment' },
   likeOutline: { path: 'interaction/like-outline', preload: true },

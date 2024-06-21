@@ -35,6 +35,9 @@
         v-model="profile.description"
         :label="$t('label.description')"
         :placeholder="$t('placeholder.description')"
+        :line="6"
+        leading
+        resize
       ></TextareaWrap>
       <div class="flex flex-col space-y-10">
         <div class="flex items-center justify-between pr-4">

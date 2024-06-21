@@ -51,9 +51,10 @@
         v-model="input"
         class="grow"
         :line="inputLine"
+        focus
         disable-enter-new-line
         @keypress:enter="sendText"
-        @keypress:alt:enter="input += '\n'"
+        @keypress:help:enter="input += '\n'"
       ></TextareaWrap>
       <div class="flex h-36 items-center">
         <div class="flex h-30 w-40 cursor-pointer items-center justify-center rounded-xl bg-primary" @click="sendText">
@@ -93,7 +94,7 @@ const props = defineProps({
 defineEmits(['back'])
 
 const accountStore = useAccountStore()
-const { isLogin, isCreator } = storeToRefs(accountStore)
+const { isLogin } = storeToRefs(accountStore)
 
 const chatStore = useChatStore()
 const { ready } = storeToRefs(chatStore)

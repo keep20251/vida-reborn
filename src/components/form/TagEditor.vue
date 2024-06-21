@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col space-y-10">
     <label class="text-left text-base leading-md">Tag</label>
-    <OptionsPicker v-model="tags" :options="tagOptions" can-pick-none></OptionsPicker>
+    <OptionsPicker v-model="tags" :options="tagOptions" can-pick-none can-delete @delete="deleteTag"></OptionsPicker>
     <InputWrap v-model="tagInput" :append-label-btn="$t('label.add')" @click:append="addTag"></InputWrap>
   </div>
 </template>
@@ -57,6 +57,16 @@ function addTag() {
   tagOptions.value.unshift({ label: tag, value: tag })
   tags.value.push(tag)
   tagInput.value = ''
+}
+function deleteTag(value) {
+  const tagOptionIndex = tagOptions.value.findIndex((e) => e.value === value)
+  if (tagOptionIndex >= 0) {
+    tagOptions.value.splice(tagOptionIndex, 1)
+  }
+  const tagIndex = tags.value.indexOf(value)
+  if (tagIndex >= 0) {
+    tags.value.splice(tagIndex, 1)
+  }
 }
 
 watch(

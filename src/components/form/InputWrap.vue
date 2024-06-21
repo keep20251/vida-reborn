@@ -2,7 +2,9 @@
   <div class="flex flex-col space-y-10">
     <label v-if="label" class="flex items-center text-base font-normal not-italic leading-md" :class="[labelCenter]"
       >{{ label }}
-      <span v-if="sublabel" class="ml-5 text-sm font-normal not-italic leading-3 text-gray-57">{{ sublabel }}</span>
+      <span v-if="sublabel" class="translate-y-2 pl-5 text-sm font-normal not-italic leading-3 text-gray-57">{{
+        sublabel
+      }}</span>
       <div v-if="labelIcon" class="flex cursor-pointer items-center pl-4">
         <Icon :name="labelIcon" size="8" @click="emits('click:labelIcon')"></Icon>
       </div>
@@ -104,6 +106,8 @@
 <script setup>
 import { computed, onActivated, ref } from 'vue'
 import { whenever } from '@vueuse/core'
+import { storeToRefs } from 'pinia'
+import { useAppStore } from '@/store/app'
 
 const props = defineProps({
   label: { type: String },
@@ -151,10 +155,11 @@ const pwdHide = ref(true)
 const type = computed(() => (props.password && pwdHide.value ? 'password' : props.number ? 'number' : 'text'))
 const labelCenter = computed(() => (props.labelCenter ? 'text-center' : 'text-left'))
 
+const { isDesktop } = storeToRefs(useAppStore())
 const input = ref(null)
 whenever(
   () => props.focus,
-  (v) => input.value.focus(),
+  () => isDesktop.value && input.value.focus(),
 )
-onActivated(() => props.focus && input.value.focus())
+onActivated(() => props.focus && isDesktop.value && input.value.focus())
 </script>

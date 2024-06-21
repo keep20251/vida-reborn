@@ -1,22 +1,24 @@
 <template>
-  <div :class="[fullScreenClass]" ref="fullScreenContainer">
-    <div :class="[fullScreenBackClass]" @click="handleBackDrop"></div>
-    <div :class="[fullScreenContentClass]">
-      <component :is="baseComponent" :config="config">
-        <template v-if="$slots.closeBtn" v-slot:closeBtn="{ config }">
-          <slot name="closeBtn" :config="config"> </slot>
-        </template>
+  <Transition name="slids">
+    <div v-if="isActivated" :class="[fullScreenClass]" ref="fullScreenContainer">
+      <div :class="[fullScreenBackClass]" @click="handleBackDrop"></div>
+      <div :class="[fullScreenContentClass]">
+        <component :is="baseComponent" :config="config">
+          <template v-if="$slots.closeBtn" v-slot:closeBtn="{ config }">
+            <slot name="closeBtn" :config="config"> </slot>
+          </template>
 
-        <template v-if="$slots.content" v-slot:content="{ config }">
-          <slot name="content" :config="config"> </slot>
-        </template>
+          <template v-if="$slots.content" v-slot:content="{ config }">
+            <slot name="content" :config="config"> </slot>
+          </template>
 
-        <template v-if="$slots.dots" v-slot:dots="{ config }">
-          <slot name="dots" :config="config"> </slot>
-        </template>
-      </component>
+          <template v-if="$slots.dots" v-slot:dots="{ config }">
+            <slot name="dots" :config="config"> </slot>
+          </template>
+        </component>
+      </div>
     </div>
-  </div>
+  </Transition>
 </template>
 
 <script setup>
@@ -91,4 +93,19 @@ const fullScreenContentClass = computed(() => {
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+.slids-enter-active,
+.slids-leave-active {
+  transition: opacity 0.3s;
+}
+
+.slids-enter-from,
+.slids-leave-to {
+  opacity: 0;
+}
+
+.slids-enter-to,
+.slids-leave-from {
+  opacity: 1;
+}
+</style>
