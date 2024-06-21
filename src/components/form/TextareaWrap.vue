@@ -7,10 +7,12 @@
     <div class="flex flex-col space-y-2">
       <textarea
         v-model="value"
+        ref="textarea"
         :placeholder="placeholder"
         :disabled="disabled"
-        :style="{ height }"
-        class="w-full shrink-0 resize-none appearance-none divide-solid rounded-md border-gray-cc bg-white px-20 py-[0.75rem] text-sm font-normal not-italic leading-3 text-gray-57 shadow-input outline-none placeholder:text-gray-a3"
+        :style="{ height: resizedHeight || height }"
+        class="scrollbar-md w-full shrink-0 appearance-none divide-solid rounded-md border-gray-cc bg-white px-20 py-[0.75rem] text-sm font-normal not-italic text-gray-57 shadow-input outline-none placeholder:text-gray-a3"
+        :class="{ 'leading-3': !leading, 'leading-5': leading, 'resize-none': !resize }"
         @keypress.enter="onEnterPress"
       ></textarea>
       <div v-if="errMsg" class="text-left text-sm font-normal not-italic leading-md text-warning">
@@ -20,7 +22,10 @@
   </div>
 </template>
 <script setup>
-import { computed } from 'vue'
+import { computed, onActivated, onMounted, ref, watch } from 'vue'
+import { useResizeObserver } from '@vueuse/core'
+import { storeToRefs } from 'pinia'
+import { useAppStore } from '@/store/app'
 
 const props = defineProps({
   label: { type: String },
@@ -29,10 +34,13 @@ const props = defineProps({
   placeholder: { type: String, default: '输入文字...' },
   disabled: { type: Boolean, default: false },
   line: { type: Number, default: 3 },
+  leading: { type: Boolean, default: false },
+  resize: { type: Boolean, default: false },
+  focus: { type: Boolean, default: false },
   errMsg: { type: String, default: '' },
   disableEnterNewLine: { type: Boolean, default: false },
 })
-const emits = defineEmits(['update:modelValue', 'keypress:enter', 'keypress:alt:enter'])
+const emits = defineEmits(['update:modelValue', 'keypress:enter', 'keypress:help:enter'])
 const value = computed({
   get() {
     return props.modelValue
@@ -41,16 +49,48 @@ const value = computed({
     emits('update:modelValue', newValue)
   },
 })
+
+const textarea = ref(null)
 const height = computed(() => {
-  // 12px(font-size) * 1(line-height) / 16(轉成rem) = 0.75
+  // props.leading 為 false -> 12px(font-size) * 1(line-height) / 16(轉成rem) = 0.75
+  // props.leading 為 true -> 12px(font-size) + 8px(line-height) / 16(轉成rem) = 1.25
+  const lineHeight = props.leading ? 1.25 : 0.75
+
   // 12px(padding-top) + 12(padding-bottom) / 16(轉成rem) = 1.5
-  return `${props.line * 0.75 + 1.5}rem`
+  const padding = 1.5
+
+  return `${props.line * lineHeight + padding}rem`
+})
+const resizedHeight = ref(null)
+useResizeObserver(textarea, (entries) => {
+  if (props.resize) {
+    resizedHeight.value = entries[0].contentRect.height
+  }
 })
 
+const { isDesktop } = storeToRefs(useAppStore())
 function onEnterPress(evt) {
-  if (props.disableEnterNewLine && !evt.altKey) {
+  if (props.disableEnterNewLine) {
     evt.preventDefault()
+    if (isDesktop.value) {
+      const helpKey = evt.altKey || evt.ctrlKey || evt.shiftKey
+      if (helpKey) {
+        emits('keypress:help:enter')
+      } else {
+        emits('keypress:enter')
+      }
+    } else {
+      emits('keypress:help:enter')
+    }
+  } else {
+    emits('keypress:enter')
   }
-  emits(evt.altKey ? 'keypress:alt:enter' : 'keypress:enter')
 }
+
+function autoFocus() {
+  props.focus && isDesktop.value && textarea.value.focus()
+}
+watch(() => props.focus, autoFocus)
+onMounted(autoFocus)
+onActivated(autoFocus)
 </script>

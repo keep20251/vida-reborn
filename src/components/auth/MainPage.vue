@@ -16,6 +16,7 @@
             :label="$t('label.email')"
             :placeholder="$t('placeholder.email')"
             label-center
+            focus
             @update:modelValue="() => (credential.email.error = '')"
             @keypress:enter="next"
           ></InputWrap>

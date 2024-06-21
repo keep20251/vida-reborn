@@ -1,51 +1,76 @@
 <template>
-  <div ref="videoWrap" class="relative h-full w-full overflow-hidden rounded-inherit" @mousemove="openControl">
+  <div
+    class="relative h-full w-full overflow-hidden rounded-inherit"
+    :style="fullscreenStyle"
+    @mousemove="openControl"
+    @click.stop="togglePlay"
+  >
+    <!-- video 嵌入位置 -->
+    <div ref="videoWrap" class="absolute top-0 h-full w-full rounded-inherit"></div>
+
+    <!-- 視頻資源載入被卡住的 loading -->
     <div
-      v-if="videoCurrentTime === 0 && !videoPlay"
-      class="absolute top-0 flex h-full w-full cursor-pointer items-center justify-center rounded-inherit"
-      @click.stop="togglePlay"
+      v-if="isWaiting"
+      class="absolute left-1/2 top-1/2 flex h-50 w-50 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-sm bg-white bg-opacity-75"
     >
-      <div class="flex h-50 w-50 items-center justify-center rounded-md bg-white bg-opacity-50">
+      <Loading></Loading>
+    </div>
+
+    <!-- 尚未開始播放前的置中播放按鈕 -->
+    <div
+      v-if="videoCurrentTime === 0 && !videoPlay && !isWaiting"
+      class="absolute top-0 h-full w-full cursor-pointer rounded-inherit"
+    >
+      <EncryptImage :src="posterUrl" :border-radius="10" cover></EncryptImage>
+      <div
+        class="absolute left-1/2 top-1/2 flex h-50 w-50 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-md bg-white bg-opacity-50"
+      >
         <Icon name="playBtn" size="20"></Icon>
       </div>
     </div>
-    <div v-else v-show="!videoPlay || isDragging || showControl" class="absolute top-0 h-full w-full rounded-inherit">
-      <div class="absolute bottom-0 w-full px-20 pb-20">
-        <div class="relative h-27 w-full cursor-pointer" ref="timeBar">
-          <div
-            class="absolute top-16 h-2 w-full rounded-full"
-            :style="{
-              backgroundImage: `linear-gradient(
-                                  to right,
-                                  #7FE2D3 ${videoTimeRate * 100}%,
-                                  rgba(217,217,217,0.5) ${videoTimeRate * 100}%
-                                )`,
-            }"
-          ></div>
-          <div
-            class="absolute top-15 h-4 w-2 rounded-[1px] bg-gray-f6 will-change-transform"
-            :style="{ transform: `translateX(${timeBarWidth * videoTimeRate}px)` }"
-          ></div>
+
+    <!-- 播放器 control -->
+    <div
+      v-else
+      v-show="!videoPlay || isDragging || showControl"
+      class="absolute bottom-0 w-full rounded-inherit px-20 pb-20"
+      @click.stop
+    >
+      <div class="relative h-27 w-full cursor-pointer" ref="timeBar">
+        <div
+          class="absolute top-16 h-2 w-full rounded-full"
+          :style="{
+            backgroundImage: `linear-gradient(
+                                to right,
+                                #7FE2D3 ${videoTimeRate * 100}%,
+                                rgba(217,217,217,0.5) ${videoTimeRate * 100}%
+                              )`,
+          }"
+        ></div>
+        <div
+          class="absolute top-15 h-4 w-2 rounded-[1px] bg-gray-f6 will-change-transform"
+          :style="{ transform: `translateX(${timeBarWidth * videoTimeRate}px)` }"
+        ></div>
+      </div>
+      <div class="flex items-center space-x-10 px-10">
+        <Icon :name="videoPlay ? 'pauseBtn' : 'playBtn'" size="16" class="cursor-pointer" @click.stop="togglePlay" />
+        <div class="grow select-none font-mono text-sm text-white">
+          {{ `${toVideoTimeFormat(videoCurrentTime)} / ${toVideoTimeFormat(videoDuration)}` }}
         </div>
-        <div class="flex items-center space-x-10 px-10">
-          <Icon :name="videoPlay ? 'pauseBtn' : 'playBtn'" size="16" class="cursor-pointer" @click.stop="togglePlay" />
-          <div class="grow select-none font-mono text-sm text-white">
-            {{ `${toVideoTimeFormat(videoCurrentTime)} / ${toVideoTimeFormat(videoDuration)}` }}
-          </div>
-          <Icon
-            :name="videoMuted ? 'mute' : 'volume'"
-            size="16"
-            class="cursor-pointer"
-            @click.stop="toggleVideoMuted"
-          />
-        </div>
+        <Icon :name="videoMuted ? 'mute' : 'volume'" size="16" class="cursor-pointer" @click.stop="toggleVideoMuted" />
+        <Icon
+          :name="videoFullscreen ? 'fullscreenExit' : 'fullscreen'"
+          size="16"
+          class="cursor-pointer"
+          @click.stop="toggleFullscreen"
+        ></Icon>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { onActivated, onBeforeUnmount, onDeactivated, onMounted, ref } from 'vue'
+import { computed, onActivated, onBeforeUnmount, onDeactivated, onMounted, ref, watch } from 'vue'
 import { useElementSize } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
@@ -58,7 +83,9 @@ import { get, release } from '@/utils/video-store'
 const props = defineProps({
   id: { type: Number },
   url: { type: String, required: true },
+  posterUrl: { type: String },
   preview: { type: Boolean, default: false },
+  replaySignal: { type: Object },
 })
 
 const emits = defineEmits(['play', 'ended', 'timeupdate'])
@@ -73,8 +100,9 @@ const videoCurrentTime = ref(0)
 const videoDuration = ref(0)
 const videoTimeRate = ref(0)
 const videoPlay = ref(false)
+const videoFullscreen = ref(false)
 const isLoading = ref(true)
-// const isWaiting = ref(false)
+const isWaiting = ref(false)
 const errMsg = ref('')
 
 const timeBar = ref(null)
@@ -117,6 +145,42 @@ function togglePlay() {
     }
   }
 }
+watch(
+  () => props.replaySignal,
+  () => {
+    if (!videoPlay.value) {
+      togglePlay()
+    }
+  },
+)
+
+const fullscreenStyle = computed(() =>
+  videoFullscreen.value
+    ? {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        borderRadius: 0,
+        zIndex: 1000,
+      }
+    : null,
+)
+function toggleFullscreen() {
+  videoFullscreen.value = !videoFullscreen.value
+}
+
+function playEnd() {
+  emits('ended')
+  const video = videoElement.value
+  if (video) {
+    video.pause()
+    video.currentTime = 0
+  }
+  videoPlay.value = false
+  videoFullscreen.value = false
+}
 
 const showControl = ref(false)
 function openControl() {
@@ -153,8 +217,10 @@ function setupVideo() {
   try {
     videoElement.value = get(props.url, {
       currentTime: videoCurrentTime.value,
+      onWaiting: () => (isWaiting.value = true),
+      onPlaying: () => (isWaiting.value = false),
       onPlay: () => emits('play'),
-      onEnded: () => emits('ended'),
+      onEnded: playEnd,
       onTimeupdate: () => {
         videoCurrentTime.value = videoElement.value?.currentTime || 0
 
@@ -167,12 +233,12 @@ function setupVideo() {
         // 我尼瑪 der 只好在這邊判斷比 duration 還小兩秒就送 ended 事件
         const { currentTime, duration } = videoElement.value
         if (Math.floor(currentTime) >= Math.floor(duration) - 2) {
-          emits('ended')
+          playEnd()
         }
       },
       isPreview: props.preview,
     })
-    videoWrap.value.prepend(videoElement.value)
+    videoWrap.value.appendChild(videoElement.value)
 
     // 視頻時長更新回呼
     videoElement.value.ondurationchange = () => (videoDuration.value = videoElement.value?.duration || 0)

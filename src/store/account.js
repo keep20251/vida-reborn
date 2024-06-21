@@ -20,9 +20,9 @@ export const useAccountStore = defineStore('account-store', () => {
 
   const chatToken = ref(null)
 
-  const userData = ref(null)
+  const userData = ref({})
 
-  const isLogin = computed(() => !!tokenCookie.value && !!userData.value)
+  const isLogin = computed(() => !!tokenCookie.value && Object.keys(userData.value).length > 0)
   const username = computed(() => usernameCookie.value)
   const token = computed(() => tokenCookie.value)
   const userId = computed(() => affCookie.value)
@@ -116,15 +116,10 @@ export const useAccountStore = defineStore('account-store', () => {
     }
   }
 
-  function resetUserData(newData) {
-    clearUserData()
-    setUserData(newData)
-  }
-
   /**
    * 全部重設
    */
-  function setUserData(newData) {
+  function resetUserData(newData) {
     userData.value = { ...newData }
     chatToken.value = newData.chat_token
 
@@ -148,7 +143,7 @@ export const useAccountStore = defineStore('account-store', () => {
   }
 
   function clearUserData() {
-    userData.value = null
+    userData.value = {}
     role.value = USER_PERM.VISITOR
   }
 
@@ -169,7 +164,6 @@ export const useAccountStore = defineStore('account-store', () => {
     login,
     logout,
     afterLoginAction,
-    setUserData,
     updateUserData,
     resetUserData,
   }

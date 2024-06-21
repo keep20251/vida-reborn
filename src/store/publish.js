@@ -76,8 +76,6 @@ export const usePublishStore = defineStore('publish', () => {
   const uploadFiles = ref([])
   const noUploadFiles = computed(() => uploadFiles.value.length === 0)
 
-  const onFileInput = ref(null)
-
   const isCreate = computed(() => publishParams.id === null)
   const isUpdate = computed(() => publishParams.id !== null)
 
@@ -109,8 +107,6 @@ export const usePublishStore = defineStore('publish', () => {
     for (const file of files) {
       pushUploadFile(file)
     }
-
-    // onFileInput.value = new Date().getTime()
 
     publishParams.category = categories.value[0].value
 
@@ -291,8 +287,6 @@ export const usePublishStore = defineStore('publish', () => {
   }
 
   function clear() {
-    onFileInput.value = null
-
     startEditTimestamp.value = null
     uploadFiles.value = []
 
@@ -308,7 +302,6 @@ export const usePublishStore = defineStore('publish', () => {
   }
 
   return {
-    onFileInput: readonly(onFileInput),
     startEditTimestamp: readonly(startEditTimestamp),
 
     uploadFiles,

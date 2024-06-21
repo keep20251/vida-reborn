@@ -12,6 +12,7 @@
             :item="item"
             :show-auto-publish-time="tab === TAB_TYPE.SCH"
             disable-to-detail
+            disable-stat
             edit-mode
             @edit="onEdit(item)"
             @delete="onDelete(item)"

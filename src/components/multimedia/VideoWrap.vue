@@ -1,21 +1,23 @@
 <template>
-  <div class="flex h-full items-center justify-center rounded-inherit" @click.stop>
+  <div class="relative flex h-full items-center justify-center rounded-inherit" @click.stop>
+    <Video
+      v-if="url !== ''"
+      ref="video"
+      :url="url"
+      :poster-url="posterUrl"
+      :preview="isLock"
+      :replay-signal="replaySignal"
+      @play="playEnd = false"
+      @ended="playEnd = true"
+      @timeupdate="onTimeupdate"
+    ></Video>
     <LockMask
       v-if="showLockMask"
       :item="item"
       :meta="toVideoTimeFormat(item.url[0]?.video_time || 0)"
       show-image
-      @replay="playEnd = false"
+      @replay="replaySignal = Date.now()"
     ></LockMask>
-    <Video
-      v-else
-      ref="video"
-      :url="url"
-      :preview="isLock"
-      @play="playEnd = false"
-      @ended="playEnd = true"
-      @timeupdate="onTimeupdate"
-    ></Video>
   </div>
 </template>
 
@@ -32,10 +34,12 @@ const props = defineProps({
 })
 
 const url = computed(() => props.item.url[0]?.url)
+const posterUrl = computed(() => props.item.url[1]?.url)
 const isLock = computed(() => !props.item.is_unlock)
 // const isLock = computed(() => false)
 
 const playEnd = ref(false)
+const replaySignal = ref(null)
 const showLockMask = computed(() => isLock.value && (url.value === '' || playEnd.value))
 
 // 統計觀看數據

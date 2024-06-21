@@ -61,8 +61,8 @@
       <div class="mt-[60%]"></div>
       <div class="absolute left-0 top-0 h-full w-full rounded-inherit">
         <BlockMask v-if="isBlock" :item="item"></BlockMask>
-        <VideoWrap v-else-if="isVideo" :item="item" stat></VideoWrap>
-        <PhotoSwiper v-else-if="isImage" :item="item" stat></PhotoSwiper>
+        <VideoWrap v-else-if="isVideo" :item="item" :stat="!disableStat"></VideoWrap>
+        <PhotoSwiper v-else-if="isImage" :item="item" :stat="!disableStat"></PhotoSwiper>
       </div>
       <div
         v-if="editMode && [FEED_STATUS.REVIEW, ...FEED_STATUS_FORMATING].includes(item.status)"
@@ -159,6 +159,7 @@ const props = defineProps({
   disableContentFold: { type: Boolean, default: false },
   editMode: { type: Boolean, default: false },
   showAutoPublishTime: { type: Boolean, default: false },
+  disableStat: { type: Boolean, default: false },
 })
 
 const emits = defineEmits('edit', 'delete')
