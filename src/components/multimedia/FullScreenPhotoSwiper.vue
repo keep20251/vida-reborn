@@ -58,8 +58,8 @@
 </template>
 
 <script setup>
-import { computed, defineAsyncComponent, onMounted, reactive, ref, watch } from 'vue'
-import { onKeyStroke, useMouse, useMousePressed, usePointer, useSwipe as vuseSwip, whenever } from '@vueuse/core'
+import { computed, defineAsyncComponent, ref } from 'vue'
+import { useSwipe as vuseSwip, whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useFullscreenStore } from '@/store/fullscreen'
@@ -74,9 +74,6 @@ const { mediaContainer, isActivated } = storeToRefs(fullscreenStore)
 
 const appStore = useAppStore()
 const { isDesktop } = storeToRefs(appStore)
-
-const swiperImgs = ref([])
-const swiperIndex = ref(0)
 
 const index = ref(0)
 const item = computed(() => mediaContainer.value.item)
