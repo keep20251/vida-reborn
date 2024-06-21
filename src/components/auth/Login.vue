@@ -9,6 +9,7 @@
               :label="$t('label.account')"
               :placeholder="$t('placeholder.account')"
               :err-msg="credential.account.error"
+              focus
               @keypress:enter="submit"
             ></InputWrap>
             <InputWrap

@@ -19,6 +19,7 @@
               :placeholder="$t('placeholder.email')"
               :label-icon="'info'"
               :tip="tip"
+              focus
               @click:labelIcon="openTip"
               @keypress:enter="submit"
             >
@@ -81,7 +82,6 @@ import useRequest from '@use/request/index.js'
 import { useYup } from '@use/validator/yup.js'
 import { AUTH_ROUTES, MODAL_TYPE } from '@const'
 
-const { open } = useModalStore()
 const authRouteStore = useAuthRouteStore()
 const { to, back, close } = authRouteStore
 const { history } = storeToRefs(authRouteStore)

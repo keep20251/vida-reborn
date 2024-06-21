@@ -22,8 +22,10 @@
   </div>
 </template>
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, onActivated, onMounted, ref, watch } from 'vue'
 import { useResizeObserver } from '@vueuse/core'
+import { storeToRefs } from 'pinia'
+import { useAppStore } from '@/store/app'
 
 const props = defineProps({
   label: { type: String },
@@ -34,6 +36,7 @@ const props = defineProps({
   line: { type: Number, default: 3 },
   leading: { type: Boolean, default: false },
   resize: { type: Boolean, default: false },
+  focus: { type: Boolean, default: false },
   errMsg: { type: String, default: '' },
   disableEnterNewLine: { type: Boolean, default: false },
 })
@@ -65,11 +68,29 @@ useResizeObserver(textarea, (entries) => {
   }
 })
 
+const { isDesktop } = storeToRefs(useAppStore())
 function onEnterPress(evt) {
-  const helpKey = evt.altKey || evt.ctrlKey || evt.shiftKey
-  if (props.disableEnterNewLine && helpKey) {
+  if (props.disableEnterNewLine) {
     evt.preventDefault()
+    if (isDesktop.value) {
+      const helpKey = evt.altKey || evt.ctrlKey || evt.shiftKey
+      if (helpKey) {
+        emits('keypress:help:enter')
+      } else {
+        emits('keypress:enter')
+      }
+    } else {
+      emits('keypress:help:enter')
+    }
+  } else {
+    emits('keypress:enter')
   }
-  emits(helpKey ? 'keypress:help:enter' : 'keypress:enter')
 }
+
+function autoFocus() {
+  props.focus && isDesktop.value && textarea.value.focus()
+}
+watch(() => props.focus, autoFocus)
+onMounted(autoFocus)
+onActivated(autoFocus)
 </script>

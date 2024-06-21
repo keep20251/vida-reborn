@@ -105,6 +105,8 @@
 <script setup>
 import { computed, onActivated, ref } from 'vue'
 import { whenever } from '@vueuse/core'
+import { storeToRefs } from 'pinia'
+import { useAppStore } from '@/store/app'
 
 const props = defineProps({
   label: { type: String },
@@ -145,10 +147,11 @@ const pwdHide = ref(true)
 const type = computed(() => (props.password && pwdHide.value ? 'password' : props.number ? 'number' : 'text'))
 const labelCenter = computed(() => (props.labelCenter ? 'text-center' : 'text-left'))
 
+const { isDesktop } = storeToRefs(useAppStore())
 const input = ref(null)
 whenever(
   () => props.focus,
-  (v) => input.value.focus(),
+  () => isDesktop.value && input.value.focus(),
 )
-onActivated(() => props.focus && input.value.focus())
+onActivated(() => props.focus && isDesktop.value && input.value.focus())
 </script>
