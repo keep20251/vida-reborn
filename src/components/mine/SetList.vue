@@ -225,7 +225,6 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useEventListener } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAuthRouteStore } from '@/store/auth-route'
@@ -265,11 +264,4 @@ function onLogout() {
 }
 
 const version = import.meta.env.VITE_APP_VERSION
-
-// 快捷鍵開啟登入彈窗 ctrl + shift + L
-useEventListener('keypress', (evt) => {
-  if (evt.ctrlKey && evt.shiftKey && ['l', 'L'].includes(evt.key)) {
-    openAuthDialog(AUTH_ROUTES.LOGIN)
-  }
-})
 </script>
