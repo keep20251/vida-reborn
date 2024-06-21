@@ -19,7 +19,7 @@
     >
       <div class="flex flex-col space-y-10">
         <div class="flex flex-row items-start space-x-5">
-          <div class="text-base font-normal leading-md">{{ $t('content.subStyle') }}</div>
+          <div class="text-base font-normal leading-md">{{ $t('content.style') }}</div>
           <div class="text-sm text-gray-57">
             {{ `${uploadFiles.length + 3}/${IMAGE_LIMIT_COUNT}` }}
           </div>
@@ -31,7 +31,7 @@
           </div>
           <div>
             <Button @click="() => inputImage.click()" contrast size="sm" class="px-11 py-8 !font-bold">{{
-              $t('content.customStyle')
+              $t('content.subStyle')
             }}</Button>
             <input
               ref="inputImage"
@@ -117,7 +117,7 @@
             <InputRadio
               v-model="radioValue"
               id="radioOption1"
-              label="30 day(s)"
+              :label="$t('info.within30days')"
               :value="30"
               name="radio"
               class="mr-30"
@@ -125,7 +125,7 @@
             <InputRadio
               v-model="radioValue"
               id="radioOption2"
-              label="90 day(s)"
+              :label="$t('info.within90days')"
               :value="90"
               name="radio"
               class="mr-30"
@@ -133,19 +133,34 @@
             <InputRadio
               v-model="radioValue"
               id="radioOption3"
-              label="360 day(s)"
+              :label="$t('info.within360days')"
               :value="360"
+              name="radio"
+              class="mr-30"
+            />
+            <InputRadio
+              v-if="false"
+              v-model="radioValue"
+              id="radioOption4"
+              :label="$t('info.allDays')"
+              :value="'allDays'"
               name="radio"
               class="mr-30"
             />
             <div class="flex items-center">
               <InputRadio
                 v-model="radioValue"
-                id="radioOption4"
-                label="Custom"
+                id="radioOption5"
+                :label="$t('info.customDays')"
                 :value="'custom'"
                 name="radio"
-              /><InputWrap :placeholder="$t('yup.number.value')" v-model="customValue" class="ml-10" number></InputWrap>
+              /><InputWrap
+                v-if="radioValue === 'custom'"
+                :placeholder="$t('yup.number.value')"
+                v-model="customValue"
+                class="ml-10"
+                number
+              ></InputWrap>
             </div>
           </div>
         </div>
@@ -185,6 +200,7 @@ const { isDesktop } = storeToRefs(useAppStore())
 const publishStore = usePublishStore()
 const { isEditing } = storeToRefs(publishStore)
 
+const serverError = ref('')
 const radioValue = ref(0)
 const customValue = ref(0)
 const subUnlockDayAfterValue = computed(() => {
@@ -244,7 +260,6 @@ const credential = reactive({
   },
 })
 const showBack = computed(() => history.value.length > 0)
-const serverError = ref('')
 
 async function priceValidate() {
   try {
@@ -292,8 +307,12 @@ watch(index, (newIndex) => {
 
 watch(subUnlockDayAfter, (newSubUnlockDayAfter) => {
   if (![30, 90, 360].includes(newSubUnlockDayAfter)) {
-    radioValue.value = 'custom'
-    customValue.value = newSubUnlockDayAfter
+    if (addSubPlan.value) {
+      radioValue.value = 30
+    } else {
+      radioValue.value = 'custom'
+      customValue.value = newSubUnlockDayAfter
+    }
   } else {
     radioValue.value = newSubUnlockDayAfter
     customValue.value = 0
@@ -337,6 +356,12 @@ watch(subList, (newSubList) => {
     subPicture.value = newSubList[index.value].picture
     selUploadItem.value = subPicture.value
     subId.value = newSubList[index.value].id
+  }
+})
+
+watch(subUnlockDayAfterValue, (v) => {
+  if (v > 999) {
+    serverError.value = $t('yup.number.max', { max: 999 })
   }
 })
 
