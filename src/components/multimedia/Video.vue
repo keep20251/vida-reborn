@@ -1,12 +1,22 @@
 <template>
-  <div class="relative h-full w-full overflow-hidden rounded-inherit" @mousemove="openControl" @click.stop="togglePlay">
+  <div
+    class="relative h-full w-full overflow-hidden rounded-inherit"
+    :style="fullscreenStyle"
+    @mousemove="openControl"
+    @click.stop="togglePlay"
+  >
+    <!-- video 嵌入位置 -->
     <div ref="videoWrap" class="absolute top-0 h-full w-full rounded-inherit"></div>
+
+    <!-- 視頻資源載入被卡住的 loading -->
     <div
       v-if="isWaiting"
       class="absolute left-1/2 top-1/2 flex h-50 w-50 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-sm bg-white bg-opacity-75"
     >
       <Loading></Loading>
     </div>
+
+    <!-- 尚未開始播放前的置中播放按鈕 -->
     <div
       v-if="videoCurrentTime === 0 && !videoPlay && !isWaiting"
       class="absolute top-0 h-full w-full cursor-pointer rounded-inherit"
@@ -18,6 +28,8 @@
         <Icon name="playBtn" size="20"></Icon>
       </div>
     </div>
+
+    <!-- 播放器 control -->
     <div
       v-else
       v-show="!videoPlay || isDragging || showControl"
@@ -46,13 +58,19 @@
           {{ `${toVideoTimeFormat(videoCurrentTime)} / ${toVideoTimeFormat(videoDuration)}` }}
         </div>
         <Icon :name="videoMuted ? 'mute' : 'volume'" size="16" class="cursor-pointer" @click.stop="toggleVideoMuted" />
+        <Icon
+          :name="videoFullscreen ? 'fullscreenExit' : 'fullscreen'"
+          size="16"
+          class="cursor-pointer"
+          @click.stop="toggleFullscreen"
+        ></Icon>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { onActivated, onBeforeUnmount, onDeactivated, onMounted, ref, watch } from 'vue'
+import { computed, onActivated, onBeforeUnmount, onDeactivated, onMounted, ref, watch } from 'vue'
 import { useElementSize } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
@@ -82,6 +100,7 @@ const videoCurrentTime = ref(0)
 const videoDuration = ref(0)
 const videoTimeRate = ref(0)
 const videoPlay = ref(false)
+const videoFullscreen = ref(false)
 const isLoading = ref(true)
 const isWaiting = ref(false)
 const errMsg = ref('')
@@ -135,6 +154,34 @@ watch(
   },
 )
 
+const fullscreenStyle = computed(() =>
+  videoFullscreen.value
+    ? {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        borderRadius: 0,
+        zIndex: 1000,
+      }
+    : null,
+)
+function toggleFullscreen() {
+  videoFullscreen.value = !videoFullscreen.value
+}
+
+function playEnd() {
+  emits('ended')
+  const video = videoElement.value
+  if (video) {
+    video.pause()
+    video.currentTime = 0
+  }
+  videoPlay.value = false
+  videoFullscreen.value = false
+}
+
 const showControl = ref(false)
 function openControl() {
   clearTimeout(openControl.timerId)
@@ -173,7 +220,7 @@ function setupVideo() {
       onWaiting: () => (isWaiting.value = true),
       onPlaying: () => (isWaiting.value = false),
       onPlay: () => emits('play'),
-      onEnded: () => emits('ended'),
+      onEnded: playEnd,
       onTimeupdate: () => {
         videoCurrentTime.value = videoElement.value?.currentTime || 0
 
@@ -186,13 +233,7 @@ function setupVideo() {
         // 我尼瑪 der 只好在這邊判斷比 duration 還小兩秒就送 ended 事件
         const { currentTime, duration } = videoElement.value
         if (Math.floor(currentTime) >= Math.floor(duration) - 2) {
-          emits('ended')
-          const video = videoElement.value
-          if (video) {
-            video.pause()
-            video.currentTime = 0
-          }
-          videoPlay.value = false
+          playEnd()
         }
       },
       isPreview: props.preview,

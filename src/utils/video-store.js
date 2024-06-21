@@ -17,7 +17,6 @@ function makeNewVideoElement() {
   videoElement.style.width = 'inherit'
   videoElement.style.height = 'inherit'
   videoElement.style.background = '#000'
-  videoElement.style.borderRadius = '0.625rem'
   videoElement.style.objectFit = 'contain'
   videoElement._vida_count = count
   videoElement._vida_sign = SIGN

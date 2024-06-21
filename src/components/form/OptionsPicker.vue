@@ -11,7 +11,7 @@
       <Icon
         v-if="canDelete"
         :name="isOptionPicked(option) ? 'closeWhite' : 'close'"
-        :size="10"
+        size="10"
         @click.stop="onDelete(option[optionValue])"
       ></Icon>
     </div>
