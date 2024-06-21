@@ -139,11 +139,10 @@
               class="mr-30"
             />
             <InputRadio
-              v-if="false"
               v-model="radioValue"
               id="radioOption4"
               :label="$t('info.allDays')"
-              :value="'allDays'"
+              :value="1000"
               name="radio"
               class="mr-30"
             />
@@ -256,7 +255,8 @@ const credential = reactive({
         return !decimalPart || decimalPart.length <= 2
       })
       .required($t('yup.number.positive'))
-      .max(999, $t('yup.number.max', { max: 999 })),
+      .max(999, $t('yup.number.max', { max: 999 }))
+      .min(1, $t('yup.number.min', { min: 1 })),
   },
 })
 const showBack = computed(() => history.value.length > 0)
@@ -359,9 +359,13 @@ watch(subList, (newSubList) => {
   }
 })
 
-watch(subUnlockDayAfterValue, (v) => {
+watch(customValue, (v) => {
   if (v > 999) {
     serverError.value = $t('yup.number.max', { max: 999 })
+  } else if (v <= 0) {
+    serverError.value = $t('yup.number.positive')
+  } else {
+    serverError.value = ''
   }
 })
 
