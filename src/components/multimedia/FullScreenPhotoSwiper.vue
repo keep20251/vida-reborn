@@ -1,5 +1,5 @@
 <template>
-  <BaseMedia v-if="isActivated">
+  <BaseMedia>
     <template v-slot:closeBtn="{ config }">
       <Icon name="closeWhite" size="15" @click="config.close()"></Icon>
     </template>
