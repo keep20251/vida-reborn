@@ -13,10 +13,13 @@
         <Icon name="bin"></Icon>
       </button>
     </div>
-    <div class="scrollbar-md mr-15 max-h-[65vh] overflow-y-scroll px-25">
+    <div
+      class="mr-10 max-h-[65vh] overflow-y-auto pl-25"
+      :class="{ 'hover-scrollbar pr-5': isDesktop, 'pr-10': !isDesktop }"
+    >
       <div class="flex flex-col space-y-10">
         <div class="flex flex-row items-start space-x-5">
-          <div class="text-base font-normal leading-md">{{ $t('content.subStyle') }}</div>
+          <div class="text-base font-normal leading-md">{{ $t('content.style') }}</div>
           <div class="text-sm text-gray-57">
             {{ `${uploadFiles.length + 3}/${IMAGE_LIMIT_COUNT}` }}
           </div>
@@ -27,8 +30,8 @@
             <div class="leading-3">{{ $t('info.uploadCapacityLimit') }}</div>
           </div>
           <div>
-            <Button @click="() => inputImage.click()" contrast size="md" class="w-max">{{
-              $t('content.customStyle')
+            <Button @click="() => inputImage.click()" contrast size="sm" class="px-11 py-8 !font-bold">{{
+              $t('content.subStyle')
             }}</Button>
             <input
               ref="inputImage"
@@ -90,21 +93,21 @@
           :label="$t('label.subPlanName')"
           :placeholder="$t('placeholder.subPlanName')"
         ></InputWrap>
-        <InputWrap
+        <TextareaWrap
           v-model="credential.subPlanContent.value"
           :err-msg="credential.subPlanContent.error"
           :label="$t('label.subPlanCtn')"
           :placeholder="$t('placeholder.subPlanCtn')"
-        ></InputWrap>
+          :line="8"
+        ></TextareaWrap>
         <InputWrap
           v-model="credential.subPlanPrice.value"
           :err-msg="credential.subPlanPrice.error"
-          :label="$t('label.price')"
+          :label="$t('label.subPlanPrice')"
           :sublabel="$t('label.priceSub')"
-          :placeholder="'9.99'"
-          :append-text="$t('label.priceTip', { price: 90 })"
-          :maxLength="5"
+          :placeholder="'$ 14.99'"
           step
+          @keyup="priceValidate"
         ></InputWrap>
         <div class="grid space-y-10">
           <label class="text-left text-base font-normal not-italic leading-md">{{
@@ -114,7 +117,7 @@
             <InputRadio
               v-model="radioValue"
               id="radioOption1"
-              label="30 day(s)"
+              :label="$t('info.within30days')"
               :value="30"
               name="radio"
               class="mr-30"
@@ -122,7 +125,7 @@
             <InputRadio
               v-model="radioValue"
               id="radioOption2"
-              label="90 day(s)"
+              :label="$t('info.within90days')"
               :value="90"
               name="radio"
               class="mr-30"
@@ -130,19 +133,33 @@
             <InputRadio
               v-model="radioValue"
               id="radioOption3"
-              label="360 day(s)"
+              :label="$t('info.within360days')"
               :value="360"
+              name="radio"
+              class="mr-30"
+            />
+            <InputRadio
+              v-model="radioValue"
+              id="radioOption4"
+              :label="$t('info.allDays')"
+              :value="1000"
               name="radio"
               class="mr-30"
             />
             <div class="flex items-center">
               <InputRadio
                 v-model="radioValue"
-                id="radioOption4"
-                label="Custom"
+                id="radioOption5"
+                :label="$t('info.customDays')"
                 :value="'custom'"
                 name="radio"
-              /><InputWrap :placeholder="$t('yup.number.value')" v-model="customValue" class="ml-10" number></InputWrap>
+              /><InputWrap
+                v-if="radioValue === 'custom'"
+                :placeholder="$t('yup.number.value')"
+                v-model="customValue"
+                class="ml-10"
+                number
+              ></InputWrap>
             </div>
           </div>
         </div>
@@ -168,6 +185,7 @@ import { useSubPlanStore } from '@/store/sub-plan'
 import Button from '@comp/common/Button.vue'
 import InputRadio from '@comp/form/InputRadio.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
+import TextareaWrap from '@comp/form/TextareaWrap.vue'
 import useRequest from '@use/request'
 import { useYup } from '@use/validator/yup'
 import { SUB_PLAN_STATUS } from '@const'
@@ -176,10 +194,12 @@ import uploadImage from '@/http/upload/uploadImage'
 
 const accountStore = useAccountStore()
 const { updateUserData } = accountStore
+const { isDesktop } = storeToRefs(useAppStore())
 
 const publishStore = usePublishStore()
 const { isEditing } = storeToRefs(publishStore)
 
+const serverError = ref('')
 const radioValue = ref(0)
 const customValue = ref(0)
 const subUnlockDayAfterValue = computed(() => {
@@ -228,11 +248,26 @@ const credential = reactive({
     value: data.value[index.value]?.price || 0,
     error: '',
     check: false,
-    schema: Yup.number().required($t('yup.number.positive')).max(90),
+    schema: Yup.number()
+      .typeError($t('yup.number.round'))
+      .test('is-decimal', $t('yup.number.twoDecimal'), (value) => {
+        const decimalPart = (value + '').split('.')[1]
+        return !decimalPart || decimalPart.length <= 2
+      })
+      .required($t('yup.number.positive'))
+      .max(999, $t('yup.number.max', { max: 999 }))
+      .min(1, $t('yup.number.min', { min: 1 })),
   },
 })
 const showBack = computed(() => history.value.length > 0)
-const serverError = ref('')
+
+async function priceValidate() {
+  try {
+    await validate(credential.subPlanPrice.schema, credential.subPlanPrice)
+  } catch (e) {
+    credential.subPlanPrice.error = e
+  }
+}
 
 onMounted(() => {
   credential.subPlanName.value = data.value[index.value]?.name
@@ -272,8 +307,12 @@ watch(index, (newIndex) => {
 
 watch(subUnlockDayAfter, (newSubUnlockDayAfter) => {
   if (![30, 90, 360].includes(newSubUnlockDayAfter)) {
-    radioValue.value = 'custom'
-    customValue.value = newSubUnlockDayAfter
+    if (addSubPlan.value) {
+      radioValue.value = 30
+    } else {
+      radioValue.value = 'custom'
+      customValue.value = newSubUnlockDayAfter
+    }
   } else {
     radioValue.value = newSubUnlockDayAfter
     customValue.value = 0
@@ -317,6 +356,16 @@ watch(subList, (newSubList) => {
     subPicture.value = newSubList[index.value].picture
     selUploadItem.value = subPicture.value
     subId.value = newSubList[index.value].id
+  }
+})
+
+watch(customValue, (v) => {
+  if (v > 999) {
+    serverError.value = $t('yup.number.max', { max: 999 })
+  } else if (v <= 0) {
+    serverError.value = $t('yup.number.positive')
+  } else {
+    serverError.value = ''
   }
 })
 

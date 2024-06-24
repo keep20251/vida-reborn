@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col space-y-10">
-    <label v-if="label" class="flex text-base font-normal not-italic leading-md" :class="[labelCenter]"
+    <label v-if="label" class="flex items-center text-base font-normal not-italic leading-md" :class="[labelCenter]"
       >{{ label }}
       <span v-if="sublabel" class="translate-y-2 pl-5 text-sm font-normal not-italic leading-3 text-gray-57">{{
         sublabel
@@ -45,6 +45,7 @@
           :step="step"
           class="h-35 w-full shrink-0 appearance-none divide-solid rounded-2xl border-gray-cc bg-white px-20 py-12 text-sm font-normal not-italic leading-3 text-gray-57 shadow-input outline-none placeholder:text-sm placeholder:text-gray-a3"
           @keypress.enter="emits('keypress:enter')"
+          @keyup="emits('keyup')"
         />
         <Icon
           v-if="!!prependIcon"
@@ -132,7 +133,14 @@ const props = defineProps({
   step: { type: String, default: '0.01' },
 })
 
-const emits = defineEmits(['update:modelValue', 'click:prepend', 'click:append', 'keypress:enter', 'click:labelIcon'])
+const emits = defineEmits([
+  'update:modelValue',
+  'click:prepend',
+  'click:append',
+  'keypress:enter',
+  'click:labelIcon',
+  'keyup',
+])
 
 const value = computed({
   get() {

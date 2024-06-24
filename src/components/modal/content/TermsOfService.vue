@@ -1,6 +1,6 @@
 <template>
   <div class="h-full w-full rounded-xl bg-gray-f6 py-30 pr-20">
-    <div class="scrollbar-md max-h-[37.5rem] overflow-y-scroll">
+    <div class="scrollbar-md max-h-[37.5rem] overflow-y-auto">
       <div class="flex flex-col space-y-20 px-20 text-base font-normal leading-lg">
         <h5>{{ i18nPack.tos?.info.title }}</h5>
         <h5>{{ i18nPack.tos?.info.content1 }}</h5>

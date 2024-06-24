@@ -1,11 +1,13 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 @layer base {
   // 避免 mobile 點擊會有藍屏閃爍(來源: https://stackoverflow.com/questions/65185411/tailwindcss-blue-rectangle-when-click-on-mobile-device)
   // -webkit 以外的可能沒效果，之後再說...
-  * { -webkit-tap-highlight-color: rgba(0,0,0,0); }
+  * {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
 
   html {
     font-family:
@@ -46,6 +48,27 @@
     }
     &::-webkit-scrollbar-track {
       background: #f6f6f6;
+    }
+  }
+
+  .hover-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    transition: scrollbar-color 0.3s;
+
+    &:hover {
+      scrollbar-color: #ccc transparent;
+    }
+    &:not(:hover)::-webkit-scrollbar-thumb {
+      background: transparent;
+    }
+    &::-webkit-scrollbar {
+      width: 0.1875rem;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      transition: background 0.3s;
+      background: #ccc;
     }
   }
 }

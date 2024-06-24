@@ -17,14 +17,13 @@ export function useHistory({ initValue }) {
   }
 
   function back() {
-    if (history.value.length <= 0) {
-      throw new Error('History is empty, you should not call back()')
-    }
+    if (history.value.length <= 0) throw new Error('History is empty, you should not call back()')
     now.value = history.value.pop()
   }
 
   function init(value) {
     now.value = value
+    history.value = []
   }
 
   // 這裡使用 computed 是為了避免 hydrate 時的問題

@@ -9,6 +9,9 @@
           <div class="absolute right-0 top-0 cursor-pointer pr-15 pt-15">
             <Icon name="closeWhite" size="20" @click="closeFn"></Icon>
           </div>
+          <div v-show="isDetail" class="absolute left-0 top-0 cursor-pointer pl-15 pt-15">
+            <Icon name="backWhite" size="20" @click="back"></Icon>
+          </div>
         </div>
         <component :is="currentComponent"></component>
       </div>
@@ -20,12 +23,12 @@ import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useSubsciptionStore } from '@/store/subscription'
 import BaseDialog from './BaseDialog.vue'
-import FromCreator from './subscription/FromCreator.vue'
-import FromFeed from './subscription/FromFeed.vue'
+import Detail from './subscription/Detail.vue'
+import List from './subscription/List.vue'
 
 const store = useSubsciptionStore()
-const { isOpen, isFeedSubscription } = storeToRefs(store)
-const { close, closeFromFeed } = store
+const { isOpen, isFeedSubscription, isList, isDetail } = storeToRefs(store)
+const { close, closeFromFeed, back } = store
 const closeFn = isFeedSubscription ? closeFromFeed : close
-const currentComponent = computed(() => (isFeedSubscription.value ? FromFeed : FromCreator))
+const currentComponent = computed(() => (isList.value ? List : Detail))
 </script>

@@ -6,9 +6,12 @@
         <Icon name="closeWhite"></Icon>
       </button>
     </div>
-    <div class="select-none p-30 pr-15">
-      <div class="scrollbar-md max-h-[65vh] overflow-y-scroll pr-15" :class="{ 'my-10': subList.length === 0 }">
-        <div @click="subPlanAdd()" class="cursor-pointer text-center text-base font-bold leading-md text-gray-57">
+    <div class="select-none p-30 pr-10">
+      <div
+        class="max-h-[65vh] overflow-y-auto pr-10"
+        :class="{ 'my-10': subList.length === 0, 'hover-scrollbar': isDesktop, 'pr-20': !isDesktop }"
+      >
+        <div @click="subPlanAdd" class="cursor-pointer text-center text-base font-bold leading-md text-gray-57">
           ＋ {{ $t('content.AddNewSubPlan') }}
           <label
             v-if="subList.length === 0"
@@ -37,20 +40,17 @@
         </div>
         <List :items="subList" item-key="id" divider>
           <template #default="{ item, index }">
-            <div class="grid space-y-30 py-30">
-              <div class="grid space-y-10">
-                <div class="flex items-end justify-between">
-                  <div class="flex flex-row items-end">
-                    <div class="pr-4 text-xl font-bold leading-xl">${{ removeDecimalIfHundred(item.price) }}</div>
-                    <div class="text-base font-normal leading-lg">/{{ $t('content.month') }}</div>
-                  </div>
-                  <div class="text-base font-bold leading-md text-primary">{{ item.name }}</div>
-                </div>
-                <EncryptImage :src="item.picture" cover :borderRadius="10" :height="260"></EncryptImage>
-                <div class="text-sm leading-md text-gray-57">{{ item.content }}</div>
-                <Button class="mt-10" @click="subPlanEdit(subList, index)" gradient>{{ $t('label.edit') }}</Button>
-              </div>
-            </div>
+            <SubscribeCard
+              @move:up="toUp(subList, index)"
+              @move:down="toDown(subList, index)"
+              @edit="subPlanEdit(subList, index)"
+              @delete="onDelete(subList, index)"
+              :item="item"
+              subscript-btn
+              edit-mode
+              :height="260"
+              class="mb-20 mt-30"
+            ></SubscribeCard>
           </template>
         </List>
       </div>
@@ -58,14 +58,23 @@
   </div>
 </template>
 <script setup>
+import debounce from 'lodash/debounce'
+import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
+import { useModalStore } from '@/store/modal'
+import { usePopupMessageStore } from '@/store/popup-message'
 import { useSubPlanStore } from '@/store/sub-plan'
-import Button from '@comp/common/Button.vue'
 import List from '@comp/common/List.vue'
+import useRequest from '@use/request'
 import { SUB_PLAN } from '@const'
+import SubscribeCard from '@/components/card/SubscribeCard.vue'
 
+const { t: $t } = useI18n()
+const { open: openMessage } = usePopupMessageStore()
+const { confirm } = useModalStore()
 const { appConfig } = useAppStore()
+const { isDesktop } = storeToRefs(useAppStore())
 const { to, close } = useSubPlanStore()
 const {
   data,
@@ -103,14 +112,61 @@ function subPlanEdit(d, index) {
   lastIndex.value = index
 }
 
-function removeDecimalIfHundred(value) {
-  const num = Number(value) // 因為後端拿回來是字串
-
-  // 判斷是否是百位數以上的整數
-  if (!isNaN(num) && Number.isInteger(num) && num >= 100) {
-    return Math.trunc(num) // 去掉小數點
+const toUp = debounce((subList, index) => {
+  if (index > 0) {
+    const temp = subList[index]
+    const toUpId = subList[index].id
+    subList.splice(index, 1)
+    subList.splice(index - 1, 0, temp)
+    updateSort(toUpId, 'up')
+    openMessage('common.editSubscription.moveUp')
   } else {
-    return num
+    openMessage('info.firstItem')
+  }
+})
+
+const toDown = debounce((subList, index) => {
+  if (index < subList.length - 1) {
+    const temp = subList[index]
+    const toDownId = subList[index].id
+    subList.splice(index, 1)
+    subList.splice(index + 1, 0, temp)
+    updateSort(toDownId, 'down')
+    console.log(subList)
+
+    openMessage('common.editSubscription.moveDown')
+  } else {
+    openMessage('info.lastItem')
+  }
+})
+
+const updateSort = async (id, direction) => {
+  const { execute: changeSort } = useRequest('Subscription.updateSort')
+  try {
+    const data = { id, sort: direction }
+    console.log('data:', data)
+    await changeSort({ id, sort: direction })
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+const onDelete = (subList, index) => {
+  confirm({
+    size: 'sm',
+    title: 'beCreator.title.reConfirm',
+    content: $t('content.delSubPlan'),
+    confirmAction: () => delSubPlan(subList, index),
+  })
+}
+const delSubPlan = async (subList, index) => {
+  const { execute: subPlanDel } = useRequest('Subscription.bulkDel')
+  try {
+    await subPlanDel({ ids: subList[index].id })
+    subList.splice(index, 1)
+    openMessage('title.delSuccess')
+  } catch (e) {
+    console.error(e)
   }
 }
 </script>

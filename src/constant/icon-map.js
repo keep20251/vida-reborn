@@ -35,6 +35,7 @@ export const iconMap = {
   analysis: { path: 'function/analysis' },
   attach: { path: 'function/attach' },
   back: { path: 'function/back' },
+  backWhite: { path: 'function/back-white' },
   block: { path: 'function/block' },
   calendar: { path: 'function/calendar' },
   close: { path: 'function/close' },

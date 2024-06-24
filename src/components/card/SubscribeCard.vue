@@ -1,18 +1,58 @@
 <template>
-  <div class="flex flex-col space-y-20">
+  <div class="flex select-none flex-col space-y-20">
     <div class="flex flex-col space-y-10">
       <div class="flex items-center justify-between">
         <div class="text-base font-normal leading-lg">
           <span class="text-xl font-bold leading-xl">${{ removeDecimalIfHundred(props.item.price) }}</span> /
           {{ $t('unit.day', { days: props.item.expire_days }) }}
         </div>
-        <div class="text-base font-bold leading-md text-subscribe-orange">{{ props.item.name }}</div>
+        <div class="flex flex-row items-center justify-center">
+          <span class="text-base font-bold leading-md text-subscribe-orange">
+            {{ props.item.name }}
+          </span>
+          <div v-if="props.editMode" class="relative flex select-none flex-row items-center justify-center">
+            <Icon name="moreVertical" size="20" class="cursor-pointer" @click="toggleEditing"></Icon>
+            <transition
+              enter-active-class="transition duration-300 ease-out"
+              enter-from-class="transform scale-0 -translate-y-75 translate-x-75"
+              enter-to-class="transform scale-100 translate-y-0 translate-x-0"
+              leave-active-class="transition duration-300 ease-out"
+              leave-from-class="transform scale-100 translate-y-0 translate-x-0"
+              leave-to-class="transform scale-0 -translate-y-75 translate-x-55"
+            >
+              <div v-show="isEditing" class="absolute right-10 top-20 w-100 rounded bg-white">
+                <div class="flex flex-col shadow-lg">
+                  <div
+                    v-for="(editOption, index) in editOptions"
+                    :key="`edit-option-${index}`"
+                    class="cursor-pointer px-12 py-6 hover:bg-primary hover:text-white"
+                    @click="editOption.action"
+                  >
+                    {{ $t(editOption.label) }}
+                  </div>
+                </div>
+              </div>
+            </transition>
+          </div>
+        </div>
       </div>
-      <div class="h-[11.875rem]">
-        <EncryptImage :src="props.item.picture" :borderRadius="15" cover></EncryptImage>
+      <div :class="{ 'h-[11.875rem]': !height }">
+        <EncryptImage :src="props.item.picture" :borderRadius="15" cover :height="height"></EncryptImage>
+      </div>
+      <div class="flex w-full justify-between">
+        <div class="text-sm font-normal leading-3 text-gray-a3">
+          {{ $t('info.subscription.unlockSubscribe', { days: props.item.unlock_day_after_subscribe }) }}
+        </div>
+        <div
+          v-show="props.showContain"
+          class="cursor-pointer text-sm font-normal leading-3 text-primary underline"
+          @click="emit('click:contain', props.item)"
+        >
+          {{ $t('info.subscription.containFeeds', { feeds: props.item.article_contain ?? 0 }) }}
+        </div>
       </div>
       <div>
-        <div class="text-sm font-medium leading-normal text-gray-a3" @click.stop="toggleFold">
+        <div class="whitespace-pre-wrap text-sm font-medium leading-normal text-gray-a3" @click.stop="toggleFold">
           <p :class="{ 'line-clamp-3': fold }" ref="content">{{ props.item.content }}</p>
         </div>
         <div
@@ -24,7 +64,7 @@
         </div>
       </div>
     </div>
-    <Button gradient @click="emit('click', props.item)">{{ $t('common.subscribe') }}</Button>
+    <Button v-if="!subscriptBtn" gradient @click="emit('click', props.item)">{{ $t('common.subscribe') }}</Button>
   </div>
 </template>
 <script setup>
@@ -32,7 +72,7 @@ import { ref } from 'vue'
 import { useResizeObserver } from '@vueuse/core'
 import Button from '@comp/common/Button.vue'
 
-const emit = defineEmits(['click'])
+const emit = defineEmits(['click', 'click:contain', 'move:up', 'move:down', 'edit', 'delete'])
 
 const props = defineProps({
   item: {
@@ -47,6 +87,10 @@ const props = defineProps({
       picture: '',
     }),
   },
+  editMode: { type: Boolean, default: false },
+  subscriptBtn: { type: Boolean, default: false },
+  showContain: { type: Boolean, default: false },
+  height: { type: Number },
 })
 
 const fold = ref(true)
@@ -69,4 +113,18 @@ function removeDecimalIfHundred(value) {
     return num
   }
 }
+
+const isEditing = ref(false)
+const toggleEditing = () => (isEditing.value = !isEditing.value)
+const closeEditing = (fn) => {
+  isEditing.value = false
+  fn()
+}
+
+const editOptions = [
+  { label: 'common.editSubscription.moveUp', action: () => closeEditing(() => emit('move:up', props.item)) },
+  { label: 'common.editSubscription.moveDown', action: () => closeEditing(() => emit('move:down', props.item)) },
+  { label: 'common.editSubscription.edit', action: () => closeEditing(() => emit('edit', props.item)) },
+  { label: 'common.editSubscription.delete', action: () => closeEditing(() => emit('delete', props.item)) },
+]
 </script>

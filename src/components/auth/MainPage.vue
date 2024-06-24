@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-full w-full">
-    <div class="relative max-h-[70vh] overflow-y-scroll md:overflow-y-hidden">
+    <div class="relative max-h-[70vh] overflow-y-auto md:overflow-y-hidden">
       <div class="absolute right-0 top-0 cursor-pointer" @click="close">
         <Icon name="close"></Icon>
       </div>

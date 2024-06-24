@@ -85,7 +85,7 @@
 </template>
 
 <script setup>
-import { computed, onActivated, onDeactivated, onMounted, ref } from 'vue'
+import { computed, onActivated, onDeactivated, onMounted, ref, watch } from 'vue'
 import { useElementSize, useEventListener, useInfiniteScroll, useRafFn, useSwipe, useWindowSize } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
@@ -98,6 +98,7 @@ const props = defineProps({
   infiniteDistance: { type: Number, default: 100 },
   infiniteInterval: { type: Number, default: 1000 },
   pullToReload: { type: Boolean, default: false },
+  watcher: { default: null },
 })
 
 const emits = defineEmits(['load', 'reload'])
@@ -232,4 +233,10 @@ onMounted(() => {
     },
   })
 })
+
+// 當外在的 watcher 改變時，滾動到最上方
+watch(
+  () => props.watcher,
+  (_new, _old) => (_new && _new !== _old ? window.scrollTo(0, 0) : void 0),
+)
 </script>
