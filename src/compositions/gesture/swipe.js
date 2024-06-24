@@ -18,7 +18,7 @@ function defaultEasingFn(n) {
 export function useSwipe(
   eleRef,
   itemsRef,
-  { isVerticle = false, velocityThreshold = 200, initIndex = 0, easingFn = defaultEasingFn } = {},
+  { isVerticle = false, velocityThreshold = 200, initIndex = 0, easingFn = defaultEasingFn, window = undefined } = {},
 ) {
   let swipeStart = false
   let swipeStartDir = null
@@ -82,11 +82,20 @@ export function useSwipe(
     anim(0)
   }
 
-  const { lengthX, lengthY, direction } = useSwipeFromVueuse(eleRef, {
+  const { lengthX, lengthY, direction, coordsStart } = useSwipeFromVueuse(eleRef, {
     threshold: 0,
     onSwipe(e) {
       if (isActive.value) {
         return
+      }
+
+      if (window !== undefined) {
+        const HALF_VIEW_WIDTH = window.innerWidth / 2
+        const EDGE_DIST = 20
+
+        if (coordsStart.x <= EDGE_DIST || coordsStart.x >= HALF_VIEW_WIDTH * 2 - EDGE_DIST) {
+          return
+        }
       }
 
       if (!swipeStartDir && direction.value !== 'none') {

@@ -84,7 +84,13 @@ const isLock = computed(() => !mediaContainer.value.item.is_unlock && (imgs.valu
 
 const swiper = ref(null)
 
-const { index: animIndex, transitioning, prev, next, reset } = useSwipe(swiper, imgs, { initIndex: index.value })
+const {
+  index: animIndex,
+  transitioning,
+  prev,
+  next,
+  reset,
+} = useSwipe(swiper, imgs, { initIndex: index.value, window: window })
 
 whenever(
   () => transitioning.value === false,
