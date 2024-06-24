@@ -94,7 +94,10 @@ const {
 
 whenever(
   () => transitioning.value === false,
-  () => (currIndex.value = animIndex.value),
+  () => {
+    console.log('transitioning', transitioning.value)
+    currIndex.value = animIndex.value
+  },
 )
 whenever(
   () => isActivated.value,
@@ -172,18 +175,55 @@ const resetGrag = () => {
   targetElement.value.style.left = 0
 }
 
+function throttle(func, delay) {
+  let timer = null
+  return function (...args) {
+    if (!timer) {
+      timer = setTimeout(() => {
+        func.apply(this, args)
+        timer = null
+      }, delay)
+    }
+  }
+}
+
 const originalScale = ref(1)
 const scaleStep = ref(0.1)
 const minScale = ref(0.5)
 const maxScale = ref(2)
 const scale = ref(originalScale.value)
 
-const changeScale = (isScaleUp) => {
-  if (isScaleUp) {
-    scale.value = Math.min(scale.value + scaleStep.value, maxScale.value)
-  } else {
-    scale.value = Math.max(scale.value - scaleStep.value, minScale.value)
-  }
+const throttledChangeScale = throttle((isScaleUp, e) => {
+  console.clear()
+  const nextScaleValue = isScaleUp
+    ? Number(Math.min(scale.value + scaleStep.value, maxScale.value).toFixed(1))
+    : Number(Math.max(scale.value - scaleStep.value, minScale.value).toFixed(1))
+
+  scale.value = nextScaleValue
+
+  const rect = targetElement.value.getBoundingClientRect()
+  const x = e.clientX - rect.left
+  const y = e.clientY - rect.top
+  const xPercent = x / rect.width
+  const yPercent = y / rect.height
+
+  targetElement.value.style.transformOrigin = `${xPercent * 100}% ${yPercent * 100}%`
+  targetElement.value.style.transform = `scale(${scale.value})`
+
+  targetElement.value.style.transition = 'transform 0.3s ease'
+}, 100) // 设置节流时间间隔，单位毫秒
+
+const changeScale = (isScaleUp, e) => {
+  throttledChangeScale(isScaleUp, e)
+}
+
+const changeScaleAsOriginPoint = (isScaleUp) => {
+  const nextScaleValue = isScaleUp
+    ? Number(Math.min(scale.value + scaleStep.value, maxScale.value).toFixed(1))
+    : Number(Math.max(scale.value - scaleStep.value, minScale.value).toFixed(1))
+
+  scale.value = nextScaleValue
+
   targetElement.value.style.transform = `scale(${scale.value})`
 }
 
@@ -207,7 +247,7 @@ const handleImgScroll = (e) => {
   e = e || window.event
   e.preventDefault()
   targetElement.value = e.target
-  changeScale(e.deltaY < 0)
+  changeScale(e.deltaY < 0, e)
 }
 
 const closeAndReset = () => {
@@ -231,11 +271,12 @@ const handleKey = (e) => {
       break
     case 'ArrowUp':
       if (isLock.value) return
-      changeScale(true)
+
+      changeScaleAsOriginPoint(true)
       break
     case 'ArrowDown':
       if (isLock.value) return
-      changeScale(false)
+      changeScaleAsOriginPoint(false)
       break
   }
 }
