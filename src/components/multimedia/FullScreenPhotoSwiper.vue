@@ -10,11 +10,16 @@
           v-for="(img, i) in imgs"
           class="absolute top-0 h-full w-full"
           :class="{ 'will-change-transform': animIndex % 1 !== 0 }"
-          :style="{ transform: `translateX(${(i - animIndex) * 100}%)` }"
+          :style="{
+            transform: `translateX(${(i - animIndex) * 100}%)`,
+          }"
           :key="i"
           :ref="collectRefs.bind(null, i)"
           @mousedown="handleDargImgMouseDown"
           @wheel="handleImgScroll"
+          @touchstart.prevent="handleTouchStart"
+          @touchmove.prevent="handleTouchMove"
+          @touchend.prevent="handleTouchEnd"
         >
           <EncryptImage
             :src="img.url"
@@ -36,7 +41,7 @@
         <div
           v-if="isDesktop && imgs.length > 1 && currIndex >= 1"
           class="absolute left-0 top-0 flex h-full w-40 cursor-pointer items-center justify-end"
-          @click.stop="prev(), resetGrag(), resetScale()"
+          @click.stop="prev(), resetGrag(), resetScale(), resetTouch()"
         >
           <div class="flex h-20 w-20 items-center justify-center rounded-full bg-gray-f6 opacity-60">
             <Icon name="back" size="16"></Icon>
@@ -46,7 +51,7 @@
         <div
           v-if="isDesktop && imgs.length > 1 && currIndex < imgs.length - 1"
           class="absolute right-0 top-0 flex h-full w-40 cursor-pointer items-center justify-start"
-          @click.stop="next(), resetGrag(), resetScale()"
+          @click.stop="next(), resetGrag(), resetScale(), resetTouch()"
         >
           <div class="flex h-20 w-20 rotate-180 items-center justify-center rounded-full bg-gray-f6 opacity-60">
             <Icon name="back" size="16"></Icon>
@@ -125,7 +130,7 @@ whenever(
 const { isSwiping, direction } = vuseSwip(swiper)
 whenever(
   () => isSwiping.value && direction.value === 'down',
-  () => closeAndReset(),
+  () => setTimeout(() => closeAndReset(), 600),
 )
 
 const imgElements = ref([])
@@ -194,7 +199,6 @@ const maxScale = ref(2)
 const scale = ref(originalScale.value)
 
 const throttledChangeScale = throttle((isScaleUp, e) => {
-  console.clear()
   const nextScaleValue = isScaleUp
     ? Number(Math.min(scale.value + scaleStep.value, maxScale.value).toFixed(1))
     : Number(Math.max(scale.value - scaleStep.value, minScale.value).toFixed(1))
@@ -251,6 +255,7 @@ const handleImgScroll = (e) => {
 }
 
 const closeAndReset = () => {
+  resetTouch()
   resetGrag()
   resetScale()
   close()
@@ -283,4 +288,67 @@ const handleKey = (e) => {
 
 const bundKey = () => window.addEventListener('keydown', handleKey)
 const unbindKey = () => window.removeEventListener('keydown', handleKey)
+
+const scaleFactor = ref(1)
+let initialDistance = 0
+let lastScaleFactor = 1
+let centerX = 0
+let centerY = 0
+
+const resetTouch = () => {
+  initialDistance = 0
+  lastScaleFactor = 1
+  scaleFactor.value = 1
+}
+
+// 计算两个触摸点的距离
+const calculateDistance = (touches) => {
+  const dx = touches[0].pageX - touches[1].pageX
+  const dy = touches[0].pageY - touches[1].pageY
+  return Math.sqrt(dx * dx + dy * dy)
+}
+
+// 计算两个触摸点的中心位置
+const calculateCenter = (touches) => {
+  const x = (touches[0].pageX + touches[1].pageX) / 2
+  const y = (touches[0].pageY + touches[1].pageY) / 2
+  return { x, y }
+}
+
+const handleTouchStart = (e) => {
+  const touches = Array.from(e.touches)
+  if (touches.length === 2) {
+    initialDistance = calculateDistance(touches)
+    const center = calculateCenter(touches)
+    centerX = center.x
+    centerY = center.y
+  }
+}
+const handleTouchMove = (e) => {
+  const touches = Array.from(e.touches)
+  let transformOrigin = ''
+  if (touches.length === 2 && initialDistance > 0) {
+    const currentDistance = calculateDistance(touches)
+    scaleFactor.value = Math.min(2, Math.max(0.5, lastScaleFactor * (currentDistance / initialDistance)))
+
+    const center = calculateCenter(touches)
+    const deltaX = center.x - centerX
+    const deltaY = center.y - centerY
+
+    transformOrigin = `${deltaX}px ${deltaY}px`
+  }
+
+  changeZoomByTouch({ scaleSize: scaleFactor.value, trensformOrigin: transformOrigin })
+}
+
+const handleTouchEnd = (e) => {
+  lastScaleFactor = scaleFactor.value
+  initialDistance = 0
+}
+
+const changeZoomByTouch = ({ scaleSize, transformOrigin }) => {
+  targetElement.value = imgElements.value[currIndex.value]
+  targetElement.value.style.transform = `scale(${scaleSize})`
+  targetElement.value.style.transformOrigin = transformOrigin
+}
 </script>
