@@ -52,7 +52,7 @@ export const useChatStore = defineStore('chat', () => {
         if (login) {
           syncHistory()
         } else {
-          clearALL()
+          clearAll()
         }
       },
       { immediate: true },
@@ -225,10 +225,15 @@ export const useChatStore = defineStore('chat', () => {
     userHistoryFetcherMap.set(uuid, useInfinite('Chat.history', { params: { from_uuid: uuid }, limit: 20 }))
   }
 
-  function clearALL() {
+  function clearAll() {
     userMap.clear()
     userHistoryFetcherMap.clear()
     sendingMessagesMap.clear()
+  }
+
+  function reload() {
+    clearAll()
+    syncHistory()
   }
 
   return {
@@ -241,5 +246,6 @@ export const useChatStore = defineStore('chat', () => {
     selfPhotoUploaded,
     pushOtherMessage,
     loadNextHistory,
+    reload,
   }
 })

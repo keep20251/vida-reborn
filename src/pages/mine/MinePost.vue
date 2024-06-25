@@ -21,7 +21,7 @@
       </List>
     </template>
     <template #bottom>
-      <NoData v-if="noData"></NoData>
+      <NoData v-if="noData" :reload="relaod"></NoData>
       <div v-else class="flex items-center justify-center py-8 text-gray-a3">
         <Loading v-if="isLoading"></Loading>
         <span v-if="noMore">{{ $t('common.noMore') }}</span>
@@ -196,6 +196,7 @@ const items = computed(() => {
 const isLoading = computed(() => pages[`${tab.value}${tabBtn.value}`].infinite.isLoading.value)
 const noMore = computed(() => pages[`${tab.value}${tabBtn.value}`].infinite.noMore.value)
 const noData = computed(() => pages[`${tab.value}${tabBtn.value}`].infinite.noData.value)
+const relaod = computed(() => pages[`${tab.value}${tabBtn.value}`].infinite.reload)
 watch(
   [tab, tabBtn],
   ([tab, tabBtn]) => {
