@@ -39,8 +39,8 @@
         <Subscription :item="item" @reload="pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED].infinite.reload"></Subscription>
       </template>
       <template #bottom>
-        <NoData v-if="noDataSubExpired" :reload="reload"></NoData>
-        <div v-if="isLoading" class="flex animate-pulse flex-col space-y-10 pt-10">
+        <NoData v-if="noDataSubExpired" :reload="reloadSubExpired"></NoData>
+        <div v-if="isLoadingSubExpired" class="flex animate-pulse flex-col space-y-10 pt-10">
           <div class="h-80 w-full rounded-sm bg-gray-e5"></div>
         </div>
       </template>
@@ -118,6 +118,7 @@ const reload = computed(() => pages[tab.value].infinite.reload)
 const itemsSubExpired = computed(() => pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED].infinite.dataList.value)
 const isLoadingSubExpired = computed(() => pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED].infinite.isLoading.value)
 const noDataSubExpired = computed(() => pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED].infinite.noData.value)
+const reloadSubExpired = computed(() => pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED].infinite.reload)
 const totalSubExpired = computed(() => pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED].infinite.dataExtra.value?.count || 0)
 
 const mineStore = useMineStore()
