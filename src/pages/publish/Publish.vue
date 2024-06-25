@@ -241,8 +241,16 @@ const { t: $t } = useI18n()
 const publishStore = usePublishStore()
 const { uploadFiles, publishTimeOpen, isCreate, isUpdate, isVideo, isImage, isEditing, isUploading, noUploadFiles } =
   storeToRefs(publishStore)
-const { publishParams, startUpload, clear, changeVideoFile, addImageFile, removeUploadFile, cancelUpload } =
-  publishStore
+const {
+  publishParams,
+  startUpload,
+  clear,
+  changeVideoFile,
+  addImageFile,
+  removeUploadFile,
+  cancelUpload,
+  hasChangeEditContent,
+} = publishStore
 
 const { alert, confirm } = useModalStore()
 
@@ -380,14 +388,17 @@ const cancel = (id) => {
 }
 
 const preClear = () => {
-  return new Promise((resolve, reject) => {
-    confirm({
-      title: 'cancel.publish.title',
-      content: $t('cancel.publish.content'),
-      confirmAction: resolve,
-      cancelAction: reject,
+  if (hasChangeEditContent()) {
+    return new Promise((resolve, reject) => {
+      confirm({
+        title: 'cancel.publish.title',
+        content: $t('cancel.publish.content'),
+        confirmAction: resolve,
+        cancelAction: reject,
+      })
     })
-  })
+  }
+  return Promise.resolve()
 }
 
 function handleClear() {
