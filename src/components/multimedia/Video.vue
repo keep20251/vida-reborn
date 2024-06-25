@@ -71,7 +71,7 @@
 
 <script setup>
 import { computed, onActivated, onBeforeUnmount, onDeactivated, onMounted, ref, watch } from 'vue'
-import { useElementSize } from '@vueuse/core'
+import { useElementSize, useEventListener } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useDrag } from '@use/gesture/drag'
@@ -170,6 +170,11 @@ const fullscreenStyle = computed(() =>
 function toggleFullscreen() {
   videoFullscreen.value = !videoFullscreen.value
 }
+useEventListener('keydown', (evt) => {
+  if (videoFullscreen.value && evt.code === 'Escape') {
+    toggleFullscreen()
+  }
+})
 
 function playEnd() {
   emits('ended')
