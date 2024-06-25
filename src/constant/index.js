@@ -22,6 +22,7 @@ export const AUTH_ROUTES = {
 export const SUB_PLAN = {
   MAIN_PAGE: 1,
   SET: 2,
+  DETAIL: 3,
 }
 
 export const PAYMENT_ROUTES = {

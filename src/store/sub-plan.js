@@ -1,8 +1,9 @@
-import { computed, ref } from 'vue'
+import { computed, readonly, ref } from 'vue'
 import { defineStore, storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
 import { useDialogStore } from '@/store/dialog'
+import Detail from '@comp/subPlan/Detail.vue'
 import MainPage from '@comp/subPlan/MainPage.vue'
 import SubPlanSet from '@comp/subPlan/SubPlanSet.vue'
 import { SUB_PLAN } from '@const'
@@ -15,6 +16,7 @@ export const useSubPlanStore = defineStore('subPlan', () => {
   const routes = [
     { value: SUB_PLAN.MAIN_PAGE, component: MainPage },
     { value: SUB_PLAN.SET, component: SubPlanSet },
+    { value: SUB_PLAN.DETAIL, component: Detail },
   ]
 
   const now = ref(SUB_PLAN.MAIN_PAGE)
@@ -68,6 +70,24 @@ export const useSubPlanStore = defineStore('subPlan', () => {
     subPlanDialog.value = true
   }
 
+  /**
+   * 以下這邊都是訂閱詳情的狀態
+   */
+  const activeSubscription = ref(null)
+  const _subscriptions = ref([])
+
+  /**
+   * 打開訂閱詳情
+   * @param {Object} detailConfig
+   * @param {Object} detailConfig.activeSubscription - 當前訂閱方案
+   * @param {Array} detailConfig.subscriptions - 訂閱方案列表
+   */
+  const openDetail = (detailConfig = { activeSubscription: {}, subscriptions: [] }) => {
+    activeSubscription.value = detailConfig.activeSubscription
+    _subscriptions.value = detailConfig.subscriptions
+    to(SUB_PLAN.DETAIL)
+  }
+
   return {
     subPlanComponent,
     history: historyProxy,
@@ -90,5 +110,9 @@ export const useSubPlanStore = defineStore('subPlan', () => {
     uploadFiles,
     selDefaultItem,
     selUploadItem,
+
+    subscriptions: readonly(_subscriptions),
+    activeSubscription,
+    openDetail,
   }
 })
