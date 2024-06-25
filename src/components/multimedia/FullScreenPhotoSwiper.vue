@@ -15,12 +15,15 @@
           }"
           :key="i"
           :ref="collectRefs.bind(null, i)"
-          @mousedown="handleDargImgMouseDown"
-          @wheel="handleImgScroll"
           @touchstart.prevent="handleTouchStart"
           @touchmove.prevent="handleTouchMove"
           @touchend.prevent="handleTouchEnd"
         >
+          <!-- @mousedown="handleDargImgMouseDown" -->
+          <!-- @wheel="handleImgScroll" -->
+          <!-- @touchstart.prevent="handleTouchStart" -->
+          <!-- @touchmove.prevent="handleTouchMove" -->
+          <!-- @touchend.prevent="handleTouchEnd" -->
           <EncryptImage
             :src="img.url"
             :border-radius="10"
@@ -402,9 +405,8 @@ const handleTouchMove = (e) => {
     const deltaY = center.y - centerY
 
     transformOrigin = `${deltaX}px ${deltaY}px`
+    changeZoomByTouch({ scaleSize: scaleFactor.value, trensformOrigin: transformOrigin })
   }
-
-  changeZoomByTouch({ scaleSize: scaleFactor.value, trensformOrigin: transformOrigin })
 }
 
 const handleTouchEnd = (e) => {
