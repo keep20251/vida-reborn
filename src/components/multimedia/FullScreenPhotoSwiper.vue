@@ -15,15 +15,12 @@
           }"
           :key="i"
           :ref="collectRefs.bind(null, i)"
+          @mousedown="handleDargImgMouseDown"
+          @wheel="handleImgScroll"
           @touchstart.prevent="handleTouchStart"
           @touchmove.prevent="handleTouchMove"
           @touchend.prevent="handleTouchEnd"
         >
-          <!-- @mousedown="handleDargImgMouseDown" -->
-          <!-- @wheel="handleImgScroll" -->
-          <!-- @touchstart.prevent="handleTouchStart" -->
-          <!-- @touchmove.prevent="handleTouchMove" -->
-          <!-- @touchend.prevent="handleTouchEnd" -->
           <EncryptImage
             :src="img.url"
             :border-radius="10"
