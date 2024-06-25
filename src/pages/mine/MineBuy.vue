@@ -19,8 +19,8 @@
       </template>
       <template #bottom>
         <NoData v-if="noData" :reload="reload"></NoData>
-        <div v-else class="flex items-center justify-center py-10 text-gray-a3">
-          <Loading v-if="isLoading">{{ $t('common.loading') }}</Loading>
+        <div v-if="isLoading" class="flex animate-pulse flex-col space-y-10 pt-10">
+          <div class="h-80 w-full rounded-sm bg-gray-e5"></div>
         </div>
       </template>
     </List>
@@ -40,8 +40,8 @@
       </template>
       <template #bottom>
         <NoData v-if="noDataSubExpired" :reload="reload"></NoData>
-        <div v-else class="flex items-center justify-center py-10 text-gray-a3">
-          <Loading v-if="isLoadingSubExpired">{{ $t('common.loading') }}</Loading>
+        <div v-if="isLoading" class="flex animate-pulse flex-col space-y-10 pt-10">
+          <div class="h-80 w-full rounded-sm bg-gray-e5"></div>
         </div>
       </template>
     </List>
