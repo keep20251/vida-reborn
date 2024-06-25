@@ -1,5 +1,5 @@
 <template>
-  <BaseMedia>
+  <BaseMedia class="baseMediaFullScreen">
     <template v-slot:closeBtn="{}">
       <Icon name="closeWhite" size="15" @click="closeAndReset()"></Icon>
     </template>
@@ -63,7 +63,7 @@
 </template>
 
 <script setup>
-import { computed, defineAsyncComponent, ref } from 'vue'
+import { computed, defineAsyncComponent, ref, watch } from 'vue'
 import { useSwipe as vuseSwip, whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
@@ -100,7 +100,6 @@ const {
 whenever(
   () => transitioning.value === false,
   () => {
-    console.log('transitioning', transitioning.value)
     currIndex.value = animIndex.value
   },
 )
@@ -127,10 +126,76 @@ whenever(
   },
 )
 
-const { isSwiping, direction } = vuseSwip(swiper)
+const baseMedia = ref(null)
+const { isSwiping, lengthY: swipLengthY } = vuseSwip(swiper, { threshold: 0 })
+const isSwipDownThenUp = ref(false)
+const yMoveRange = ref(0)
+
+// 監測是不是按住後先往下，不放開就往上滑
+watch(swipLengthY, (nextY, beforeY) => (isSwipDownThenUp.value = nextY > beforeY))
+
+const fd = (querySelector) => {
+  const el = document.querySelector(querySelector)
+
+  const addTransition = () => (el.style.transition = 'transform 0.3s ease')
+  const removeTransition = () => (el.style.transition = 'unset')
+  const setYtoTop = () => (el.style.transform = `translateY(0px)`)
+  const setYtoBottom = () => (el.style.transform = `translateY(100%)`)
+  const setClose = () => setTimeout(closeAndReset, 300)
+  const setYChange = (y) => (el.style.transform = `translateY(${y}px)`)
+
+  const close = () => {
+    addTransition()
+    setYtoBottom()
+    setClose()
+  }
+  const reset = () => {
+    addTransition()
+    setYtoTop()
+  }
+
+  const transY = (y) => {
+    removeTransition()
+    setYChange(y)
+  }
+
+  return {
+    addTransition,
+    removeTransition,
+    close,
+    reset,
+    transY,
+  }
+}
+
+const swipElementClass = '.baseMediaFullScreen'
+const swipTriggerRange = 100
+
 whenever(
-  () => isSwiping.value && direction.value === 'down',
-  () => setTimeout(() => closeAndReset(), 600),
+  () => isSwiping.value === false,
+  () => {
+    const dom = fd(swipElementClass)
+    if (isSwipDownThenUp.value === true) {
+      dom.reset()
+    } else {
+      if (yMoveRange.value > swipTriggerRange) {
+        dom.close()
+      } else {
+        dom.reset()
+      }
+    }
+  },
+)
+
+// 监听滑动距离，实现图片下滑关闭
+whenever(
+  () => swipLengthY.value,
+  () => {
+    if (swipLengthY.value > 0) return
+    yMoveRange.value = Math.abs(swipLengthY.value)
+    const dom = fd(swipElementClass)
+    dom.transY(yMoveRange.value)
+  },
 )
 
 const imgElements = ref([])
@@ -317,6 +382,7 @@ const calculateCenter = (touches) => {
 
 const handleTouchStart = (e) => {
   const touches = Array.from(e.touches)
+  // 两个触摸点
   if (touches.length === 2) {
     initialDistance = calculateDistance(touches)
     const center = calculateCenter(touches)
@@ -348,6 +414,7 @@ const handleTouchEnd = (e) => {
 
 const changeZoomByTouch = ({ scaleSize, transformOrigin }) => {
   targetElement.value = imgElements.value[currIndex.value]
+  if (!targetElement.value) return
   targetElement.value.style.transform = `scale(${scaleSize})`
   targetElement.value.style.transformOrigin = transformOrigin
 }
