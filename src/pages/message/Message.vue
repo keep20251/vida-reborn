@@ -49,7 +49,7 @@
               <div v-if="!last" class="h-1 w-[calc(100%-115px)] translate-x-95 bg-gray-e5"></div>
             </template>
           </List>
-          <NoData v-if="sortedUsers.length === 0"></NoData>
+          <NoData v-if="sortedUsers.length === 0" :reload="reload"></NoData>
         </div>
         <div v-else class="flex h-full items-center justify-center"><Loading></Loading></div>
       </template>
@@ -84,6 +84,7 @@ const { show, hide } = navStore
 
 const chatStore = useChatStore()
 const { ready, sortedUsers } = storeToRefs(chatStore)
+const { reload } = chatStore
 
 const { updateParams } = useRouters()
 

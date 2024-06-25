@@ -27,6 +27,12 @@
       >
         <Icon name="playBtn" size="20"></Icon>
       </div>
+      <div
+        class="absolute bottom-20 right-20 flex items-center space-x-5 rounded-inherit bg-[rgba(0,0,0,0.5)] backdrop-blur"
+      >
+        <Icon name="videoWhite" size="20"></Icon>
+        <span class="text-base text-white">{{ toVideoTimeFormat(videoDuration) }}</span>
+      </div>
     </div>
 
     <!-- 播放器 control -->
@@ -71,7 +77,7 @@
 
 <script setup>
 import { computed, onActivated, onBeforeUnmount, onDeactivated, onMounted, ref, watch } from 'vue'
-import { useElementSize } from '@vueuse/core'
+import { useElementSize, useEventListener } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useDrag } from '@use/gesture/drag'
@@ -170,6 +176,12 @@ const fullscreenStyle = computed(() =>
 function toggleFullscreen() {
   videoFullscreen.value = !videoFullscreen.value
 }
+watch(videoFullscreen, (v) => (document.getElementsByTagName('html')[0].style.overflow = v ? 'hidden' : ''))
+useEventListener('keydown', (evt) => {
+  if (videoFullscreen.value && evt.code === 'Escape') {
+    toggleFullscreen()
+  }
+})
 
 function playEnd() {
   emits('ended')

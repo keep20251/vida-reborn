@@ -211,10 +211,10 @@ export const usePublishStore = defineStore('publish', () => {
     publishParams.category = category
     publishParams.title = title
     publishParams.content = content
-    publishParams.tags = tags
+    publishParams.tags = tags.slice()
     publishParams.type = type
     publishParams.perm = perm
-    publishParams.subs = subs
+    publishParams.subs = subs.slice()
     publishParams.price = price
     publishParams.postTime = postTime
 
@@ -230,8 +230,56 @@ export const usePublishStore = defineStore('publish', () => {
     }
 
     startEditTimestamp.value = new Date().getTime()
-    // console.log(publishParams)
-    // console.log(uploadFiles)
+
+    toUpdate.originData = {
+      id,
+      category,
+      title,
+      content,
+      tags,
+      type,
+      perm,
+      subs,
+      price,
+      postTime,
+      urls,
+    }
+  }
+
+  function hasChangeEditContent() {
+    if (isCreate.value) return true
+
+    // 純數值內容
+    if (publishParams.id !== toUpdate.originData.id) return true
+    if (publishParams.category !== toUpdate.originData.category) return true
+    if (publishParams.title !== toUpdate.originData.title) return true
+    if (publishParams.content !== toUpdate.originData.content) return true
+    if (publishParams.type !== toUpdate.originData.type) return true
+    if (publishParams.perm !== toUpdate.originData.perm) return true
+    if (publishParams.price !== toUpdate.originData.price) return true
+    if (publishParams.postTime !== toUpdate.originData.postTime) return true
+
+    // 陣列內容
+    if (
+      publishParams.tags.length !== toUpdate.originData.tags.length ||
+      publishParams.tags.some((e, i) => e !== toUpdate.originData.tags[i])
+    ) {
+      return true
+    }
+    if (
+      publishParams.subs.length !== toUpdate.originData.subs.length ||
+      publishParams.subs.some((e, i) => e !== toUpdate.originData.subs[i])
+    ) {
+      return true
+    }
+    if (
+      uploadFiles.value.length !== toUpdate.originData.urls.length ||
+      uploadFiles.value.some((e, i) => e.url !== toUpdate.originData.urls[i].url)
+    ) {
+      return true
+    }
+
+    return false
   }
 
   function getUploadPayload() {
@@ -296,9 +344,10 @@ export const usePublishStore = defineStore('publish', () => {
 
     fileList = null
 
-    cnacelUploadFnList.length = 0
+    delete toUpdate.originData
 
     cancelUpload()
+    cnacelUploadFnList.length = 0
   }
 
   return {
@@ -318,6 +367,7 @@ export const usePublishStore = defineStore('publish', () => {
 
     setFile,
     toUpdate,
+    hasChangeEditContent,
     getUploadPayload,
     startUpload,
     changeVideoFile,
