@@ -39,25 +39,28 @@ export const usePaymentStore = defineStore('payment-store', () => {
   const creditCardList = ref([])
   const defaultCard = ref(null)
 
-  const { execute: cardList } = useRequest('Payment.getCardList')
+  const currentCard = ref(null) // 當前選擇的信用卡
+
+  const { execute: getCardList } = useRequest('Payment.getCardList')
   async function getCreditCardList() {
     try {
-      const response = await cardList({})
-      console.log('信用卡列表有東西嗎?', response)
+      const response = await getCardList({})
+      if (!response) return
       creditCardList.value = response
-      defaultCard.value = creditCardList.value.find((card) => card.is_default) || creditCardList.value[0]
-      console.log('defaultCard的卡片內容為：', defaultCard.value)
+
+      const _card = creditCardList.value.find((card) => card.is_default) || creditCardList.value[0]
+      defaultCard.value = _card
+      currentCard.value = _card
     } catch (e) {
       console.error(e)
     }
   }
 
-  const { execute: delCard } = useRequest('Payment.deleteCard')
+  const { execute: deleteCard } = useRequest('Payment.deleteCard')
   async function onDelCard(card) {
     try {
       const data = { payment_method_id: card.id }
-      await delCard(data)
-      console.log('你刪除的是哪個:', card.id)
+      await deleteCard(data)
       await getCreditCardList()
     } catch (e) {
       console.error(e)
@@ -66,6 +69,10 @@ export const usePaymentStore = defineStore('payment-store', () => {
 
   const { execute: bindDefaultCard } = useRequest('Payment.bindDefaultCard')
   async function onBindDefaultCard(card) {
+    if (card.is_ban) {
+      console.log('Card is banned, cannot set as default card')
+      return
+    }
     defaultCard.value.id = card.id
     try {
       console.log(`預設信用卡: ${card.id}`)
@@ -93,5 +100,7 @@ export const usePaymentStore = defineStore('payment-store', () => {
     defaultCard,
     onDelCard,
     onBindDefaultCard,
+
+    currentCard,
   }
 })
