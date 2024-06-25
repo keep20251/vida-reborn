@@ -1,7 +1,10 @@
 <template>
-  <div class="select-none px-20 py-30">
-    <div class="scrollbar-md h-[65vh] max-h-[65vh] overflow-y-auto overflow-x-hidden">
-      <div class="pr-20">
+  <div class="select-none py-30 pl-20" :class="{ 'pr-5': isDesktop, 'pr-10': !isDesktop }">
+    <div
+      class="h-[65vh] max-h-[65vh] overflow-y-auto overflow-x-hidden"
+      :class="{ 'hover-scrollbar': isDesktop, 'scrollbar pr-10': !isDesktop }"
+    >
+      <div class="pr-5">
         <div class="flex flex-col space-y-20">
           <div>
             <div class="flex flex-col space-y-10">
@@ -69,6 +72,7 @@
 </template>
 <script setup>
 import { storeToRefs } from 'pinia'
+import { useAppStore } from '@/store/app'
 import { useSubsciptionStore } from '@/store/subscription'
 import Divider from '@/components/common/Divider.vue'
 import TagGroup from '@/components/common/TagGroup.vue'
@@ -76,6 +80,7 @@ import ContainFeedList from '@/components/subscription/ContainFeedList.vue'
 import { useDialog } from '@/compositions/modal'
 import { SUBSCRIPTION_ARTICLE_TYPE } from '@/constant'
 
+const { isDesktop } = storeToRefs(useAppStore())
 const { activeSubscription, subscriptions, creator } = storeToRefs(useSubsciptionStore())
 const { subscribe } = useDialog()
 </script>
