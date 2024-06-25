@@ -310,6 +310,7 @@ export default {
     within360days: '360일 이내',
     allDays: '모든 날',
     customDays: '사용자 지정 일',
+    invalidCard: '무효',
   },
   content: {
     default: '기본값은 어디에도 표시되지 않아야 합니다.',
@@ -579,7 +580,7 @@ export default {
       confirm: '크리에이터 페이지로 이동',
     },
     shopBuySuc: {
-      1: '기이! 게시물 잠금 해제를 위한 결제가 완료되었습니다.',
+      1: '기이! 게시물 잠금 해제를 위해 성공적으로 결제됨',
       2: '게시물로 이동하여 시청하거나 원래 화면에 머물면서 탐색하도록 선택하세요!',
       confirm: '게시물로 이동',
     },

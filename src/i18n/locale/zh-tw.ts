@@ -305,6 +305,7 @@ export default {
     within360days: '360天以內',
     allDays: '所有天數',
     customDays: '自訂天數',
+    invalidCard: '已失效',
   },
   content: {
     default: '預設，不應該顯示在任何地方',

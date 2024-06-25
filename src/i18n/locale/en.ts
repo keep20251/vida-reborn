@@ -310,6 +310,7 @@ export default {
     within360days: 'Within 360 days',
     allDays: 'All days',
     customDays: 'Custom days',
+    invalidCard: 'Invalid',
   },
   content: {
     default: "Default, shouldn't show up anywhere",

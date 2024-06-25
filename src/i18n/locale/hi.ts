@@ -310,6 +310,7 @@ export default {
     within360days: '360 दिनों के भीतर',
     allDays: 'सभी दिन',
     customDays: 'कस्टम दिन',
+    invalidCard: 'अमान्य',
   },
   content: {
     default: 'डिफ़ॉल्ट, कहीं भी दिखाई नहीं देना चाहिए',

@@ -205,7 +205,7 @@ export default {
     error: {
       subscribeSelf: 'Ich kann mich nicht selbst abonnieren',
       shopBuySelf: 'Sie können keine eigenen Produkte kaufen',
-      subscriptionNotFound: 'Kein Abonnementplan verfügbar',
+      subscriptionNotFound: 'Kein Abonnement verfügbar',
     },
     sending: 'Senden',
     failure: 'Fehlgeschlagen',
@@ -315,6 +315,7 @@ export default {
     within360days: 'Innerhalb von 360 Tagen',
     allDays: 'Alle Tage',
     customDays: 'Angepasste Tage',
+    invalidCard: 'Ungültig',
   },
   content: {
     default: 'Standardmäßig, sollte nirgendwo auftauchen',
