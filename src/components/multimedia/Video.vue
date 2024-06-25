@@ -176,6 +176,7 @@ const fullscreenStyle = computed(() =>
 function toggleFullscreen() {
   videoFullscreen.value = !videoFullscreen.value
 }
+watch(videoFullscreen, (v) => (document.getElementsByTagName('html')[0].style.overflow = v ? 'hidden' : ''))
 useEventListener('keydown', (evt) => {
   if (videoFullscreen.value && evt.code === 'Escape') {
     toggleFullscreen()
