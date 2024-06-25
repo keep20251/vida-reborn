@@ -1,7 +1,7 @@
 <template>
-  <div v-if="items.length > 0" class="select-none p-30">
-    <div class="scrollbar-md max-h-[65vh] overflow-y-auto">
-      <div class="flex flex-col divide-y pr-25">
+  <div v-if="items.length > 0" class="select-none pb-30 pl-30 pr-10 pt-20">
+    <div class="max-h-[65vh] overflow-y-auto" :class="{ 'hover-scrollbar': isDesktop, 'scrollbar pr-15': !isDesktop }">
+      <div class="flex flex-col divide-y" :class="{ 'pr-10': isDesktop }">
         <div v-for="(item, index) in items" :key="`subscribe-card-${index}`" class="py-20">
           <SubscribeCard
             :item="item"
@@ -17,6 +17,7 @@
 </template>
 <script setup>
 import { storeToRefs } from 'pinia'
+import { useAppStore } from '@/store/app'
 import { useSubsciptionStore } from '@/store/subscription'
 import SubscribeCard from '@/components/card/SubscribeCard.vue'
 import NoData from '@/components/info/NoData.vue'
@@ -26,6 +27,7 @@ const subscriptionStore = useSubsciptionStore()
 const { openDetail } = subscriptionStore
 const { items, creator } = storeToRefs(subscriptionStore)
 const { subscribe } = useDialog()
+const { isDesktop } = storeToRefs(useAppStore())
 
 const onContainClicked = (item) => openDetail({ activeSubscription: item, subscriptions: items.value })
 </script>

@@ -1,10 +1,13 @@
 <template>
-  <div class="flex flex-col space-y-20 px-20 pb-20 pt-10">
+  <div class="flex flex-col space-y-20 pb-20 pl-20 pt-10" :class="{ 'pr-6': isDesktop, ' pr-10': !isDesktop }">
     <div class="h-44">
       <Tab v-model="currentTab" :options="tabOptions"></Tab>
     </div>
     <div class="text-sm font-normal leading-3 text-gray-a3">{{ $t(infoText) }}</div>
-    <div class="scrollbar-md max-h-[65vh] overflow-y-auto pr-20">
+    <div
+      class="max-h-[65vh] overflow-y-auto"
+      :class="{ 'hover-scrollbar pr-6': isDesktop, 'scrollbar pr-10': !isDesktop }"
+    >
       <div v-if="disabled" class="mb-40 flex w-full animate-pulse flex-col space-y-10">
         <div class="h-27 rounded-md bg-gray-a3"></div>
         <div class="h-[11.875rem] rounded-md bg-gray-a3"></div>
@@ -38,6 +41,7 @@
 <script setup>
 import { computed, watch } from 'vue'
 import { storeToRefs } from 'pinia'
+import { useAppStore } from '@/store/app'
 import { useSubsciptionStore } from '@/store/subscription'
 import SubscribeCard from '@/components/card/SubscribeCard.vue'
 import List from '@/components/common/List.vue'
@@ -49,6 +53,7 @@ import useRequest from '@/compositions/request'
 import { useExecutionLock } from '@/compositions/utils/execution-lock'
 import { SUBSCRIPTION_TYPE } from '@/constant'
 
+const { isDesktop } = storeToRefs(useAppStore())
 const { subscribe } = useDialog()
 
 const subscriptionStore = useSubsciptionStore()
