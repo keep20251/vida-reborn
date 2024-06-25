@@ -1,7 +1,7 @@
 <template>
-  <Page infinite @load="onPageLoad" :pull-to-reload="!!hasQuery" :watcher="keyword" @reload="reloadAction">
+  <Page infinite @load="nextAction" :pull-to-reload="hasQuery" :watcher="keyword" @reload="reloadAction">
     <template #app-top>
-      <TopSearchBar :input-value="keyword" :logo="isMobile" to-search></TopSearchBar>
+      <TopSearchBar :input-value="keyword" :logo="isMobile" to-search auto-trigger></TopSearchBar>
     </template>
     <template #main-top v-if="hasQuery">
       <Tab v-model="activeTab" :options="tabOptions"></Tab>
@@ -22,7 +22,7 @@
   </Page>
 </template>
 <script setup>
-import { computed, onActivated, onDeactivated, onServerPrefetch, watch } from 'vue'
+import { onActivated, onDeactivated, onServerPrefetch, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
@@ -44,8 +44,8 @@ const appStore = useAppStore()
 const { isMobile } = storeToRefs(appStore)
 
 const searchStore = useSearchStore()
-const { reset, setKeyword, onSearch } = searchStore
-const { activeTab, nextAction, keyword, articleFetcher, reloadAction } = storeToRefs(searchStore)
+const { setKeyword } = searchStore
+const { activeTab, nextAction, keyword, hasQuery, articleFetcher, reloadAction } = storeToRefs(searchStore)
 
 const tabOptions = [
   { label: 'tab.relatedPost', value: SEARCH_TAB.POST },
@@ -53,14 +53,6 @@ const tabOptions = [
 ]
 
 watch(activeTab, () => reloadAction.value({ newParams: { keyword: keyword.value } }))
-
-const route = useRoute()
-
-const hasQuery = computed(() => route.name === 'search' && route.query.q)
-
-watch(hasQuery, (v) => (v ? onSearch(v) : reset()))
-
-const onPageLoad = computed(() => (hasQuery.value ? nextAction : void 0))
 
 const { t: $t } = useI18n()
 const headStore = useHeadStore()
@@ -79,6 +71,7 @@ onDeactivated(resetHead)
 
 const { relatedFeeds, keyword: hydrationKeyword } = storeToRefs(useHydrationStore())
 
+const route = useRoute()
 onServerClientOnce(async (isSSR) => {
   setKeyword(route.query.q)
   if (!keyword.value) return

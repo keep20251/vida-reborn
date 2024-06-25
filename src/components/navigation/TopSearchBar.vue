@@ -10,6 +10,7 @@
       append-icon="search2"
       @click:append="triggerSearch"
       @keypress:enter="triggerSearch"
+      @keyup="autoTriggerSearch"
     ></InputWrap>
     <div v-if="featureIcon" class="flex" @click="emits('feature')">
       <Icon :name="featureIcon" size="20"></Icon>
@@ -21,6 +22,7 @@
 import debounce from 'lodash/debounce'
 import { ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useSearchStore } from '@/store/search'
 import Link from '@comp/common/Link.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
 import { useRouters } from '@/compositions/routers'
@@ -32,8 +34,9 @@ const props = defineProps({
   logo: { type: Boolean, default: false },
   featureIcon: { type: String },
   toSearch: { type: Boolean, default: false },
+  autoTrigger: { type: Boolean, default: false },
 })
-const emits = defineEmits(['feature', 'search'])
+const emits = defineEmits(['feature'])
 
 const input = ref(props.inputValue)
 watch(
@@ -41,10 +44,25 @@ watch(
   (v) => (input.value = v),
 )
 
+const searchStore = useSearchStore()
+const { reset } = searchStore
 const { to, reload } = useRouters()
 
 const triggerSearch = debounce(() => {
-  emits('search', input.value)
-  if (input.value && props.toSearch) to('search', { query: { q: input.value } })
+  if (props.toSearch) {
+    if (input.value) {
+      to('search', { query: { q: input.value } })
+    } else {
+      if (props.autoTrigger) {
+        reset()
+        to('search')
+      }
+    }
+  }
 }, 500)
+const autoTriggerSearch = () => {
+  if (props.autoTrigger) {
+    triggerSearch()
+  }
+}
 </script>
