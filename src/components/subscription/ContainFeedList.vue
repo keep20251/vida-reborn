@@ -7,7 +7,7 @@
       </template>
       <template #bottom>
         <div ref="el">
-          <NoData v-if="noData"></NoData>
+          <NoData v-if="noData" :reload="reload"></NoData>
           <div v-else class="flex items-center justify-center py-8 text-gray-a3">
             <Loading v-if="isLoading">{{ $t('common.loading') }}</Loading>
             <span v-if="noMore">{{ $t('common.noMore') }}</span>

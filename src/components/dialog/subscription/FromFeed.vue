@@ -32,7 +32,7 @@
             <Loading v-if="isLoading"></Loading>
             <span v-else>{{ $t('common.noMore') }}</span>
           </div>
-          <NoData v-else></NoData>
+          <NoData v-else :reload="() => onExecute(() => fetchData(currentTab))"></NoData>
         </template>
       </List>
     </div>
@@ -71,10 +71,10 @@ const tabOptions = [
 const { data, isLoading, execute } = useRequest('Subscription.getArticleSubscription')
 
 const { disabled, onExecute } = useExecutionLock()
-watch(
-  [isOpen, currentTab],
-  ([_isOpen, _tab]) => (_isOpen ? onExecute(() => execute({ article_id: feed.value.id, rmd: _tab })) : void 0),
-  { immediate: true },
-)
+const fetchData = (_tab) => execute({ article_id: feed.value.id, rmd: _tab })
+
+watch([isOpen, currentTab], ([_isOpen, _tab]) => (_isOpen ? onExecute(() => fetchData(_tab)) : void 0), {
+  immediate: true,
+})
 const onContainClicked = (item) => openDetail({ activeSubscription: item, subscriptions: data })
 </script>
