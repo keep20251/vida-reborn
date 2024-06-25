@@ -315,6 +315,7 @@ export default {
     within360days: 'Dentro de 360 días',
     allDays: 'Todos los días',
     customDays: 'Días personalizados',
+    invalidCard: 'Inválido',
   },
   content: {
     default: 'Predeterminado, no debería aparecer en ningún lado',

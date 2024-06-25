@@ -310,6 +310,7 @@ export default {
     within360days: 'Dalam 360 hari',
     allDays: 'Semua hari',
     customDays: 'Hari khusus',
+    invalidCard: 'Tidak berlaku',
   },
   content: {
     default: 'Defaultnya, seharusnya tidak muncul di mana pun',
@@ -578,7 +579,7 @@ export default {
     },
     subscribeSuc: {
       1: 'menakjubkan! Berhasil berlangganan {nickname}!',
-      2: 'Pilih untuk membuka beranda pembuat konten, atau tetap berada di layar asli dan menjelajah!',
+      2: 'Pilih untuk membuka beranda pembuat konten, atau tetap berada di layar asli dan jelajahi!',
       confirm: 'Buka halaman pembuat',
     },
     shopBuySuc: {

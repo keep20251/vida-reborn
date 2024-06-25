@@ -7,7 +7,8 @@
     <div v-else>
       <keep-alive>
         <component
-          :card="defaultCard?.card"
+          v-model="currentCard"
+          :cards="creditCardList"
           :is="activeComponent"
           @complete="(res) => emits('complete', res)"
           @add:card="onCardAdd"
@@ -34,7 +35,7 @@ const emits = defineEmits(['complete', 'back:close'])
 
 const paymentStore = usePaymentStore()
 const { getCreditCardList } = paymentStore
-const { defaultCard } = storeToRefs(paymentStore)
+const { defaultCard, creditCardList, currentCard } = storeToRefs(paymentStore)
 
 const activeComponent = computed(() => (!!defaultCard.value && !props.back ? CardList : AddCard))
 

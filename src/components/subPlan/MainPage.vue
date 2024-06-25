@@ -6,10 +6,10 @@
         <Icon name="closeWhite"></Icon>
       </button>
     </div>
-    <div class="select-none p-30 pr-10">
+    <div class="select-none p-30" :class="{ 'pr-10': isDesktop, 'pr-15': !isDesktop }">
       <div
-        class="max-h-[65vh] overflow-y-auto pr-10"
-        :class="{ 'my-10': subList.length === 0, 'hover-scrollbar': isDesktop, 'pr-20': !isDesktop }"
+        class="max-h-[65vh] overflow-y-auto"
+        :class="{ 'my-10': subList.length === 0, 'hover-scrollbar pr-10': isDesktop, 'scrollbar pr-15': !isDesktop }"
       >
         <div @click="subPlanAdd" class="cursor-pointer text-center text-base font-bold leading-md text-gray-57">
           ＋ {{ $t('content.AddNewSubPlan') }}
@@ -45,9 +45,11 @@
               @move:down="toDown(subList, index)"
               @edit="subPlanEdit(subList, index)"
               @delete="onDelete(subList, index)"
+              @click:contain="onContainClicked"
               :item="item"
               subscript-btn
               edit-mode
+              show-contain
               :height="260"
               class="mb-20 mt-30"
             ></SubscribeCard>
@@ -75,7 +77,7 @@ const { open: openMessage } = usePopupMessageStore()
 const { confirm } = useModalStore()
 const { appConfig } = useAppStore()
 const { isDesktop } = storeToRefs(useAppStore())
-const { to, close } = useSubPlanStore()
+const { to, close, openDetail } = useSubPlanStore()
 const {
   data,
   index: i,
@@ -90,6 +92,9 @@ const {
   selDefaultItem,
 } = storeToRefs(useSubPlanStore())
 
+const onContainClicked = (item) => {
+  openDetail({ activeSubscription: item, subscriptions: subList.value })
+}
 function subPlanAdd() {
   to(SUB_PLAN.SET)
   addSubPlan.value = true

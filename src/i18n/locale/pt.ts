@@ -310,6 +310,7 @@ export default {
     within360days: 'Dentro de 360 dias',
     allDays: 'Todos os dias',
     customDays: 'Dias personalizados',
+    invalidCard: 'Inválido',
   },
   content: {
     default: 'Padrão, não deve aparecer em lugar nenhum',
@@ -576,7 +577,7 @@ export default {
     shopBuy: {
       1: 'Irá desbloquear o conteúdo de {nickname} neste trabalho',
       2: '{nickname}receberá seu pagamento integralmente',
-      confirm: "Desbloquear agora ({'$'}{price})",
+      confirm: "Desbloqueie agora ({'$'}{price})",
     },
     subscribeSuc: {
       1: 'maravilhoso! Inscrito em {nickname} com sucesso!',

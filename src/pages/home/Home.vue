@@ -13,7 +13,7 @@
             <Feed class="py-20" :item="item"></Feed>
           </template>
           <template #bottom>
-            <NoData v-if="noData"></NoData>
+            <NoData v-if="noData" :reload="reload"></NoData>
             <div v-else class="flex items-center justify-center py-8 text-gray-a3">
               <Loading v-if="isLoading"></Loading>
               <span v-if="noMore">{{ $t('common.noMore') }}</span>
@@ -38,7 +38,7 @@
               <ViewSubscribeCard class="my-5" :item="item" :theme="(index + 2) % 3"></ViewSubscribeCard>
             </template>
             <template #bottom>
-              <NoData v-if="creatorsNoData"></NoData>
+              <NoData v-if="creatorsNoData" :reload="creatorsReload"></NoData>
               <div v-else class="flex items-center justify-center py-8 text-gray-a3">
                 <Loading v-if="creatorsIsLoading"></Loading>
                 <span v-if="creatorsNoMore">{{ $t('common.noMore') }}</span>

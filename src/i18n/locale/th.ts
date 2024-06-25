@@ -310,6 +310,7 @@ export default {
     within360days: 'ภายใน 360 วัน',
     allDays: 'ทุกวัน',
     customDays: 'กำหนดวันเอง',
+    invalidCard: 'ไม่ถูกต้อง',
   },
   content: {
     default: 'ค่าเริ่มต้นไม่ควรปรากฏที่ใดก็ได้',

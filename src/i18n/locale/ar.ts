@@ -310,6 +310,7 @@ export default {
     within360days: 'خلال 360 يومًا',
     allDays: 'جميع الأيام',
     customDays: 'أيام مخصصة',
+    invalidCard: 'غير صالح',
   },
   content: {
     default: 'الافتراضي، لا ينبغي أن تظهر في أي مكان',

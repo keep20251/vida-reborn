@@ -315,6 +315,7 @@ export default {
     within360days: 'В пределах 360 дней',
     allDays: 'Все дни',
     customDays: 'Пользовательские дни',
+    invalidCard: 'Недействительный',
   },
   content: {
     default: 'По умолчанию, нигде не должен отображаться.',

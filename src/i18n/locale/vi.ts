@@ -200,7 +200,7 @@ export default {
     error: {
       subscribeSelf: 'Không thể đăng ký cho chính mình',
       shopBuySelf: 'Không thể mua sản phẩm của riêng bạn',
-      subscriptionNotFound: 'Không có gói thuê bao nào',
+      subscriptionNotFound: 'Không có gói đăng ký nào',
     },
     sending: 'Gửi',
     failure: 'Thất bại',
@@ -310,6 +310,7 @@ export default {
     within360days: 'Trong vòng 360 ngày',
     allDays: 'Tất cả các ngày',
     customDays: 'Ngày tùy chỉnh',
+    invalidCard: 'Không hợp lệ',
   },
   content: {
     default: 'Mặc định, không nên hiển thị ở bất cứ đâu',
@@ -582,7 +583,7 @@ export default {
     },
     shopBuySuc: {
       1: 'tuyệt vời! Đã thanh toán thành công để mở khóa bài đăng',
-      2: 'Chọn vào bài viết để xem, hoặc ở lại màn hình gốc để duyệt nhé!',
+      2: 'Chọn vào bài viết để xem, hoặc ở lại màn hình gốc để duyệt!',
       confirm: 'Đi tới bài viết',
     },
     title: { paySuc: 'Thanh toán được thực hiện thành công' },

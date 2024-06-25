@@ -18,9 +18,9 @@
         <Subscription :item="item" @reload="pages[MINE_BUY_TAB.SUBSCRIPTION].infinite.reload"></Subscription>
       </template>
       <template #bottom>
-        <NoData v-if="noData"></NoData>
-        <div v-else class="flex items-center justify-center py-10 text-gray-a3">
-          <Loading v-if="isLoading">{{ $t('common.loading') }}</Loading>
+        <NoData v-if="noData" :reload="reload"></NoData>
+        <div v-if="isLoading" class="flex animate-pulse flex-col space-y-10 pt-10">
+          <div class="h-80 w-full rounded-sm bg-gray-e5"></div>
         </div>
       </template>
     </List>
@@ -39,9 +39,9 @@
         <Subscription :item="item" @reload="pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED].infinite.reload"></Subscription>
       </template>
       <template #bottom>
-        <NoData v-if="noDataSubExpired"></NoData>
-        <div v-else class="flex items-center justify-center py-10 text-gray-a3">
-          <Loading v-if="isLoadingSubExpired">{{ $t('common.loading') }}</Loading>
+        <NoData v-if="noDataSubExpired" :reload="reloadSubExpired"></NoData>
+        <div v-if="isLoadingSubExpired" class="flex animate-pulse flex-col space-y-10 pt-10">
+          <div class="h-80 w-full rounded-sm bg-gray-e5"></div>
         </div>
       </template>
     </List>
@@ -53,7 +53,7 @@
       <Feed v-else-if="tab === MINE_BUY_TAB.PURCHASED_ARTICLE" class="py-20" :item="item"></Feed>
     </template>
     <template #bottom>
-      <NoData v-if="noData"></NoData>
+      <NoData v-if="noData" :reload="reload"></NoData>
       <div v-else class="flex items-center justify-center py-8 text-gray-a3">
         <Loading v-if="isLoading">{{ $t('common.loading') }}</Loading>
         <span v-if="noMore">{{ $t('common.noMore') }}</span>
@@ -113,10 +113,12 @@ const count = computed(() => pages[tab.value].infinite.dataExtra.value?.count ||
 const isLoading = computed(() => pages[tab.value].infinite.isLoading.value)
 const noMore = computed(() => pages[tab.value].infinite.noMore.value)
 const noData = computed(() => pages[tab.value].infinite.noData.value)
+const reload = computed(() => pages[tab.value].infinite.reload)
 
 const itemsSubExpired = computed(() => pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED].infinite.dataList.value)
 const isLoadingSubExpired = computed(() => pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED].infinite.isLoading.value)
 const noDataSubExpired = computed(() => pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED].infinite.noData.value)
+const reloadSubExpired = computed(() => pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED].infinite.reload)
 const totalSubExpired = computed(() => pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED].infinite.dataExtra.value?.count || 0)
 
 const mineStore = useMineStore()
