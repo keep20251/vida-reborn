@@ -7,8 +7,9 @@
       <Card
         :brand="card.card.brand"
         :last4="card.card.last4"
-        :selected="card.id === defaultCard.id"
+        :defaulted="card.id === defaultCard.id"
         :defaultable="card.id !== defaultCard.id"
+        :disabled="card.is_ban"
         removable
         @card:set-default="onBindDefaultCard(card)"
         @card:remove="onCardRemoved(card)"
