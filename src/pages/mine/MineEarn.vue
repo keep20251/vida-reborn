@@ -50,33 +50,37 @@
           @confirm="endHandleConfirm"
         ></DatePicker>
       </div>
-      <div class="flex select-none space-x-30 px-20 md:px-0 lg:px-0 xl:px-0">
-        <div class="flex w-4/12 flex-col space-y-10">
-          <div class="text-base font-normal leading-md">{{ $t('content.totEntries') }}</div>
-          <div class="text-lg font-bold leading-lg">{{ overallData?.total_click || 0 }}</div>
+      <div class="h-full space-y-30">
+        <div class="flex select-none space-x-30 px-20 md:px-0 lg:px-0 xl:px-0">
+          <div class="flex w-4/12 flex-col space-y-10">
+            <div class="text-base font-normal leading-md">{{ $t('content.totEntries') }}</div>
+            <div class="text-lg font-bold leading-lg">{{ overallData?.total_click || 0 }}</div>
+          </div>
+          <div class="flex w-4/12 flex-col space-y-10">
+            <div class="text-base font-normal leading-md">{{ $t('content.totSubs') }}</div>
+            <div class="text-lg font-bold leading-lg">{{ overallData?.total_subscription || 0 }}</div>
+          </div>
+          <div class="flex w-4/12 flex-col space-y-10">
+            <div class="text-base font-normal leading-md">{{ $t('content.totViews') }}</div>
+            <div class="text-lg font-bold leading-lg">{{ overallData?.total_view || 0 }}</div>
+          </div>
         </div>
-        <div class="flex w-4/12 flex-col space-y-10">
-          <div class="text-base font-normal leading-md">{{ $t('content.totSubs') }}</div>
-          <div class="text-lg font-bold leading-lg">{{ overallData?.total_subscription || 0 }}</div>
+        <div class="flex space-x-30 px-20 md:px-0 lg:px-0 xl:px-0">
+          <div class="flex w-4/12 flex-col space-y-10">
+            <div class="text-base font-normal leading-md">{{ $t('content.purchases') }}</div>
+            <div class="text-lg font-bold leading-lg">{{ overallData?.total_buyer || 0 }}</div>
+          </div>
+          <div class="flex w-4/12 flex-col space-y-10">
+            <div class="text-base font-normal leading-md">{{ $t('content.periodIncome') }}</div>
+            <div class="text-lg font-bold leading-lg">${{ overallData?.total_income || 0 }}</div>
+          </div>
+          <div class="flex w-4/12 flex-col justify-start space-y-10">
+            <div class="text-base font-normal leading-md">{{ $t('content.unsubscribers') }}</div>
+            <div class="text-lg font-bold leading-lg">{{ overallData?.total_unsubscription || 0 }}</div>
+          </div>
         </div>
-        <div class="flex w-4/12 flex-col space-y-10">
-          <div class="text-base font-normal leading-md">{{ $t('content.totViews') }}</div>
-          <div class="text-lg font-bold leading-lg">{{ overallData?.total_view || 0 }}</div>
-        </div>
-      </div>
-      <div class="flex space-x-30 px-20 md:px-0 lg:px-0 xl:px-0">
-        <div class="flex w-4/12 flex-col space-y-10">
-          <div class="text-base font-normal leading-md">{{ $t('content.purchases') }}</div>
-          <div class="text-lg font-bold leading-lg">{{ overallData?.total_buyer || 0 }}</div>
-        </div>
-        <div class="flex w-4/12 flex-col space-y-10">
-          <div class="text-base font-normal leading-md">{{ $t('content.periodIncome') }}</div>
-          <div class="text-lg font-bold leading-lg">${{ overallData?.total_income || 0 }}</div>
-        </div>
-        <div class="flex w-4/12 flex-col justify-start space-y-10">
-          <div class="text-base font-normal leading-md">{{ $t('content.unsubscribers') }}</div>
-          <div class="text-lg font-bold leading-lg">{{ overallData?.total_unsubscription || 0 }}</div>
-        </div>
+        <!-- 小裝置下會點不到 DatePicker 的確認按鈕，所以先在這邊增加高度 -->
+        <div class="h-[14.5rem]"></div>
       </div>
     </div>
   </div>

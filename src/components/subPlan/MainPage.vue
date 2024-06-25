@@ -2,8 +2,8 @@
   <div class="flex h-full w-full flex-col">
     <div class="relative rounded-t-xl bg-primary px-20 py-15 text-center text-white">
       <div class="text-lg font-bold leading-5">{{ $t('info.subscribeSetting') }}</div>
-      <button @click="close" class="absolute right-0 top-1/3 pr-20">
-        <Icon name="closeWhite"></Icon>
+      <button @click="close" class="absolute right-0 top-1/3 px-20 pb-10">
+        <Icon name="closeWhite" size="20"></Icon>
       </button>
     </div>
     <div class="select-none p-30" :class="{ 'pr-10': isDesktop, 'pr-15': !isDesktop }">

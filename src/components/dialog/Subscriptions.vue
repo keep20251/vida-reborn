@@ -6,11 +6,11 @@
           <div class="text-lg font-bold leading-lg text-white">
             {{ $t('title.subscription') }}
           </div>
-          <div class="absolute right-0 top-0 cursor-pointer pr-15 pt-15">
-            <Icon name="closeWhite" size="20" @click="closeFn"></Icon>
+          <div class="absolute right-0 top-0 cursor-pointer px-15 pb-10 pt-15" @click="closeFn">
+            <Icon name="closeWhite" size="20"></Icon>
           </div>
-          <div v-show="isDetail" class="absolute left-0 top-0 cursor-pointer pl-15 pt-15">
-            <Icon name="backWhite" size="20" @click="back"></Icon>
+          <div v-show="isDetail" class="absolute left-0 top-0 cursor-pointer px-15 pb-10 pt-15" @click="back">
+            <Icon name="backWhite" size="20"></Icon>
           </div>
         </div>
         <component :is="currentComponent"></component>

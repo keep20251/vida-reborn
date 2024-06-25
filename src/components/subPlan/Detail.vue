@@ -4,11 +4,11 @@
       <div class="text-lg font-bold leading-5">
         {{ $t('common.viewSubscribePlan') }}
       </div>
-      <button @click="back" :history="history" :show-back="showBack" class="absolute left-0 top-1/3 pl-20">
-        <Icon name="backWhite"></Icon>
+      <button @click="back" :history="history" :show-back="showBack" class="absolute left-0 top-1/3 px-20 pb-10">
+        <Icon name="backWhite" size="20"></Icon>
       </button>
-      <button @click="close" class="absolute right-0 top-1/3 pr-20">
-        <Icon name="closeWhite"></Icon>
+      <button @click="close" class="absolute right-0 top-1/3 px-20 pb-10">
+        <Icon name="closeWhite" size="20"></Icon>
       </button>
     </div>
     <div class="select-none p-30" :class="{ 'pr-10': isDesktop, 'pr-15': !isDesktop }">
