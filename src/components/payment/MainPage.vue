@@ -64,7 +64,7 @@ const { syncAllPaymentConfig } = appStore
 
 const paymentStore = usePaymentStore()
 const { close } = paymentStore
-const { paymentConfig, defaultCard } = storeToRefs(paymentStore)
+const { paymentConfig, currentCard } = storeToRefs(paymentStore)
 
 const { pay, payStripe, cancel } = usePayment()
 const { open } = useModalStore()
@@ -180,20 +180,17 @@ function recallComplete() {
 const { disabled: isLoading, onExecute } = useExecutionLock()
 
 const isCardList = computed(
-  () => activeOption.value.type === PAYMENT_GROUP.CREDIT_CARD && defaultCard.value && !showBack.value,
+  () => activeOption.value.type === PAYMENT_GROUP.CREDIT_CARD && currentCard.value && !showBack.value,
 )
 const isAddCard = computed(() => activeOption.value.type === PAYMENT_GROUP.CREDIT_CARD || showBack.value)
 
 async function confirm() {
   if (isCardList.value) {
-    console.log('payment with default card')
-
     paying()
-
     const payload = {
       item_id: paymentConfig.value.data.item_id,
       type: paymentConfig.value.paymentType,
-      user_payment_method_id: defaultCard.value.id,
+      user_payment_method_id: currentCard.value.id,
     }
 
     await payStripe({
