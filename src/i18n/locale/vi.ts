@@ -37,6 +37,7 @@ export default {
     noMore: 'Không còn nữa',
     more: 'Hơn',
     save: 'Cứu',
+    reload: 'Tải lại',
     cookie: 'Chấp nhận và don lồng hiển thị lại tin nhắn này',
     check: 'Kiểm tra',
     subscribe: 'đăng ký',

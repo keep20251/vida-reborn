@@ -37,6 +37,7 @@ export default {
     noMore: '沒有更多了',
     more: '更多',
     save: '儲存',
+    reload: '重新讀取',
     cookie: '接受，不要再顯示此消息',
     check: '查看',
     subscribe: '訂閱',

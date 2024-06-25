@@ -37,6 +37,7 @@ export default {
     noMore: 'और नहीं है',
     more: 'अधिक',
     save: 'बचाना',
+    reload: 'पुनः लोड करें',
     cookie: 'स्वीकार करें और इस संदेश को फिर से न दिखाएं',
     check: 'जाँचें',
     subscribe: 'अंशदान',
