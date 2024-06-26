@@ -41,6 +41,7 @@
 import { computed, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useModalStore } from '@/store/modal'
+import { usePopupMessageStore } from '@/store/popup-message'
 import Button from '@comp/common/Button.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
 import PasswordValidation from '@comp/form/PasswordValidation.vue'
@@ -48,7 +49,7 @@ import useRequest from '@use/request/index.js'
 import { useYup } from '@use/validator/yup.js'
 
 const { t: $t } = useI18n()
-
+const { open: openMessage } = usePopupMessageStore()
 const { confirm } = useModalStore()
 const { Yup, validate } = useYup()
 const { string } = Yup
@@ -129,7 +130,11 @@ async function changePw() {
       new_password: credential.newPw.value,
       new_password_confirm: credential.newPwCfm.value,
     })
+    credential.nowPw.value = ''
+    credential.newPw.value = ''
+    credential.newPwCfm.value = ''
     serverError.value = ''
+    openMessage('title.updateSuccess')
   } catch (e) {
     serverError.value = e.message
     console.error(e)

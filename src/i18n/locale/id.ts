@@ -37,6 +37,7 @@ export default {
     noMore: 'Tidak ada lagi',
     more: 'Lagi',
     save: 'Menyimpan',
+    reload: 'Muat ulang',
     cookie: 'Terima dan jangan tunjukkan pesan ini lagi',
     check: 'Periksa',
     subscribe: 'berlangganan',

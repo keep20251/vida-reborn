@@ -1,16 +1,16 @@
 <template>
   <div class="flex h-full w-full flex-col">
     <div class="relative rounded-t-xl py-30 text-center">
-      <div class="absolute left-0 top-1/3 pl-20 pt-4">
+      <div class="absolute left-0 top-1/3 px-20 py-4">
         <button @click="back" :history="history" :show-back="showBack">
-          <Icon name="back"></Icon>
+          <Icon name="back" size="20"></Icon>
         </button>
       </div>
       <div class="text-lg font-bold leading-5">
         {{ addSubPlan ? $t('label.add') : $t('label.edit') }}{{ $t('info.subscribeSetting') }}
       </div>
-      <button v-if="!addSubPlan" @click="onDelete" class="absolute right-0 top-1/3 pr-20 pt-4">
-        <Icon name="bin"></Icon>
+      <button v-if="!addSubPlan" @click="onDelete" class="absolute right-0 top-1/3 px-20 py-4">
+        <Icon name="bin" size="20"></Icon>
       </button>
     </div>
     <div

@@ -8,6 +8,7 @@
             show-contain
             @click="subscribe({ item, creator })"
             @click:contain="onContainClicked"
+            :height="260"
           ></SubscribeCard>
         </div>
       </div>

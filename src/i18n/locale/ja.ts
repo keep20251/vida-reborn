@@ -37,6 +37,7 @@ export default {
     noMore: 'もうありません',
     more: 'もっと',
     save: '保存',
+    reload: '再読み込み',
     cookie: 'このメッセージを受け入れて見ないでください',
     check: '確認する',
     subscribe: 'サブスクリプション',

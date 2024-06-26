@@ -37,6 +37,7 @@ export default {
     noMore: 'No hay más',
     more: 'Más',
     save: 'Ahorrar',
+    reload: 'Recargar',
     cookie: 'Acepta y no vuelvas a mostrar este mensaje',
     check: 'Verificar',
     subscribe: 'suscripción',
