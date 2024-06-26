@@ -35,9 +35,9 @@
         <div v-if="imgs.length > 1" class="absolute right-[calc(50%-1rem)] top-20 flex select-none space-x-5">
           <span class="text-base tracking-wide text-white">{{ `${currIndex + 1} / ${imgs.length}` }}</span>
         </div>
-        lock
+        <!-- lock -->
         <LockMask v-if="isLock" :item="item" :meta="`${currIndex + 1} / ${imgs.length}`" isFullscreen></LockMask>
-        prev
+        <!-- prev -->
         <div
           v-if="isDesktop && imgs.length > 1 && currIndex >= 1"
           class="absolute left-0 top-0 flex h-full w-40 cursor-pointer items-center justify-end"
