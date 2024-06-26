@@ -8,7 +8,7 @@
       <div class="h-full w-full overflow-hidden rounded-inherit" ref="swiper">
         <div
           v-for="(img, i) in imgs"
-          class="top-0 h-full w-full"
+          class="absolute top-0 h-full w-full"
           :class="{ 'will-change-transform': animIndex % 1 !== 0 }"
           :style="{
             transform: `translateX(${(i - animIndex) * 100}%)`,
