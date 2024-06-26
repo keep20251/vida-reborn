@@ -27,9 +27,7 @@
       >
         <Icon name="playBtn" size="20"></Icon>
       </div>
-      <div
-        class="absolute bottom-20 right-20 flex items-center space-x-5 rounded-inherit bg-[rgba(0,0,0,0.5)] backdrop-blur"
-      >
+      <div class="absolute bottom-20 right-20 flex items-center space-x-5 rounded-inherit drop-shadow">
         <Icon name="videoWhite" size="20"></Icon>
         <span class="text-base text-white">{{ toVideoTimeFormat(videoDuration) }}</span>
       </div>
