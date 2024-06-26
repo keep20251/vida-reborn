@@ -2,7 +2,7 @@
   <Page>
     <template #main-top>
       <Head
-        :title="$t('title.publish')"
+        :title="isCreate ? $t('title.publish') : $t('title.editPost')"
         :feature-icon="isUpdate ? 'bin' : ''"
         :preBackFn="preClear"
         @back="handleClear"
@@ -75,6 +75,7 @@
                   }}
                 </span>
                 <div
+                  v-if="isCreate"
                   @click="cancel(uploadFiles[0].id)"
                   class="right-10 top-10 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-white"
                 >
@@ -95,12 +96,16 @@
               <label class="text-left text-base leading-md"
                 >{{ $t('label.uploadImage') }}
                 <span class="text-left text-sm text-gray-57">{{
-                  `${uploadFiles.filter((f) => f.status === UPLOAD_STATUS.DONE).length}/${IMAGE_LIMIT_COUNT}`
+                  `${
+                    uploadFiles.filter((f) => [UPLOAD_STATUS.DONE, UPLOAD_STATUS.SAVE].includes(f.status)).length
+                  }/${IMAGE_LIMIT_COUNT}`
                 }}</span></label
               >
               <span class="text-left text-sm text-gray-57">{{ $t('info.imageFormat') }}</span>
             </div>
-            <Button class="self-end" size="md" @click="() => inputImage.click()">{{ $t('common.append') }}</Button>
+            <Button v-if="isCreate" class="self-end" size="md" @click="() => inputImage.click()">{{
+              $t('common.append')
+            }}</Button>
             <input
               type="file"
               class="hidden"
@@ -121,6 +126,7 @@
                 :style="{ transform: `scaleX(${1 - file.progress})` }"
               ></div>
               <div
+                v-if="isCreate"
                 class="absolute right-10 top-10 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-white"
                 @click="removeUploadFile(file.id)"
               >
