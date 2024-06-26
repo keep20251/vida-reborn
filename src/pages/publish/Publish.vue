@@ -76,7 +76,7 @@
                 </span>
                 <div
                   v-if="isCreate"
-                  @click="cancel(uploadFiles[0].id)"
+                  @click="cancel(uploadFiles[0].id, uploadFiles[0].status)"
                   class="right-10 top-10 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-white"
                 >
                   <Icon name="close" size="10"></Icon>
@@ -381,10 +381,10 @@ function onDelete() {
   })
 }
 
-const cancel = (id) => {
+const cancel = (id, status) => {
   confirm({
-    title: 'title.cancelUpload',
-    content: $t('content.cancelUpload'),
+    title: status === UPLOAD_STATUS.DONE ? 'title.cancelFile' : 'title.cancelUpload',
+    content: status === UPLOAD_STATUS.DONE ? $t('content.cancelFile') : $t('content.cancelUpload'),
     confirmAction() {
       cancelUpload()
       removeUploadFile(id)
@@ -397,8 +397,8 @@ const preClear = () => {
   if (hasChangeEditContent()) {
     return new Promise((resolve, reject) => {
       confirm({
-        title: 'cancel.publish.title',
-        content: $t('cancel.publish.content'),
+        title: 'title.cancelPublish',
+        content: $t('content.cancelPublish'),
         confirmAction: resolve,
         cancelAction: reject,
       })
