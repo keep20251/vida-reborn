@@ -65,6 +65,7 @@ export default {
     logout: 'ออกจากระบบ',
     post: 'โพสต์',
     publish: 'โพสต์เผยแพร่',
+    editPost: 'แก้ไขโพสต์',
     mine: 'ของฉัน',
     mineBuy: 'การซื้อของฉัน',
     minePost: 'โพสต์ของฉัน',
@@ -96,6 +97,9 @@ export default {
     updateSuccess: 'อัปเดตสำเร็จ',
     updateFail: 'อัปเดตไม่สำเร็จ',
     publishFail: 'เผยแพร่ไม่สำเร็จ',
+    cancelPublish: 'ยกเลิกการเผยแพร่',
+    cancelUpload: 'ยกเลิกการอัพโหลด',
+    cancelFile: 'ยกเลิกเนื้อหา',
     delSuccess: 'ลบสำเร็จ',
     createFeed: 'สร้างโพสต์',
     submitSuccess: 'ส่งสำเร็จ',
@@ -105,7 +109,6 @@ export default {
     beCreatorFirst: 'โปรดเป็นผู้สร้างก่อนโพสต์',
     officeEmail: 'อีเมลอย่างเป็นทางการ',
     mineCard: 'จัดการบัตร',
-    cancelUpload: 'ยกเลิกการอัพโหลด',
   },
   label: {
     account: 'ชื่อผู้ใช้',
@@ -172,7 +175,7 @@ export default {
     subPlanCtn: 'รายละเอียดแผน',
     subPlanPrice: 'ราคาของแผน',
     subBtn: 'สมัครสมาชิกเพื่อปลดล็อกเนื้อหาเต็ม',
-    buyBtn: 'จ่ายต่อรายการเพื่อปลดล็อกเนื้อหา',
+    buyBtn: 'ปลดล็อกเนื้อหาทั้งหมด',
     eventAd: 'กิจกรรมและโฆษณา VIDA',
     just: 'พึ่ง',
     minutesAgo: '{minutes} นาทีที่แล้ว',
@@ -312,6 +315,8 @@ export default {
     allDays: 'ทุกวัน',
     customDays: 'กำหนดวันเอง',
     invalidCard: 'ไม่ถูกต้อง',
+    publishTagNameLess: 'แท็กสั้นเกินไป',
+    publishTagNameMore: 'แท็กยาวเกินไป',
   },
   content: {
     default: 'ค่าเริ่มต้นไม่ควรปรากฏที่ใดก็ได้',
@@ -395,7 +400,9 @@ export default {
     tapForUpload: 'คลิกที่นี่เพื่ออัพโหลดรูปภาพหรือวิดีโอ',
     afterUpload: 'ไฟล์ถูกเลือกแล้ว, ไปยังขั้นตอนถัดไปเพื่อแก้ไขเนื้อหาโพสต์',
     createSubBeforePost: 'โพสต์ก่อนที่จะมาทำแผนการสมัครสมาชิกของคุณให้เสร็จก่อน!',
+    cancelPublish: 'หากคุณออกตอนนี้ คุณจะสูญเสียเนื้อหาปัจจุบันทั้งหมด คุณแน่ใจหรือไม่ว่าต้องการออก?',
     cancelUpload: 'ไฟล์กำลังอัพโหลด คุณแน่ใจหรือไม่ว่าต้องการยกเลิก?',
+    cancelFile: 'เนื้อหาได้รับการอัปโหลดเรียบร้อยแล้ว คุณแน่ใจหรือไม่ว่าต้องการยกเลิก',
   },
   month: {
     Jan: 'มกราคม',
@@ -765,12 +772,6 @@ export default {
       aup: 'Acceptable Use Policy',
       cookiePolicy: 'Cookie Policy',
       complaintsPolicy: 'Complaints Policy',
-    },
-  },
-  cancel: {
-    publish: {
-      title: 'ยกเลิกการเผยแพร่',
-      content: 'หากคุณออกตอนนี้ คุณจะสูญเสียเนื้อหาปัจจุบันทั้งหมด คุณแน่ใจหรือไม่ว่าต้องการออก?',
     },
   },
 }

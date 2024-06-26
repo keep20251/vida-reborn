@@ -65,6 +65,7 @@ export default {
     logout: 'ログアウト',
     post: '投稿',
     publish: '投稿を公開',
+    editPost: '投稿を編集する',
     mine: '私の',
     mineBuy: '私の購入',
     minePost: '私の投稿',
@@ -96,6 +97,9 @@ export default {
     updateSuccess: '更新完了',
     updateFail: '更新失敗',
     publishFail: '公開失敗',
+    cancelPublish: '公開をキャンセルする',
+    cancelUpload: 'アップロードをキャンセルする',
+    cancelFile: 'コンテンツをキャンセル',
     delSuccess: '削除成功',
     createFeed: '投稿を作成する',
     submitSuccess: '提出が成功しました',
@@ -105,7 +109,6 @@ export default {
     beCreatorFirst: '投稿する前にまずクリエーターになりましょう！',
     officeEmail: '公式メール',
     mineCard: 'カードを管理する',
-    cancelUpload: 'アップロードをキャンセルする',
   },
   label: {
     account: 'ユーザー名',
@@ -172,7 +175,7 @@ export default {
     subPlanCtn: 'プランの説明',
     subPlanPrice: 'プラン価格',
     subBtn: 'フルコンテンツをアンロックするために購読する',
-    buyBtn: 'アイテムごとに支払ってコンテンツをアンロックする',
+    buyBtn: '全コンテンツのロックを解除',
     eventAd: 'VIDAのイベントと広告',
     just: 'たった今',
     minutesAgo: '{minutes}分前',
@@ -201,7 +204,7 @@ export default {
     error: {
       subscribeSelf: '自分自身を購読できません',
       shopBuySelf: '自分の商品が買えない',
-      subscriptionNotFound: '利用可能なサブスクリプション プランはありません',
+      subscriptionNotFound: '利用可能なサブスクリプションプランはありません',
     },
     sending: '送信',
     failure: '失敗した',
@@ -312,6 +315,8 @@ export default {
     allDays: '全日',
     customDays: 'カスタム日数',
     invalidCard: '無効',
+    publishTagNameLess: 'タグが短すぎます',
+    publishTagNameMore: 'タグが長すぎます',
   },
   content: {
     default: 'デフォルト、どこにも表示されないはずです',
@@ -397,7 +402,9 @@ export default {
     tapForUpload: 'ここをタップして写真または動画をアップロード',
     afterUpload: 'ファイルを選択した後、次のステップに進んで投稿内容を編集します',
     createSubBeforePost: '投稿する前に、まずはあなたの定額購入プランを完成させましょう！',
+    cancelPublish: '今離れると、現在のすべてのコンテンツが失われます。本当に離れますか？',
     cancelUpload: 'ファイルがアップロード中です。キャンセルしますか？',
+    cancelFile: 'コンテンツが正常にアップロードされましたが、キャンセルしてもよろしいですか？',
   },
   month: {
     Jan: '1月',
@@ -772,12 +779,6 @@ export default {
       aup: 'Acceptable Use Policy',
       cookiePolicy: 'Cookie Policy',
       complaintsPolicy: 'Complaints Policy',
-    },
-  },
-  cancel: {
-    publish: {
-      title: '公開をキャンセルする',
-      content: '今離れると、現在のすべてのコンテンツが失われます。本当に離れますか？',
     },
   },
 }

@@ -65,6 +65,7 @@ export default {
     logout: 'Đăng xuất',
     post: 'Bài viết',
     publish: 'Đăng bài',
+    editPost: 'Chỉnh sửa bài viết',
     mine: 'của tôi',
     mineBuy: 'Mua Của Tôi',
     minePost: 'Bài Đăng Của Tôi',
@@ -96,6 +97,9 @@ export default {
     updateSuccess: 'Cập nhật thành công',
     updateFail: 'Cập nhật thất bại',
     publishFail: 'Đăng thất bại',
+    cancelPublish: 'Hủy bỏ công bố',
+    cancelUpload: 'Hủy tải lên',
+    cancelFile: 'Hủy nội dung',
     delSuccess: 'Xóa thành công',
     createFeed: 'Tạo bài viết',
     submitSuccess: 'Đã gửi thành công',
@@ -105,7 +109,6 @@ export default {
     beCreatorFirst: 'Hãy trở thành người sáng tạo trước khi đăng bài!',
     officeEmail: 'Email chính thức',
     mineCard: 'Quản lý thẻ',
-    cancelUpload: 'Hủy tải lên',
   },
   label: {
     account: 'Tên người dùng',
@@ -172,7 +175,7 @@ export default {
     subPlanCtn: 'Mô tả kế hoạch',
     subPlanPrice: 'Giá kế hoạch',
     subBtn: 'Đăng ký để mở khóa nội dung đầy đủ',
-    buyBtn: 'Trả tiền mỗi mục để mở khóa nội dung',
+    buyBtn: 'Mở khóa toàn bộ nội dung',
     eventAd: 'Sự kiện và quảng cáo VIDA',
     just: 'vừa mới',
     minutesAgo: '{minutes} phút trước',
@@ -199,7 +202,7 @@ export default {
   message: {
     payment: { failed: 'Thanh toán thất bại', success: 'Thanh toán thành công', cancel: 'Thanh toán đã hủy' },
     error: {
-      subscribeSelf: 'Không thể đăng ký cho chính mình',
+      subscribeSelf: 'Không thể đăng ký cho chính tôi',
       shopBuySelf: 'Không thể mua sản phẩm của riêng bạn',
       subscriptionNotFound: 'Không có gói đăng ký nào',
     },
@@ -312,6 +315,8 @@ export default {
     allDays: 'Tất cả các ngày',
     customDays: 'Ngày tùy chỉnh',
     invalidCard: 'Không hợp lệ',
+    publishTagNameLess: 'Thẻ quá ngắn',
+    publishTagNameMore: 'Gắn thẻ quá dài',
   },
   content: {
     default: 'Mặc định, không nên hiển thị ở bất cứ đâu',
@@ -397,7 +402,9 @@ export default {
     tapForUpload: 'Nhấn vào đây để tải ảnh hoặc video lên',
     afterUpload: 'Sau khi chọn tệp, tiếp tục sang bước tiếp theo để chỉnh sửa nội dung bài viết',
     createSubBeforePost: 'Trước khi đăng bài, hãy hoàn thành kế hoạch đăng ký của bạn trước!',
+    cancelPublish: 'Nếu bạn rời đi bây giờ, bạn sẽ mất tất cả nội dung hiện tại. Bạn có chắc chắn muốn rời đi không?',
     cancelUpload: 'Tệp đang được tải lên. Bạn có chắc chắn muốn hủy không?',
+    cancelFile: 'Nội dung đã được tải lên thành công, bạn có chắc chắn muốn hủy không?',
   },
   month: {
     Jan: 'Tháng Một',
@@ -584,8 +591,8 @@ export default {
     },
     shopBuySuc: {
       1: 'tuyệt vời! Đã thanh toán thành công để mở khóa bài đăng',
-      2: 'Chọn vào bài viết để xem, hoặc ở lại màn hình gốc để duyệt!',
-      confirm: 'Đi tới bài viết',
+      2: 'Chọn vào bài viết để xem, hoặc ở lại màn hình gốc để duyệt nhé!',
+      confirm: 'Đi tới bài đăng',
     },
     title: { paySuc: 'Thanh toán được thực hiện thành công' },
     paying: { title: 'Thanh toán đang được xử lý' },
@@ -768,12 +775,6 @@ export default {
       aup: 'Acceptable Use Policy',
       cookiePolicy: 'Cookie Policy',
       complaintsPolicy: 'Complaints Policy',
-    },
-  },
-  cancel: {
-    publish: {
-      title: 'Hủy bỏ công bố',
-      content: 'Nếu bạn rời đi bây giờ, bạn sẽ mất tất cả nội dung hiện tại. Bạn có chắc chắn muốn rời đi không?',
     },
   },
 }

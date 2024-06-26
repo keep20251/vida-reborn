@@ -70,6 +70,7 @@ export default {
     logout: 'Déconnexion',
     post: 'Publication',
     publish: 'Publier un Post',
+    editPost: 'Modifier le message',
     mine: 'le mien',
     mineBuy: 'Mes Achats',
     minePost: 'Mes Publications',
@@ -101,6 +102,9 @@ export default {
     updateSuccess: 'Mise à jour réussie',
     updateFail: 'Mise à jour échouée',
     publishFail: 'Publication Échouée',
+    cancelPublish: 'Annuler la publication',
+    cancelUpload: 'Annuler le téléchargement',
+    cancelFile: 'Annuler le contenu',
     delSuccess: 'Supprimé avec succès',
     createFeed: 'Créer une publication',
     submitSuccess: 'Soumis avec succès',
@@ -110,7 +114,6 @@ export default {
     beCreatorFirst: "Veuillez d'abord devenir créateur avant de publier !",
     officeEmail: 'Courriel officiel',
     mineCard: 'Gérer les cartes',
-    cancelUpload: 'Annuler le téléchargement',
   },
   label: {
     account: 'Nom d’utilisateur',
@@ -177,7 +180,7 @@ export default {
     subPlanCtn: 'Description du plan',
     subPlanPrice: 'Prix du plan',
     subBtn: 'Abonnez-vous pour débloquer le contenu complet',
-    buyBtn: 'Payer par article pour débloquer le contenu',
+    buyBtn: 'Débloquer tout le contenu',
     eventAd: 'Événements et annonces VIDA',
     just: "à l'instant",
     minutesAgo: 'il y a {minutes} minutes',
@@ -317,6 +320,8 @@ export default {
     allDays: 'Tous les jours',
     customDays: 'Jours personnalisés',
     invalidCard: 'Invalide',
+    publishTagNameLess: 'Étiquette trop courte',
+    publishTagNameMore: 'Étiquette trop longue',
   },
   content: {
     default: 'Par défaut, ne devrait apparaître nulle part',
@@ -404,7 +409,9 @@ export default {
     afterUpload:
       "Après avoir sélectionné un fichier, passez à l'étape suivante pour éditer le contenu de la publication",
     createSubBeforePost: "Avant de publier, complétez d'abord votre plan d'abonnement !",
+    cancelPublish: 'Si vous partez maintenant, vous perdrez tout le contenu actuel. Êtes-vous sûr de vouloir partir ?',
     cancelUpload: 'Le fichier est en cours de téléchargement. Êtes-vous sûr de vouloir annuler ?',
+    cancelFile: 'Le contenu a été téléchargé avec succès, êtes-vous sûr de vouloir annuler ?',
   },
   month: {
     Jan: 'Janvier',
@@ -582,13 +589,13 @@ export default {
       confirm: "{'$'}{price} par mois Aller au paiement",
     },
     shopBuy: {
-      1: 'Déverrouillera le contenu de {nickname} dans cette œuvre',
+      1: 'Déverrouillera le contenu de {nickname} dans ce travail',
       2: '{nickname} recevra votre paiement dans son intégralité',
       confirm: "Débloquez maintenant ({'$'}{price})",
     },
     subscribeSuc: {
       1: 'merveilleux! Vous vous êtes abonné avec succès à {nickname} !',
-      2: "Choisissez d'accéder à la page d'accueil du créateur, ou restez sur l'écran d'origine et parcourez !",
+      2: "Choisissez d'accéder à la page d'accueil du créateur ou de rester sur l'écran d'origine et de naviguer !",
       confirm: 'Aller à la page du créateur',
     },
     shopBuySuc: {
@@ -783,12 +790,6 @@ export default {
       aup: 'Acceptable Use Policy',
       cookiePolicy: 'Cookie Policy',
       complaintsPolicy: 'Complaints Policy',
-    },
-  },
-  cancel: {
-    publish: {
-      title: 'Annuler la publication',
-      content: 'Si vous partez maintenant, vous perdrez tout le contenu actuel. Êtes-vous sûr de vouloir partir ?',
     },
   },
 }

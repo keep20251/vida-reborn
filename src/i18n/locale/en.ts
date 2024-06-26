@@ -65,6 +65,7 @@ export default {
     logout: 'Logout',
     post: 'Post',
     publish: 'Publish Post',
+    editPost: 'Edit Post',
     mine: 'Mine',
     mineBuy: 'My Purchases',
     minePost: 'My Posts',
@@ -96,6 +97,9 @@ export default {
     updateSuccess: 'Update completed',
     updateFail: 'Update Failed',
     publishFail: 'Publish Failed',
+    cancelPublish: 'Cancel Publication',
+    cancelUpload: 'Cancel Upload',
+    cancelFile: 'Cancel Content',
     delSuccess: 'Successfully deleted',
     createFeed: 'Create',
     submitSuccess: 'Submitted successfully',
@@ -105,7 +109,6 @@ export default {
     beCreatorFirst: 'Please become a creator first before posting!',
     officeEmail: 'Official email',
     mineCard: 'Manage Cards',
-    cancelUpload: 'Cancel Upload',
   },
   label: {
     account: 'Username',
@@ -172,7 +175,7 @@ export default {
     subPlanCtn: 'Plan Description',
     subPlanPrice: 'Plan Price',
     subBtn: 'Subscribe to unlock full content',
-    buyBtn: 'Pay to unlock content',
+    buyBtn: 'Unlock Full Content',
     eventAd: 'VIDA Events and Ads',
     just: 'just now',
     minutesAgo: '{minutes} minutes ago',
@@ -312,6 +315,8 @@ export default {
     allDays: 'All days',
     customDays: 'Custom days',
     invalidCard: 'Invalid',
+    publishTagNameLess: 'Tag too short',
+    publishTagNameMore: 'Tag too long',
   },
   content: {
     default: "Default, shouldn't show up anywhere",
@@ -397,7 +402,9 @@ export default {
     tapForUpload: 'Tap here to upload a photo or video',
     afterUpload: 'After selecting a file, proceed to the next step to edit the post content',
     createSubBeforePost: 'Before posting, first complete your subscription plan!',
+    cancelPublish: 'If you leave now, you will lose all current content. Are you sure you want to leave?',
     cancelUpload: 'The file is uploading. Are you sure you want to cancel?',
+    cancelFile: 'The content has been successfully uploaded, are you sure you want to cancel?',
   },
   month: {
     Jan: 'January',
@@ -768,12 +775,6 @@ export default {
       aup: 'Acceptable Use Policy',
       cookiePolicy: 'Cookie Policy',
       complaintsPolicy: 'Complaints Policy',
-    },
-  },
-  cancel: {
-    publish: {
-      title: 'Cancel Publication',
-      content: 'If you leave now, you will lose all current content. Are you sure you want to leave?',
     },
   },
 }

@@ -65,6 +65,7 @@ export default {
     logout: 'लॉग आउट करें',
     post: 'पोस्ट',
     publish: 'पोस्ट प्रकाशित करें',
+    editPost: 'पोस्ट संपादित करें',
     mine: 'मेरा',
     mineBuy: 'मेरी खरीदारी',
     minePost: 'मेरे पोस्ट',
@@ -96,6 +97,9 @@ export default {
     updateSuccess: 'अद्यतन पूरा हुआ',
     updateFail: 'अद्यतन विफल',
     publishFail: 'प्रकाशन विफल',
+    cancelPublish: 'प्रकाशन रद्द करें',
+    cancelUpload: 'अपलोड रद्द करें',
+    cancelFile: 'सामग्री रद्द करें',
     delSuccess: 'सफलतापूर्वक हटाया गया',
     createFeed: 'पोस्ट बनाएं',
     submitSuccess: 'सफलतापूर्वक सबमिट किया गया',
@@ -105,7 +109,6 @@ export default {
     beCreatorFirst: 'कृपया पोस्ट करने से पहले एक निर्माता बनें!',
     officeEmail: 'आधिकारिक ईमेल',
     mineCard: 'कार्ड प्रबंधन',
-    cancelUpload: 'अपलोड रद्द करें',
   },
   label: {
     account: 'उपयोगकर्ता नाम',
@@ -172,7 +175,7 @@ export default {
     subPlanCtn: 'योजना विवरण',
     subPlanPrice: 'योजना मूल्य',
     subBtn: 'पूरी सामग्री को अनलॉक करने के लिए सब्सक्राइब करें',
-    buyBtn: 'प्रति आइटम भुगतान करके सामग्री अनलॉक करें',
+    buyBtn: 'सभी सामग्री को अनलॉक करें',
     eventAd: 'VIDA इवेंट्स और विज्ञापन',
     just: 'अभी अभी',
     minutesAgo: '{minutes} मिनट पहले',
@@ -312,6 +315,8 @@ export default {
     allDays: 'सभी दिन',
     customDays: 'कस्टम दिन',
     invalidCard: 'अमान्य',
+    publishTagNameLess: 'टैग बहुत छोटा है',
+    publishTagNameMore: 'टैग बहुत लंबा है',
   },
   content: {
     default: 'डिफ़ॉल्ट, कहीं भी दिखाई नहीं देना चाहिए',
@@ -396,7 +401,9 @@ export default {
     tapForUpload: 'फोटो या वीडियो अपलोड करने के लिए यहां टैप करें',
     afterUpload: 'फाइल चुनने के बाद, पोस्ट कंटेंट एडिट करने के लिए अगले चरण में जाएं',
     createSubBeforePost: 'पोस्टिंग से पहले, अपनी सदस्यता योजना पहले पूरी करें!',
+    cancelPublish: 'अगर आप अभी छोड़ते हैं, तो आप सभी वर्तमान सामग्री खो देंगे। क्या आप सच में छोड़ना चाहते हैं?',
     cancelUpload: 'फाइल अपलोड हो रही है। क्या आप निश्चित रूप से रद्द करना चाहते हैं?',
+    cancelFile: 'सामग्री सफलतापूर्वक अपलोड हो गई है, क्या आप सुनिश्चित हैं कि आप रद्द करना चाहते हैं?',
   },
   month: {
     Jan: 'जनवरी',
@@ -731,12 +738,6 @@ export default {
       aup: 'Acceptable Use Policy',
       cookiePolicy: 'Cookie Policy',
       complaintsPolicy: 'Complaints Policy',
-    },
-  },
-  cancel: {
-    publish: {
-      title: 'प्रकाशन रद्द करें',
-      content: 'अगर आप अभी छोड़ते हैं, तो आप सभी वर्तमान सामग्री खो देंगे। क्या आप सच में छोड़ना चाहते हैं?',
     },
   },
 }

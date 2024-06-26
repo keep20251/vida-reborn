@@ -65,6 +65,7 @@ export default {
     logout: 'تسجيل الخروج',
     post: 'المنشور',
     publish: 'نشر المشاركة',
+    editPost: 'تحرير المنشور',
     mine: 'مِلكِي',
     mineBuy: 'مشترياتي',
     minePost: 'منشوراتي',
@@ -96,6 +97,9 @@ export default {
     updateSuccess: 'تم التحديث بنجاح',
     updateFail: 'فشل التحديث',
     publishFail: 'فشل النشر',
+    cancelPublish: 'إلغاء النشر',
+    cancelUpload: 'إلغاء التحميل',
+    cancelFile: 'إلغاء المحتوى',
     delSuccess: 'تم الحذف بنجاح',
     createFeed: 'إنشاء منشور',
     submitSuccess: 'تم الإرسال بنجاح',
@@ -105,7 +109,6 @@ export default {
     beCreatorFirst: 'من فضلك كن منشئًا أولاً قبل النشر!',
     officeEmail: 'البريد الإلكتروني الرسمي',
     mineCard: 'إدارة البطاقات',
-    cancelUpload: 'إلغاء التحميل',
   },
   label: {
     account: 'اسم المستخدم',
@@ -172,7 +175,7 @@ export default {
     subPlanCtn: 'وصف الخطة',
     subPlanPrice: 'سعر الخطة',
     subBtn: 'اشترك لفتح المحتوى كامل',
-    buyBtn: 'دفع مقابل كل عنصر لفتح المحتوى',
+    buyBtn: 'فتح الوصول لكل المحتويات',
     eventAd: 'فعاليات وإعلانات VIDA',
     just: 'للتو',
     minutesAgo: 'منذ {minutes} دقائق',
@@ -312,6 +315,8 @@ export default {
     allDays: 'جميع الأيام',
     customDays: 'أيام مخصصة',
     invalidCard: 'غير صالح',
+    publishTagNameLess: 'العلامة قصيرة جدًا',
+    publishTagNameMore: 'العلامة طويلة جدًا',
   },
   content: {
     default: 'الافتراضي، لا ينبغي أن تظهر في أي مكان',
@@ -395,7 +400,9 @@ export default {
     tapForUpload: 'انقر هنا لتحميل صورة أو فيديو',
     afterUpload: 'بعد اختيار ملف، انتقل إلى الخطوة التالية لتحرير محتوى المنشور',
     createSubBeforePost: 'قبل النشر، قم أولاً بإكمال خطة الاشتراك الخاصة بك!',
+    cancelPublish: 'إذا غادرت الآن، ستفقد جميع المحتويات الحالية. هل أنت متأكد أنك تريد المغادرة؟',
     cancelUpload: 'الملف يتم تحميله. هل أنت متأكد من أنك تريد الإلغاء؟',
+    cancelFile: 'تم تحميل المحتوى بنجاح، هل أنت متأكد أنك تريد الإلغاء؟',
   },
   month: {
     Jan: 'يناير',
@@ -759,12 +766,6 @@ export default {
       aup: 'Acceptable Use Policy',
       cookiePolicy: 'Cookie Policy',
       complaintsPolicy: 'Complaints Policy',
-    },
-  },
-  cancel: {
-    publish: {
-      title: 'إلغاء النشر',
-      content: 'إذا غادرت الآن، ستفقد جميع المحتويات الحالية. هل أنت متأكد أنك تريد المغادرة؟',
     },
   },
 }

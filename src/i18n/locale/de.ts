@@ -70,6 +70,7 @@ export default {
     logout: 'Abmelden',
     post: 'Beitrag',
     publish: 'Beitrag veröffentlichen',
+    editPost: 'Beitrag bearbeiten',
     mine: 'meins',
     mineBuy: 'Meine Einkäufe',
     minePost: 'Meine Beiträge',
@@ -101,6 +102,9 @@ export default {
     updateSuccess: 'Aktualisierung erfolgreich',
     updateFail: 'Aktualisierung fehlgeschlagen',
     publishFail: 'Veröffentlichung fehlgeschlagen',
+    cancelPublish: 'Veröffentlichung abbrechen',
+    cancelUpload: 'Upload abbrechen',
+    cancelFile: 'Inhalt abbrechen',
     delSuccess: 'Erfolgreich gelöscht',
     createFeed: 'Beitrag erstellen',
     submitSuccess: 'Erfolgreich eingereicht',
@@ -110,7 +114,6 @@ export default {
     beCreatorFirst: 'Bitte werden Sie zuerst ein Creator, bevor Sie posten!',
     officeEmail: 'Offizielle E-Mail',
     mineCard: 'Karten verwalten',
-    cancelUpload: 'Upload abbrechen',
   },
   label: {
     account: 'Benutzername',
@@ -177,7 +180,7 @@ export default {
     subPlanCtn: 'Planbeschreibung',
     subPlanPrice: 'Planpreis',
     subBtn: 'Abonnieren, um den vollständigen Inhalt freizuschalten',
-    buyBtn: 'Einzelzahlung, um Inhalte freizuschalten',
+    buyBtn: 'Gesamten Inhalt freischalten',
     eventAd: 'VIDA Veranstaltungen und Werbung',
     just: 'gerade eben',
     minutesAgo: 'vor {minutes} Minuten',
@@ -317,6 +320,8 @@ export default {
     allDays: 'Alle Tage',
     customDays: 'Angepasste Tage',
     invalidCard: 'Ungültig',
+    publishTagNameLess: 'Tag zu kurz',
+    publishTagNameMore: 'Tag zu lang',
   },
   content: {
     default: 'Standardmäßig, sollte nirgendwo auftauchen',
@@ -374,7 +379,7 @@ export default {
     style: 'Stil',
     subUnlockDayAfter: 'Beiträge einige Tage nach dem Kauf freischalten?',
     tokenExpired: 'Die Anmeldesitzung ist abgelaufen. Bitte melden Sie sich erneut an.',
-    clearSearchHistory: 'Sind Sie sicher, dass Sie Ihren Suchverlauf löschen möchten?',
+    clearSearchHistory: 'Möchten Sie Ihren Suchverlauf wirklich löschen?',
     uploadVideoLimit: {
       format:
         'Das aktuell hochgeladene Videoformat ({format}) wird nicht unterstützt. Bitte konvertieren Sie es in das MP4- oder MOV-Format und versuchen Sie es erneut.',
@@ -404,7 +409,10 @@ export default {
     afterUpload:
       'Nachdem Sie eine Datei ausgewählt haben, gehen Sie zum nächsten Schritt, um den Beitrag zu bearbeiten',
     createSubBeforePost: 'Bevor Sie posten, vervollständigen Sie zuerst Ihren Abonnementplan!',
+    cancelPublish:
+      'Wenn Sie jetzt gehen, verlieren Sie alle aktuellen Inhalte. Sind Sie sicher, dass Sie gehen möchten?',
     cancelUpload: 'Die Datei wird hochgeladen. Sind Sie sicher, dass Sie abbrechen möchten?',
+    cancelFile: 'Der Inhalt wurde erfolgreich hochgeladen, möchten Sie wirklich abbrechen?',
   },
   month: {
     Jan: 'Januar',
@@ -782,12 +790,6 @@ export default {
       aup: 'Acceptable Use Policy',
       cookiePolicy: 'Cookie Policy',
       complaintsPolicy: 'Complaints Policy',
-    },
-  },
-  cancel: {
-    publish: {
-      title: 'Veröffentlichung abbrechen',
-      content: 'Wenn Sie jetzt gehen, verlieren Sie alle aktuellen Inhalte. Sind Sie sicher, dass Sie gehen möchten?',
     },
   },
 }

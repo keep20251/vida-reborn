@@ -65,6 +65,7 @@ export default {
     logout: 'Keluar',
     post: 'Posting',
     publish: 'Memublikasikan Posting',
+    editPost: 'Edit Post',
     mine: 'milikku',
     mineBuy: 'Pembelian Saya',
     minePost: 'Postingan Saya',
@@ -96,6 +97,9 @@ export default {
     updateSuccess: 'Pembaruan selesai',
     updateFail: 'Pembaruan gagal',
     publishFail: 'Penerbitan Gagal',
+    cancelPublish: 'Batalkan penerbitan',
+    cancelUpload: 'Batalkan pengunggahan',
+    cancelFile: 'Batalkan konten',
     delSuccess: 'Berhasil dihapus',
     createFeed: 'Buat Posting',
     submitSuccess: 'Berhasil dikirim',
@@ -105,7 +109,6 @@ export default {
     beCreatorFirst: 'Harap menjadi kreator terlebih dahulu sebelum memposting!',
     officeEmail: 'Email resmi',
     mineCard: 'Kelola Kartu',
-    cancelUpload: 'Batalkan pengunggahan',
   },
   label: {
     account: 'Nama pengguna',
@@ -172,7 +175,7 @@ export default {
     subPlanCtn: 'Deskripsi Rencana',
     subPlanPrice: 'Harga Rencana',
     subBtn: 'Berlangganan untuk membuka konten lengkap',
-    buyBtn: 'Bayar per item untuk membuka kunci konten',
+    buyBtn: 'Membuka kunci seluruh konten',
     eventAd: 'Acara dan Iklan VIDA',
     just: 'baru saja',
     minutesAgo: '{minutes} menit yang lalu',
@@ -312,6 +315,8 @@ export default {
     allDays: 'Semua hari',
     customDays: 'Hari khusus',
     invalidCard: 'Tidak berlaku',
+    publishTagNameLess: 'Label terlalu pendek',
+    publishTagNameMore: 'Tandai terlalu panjang',
   },
   content: {
     default: 'Defaultnya, seharusnya tidak muncul di mana pun',
@@ -398,7 +403,9 @@ export default {
     tapForUpload: 'Klik di sini untuk mengunggah foto atau video',
     afterUpload: 'Setelah memilih file, lanjutkan ke langkah berikutnya untuk mengedit konten postingan',
     createSubBeforePost: 'Sebelum memposting, selesaikan dulu rencana langganan Anda!',
+    cancelPublish: 'Jika Anda keluar sekarang, Anda akan kehilangan semua konten saat ini. Anda yakin ingin keluar?',
     cancelUpload: 'File sedang diunggah. Anda yakin ingin membatalkan?',
+    cancelFile: 'Konten telah berhasil diunggah, apakah Anda yakin ingin membatalkan?',
   },
   month: {
     Jan: 'Januari',
@@ -580,7 +587,7 @@ export default {
     },
     subscribeSuc: {
       1: 'menakjubkan! Berhasil berlangganan {nickname}!',
-      2: 'Pilih untuk membuka beranda pembuat konten, atau tetap berada di layar asli dan jelajahi!',
+      2: 'Pilih untuk membuka beranda pembuat konten, atau tetap berada di layar asli dan menjelajah!',
       confirm: 'Buka halaman pembuat',
     },
     shopBuySuc: {
@@ -769,12 +776,6 @@ export default {
       aup: 'Acceptable Use Policy',
       cookiePolicy: 'Cookie Policy',
       complaintsPolicy: 'Complaints Policy',
-    },
-  },
-  cancel: {
-    publish: {
-      title: 'Batalkan penerbitan',
-      content: 'Jika Anda keluar sekarang, Anda akan kehilangan semua konten saat ini. Anda yakin ingin keluar?',
     },
   },
 }

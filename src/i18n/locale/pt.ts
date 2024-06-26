@@ -65,6 +65,7 @@ export default {
     logout: 'Sair',
     post: 'Postagem',
     publish: 'Publicar Postagem',
+    editPost: 'Editar postagem',
     mine: 'meu',
     mineBuy: 'Minhas Compras',
     minePost: 'Minhas Postagens',
@@ -96,6 +97,9 @@ export default {
     updateSuccess: 'Atualização concluída',
     updateFail: 'Atualização falhou',
     publishFail: 'Falha na Publicação',
+    cancelPublish: 'Cancelar publicação',
+    cancelUpload: 'Cancelar upload',
+    cancelFile: 'Cancelar conteúdo',
     delSuccess: 'Excluído com sucesso',
     createFeed: 'Criar postagem',
     submitSuccess: 'Enviado com sucesso',
@@ -105,7 +109,6 @@ export default {
     beCreatorFirst: 'Por favor, torne-se um criador antes de postar!',
     officeEmail: 'E-mail oficial',
     mineCard: 'Gerenciar cartões',
-    cancelUpload: 'Cancelar upload',
   },
   label: {
     account: 'Nome de usuário',
@@ -172,7 +175,7 @@ export default {
     subPlanCtn: 'Descrição do Plano',
     subPlanPrice: 'Preço do Plano',
     subBtn: 'Assine para desbloquear o conteúdo completo',
-    buyBtn: 'Pagar por item para desbloquear conteúdo',
+    buyBtn: 'Desbloquear todo o conteúdo',
     eventAd: 'Eventos e anúncios VIDA',
     just: 'agora mesmo',
     minutesAgo: 'há {minutes} minutos',
@@ -312,6 +315,8 @@ export default {
     allDays: 'Todos os dias',
     customDays: 'Dias personalizados',
     invalidCard: 'Inválido',
+    publishTagNameLess: 'Etiqueta muito curta',
+    publishTagNameMore: 'Etiqueta muito longa',
   },
   content: {
     default: 'Padrão, não deve aparecer em lugar nenhum',
@@ -398,7 +403,9 @@ export default {
     tapForUpload: 'Toque aqui para fazer upload de uma foto ou vídeo',
     afterUpload: 'Após selecionar um arquivo, prossiga para a próxima etapa para editar o conteúdo da postagem',
     createSubBeforePost: 'Antes de postar, complete primeiro o seu plano de assinatura!',
+    cancelPublish: 'Se você sair agora, perderá todo o conteúdo atual. Tem certeza de que deseja sair?',
     cancelUpload: 'O arquivo está sendo carregado. Tem certeza de que deseja cancelar?',
+    cancelFile: 'O conteúdo foi carregado com sucesso, tem certeza de que deseja cancelar?',
   },
   month: {
     Jan: 'Janeiro',
@@ -578,7 +585,7 @@ export default {
     shopBuy: {
       1: 'Irá desbloquear o conteúdo de {nickname} neste trabalho',
       2: '{nickname}receberá seu pagamento integralmente',
-      confirm: "Desbloqueie agora ({'$'}{price})",
+      confirm: "Desbloquear agora ({'$'}{price})",
     },
     subscribeSuc: {
       1: 'maravilhoso! Inscrito em {nickname} com sucesso!',
@@ -777,12 +784,6 @@ export default {
       aup: 'Acceptable Use Policy',
       cookiePolicy: 'Cookie Policy',
       complaintsPolicy: 'Complaints Policy',
-    },
-  },
-  cancel: {
-    publish: {
-      title: 'Cancelar publicação',
-      content: 'Se você sair agora, perderá todo o conteúdo atual. Tem certeza de que deseja sair?',
     },
   },
 }

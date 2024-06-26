@@ -41,7 +41,7 @@ export default {
     cookie: 'Acepta y no vuelvas a mostrar este mensaje',
     check: 'Verificar',
     subscribe: 'suscripción',
-    subscribed: 'suscrito',
+    subscribed: 'Suscrito',
     cancelSubscribe: 'Cancelar',
     restoreSubscribe: 'Reanudar',
     reSubscribe: 'Resuscribir',
@@ -70,6 +70,7 @@ export default {
     logout: 'Cerrar sesión',
     post: 'Publicación',
     publish: 'Publicar Post',
+    editPost: 'Editar Publicación',
     mine: 'mío',
     mineBuy: 'Mis Compras',
     minePost: 'Mis Publicaciones',
@@ -101,6 +102,9 @@ export default {
     updateSuccess: 'Actualización completada',
     updateFail: 'Actualización fallida',
     publishFail: 'Publicación Fallida',
+    cancelPublish: 'Cancelar publicación',
+    cancelUpload: 'Cancelar subida',
+    cancelFile: 'Cancelar contenido',
     delSuccess: 'Eliminado con éxito',
     createFeed: 'Crear publicación',
     submitSuccess: 'Enviado con éxito',
@@ -110,7 +114,6 @@ export default {
     beCreatorFirst: '¡Por favor, conviértete primero en creador antes de publicar!',
     officeEmail: 'Correo oficial',
     mineCard: 'Gestionar tarjetas',
-    cancelUpload: 'Cancelar subida',
   },
   label: {
     account: 'Nombre de usuario',
@@ -177,7 +180,7 @@ export default {
     subPlanCtn: 'Descripción del plan',
     subPlanPrice: 'Precio del plan',
     subBtn: 'Suscribirse para desbloquear el contenido completo',
-    buyBtn: 'Pagar por artículo para desbloquear contenido',
+    buyBtn: 'Desbloquear todo el contenido',
     eventAd: 'Eventos y anuncios de VIDA',
     just: 'justo ahora',
     minutesAgo: 'hace {minutes} minutos',
@@ -317,6 +320,8 @@ export default {
     allDays: 'Todos los días',
     customDays: 'Días personalizados',
     invalidCard: 'Inválido',
+    publishTagNameLess: 'Etiqueta demasiado corta',
+    publishTagNameMore: 'Etiqueta demasiado larga',
   },
   content: {
     default: 'Predeterminado, no debería aparecer en ningún lado',
@@ -404,7 +409,9 @@ export default {
     afterUpload:
       'Después de seleccionar un archivo, procede al siguiente paso para editar el contenido de la publicación',
     createSubBeforePost: 'Antes de publicar, completa primero tu plan de suscripción!',
+    cancelPublish: 'Si sales ahora, perderás todo el contenido actual. ¿Estás seguro de que quieres salir?',
     cancelUpload: 'El archivo está subiendo. ¿Estás seguro de que quieres cancelar?',
+    cancelFile: 'El contenido se ha subido correctamente, ¿estás seguro de que quieres cancelar?',
   },
   month: {
     Jan: 'Enero',
@@ -784,12 +791,6 @@ export default {
       aup: 'Acceptable Use Policy',
       cookiePolicy: 'Cookie Policy',
       complaintsPolicy: 'Complaints Policy',
-    },
-  },
-  cancel: {
-    publish: {
-      title: 'Cancelar publicación',
-      content: 'Si sales ahora, perderás todo el contenido actual. ¿Estás seguro de que quieres salir?',
     },
   },
 }
