@@ -10,7 +10,7 @@
       </div>
       <div class="flex flex-row space-x-10">
         <div class="relative h-73 w-100">
-          <EncryptImage :src="item.url[0].url" :borderRadius="5" :height="73" :width="100" cover></EncryptImage>
+          <EncryptImage :src="imageUrl" :borderRadius="5" :height="73" :width="100" cover></EncryptImage>
           <div
             v-show="isImage"
             class="absolute bottom-0 right-0 flex flex-row items-center justify-center space-x-5 pb-5 pr-5"
@@ -26,7 +26,7 @@
             <span class="text-base font-normal leading-lg text-white">{{ videoTime }}</span>
           </div>
           <div v-show="props.expired" class="absolute bottom-0 right-0 w-full">
-            <div class="rounded-b-xs flex h-27 items-center justify-center bg-black">
+            <div class="flex h-27 items-center justify-center rounded-b-xs bg-black">
               <span class="text-white">{{ $t('common.expired') }}</span>
             </div>
           </div>
@@ -74,4 +74,6 @@ const videoTime = computed(() => toVideoTimeFormat(props.item.url[0]?.video_time
 
 const isVideo = computed(() => props.item.resource_type === MEDIA_TYPE.VIDEO)
 const isImage = computed(() => props.item.resource_type === MEDIA_TYPE.IMAGE)
+
+const imageUrl = computed(() => (isImage.value ? props.item.url[0].url : props.item.url[1].url))
 </script>
