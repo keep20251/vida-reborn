@@ -1,6 +1,11 @@
 import md5 from 'md5'
 import { v4 } from 'uuid'
 
+/**
+ * Apple SSO
+ * @deprecated It should be refactor in the future.
+ * @link [Apple Webpage Doc](https://developer.apple.com/documentation/sign_in_with_apple/sign_in_with_apple_js/configuring_your_webpage_for_sign_in_with_apple)
+ */
 export function useAppleSignIn() {
   function setupAppleInit() {
     const state = 'vida-apple-init-state'

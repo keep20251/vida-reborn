@@ -1,7 +1,6 @@
 import { useCookies } from '@vueuse/integrations/useCookies'
 import { hydrated } from '@use/lifecycle'
 import { COOKIE_KEY } from '@const'
-import { useAppleSignIn } from '@/utils/apple'
 import { setupStoreHydrate } from '@/utils/init'
 import { init } from '@/utils/video-store'
 import { createI18n } from '@/i18n'
@@ -21,10 +20,7 @@ createApp()
     app.use(i18n)
 
     router.isReady().then(async () => {
-      const { setupAppleInit } = useAppleSignIn()
-
       setupStoreHydrate(store)
-      setupAppleInit()
       preloadIcon()
 
       app.mount('#app')

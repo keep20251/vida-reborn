@@ -61,7 +61,6 @@
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
-import { useAccountStore } from '@/store/account'
 import { useAuthRouteStore } from '@/store/auth-route'
 import { useEmailLoginStore } from '@/store/email-login'
 import { useModalStore } from '@/store/modal'
@@ -73,9 +72,8 @@ import { useThirdPartyAuth } from '@use/request/third-party-auth'
 import { useYup } from '@use/validator/yup.js'
 import { AUTH_ROUTES, MODAL_TYPE } from '@const'
 
-const { twitterLogin, googleLogin, onAppleSignIn, redirect_uri } = useThirdPartyAuth()
+const { twitterLogin, googleLogin } = useThirdPartyAuth()
 const { to, close } = useAuthRouteStore()
-const { login } = useAccountStore()
 
 const { Yup, parseError } = useYup()
 const schema = Yup.string().email().required()
@@ -109,40 +107,8 @@ async function next() {
   }
 }
 
-/**
- * 蘋果登入成功後向後端請求取得 token
- * @param {Object} event
- */
-async function onAppleLoginSuccess(event) {
-  console.log('onAppleLoginSuccess', event)
-
-  const { code } = event
-  try {
-    const responseData = await useRequest('ThirdParty.webLoginByApple', {
-      params: {
-        redirect_uri,
-        apple_code: code,
-      },
-      immediate: true,
-    })
-    console.log('ThirdParty.webLoginByApple.response', responseData)
-    await login(responseData.token)
-  } catch (err) {
-    console.error(err)
-  }
-}
-
 const loginOptions = [
   { label: 'info.loginByAccount', icon: 'account', onClick: () => to(AUTH_ROUTES.LOGIN) },
-  // {
-  //   label: 'info.loginByApple',
-  //   icon: 'apple',
-  //   onClick: () =>
-  //     onAppleSignIn({
-  //       onSuccess: onAppleLoginSuccess,
-  //       onFailure: (e) => console.error(`Apple SignIn Failed`, e),
-  //     }),
-  // },
   { label: 'info.loginByGoogle', icon: 'google', onClick: googleLogin },
   { label: 'info.loginByTwitter', icon: 'twitter', onClick: twitterLogin },
 ]

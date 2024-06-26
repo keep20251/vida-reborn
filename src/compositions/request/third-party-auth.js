@@ -1,14 +1,11 @@
 import { useLocalStorage } from '@vueuse/core'
 import useRequest from '@use/request'
-import { useAppleSignIn } from '@/utils/apple.js'
 
 export function useThirdPartyAuth() {
   /**
    * 第三方登入後重定向的網址，告訴 Google, Twitter 要往哪個網址送GET參數過去
    */
   const redirect_uri = import.meta.env.VITE_APP_URL
-
-  const { bindEvents: bindAppleEvent, unbindEvents: unbindAppleEvent, onAppleSignIn } = useAppleSignIn()
 
   /**
    * 向後端請求取得 Twitter 登入頁面的網址
@@ -65,8 +62,5 @@ export function useThirdPartyAuth() {
     googleOAuth,
     twitterLogin,
     googleLogin,
-    bindAppleEvent,
-    unbindAppleEvent,
-    onAppleSignIn,
   }
 }
