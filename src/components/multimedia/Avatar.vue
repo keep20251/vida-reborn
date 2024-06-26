@@ -6,7 +6,7 @@
     <div v-else class="h-full w-full rounded-inherit bg-gray-f6">
       <img class="h-full w-full rounded-inherit" src="@/assets/images/default-avatar.svg?url" alt="DefaultAvatar" />
     </div>
-    <div v-if="cameraIcon" class="absolute left-55 top-40 cursor-pointer" @click="emits('click:camera')">
+    <div v-if="cameraIcon" class="absolute left-55 top-40 cursor-pointer" @click.stop="emits('click:camera')">
       <div class="flex h-30 w-30 items-center justify-center rounded-full bg-light-gray">
         <Icon class="" name="camera" size="20"></Icon>
       </div>

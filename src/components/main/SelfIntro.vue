@@ -1,6 +1,9 @@
 <template>
-  <div class="-mx-20 sm:ml-0 sm:mr-0 xl:ml-0 xl:mr-0">
-    <div class="relative mb-35 flex h-[180px] w-full bg-gray-57 bg-cover bg-center bg-no-repeat">
+  <div class="-mx-20 select-none sm:ml-0 sm:mr-0 xl:ml-0 xl:mr-0">
+    <div
+      class="relative mb-35 flex h-[180px] w-full bg-gray-57 bg-cover bg-center bg-no-repeat"
+      @click.stop="fullBg && openFullscreenImage(coverBg || item.background)"
+    >
       <EncryptImage v-if="coverBg || item.background" :src="coverBg || item.background" cover></EncryptImage>
       <div v-else class="h-full w-full rounded-inherit bg-gray-f6">
         <img class="h-full w-full rounded-inherit" src="@/assets/images/default-bg.jpg?url" alt="DefaultAvatar" />
@@ -8,7 +11,7 @@
       <div
         v-if="showBgUpload"
         class="absolute left-1/2 top-1/2 w-full -translate-x-2/4 -translate-y-2/4 cursor-pointer"
-        @click="() => inputBackground.click()"
+        @click.stop="() => inputBackground.click()"
       >
         <div class="flex justify-center">
           <div class="text-sm font-normal leading-3 text-white">{{ $t('info.clickToUploadBg') }}</div>
@@ -33,6 +36,7 @@
           :src="coverAvatar || item.thumb"
           :cameraIcon="cameraIcon"
           @click:camera="() => inputAvatar.click()"
+          @click.stop="fullAvatar && openFullscreenImage(coverAvatar || item.thumb)"
         ></Avatar>
       </div>
       <div class="absolute -bottom-50 right-0 mr-20 flex w-full justify-end sm:mr-0 xl:mr-0">
@@ -94,6 +98,7 @@ import { ref } from 'vue'
 import { useResizeObserver } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
+import { useFullscreenStore } from '@/store/fullscreen'
 import Avatar from '@comp/multimedia/Avatar.vue'
 
 const emits = defineEmits(['file:avatar', 'file:background'])
@@ -105,6 +110,8 @@ defineProps({
   showPersonalInfo: { type: Boolean, default: false },
   showAllInfo: { type: Boolean, default: false },
   cameraIcon: { type: Boolean, default: false },
+  fullAvatar: { type: Boolean, default: false },
+  fullBg: { type: Boolean, default: false },
 
   // 用於上傳圖片暫時取代原本的圖片
   coverBg: { type: String, default: null },
@@ -124,5 +131,10 @@ useResizeObserver(content, () => (showContentMore.value = content.value.scrollHe
 const contentFold = ref(true)
 function toggleContentFold() {
   contentFold.value = !contentFold.value
+}
+
+const { open } = useFullscreenStore()
+const openFullscreenImage = (url) => {
+  url && open({ name: 'single-photo', img: { url } })
 }
 </script>
