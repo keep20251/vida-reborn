@@ -1,16 +1,19 @@
-import { computed, readonly, ref } from 'vue'
+import { computed, readonly, ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import { useLocalStorage } from '@vueuse/core'
 import { defineStore } from 'pinia'
 import { useFeedStore } from '@/store/feed'
 import useRequest from '@use/request'
 import { useInfinite } from '@use/request/infinite'
+import { useRouters } from '@use/routers'
 import { LOCAL_STORAGE_KEYS, SEARCH_TAB } from '@const'
 
 export const useSearchStore = defineStore('search-store', () => {
   const activeTab = ref(SEARCH_TAB.POST)
   const keyword = ref('')
+  const hasQuery = computed(() => keyword.value !== '')
 
-  function setKeyword(value) {
+  function setKeyword(value = '') {
     keyword.value = value
   }
 
@@ -34,7 +37,11 @@ export const useSearchStore = defineStore('search-store', () => {
   )
 
   const nextAction = computed(() =>
-    activeTab.value === SEARCH_TAB.AUTHOR ? creatorFetcher.value.next : articleFetcher.value.next,
+    hasQuery.value
+      ? activeTab.value === SEARCH_TAB.AUTHOR
+        ? creatorFetcher.value.next
+        : articleFetcher.value.next
+      : void 0,
   )
 
   const reloadAction = computed(() =>
@@ -70,9 +77,32 @@ export const useSearchStore = defineStore('search-store', () => {
     historyTags.value.push({ value, label: value })
   }
 
+  const { to } = useRouters()
+  const route = useRoute()
+  watch(
+    [() => route.name, () => route.query.q],
+    ([name, q]) => {
+      if (name === 'search') {
+        if (q && q !== keyword.value) {
+          onSearch(q)
+        } else {
+          if (hasQuery.value) {
+            to('search', { query: { q: keyword.value } })
+          } else {
+            to('search')
+          }
+        }
+      }
+    },
+    {
+      immediate: true,
+    },
+  )
+
   return {
     activeTab,
     keyword: readonly(keyword),
+    hasQuery,
     setKeyword,
     reset,
 
@@ -88,7 +118,5 @@ export const useSearchStore = defineStore('search-store', () => {
     fetchPopularTags,
     clearHistoryTags,
     historyTags,
-
-    onSearch,
   }
 })

@@ -25,7 +25,7 @@
       ></EncryptImage>
     </div>
 
-    <div v-if="imgs.length > 1" class="absolute bottom-20 right-20 flex select-none space-x-5">
+    <div v-if="imgs.length > 1" class="absolute bottom-20 right-20 flex select-none space-x-5 drop-shadow">
       <Icon name="cameraWhite" size="20"></Icon>
       <span class="text-base text-white">{{ `${currIndex + 1}/${imgs.length}` }}</span>
     </div>

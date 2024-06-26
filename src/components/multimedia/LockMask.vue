@@ -1,7 +1,7 @@
 <template>
   <div class="absolute left-0 top-0 h-full w-full rounded-inherit">
     <EncryptImage v-if="showImage" :src="url" :border-radius="10" cover></EncryptImage>
-    <div class="absolute top-0 h-full w-full rounded-inherit bg-[rgba(0,0,0,0.5)] backdrop-blur">
+    <div class="absolute top-0 h-full w-full rounded-inherit backdrop-blur">
       <div :class="[pageClass]">
         <Icon v-if="icon && !isFullscreen" :name="icon" size="20"></Icon>
         <span v-if="meta" :class="[pageMetaClass]">{{ meta }}</span>
@@ -16,7 +16,7 @@
         @click.stop="$emit('replay')"
       ></Icon>
       <div @click.stop>
-        <Button @click="clickAction(actionParams)">{{ btnText }}</Button>
+        <Button fit-width @click="clickAction(actionParams)">{{ btnText }}</Button>
       </div>
     </div>
   </div>
@@ -81,8 +81,8 @@ const actionParams = computed(() => {
 const icon = computed(() => (isVideo.value ? 'videoWhite' : isImage.value ? 'cameraWhite' : ''))
 
 const pageClass = computed(() => {
-  if (props.isFullscreen) return 'absolute right-[calc(50%-1rem)] top-20 flex space-x-5'
-  return 'absolute bottom-20 right-20 flex space-x-5'
+  if (props.isFullscreen) return 'absolute right-[calc(50%-1rem)] top-20 flex space-x-5 drop-shadow'
+  return 'absolute bottom-20 right-20 flex space-x-5 drop-shadow'
 })
 
 const pageMetaClass = computed(() => {

@@ -6,7 +6,7 @@
       height,
       font,
       padding,
-      { 'w-full': size === 'lg', 'border-[1.5px] border-gray-57': !!border, '!text-black': !!textDark },
+      { 'w-full': size === 'lg' && !fitWidth, 'border-[1.5px] border-gray-57': !!border, '!text-black': !!textDark },
     ]"
     :disabled="loading || disabled"
     @click="$emit('click')"
@@ -33,6 +33,7 @@ const props = defineProps({
   disabled: { type: Boolean, default: false },
   textDark: { type: Boolean, default: false },
   border: { type: Boolean, default: false },
+  fitWidth: { type: Boolean, default: false },
 })
 
 defineEmits(['click'])
@@ -79,6 +80,11 @@ const padding = computed(() => {
     case 'sm':
       return 'px-18 py-6'
     case 'lg':
+      if (props.fitWidth) {
+        return 'px-45 py-10'
+      } else {
+        return 'px-18 py-10'
+      }
     default:
       return 'px-18 py-10'
   }
