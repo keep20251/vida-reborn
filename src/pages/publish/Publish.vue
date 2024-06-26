@@ -430,6 +430,8 @@ function publish() {
       toMinePostTab = POST_TAB_TYPE.SUB
     } else if (publishParams.perm === FEED_PERM.BUY) {
       toMinePostTab = POST_TAB_TYPE.BUY
+    } else if (publishParams.perm === FEED_PERM.PRI) {
+      toMinePostTab = POST_TAB_TYPE.PRI
     }
   }
 
