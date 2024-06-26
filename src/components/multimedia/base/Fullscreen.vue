@@ -1,6 +1,6 @@
 <template>
   <Transition name="slids">
-    <div v-if="isActivated" :class="[fullScreenClass]" ref="fullScreenContainer">
+    <div v-if="true" :class="[fullScreenClass]" ref="fullScreenContainer">
       <div :class="[fullScreenBackClass]" @click="handleBackDrop"></div>
       <div :class="[fullScreenContentClass]">
         <component :is="baseComponent" :config="config">
@@ -34,16 +34,13 @@ const { isDesktop } = storeToRefs(useAppStore())
 const baseComponent = computed(() => (isDesktop.value ? Desktop : Mobile))
 
 const { open, close, handleBackDrop } = useFullscreenStore()
-const { isActivated, backdrop, showCloseBtn, mediaList, mediaCurrentIndex } = storeToRefs(useFullscreenStore())
+const { backdrop, showCloseBtn, activ } = storeToRefs(useFullscreenStore())
 
 const fullScreenContainer = ref(null)
 
 const config = computed(() => ({
-  isActivated: isActivated.value,
   backdrop: backdrop.value,
   showCloseBtn: showCloseBtn.value,
-  mediaList: mediaList.value,
-  mediaCurrentIndex: mediaCurrentIndex.value,
   close: close,
   open: open,
 }))

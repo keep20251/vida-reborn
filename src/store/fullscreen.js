@@ -4,6 +4,7 @@ import { useAppStore } from './app'
 
 export const useFullscreenStore = defineStore('fullscreen', () => {
   const isActivated = ref(false)
+  const activeName = ref('')
   const backdrop = ref(true)
   const showCloseBtn = ref(true)
   const mediaType = ref('image') // image, video, audio, for extension
@@ -13,6 +14,7 @@ export const useFullscreenStore = defineStore('fullscreen', () => {
   const mediaContainer = ref({})
 
   const close = async () => {
+    activeName.value = ''
     isActivated.value = false
     setTimeout(() => {
       const html = document.getElementsByTagName('html')[0]
@@ -27,6 +29,7 @@ export const useFullscreenStore = defineStore('fullscreen', () => {
 
     mediaContainer.value = props
     isActivated.value = true
+    activeName.value = props.name
 
     const html = document.getElementsByTagName('html')[0]
     html.style.overflow = 'hidden'
@@ -58,5 +61,6 @@ export const useFullscreenStore = defineStore('fullscreen', () => {
     open,
     mediaContainer,
     handleBackDrop,
+    activeName,
   }
 })

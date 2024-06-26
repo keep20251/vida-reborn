@@ -1,14 +1,14 @@
 <template>
-  <BaseMedia class="baseMediaFullScreen">
+  <BaseMedia class="baseMediaFullScreen" v-if="isFullPhotosActivated">
     <template v-slot:closeBtn="{}">
       <Icon name="closeWhite" size="15" @click="closeAndReset()"></Icon>
     </template>
 
     <template v-slot:content="{}">
-      <div class="relative h-full w-full overflow-hidden rounded-inherit" ref="swiper">
+      <div class="h-full w-full overflow-hidden rounded-inherit" ref="swiper">
         <div
           v-for="(img, i) in imgs"
-          class="absolute top-0 h-full w-full"
+          class="top-0 h-full w-full"
           :class="{ 'will-change-transform': animIndex % 1 !== 0 }"
           :style="{
             transform: `translateX(${(i - animIndex) * 100}%)`,
@@ -35,9 +35,9 @@
         <div v-if="imgs.length > 1" class="absolute right-[calc(50%-1rem)] top-20 flex select-none space-x-5">
           <span class="text-base tracking-wide text-white">{{ `${currIndex + 1} / ${imgs.length}` }}</span>
         </div>
-        <!-- lock -->
+        lock
         <LockMask v-if="isLock" :item="item" :meta="`${currIndex + 1} / ${imgs.length}`" isFullscreen></LockMask>
-        <!-- prev -->
+        prev
         <div
           v-if="isDesktop && imgs.length > 1 && currIndex >= 1"
           class="absolute left-0 top-0 flex h-full w-40 cursor-pointer items-center justify-end"
@@ -75,7 +75,9 @@ const BaseMedia = defineAsyncComponent(() => import('./base/Fullscreen.vue'))
 
 const fullscreenStore = useFullscreenStore()
 const { close } = fullscreenStore
-const { mediaContainer, isActivated } = storeToRefs(fullscreenStore)
+const { mediaContainer, isActivated, activeName } = storeToRefs(fullscreenStore)
+
+const isFullPhotosActivated = computed(() => activeName.value === 'photos' && isActivated.value)
 
 const appStore = useAppStore()
 const { isDesktop } = storeToRefs(appStore)
