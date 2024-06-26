@@ -27,6 +27,7 @@ export const useFullscreenStore = defineStore('fullscreen', () => {
 
     _setupActiveDefault()
 
+    console.log('fullscreen open', props)
     mediaContainer.value = props
     isActivated.value = true
     activeName.value = props.name

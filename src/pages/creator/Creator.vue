@@ -5,7 +5,7 @@
     </template>
     <template #default>
       <div v-if="creator">
-        <SelfIntro :item="creator" show-bg-data show-all-info show-personal-info>
+        <SelfIntro :item="creator" show-bg-data show-all-info show-personal-info full-avatar full-bg>
           <template #topButton>
             <div class="flex w-full items-center justify-between pl-100">
               <div class="flex items-center space-x-10">
