@@ -14,6 +14,7 @@
           item: item,
           index: index,
           stat: stat,
+          name: 'photos',
         })
       "
     >
