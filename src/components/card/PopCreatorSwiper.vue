@@ -46,7 +46,7 @@
           <div class="mt-10 line-clamp-1 shrink-0 text-sm text-white">@{{ item.username }}</div>
           <div class="flex grow items-center overflow-hidden text-base text-white">{{ item.description }}</div>
           <div class="mb-10" @click.stop>
-            <Button @click="open({ items: item?.subscription_list, creator: item })">{{
+            <Button fit-width @click="open({ items: item?.subscription_list, creator: item })">{{
               $t('common.viewSubscribePlan')
             }}</Button>
           </div>
@@ -54,8 +54,8 @@
       </div>
       <Loading v-if="items.length === 0"></Loading>
     </div>
-    <div class="flex">
-      <Button contrast @click="reload">{{ $t('common.replace') }}</Button>
+    <div class="flex justify-center">
+      <Button contrast fit-width @click="reload">{{ $t('common.replace') }}</Button>
     </div>
   </div>
 </template>

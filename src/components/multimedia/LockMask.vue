@@ -16,7 +16,7 @@
         @click.stop="$emit('replay')"
       ></Icon>
       <div @click.stop>
-        <Button @click="clickAction(actionParams)">{{ btnText }}</Button>
+        <Button fit-width @click="clickAction(actionParams)">{{ btnText }}</Button>
       </div>
     </div>
   </div>
