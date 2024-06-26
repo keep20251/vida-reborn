@@ -53,9 +53,6 @@ export function useRouters() {
   }
 
   function toCreator(username) {
-    if (username === $username.value) {
-      return to('mine')
-    }
     return to('creator', { params: { username } })
   }
 

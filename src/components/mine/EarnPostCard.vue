@@ -4,7 +4,7 @@
       @click="() => (isActive = !isActive)"
       class="relative flex cursor-pointer space-x-10 rounded-xl bg-white px-20 py-15 shadow-sm"
     >
-      <EncryptImage :src="item.url_detail[0].url" :width="105" :height="70" cover></EncryptImage>
+      <EncryptImage :src="imageUrl" :width="105" :height="70" cover></EncryptImage>
       <div class="flex flex-1 flex-col space-y-10">
         <div class="text-sm font-normal leading-3">{{ item.title }}</div>
         <div class="flex space-x-10">
@@ -68,10 +68,15 @@
   </div>
 </template>
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+import { MEDIA_TYPE } from '@/constant/publish'
 
-defineProps({
+const props = defineProps({
   item: { type: Object, required: true },
 })
 const isActive = ref(false)
+
+const isVideo = computed(() => props.item.resource_type === MEDIA_TYPE.VIDEO)
+const isPhoto = computed(() => props.item.resource_type === MEDIA_TYPE.IMAGE)
+const imageUrl = computed(() => (isPhoto.value ? props.item.url_detail[0].url : props.item.url_detail[1].url))
 </script>
