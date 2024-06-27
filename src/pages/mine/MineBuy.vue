@@ -19,7 +19,7 @@
       </template>
       <template #bottom>
         <NoData v-if="noData" :reload="reload"></NoData>
-        <div v-if="isLoading" class="flex animate-pulse flex-col space-y-10 pt-10">
+        <div v-if="isLoading" class="animate-pulse-none flex flex-col space-y-10 pt-10">
           <div class="h-80 w-full rounded-sm bg-gray-e5"></div>
         </div>
       </template>
@@ -40,7 +40,7 @@
       </template>
       <template #bottom>
         <NoData v-if="noDataSubExpired" :reload="reloadSubExpired"></NoData>
-        <div v-if="isLoadingSubExpired" class="flex animate-pulse flex-col space-y-10 pt-10">
+        <div v-if="isLoadingSubExpired" class="animate-pulse-none flex flex-col space-y-10 pt-10">
           <div class="h-80 w-full rounded-sm bg-gray-e5"></div>
         </div>
       </template>

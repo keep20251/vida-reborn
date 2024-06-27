@@ -25,7 +25,7 @@
     <div v-show="isReady" class="text-xs font-medium leading-3 text-gray-57">
       {{ $t('payment.addCard.address') }}
     </div>
-    <div v-show="!isReady" class="flex animate-pulse flex-col space-y-10">
+    <div v-show="!isReady" class="animate-pulse-none flex flex-col space-y-10">
       <div class="h-12 w-full rounded-sm bg-gray-cc"></div>
       <div class="h-12 w-full rounded-sm bg-gray-cc"></div>
       <div class="h-24 w-full rounded-sm bg-gray-cc"></div>

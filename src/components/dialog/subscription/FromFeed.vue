@@ -8,7 +8,7 @@
       class="max-h-[65vh] overflow-y-auto"
       :class="{ 'hover-scrollbar pr-6': isDesktop, 'scrollbar pr-10': !isDesktop }"
     >
-      <div v-if="disabled" class="mb-40 flex w-full animate-pulse flex-col space-y-10">
+      <div v-if="disabled" class="animate-pulse-none mb-40 flex w-full flex-col space-y-10">
         <div class="h-27 rounded-md bg-gray-a3"></div>
         <div class="h-[11.875rem] rounded-md bg-gray-a3"></div>
         <div class="flex justify-between">
