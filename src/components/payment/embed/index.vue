@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col space-y-5">
-    <div v-if="isLoading" class="flex animate-pulse flex-col space-y-10">
+    <div v-if="isLoading" class="animate-pulse-none flex flex-col space-y-10">
       <div class="h-35 w-full rounded-xl bg-gray-cc"></div>
       <div class="h-35 w-full rounded-xl bg-gray-cc"></div>
     </div>

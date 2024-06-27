@@ -29,10 +29,10 @@
             <div class="leading-3">{{ $t('info.recFormat') }}</div>
             <div class="leading-3">{{ $t('info.uploadCapacityLimit') }}</div>
           </div>
-          <div>
-            <Button @click="() => inputImage.click()" contrast size="sm" class="px-11 py-8 !font-bold">{{
-              $t('content.subStyle')
-            }}</Button>
+          <div class="">
+            <Button class="min-w-[6rem] px-11 py-8 !font-bold" contrast size="sm" @click="() => inputImage.click()">
+              {{ $t('content.subStyle') }}
+            </Button>
             <input
               ref="inputImage"
               type="file"
