@@ -28,7 +28,6 @@
     "@vueuse/core": "^10.6.1",
     "@vueuse/integrations": "^10.6.1",
     "axios": "^1.6.2",
-    "body-scroll-lock": "^4.0.0-beta.0",
     "browser-image-compression": "^2.0.2",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
