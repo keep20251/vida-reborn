@@ -9,13 +9,11 @@ export const useFullscreenPhotoStore = defineStore('fullscreen-photo', () => {
   function open(_feed, index = 0) {
     feed.value = _feed
     currIndex.value = index
-    document.getElementsByTagName('html')[0].style.overflow = 'hidden'
   }
 
   function close() {
     feed.value = null
     currIndex.value = 0
-    document.getElementsByTagName('html')[0].style.overflow = ''
   }
 
   return {

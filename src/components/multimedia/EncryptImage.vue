@@ -7,6 +7,7 @@
       :alt="alt"
       class="h-full w-full rounded-inherit"
       :class="{ 'object-contain': !cover, 'object-cover': cover }"
+      :draggable="!disableDraggable"
     />
     <div v-else class="h-full w-full rounded-inherit bg-gray-f6"></div>
   </div>
@@ -37,6 +38,7 @@ const props = defineProps({
 
   active: { type: Boolean, default: true },
   disableLazy: { type: Boolean, default: false },
+  disableDraggable: { type: Boolean, default: false },
 })
 
 const emits = defineEmits(['loadeddata', 'error'])
