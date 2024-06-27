@@ -1,10 +1,12 @@
 <template>
   <div class="-mx-20 select-none sm:ml-0 sm:mr-0 xl:ml-0 xl:mr-0">
-    <div
-      class="relative mb-35 flex h-[180px] w-full bg-gray-57 bg-cover bg-center bg-no-repeat"
-      @click.stop="fullBg && openFullscreenImage(coverBg || item.background)"
-    >
-      <EncryptImage v-if="coverBg || item.background" :src="coverBg || item.background" cover></EncryptImage>
+    <div class="relative mb-35 flex h-[180px] w-full bg-gray-57 bg-cover bg-center bg-no-repeat">
+      <EncryptImage
+        v-if="coverBg || item.background"
+        :src="coverBg || item.background"
+        cover
+        :click-to-full="fullBg"
+      ></EncryptImage>
       <div v-else class="h-full w-full rounded-inherit bg-gray-f6">
         <img class="h-full w-full rounded-inherit" src="@/assets/images/default-bg.jpg?url" alt="DefaultAvatar" />
       </div>
@@ -35,8 +37,8 @@
           :radius="35"
           :src="coverAvatar || item.thumb"
           :cameraIcon="cameraIcon"
+          :click-to-full="fullAvatar"
           @click:camera="() => inputAvatar.click()"
-          @click.stop="fullAvatar && openFullscreenImage(coverAvatar || item.thumb)"
         ></Avatar>
       </div>
       <div class="absolute -bottom-50 right-0 mr-20 flex w-full justify-end sm:mr-0 xl:mr-0">
@@ -98,7 +100,6 @@ import { ref } from 'vue'
 import { useResizeObserver } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
-import { useFullscreenStore } from '@/store/fullscreen'
 import Avatar from '@comp/multimedia/Avatar.vue'
 
 const emits = defineEmits(['file:avatar', 'file:background'])
@@ -131,10 +132,5 @@ useResizeObserver(content, () => (showContentMore.value = content.value.scrollHe
 const contentFold = ref(true)
 function toggleContentFold() {
   contentFold.value = !contentFold.value
-}
-
-const { open } = useFullscreenStore()
-const openFullscreenImage = (url) => {
-  url && open({ name: 'single-photo', img: { url } })
 }
 </script>

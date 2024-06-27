@@ -22,7 +22,7 @@
     </div>
 
     <!-- 索引 -->
-    <div class="absolute top-20 w-full select-none text-center">
+    <div v-if="imgInfos.length > 1" class="absolute top-20 w-full select-none text-center">
       <span class="text-base text-white">{{ `${currIndex + 1} / ${imgInfos.length}` }}</span>
     </div>
 
@@ -89,7 +89,9 @@ whenever(
   () => (currIndex.value = animIndex.value),
 )
 
-const isLock = computed(() => !feed.value.is_unlock && (imgInfos.value.length === 1 || animIndex.value > 0))
+const isLock = computed(
+  () => feed.value.id !== undefined && !feed.value.is_unlock && (imgInfos.value.length === 1 || animIndex.value > 0),
+)
 
 const gesture = ref(null)
 const { scale, scaling, scaleCenterX, scaleCenterY, tapTransitioning, reset: resetGesture } = useGesture(gesture)
