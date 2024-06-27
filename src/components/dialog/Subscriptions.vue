@@ -19,10 +19,9 @@
   </BaseDialog>
 </template>
 <script setup>
-import { computed, watch } from 'vue'
+import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useSubsciptionStore } from '@/store/subscription'
-import useRootScrollLock from '@/compositions/utils/scroll-lock'
 import BaseDialog from './BaseDialog.vue'
 import Detail from './subscription/Detail.vue'
 import List from './subscription/List.vue'
@@ -32,7 +31,4 @@ const { isOpen, isFeedSubscription, isList, isDetail } = storeToRefs(store)
 const { close, closeFromFeed, back } = store
 const closeFn = isFeedSubscription ? closeFromFeed : close
 const currentComponent = computed(() => (isList.value ? List : Detail))
-
-const { lock, unlock } = useRootScrollLock()
-watch(isOpen, (v) => (v ? lock() : unlock()))
 </script>
