@@ -77,5 +77,11 @@ const fetchData = (_tab) => execute({ article_id: feed.value.id, rmd: _tab })
 watch([isOpen, currentTab], ([_isOpen, _tab]) => (_isOpen ? onExecute(() => fetchData(_tab)) : void 0), {
   immediate: true,
 })
-const onContainClicked = (item) => openDetail({ activeSubscription: item, subscriptions: data })
+const onContainClicked = async (item) => {
+  const allSubscriptions = await useRequest('Subscription.getArticleSubscription', {
+    immediate: true,
+    params: { article_id: feed.value.id, rmd: SUBSCRIPTION_TYPE.ALL },
+  })
+  openDetail({ activeSubscription: item, subscriptions: allSubscriptions })
+}
 </script>
