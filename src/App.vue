@@ -2,6 +2,7 @@
   <div id="main">
     <router-view></router-view>
     <ClientOnly>
+      <FullscreenPhoto></FullscreenPhoto>
       <CookieBanner></CookieBanner>
       <Modal></Modal>
     </ClientOnly>
@@ -18,6 +19,7 @@ import { useAppStore } from '@/store/app'
 import { useHydrationStore } from '@/store/hydration'
 import CookieBanner from '@comp/banner/CookieBanner.vue'
 import Modal from '@comp/modal/index.vue'
+import FullscreenPhoto from '@comp/multimedia/FullscreenPhoto.vue'
 import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import useRequest from '@use/request'
 import { useRouters } from '@use/routers'

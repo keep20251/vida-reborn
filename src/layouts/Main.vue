@@ -14,8 +14,6 @@
       <MinePrvwBanner></MinePrvwBanner>
       <PaymentDialog />
       <PopupMessage></PopupMessage>
-      <FullScreenPhotoSwiper></FullScreenPhotoSwiper>
-      <FullScreenInfoPhoto></FullScreenInfoPhoto>
     </ClientOnly>
   </div>
   <NavigatorMobile v-if="isMobile"></NavigatorMobile>
@@ -42,8 +40,6 @@ import Subscriptions from '@comp/dialog/Subscriptions.vue'
 import Navigator from '@comp/layout/Navigator.vue'
 import NavigatorMobile from '@comp/layout/NavigatorMobile.vue'
 import PaymentDialog from '@/components/dialog/PaymentDialog.vue'
-import FullScreenInfoPhoto from '@/components/multimedia/FullScreenInfoPhoto.vue'
-import FullScreenPhotoSwiper from '@/components/multimedia/FullScreenPhotoSwiper.vue'
 import { isClose, isConnecting, isOpen } from '@/ws'
 
 const isDev = ref(import.meta.env.DEV)

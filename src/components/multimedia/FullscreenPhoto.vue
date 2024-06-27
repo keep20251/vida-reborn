@@ -1,0 +1,82 @@
+<template>
+  <div v-if="isOpen" class="fixed top-0 z-30 h-full w-full bg-black bg-opacity-70">
+    <!-- 圖片滑動展示區 -->
+    <div class="absolute top-0 h-full w-full" ref="swiper">
+      <div
+        v-for="(img, i) in imgs"
+        class="absolute top-0 h-full w-full"
+        :class="{ 'will-change-transform': animIndex % 1 !== 0 }"
+        :style="{ transform: `translateX(${(i - animIndex) * 100}%)` }"
+        :key="i"
+      >
+        <EncryptImage
+          :src="img.url"
+          :border-radius="10"
+          :active="i >= currIndex - 1 && i <= currIndex + 1"
+        ></EncryptImage>
+      </div>
+      <LockMask v-if="isLock" :item="feed" fullscreen></LockMask>
+    </div>
+
+    <!-- 索引 -->
+    <div class="absolute top-20 w-full select-none text-center">
+      <span class="text-base text-white">{{ `${currIndex + 1} / ${imgs.length}` }}</span>
+    </div>
+
+    <!-- 前一張按鈕 -->
+    <div
+      v-if="isDesktop && imgs.length > 1 && currIndex >= 1"
+      class="absolute left-0 flex h-full w-40 cursor-pointer items-center justify-end"
+      @click.stop="prev"
+    >
+      <div class="flex h-20 w-20 items-center justify-center rounded-full bg-gray-f6 opacity-60">
+        <Icon name="back" size="16"></Icon>
+      </div>
+    </div>
+
+    <!-- 後一張按鈕 -->
+    <div
+      v-if="isDesktop && imgs.length > 1 && currIndex < imgs.length - 1"
+      class="absolute right-0 flex h-full w-40 cursor-pointer items-center justify-start"
+      @click.stop="next"
+    >
+      <div class="flex h-20 w-20 rotate-180 items-center justify-center rounded-full bg-gray-f6 opacity-60">
+        <Icon name="back" size="16"></Icon>
+      </div>
+    </div>
+
+    <!-- 關閉 -->
+    <div class="absolute right-0 top-0 cursor-pointer p-20" @click="close">
+      <Icon name="closeWhite" size="15"></Icon>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { computed, ref } from 'vue'
+import { whenever } from '@vueuse/core'
+import { storeToRefs } from 'pinia'
+import { useAppStore } from '@/store/app'
+import { useFullscreenPhotoStore } from '@/store/fullscreen-photo'
+import LockMask from '@comp/multimedia/LockMask.vue'
+import { useSwipe } from '@use/gesture/swipe'
+
+const appStore = useAppStore()
+const { isDesktop } = storeToRefs(appStore)
+
+const fullscreenPhotoStore = useFullscreenPhotoStore()
+const { feed, currIndex, isOpen } = storeToRefs(fullscreenPhotoStore)
+const { close } = fullscreenPhotoStore
+
+const imgs = computed(() => feed.value.url)
+
+const swiper = ref(null)
+const { index: animIndex, transitioning, prev, next, reset } = useSwipe(swiper, imgs, { initIndex: currIndex.value })
+whenever(
+  () => !transitioning.value,
+  () => (currIndex.value = animIndex.value),
+)
+whenever(isOpen, () => reset(currIndex.value))
+
+const isLock = computed(() => !feed.value.is_unlock && (imgs.value.length === 1 || animIndex.value > 0))
+</script>

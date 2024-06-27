@@ -1,22 +1,15 @@
 <template>
-  <div class="relative h-full w-full overflow-hidden rounded-inherit" ref="swiper">
+  <div
+    class="relative h-full w-full cursor-pointer overflow-hidden rounded-inherit"
+    ref="swiper"
+    @click="open(item, currIndex)"
+  >
     <div
       v-for="(img, i) in imgs"
       class="absolute top-0 h-full w-full"
       :class="{ 'will-change-transform': animIndex % 1 !== 0 }"
       :style="{ transform: `translateX(${(i - animIndex) * 100}%)` }"
       :key="i"
-      @click="
-        handleActiveFullScreen({
-          mediaList: imgs,
-          mediaCurrentIndex: i,
-          isLock: isLock,
-          item: item,
-          index: index,
-          stat: stat,
-          name: 'photos',
-        })
-      "
     >
       <EncryptImage
         :src="img.url"
@@ -57,7 +50,7 @@ import { computed, ref } from 'vue'
 import { whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
-import { useFullscreenStore } from '@/store/fullscreen'
+import { useFullscreenPhotoStore } from '@/store/fullscreen-photo'
 import LockMask from '@comp/multimedia/LockMask.vue'
 import { useSwipe } from '@use/gesture/swipe'
 import { useStat } from '@use/utils/stat'
@@ -93,6 +86,6 @@ if (props.stat) {
     activeMs: () => Date.now() - startTime,
   })
 }
-const { open } = useFullscreenStore()
-const handleActiveFullScreen = (props) => open(props)
+
+const { open } = useFullscreenPhotoStore()
 </script>
