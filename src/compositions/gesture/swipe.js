@@ -28,6 +28,7 @@ export function useSwipe(
   const { reset: resetVelocity, updatePosition, getVelocity } = velocityCalculator()
 
   const index = ref(initIndex)
+  const disabled = ref(false)
   // const index = computed(() => initIndex)
 
   const { width, height } = useElementSize(eleRef)
@@ -67,13 +68,13 @@ export function useSwipe(
     resume()
   }
   function animForward() {
-    if (isActive.value || index.value === itemsRef.value.length - 1) {
+    if (isActive.value || disabled.value || index.value === itemsRef.value.length - 1) {
       return
     }
     anim(1)
   }
   function animBackward() {
-    if (isActive.value || index.value === 0) {
+    if (isActive.value || disabled.value || index.value === 0) {
       return
     }
     anim(-1)
@@ -85,7 +86,7 @@ export function useSwipe(
   const { lengthX, lengthY, direction, coordsStart } = useSwipeFromVueuse(eleRef, {
     threshold: 0,
     onSwipe(e) {
-      if (isActive.value) {
+      if (isActive.value || disabled.value) {
         return
       }
 
@@ -170,12 +171,22 @@ export function useSwipe(
     index.value = defaultIndex
   }
 
+  function enable() {
+    disabled.value = false
+  }
+  function disable() {
+    disabled.value = true
+  }
+
   return {
     index: readonly(index),
+    disabled: readonly(disabled),
     transitioning: isActive,
 
     prev: animBackward,
     next: animForward,
     reset,
+    enable,
+    disable,
   }
 }

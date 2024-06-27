@@ -1,13 +1,18 @@
 <template>
-  <div class="flex h-full w-full items-center justify-center" ref="encryptImage" :style="{ ...shapeStyle }">
+  <div
+    class="flex h-full w-full items-center justify-center"
+    ref="encryptImage"
+    :style="{ ...shapeStyle }"
+    @click="onClick"
+  >
     <Skeleton v-if="loading"></Skeleton>
     <img
       v-else-if="url"
       :src="url"
       :alt="alt"
-      class="w-full rounded-inherit"
-      :class="{ 'object-contain': !cover, 'object-cover': cover, relative: relative, 'h-full': fullHeight }"
-      :draggable="draggable"
+      class="h-full w-full rounded-inherit"
+      :class="{ 'object-contain': !cover, 'object-cover': cover }"
+      :draggable="!disableDraggable"
     />
     <div v-else class="h-full w-full rounded-inherit bg-gray-f6"></div>
   </div>
@@ -16,6 +21,7 @@
 <script setup>
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { whenever } from '@vueuse/core'
+import { useFullscreenPhotoStore } from '@/store/fullscreen-photo'
 import Skeleton from '@comp/skeleton/index.vue'
 import { getDecryptDataBlob } from '@/utils/encrypt-img-store'
 import lazyloader from '@/utils/lazyloader'
@@ -34,13 +40,11 @@ const props = defineProps({
   borderRadius: { type: Number },
 
   cover: { type: Boolean, default: false },
-  clickToFull: { type: Boolean, default: false },
+  clickToFull: { type: Boolean, default: true },
 
   active: { type: Boolean, default: true },
   disableLazy: { type: Boolean, default: false },
-  draggable: { type: Boolean, default: true },
-  relative: { type: Boolean, default: false },
-  fullHeight: { type: Boolean, default: true },
+  disableDraggable: { type: Boolean, default: false },
 })
 
 const emits = defineEmits(['loadeddata', 'error'])
@@ -129,6 +133,13 @@ async function loadImage() {
   } finally {
     loading.value = false
     emits('loadeddata')
+  }
+}
+
+const { open } = useFullscreenPhotoStore()
+function onClick() {
+  if (props.clickToFull && decryptedBlob) {
+    open({ url: [{ url: props.src }] })
   }
 }
 </script>

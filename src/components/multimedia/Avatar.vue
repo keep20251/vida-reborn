@@ -1,7 +1,7 @@
 <template>
   <div class="relative flex-shrink-0" :style="style">
     <div v-if="props.src" class="h-full w-full rounded-inherit object-cover">
-      <EncryptImage :src="props.src" :border-radius="radius" cover></EncryptImage>
+      <EncryptImage :src="props.src" :border-radius="radius" cover :click-to-full="clickToFull"></EncryptImage>
     </div>
     <div v-else class="h-full w-full rounded-inherit bg-gray-f6">
       <img class="h-full w-full rounded-inherit" src="@/assets/images/default-avatar.svg?url" alt="DefaultAvatar" />
@@ -24,6 +24,7 @@ const props = defineProps({
   alt: { type: String, default: 'Avatar' },
   radius: { type: Number },
   cameraIcon: { type: Boolean, default: false },
+  clickToFull: { type: Boolean, default: false },
 })
 
 const style = computed(() => {
