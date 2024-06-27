@@ -204,7 +204,7 @@ export default {
     error: {
       subscribeSelf: '自分自身を購読できません',
       shopBuySelf: '自分の商品が買えない',
-      subscriptionNotFound: '利用可能なサブスクリプションプランはありません',
+      subscriptionNotFound: '利用可能なサブスクリプション プランはありません',
     },
     sending: '送信',
     failure: '失敗した',

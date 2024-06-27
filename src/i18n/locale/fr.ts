@@ -582,7 +582,7 @@ export default {
   },
   modal: {
     subscribe: {
-      1: 'Accès complet à toutes les œuvres des derniers {days}',
+      1: 'Accès complet à toutes les œuvres des {days} passés',
       2: "Possibilité d'envoyer des messages directement aux créateurs",
       3: 'Une interaction plus étroite',
       4: 'Vous pouvez annuler votre abonnement à tout moment',

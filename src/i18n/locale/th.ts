@@ -202,7 +202,7 @@ export default {
   message: {
     payment: { failed: 'การชำระเงินล้มเหลว', success: 'การชำระเงินสำเร็จ', cancel: 'การชำระเงินถูกยกเลิก' },
     error: {
-      subscribeSelf: 'ไม่สามารถสมัครเป็นสมาชิกของตัวเองได้',
+      subscribeSelf: 'ไม่สามารถสมัครสมาชิกกับตัวเองได้',
       shopBuySelf: 'ไม่สามารถซื้อสินค้าของตัวเองได้',
       subscriptionNotFound: 'ไม่มีแผนการสมัครสมาชิก',
     },

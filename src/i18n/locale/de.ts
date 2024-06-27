@@ -600,7 +600,7 @@ export default {
     },
     shopBuySuc: {
       1: 'fabelhaft! Erfolgreich bezahlt, um den Beitrag freizuschalten',
-      2: 'Gehen Sie zum Ansehen des Beitrags oder bleiben Sie zum Durchsuchen auf dem Originalbildschirm!',
+      2: 'Gehen Sie entweder zum Beitrag, um ihn anzusehen, oder bleiben Sie zum Durchsuchen auf dem Originalbildschirm!',
       confirm: 'Zum Posten gehen',
     },
     title: { paySuc: 'Zahlung erfolgreich durchgeführt' },
