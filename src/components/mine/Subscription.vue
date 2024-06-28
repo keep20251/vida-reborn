@@ -116,14 +116,12 @@ const onSubStatus = (item) => {
   } else if (item.status === SUB_STATUS.RE_SUB) {
     try {
       subscribe({ item: _item, creator })
-      handleSubscription(CANCEL_SUB_TYPE.RESTORE_SUB, item.subscription_id)
     } catch (e) {
       openMessage('common.reSubErr', e)
     }
   } else {
     try {
       subscribe({ item: _item, creator })
-      handleSubscription(CANCEL_SUB_TYPE.SUB_IN_ADVANCE, item.subscription_id)
     } catch (e) {
       openMessage('common.subInAdvanceErr', e)
     }
