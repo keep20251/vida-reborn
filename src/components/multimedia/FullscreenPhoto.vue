@@ -1,7 +1,12 @@
 <template>
-  <div v-if="isOpen" class="fixed top-0 z-30 h-screen w-full bg-black" :class="{ 'bg-opacity-70': isDesktop }">
+  <div v-if="isOpen" class="fixed top-0 z-30 h-screen w-full" :style="closeBgStyle">
     <!-- 圖片滑動展示區 -->
-    <div class="absolute top-0 h-full w-full" ref="swiper">
+    <div
+      class="absolute top-0 h-full w-full"
+      ref="swiper"
+      :class="{ 'will-change-transform': closeIndex % 1 !== 0 }"
+      :style="closeTransformStyle"
+    >
       <div class="h-full w-full overflow-hidden" :style="gestureTransformStyle" ref="gesture">
         <div
           v-for="(imgInfo, i) in imgInfos"
@@ -22,7 +27,7 @@
     </div>
 
     <!-- 索引 -->
-    <div v-if="imgInfos.length > 1" class="absolute top-20 w-full select-none text-center">
+    <div v-if="imgInfos.length > 1 && closeIndex === 1" class="absolute top-20 w-full select-none text-center">
       <span class="text-base text-white">{{ `${currIndex + 1} / ${imgInfos.length}` }}</span>
     </div>
 
@@ -49,7 +54,7 @@
     </div>
 
     <!-- 關閉 -->
-    <div class="absolute right-0 top-0 cursor-pointer p-20" @click="close">
+    <div v-if="closeIndex === 1" class="absolute right-0 top-0 cursor-pointer p-20" @click="close">
       <Icon name="closeWhite" size="15"></Icon>
     </div>
   </div>
@@ -83,11 +88,34 @@ const {
   reset: resetSwipe,
   enable: enableSwipe,
   disable: disableSwipe,
-} = useSwipe(swiper, imgInfos, { initIndex: currIndex.value })
+} = useSwipe(swiper, imgInfos, { initIndex: currIndex.value, edgeDist: 40 })
 whenever(
   () => !transitioning.value,
   () => (currIndex.value = animIndex.value),
 )
+
+const closeItems = ref([{}, {}, {}])
+const {
+  index: closeIndex,
+  transitioning: closeTransitioning,
+  reset: resetCloseSwipe,
+  enable: enableCloseSwipe,
+  disable: disableCloseSwipe,
+} = useSwipe(swiper, closeItems, { isVerticle: true, initIndex: 1 })
+whenever(
+  () => !closeTransitioning.value,
+  () => {
+    if (closeIndex.value === 0 || closeIndex.value === 2) {
+      close()
+    }
+  },
+)
+const closeBgStyle = computed(() => ({
+  backgroundColor: isDesktop.value
+    ? 'rgba(0, 0, 0, 0.7)'
+    : `rgba(0, 0, 0, ${closeIndex.value <= 1 ? closeIndex.value : 2 - closeIndex.value})`,
+}))
+const closeTransformStyle = computed(() => ({ transform: `translateY(${(1 - closeIndex.value) * 100}%)` }))
 
 const isLock = computed(
   () => feed.value.id !== undefined && !feed.value.is_unlock && (imgInfos.value.length === 1 || animIndex.value > 0),
@@ -105,13 +133,16 @@ const showFeature = computed(() => scale.value === 1)
 watch(scale, (v) => {
   if (v === 1) {
     enableSwipe()
+    enableCloseSwipe()
   } else {
     disableSwipe()
+    disableCloseSwipe()
   }
 })
 
 whenever(isOpen, () => {
   resetSwipe(currIndex.value)
+  resetCloseSwipe(1)
   resetGesture()
 })
 
