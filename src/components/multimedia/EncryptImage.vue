@@ -40,7 +40,7 @@ const props = defineProps({
   borderRadius: { type: Number },
 
   cover: { type: Boolean, default: false },
-  clickToFull: { type: Boolean, default: true },
+  clickToFull: { type: Boolean, default: false },
 
   active: { type: Boolean, default: true },
   disableLazy: { type: Boolean, default: false },

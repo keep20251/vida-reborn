@@ -133,7 +133,6 @@ export function useGesture(
       change: {
         eventName: 'touchmove',
         handler: (evt) => {
-          console.log(evt)
           if (!scaling.value) return
           const [{ clientX: x0, clientY: y0 }, { clientX: x1, clientY: y1 }] = evt.touches
           const diffX = x0 - x1

@@ -1,4 +1,4 @@
-import { readonly, ref } from 'vue'
+import { computed, readonly, ref } from 'vue'
 import { useElementSize, useEventListener, usePrevious, useRafFn, useSwipe as useSwipeFromVueuse } from '@vueuse/core'
 import velocityCalculator from '@/utils/velocity-calculator'
 
@@ -18,7 +18,7 @@ function defaultEasingFn(n) {
 export function useSwipe(
   eleRef,
   itemsRef,
-  { isVerticle = false, velocityThreshold = 200, initIndex = 0, easingFn = defaultEasingFn, window = undefined } = {},
+  { isVerticle = false, velocityThreshold = 200, initIndex = 0, edgeDist = 0, easingFn = defaultEasingFn } = {},
 ) {
   let swipeStart = false
   let swipeStartDir = null
@@ -32,6 +32,10 @@ export function useSwipe(
   // const index = computed(() => initIndex)
 
   const { width, height } = useElementSize(eleRef)
+  const lastIndex = computed(() => itemsRef.value.length - 1)
+  function reviseIndexRange(v) {
+    return max(min(v, lastIndex.value), 0)
+  }
 
   let startIndex
   let destIndex
@@ -42,7 +46,7 @@ export function useSwipe(
     ({ timestamp }) => {
       if (stop) {
         pause()
-        index.value = round(index.value)
+        index.value = reviseIndexRange(round(index.value))
         return
       }
       if (timestamp - start >= duration) {
@@ -50,17 +54,11 @@ export function useSwipe(
       }
       const p = (timestamp - start) / duration
       const v = easingFn(p)
-      index.value = toFixedNumber(startIndex + (destIndex - startIndex) * v, 2)
+      index.value = reviseIndexRange(toFixedNumber(startIndex + (destIndex - startIndex) * v, 3))
     },
     { immediate: false },
   )
-  function anim(delta) {
-    startIndex = index.value
-    const destCalc = delta > 0 ? ceil : delta < 0 ? floor : round
-    destIndex = destCalc(startIndex)
-    if (delta !== 0 && destIndex === startIndex) {
-      destIndex += delta > 0 ? 1 : -1
-    }
+  function anim() {
     duration = abs(startIndex - destIndex) * 250
     if (duration === 0) return
     start = performance.now()
@@ -68,19 +66,31 @@ export function useSwipe(
     resume()
   }
   function animForward() {
-    if (isActive.value || disabled.value || index.value === itemsRef.value.length - 1) {
+    if (isActive.value || disabled.value || index.value === lastIndex.value) {
       return
     }
-    anim(1)
+    startIndex = index.value
+    destIndex = startIndex >= lastIndex.value ? lastIndex.value : ceil(startIndex)
+    if (destIndex === startIndex && destIndex !== lastIndex.value) {
+      destIndex += 1
+    }
+    anim()
   }
   function animBackward() {
     if (isActive.value || disabled.value || index.value === 0) {
       return
     }
-    anim(-1)
+    startIndex = index.value
+    destIndex = startIndex <= 0 ? 0 : floor(startIndex)
+    if (destIndex === startIndex && destIndex !== 0) {
+      destIndex -= 1
+    }
+    anim()
   }
-  function animRevert() {
-    anim(0)
+  function animTo(toIndex) {
+    startIndex = index.value
+    destIndex = reviseIndexRange(round(toIndex))
+    anim()
   }
 
   const { lengthX, lengthY, direction, coordsStart } = useSwipeFromVueuse(eleRef, {
@@ -88,15 +98,6 @@ export function useSwipe(
     onSwipe(e) {
       if (isActive.value || disabled.value) {
         return
-      }
-
-      if (window !== undefined) {
-        const HALF_VIEW_WIDTH = window.innerWidth / 2
-        const EDGE_DIST = 20
-
-        if (coordsStart.x <= EDGE_DIST || coordsStart.x >= HALF_VIEW_WIDTH * 2 - EDGE_DIST) {
-          return
-        }
       }
 
       if (!swipeStartDir && direction.value !== 'none') {
@@ -107,13 +108,17 @@ export function useSwipe(
         return
       }
 
-      const length = isVerticle ? lengthY.value : lengthX.value
-
-      if (length < 0 && index.value === 0) {
+      if (coordsStart.x <= edgeDist || coordsStart.x >= width.value - edgeDist) {
         return
       }
 
-      if (length > 0 && index.value === itemsRef.value.length - 1) {
+      const length = isVerticle ? lengthY.value : lengthX.value
+
+      if (length < 0 && (index.value === 0 || origIndex === 0)) {
+        return
+      }
+
+      if (length > 0 && (index.value === lastIndex.value || origIndex === lastIndex.value)) {
         return
       }
 
@@ -127,7 +132,7 @@ export function useSwipe(
       updatePosition(length)
 
       const deltaRate = max(-1, min(1, length / (isVerticle ? height.value : width.value)))
-      index.value = toFixedNumber(origIndex + deltaRate, 2)
+      index.value = reviseIndexRange(toFixedNumber(origIndex + deltaRate, 3))
     },
     onSwipeEnd(e) {
       const dir = swipeStartDir
@@ -145,16 +150,18 @@ export function useSwipe(
       resetVelocity()
 
       if (velocity > velocityThreshold) {
-        if ((dir === 'down' || dir === 'right') && length < 0 && delta < 0) {
+        if ((dir === 'down' || dir === 'right') && length < 0 && delta < 0 && origIndex !== 0) {
           animBackward()
-        } else if ((dir === 'up' || dir === 'left') && length > 0 && delta > 0) {
+        } else if ((dir === 'up' || dir === 'left') && length > 0 && delta > 0 && origIndex !== lastIndex.value) {
           animForward()
         } else {
-          animRevert()
+          animTo(origIndex)
         }
       } else {
-        animRevert()
+        animTo(origIndex)
       }
+
+      origIndex = undefined
     },
   })
 
@@ -168,7 +175,7 @@ export function useSwipe(
 
   function reset(defaultIndex = 0) {
     pause()
-    index.value = defaultIndex
+    index.value = reviseIndexRange(defaultIndex)
   }
 
   function enable() {
