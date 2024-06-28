@@ -13,13 +13,13 @@
           <div class="flex items-center space-x-10">
             <div class="flex cursor-pointer items-center"><Icon name="report" size="20"></Icon></div>
             <div class="flex cursor-pointer items-center"><Icon name="link" size="20"></Icon></div>
-            <div v-if="isPrvwActive === 'isVisitor'">
+            <div v-if="isVisitor">
               <Button size="sm" bg-light border text-dark>{{ $t('common.subscribe') }}</Button>
             </div>
           </div>
         </div>
       </template>
-      <template #bottomButton v-if="isPrvwActive === 'isVisitor'">
+      <template #bottomButton v-if="isVisitor">
         <div class="flex w-full flex-row items-center space-x-12">
           <Button primary>
             {{ $t('common.viewSubscribePlan') }}
@@ -36,7 +36,7 @@
     <div class="overflow-x-hidden">
       <List :items="dataList" item-key="id" divider>
         <template #default="{ item }">
-          <Feed :item="item" class="py-20" disable-stat></Feed>
+          <Feed :item="item" class="py-20" disable-stat :preview="isVisitor"></Feed>
         </template>
         <template #bottom>
           <NoData v-if="noData" :reload="reload"></NoData>
@@ -51,7 +51,7 @@
   </div>
 </template>
 <script setup>
-import { onActivated, onDeactivated, onMounted, onUnmounted } from 'vue'
+import { computed, onActivated, onDeactivated, onMounted, onUnmounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useFeedStore } from '@/store/feed'
@@ -67,6 +67,7 @@ import { useInfinite } from '@use/request/infinite'
 
 const mineStore = useMineStore()
 const { isPrvwActive } = storeToRefs(mineStore)
+const isVisitor = computed(() => isPrvwActive.value === 'isVisitor')
 
 const { userData } = storeToRefs(useAccountStore())
 

@@ -31,6 +31,7 @@ import { toVideoTimeFormat } from '@/utils/string-helper'
 const props = defineProps({
   item: { type: Object, required: true },
   stat: { type: Boolean, default: false },
+  preview: { type: Boolean, default: false },
 })
 
 const url = computed(() => props.item.url[0]?.url)
@@ -40,7 +41,7 @@ const isLock = computed(() => !props.item.is_unlock)
 
 const playEnd = ref(false)
 const replaySignal = ref(null)
-const showLockMask = computed(() => isLock.value && (url.value === '' || playEnd.value))
+const showLockMask = computed(() => props.preview || (isLock.value && (url.value === '' || playEnd.value)))
 
 // 統計觀看數據
 const video = ref(null)
