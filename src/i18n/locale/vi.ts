@@ -56,6 +56,7 @@ export default {
     addCard: 'Thêm thẻ tín dụng',
     editSubscription: { moveUp: 'Di chuyển lên', moveDown: 'Di chuyển xuống', edit: 'Chỉnh sửa', delete: 'Xóa' },
     whetherCrestoreSub: 'Bạn có chắc chắn muốn khôi phục đăng ký không?',
+    whetherCancelSub: 'Bạn có chắc chắn muốn hủy đăng ký không?',
     reSubErr: 'Gặp lỗi khi đăng ký lại',
     subInAdvanceErr: 'Gia hạn sớm thất bại',
   },
@@ -591,7 +592,7 @@ export default {
     },
     shopBuySuc: {
       1: 'tuyệt vời! Đã thanh toán thành công để mở khóa bài đăng',
-      2: 'Chọn vào bài viết để xem, hoặc ở lại màn hình gốc để duyệt!',
+      2: 'Chọn vào bài viết để xem, hoặc ở lại màn hình gốc để duyệt nhé!',
       confirm: 'Đi tới bài đăng',
     },
     title: { paySuc: 'Thanh toán được thực hiện thành công' },

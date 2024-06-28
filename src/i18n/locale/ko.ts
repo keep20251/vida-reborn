@@ -56,6 +56,7 @@ export default {
     addCard: '신용카드 추가',
     editSubscription: { moveUp: '위로 이동', moveDown: '아래로 이동', edit: '편집', delete: '삭제' },
     whetherCrestoreSub: '구독을 재개하시겠습니까?',
+    whetherCancelSub: '구독을 취소하시겠습니까?',
     reSubErr: '재구독 실패',
     subInAdvanceErr: '조기 갱신 실패',
   },
@@ -588,7 +589,7 @@ export default {
       confirm: '크리에이터 페이지로 이동',
     },
     shopBuySuc: {
-      1: '기이! 게시물 잠금 해제를 위한 결제가 완료되었습니다.',
+      1: '기이! 게시물 잠금 해제를 위해 성공적으로 결제됨',
       2: '게시물로 이동하여 시청하거나 원래 화면에 머물면서 탐색하도록 선택하세요!',
       confirm: '게시물로 이동',
     },

@@ -56,6 +56,7 @@ export default {
     addCard: 'Adicionar cartão de crédito',
     editSubscription: { moveUp: 'Mover para cima', moveDown: 'Mover para baixo', edit: 'Editar', delete: 'Excluir' },
     whetherCrestoreSub: 'Tem certeza de que deseja retomar sua assinatura?',
+    whetherCancelSub: 'Tem certeza de que deseja cancelar sua assinatura?',
     reSubErr: 'Falha na reinscrição',
     subInAdvanceErr: 'Falha na renovação antecipada',
   },

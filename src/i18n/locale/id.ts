@@ -56,6 +56,7 @@ export default {
     addCard: 'Tambah Kartu Kredit',
     editSubscription: { moveUp: 'Pindahkan ke atas', moveDown: 'Pindahkan ke bawah', edit: 'Edit', delete: 'Hapus' },
     whetherCrestoreSub: 'Apakah Anda yakin ingin melanjutkan langganan?',
+    whetherCancelSub: 'Apakah Anda yakin ingin membatalkan langganan Anda?',
     reSubErr: 'Gagal Berlangganan Kembali',
     subInAdvanceErr: 'Gagal Perpanjangan Dini',
   },

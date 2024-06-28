@@ -56,6 +56,7 @@ export default {
     addCard: 'إضافة بطاقة ائتمان',
     editSubscription: { moveUp: 'تحريك للأعلى', moveDown: 'تحريك للأسفل', edit: 'تحرير', delete: 'حذف' },
     whetherCrestoreSub: 'هل أنت متأكد من أنك تريد استئناف الاشتراك؟',
+    whetherCancelSub: 'هل أنت متأكد أنك تريد إلغاء الاشتراك؟',
     reSubErr: 'فشل إعادة الاشتراك',
     subInAdvanceErr: 'فشل التجديد المبكر',
   },
