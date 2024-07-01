@@ -62,13 +62,14 @@
 
 <script setup>
 import { computed, ref, watch } from 'vue'
-import { syncRef, useScrollLock, whenever } from '@vueuse/core'
+import { useEventListener, whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useFullscreenPhotoStore } from '@/store/fullscreen-photo'
 import LockMask from '@comp/multimedia/LockMask.vue'
 import { useGesture } from '@use/gesture/gesture'
 import { useSwipe } from '@use/gesture/swipe'
+import { useRootScrollLock } from '@use/utils/scroll-lock'
 
 const appStore = useAppStore()
 const { isDesktop } = storeToRefs(appStore)
@@ -122,7 +123,16 @@ const isLock = computed(
 )
 
 const gesture = ref(null)
-const { scale, scaling, scaleCenterX, scaleCenterY, tapTransitioning, reset: resetGesture } = useGesture(gesture)
+const {
+  scale,
+  scaling,
+  scaleCenterX,
+  scaleCenterY,
+  tapTransitioning,
+  scaleUp,
+  scaleDown,
+  reset: resetGesture,
+} = useGesture(gesture)
 const gestureTransformStyle = computed(() => ({
   transition: tapTransitioning.value && !scaling.value ? 'transform 0.3s ease-out' : '',
   transform: `scale(${scale.value})`,
@@ -140,12 +150,33 @@ watch(scale, (v) => {
   }
 })
 
+useEventListener('keydown', (evt) => {
+  if (!isOpen.value) return
+  switch (evt.code) {
+    case 'ArrowDown':
+      scaleDown()
+      break
+    case 'ArrowUp':
+      scaleUp()
+      break
+    case 'ArrowLeft':
+      prev()
+      break
+    case 'ArrowRight':
+      next()
+      break
+    case 'Escape':
+      close()
+      break
+  }
+})
+
 whenever(isOpen, () => {
   resetSwipe(currIndex.value)
   resetCloseSwipe(1)
   resetGesture()
 })
 
-const isLocked = useScrollLock(window)
-syncRef(isOpen, isLocked, { direction: 'ltr' })
+const { lock, unlock } = useRootScrollLock()
+watch(isOpen, (v) => (v ? lock() : unlock()))
 </script>

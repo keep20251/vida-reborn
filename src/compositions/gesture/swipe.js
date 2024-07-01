@@ -146,10 +146,11 @@ export function useSwipe(
 
       const length = isVerticle ? lengthY.value : lengthX.value
       const delta = length - prevLength.value
-      const velocity = abs(getVelocity())
+      const velocityLtThreshold = abs(getVelocity()) > velocityThreshold
+      const absLengthLtHalfViewSize = abs(length) > (isVerticle ? height.value : width.value) / 2
       resetVelocity()
 
-      if (velocity > velocityThreshold) {
+      if (velocityLtThreshold || absLengthLtHalfViewSize) {
         if ((dir === 'down' || dir === 'right') && length < 0 && delta < 0 && origIndex !== 0) {
           animBackward()
         } else if ((dir === 'up' || dir === 'left') && length > 0 && delta > 0 && origIndex !== lastIndex.value) {

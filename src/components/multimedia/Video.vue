@@ -11,19 +11,16 @@
     <!-- 視頻資源載入被卡住的 loading -->
     <div
       v-if="isWaiting"
-      class="absolute left-1/2 top-1/2 flex h-50 w-50 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-sm bg-white bg-opacity-75"
+      class="absolute left-1/2 top-1/2 flex h-50 w-50 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-md bg-black bg-opacity-50"
     >
       <Loading></Loading>
     </div>
 
     <!-- 尚未開始播放前的置中播放按鈕 -->
-    <div
-      v-if="videoCurrentTime === 0 && !videoPlay && !isWaiting"
-      class="absolute top-0 h-full w-full cursor-pointer rounded-inherit"
-    >
+    <div v-if="!videoElement" class="absolute top-0 h-full w-full cursor-pointer rounded-inherit">
       <EncryptImage :src="posterUrl" :border-radius="10" cover></EncryptImage>
       <div
-        class="absolute left-1/2 top-1/2 flex h-50 w-50 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-md bg-white bg-opacity-50"
+        class="absolute left-1/2 top-1/2 flex h-50 w-50 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-md bg-black bg-opacity-50"
       >
         <Icon name="playBtn" size="20"></Icon>
       </div>
@@ -36,13 +33,17 @@
     <!-- 播放器 control -->
     <div
       v-else
-      v-show="!videoPlay || isDragging || showControl"
-      class="absolute bottom-0 w-full rounded-inherit px-20 pb-20"
+      class="absolute bottom-0 w-full rounded-inherit rounded-t-none bg-black bg-opacity-50 px-20 pb-20 transition-transform"
+      :class="{
+        'translate-y-full':
+          videoPlay && !isTimeBarDragging && !isVolumeBarDragging && !showControl && !showVolumeControl,
+      }"
       @click.stop
     >
-      <div class="relative h-27 w-full cursor-pointer" ref="timeBar">
+      <div class="relative w-full cursor-pointer" :class="[videoFullscreen ? 'h-34' : 'h-27']" ref="timeBar">
         <div
-          class="absolute top-16 h-2 w-full rounded-full"
+          class="absolute top-16 w-full rounded-full"
+          :class="[videoFullscreen ? 'h-4' : 'h-2']"
           :style="{
             backgroundImage: `linear-gradient(
                                 to right,
@@ -52,19 +53,62 @@
           }"
         ></div>
         <div
-          class="absolute top-15 h-4 w-2 rounded-[1px] bg-gray-f6 will-change-transform"
+          class="absolute bg-gray-f6 will-change-transform"
+          :class="[videoFullscreen ? 'top-14 h-8 w-4 rounded-[2px]' : 'top-15 h-4 w-2 rounded-[1px]']"
           :style="{ transform: `translateX(${timeBarWidth * videoTimeRate}px)` }"
         ></div>
       </div>
       <div class="flex items-center space-x-10 px-10">
-        <Icon :name="videoPlay ? 'pauseBtn' : 'playBtn'" size="16" class="cursor-pointer" @click.stop="togglePlay" />
-        <div class="grow select-none font-mono text-sm text-white">
+        <Icon
+          :name="videoPlay ? 'pauseBtn' : 'playBtn'"
+          :size="videoFullscreen ? '24' : '16'"
+          class="cursor-pointer"
+          @click.stop="togglePlay"
+        />
+        <div class="grow select-none font-mono text-white" :class="[videoFullscreen ? 'text-md' : 'text-sm']">
           {{ `${toVideoTimeFormat(videoCurrentTime)} / ${toVideoTimeFormat(videoDuration)}` }}
         </div>
-        <Icon :name="videoMuted ? 'mute' : 'volume'" size="16" class="cursor-pointer" @click.stop="toggleVideoMuted" />
+        <div class="relative flex items-center">
+          <Icon
+            :name="videoMuted ? 'mute' : 'volume'"
+            :size="videoFullscreen ? '24' : '16'"
+            class="cursor-pointer"
+            @click.stop="toggleVideoMuted"
+            @mouseover="openVolumeControl"
+            @mouseleave="closeVolumeControl"
+          />
+          <div
+            v-if="isDesktop && (isVolumeBarDragging || showVolumeControl)"
+            class="absolute -left-10 -top-37 flex h-100 w-32 -translate-y-full flex-col items-center justify-between rounded-full bg-black bg-opacity-50 py-10"
+          >
+            <div class="select-none font-mono text-base text-white">{{ Math.round(videoVolume * 100) }}</div>
+            <div
+              class="relative h-50 w-full cursor-pointer"
+              ref="volumeBar"
+              @mouseover="cancelCloseVolumeControl"
+              @mouseleave="closeVolumeControl"
+            >
+              <div class="absolute left-1/2 h-full w-1 -translate-x-1/2 rounded-full bg-white"></div>
+              <div
+                class="absolute bottom-0 left-1/2 h-full w-2 -translate-x-1/2 rounded-full"
+                :style="{
+                  backgroundImage: `linear-gradient(
+                                     to top,
+                                     #7FE2D3 ${videoVolume * 100}%,
+                                     rgba(0,0,0,0) ${videoVolume * 100}%
+                                   )`,
+                }"
+              ></div>
+              <div
+                class="absolute -bottom-3 left-1/2 h-6 w-6 rounded-full bg-contrast will-change-transform"
+                :style="{ transform: `translate(-50%, -${volumeBarHeight * videoVolume}px)` }"
+              ></div>
+            </div>
+          </div>
+        </div>
         <Icon
           :name="videoFullscreen ? 'fullscreenExit' : 'fullscreen'"
-          size="16"
+          :size="videoFullscreen ? '24' : '16'"
           class="cursor-pointer"
           @click.stop="toggleFullscreen"
         ></Icon>
@@ -79,6 +123,7 @@ import { useElementSize, useEventListener } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useDrag } from '@use/gesture/drag'
+import { useRootScrollLock } from '@use/utils/scroll-lock'
 import lazyloader from '@/utils/lazyloader'
 import { toVideoTimeFormat } from '@/utils/string-helper'
 // import { add, remove } from '@/utils/video-autoplay-controller'
@@ -95,8 +140,8 @@ const props = defineProps({
 const emits = defineEmits(['play', 'ended', 'timeupdate'])
 
 const appStore = useAppStore()
-const { videoMuted } = storeToRefs(appStore)
-const { toggleVideoMuted } = appStore
+const { isDesktop, videoMuted, videoVolume } = storeToRefs(appStore)
+const { toggleVideoMuted, setVideoVolume } = appStore
 
 const videoWrap = ref(null)
 const videoElement = ref(null)
@@ -111,7 +156,7 @@ const errMsg = ref('')
 
 const timeBar = ref(null)
 const { width: timeBarWidth } = useElementSize(timeBar)
-const { isDragging } = useDrag(timeBar, {
+const { isDragging: isTimeBarDragging } = useDrag(timeBar, {
   onUpdate(newRate) {
     const video = videoElement.value
     if (!video) return
@@ -133,9 +178,21 @@ const { isDragging } = useDrag(timeBar, {
   },
 })
 
+const volumeBar = ref(null)
+const { height: volumeBarHeight } = useElementSize(volumeBar)
+const { isDragging: isVolumeBarDragging } = useDrag(volumeBar, {
+  isVertical: true,
+  onUpdate: setVideoVolume,
+})
+
 function togglePlay() {
   const video = videoElement.value
-  if (!video || togglePlay.playPromise) return
+  if (!video) {
+    setupVideo()
+    requestAnimationFrame(togglePlay)
+    return
+  }
+  if (togglePlay.playPromise) return
   if (videoPlay.value) {
     video.pause()
     videoPlay.value = false
@@ -174,7 +231,8 @@ const fullscreenStyle = computed(() =>
 function toggleFullscreen() {
   videoFullscreen.value = !videoFullscreen.value
 }
-watch(videoFullscreen, (v) => (document.getElementsByTagName('html')[0].style.overflow = v ? 'hidden' : ''))
+const { lock, unlock } = useRootScrollLock()
+watch(videoFullscreen, (v) => (v ? lock() : unlock()))
 useEventListener('keydown', (evt) => {
   if (videoFullscreen.value && evt.code === 'Escape') {
     toggleFullscreen()
@@ -197,6 +255,18 @@ function openControl() {
   clearTimeout(openControl.timerId)
   showControl.value = true
   openControl.timerId = setTimeout(() => (showControl.value = false), 2000)
+}
+
+const showVolumeControl = ref(false)
+function openVolumeControl() {
+  showVolumeControl.value = true
+}
+function closeVolumeControl() {
+  cancelCloseVolumeControl()
+  closeVolumeControl.timerId = setTimeout(() => (showVolumeControl.value = false), 2000)
+}
+function cancelCloseVolumeControl() {
+  clearTimeout(closeVolumeControl.timerId)
 }
 // 自動播放相關配置
 // let videoAutoplayController
@@ -241,8 +311,8 @@ function setupVideo() {
         // 尼瑪 der 視頻會出現播放完畢當下 currentTime 比 duration 還小的情況
         // 某些瀏覽器(safari)可能發生 ended 事件沒觸發到
         // 我尼瑪 der 只好在這邊判斷比 duration 還小兩秒就送 ended 事件
-        const { currentTime, duration } = videoElement.value
-        if (Math.floor(currentTime) >= Math.floor(duration) - 2) {
+        const { currentTime, duration, loop } = videoElement.value
+        if (!loop && Math.floor(currentTime) >= Math.floor(duration) - 2) {
           playEnd()
         }
       },
@@ -307,7 +377,8 @@ function closeLazy() {
 }
 
 onMounted(() => {
-  videoWrap.value.load = setupVideo
+  // 不自動載入視頻，改成使用者第一次點擊播放才開始載入
+  // videoWrap.value.load = setupVideo
   videoWrap.value.unload = releaseVideo
 })
 

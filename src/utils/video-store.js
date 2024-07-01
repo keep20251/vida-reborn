@@ -121,3 +121,7 @@ export function release(videoElement) {
 export function setMuted(muted) {
   VIDEO_MUTED_CONTROL_TEMP.forEach((videoElement) => (videoElement.muted = muted))
 }
+
+export function setVolume(volume) {
+  VIDEO_MUTED_CONTROL_TEMP.forEach((videoElement) => (videoElement.volume = volume))
+}

@@ -18,9 +18,7 @@
   </teleport>
 </template>
 <script setup>
-import { computed, onMounted, onUnmounted } from 'vue'
-import { storeToRefs } from 'pinia'
-import { useAppStore } from '@/store/app'
+import { computed } from 'vue'
 
 const props = defineProps({
   noPadding: { type: Boolean, default: false },
@@ -42,19 +40,5 @@ const maxWidth = computed(() => {
   if (props.size === 'sm') return 'max-w-sm'
   if (props.size === 'auto') return ''
   return 'lg'
-})
-
-const appStore = useAppStore()
-const { isDesktop } = storeToRefs(appStore)
-
-let html = null
-onMounted(() => {
-  html = document.getElementsByTagName('html')[0]
-  html.style.overflow = 'hidden'
-  if (isDesktop.value) html.style.marginRight = '15px'
-})
-onUnmounted(() => {
-  html.style.overflow = ''
-  if (isDesktop.value) html.style.marginRight = ''
 })
 </script>

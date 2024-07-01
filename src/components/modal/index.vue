@@ -47,11 +47,11 @@
 </template>
 
 <script setup>
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
-import { useAppStore } from '@/store/app'
 import { useModalStore } from '@/store/modal'
 import Button from '@comp/common/Button.vue'
+import { useRootScrollLock } from '@use/utils/scroll-lock'
 import { MODAL_TYPE } from '@const'
 import contentComponent from './content'
 
@@ -161,24 +161,13 @@ async function tryExecute(fn) {
   }
 }
 
-const appStore = useAppStore()
-const { isDesktop } = storeToRefs(appStore)
-let html = null
+const { lock, unlock } = useRootScrollLock()
 watch(isOpen, (v) => {
-  if (!html) {
-    return
-  }
   if (v) {
-    html.style.overflow = 'hidden'
-    if (isDesktop.value) html.style.marginRight = '15px'
+    lock()
   } else {
-    html.style.overflow = ''
-    if (isDesktop.value) html.style.marginRight = ''
-
+    unlock()
     confirmFailMsg.value = null
   }
-})
-onMounted(() => {
-  html = document.getElementsByTagName('html')[0]
 })
 </script>
