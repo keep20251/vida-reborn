@@ -11,7 +11,7 @@
     <!-- 視頻資源載入被卡住的 loading -->
     <div
       v-if="isWaiting"
-      class="absolute left-1/2 top-1/2 flex h-50 w-50 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-sm bg-white bg-opacity-75"
+      class="absolute left-1/2 top-1/2 flex h-50 w-50 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-md bg-black bg-opacity-50"
     >
       <Loading></Loading>
     </div>
@@ -23,7 +23,7 @@
     >
       <EncryptImage :src="posterUrl" :border-radius="10" cover></EncryptImage>
       <div
-        class="absolute left-1/2 top-1/2 flex h-50 w-50 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-md bg-white bg-opacity-50"
+        class="absolute left-1/2 top-1/2 flex h-50 w-50 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-md bg-black bg-opacity-50"
       >
         <Icon name="playBtn" size="20"></Icon>
       </div>
@@ -36,13 +36,14 @@
     <!-- 播放器 control -->
     <div
       v-else
-      v-show="!videoPlay || isDragging || showControl"
-      class="absolute bottom-0 w-full rounded-inherit px-20 pb-20"
+      class="absolute bottom-0 w-full rounded-inherit bg-black bg-opacity-50 px-20 pb-20 transition-transform"
+      :class="{ 'translate-y-full': videoPlay && !isDragging && !showControl }"
       @click.stop
     >
-      <div class="relative h-27 w-full cursor-pointer" ref="timeBar">
+      <div class="relative w-full cursor-pointer" :class="[videoFullscreen ? 'h-34' : 'h-27']" ref="timeBar">
         <div
-          class="absolute top-16 h-2 w-full rounded-full"
+          class="absolute top-16 w-full rounded-full"
+          :class="[videoFullscreen ? 'h-4' : 'h-2']"
           :style="{
             backgroundImage: `linear-gradient(
                                 to right,
@@ -52,19 +53,41 @@
           }"
         ></div>
         <div
-          class="absolute top-15 h-4 w-2 rounded-[1px] bg-gray-f6 will-change-transform"
+          class="absolute bg-gray-f6 will-change-transform"
+          :class="[videoFullscreen ? 'top-14 h-8 w-4 rounded-[2px]' : 'top-15 h-4 w-2 rounded-[1px]']"
           :style="{ transform: `translateX(${timeBarWidth * videoTimeRate}px)` }"
         ></div>
       </div>
       <div class="flex items-center space-x-10 px-10">
-        <Icon :name="videoPlay ? 'pauseBtn' : 'playBtn'" size="16" class="cursor-pointer" @click.stop="togglePlay" />
-        <div class="grow select-none font-mono text-sm text-white">
+        <Icon
+          :name="videoPlay ? 'pauseBtn' : 'playBtn'"
+          :size="videoFullscreen ? '24' : '16'"
+          class="cursor-pointer"
+          @click.stop="togglePlay"
+        />
+        <div class="grow select-none font-mono text-white" :class="[videoFullscreen ? 'text-md' : 'text-sm']">
           {{ `${toVideoTimeFormat(videoCurrentTime)} / ${toVideoTimeFormat(videoDuration)}` }}
         </div>
-        <Icon :name="videoMuted ? 'mute' : 'volume'" size="16" class="cursor-pointer" @click.stop="toggleVideoMuted" />
+        <div class="relative flex items-center">
+          <Icon
+            :name="videoMuted ? 'mute' : 'volume'"
+            :size="videoFullscreen ? '24' : '16'"
+            class="cursor-pointer"
+            @click.stop="toggleVideoMuted"
+          />
+          <!-- <div
+            class="absolute -left-10 -top-37 flex h-100 w-32 -translate-y-full flex-col items-center justify-between rounded-full bg-black bg-opacity-50 py-10"
+          >
+            <div class="select-none font-mono text-base text-white">33</div>
+            <div class="relative h-50 w-full cursor-pointer">
+              <div class="absolute left-1/2 h-full w-1 -translate-x-1/2 rounded-full bg-white"></div>
+              <div class="absolute bottom-0 left-1/2 h-1/2 w-2 -translate-x-1/2 rounded-full bg-contrast"></div>
+            </div>
+          </div> -->
+        </div>
         <Icon
           :name="videoFullscreen ? 'fullscreenExit' : 'fullscreen'"
-          size="16"
+          :size="videoFullscreen ? '24' : '16'"
           class="cursor-pointer"
           @click.stop="toggleFullscreen"
         ></Icon>
