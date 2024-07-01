@@ -4,7 +4,7 @@
       <TopSearchBar logo feature-icon="filter" to-search @feature="updateIntesreted"></TopSearchBar>
     </template>
     <template #main-top>
-      <Tab v-model="tab" :options="tabOptions" :feature="isDesktop ? 'filter' : ''" @feature="updateIntesreted"></Tab>
+      <Tab v-model="tab" :options="tabOptions" @feature="updateIntesreted"></Tab>
     </template>
     <template #default>
       <div v-show="tab === TAB_TYPE.REC">
@@ -161,32 +161,35 @@ const { updateUserData } = accountStore
 const modalStore = useModalStore()
 const { open } = modalStore
 async function updateIntesreted() {
-  const interestedSplitByComma = isLogin.value
-    ? userData.value.interested
-    : (await useRequest('User.getGuestInterested', { immediate: true }))?.interested
-  const content = commaSplittedToArray(interestedSplitByComma)
+  console.log('None of the business logic is implemented yet.')
+  // TODO PM說興趣更新這邊在 VIDA 初期還不需要，所以先註解，但之後很可能會需要加回來
 
-  open(MODAL_TYPE.INTERESTED_PICK, {
-    size: 'xl',
-    content,
-    async confirmAction(data) {
-      const interested = data.join(',')
-      try {
-        if (isLogin.value) {
-          await useRequest('User.modifyInfo', { params: { interested }, immediate: true })
-          updateUserData({ interested })
-        } else {
-          await useRequest('User.setGuestInterested', { params: { interested }, immediate: true })
-        }
-      } catch (e) {
-        return e.message
-      }
+  // const interestedSplitByComma = isLogin.value
+  //   ? userData.value.interested
+  //   : (await useRequest('User.getGuestInterested', { immediate: true }))?.interested
+  // const content = commaSplittedToArray(interestedSplitByComma)
 
-      reload()
-      creatorsReload()
-    },
-    showClose: true,
-  })
+  // open(MODAL_TYPE.INTERESTED_PICK, {
+  //   size: 'xl',
+  //   content,
+  //   async confirmAction(data) {
+  //     const interested = data.join(',')
+  //     try {
+  //       if (isLogin.value) {
+  //         await useRequest('User.modifyInfo', { params: { interested }, immediate: true })
+  //         updateUserData({ interested })
+  //       } else {
+  //         await useRequest('User.setGuestInterested', { params: { interested }, immediate: true })
+  //       }
+  //     } catch (e) {
+  //       return e.message
+  //     }
+
+  //     reload()
+  //     creatorsReload()
+  //   },
+  //   showClose: true,
+  // })
 }
 
 whenever(isLogin, () => {
