@@ -1,5 +1,6 @@
-import { readonly, ref } from 'vue'
+import { readonly, ref, watch } from 'vue'
 import { defineStore } from 'pinia'
+import useRootScrollLock from '@/compositions/utils/scroll-lock'
 
 export const useDialogStore = defineStore('dialog-store', () => {
   // 帳號相關
@@ -20,6 +21,14 @@ export const useDialogStore = defineStore('dialog-store', () => {
   const paymentDialog = ref(false)
   const openPayment = () => (paymentDialog.value = true)
   const closePayment = () => (paymentDialog.value = false)
+
+  if (!import.meta.env.SSR) {
+    const { lock, unlock } = useRootScrollLock()
+    watch(
+      [authDialog, fileSelectDialog, subPlanDialog, subscriptionDialog, feedSubscriptionDialog, paymentDialog],
+      (arr) => (arr.some((v) => v) ? lock() : unlock()),
+    )
+  }
 
   return {
     authDialog,

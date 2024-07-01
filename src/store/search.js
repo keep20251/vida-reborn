@@ -23,17 +23,25 @@ export const useSearchStore = defineStore('search-store', () => {
   }
 
   const feedStore = useFeedStore()
+  const articleParams = { filter_by: 0, user_interested: 1, include_my_article: 1 }
   const articleFetcher = ref(
     useInfinite('Article.list', {
-      params: { filter_by: 0, user_interested: 1, include_my_article: 1 },
+      params: { keyword: keyword.value, ...articleParams },
       transformer: feedStore.sync,
     }),
   )
 
+  const creatorParams = {}
   const creatorFetcher = ref(
     useInfinite('User.searchCreator', {
-      params: {},
+      params: { keyword: keyword.value, ...creatorParams },
     }),
+  )
+
+  const requestParams = computed(() =>
+    activeTab.value === SEARCH_TAB.AUTHOR
+      ? { keyword: keyword.value, ...creatorParams }
+      : { keyword: keyword.value, ...articleParams },
   )
 
   const nextAction = computed(() =>
@@ -71,7 +79,7 @@ export const useSearchStore = defineStore('search-store', () => {
 
   function onSearch(value) {
     setKeyword(value)
-    reloadAction.value({ newParams: { keyword: value } })
+    reloadAction.value({ newParams: requestParams.value })
 
     if (historyTags.value.find((tag) => tag.value === value)) return
     historyTags.value.push({ value, label: value })
@@ -79,25 +87,20 @@ export const useSearchStore = defineStore('search-store', () => {
 
   const { to } = useRouters()
   const route = useRoute()
-  watch(
-    [() => route.name, () => route.query.q],
-    ([name, q]) => {
-      if (name === 'search') {
-        if (q && q !== keyword.value) {
-          onSearch(q)
+  watch([() => route.name, () => route.query.q], ([name, q]) => {
+    if (name === 'search') {
+      console.log('watch route search', { name, q })
+      if (q && q !== keyword.value) {
+        onSearch(q)
+      } else {
+        if (hasQuery.value) {
+          to('search', { query: { q: keyword.value } })
         } else {
-          if (hasQuery.value) {
-            to('search', { query: { q: keyword.value } })
-          } else {
-            to('search')
-          }
+          to('search')
         }
       }
-    },
-    {
-      immediate: true,
-    },
-  )
+    }
+  })
 
   return {
     activeTab,
@@ -110,6 +113,7 @@ export const useSearchStore = defineStore('search-store', () => {
     reloadAction,
     initAction,
     dataList,
+    requestParams,
 
     articleFetcher,
     creatorFetcher,

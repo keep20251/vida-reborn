@@ -23,7 +23,7 @@
       <Icon name="cameraWhite" size="20"></Icon>
       <span class="text-base text-white">{{ `${currIndex + 1}/${imgs.length}` }}</span>
     </div>
-    <LockMask v-if="isLock" :item="item" :meta="`${currIndex + 1}/${imgs.length}`"></LockMask>
+    <LockMask v-if="isLock || preview" :item="item" :meta="`${currIndex + 1}/${imgs.length}`"></LockMask>
     <div
       v-if="isDesktop && imgs.length > 1 && currIndex >= 1"
       class="absolute left-0 top-0 flex h-full w-40 cursor-pointer items-center justify-end"
@@ -59,6 +59,7 @@ const props = defineProps({
   item: { type: Object, required: true },
   index: { type: Number, default: 0 },
   stat: { type: Boolean, default: false },
+  preview: { type: Boolean, default: false },
 })
 
 const appStore = useAppStore()

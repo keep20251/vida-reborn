@@ -2,7 +2,6 @@ import { computed, readonly, ref } from 'vue'
 import { defineStore, storeToRefs } from 'pinia'
 import { useHistory } from '@/compositions/routers/history'
 import { SUBSCRIPTION_ROUTE, SUBSCRIPTION_TYPE } from '@/constant'
-import { useAccountStore } from './account'
 import { useDialogStore } from './dialog'
 
 /**
@@ -10,7 +9,6 @@ import { useDialogStore } from './dialog'
  */
 export const useSubsciptionStore = defineStore('subscription-store', () => {
   const { subscriptionDialog } = storeToRefs(useDialogStore())
-  const { afterLoginAction } = useAccountStore()
 
   const _items = ref([])
 
@@ -71,7 +69,7 @@ export const useSubsciptionStore = defineStore('subscription-store', () => {
   return {
     open,
     close: _reset,
-    openFromFeed: afterLoginAction(openFromFeed),
+    openFromFeed,
     closeFromFeed: _reset,
     isOpen: readonly(subscriptionDialog),
     items: readonly(_items),

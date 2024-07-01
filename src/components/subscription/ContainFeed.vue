@@ -16,7 +16,7 @@
             class="absolute bottom-0 right-0 flex flex-row items-center justify-center space-x-5 pb-5 pr-5"
           >
             <Icon name="cameraWhite" size="17"></Icon>
-            <span class="text-base font-normal leading-lg text-white">{{ item.view }}</span>
+            <span class="text-base font-normal leading-lg text-white">{{ photoLength }}</span>
           </div>
           <div
             v-show="isVideo"
@@ -76,4 +76,5 @@ const isVideo = computed(() => props.item.resource_type === MEDIA_TYPE.VIDEO)
 const isImage = computed(() => props.item.resource_type === MEDIA_TYPE.IMAGE)
 
 const imageUrl = computed(() => (isImage.value ? props.item.url[0].url : props.item.url[1].url))
+const photoLength = computed(() => isImage.value && props.item.url.length)
 </script>

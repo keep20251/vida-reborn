@@ -45,14 +45,15 @@ const { isMobile } = storeToRefs(appStore)
 
 const searchStore = useSearchStore()
 const { setKeyword } = searchStore
-const { activeTab, nextAction, keyword, hasQuery, articleFetcher, reloadAction } = storeToRefs(searchStore)
+const { activeTab, nextAction, keyword, hasQuery, articleFetcher, reloadAction, requestParams } =
+  storeToRefs(searchStore)
 
 const tabOptions = [
   { label: 'tab.relatedPost', value: SEARCH_TAB.POST },
   { label: 'tab.relatedAuthor', value: SEARCH_TAB.AUTHOR },
 ]
 
-watch(activeTab, () => reloadAction.value({ newParams: { keyword: keyword.value } }))
+watch(activeTab, () => reloadAction.value({ newParams: requestParams.value }))
 
 const { t: $t } = useI18n()
 const headStore = useHeadStore()
@@ -73,10 +74,10 @@ const { relatedFeeds, keyword: hydrationKeyword } = storeToRefs(useHydrationStor
 
 const route = useRoute()
 onServerClientOnce(async (isSSR) => {
-  setKeyword(route.query.q)
-  if (!keyword.value) return
-  await articleFetcher.value.reload({ newParams: { keyword: keyword.value } })
   if (isSSR) {
+    setKeyword(route.query.q)
+    if (!keyword.value) return
+    await articleFetcher.value.reload({ newParams: requestParams.value })
     hydrationKeyword.value = keyword.value
     relatedFeeds.value = articleFetcher.value.dataList
   }
@@ -84,6 +85,6 @@ onServerClientOnce(async (isSSR) => {
 onHydration(() => {
   setKeyword(hydrationKeyword.value)
   if (!keyword.value) return
-  articleFetcher.value.revert({ dataList: relatedFeeds.value }, { newParams: { keyword: keyword.value } })
+  articleFetcher.value.revert({ dataList: relatedFeeds.value }, { newParams: requestParams.value })
 })
 </script>
