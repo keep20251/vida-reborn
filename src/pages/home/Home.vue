@@ -1,10 +1,10 @@
 <template>
   <Page infinite @load="onPageEnd" :pull-to-reload="tab === TAB_TYPE.REC" @reload="reload">
     <template v-if="isMobile" #app-top>
-      <TopSearchBar logo feature-icon="filter" to-search @feature="updateIntesreted"></TopSearchBar>
+      <TopSearchBar logo to-search></TopSearchBar>
     </template>
     <template #main-top>
-      <Tab v-model="tab" :options="tabOptions" @feature="updateIntesreted"></Tab>
+      <Tab v-model="tab" :options="tabOptions"></Tab>
     </template>
     <template #default>
       <div v-show="tab === TAB_TYPE.REC">
@@ -71,7 +71,6 @@ import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
 import { useFeedStore } from '@/store/feed'
 import { useHydrationStore } from '@/store/hydration'
-import { useModalStore } from '@/store/modal'
 import BulletinCard from '@comp/aside/BulletinCard.vue'
 import RecCard from '@comp/aside/RecCard.vue'
 import PopCreatorSwiper from '@comp/card/PopCreatorSwiper.vue'
@@ -82,12 +81,9 @@ import Feed from '@comp/main/Feed.vue'
 import Tab from '@comp/navigation/Tab.vue'
 import TopSearchBar from '@comp/navigation/TopSearchBar.vue'
 import { onHydration, onServerClientOnce } from '@use/lifecycle'
-import useRequest from '@use/request/index.js'
 import { useInfinite } from '@use/request/infinite'
-import { MODAL_TYPE } from '@const'
 import { TAB_TYPE } from '@const/home'
 import { whenNavHomeAgain } from '@/utils/nav-again'
-import { commaSplittedToArray } from '@/utils/string-helper'
 
 const appStore = useAppStore()
 const { isDesktop, isMobile } = storeToRefs(appStore)
@@ -154,44 +150,38 @@ function onPageEnd() {
   }
 }
 
-// const interestedList = useLocalStorage(LOCAL_STORAGE_KEYS.INTERESTED_LIST, [])
+// TODO PM說興趣更新這邊在 VIDA 初期還不需要，所以先註解，但之後很可能會需要加回來
+// async function updateIntesreted() {
+//   const interestedSplitByComma = isLogin.value
+//     ? userData.value.interested
+//     : (await useRequest('User.getGuestInterested', { immediate: true }))?.interested
+//   const content = commaSplittedToArray(interestedSplitByComma)
+
+//   open(MODAL_TYPE.INTERESTED_PICK, {
+//     size: 'xl',
+//     content,
+//     async confirmAction(data) {
+//       const interested = data.join(',')
+//       try {
+//         if (isLogin.value) {
+//           await useRequest('User.modifyInfo', { params: { interested }, immediate: true })
+//           updateUserData({ interested })
+//         } else {
+//           await useRequest('User.setGuestInterested', { params: { interested }, immediate: true })
+//         }
+//       } catch (e) {
+//         return e.message
+//       }
+
+//       reload()
+//       creatorsReload()
+//     },
+//     showClose: true,
+//   })
+// }
+
 const accountStore = useAccountStore()
-const { isLogin, userData } = storeToRefs(accountStore)
-const { updateUserData } = accountStore
-const modalStore = useModalStore()
-const { open } = modalStore
-async function updateIntesreted() {
-  console.log('None of the business logic is implemented yet.')
-  // TODO PM說興趣更新這邊在 VIDA 初期還不需要，所以先註解，但之後很可能會需要加回來
-
-  // const interestedSplitByComma = isLogin.value
-  //   ? userData.value.interested
-  //   : (await useRequest('User.getGuestInterested', { immediate: true }))?.interested
-  // const content = commaSplittedToArray(interestedSplitByComma)
-
-  // open(MODAL_TYPE.INTERESTED_PICK, {
-  //   size: 'xl',
-  //   content,
-  //   async confirmAction(data) {
-  //     const interested = data.join(',')
-  //     try {
-  //       if (isLogin.value) {
-  //         await useRequest('User.modifyInfo', { params: { interested }, immediate: true })
-  //         updateUserData({ interested })
-  //       } else {
-  //         await useRequest('User.setGuestInterested', { params: { interested }, immediate: true })
-  //       }
-  //     } catch (e) {
-  //       return e.message
-  //     }
-
-  //     reload()
-  //     creatorsReload()
-  //   },
-  //   showClose: true,
-  // })
-}
-
+const { isLogin } = storeToRefs(accountStore)
 whenever(isLogin, () => {
   reload()
   creatorsReload()
