@@ -123,6 +123,7 @@ import { useElementSize, useEventListener } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useDrag } from '@use/gesture/drag'
+import { useRootScrollLock } from '@use/utils/scroll-lock'
 import lazyloader from '@/utils/lazyloader'
 import { toVideoTimeFormat } from '@/utils/string-helper'
 // import { add, remove } from '@/utils/video-autoplay-controller'
@@ -230,7 +231,8 @@ const fullscreenStyle = computed(() =>
 function toggleFullscreen() {
   videoFullscreen.value = !videoFullscreen.value
 }
-watch(videoFullscreen, (v) => (document.getElementsByTagName('html')[0].style.overflow = v ? 'hidden' : ''))
+const { lock, unlock } = useRootScrollLock()
+watch(videoFullscreen, (v) => (v ? lock() : unlock()))
 useEventListener('keydown', (evt) => {
   if (videoFullscreen.value && evt.code === 'Escape') {
     toggleFullscreen()

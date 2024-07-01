@@ -62,13 +62,14 @@
 
 <script setup>
 import { computed, ref, watch } from 'vue'
-import { syncRef, useEventListener, useScrollLock, whenever } from '@vueuse/core'
+import { useEventListener, whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useFullscreenPhotoStore } from '@/store/fullscreen-photo'
 import LockMask from '@comp/multimedia/LockMask.vue'
 import { useGesture } from '@use/gesture/gesture'
 import { useSwipe } from '@use/gesture/swipe'
+import { useRootScrollLock } from '@use/utils/scroll-lock'
 
 const appStore = useAppStore()
 const { isDesktop } = storeToRefs(appStore)
@@ -176,6 +177,6 @@ whenever(isOpen, () => {
   resetGesture()
 })
 
-const isLocked = useScrollLock(window)
-syncRef(isOpen, isLocked, { direction: 'ltr' })
+const { lock, unlock } = useRootScrollLock()
+watch(isOpen, (v) => (v ? lock() : unlock()))
 </script>
