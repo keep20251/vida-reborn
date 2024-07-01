@@ -99,6 +99,7 @@ const props = defineProps({
   infiniteInterval: { type: Number, default: 1000 },
   pullToReload: { type: Boolean, default: false },
   watcher: { default: null },
+  hideNav: { type: Boolean, default: true },
 })
 
 const emits = defineEmits(['load', 'reload'])
@@ -107,6 +108,7 @@ const appStore = useAppStore()
 const { isDesktop, isMobile } = storeToRefs(appStore)
 
 const navStore = useNavStore()
+const { hide: hideNavbar, show: showNavbar } = navStore
 const { isShow: isNavShow } = storeToRefs(navStore)
 
 const main = ref(null)
@@ -145,6 +147,7 @@ function onScroll() {
   if (diff > 0) {
     if (scrollTop > 100 && !props.mainTopToggleDisabled) {
       mainTopOpen.value = false
+      props.hideNav && isMobile.value && hideNavbar()
     }
     if (asideHeightOverflow.value > 0 && asidePosition.value === null && scrollTop >= asideHeightOverflow.value) {
       asidePosition.value = 'fixed'
@@ -154,6 +157,7 @@ function onScroll() {
   else if (diff < 0) {
     if (!mainTopOpen.value) {
       mainTopOpen.value = true
+      props.hideNav && isMobile.value && showNavbar()
     }
     if (asideHeightOverflow.value > 0 && asidePosition.value !== null && scrollTop < asideHeightOverflow.value) {
       asidePosition.value = null
@@ -186,6 +190,8 @@ onActivated(() => {
   window.scrollTo(0, prevScrollTop)
 
   stopOnScroll = useEventListener('scroll', onScroll)
+
+  setTimeout(showNavbar, 100)
 })
 onDeactivated(() => {
   active = false
