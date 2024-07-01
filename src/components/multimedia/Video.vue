@@ -307,8 +307,8 @@ function setupVideo() {
         // 尼瑪 der 視頻會出現播放完畢當下 currentTime 比 duration 還小的情況
         // 某些瀏覽器(safari)可能發生 ended 事件沒觸發到
         // 我尼瑪 der 只好在這邊判斷比 duration 還小兩秒就送 ended 事件
-        const { currentTime, duration } = videoElement.value
-        if (Math.floor(currentTime) >= Math.floor(duration) - 2) {
+        const { currentTime, duration, loop } = videoElement.value
+        if (!loop && Math.floor(currentTime) >= Math.floor(duration) - 2) {
           playEnd()
         }
       },
