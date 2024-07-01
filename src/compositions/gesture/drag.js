@@ -3,7 +3,7 @@ import { useElementBounding, useEventListener } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 
-export function useDrag(targetEleRef, { onUpdate, onEnd }) {
+export function useDrag(targetEleRef, { onUpdate, onEnd, isVertical = false }) {
   const appStore = useAppStore()
   const { isDesktop } = storeToRefs(appStore)
 
@@ -13,8 +13,11 @@ export function useDrag(targetEleRef, { onUpdate, onEnd }) {
 
   const {
     left: targetLeft,
-    right: targetRight,
+    // right: targetRight,
+    // top: targetTop,
+    bottom: targetBottom,
     width: targetWidth,
+    height: targetHeight,
     // update: updateTargetBounding,
   } = useElementBounding(targetEleRef)
 
@@ -36,10 +39,17 @@ export function useDrag(targetEleRef, { onUpdate, onEnd }) {
     onEnd && onEnd()
   }
   function update(evt) {
-    const pageX = evt.pageX || evt.touches[0].pageX
-    const x = min(targetRight.value, max(0, pageX - targetLeft.value))
-    const rate = x / targetWidth.value
-    onUpdate && onUpdate(max(0, min(1, rate)))
+    if (isVertical) {
+      const clientY = evt.clientY || evt.touches[0].clientY
+      const y = min(targetHeight.value, max(0, targetBottom.value - clientY))
+      const rate = y / targetHeight.value
+      onUpdate && onUpdate(max(0, min(1, rate)))
+    } else {
+      const clientX = evt.clientX || evt.touches[0].clientX
+      const x = min(targetWidth.value, max(0, clientX - targetLeft.value))
+      const rate = x / targetWidth.value
+      onUpdate && onUpdate(max(0, min(1, rate)))
+    }
   }
 
   const stops = []

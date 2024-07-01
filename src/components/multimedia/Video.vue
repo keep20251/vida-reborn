@@ -36,8 +36,11 @@
     <!-- 播放器 control -->
     <div
       v-else
-      class="absolute bottom-0 w-full rounded-inherit bg-black bg-opacity-50 px-20 pb-20 transition-transform"
-      :class="{ 'translate-y-full': videoPlay && !isDragging && !showControl }"
+      class="absolute bottom-0 w-full rounded-inherit rounded-t-none bg-black bg-opacity-50 px-20 pb-20 transition-transform"
+      :class="{
+        'translate-y-full':
+          videoPlay && !isTimeBarDragging && !isVolumeBarDragging && !showControl && !showVolumeControl,
+      }"
       @click.stop
     >
       <div class="relative w-full cursor-pointer" :class="[videoFullscreen ? 'h-34' : 'h-27']" ref="timeBar">
@@ -74,16 +77,37 @@
             :size="videoFullscreen ? '24' : '16'"
             class="cursor-pointer"
             @click.stop="toggleVideoMuted"
+            @mouseover="openVolumeControl"
+            @mouseleave="closeVolumeControl"
           />
-          <!-- <div
+          <div
+            v-if="isDesktop && (isVolumeBarDragging || showVolumeControl)"
             class="absolute -left-10 -top-37 flex h-100 w-32 -translate-y-full flex-col items-center justify-between rounded-full bg-black bg-opacity-50 py-10"
           >
-            <div class="select-none font-mono text-base text-white">33</div>
-            <div class="relative h-50 w-full cursor-pointer">
+            <div class="select-none font-mono text-base text-white">{{ Math.round(videoVolume * 100) }}</div>
+            <div
+              class="relative h-50 w-full cursor-pointer"
+              ref="volumeBar"
+              @mouseover="cancelCloseVolumeControl"
+              @mouseleave="closeVolumeControl"
+            >
               <div class="absolute left-1/2 h-full w-1 -translate-x-1/2 rounded-full bg-white"></div>
-              <div class="absolute bottom-0 left-1/2 h-1/2 w-2 -translate-x-1/2 rounded-full bg-contrast"></div>
+              <div
+                class="absolute bottom-0 left-1/2 h-full w-2 -translate-x-1/2 rounded-full"
+                :style="{
+                  backgroundImage: `linear-gradient(
+                                     to top,
+                                     #7FE2D3 ${videoVolume * 100}%,
+                                     rgba(0,0,0,0) ${videoVolume * 100}%
+                                   )`,
+                }"
+              ></div>
+              <div
+                class="absolute -bottom-3 left-1/2 h-6 w-6 rounded-full bg-contrast will-change-transform"
+                :style="{ transform: `translate(-50%, -${volumeBarHeight * videoVolume}px)` }"
+              ></div>
             </div>
-          </div> -->
+          </div>
         </div>
         <Icon
           :name="videoFullscreen ? 'fullscreenExit' : 'fullscreen'"
@@ -118,8 +142,8 @@ const props = defineProps({
 const emits = defineEmits(['play', 'ended', 'timeupdate'])
 
 const appStore = useAppStore()
-const { videoMuted } = storeToRefs(appStore)
-const { toggleVideoMuted } = appStore
+const { isDesktop, videoMuted, videoVolume } = storeToRefs(appStore)
+const { toggleVideoMuted, setVideoVolume } = appStore
 
 const videoWrap = ref(null)
 const videoElement = ref(null)
@@ -134,7 +158,7 @@ const errMsg = ref('')
 
 const timeBar = ref(null)
 const { width: timeBarWidth } = useElementSize(timeBar)
-const { isDragging } = useDrag(timeBar, {
+const { isDragging: isTimeBarDragging } = useDrag(timeBar, {
   onUpdate(newRate) {
     const video = videoElement.value
     if (!video) return
@@ -154,6 +178,13 @@ const { isDragging } = useDrag(timeBar, {
       video.play()
     }
   },
+})
+
+const volumeBar = ref(null)
+const { height: volumeBarHeight } = useElementSize(volumeBar)
+const { isDragging: isVolumeBarDragging } = useDrag(volumeBar, {
+  isVertical: true,
+  onUpdate: setVideoVolume,
 })
 
 function togglePlay() {
@@ -220,6 +251,18 @@ function openControl() {
   clearTimeout(openControl.timerId)
   showControl.value = true
   openControl.timerId = setTimeout(() => (showControl.value = false), 2000)
+}
+
+const showVolumeControl = ref(false)
+function openVolumeControl() {
+  showVolumeControl.value = true
+}
+function closeVolumeControl() {
+  cancelCloseVolumeControl()
+  closeVolumeControl.timerId = setTimeout(() => (showVolumeControl.value = false), 2000)
+}
+function cancelCloseVolumeControl() {
+  clearTimeout(closeVolumeControl.timerId)
 }
 // 自動播放相關配置
 // let videoAutoplayController
