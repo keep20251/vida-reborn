@@ -61,13 +61,7 @@ export function useGesture(
       }
     }
   }
-
-  const appStore = useAppStore()
-  const { isDesktop } = storeToRefs(appStore)
-
-  // wheel for desktop
-  useEventListener(targetRef, 'wheel', (evt) => {
-    const delta = evt.deltaY < 0 ? 0.2 : -0.2
+  function changeScale(delta) {
     if (!scaleCenterX.value && !scaleCenterY.value) {
       setScaleCenter(targetRef.value.offsetWidth / 2, targetRef.value.offsetHeight / 2)
     }
@@ -77,6 +71,15 @@ export function useGesture(
         setScaleCenter()
       }, 500)
     }
+  }
+
+  const appStore = useAppStore()
+  const { isDesktop } = storeToRefs(appStore)
+
+  // wheel for desktop
+  useEventListener(targetRef, 'wheel', (evt) => {
+    const delta = evt.deltaY < 0 ? 0.2 : -0.2
+    changeScale(delta)
   })
 
   // pinch gesture
@@ -208,6 +211,8 @@ export function useGesture(
     scaleCenterX: readonly(scaleCenterX),
     scaleCenterY: readonly(scaleCenterY),
     tapTransitioning: readonly(tapTransitioning),
+    scaleUp: () => changeScale(0.2),
+    scaleDown: () => changeScale(-0.2),
     reset,
   }
 }

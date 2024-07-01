@@ -62,7 +62,7 @@
 
 <script setup>
 import { computed, ref, watch } from 'vue'
-import { syncRef, useScrollLock, whenever } from '@vueuse/core'
+import { syncRef, useEventListener, useScrollLock, whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useFullscreenPhotoStore } from '@/store/fullscreen-photo'
@@ -122,7 +122,16 @@ const isLock = computed(
 )
 
 const gesture = ref(null)
-const { scale, scaling, scaleCenterX, scaleCenterY, tapTransitioning, reset: resetGesture } = useGesture(gesture)
+const {
+  scale,
+  scaling,
+  scaleCenterX,
+  scaleCenterY,
+  tapTransitioning,
+  scaleUp,
+  scaleDown,
+  reset: resetGesture,
+} = useGesture(gesture)
 const gestureTransformStyle = computed(() => ({
   transition: tapTransitioning.value && !scaling.value ? 'transform 0.3s ease-out' : '',
   transform: `scale(${scale.value})`,
@@ -137,6 +146,27 @@ watch(scale, (v) => {
   } else {
     disableSwipe()
     disableCloseSwipe()
+  }
+})
+
+useEventListener('keydown', (evt) => {
+  if (!isOpen.value) return
+  switch (evt.code) {
+    case 'ArrowDown':
+      scaleDown()
+      break
+    case 'ArrowUp':
+      scaleUp()
+      break
+    case 'ArrowLeft':
+      prev()
+      break
+    case 'ArrowRight':
+      next()
+      break
+    case 'Escape':
+      close()
+      break
   }
 })
 
