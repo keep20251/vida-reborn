@@ -37,7 +37,9 @@
           >
             <div class="flex flex-row items-center justify-center">
               <Icon :name="option.icon" size="15" class="mr-10"></Icon>
-              {{ $t(option.label) }}
+              <div class="max-w-[8rem] overflow-hidden text-ellipsis whitespace-nowrap xl:lg:md:max-w-[20rem]">
+                {{ $t(option.label) }}
+              </div>
             </div>
           </button>
         </div>
