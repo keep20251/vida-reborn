@@ -17,10 +17,7 @@
     </div>
 
     <!-- 尚未開始播放前的置中播放按鈕 -->
-    <div
-      v-if="videoCurrentTime === 0 && !videoPlay && !isWaiting"
-      class="absolute top-0 h-full w-full cursor-pointer rounded-inherit"
-    >
+    <div v-if="!videoElement" class="absolute top-0 h-full w-full cursor-pointer rounded-inherit">
       <EncryptImage :src="posterUrl" :border-radius="10" cover></EncryptImage>
       <div
         class="absolute left-1/2 top-1/2 flex h-50 w-50 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-md bg-black bg-opacity-50"
@@ -189,7 +186,12 @@ const { isDragging: isVolumeBarDragging } = useDrag(volumeBar, {
 
 function togglePlay() {
   const video = videoElement.value
-  if (!video || togglePlay.playPromise) return
+  if (!video) {
+    setupVideo()
+    requestAnimationFrame(togglePlay)
+    return
+  }
+  if (togglePlay.playPromise) return
   if (videoPlay.value) {
     video.pause()
     videoPlay.value = false
@@ -373,7 +375,8 @@ function closeLazy() {
 }
 
 onMounted(() => {
-  videoWrap.value.load = setupVideo
+  // 不自動載入視頻，改成使用者第一次點擊播放才開始載入
+  // videoWrap.value.load = setupVideo
   videoWrap.value.unload = releaseVideo
 })
 
