@@ -113,7 +113,7 @@ const {
   reload: creatorsReload,
 } = useInfinite('User.getNewCreator')
 
-const hasSubscribe = computed(() => !feedsNoData.value)
+const hasSubscribe = computed(() => isLogin.value && !feedsNoData.value)
 const isPullToReloadEnable = computed(() => isMobile.value && hasSubscribe.value)
 
 const hydrationStore = useHydrationStore()
