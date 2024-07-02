@@ -96,7 +96,7 @@ const props = defineProps({
   infiniteDistance: { type: Number, default: 100 },
   infiniteInterval: { type: Number, default: 1000 },
   pullToReload: { type: Boolean, default: false },
-  watcher: { default: null },
+  scrollToTopSignal: {},
 })
 
 const emits = defineEmits(['load', 'reload'])
@@ -253,9 +253,21 @@ onMounted(() => {
   })
 })
 
-// 當外在的 watcher 改變時，滾動到最上方
+// 當外部發送的 scrollToTopSignal 改變時，prevScrollTop 改回 0
 watch(
-  () => props.watcher,
-  (_new, _old) => (_new && _new !== _old ? window.scrollTo(0, 0) : void 0),
+  () => props.scrollToTopSignal,
+  () => {
+    prevScrollTop = 0
+
+    mainTopOpen.value = true
+    if (isMobile.value) {
+      showNav()
+    }
+    asidePosition.value = null
+
+    if (active) {
+      window.scrollTo(0, prevScrollTop)
+    }
+  },
 )
 </script>

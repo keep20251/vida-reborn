@@ -1,5 +1,5 @@
 <template>
-  <Page infinite @load="nextAction" :pull-to-reload="hasQuery" :watcher="keyword" @reload="reloadAction">
+  <Page infinite @load="nextAction" :pull-to-reload="hasQuery" @reload="reloadAction" :scroll-to-top-signal="keyword">
     <template #app-top>
       <TopSearchBar :input-value="keyword" :logo="isMobile" to-search auto-trigger></TopSearchBar>
     </template>
