@@ -11,6 +11,9 @@ export default {
   // 指定創作者帖子列表
   listByUser: { method: 'post', url: '/api/article/getArticleByUser' },
 
+  // 取得訂閱的帖子
+  listSubscribe: { method: 'post', url: '/api/article/getSubscriptionArticle ' },
+
   // 帖子詳情
   detail: { method: 'post', url: '/api/article/getDetail' },
 

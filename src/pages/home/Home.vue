@@ -1,27 +1,24 @@
 <template>
-  <Page infinite @load="onPageEnd" :pull-to-reload="tab === TAB_TYPE.REC" @reload="reload">
+  <Page infinite @load="onPageEnd" :pull-to-reload="isPullToReloadEnable" @reload="reload">
     <template v-if="isMobile" #app-top>
       <TopSearchBar logo to-search></TopSearchBar>
     </template>
-    <template #main-top>
-      <Tab v-model="tab" :options="tabOptions"></Tab>
-    </template>
     <template #default>
-      <div v-show="tab === TAB_TYPE.REC">
-        <List :items="items" item-key="id" divider>
+      <div v-if="hasSubscribe">
+        <List :items="feeds" item-key="id" divider>
           <template #default="{ item }">
             <Feed class="py-20" :item="item"></Feed>
           </template>
           <template #bottom>
-            <NoData v-if="noData" :reload="reload"></NoData>
+            <NoData v-if="feedsNoData" :reload="reload"></NoData>
             <div v-else class="flex items-center justify-center py-8 text-gray-a3">
-              <Loading v-if="isLoading"></Loading>
-              <span v-if="noMore">{{ $t('common.noMore') }}</span>
+              <Loading v-if="feedsIsLoading"></Loading>
+              <span v-if="feedsNoMore">{{ $t('common.noMore') }}</span>
             </div>
           </template>
         </List>
       </div>
-      <div v-show="tab === TAB_TYPE.SUB" :style="{ height: subTabHeight }">
+      <div v-else ref="creatorsPage">
         <PopCreatorSwiper
           v-if="isMobile"
           :items="creators"
@@ -65,7 +62,7 @@
 
 <script setup>
 import { computed, ref } from 'vue'
-import { useWindowSize, watchOnce, whenever } from '@vueuse/core'
+import { useWindowSize, whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
@@ -78,77 +75,104 @@ import ViewSubscribeCard from '@comp/card/ViewSubscribeCard.vue'
 import Carousel from '@comp/common/Carousel.vue'
 import NoData from '@comp/info/NoData.vue'
 import Feed from '@comp/main/Feed.vue'
-import Tab from '@comp/navigation/Tab.vue'
 import TopSearchBar from '@comp/navigation/TopSearchBar.vue'
 import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import { useInfinite } from '@use/request/infinite'
-import { TAB_TYPE } from '@const/home'
 import { whenNavHomeAgain } from '@/utils/nav-again'
 
 const appStore = useAppStore()
 const { isDesktop, isMobile } = storeToRefs(appStore)
 
-// safari 100vh 的爛坑，只能拿 window height 來算
-const { height: windowHeight } = useWindowSize()
-const subTabHeight = computed(() => (isMobile.value ? `calc(${windowHeight.value}px - 12.75rem)` : ''))
-
-const tab = ref(TAB_TYPE.REC)
-const tabOptions = ref([
-  { label: 'tab.recommand', value: TAB_TYPE.REC },
-  { label: 'tab.subscribe', value: TAB_TYPE.SUB },
-])
+const accountStore = useAccountStore()
+const { isLogin } = storeToRefs(accountStore)
 
 const feedStore = useFeedStore()
 const {
-  dataList: items,
-  dataExtra,
-  isLoading,
-  noMore,
-  noData,
-  init,
-  revert,
-  next,
-  reload,
-} = useInfinite('Article.list', {
-  params: { filter_by: 0, user_interested: 1, include_my_article: 1 },
+  dataList: feeds,
+  dataExtra: feedsDataExtra,
+  isLoading: feedsIsLoading,
+  noMore: feedsNoMore,
+  noData: feedsNoData,
+  init: feedsInit,
+  revert: feedsRevert,
+  next: feedsNext,
+  reload: feedsReload,
+} = useInfinite('Article.listSubscribe', {
   transformer: feedStore.sync,
 })
 
 const {
   dataList: creators,
+  dataExtra: creatorsDataExtra,
   isLoading: creatorsIsLoading,
   noMore: creatorsNoMore,
   noData: creatorsNoData,
   init: creatorsInit,
+  revert: creatorsRevert,
   next: creatorsNext,
   reload: creatorsReload,
 } = useInfinite('User.getNewCreator')
-watchOnce(tab, (tab) => {
-  if (tab === TAB_TYPE.SUB) {
-    creatorsInit()
-  }
-})
+
+const hasSubscribe = computed(() => !feedsNoData.value)
+const isPullToReloadEnable = computed(() => isMobile.value && hasSubscribe.value)
 
 const hydrationStore = useHydrationStore()
-const { forYou } = storeToRefs(hydrationStore)
+const { homeFeeds, homeCreators } = storeToRefs(hydrationStore)
 onServerClientOnce(async (isSSR) => {
-  await init()
-  if (isSSR) {
-    forYou.value = { dataList: items.value, dataExtra: dataExtra.value }
+  if (isLogin.value) {
+    await feedsInit()
+  }
+
+  if (hasSubscribe.value) {
+    if (isSSR) {
+      homeFeeds.value = { dataList: feeds.value, dataExtra: feedsDataExtra.value }
+    }
+  } else {
+    await creatorsInit()
+    if (isSSR) {
+      homeCreators.value = { dataList: creators.value, dataExtra: creatorsDataExtra.value }
+    }
   }
 })
 onHydration(() => {
-  revert(forYou.value)
+  if (homeFeeds.value) {
+    feedsRevert(homeFeeds.value)
+  }
+  if (homeCreators.value) {
+    creatorsRevert(homeCreators.value)
+  }
 })
 
+// safari 100vh 的爛坑，只能拿 window height 來算
+const creatorsPage = ref(null)
+const { height: windowHeight } = useWindowSize()
+whenever(
+  () => creatorsPage.value && isMobile.value,
+  () => (creatorsPage.value.style.height = `calc(${windowHeight.value}px - 9.5rem)`),
+  { immediate: true },
+)
+
 function onPageEnd() {
-  if (tab.value === TAB_TYPE.REC) {
-    next()
-  }
-  if (tab.value === TAB_TYPE.SUB && isDesktop.value) {
-    creatorsNext()
+  if (hasSubscribe.value) {
+    feedsNext()
+  } else {
+    if (isDesktop.value) {
+      creatorsNext()
+    }
   }
 }
+
+async function reload() {
+  if (isLogin.value) {
+    await feedsReload()
+  }
+  if (!hasSubscribe.value) {
+    await creatorsReload()
+  }
+}
+
+whenever(isLogin, reload)
+whenNavHomeAgain(reload)
 
 // TODO PM說興趣更新這邊在 VIDA 初期還不需要，所以先註解，但之後很可能會需要加回來
 // async function updateIntesreted() {
@@ -179,17 +203,4 @@ function onPageEnd() {
 //     showClose: true,
 //   })
 // }
-
-const accountStore = useAccountStore()
-const { isLogin } = storeToRefs(accountStore)
-whenever(isLogin, () => {
-  reload()
-  creatorsReload()
-})
-
-whenNavHomeAgain(() => {
-  tab.value = TAB_TYPE.REC
-  reload()
-  creatorsReload()
-})
 </script>

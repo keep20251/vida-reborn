@@ -11,7 +11,8 @@ export const useHydrationStore = defineStore('hydration', () => {
   const userData = ref(null)
 
   // route home
-  const forYou = ref(null)
+  const homeFeeds = ref(null)
+  const homeCreators = ref(null)
 
   // route search
   const relatedAuthors = ref([])
@@ -39,7 +40,8 @@ export const useHydrationStore = defineStore('hydration', () => {
     keyword,
     popularTags,
 
-    forYou,
+    homeFeeds,
+    homeCreators,
 
     creator,
     creatorArticleList,
