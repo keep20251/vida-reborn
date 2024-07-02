@@ -1,7 +1,8 @@
 <template>
   <div
-    class="flex h-screen grow flex-row justify-start"
+    class="flex grow flex-row justify-start"
     :class="{ 'basis-[1000px]': wideEnough, 'basis-[540px]': !wideEnough, 'py-20': isDesktop }"
+    :style="{ height: viewHeight }"
   >
     <div
       v-show="wideEnough || !messaging"
@@ -42,6 +43,7 @@ defineProps({
 const appStore = useAppStore()
 const { isDesktop, isMobile } = storeToRefs(appStore)
 
-const { width } = useWindowSize()
+const { width, height } = useWindowSize()
 const wideEnough = computed(() => width.value > 1185)
+const viewHeight = computed(() => height.value + 'px')
 </script>

@@ -1,27 +1,24 @@
 <template>
-  <Page infinite @load="onPageEnd" :pull-to-reload="tab === TAB_TYPE.REC" @reload="reload">
+  <Page infinite @load="onPageEnd" :pull-to-reload="isPullToReloadEnable" @reload="reload">
     <template v-if="isMobile" #app-top>
-      <TopSearchBar logo feature-icon="filter" to-search @feature="updateIntesreted"></TopSearchBar>
-    </template>
-    <template #main-top>
-      <Tab v-model="tab" :options="tabOptions" @feature="updateIntesreted"></Tab>
+      <TopSearchBar logo to-search></TopSearchBar>
     </template>
     <template #default>
-      <div v-show="tab === TAB_TYPE.REC">
-        <List :items="items" item-key="id" divider>
+      <div v-if="hasSubscribe">
+        <List :items="feeds" item-key="id" divider>
           <template #default="{ item }">
             <Feed class="py-20" :item="item"></Feed>
           </template>
           <template #bottom>
-            <NoData v-if="noData" :reload="reload"></NoData>
+            <NoData v-if="feedsNoData" :reload="reload"></NoData>
             <div v-else class="flex items-center justify-center py-8 text-gray-a3">
-              <Loading v-if="isLoading"></Loading>
-              <span v-if="noMore">{{ $t('common.noMore') }}</span>
+              <Loading v-if="feedsIsLoading"></Loading>
+              <span v-if="feedsNoMore">{{ $t('common.noMore') }}</span>
             </div>
           </template>
         </List>
       </div>
-      <div v-show="tab === TAB_TYPE.SUB" :style="{ height: subTabHeight }">
+      <div v-else ref="creatorsPage">
         <PopCreatorSwiper
           v-if="isMobile"
           :items="creators"
@@ -65,13 +62,12 @@
 
 <script setup>
 import { computed, ref } from 'vue'
-import { useWindowSize, watchOnce, whenever } from '@vueuse/core'
+import { useWindowSize, whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
 import { useFeedStore } from '@/store/feed'
 import { useHydrationStore } from '@/store/hydration'
-import { useModalStore } from '@/store/modal'
 import BulletinCard from '@comp/aside/BulletinCard.vue'
 import RecCard from '@comp/aside/RecCard.vue'
 import PopCreatorSwiper from '@comp/card/PopCreatorSwiper.vue'
@@ -79,127 +75,132 @@ import ViewSubscribeCard from '@comp/card/ViewSubscribeCard.vue'
 import Carousel from '@comp/common/Carousel.vue'
 import NoData from '@comp/info/NoData.vue'
 import Feed from '@comp/main/Feed.vue'
-import Tab from '@comp/navigation/Tab.vue'
 import TopSearchBar from '@comp/navigation/TopSearchBar.vue'
 import { onHydration, onServerClientOnce } from '@use/lifecycle'
-import useRequest from '@use/request/index.js'
 import { useInfinite } from '@use/request/infinite'
-import { MODAL_TYPE } from '@const'
-import { TAB_TYPE } from '@const/home'
 import { whenNavHomeAgain } from '@/utils/nav-again'
-import { commaSplittedToArray } from '@/utils/string-helper'
 
 const appStore = useAppStore()
 const { isDesktop, isMobile } = storeToRefs(appStore)
 
-// safari 100vh 的爛坑，只能拿 window height 來算
-const { height: windowHeight } = useWindowSize()
-const subTabHeight = computed(() => (isMobile.value ? `calc(${windowHeight.value}px - 12.75rem)` : ''))
-
-const tab = ref(TAB_TYPE.REC)
-const tabOptions = ref([
-  { label: 'tab.recommand', value: TAB_TYPE.REC },
-  { label: 'tab.subscribe', value: TAB_TYPE.SUB },
-])
+const accountStore = useAccountStore()
+const { isLogin } = storeToRefs(accountStore)
 
 const feedStore = useFeedStore()
 const {
-  dataList: items,
-  dataExtra,
-  isLoading,
-  noMore,
-  noData,
-  init,
-  revert,
-  next,
-  reload,
-} = useInfinite('Article.list', {
-  params: { filter_by: 0, user_interested: 1, include_my_article: 1 },
+  dataList: feeds,
+  dataExtra: feedsDataExtra,
+  isLoading: feedsIsLoading,
+  noMore: feedsNoMore,
+  noData: feedsNoData,
+  init: feedsInit,
+  revert: feedsRevert,
+  next: feedsNext,
+  reload: feedsReload,
+} = useInfinite('Article.listSubscribe', {
   transformer: feedStore.sync,
 })
 
 const {
   dataList: creators,
+  dataExtra: creatorsDataExtra,
   isLoading: creatorsIsLoading,
   noMore: creatorsNoMore,
   noData: creatorsNoData,
   init: creatorsInit,
+  revert: creatorsRevert,
   next: creatorsNext,
   reload: creatorsReload,
 } = useInfinite('User.getNewCreator')
-watchOnce(tab, (tab) => {
-  if (tab === TAB_TYPE.SUB) {
-    creatorsInit()
-  }
-})
+
+const hasSubscribe = computed(() => isLogin.value && !feedsNoData.value)
+const isPullToReloadEnable = computed(() => isMobile.value && hasSubscribe.value)
 
 const hydrationStore = useHydrationStore()
-const { forYou } = storeToRefs(hydrationStore)
+const { homeFeeds, homeCreators } = storeToRefs(hydrationStore)
 onServerClientOnce(async (isSSR) => {
-  await init()
-  if (isSSR) {
-    forYou.value = { dataList: items.value, dataExtra: dataExtra.value }
+  if (isLogin.value) {
+    await feedsInit()
+  }
+
+  if (hasSubscribe.value) {
+    if (isSSR) {
+      homeFeeds.value = { dataList: feeds.value, dataExtra: feedsDataExtra.value }
+    }
+  } else {
+    await creatorsInit()
+    if (isSSR) {
+      homeCreators.value = { dataList: creators.value, dataExtra: creatorsDataExtra.value }
+    }
   }
 })
 onHydration(() => {
-  revert(forYou.value)
+  if (homeFeeds.value) {
+    feedsRevert(homeFeeds.value)
+  }
+  if (homeCreators.value) {
+    creatorsRevert(homeCreators.value)
+  }
 })
+
+// safari 100vh 的爛坑，只能拿 window height 來算
+const creatorsPage = ref(null)
+const { height: windowHeight } = useWindowSize()
+whenever(
+  () => creatorsPage.value && isMobile.value,
+  () => (creatorsPage.value.style.height = `calc(${windowHeight.value}px - 9.5rem)`),
+  { immediate: true },
+)
 
 function onPageEnd() {
-  if (tab.value === TAB_TYPE.REC) {
-    next()
-  }
-  if (tab.value === TAB_TYPE.SUB && isDesktop.value) {
-    creatorsNext()
+  if (hasSubscribe.value) {
+    feedsNext()
+  } else {
+    if (isDesktop.value) {
+      creatorsNext()
+    }
   }
 }
 
-// const interestedList = useLocalStorage(LOCAL_STORAGE_KEYS.INTERESTED_LIST, [])
-const accountStore = useAccountStore()
-const { isLogin, userData } = storeToRefs(accountStore)
-const { updateUserData } = accountStore
-const modalStore = useModalStore()
-const { open } = modalStore
-async function updateIntesreted() {
-  console.log('None of the business logic is implemented yet.')
-  // TODO PM說興趣更新這邊在 VIDA 初期還不需要，所以先註解，但之後很可能會需要加回來
-
-  // const interestedSplitByComma = isLogin.value
-  //   ? userData.value.interested
-  //   : (await useRequest('User.getGuestInterested', { immediate: true }))?.interested
-  // const content = commaSplittedToArray(interestedSplitByComma)
-
-  // open(MODAL_TYPE.INTERESTED_PICK, {
-  //   size: 'xl',
-  //   content,
-  //   async confirmAction(data) {
-  //     const interested = data.join(',')
-  //     try {
-  //       if (isLogin.value) {
-  //         await useRequest('User.modifyInfo', { params: { interested }, immediate: true })
-  //         updateUserData({ interested })
-  //       } else {
-  //         await useRequest('User.setGuestInterested', { params: { interested }, immediate: true })
-  //       }
-  //     } catch (e) {
-  //       return e.message
-  //     }
-
-  //     reload()
-  //     creatorsReload()
-  //   },
-  //   showClose: true,
-  // })
+async function reload() {
+  if (isLogin.value) {
+    await feedsReload()
+  }
+  if (!hasSubscribe.value) {
+    await creatorsReload()
+  }
 }
 
-whenever(isLogin, () => {
-  reload()
-  creatorsReload()
-})
+whenever(isLogin, reload)
+whenNavHomeAgain(reload)
 
-whenNavHomeAgain(() => {
-  tab.value = TAB_TYPE.REC
-  reload()
-  creatorsReload()
-})
+// TODO PM說興趣更新這邊在 VIDA 初期還不需要，所以先註解，但之後很可能會需要加回來
+// async function updateIntesreted() {
+//   const interestedSplitByComma = isLogin.value
+//     ? userData.value.interested
+//     : (await useRequest('User.getGuestInterested', { immediate: true }))?.interested
+//   const content = commaSplittedToArray(interestedSplitByComma)
+
+//   open(MODAL_TYPE.INTERESTED_PICK, {
+//     size: 'xl',
+//     content,
+//     async confirmAction(data) {
+//       const interested = data.join(',')
+//       try {
+//         if (isLogin.value) {
+//           await useRequest('User.modifyInfo', { params: { interested }, immediate: true })
+//           updateUserData({ interested })
+//         } else {
+//           await useRequest('User.setGuestInterested', { params: { interested }, immediate: true })
+//         }
+//       } catch (e) {
+//         return e.message
+//       }
+
+//       reload()
+//       creatorsReload()
+//     },
+//     showClose: true,
+//   })
+// }
 </script>

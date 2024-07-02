@@ -23,10 +23,13 @@ export const useDialogStore = defineStore('dialog-store', () => {
   const closePayment = () => (paymentDialog.value = false)
 
   const { lock, unlock } = useRootScrollLock()
-  watch(
-    [authDialog, fileSelectDialog, subPlanDialog, subscriptionDialog, feedSubscriptionDialog, paymentDialog],
-    (arr) => (arr.some((v) => v) ? lock() : unlock()),
-  )
+  const checkLock = (v) => (v ? lock() : unlock())
+  watch(authDialog, checkLock)
+  watch(fileSelectDialog, checkLock)
+  watch(subPlanDialog, checkLock)
+  watch(subscriptionDialog, checkLock)
+  watch(feedSubscriptionDialog, checkLock)
+  watch(paymentDialog, checkLock)
 
   return {
     authDialog,

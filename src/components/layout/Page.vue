@@ -4,10 +4,7 @@
     參考連結: https://css-tricks.com/flexbox-truncated-text/
   -->
   <div class="flex min-w-0 grow basis-full flex-row justify-start sm:basis-[540px] md:basis-[860px] xl:basis-[880px]">
-    <div
-      class="w-full max-w-[540px] px-20 pb-60 sm:pb-0 md:mr-20 md:w-[540px] xl:mr-40"
-      :class="{ '!pb-0': isMobile && !isNavShow }"
-    >
+    <div class="w-full max-w-[540px] px-20 pb-60 sm:pb-0 md:mr-20 md:w-[540px] xl:mr-40">
       <main>
         <!-- main top -->
         <div
@@ -94,12 +91,12 @@ import Loading from '@comp/common/Loading.vue'
 
 const props = defineProps({
   mainTopToggleDisabled: { type: Boolean, default: false },
+  scrollNavToggleDisabled: { type: Boolean, default: false },
   infinite: { type: Boolean, default: false },
   infiniteDistance: { type: Number, default: 100 },
   infiniteInterval: { type: Number, default: 1000 },
   pullToReload: { type: Boolean, default: false },
-  watcher: { default: null },
-  hideNav: { type: Boolean, default: true },
+  scrollToTopSignal: {},
 })
 
 const emits = defineEmits(['load', 'reload'])
@@ -108,7 +105,7 @@ const appStore = useAppStore()
 const { isDesktop, isMobile } = storeToRefs(appStore)
 
 const navStore = useNavStore()
-const { hide: hideNavbar, show: showNavbar } = navStore
+const { hide: hideNav, show: showNav } = navStore
 const { isShow: isNavShow } = storeToRefs(navStore)
 
 const main = ref(null)
@@ -145,9 +142,13 @@ function onScroll() {
   const diff = scrollTop - prevScrollTop
   // 下滑
   if (diff > 0) {
-    if (scrollTop > 100 && !props.mainTopToggleDisabled) {
-      mainTopOpen.value = false
-      props.hideNav && isMobile.value && hideNavbar()
+    if (scrollTop > 100) {
+      if (!props.mainTopToggleDisabled) {
+        mainTopOpen.value = false
+      }
+      if (!props.scrollNavToggleDisabled && isMobile.value) {
+        execOrIgnoreNavHandle(hideNav)
+      }
     }
     if (asideHeightOverflow.value > 0 && asidePosition.value === null && scrollTop >= asideHeightOverflow.value) {
       asidePosition.value = 'fixed'
@@ -157,13 +158,24 @@ function onScroll() {
   else if (diff < 0) {
     if (!mainTopOpen.value) {
       mainTopOpen.value = true
-      props.hideNav && isMobile.value && showNavbar()
+    }
+    if (!isNavShow.value) {
+      if (!props.scrollNavToggleDisabled && isMobile.value) {
+        execOrIgnoreNavHandle(showNav)
+      }
     }
     if (asideHeightOverflow.value > 0 && asidePosition.value !== null && scrollTop < asideHeightOverflow.value) {
       asidePosition.value = null
     }
   }
   prevScrollTop = scrollTop
+}
+function execOrIgnoreNavHandle(navHandler) {
+  if (execOrIgnoreNavHandle._ignoreNavHandle) {
+    delete execOrIgnoreNavHandle._ignoreNavHandle
+  } else {
+    navHandler()
+  }
 }
 
 let active
@@ -189,14 +201,15 @@ onActivated(() => {
 
   window.scrollTo(0, prevScrollTop)
 
+  execOrIgnoreNavHandle._ignoreNavHandle = true
   stopOnScroll = useEventListener('scroll', onScroll)
-
-  setTimeout(showNavbar, 100)
 })
 onDeactivated(() => {
   active = false
 
   stopOnScroll && stopOnScroll()
+
+  showNav()
 })
 
 // pull to reload
@@ -240,9 +253,21 @@ onMounted(() => {
   })
 })
 
-// 當外在的 watcher 改變時，滾動到最上方
+// 當外部發送的 scrollToTopSignal 改變時，prevScrollTop 改回 0
 watch(
-  () => props.watcher,
-  (_new, _old) => (_new && _new !== _old ? window.scrollTo(0, 0) : void 0),
+  () => props.scrollToTopSignal,
+  () => {
+    prevScrollTop = 0
+
+    mainTopOpen.value = true
+    if (isMobile.value) {
+      showNav()
+    }
+    asidePosition.value = null
+
+    if (active) {
+      window.scrollTo(0, prevScrollTop)
+    }
+  },
 )
 </script>
