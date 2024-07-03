@@ -14,7 +14,7 @@
       </button>
     </div>
     <div
-      class="mr-10 max-h-[65vh] overflow-y-auto pl-25"
+      class="mr-10 max-h-[65vh] overflow-y-scroll pl-25"
       :class="{ 'hover-scrollbar pr-5': isDesktop, 'scrollbar pr-10': !isDesktop }"
     >
       <div class="flex flex-col space-y-10">
@@ -108,60 +108,74 @@
           step
           @keyup="priceValidate"
         ></InputWrap>
-        <div class="grid space-y-10">
-          <label class="text-left text-base font-normal not-italic leading-md">{{
-            $t('content.subUnlockDayAfter')
-          }}</label>
-          <div class="flex flex-wrap space-y-5">
-            <InputRadio
-              v-model="radioValue"
-              id="radioOption1"
-              :label="$t('info.within30days')"
-              :value="30"
-              name="radio"
-              class="mr-30"
-            />
-            <InputRadio
-              v-model="radioValue"
-              id="radioOption2"
-              :label="$t('info.within90days')"
-              :value="90"
-              name="radio"
-              class="mr-30"
-            />
-            <InputRadio
-              v-model="radioValue"
-              id="radioOption3"
-              :label="$t('info.within360days')"
-              :value="360"
-              name="radio"
-              class="mr-30"
-            />
-            <InputRadio
-              v-model="radioValue"
-              id="radioOption4"
-              :label="$t('info.allDays')"
-              :value="1000"
-              name="radio"
-              class="mr-30"
-            />
-            <div class="flex items-center">
+        <div class="flex w-full justify-end">
+          <span class="cursor-pointer text-base text-primary" @click="toggleAdvanced">
+            {{ $t('common.advancedOption') }}
+          </span>
+        </div>
+        <transition
+          enter-active-class="transition duration-150 ease-in"
+          enter-from-class="transform scale-y-0 -translate-y-50"
+          enter-to-class="transform scale-y-100  translate-y-0"
+          leave-active-class="transition duration-150 ease-out"
+          leave-from-class="transform translate-y-0 scale-y-100"
+          leave-to-class="transform -translate-y-50 scale-y-0"
+        >
+          <div v-show="showAdvanced" class="grid space-y-10">
+            <label class="text-left text-base font-normal not-italic leading-md">{{
+              $t('content.subUnlockDayAfter')
+            }}</label>
+            <div class="flex flex-wrap space-y-5">
               <InputRadio
                 v-model="radioValue"
-                id="radioOption5"
-                :label="$t('info.customDays')"
-                :value="'custom'"
+                id="radioOption4"
+                :label="$t('info.allDays')"
+                :value="1000"
                 name="radio"
-              /><InputWrap
-                v-if="radioValue === 'custom'"
-                :placeholder="$t('yup.number.value')"
-                v-model="customValue"
-                class="ml-10"
-                number
-              ></InputWrap>
+                class="mr-30"
+              />
+              <InputRadio
+                v-model="radioValue"
+                id="radioOption1"
+                :label="$t('info.within30days')"
+                :value="30"
+                name="radio"
+                class="mr-30"
+              />
+              <InputRadio
+                v-model="radioValue"
+                id="radioOption2"
+                :label="$t('info.within90days')"
+                :value="90"
+                name="radio"
+                class="mr-30"
+              />
+              <InputRadio
+                v-model="radioValue"
+                id="radioOption3"
+                :label="$t('info.within360days')"
+                :value="360"
+                name="radio"
+                class="mr-30"
+              />
+              <div class="flex items-center">
+                <InputRadio
+                  v-model="radioValue"
+                  id="radioOption5"
+                  :label="$t('info.customDays')"
+                  :value="'custom'"
+                  name="radio"
+                /><InputWrap
+                  v-if="radioValue === 'custom'"
+                  :placeholder="$t('yup.number.value')"
+                  v-model="customValue"
+                  class="ml-10"
+                  number
+                ></InputWrap>
+              </div>
             </div>
           </div>
-        </div>
+        </transition>
       </div>
     </div>
     <div class="px-25 py-30">
@@ -190,6 +204,9 @@ import { useYup } from '@use/validator/yup'
 import { SUB_PLAN_STATUS } from '@const'
 import { IMAGE_LIMIT_COUNT } from '@const/publish'
 import uploadImage from '@/http/upload/uploadImage'
+
+const showAdvanced = ref(false)
+const toggleAdvanced = () => (showAdvanced.value = !showAdvanced.value)
 
 const accountStore = useAccountStore()
 const { updateUserData } = accountStore
@@ -307,7 +324,7 @@ watch(index, (newIndex) => {
 watch(subUnlockDayAfter, (newSubUnlockDayAfter) => {
   if (![30, 90, 360].includes(newSubUnlockDayAfter)) {
     if (addSubPlan.value) {
-      radioValue.value = 30
+      radioValue.value = 1000
     } else {
       radioValue.value = 'custom'
       customValue.value = newSubUnlockDayAfter
