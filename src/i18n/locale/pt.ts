@@ -278,8 +278,7 @@ export default {
     published: 'Publicado',
     time: 'Tempo',
     exitPrvw: 'Sair da visualização',
-    recFormat: 'Suporta formato JPG/PNG, tamanho recomendado é 480x280',
-    uploadCapacityLimit: 'Não mais que 1 MB cada',
+    uploadRule: 'Suporta formato mp4/mov.Suporta formato JPG/PNG, cada um não excedendo 1MB',
     videoFormat: 'Suporta formato mp4/mov.',
     imageFormat: 'Suporta formato JPG/PNG, cada um não excedendo 1MB',
     uploadProgress: 'Progresso do Upload {progress}%',
@@ -584,9 +583,9 @@ export default {
       confirm: "{'$'}{price} por mês Vá para pagar",
     },
     shopBuy: {
-      1: 'Irá desbloquear o conteúdo deste trabalho de {nickname}',
+      1: 'Irá desbloquear o conteúdo de {nickname} neste trabalho',
       2: '{nickname}receberá seu pagamento integralmente',
-      confirm: "Desbloquear agora ({'$'}{price})",
+      confirm: "Desbloqueie agora ({'$'}{price})",
     },
     subscribeSuc: {
       1: 'maravilhoso! Inscrito em {nickname} com sucesso!',

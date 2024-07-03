@@ -278,8 +278,7 @@ export default {
     published: 'Telah dipublikasikan',
     time: 'Waktu',
     exitPrvw: 'Keluar dari pratinjau',
-    recFormat: 'Mendukung format JPG/PNG, ukuran disarankan adalah 480x280',
-    uploadCapacityLimit: 'Tidak lebih dari 1 MB setiap',
+    uploadRule: 'Mendukung format mp4/mov.Mendukung format JPG/PNG, masing-masing tidak melebihi 1MB',
     videoFormat: 'Mendukung format mp4/mov.',
     imageFormat: 'Mendukung format JPG/PNG, masing-masing tidak melebihi 1MB',
     uploadProgress: 'Kemajuan Unggah {progress}%',
@@ -582,13 +581,13 @@ export default {
       confirm: "{'$'}{price} per bulan Buka Bayar",
     },
     shopBuy: {
-      1: 'Akan membuka kunci konten {nickname} pada karya ini',
+      1: 'Akan membuka kunci konten {nickname} dalam karya ini',
       2: '{nickname}akan menerima pembayaran Anda secara penuh',
       confirm: "Buka kunci sekarang ({'$'}{price})",
     },
     subscribeSuc: {
       1: 'menakjubkan! Berhasil berlangganan {nickname}!',
-      2: 'Pilih untuk membuka beranda pembuat konten, atau tetap berada di layar asli dan jelajahi!',
+      2: 'Pilih untuk membuka beranda pembuat konten, atau tetap berada di layar asli dan menjelajah!',
       confirm: 'Buka halaman pembuat',
     },
     shopBuySuc: {

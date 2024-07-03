@@ -210,7 +210,7 @@ export default {
     error: {
       subscribeSelf: 'Ich kann mich nicht selbst abonnieren',
       shopBuySelf: 'Sie können keine eigenen Produkte kaufen',
-      subscriptionNotFound: 'Kein Abonnement verfügbar',
+      subscriptionNotFound: 'Kein Abonnementplan verfügbar',
     },
     sending: 'Senden',
     failure: 'Fehlgeschlagen',
@@ -283,8 +283,7 @@ export default {
     published: 'Veröffentlicht',
     time: 'Zeit',
     exitPrvw: 'Vorschau beenden',
-    recFormat: 'Unterstützt JPG/PNG-Format, empfohlene Größe ist 480x280',
-    uploadCapacityLimit: 'Nicht mehr als 1 MB pro Bild',
+    uploadRule: 'Unterstützt mp4/mov-Format.Unterstützt JPG/PNG-Format, jedes nicht überschreitend 1MB',
     videoFormat: 'Unterstützt mp4/mov-Format.',
     imageFormat: 'Unterstützt JPG/PNG-Format, jedes nicht überschreitend 1MB',
     uploadProgress: 'Upload-Fortschritt {progress}%',
@@ -380,7 +379,7 @@ export default {
     style: 'Cover-Stil festlegen',
     subUnlockDayAfter: 'Beiträge der letzten Tage nach dem Kauf freischalten',
     tokenExpired: 'Die Anmeldesitzung ist abgelaufen. Bitte melden Sie sich erneut an.',
-    clearSearchHistory: 'Sind Sie sicher, dass Sie Ihren Suchverlauf löschen möchten?',
+    clearSearchHistory: 'Möchten Sie Ihren Suchverlauf wirklich löschen?',
     uploadVideoLimit: {
       format:
         'Das aktuell hochgeladene Videoformat ({format}) wird nicht unterstützt. Bitte konvertieren Sie es in das MP4- oder MOV-Format und versuchen Sie es erneut.',
@@ -590,7 +589,7 @@ export default {
       confirm: "{'$'}{price} pro Monat Gehen Sie zu Bezahlen",
     },
     shopBuy: {
-      1: 'Wird den Inhalt dieser Arbeit durch {nickname} freischalten',
+      1: 'Wird den Inhalt von {nickname} in dieser Arbeit freischalten',
       2: '{nickname}wird Ihre Zahlung vollständig erhalten',
       confirm: "Jetzt freischalten ({'$'}{price})",
     },
@@ -601,7 +600,7 @@ export default {
     },
     shopBuySuc: {
       1: 'fabelhaft! Erfolgreich bezahlt, um den Beitrag freizuschalten',
-      2: 'Gehen Sie zum Ansehen des Beitrags oder bleiben Sie zum Durchsuchen auf dem Originalbildschirm!',
+      2: 'Gehen Sie entweder zum Beitrag, um ihn anzusehen, oder bleiben Sie zum Durchsuchen auf dem Originalbildschirm!',
       confirm: 'Zum Posten gehen',
     },
     title: { paySuc: 'Zahlung erfolgreich durchgeführt' },
@@ -685,7 +684,7 @@ export default {
       17: 'Weitere Informationen und Kontakte',
       18: 'Weitere Informationen darüber, wie VIDA Ihre personenbezogenen Daten verarbeitet, finden Sie in der Datenschutzrichtlinie von VIDA (hier) und auf der Seite „Respektieren Ihrer Privatsphäre“ im Sicherheits- und Transparenzzentrum von VIDA (hier).',
       19: 'Weitere Informationen darüber, warum VIDA diese Identitätsüberprüfungs- und Authentifizierungsprüfungen durchführen muss, finden Sie auf der Seite „Alters- und Identitätsverifizierung“ in unserem Online-Sicherheits- und Transparenzzentrum (hier).',
-      20: "Wenn Sie Fragen haben, wenden Sie sich bitte an Privacy{'@'}VIDA.com.",
+      20: "Bei Fragen wenden Sie sich bitte an Privacy{'@'}VIDA.com.",
       21: 'Ihre Zustimmung',
       22: 'Indem Sie auf „[Ich stimme zu]“ klicken, verstehen und akzeptieren Sie, dass: Sie der Erfassung und Verarbeitung Ihrer biometrischen Gesichtsdaten zustimmen (d.h. diese mit dem Foto auf Ihrem Identitätsdokument abgleichen), ausschließlich zum Zweck der Überprüfung Ihres Alters und der Überprüfung und Authentifizierung Ihrer Identität. Sie haben die in dieser Mitteilung enthaltenen Informationen gelesen und verstanden.',
       23: 'Sie sind mindestens 18 Jahre alt.',

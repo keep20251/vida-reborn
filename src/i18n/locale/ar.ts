@@ -278,8 +278,7 @@ export default {
     published: 'تم النشر',
     time: 'الوقت',
     exitPrvw: 'الخروج من المعاينة',
-    recFormat: 'يدعم تنسيق JPG/PNG، الحجم الموصى به هو 480x280',
-    uploadCapacityLimit: 'لا يزيد كل منها عن 1 ميغابايت',
+    uploadRule: 'يدعم تنسيق mp4/mov.يدعم تنسيق JPG/PNG، كل منها لا يتجاوز 1 ميغابايت',
     videoFormat: 'يدعم تنسيق mp4/mov.',
     imageFormat: 'يدعم تنسيق JPG/PNG، كل منها لا يتجاوز 1 ميغابايت',
     uploadProgress: 'تقدم الرفع {progress}%',
@@ -578,7 +577,7 @@ export default {
       confirm: "{'$'}{price} شهريًا انتقل إلى الدفع",
     },
     shopBuy: {
-      1: 'سيتم فتح محتوى {nickname} لهذا العمل',
+      1: 'سيتم فتح محتوى {nickname} في هذا العمل',
       2: '{nickname}سوف يتلقى دفعتك بالكامل',
       confirm: "فتح القفل الآن ({'$'}{price})",
     },

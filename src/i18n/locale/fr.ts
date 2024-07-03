@@ -283,8 +283,7 @@ export default {
     published: 'Publié',
     time: 'Temps',
     exitPrvw: "Quitter l'aperçu",
-    recFormat: 'Prend en charge le format JPG/PNG, taille recommandée 480x280',
-    uploadCapacityLimit: 'Pas plus de 1 Mo chacun',
+    uploadRule: 'Prend en charge le format mp4/mov.Prend en charge le format JPG/PNG, chacun ne dépassant pas 1MB',
     videoFormat: 'Prend en charge le format mp4/mov.',
     imageFormat: 'Prend en charge le format JPG/PNG, chacun ne dépassant pas 1MB',
     uploadProgress: 'Progression du Téléchargement {progress}%',
@@ -583,20 +582,20 @@ export default {
   },
   modal: {
     subscribe: {
-      1: 'Accès complet à toutes les œuvres des {days} passés',
+      1: 'Accès complet à toutes les œuvres des derniers {days}',
       2: "Possibilité d'envoyer des messages directement aux créateurs",
       3: 'Une interaction plus étroite',
       4: 'Vous pouvez annuler votre abonnement à tout moment',
       confirm: "{'$'}{price} par mois Aller au paiement",
     },
     shopBuy: {
-      1: 'Déverrouillera le contenu de cette œuvre de {nickname}',
+      1: 'Déverrouillera le contenu de {nickname} dans ce travail',
       2: '{nickname} recevra votre paiement dans son intégralité',
       confirm: "Débloquez maintenant ({'$'}{price})",
     },
     subscribeSuc: {
       1: 'merveilleux! Vous vous êtes abonné avec succès à {nickname} !',
-      2: "Choisissez d'aller sur la page d'accueil du créateur, ou restez sur l'écran d'origine et parcourez !",
+      2: "Choisissez d'accéder à la page d'accueil du créateur ou de rester sur l'écran d'origine et de naviguer !",
       confirm: 'Aller à la page du créateur',
     },
     shopBuySuc: {
