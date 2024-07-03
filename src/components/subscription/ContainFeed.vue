@@ -34,7 +34,7 @@
         <div class="flex w-full flex-col justify-between">
           <div class="flex flex-col space-y-5">
             <h3 class="text-base font-bold leading-md text-black">{{ item.title }}</h3>
-            <p class="text-sm font-normal leading-3 text-gray-a3">{{ item.content }}</p>
+            <p class="line-clamp-2 text-sm font-normal leading-3 text-gray-a3">{{ item.content }}</p>
           </div>
           <div class="flex flex-row space-x-10">
             <div class="flex flex-row items-center space-x-10">
