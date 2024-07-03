@@ -2,8 +2,9 @@
   <div class="relative hidden md:block">
     <div class="mb-20 text-lg font-bold leading-lg">{{ label }}</div>
     <div
-      class="h-[400px] w-full rounded-md bg-cover bg-center bg-no-repeat p-10"
+      class="h-[400px] w-full cursor-pointer rounded-md bg-cover bg-center bg-no-repeat p-10"
       :style="{ backgroundImage: `url(${images[activeSlide].img})` }"
+      @click="toCreator"
     ></div>
     <div class="absolute bottom-10 left-2/4 -translate-x-2/4 -translate-y-2/4 overflow-hidden">
       <ul class="flex justify-center space-x-10">
@@ -21,9 +22,17 @@
 
 <script setup>
 import { onActivated, onBeforeUnmount, onDeactivated, onMounted, ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { useAccountStore } from '@/store/account'
 import ad_1 from '@/assets/images/ad_1.png'
 import ad_2 from '@/assets/images/ad_2.png'
 import ad_3 from '@/assets/images/ad_3.png'
+import { useLocale } from '@/compositions/utils/locale'
+
+const locale = useLocale()
+const router = useRouter()
+const { afterLoginAction } = useAccountStore()
+const toCreator = afterLoginAction(() => router.push(`/${locale.value}/mine/creator`))
 
 const props = defineProps({
   intervalTime: {
