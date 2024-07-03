@@ -25,9 +25,8 @@
           </div>
         </div>
         <div class="flex items-center justify-between">
-          <div class="flex flex-col space-y-2 text-sm text-gray-57">
-            <div class="leading-3">{{ $t('info.recFormat') }}</div>
-            <div class="leading-3">{{ $t('info.uploadCapacityLimit') }}</div>
+          <div class="flex max-w-[60%] flex-col space-y-2 text-sm text-gray-57">
+            <div class="leading-3">{{ $t('info.uploadRule') }}</div>
           </div>
           <div class="">
             <Button class="min-w-[6rem] px-11 py-8 !font-bold" contrast size="sm" @click="() => inputImage.click()">
