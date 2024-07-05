@@ -5,19 +5,14 @@
       ref="video"
       :url="url"
       :poster-url="posterUrl"
+      :time="time"
       :preview="isLock"
       :replay-signal="replaySignal"
       @play="playEnd = false"
       @ended="playEnd = true"
       @timeupdate="onTimeupdate"
     ></Video>
-    <LockMask
-      v-if="showLockMask"
-      :item="item"
-      :meta="toVideoTimeFormat(item.url[0]?.video_time || 0)"
-      show-image
-      @replay="replaySignal = Date.now()"
-    ></LockMask>
+    <LockMask v-if="showLockMask" :item="item" :meta="time" show-image @replay="replaySignal = Date.now()"></LockMask>
   </div>
 </template>
 
@@ -36,6 +31,7 @@ const props = defineProps({
 
 const url = computed(() => props.item.url[0]?.url)
 const posterUrl = computed(() => props.item.url[1]?.url)
+const time = computed(() => toVideoTimeFormat(props.item.url[0]?.video_time || 0))
 const isLock = computed(() => !props.item.is_unlock)
 // const isLock = computed(() => false)
 

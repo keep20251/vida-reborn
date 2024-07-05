@@ -26,7 +26,7 @@
       </div>
       <div class="absolute bottom-20 right-20 flex items-center space-x-5 rounded-inherit drop-shadow">
         <Icon name="videoWhite" size="20"></Icon>
-        <span class="text-base text-white">{{ toVideoTimeFormat(videoDuration) }}</span>
+        <span class="text-base text-white">{{ time }}</span>
       </div>
     </div>
 
@@ -133,6 +133,7 @@ const props = defineProps({
   id: { type: Number },
   url: { type: String, required: true },
   posterUrl: { type: String },
+  time: { type: String },
   preview: { type: Boolean, default: false },
   replaySignal: { type: Object },
 })
