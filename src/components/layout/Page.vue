@@ -4,7 +4,7 @@
     參考連結: https://css-tricks.com/flexbox-truncated-text/
   -->
   <div class="flex min-w-0 grow basis-full flex-row justify-start sm:basis-[540px] md:basis-[860px] xl:basis-[880px]">
-    <div class="w-full max-w-[540px] px-20 pb-60 sm:pb-0 md:mr-20 md:w-[540px] xl:mr-40">
+    <div class="w-full max-w-[540px] px-20 sm:pb-0 md:mr-20 md:w-[540px] xl:mr-40">
       <main>
         <!-- main top -->
         <div
@@ -17,6 +17,7 @@
             'h-52': isDesktop,
             'top-52': $slots['app-top'],
             'translate-y-[-100%]': !mainTopOpen,
+            'pb-60': isNavShow,
           }"
         >
           <slot name="main-top"></slot>
