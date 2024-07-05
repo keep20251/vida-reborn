@@ -46,7 +46,7 @@
           <div class="mt-10 line-clamp-1 shrink-0 text-sm text-white">@{{ item.username }}</div>
           <div class="flex grow items-center overflow-hidden text-base text-white">{{ item.description }}</div>
           <div class="mb-10" @click.stop>
-            <Button fit-width @click="open({ items: item?.subscription_list, creator: item })">{{
+            <Button @click="open({ items: item?.subscription_list, creator: item })">{{
               $t('common.viewSubscribePlan')
             }}</Button>
           </div>

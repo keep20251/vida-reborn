@@ -46,6 +46,7 @@
               @edit="subPlanEdit(subList, index)"
               @delete="onDelete(subList, index)"
               @click:contain="onContainClicked"
+              @update:editing="onEditingChange"
               :item="item"
               subscript-btn
               edit-mode
@@ -61,6 +62,7 @@
 </template>
 <script setup>
 import debounce from 'lodash/debounce'
+import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
@@ -92,10 +94,15 @@ const {
   selDefaultItem,
 } = storeToRefs(useSubPlanStore())
 
+const isEditing = ref(false)
+const onEditingChange = (v) => (isEditing.value = v)
+
 const onContainClicked = (item) => {
+  if (isEditing.value) return
   openDetail({ activeSubscription: item, subscriptions: subList.value })
 }
 function subPlanAdd() {
+  if (isEditing.value) return
   to(SUB_PLAN.SET)
   addSubPlan.value = true
   uploadFiles.value = []

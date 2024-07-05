@@ -1,7 +1,7 @@
 <template>
   <div class="select-none py-30 pl-20" :class="{ 'pr-5': isDesktop, 'pr-10': !isDesktop }">
     <div
-      class="h-[65vh] max-h-[65vh] overflow-y-auto overflow-x-hidden"
+      class="h-[65vh] max-h-[65vh] overflow-x-hidden overflow-y-scroll"
       :class="{ 'hover-scrollbar': isDesktop, 'scrollbar pr-10': !isDesktop }"
     >
       <div class="pr-5">

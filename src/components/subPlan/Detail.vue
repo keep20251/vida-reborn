@@ -13,7 +13,7 @@
     </div>
     <div class="select-none p-30" :class="{ 'pr-10': isDesktop, 'pr-15': !isDesktop }">
       <div
-        class="h-[65vh] overflow-y-auto"
+        class="h-[65vh] overflow-y-scroll"
         :class="{ 'my-10': subList.length === 0, 'hover-scrollbar pr-10': isDesktop, 'scrollbar pr-15': !isDesktop }"
       >
         <div class="flex flex-col space-y-20">

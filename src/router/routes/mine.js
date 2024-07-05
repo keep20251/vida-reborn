@@ -89,7 +89,6 @@ export default [
         path: '',
         component: Agreement,
         meta: {},
-        beforeEnter: (to, from) => redirectIfNotMatch(to, from, prefix),
       },
       {
         name: `${prefix}-creator-identity-agreement`,
