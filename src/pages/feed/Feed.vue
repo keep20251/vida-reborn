@@ -1,5 +1,5 @@
 <template>
-  <Page infinite @load="nextComments" main-top-toggle-disabled>
+  <Page infinite @load="nextComments" main-top-toggle-disabled scrollNavToggleDisabled>
     <template #main-top>
       <Head :title="$t('title.post')" @back="clearInput"></Head>
     </template>
@@ -13,7 +13,8 @@
           <template #bottom>
             <div class="flex items-center justify-center py-8 text-gray-a3">
               <Loading v-if="isCommentsLoading"></Loading>
-              <span v-if="commentsNoMore">{{ $t('common.noMore') }}</span>
+              <span v-if="commentsNoData">{{ $t('common.commentNoData') }}</span>
+              <span v-if="commentsNoMore && !commentsNoData">{{ $t('common.noMore') }}</span>
             </div>
           </template>
         </List>
@@ -92,6 +93,7 @@ const {
   dataExtra: commentsExtra,
   isLoading: isCommentsLoading,
   noMore: commentsNoMore,
+  noData: commentsNoData,
   reload: reloadComments,
   revert: revertComments,
   next: $nextComments,
