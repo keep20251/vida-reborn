@@ -41,7 +41,7 @@ export default {
     cookie: 'このメッセージを受け入れて見ないでください',
     check: '確認する',
     subscribe: 'サブスクリプション',
-    subscribed: '購読しました',
+    subscribed: '購読済み',
     cancelSubscribe: 'キャンセル',
     restoreSubscribe: '再開',
     reSubscribe: '再購読',
@@ -55,6 +55,7 @@ export default {
     setDefault: 'デフォルトに設定',
     addCard: 'クレジットカードを追加する',
     editSubscription: { moveUp: '上に移動', moveDown: '下に移動', edit: '編集', delete: '削除' },
+    advancedOption: '高度なオプション',
     whetherCrestoreSub: '本当にサブスクリプションを再開してもよろしいですか？',
     whetherCancelSub: 'サブスクリプションをキャンセルしてもよろしいですか？',
     reSubErr: '再サブスクリプションに失敗',
@@ -587,7 +588,7 @@ export default {
     },
     subscribeSuc: {
       1: '素晴らしい！ {nickname} に正常に登録されました。',
-      2: 'クリエイターのホームページに移動するか、元の画面に留まって閲覧するかを選択してください。',
+      2: '作成者のホームページに移動するか、元の画面に留まって閲覧するかを選択してください。',
       confirm: 'クリエイターページへ行く',
     },
     shopBuySuc: {

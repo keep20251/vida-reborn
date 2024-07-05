@@ -55,6 +55,7 @@ export default {
     setDefault: 'Atur sebagai Baku',
     addCard: 'Tambah Kartu Kredit',
     editSubscription: { moveUp: 'Pindahkan ke atas', moveDown: 'Pindahkan ke bawah', edit: 'Edit', delete: 'Hapus' },
+    advancedOption: 'Opsi lanjutan',
     whetherCrestoreSub: 'Apakah Anda yakin ingin melanjutkan langganan?',
     whetherCancelSub: 'Apakah Anda yakin ingin membatalkan langganan Anda?',
     reSubErr: 'Gagal Berlangganan Kembali',
@@ -587,7 +588,7 @@ export default {
     },
     subscribeSuc: {
       1: 'menakjubkan! Berhasil berlangganan {nickname}!',
-      2: 'Pilih untuk membuka beranda pembuat konten, atau tetap berada di layar asli dan menjelajah!',
+      2: 'Pilih untuk membuka beranda pembuat konten, atau tetap berada di layar asli dan jelajahi!',
       confirm: 'Buka halaman pembuat',
     },
     shopBuySuc: {

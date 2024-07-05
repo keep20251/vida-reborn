@@ -60,6 +60,7 @@ export default {
       edit: 'Bearbeiten',
       delete: 'Löschen',
     },
+    advancedOption: 'Erweiterte Option',
     whetherCrestoreSub: 'Sind Sie sicher, dass Sie Ihr Abonnement wieder aufnehmen möchten?',
     whetherCancelSub: 'Sind Sie sicher, dass Sie Ihr Abonnement kündigen möchten?',
     reSubErr: 'Wiedervereinigung fehlgeschlagen',
@@ -379,7 +380,7 @@ export default {
     style: 'Cover-Stil festlegen',
     subUnlockDayAfter: 'Beiträge der letzten Tage nach dem Kauf freischalten',
     tokenExpired: 'Die Anmeldesitzung ist abgelaufen. Bitte melden Sie sich erneut an.',
-    clearSearchHistory: 'Möchten Sie Ihren Suchverlauf wirklich löschen?',
+    clearSearchHistory: 'Sind Sie sicher, dass Sie Ihren Suchverlauf löschen möchten?',
     uploadVideoLimit: {
       format:
         'Das aktuell hochgeladene Videoformat ({format}) wird nicht unterstützt. Bitte konvertieren Sie es in das MP4- oder MOV-Format und versuchen Sie es erneut.',

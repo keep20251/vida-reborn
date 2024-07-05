@@ -60,6 +60,7 @@ export default {
       edit: 'Modifier',
       delete: 'Supprimer',
     },
+    advancedOption: 'Option avancée',
     whetherCrestoreSub: 'Êtes-vous sûr de vouloir reprendre votre abonnement ?',
     whetherCancelSub: 'Êtes-vous sûr de vouloir annuler votre abonnement ?',
     reSubErr: 'La réabonnement a échoué',
@@ -582,7 +583,7 @@ export default {
   },
   modal: {
     subscribe: {
-      1: 'Accès complet à toutes les œuvres des derniers {days}',
+      1: 'Accès complet à toutes les œuvres des {days} passés',
       2: "Possibilité d'envoyer des messages directement aux créateurs",
       3: 'Une interaction plus étroite',
       4: 'Vous pouvez annuler votre abonnement à tout moment',
@@ -595,7 +596,7 @@ export default {
     },
     subscribeSuc: {
       1: 'merveilleux! Vous vous êtes abonné avec succès à {nickname} !',
-      2: "Choisissez d'accéder à la page d'accueil du créateur ou de rester sur l'écran d'origine et de naviguer !",
+      2: "Choisissez d'aller sur la page d'accueil du créateur, ou restez sur l'écran d'origine et parcourez !",
       confirm: 'Aller à la page du créateur',
     },
     shopBuySuc: {

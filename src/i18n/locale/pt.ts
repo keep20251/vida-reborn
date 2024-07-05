@@ -55,6 +55,7 @@ export default {
     setDefault: 'Definir como padrão',
     addCard: 'Adicionar cartão de crédito',
     editSubscription: { moveUp: 'Mover para cima', moveDown: 'Mover para baixo', edit: 'Editar', delete: 'Excluir' },
+    advancedOption: 'Opção avançada',
     whetherCrestoreSub: 'Tem certeza de que deseja retomar sua assinatura?',
     whetherCancelSub: 'Tem certeza de que deseja cancelar sua assinatura?',
     reSubErr: 'Falha na reinscrição',
@@ -585,7 +586,7 @@ export default {
     shopBuy: {
       1: 'Irá desbloquear o conteúdo de {nickname} neste trabalho',
       2: '{nickname}receberá seu pagamento integralmente',
-      confirm: "Desbloqueie agora ({'$'}{price})",
+      confirm: "Desbloquear agora ({'$'}{price})",
     },
     subscribeSuc: {
       1: 'maravilhoso! Inscrito em {nickname} com sucesso!',

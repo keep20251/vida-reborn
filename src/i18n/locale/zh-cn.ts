@@ -55,6 +55,7 @@ export default {
     setDefault: '设置为默认',
     addCard: '新增信用卡',
     editSubscription: { moveUp: '向上移动', moveDown: '向下移动', edit: '编辑', delete: '删除' },
+    advancedOption: '高级选项',
     whetherCrestoreSub: '您是否確定要恢復訂閱？',
     whetherCancelSub: '您是否确定要取消订阅？',
     reSubErr: '重新訂閱失敗',

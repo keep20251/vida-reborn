@@ -55,6 +55,7 @@ export default {
     setDefault: 'Set as Default',
     addCard: 'Add Credit Card',
     editSubscription: { moveUp: 'Move Up', moveDown: 'Move Down', edit: 'Edit', delete: 'Delete' },
+    advancedOption: 'Advanced Option',
     whetherCrestoreSub: 'Are you sure you want to resume your subscription?',
     whetherCancelSub: 'Are you sure you want to cancel your subscription?',
     reSubErr: 'Resubscription failed',
@@ -586,7 +587,7 @@ export default {
     },
     subscribeSuc: {
       1: 'marvelous! Successfully subscribed to {nickname}!',
-      2: 'Choose to go to the creator’s homepage, or stay on the original screen and browse!',
+      2: "Choose to go to the creator's homepage, or stay on the original screen and browse!",
       confirm: 'Go to creator page',
     },
     shopBuySuc: {

@@ -55,6 +55,7 @@ export default {
     setDefault: 'डिफ़ॉल्ट सेट करें',
     addCard: 'क्रेडिट कार्ड जोड़ें',
     editSubscription: { moveUp: 'ऊपर ले जाएं', moveDown: 'नीचे ले जाएं', edit: 'संपादित करें', delete: 'हटाएं' },
+    advancedOption: 'उन्नत विकल्प',
     whetherCrestoreSub: 'क्या आप सुनिश्चित हैं कि आप सदस्यता फिर से शुरू करना चाहते हैं?',
     whetherCancelSub: 'क्या आप वाकई अपनी सदस्यता रद्द करना चाहते हैं?',
     reSubErr: 'पुन: सदस्यता विफल',
