@@ -135,7 +135,7 @@ const props = defineProps({
   posterUrl: { type: String },
   time: { type: String },
   preview: { type: Boolean, default: false },
-  replaySignal: { type: Object },
+  replaySignal: {},
 })
 
 const emits = defineEmits(['play', 'ended', 'timeupdate'])
@@ -240,17 +240,6 @@ useEventListener('keydown', (evt) => {
   }
 })
 
-function playEnd() {
-  emits('ended')
-  const video = videoElement.value
-  if (video) {
-    video.pause()
-    video.currentTime = 0
-  }
-  videoPlay.value = false
-  videoFullscreen.value = false
-}
-
 const showControl = ref(false)
 function openControl() {
   clearTimeout(openControl.timerId)
@@ -301,21 +290,17 @@ function setupVideo() {
       onWaiting: () => (isWaiting.value = true),
       onPlaying: () => (isWaiting.value = false),
       onPlay: () => emits('play'),
-      onEnded: playEnd,
+      onEnded: () => {
+        emits('ended')
+        videoPlay.value = false
+        videoFullscreen.value = false
+      },
       onTimeupdate: () => {
         videoCurrentTime.value = videoElement.value?.currentTime || 0
 
         videoTimeRate.value = videoDuration.value === 0 ? 0 : videoCurrentTime.value / videoDuration.value
 
         emits('timeupdate', videoCurrentTime.value)
-
-        // 尼瑪 der 視頻會出現播放完畢當下 currentTime 比 duration 還小的情況
-        // 某些瀏覽器(safari)可能發生 ended 事件沒觸發到
-        // 我尼瑪 der 只好在這邊判斷比 duration 還小兩秒就送 ended 事件
-        const { currentTime, duration, loop } = videoElement.value
-        if (!loop && Math.floor(currentTime) >= Math.floor(duration) - 2) {
-          playEnd()
-        }
       },
       isPreview: props.preview,
     })
