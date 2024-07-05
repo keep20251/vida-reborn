@@ -163,10 +163,13 @@
 
         <!-- 指定訂閱組 -->
         <div v-if="publishParams.perm === FEED_PERM.SUB" class="flex flex-col space-y-10">
-          <label class="text-left text-base leading-md">
-            {{ $t('label.pickSub') }}
-            <span class="text-sm leading-3 text-gray-57">{{ $t('label.pickPermSub') }}</span></label
-          >
+          <label class="flex items-end space-x-5 text-left text-base leading-md">
+            <span>{{ $t('label.pickSub') }}</span>
+            <span class="grow text-sm leading-3 text-gray-57">{{ $t('label.pickPermSub') }}</span>
+            <span class="cursor-pointer text-primary" @click="toggleSubsAll">{{
+              isSubSelectAll ? $t('label.unpickAll') : $t('label.pickAll')
+            }}</span>
+          </label>
           <OptionsPicker v-model="publishParams.subs" :options="subOptions" can-pick-none></OptionsPicker>
           <div v-if="subsError" class="text-left text-sm font-normal not-italic leading-md text-warning">
             {{ subsError }}
@@ -316,6 +319,14 @@ const permOptions = ref([
 ])
 
 const subOptions = computed(() => userData.value?.subscription_list.map((sub) => ({ label: sub.name, value: sub.id })))
+const isSubSelectAll = computed(() => publishParams.subs.length === subOptions.value.length)
+function toggleSubsAll() {
+  if (isSubSelectAll.value) {
+    publishParams.subs.length = 0
+  } else {
+    publishParams.subs = subOptions.value.map((o) => o.value)
+  }
+}
 
 const postTimeEditing = ref(false)
 const postTimeModel = computed(() => {
