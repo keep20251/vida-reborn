@@ -1,5 +1,5 @@
 <template>
-  <Page infinite @load="nextComments" main-top-toggle-disabled scrollNavToggleDisabled>
+  <Page infinite @load="nextComments" main-top-toggle-disabled scroll-nav-toggle-disabled>
     <template #main-top>
       <Head :title="$t('title.post')" @back="clearInput"></Head>
     </template>
@@ -18,7 +18,13 @@
             </div>
           </template>
         </List>
-        <div class="sticky bottom-0 w-full bg-white pb-16 pt-8">
+        <div
+          class="bottom-0 w-full bg-white pb-16 pt-8"
+          :class="{
+            'fixed left-0 px-16': isMobile,
+            sticky: isDesktop,
+          }"
+        >
           <div v-if="replyTo" class="flex items-center bg-gray-f6 px-20 py-4">
             <div class="grow text-sm text-gray-a3">
               {{ $t('content.replyTo', { name: `@${replyTo.author?.nickname}` }) }}
@@ -59,6 +65,7 @@ import { useRoute } from 'vue-router'
 import { whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
+import { useAppStore } from '@/store/app'
 import { useFeedStore } from '@/store/feed'
 import { useHeadStore } from '@/store/head'
 import { useHydrationStore } from '@/store/hydration'
@@ -76,6 +83,8 @@ import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import useRequest from '@use/request'
 import { useInfinite } from '@use/request/infinite'
 import { commaSplittedToArray } from '@/utils/string-helper'
+
+const { isDesktop, isMobile } = storeToRefs(useAppStore())
 
 const { t: $t } = useI18n()
 const route = useRoute()
