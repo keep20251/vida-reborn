@@ -2,8 +2,9 @@
   <div
     class="relative h-full w-full overflow-hidden rounded-inherit"
     :style="fullscreenStyle"
-    @mousemove="openControl"
-    @click.stop="togglePlay"
+    @mousemove="onRootMouseMove"
+    @mouseleave="onRootMouseLeave"
+    @click.stop="onRootClick"
   >
     <!-- video 嵌入位置 -->
     <div ref="videoWrap" class="absolute top-0 h-full w-full rounded-inherit"></div>
@@ -35,8 +36,7 @@
       v-else
       class="absolute bottom-0 w-full rounded-inherit rounded-t-none bg-black bg-opacity-50 px-20 pb-20 transition-transform"
       :class="{
-        'translate-y-full':
-          videoPlay && !isTimeBarDragging && !isVolumeBarDragging && !showControl && !showVolumeControl,
+        'translate-y-full': !showControl,
       }"
       @click.stop
     >
@@ -172,7 +172,6 @@ const { isDragging: isTimeBarDragging } = useDrag(timeBar, {
   onEnd() {
     const video = videoElement.value
     if (!video) return
-    openControl()
     if (videoPlay.value) {
       video.play()
     }
@@ -240,13 +239,7 @@ useEventListener('keydown', (evt) => {
   }
 })
 
-const showControl = ref(false)
-function openControl() {
-  clearTimeout(openControl.timerId)
-  showControl.value = true
-  openControl.timerId = setTimeout(() => (showControl.value = false), 2000)
-}
-
+// 音量調整面板開關
 const showVolumeControl = ref(false)
 function openVolumeControl() {
   showVolumeControl.value = true
@@ -258,6 +251,77 @@ function closeVolumeControl() {
 function cancelCloseVolumeControl() {
   clearTimeout(closeVolumeControl.timerId)
 }
+
+// 播放器控制面板開關
+const showControl = ref(false)
+function openControlThenClose() {
+  clearTimeout(openControl.timerId)
+  showControl.value = true
+  openControl.timerId = setTimeout(closeControl, 2000)
+}
+function openControl() {
+  clearTimeout(openControl.timerId)
+  showControl.value = true
+}
+function closeControl() {
+  clearTimeout(openControl.timerId)
+  showControl.value = false
+  showVolumeControl.value = false
+}
+watch(videoPlay, (v) => {
+  if (v) {
+    openControlThenClose()
+  } else {
+    openControl()
+  }
+})
+watch(isTimeBarDragging, (v) => {
+  if (v) {
+    openControl()
+  } else {
+    if (videoPlay.value) {
+      openControlThenClose()
+    } else {
+      openControl()
+    }
+  }
+})
+function onRootMouseMove() {
+  if (isDesktop.value) {
+    if (videoPlay.value) {
+      openControlThenClose()
+    } else {
+      openControl()
+    }
+  }
+}
+function onRootMouseLeave() {
+  if (isDesktop.value) {
+    if (videoPlay.value) {
+      closeControl()
+    }
+  }
+}
+function onRootClick() {
+  if (isDesktop.value) {
+    togglePlay()
+  } else {
+    if (videoElement.value) {
+      if (showControl.value) {
+        closeControl()
+      } else {
+        if (videoPlay.value) {
+          openControlThenClose()
+        } else {
+          openControl()
+        }
+      }
+    } else {
+      togglePlay()
+    }
+  }
+}
+
 // 自動播放相關配置
 // let videoAutoplayController
 // let autoPlayEnable = true

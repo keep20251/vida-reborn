@@ -11,7 +11,7 @@
             <Comment :item="item" @click:reply="onCommentReply" @click:like="onCommentToggleLike"></Comment>
           </template>
           <template #bottom>
-            <div class="flex items-center justify-center py-8 text-gray-a3">
+            <div class="flex items-center justify-center py-8 text-gray-a3" :class="{ 'pb-60': isMobile }">
               <Loading v-if="isCommentsLoading"></Loading>
               <span v-if="commentsNoData">{{ $t('common.commentNoData') }}</span>
               <span v-if="commentsNoMore && !commentsNoData">{{ $t('common.noMore') }}</span>
