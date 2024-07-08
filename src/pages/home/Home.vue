@@ -130,14 +130,13 @@ onServerClientOnce(async (isSSR) => {
   } else {
     await creatorsInit()
     if (isSSR) {
+      homeFeeds.value = { dataList: [] }
       homeCreators.value = { dataList: creators.value, dataExtra: creatorsDataExtra.value }
     }
   }
 })
 onHydration(() => {
-  if (homeFeeds.value) {
-    feedsRevert(homeFeeds.value)
-  }
+  feedsRevert(homeFeeds.value)
   if (homeCreators.value) {
     creatorsRevert(homeCreators.value)
   }
