@@ -35,6 +35,7 @@ export default {
     confirm: 'Confirmar',
     loading: 'Carregando',
     noMore: 'Não há mais',
+    commentNoData: 'Atualmente, não há comentários. Seja o primeiro a deixar um!',
     more: 'Mais',
     save: 'Salvar',
     reload: 'Recarregar',
@@ -165,6 +166,8 @@ export default {
     pickPerm: 'Quem Pode Ver',
     pickPermSub: 'Permitir que planos de assinatura específicos vejam',
     pickSub: 'Especificar grupo de assinatura',
+    pickAll: 'Selecionar tudo',
+    unpickAll: 'Desmarcar tudo',
     price: 'Preço',
     priceSub: 'USD $',
     priceTip: 'Máximo definido para {price}',
@@ -586,7 +589,7 @@ export default {
     shopBuy: {
       1: 'Irá desbloquear o conteúdo de {nickname} neste trabalho',
       2: '{nickname}receberá seu pagamento integralmente',
-      confirm: "Desbloquear agora ({'$'}{price})",
+      confirm: "Desbloqueie agora ({'$'}{price})",
     },
     subscribeSuc: {
       1: 'maravilhoso! Inscrito em {nickname} com sucesso!',

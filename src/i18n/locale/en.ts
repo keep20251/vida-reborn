@@ -35,6 +35,7 @@ export default {
     confirm: 'Confirm',
     loading: 'Loading',
     noMore: 'No more',
+    commentNoData: 'Currently, there are no comments. Be the first to leave one!',
     more: 'More',
     save: 'Save',
     reload: 'Reload',
@@ -165,6 +166,8 @@ export default {
     pickPerm: 'Who Can See',
     pickPermSub: 'Allow specific subscription plans to view',
     pickSub: 'Specify subscription group',
+    pickAll: 'Select All',
+    unpickAll: 'Unselect All',
     price: 'Unlock Fee',
     priceSub: 'USD $',
     priceTip: 'Maximum set to {price}',
@@ -587,7 +590,7 @@ export default {
     },
     subscribeSuc: {
       1: 'marvelous! Successfully subscribed to {nickname}!',
-      2: "Choose to go to the creator's homepage, or stay on the original screen and browse!",
+      2: 'Choose to go to the creator’s homepage, or stay on the original screen and browse!',
       confirm: 'Go to creator page',
     },
     shopBuySuc: {

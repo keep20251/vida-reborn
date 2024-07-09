@@ -35,6 +35,7 @@ export default {
     confirm: 'Confirmer',
     loading: 'Chargement',
     noMore: 'Pas plus',
+    commentNoData: "Actuellement, il n'y a aucun commentaire. Soyez le premier à en laisser un !",
     more: 'Plus',
     save: 'Sauvegarder',
     reload: 'Recharger',
@@ -170,6 +171,8 @@ export default {
     pickPerm: 'Qui peut voir',
     pickPermSub: "Autoriser certains plans d'abonnement à voir",
     pickSub: "Spécifier le groupe d'abonnement",
+    pickAll: 'Tout sélectionner',
+    unpickAll: 'Tout désélectionner',
     price: 'Prix',
     priceSub: 'USD $',
     priceTip: 'Maximum fixé à {price}',
@@ -583,7 +586,7 @@ export default {
   },
   modal: {
     subscribe: {
-      1: 'Accès complet à toutes les œuvres des {days} passés',
+      1: 'Accès complet à toutes les œuvres des derniers {days}',
       2: "Possibilité d'envoyer des messages directement aux créateurs",
       3: 'Une interaction plus étroite',
       4: 'Vous pouvez annuler votre abonnement à tout moment',
@@ -596,7 +599,7 @@ export default {
     },
     subscribeSuc: {
       1: 'merveilleux! Vous vous êtes abonné avec succès à {nickname} !',
-      2: "Choisissez d'aller sur la page d'accueil du créateur, ou restez sur l'écran d'origine et parcourez !",
+      2: "Choisissez d'accéder à la page d'accueil du créateur, ou restez sur l'écran d'origine et parcourez !",
       confirm: 'Aller à la page du créateur',
     },
     shopBuySuc: {

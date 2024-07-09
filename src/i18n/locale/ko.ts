@@ -35,6 +35,7 @@ export default {
     confirm: '확인',
     loading: '로딩 중',
     noMore: '더 이상 없습니다',
+    commentNoData: '현재 댓글이 없습니다. 첫 번째로 댓글을 남겨보세요!',
     more: '더',
     save: '구하다',
     reload: '다시 로드',
@@ -165,6 +166,8 @@ export default {
     pickPerm: '누가 볼 수 있는가',
     pickPermSub: '특정 구독 계획의 조회를 허용',
     pickSub: '구독 그룹 지정',
+    pickAll: '전체 선택',
+    unpickAll: '전체 선택 취소',
     price: '가격',
     priceSub: '미화 $',
     priceTip: '최대 {price}로 설정',
@@ -572,7 +575,7 @@ export default {
   },
   modal: {
     subscribe: {
-      1: '지난 {days}의 모든 작품에 대한 전체 접근 권한',
+      1: '지난 {days}의 모든 작업에 대한 전체 액세스 권한',
       2: '제작자에게 직접 메시지를 보내는 기능',
       3: '더 긴밀한 상호작용',
       4: '언제든지 구독을 취소할 수 있습니다',
@@ -589,7 +592,7 @@ export default {
       confirm: '크리에이터 페이지로 이동',
     },
     shopBuySuc: {
-      1: '기이! 게시물 잠금 해제를 위한 결제가 완료되었습니다.',
+      1: '기이! 게시물 잠금 해제를 위해 성공적으로 결제됨',
       2: '게시물로 이동하여 시청하거나 원래 화면에 머물면서 탐색하도록 선택하세요!',
       confirm: '게시물로 이동',
     },

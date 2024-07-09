@@ -35,6 +35,7 @@ export default {
     confirm: 'Bestätigen',
     loading: 'Laden',
     noMore: 'Nicht mehr',
+    commentNoData: 'Derzeit gibt es keine Kommentare. Sei der Erste, der einen hinterlässt!',
     more: 'Mehr',
     save: 'Speichern',
     reload: 'Neu laden',
@@ -170,6 +171,8 @@ export default {
     pickPerm: 'Wer kann es sehen',
     pickPermSub: 'Bestimmten Abonnementplänen das Ansehen erlauben',
     pickSub: 'Abonnementsgruppe angeben',
+    pickAll: 'Alles auswählen',
+    unpickAll: 'Alles abwählen',
     price: 'Preis',
     priceSub: 'USD $',
     priceTip: 'Maximal auf {price} gesetzt',
@@ -211,7 +214,7 @@ export default {
     error: {
       subscribeSelf: 'Ich kann mich nicht selbst abonnieren',
       shopBuySelf: 'Sie können keine eigenen Produkte kaufen',
-      subscriptionNotFound: 'Kein Abonnementplan verfügbar',
+      subscriptionNotFound: 'Kein Abonnement verfügbar',
     },
     sending: 'Senden',
     failure: 'Fehlgeschlagen',
@@ -380,7 +383,7 @@ export default {
     style: 'Cover-Stil festlegen',
     subUnlockDayAfter: 'Beiträge der letzten Tage nach dem Kauf freischalten',
     tokenExpired: 'Die Anmeldesitzung ist abgelaufen. Bitte melden Sie sich erneut an.',
-    clearSearchHistory: 'Sind Sie sicher, dass Sie Ihren Suchverlauf löschen möchten?',
+    clearSearchHistory: 'Möchten Sie Ihren Suchverlauf wirklich löschen?',
     uploadVideoLimit: {
       format:
         'Das aktuell hochgeladene Videoformat ({format}) wird nicht unterstützt. Bitte konvertieren Sie es in das MP4- oder MOV-Format und versuchen Sie es erneut.',
