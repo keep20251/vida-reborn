@@ -64,7 +64,7 @@
         </div>
       </div>
     </div>
-    <Button v-if="!subscriptBtn" gradient @click.stop="emit('click', props.item)">{{ $t('common.subscribe') }}</Button>
+    <Button v-if="!subscriptBtn" gradient @click="emit('click', props.item)">{{ $t('common.subscribe') }}</Button>
   </div>
 </template>
 <script setup>
