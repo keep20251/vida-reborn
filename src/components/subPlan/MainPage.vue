@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-full w-full flex-col">
+  <div class="flex h-full w-full flex-col" @click="closeEdit">
     <div class="relative rounded-t-xl bg-primary px-20 py-15 text-center text-white">
       <div class="text-lg font-bold leading-5">{{ $t('info.subscribeSetting') }}</div>
       <button @click="close" class="absolute right-0 top-1/3 px-20 pb-10">
@@ -41,18 +41,18 @@
         <List :items="subList" item-key="id" divider>
           <template #default="{ item, index }">
             <SubscribeCard
+              class="mb-20 mt-30"
+              :item="item"
+              :height="260"
+              :edit-trigger="editTrigger"
+              edit-mode
+              subscript-btn
+              show-contain
               @move:up="toUp(subList, index)"
               @move:down="toDown(subList, index)"
               @edit="subPlanEdit(subList, index)"
               @delete="onDelete(subList, index)"
               @click:contain="onContainClicked"
-              @update:editing="onEditingChange"
-              :item="item"
-              subscript-btn
-              edit-mode
-              show-contain
-              :height="260"
-              class="mb-20 mt-30"
             ></SubscribeCard>
           </template>
         </List>
@@ -94,15 +94,13 @@ const {
   selDefaultItem,
 } = storeToRefs(useSubPlanStore())
 
-const isEditing = ref(false)
-const onEditingChange = (v) => (isEditing.value = v)
+const editTrigger = ref(false)
+const closeEdit = () => (editTrigger.value = !editTrigger.value)
 
 const onContainClicked = (item) => {
-  if (isEditing.value) return
   openDetail({ activeSubscription: item, subscriptions: subList.value })
 }
 function subPlanAdd() {
-  if (isEditing.value) return
   to(SUB_PLAN.SET)
   addSubPlan.value = true
   uploadFiles.value = []

@@ -97,6 +97,7 @@ const props = defineProps({
     }),
   },
   editMode: { type: Boolean, default: false },
+  editTrigger: {},
   subscriptBtn: { type: Boolean, default: false },
   showContain: { type: Boolean, default: false },
   height: { type: Number },
@@ -140,4 +141,5 @@ const editOptions = [
 ]
 
 const onOutsideClicked = () => props.editMode && closeEditing()
+watch(() => props.editTrigger, onOutsideClicked)
 </script>
