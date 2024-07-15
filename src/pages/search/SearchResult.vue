@@ -15,6 +15,9 @@
       </List>
     </div>
     <div v-show="activeTab === SEARCH_TAB.POST" class="overflow-x-hidden">
+      <div v-show="initLoading">
+        <FeedSkeleton v-for="n in 3" :key="`feed-skeleton-${n}`" class="py-20"></FeedSkeleton>
+      </div>
       <List :items="articleFetcher.dataList" item-key="id" divider>
         <template #default="{ item }">
           <Feed class="py-20" :item="item"></Feed>
@@ -31,13 +34,17 @@
   </div>
 </template>
 <script setup>
+import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useSearchStore } from '@/store/search'
 import SearchCreatorCard from '@comp/card/SearchCreatorCard.vue'
 import NoData from '@comp/info/NoData.vue'
 import Feed from '@comp/main/Feed.vue'
+import FeedSkeleton from '@comp/skeleton/Feed.vue'
 import { SEARCH_TAB } from '@const'
 
 const searchStore = useSearchStore()
 const { activeTab, articleFetcher, creatorFetcher, reloadAction } = storeToRefs(searchStore)
+
+const initLoading = computed(() => articleFetcher.value.dataList.length <= 0 && !articleFetcher.value.noData)
 </script>
