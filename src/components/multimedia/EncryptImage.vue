@@ -25,6 +25,7 @@ import { useFullscreenPhotoStore } from '@/store/fullscreen-photo'
 import Skeleton from '@comp/skeleton/index.vue'
 import { getDecryptDataBlob } from '@/utils/encrypt-img-store'
 import lazyloader from '@/utils/lazyloader'
+import errorImage from '@/assets/images/error-img.svg?url'
 
 const props = defineProps({
   src: { type: String },
@@ -72,7 +73,7 @@ const fail = ref(false)
 const decryptedBlob = ref(null)
 const url = computed(() => {
   if (fail.value) {
-    return props.failSrc
+    return props.failSrc || errorImage
   } else if (decryptedBlob.value !== null) {
     return decryptedBlob.value
   } else {
