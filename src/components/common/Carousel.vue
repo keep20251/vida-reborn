@@ -1,8 +1,12 @@
 <template>
-  <div class="relative hidden md:block">
+  <div v-if="initLoading" class="flex flex-col items-center space-y-10">
+    <div class="h-[25rem] w-full rounded-md bg-light-gray"></div>
+    <div class="h-15 w-full rounded-md bg-light-gray"></div>
+  </div>
+  <div v-else class="relative hidden md:block">
     <div class="mb-20 text-lg font-bold leading-lg">{{ label }}</div>
     <div
-      class="h-[400px] w-full cursor-pointer rounded-md bg-cover bg-center bg-no-repeat p-10"
+      class="h-[25rem] w-full cursor-pointer rounded-md bg-cover bg-center bg-no-repeat p-10"
       :style="{ backgroundImage: `url(${images[activeSlide].img})` }"
       @click="toCreator"
     ></div>
@@ -84,7 +88,13 @@ const restart = () => {
   }
 }
 
-onMounted(restart)
+const initLoading = ref(true)
+const init = () => setTimeout(() => (initLoading.value = false), 300)
+
+onMounted(() => {
+  restart()
+  init()
+})
 onActivated(restart)
 onBeforeUnmount(stop)
 onDeactivated(stop)

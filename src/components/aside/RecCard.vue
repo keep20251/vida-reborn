@@ -1,6 +1,12 @@
 <template>
   <div>
-    <List :items="items" item-key="id" divider>
+    <List v-if="initLoading" :items="[1, 2, 3, 4]" divider>
+      <div class="flex select-none flex-row items-center space-x-10 pb-20 pt-20">
+        <div class="h-30 w-30 rounded-full bg-light-gray"></div>
+        <div class="h-15 w-1/4 rounded-sm bg-light-gray"></div>
+      </div>
+    </List>
+    <List v-else :items="items" item-key="id" divider>
       <template #default="{ item }">
         <div class="select-none pb-20 pt-20">
           <div class="flex grow items-center justify-between space-x-10">
@@ -56,11 +62,14 @@ import { useRouters } from '@use/routers'
 const { toCreator } = useRouters()
 
 const items = ref([])
+const initLoading = ref(true)
+
 async function fetchCreators() {
   const response = await useRequest('User.searchCreator', { params: { page: 1, limit: 3 }, immediate: true })
   return response.list
 }
 onMounted(async () => {
   items.value = await fetchCreators()
+  initLoading.value = false
 })
 </script>
