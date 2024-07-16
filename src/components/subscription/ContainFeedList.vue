@@ -22,8 +22,6 @@ import { computed, onMounted, ref, watch } from 'vue'
 import { useInfinite } from '@/compositions/request/infinite'
 import { useIntersection } from '@/compositions/utils/intersection'
 import { SUBSCRIPTION_ARTICLE_TYPE } from '@/constant'
-import List from '../common/List.vue'
-import Loading from '../common/Loading.vue'
 import NoData from '../info/NoData.vue'
 import ContainFeed from './ContainFeed.vue'
 

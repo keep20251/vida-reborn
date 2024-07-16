@@ -87,7 +87,6 @@ import { useElementSize, useEventListener, useInfiniteScroll, useRafFn, useSwipe
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useNavStore } from '@/store/nav'
-import Loading from '@comp/common/Loading.vue'
 
 const props = defineProps({
   mainTopToggleDisabled: { type: Boolean, default: false },

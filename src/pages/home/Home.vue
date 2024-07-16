@@ -5,8 +5,8 @@
     </template>
     <template #default>
       <div v-if="hasSubscribe">
-        <div v-show="initLoading">
-          <FeedSkeleton v-for="n in 3" :key="`feed-skeleton-${n}`" class="py-20"></FeedSkeleton>
+        <div v-if="feedsIsFirstLoading">
+          <FeedSkeleton v-for="n in 3" :key="n" class="py-20"></FeedSkeleton>
         </div>
         <List :items="feeds" item-key="id" divider>
           <template #default="{ item }">
@@ -95,6 +95,7 @@ const {
   dataList: feeds,
   dataExtra: feedsDataExtra,
   isLoading: feedsIsLoading,
+  isFirstLoading: feedsIsFirstLoading,
   noMore: feedsNoMore,
   noData: feedsNoData,
   init: feedsInit,
@@ -119,7 +120,6 @@ const {
 
 const hasSubscribe = computed(() => isLogin.value && !feedsNoData.value)
 const isPullToReloadEnable = computed(() => isMobile.value && hasSubscribe.value)
-const initLoading = computed(() => feeds.value.length <= 0 && !feedsNoData.value)
 
 const hydrationStore = useHydrationStore()
 const { homeFeeds, homeCreators } = storeToRefs(hydrationStore)

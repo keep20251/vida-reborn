@@ -122,13 +122,13 @@ import { computed, onActivated, onBeforeUnmount, onDeactivated, onMounted, ref, 
 import { useElementSize, useEventListener } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
+import LoadingDotted from '@comp/common/LoadingDotted.vue'
 import { useDrag } from '@use/gesture/drag'
 import { useRootScrollLock } from '@use/utils/scroll-lock'
 import lazyloader from '@/utils/lazyloader'
 import { toVideoTimeFormat } from '@/utils/string-helper'
 // import { add, remove } from '@/utils/video-autoplay-controller'
 import { get, release } from '@/utils/video-store'
-import LoadingDotted from '../common/LoadingDotted.vue'
 
 const props = defineProps({
   id: { type: Number },

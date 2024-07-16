@@ -35,6 +35,9 @@ export function useInfinite(apiKey, { params = {}, limit = 10, readonly: ro = tr
 
   const { data, error, isLoading, execute, cancel } = useRequest(apiKey, { readonly: ro })
 
+  // 是否為初始載入中，也就是資料為 0 筆時載入中
+  const isFirstLoading = computed(() => dataList.value.length === 0 && isLoading.value)
+
   async function init() {
     if (!isLoading.value && !noMore.value && dataList.value.length === 0 && dataExtra.value === null) {
       return await next()
@@ -122,6 +125,7 @@ export function useInfinite(apiKey, { params = {}, limit = 10, readonly: ro = tr
     dataExtra: ro ? readonly(dataExtra) : dataExtra,
     error,
     isLoading,
+    isFirstLoading,
     noMore: readonly(noMore),
     noData,
     init,
