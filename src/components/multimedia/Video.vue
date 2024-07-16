@@ -14,7 +14,7 @@
       v-if="isWaiting"
       class="absolute left-1/2 top-1/2 flex h-50 w-50 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-md bg-black bg-opacity-50"
     >
-      <Loading></Loading>
+      <LoadingDotted size="40"></LoadingDotted>
     </div>
 
     <!-- 尚未開始播放前的置中播放按鈕 -->
@@ -23,7 +23,7 @@
       <div
         class="absolute left-1/2 top-1/2 flex h-50 w-50 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-md bg-black bg-opacity-50"
       >
-        <Icon name="playBtn" size="20"></Icon>
+        <Icon name="playBtn2" size="20"></Icon>
       </div>
       <div class="absolute bottom-20 right-20 flex items-center space-x-5 rounded-inherit drop-shadow">
         <Icon name="videoWhite" size="20"></Icon>
@@ -128,6 +128,7 @@ import lazyloader from '@/utils/lazyloader'
 import { toVideoTimeFormat } from '@/utils/string-helper'
 // import { add, remove } from '@/utils/video-autoplay-controller'
 import { get, release } from '@/utils/video-store'
+import LoadingDotted from '../common/LoadingDotted.vue'
 
 const props = defineProps({
   id: { type: Number },

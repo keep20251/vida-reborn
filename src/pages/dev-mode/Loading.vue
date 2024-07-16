@@ -12,8 +12,14 @@
       <div class="flex items-center space-x-16 py-8">rate: 0.9<Loading :rate="0.9"></Loading></div>
       <div class="flex items-center space-x-16 py-8">rate: 1.0<Loading :rate="1.0"></Loading></div>
       <div class="flex items-center space-x-16 py-8">rate: none<Loading></Loading></div>
+      <div class="flex items-center space-x-16 py-8">
+        Loading Dotted
+        <LoadingDotted size="40"></LoadingDotted>
+      </div>
     </div>
   </Page>
 </template>
 
-<script setup></script>
+<script setup>
+import LoadingDotted from '@/components/common/LoadingDotted.vue'
+</script>
