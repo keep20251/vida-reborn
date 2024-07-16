@@ -42,7 +42,7 @@ export default {
     cookie: 'Acepta y no vuelvas a mostrar este mensaje',
     check: 'Verificar',
     subscribe: 'suscripción',
-    subscribed: 'suscrito',
+    subscribed: 'Suscrito',
     cancelSubscribe: 'Cancelar',
     restoreSubscribe: 'Reanudar',
     reSubscribe: 'Resuscribir',
@@ -604,7 +604,7 @@ export default {
     },
     shopBuySuc: {
       1: '¡maravilloso! Pago exitoso para desbloquear la publicación',
-      2: '¡Elija ir a la publicación para verla o permanecer en la pantalla original para navegar!',
+      2: '¡Elige ir a la publicación para verla o permanecer en la pantalla original para navegar!',
       confirm: 'Ir a la publicación',
     },
     title: { paySuc: 'Pago hecho satisfactoriamente' },
