@@ -5,6 +5,9 @@
     </template>
     <template #default>
       <div v-if="hasSubscribe">
+        <div v-show="initLoading">
+          <FeedSkeleton v-for="n in 3" :key="`feed-skeleton-${n}`" class="py-20"></FeedSkeleton>
+        </div>
         <List :items="feeds" item-key="id" divider>
           <template #default="{ item }">
             <Feed class="py-20" :item="item"></Feed>
@@ -76,6 +79,7 @@ import Carousel from '@comp/common/Carousel.vue'
 import NoData from '@comp/info/NoData.vue'
 import Feed from '@comp/main/Feed.vue'
 import TopSearchBar from '@comp/navigation/TopSearchBar.vue'
+import FeedSkeleton from '@comp/skeleton/Feed.vue'
 import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import { useInfinite } from '@use/request/infinite'
 import { whenNavHomeAgain } from '@/utils/nav-again'
@@ -115,6 +119,7 @@ const {
 
 const hasSubscribe = computed(() => isLogin.value && !feedsNoData.value)
 const isPullToReloadEnable = computed(() => isMobile.value && hasSubscribe.value)
+const initLoading = computed(() => feeds.value.length <= 0 && !feedsNoData.value)
 
 const hydrationStore = useHydrationStore()
 const { homeFeeds, homeCreators } = storeToRefs(hydrationStore)

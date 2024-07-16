@@ -13,7 +13,10 @@
           <template #bottom>
             <div class="flex items-center justify-center py-8 text-gray-a3" :class="{ 'pb-60': isMobile }">
               <Loading v-if="isCommentsLoading"></Loading>
-              <span v-if="commentsNoData">{{ $t('common.commentNoData') }}</span>
+              <div v-if="commentsNoData" class="text-center">
+                <p>{{ $t('common.commentNoData.1') }}</p>
+                <p>{{ $t('common.commentNoData.2') }}</p>
+              </div>
               <span v-if="commentsNoMore && !commentsNoData">{{ $t('common.noMore') }}</span>
             </div>
           </template>

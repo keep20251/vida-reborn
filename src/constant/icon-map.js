@@ -77,11 +77,13 @@ export const iconMap = {
   ellipse: { path: 'function/ellipse' },
   info: { path: 'function/info' },
   playBtn: { path: 'function/play-btn' },
+  playBtn2: { path: 'function/play-btn2' },
   pauseBtn: { path: 'function/pause-btn' },
   volume: { path: 'function/volume' },
   mute: { path: 'function/mute' },
   fullscreen: { path: 'function/fullscreen' },
   fullscreenExit: { path: 'function/fullscreen-exit' },
+  dotLoading: { path: 'function/dot-loading' },
 
   comment: { path: 'interaction/comment' },
   likeOutline: { path: 'interaction/like-outline', preload: true },
