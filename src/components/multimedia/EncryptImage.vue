@@ -13,6 +13,7 @@
       class="h-full w-full rounded-inherit"
       :class="{ 'object-contain': !cover, 'object-cover': cover }"
       :draggable="!disableDraggable"
+      @error="onImageError"
     />
     <div v-else class="h-full w-full rounded-inherit bg-gray-f6"></div>
   </div>
@@ -80,6 +81,8 @@ const url = computed(() => {
     return ''
   }
 })
+
+const onImageError = (e) => (e.target.src = errorImage)
 
 onMounted(() => {
   if (props.disableLazy) {
