@@ -154,7 +154,10 @@ async function loadSeoHead() {
   await setupHead({
     title: feed.value.title,
     description: feed.value.content,
-    keywords: [feed.value.user?.username, ...commaSplittedToArray(feed.value.tags)],
+    keywords: {
+      items: [feed.value.user?.username, ...commaSplittedToArray(feed.value.tags)],
+      needTranslate: false,
+    },
     url: `/${feed.value.user?.username}/${feed.value.id}`,
     image: feed.value.user?.thumb,
   })

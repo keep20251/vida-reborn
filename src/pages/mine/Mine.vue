@@ -74,15 +74,18 @@ onDeactivated(resetHead)
 
 function loadHead() {
   setupHead({
-    title: $t('meta.mine.title', { pipe: '|' }),
-    description: $t('meta.mine.description'),
-    keywords: [
-      $t('meta.keywords.favorite'),
-      $t('meta.keywords.intl'),
-      $t('meta.keywords.subscribe'),
-      $t('meta.keywords.interact'),
-      $t('meta.keywords.title'),
-    ],
+    title: { key: 'meta.mine.title' },
+    description: { key: 'meta.mine.description' },
+    keywords: {
+      items: [
+        'meta.keywords.favorite',
+        'meta.keywords.intl',
+        'meta.keywords.subscribe',
+        'meta.keywords.interact',
+        'meta.keywords.title',
+      ],
+      needTranslate: true,
+    },
     // url: `/${route.path}`,
   })
 }

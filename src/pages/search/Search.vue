@@ -60,9 +60,12 @@ const headStore = useHeadStore()
 const { setup: setupHead, reset: resetHead } = headStore
 async function loadSeoHead() {
   await setupHead({
-    title: $t('meta.search.title'),
-    description: $t('meta.search.description'),
-    keywords: [$t('meta.search.keywords')],
+    title: { key: 'meta.search.title' },
+    description: { key: 'meta.search.description' },
+    keywords: {
+      items: ['meta.search.keywords'],
+      needTranslate: true,
+    },
     url: `/search`,
   })
 }
