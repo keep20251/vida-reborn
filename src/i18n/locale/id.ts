@@ -231,6 +231,36 @@ export default {
         expiredInfo: 'Pelanggan sebelum kadaluarsa akan terus memiliki hak tayang',
       },
     },
+    feedback: {
+      title: 'Umpan Balik',
+      subtitle: 'Mengalami masalah?',
+      type: 'Jenis Masalah',
+      textarea: {
+        label: 'Deskripsi Masalah',
+        placeholder:
+          'Untuk meningkatkan platform dan layanan, mohon berbagi masalah yang Anda temui dengan murah hati.',
+      },
+      input: { label: 'Email', placeholder: 'Kami akan mengirim balasan ke kotak surat Anda' },
+      addImage: 'Tambah Gambar',
+      options: {
+        1: 'Masalah Pembayaran',
+        2: 'Masalah Akun',
+        3: 'Pemutaran Video',
+        4: 'Konten yang Disarankan',
+        5: 'Masalah Langganan',
+        6: 'Tinjauan Konten',
+        7: 'Lokalisasi dan Bahasa',
+        8: 'Kinerja dan Stabilitas',
+        9: 'Permintaan Fitur',
+        10: 'Masalah Lainnya',
+      },
+      modal: {
+        title: 'Umpan Balik Dikirim',
+        content:
+          'Terima kasih atas umpan balik Anda! Ini akan diteruskan ke tim dukungan dan teknis kami untuk diproses lebih lanjut.',
+      },
+      uploadLimit: 'Anda dapat mengunggah hingga 3 gambar',
+    },
   },
   info: {
     bindThirdPartyLogin: 'Mengikat login pihak ketiga',
@@ -591,7 +621,7 @@ export default {
     },
     subscribeSuc: {
       1: 'menakjubkan! Berhasil berlangganan {nickname}!',
-      2: 'Pilih untuk membuka beranda pembuat konten, atau tetap berada di layar asli dan menjelajah!',
+      2: 'Pilih untuk membuka beranda pembuat konten, atau tetap berada di layar asli dan jelajahi!',
       confirm: 'Buka halaman pembuat',
     },
     shopBuySuc: {

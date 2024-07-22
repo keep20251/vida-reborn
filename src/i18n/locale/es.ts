@@ -42,7 +42,7 @@ export default {
     cookie: 'Acepta y no vuelvas a mostrar este mensaje',
     check: 'Verificar',
     subscribe: 'suscripción',
-    subscribed: 'Suscrito',
+    subscribed: 'suscrito',
     cancelSubscribe: 'Cancelar',
     restoreSubscribe: 'Reanudar',
     reSubscribe: 'Resuscribir',
@@ -235,6 +235,36 @@ export default {
         expiredTag: "{'#'} Excedió el período permitido del plan",
         expiredInfo: 'Los suscriptores antes de la expiración seguirán teniendo derechos de visualización',
       },
+    },
+    feedback: {
+      title: 'Retroalimentación',
+      subtitle: '¿Tiene problemas?',
+      type: 'Tipo de problema',
+      textarea: {
+        label: 'Descripción del problema',
+        placeholder:
+          'Para mejorar la plataforma y los servicios, por favor comparta generosamente los problemas que ha encontrado.',
+      },
+      input: { label: 'Correo electrónico', placeholder: 'Enviaremos la respuesta a su buzón' },
+      addImage: 'Agregar imagen',
+      options: {
+        1: 'Problemas de pago',
+        2: 'Problemas de cuenta',
+        3: 'Reproducción de video',
+        4: 'Contenido recomendado',
+        5: 'Problemas de suscripción',
+        6: 'Revisión de contenido',
+        7: 'Localización y idioma',
+        8: 'Rendimiento y estabilidad',
+        9: 'Solicitudes de funciones',
+        10: 'Otros problemas',
+      },
+      modal: {
+        title: 'Retroalimentación enviada',
+        content:
+          '¡Gracias por sus comentarios! Será enviado a nuestros equipos de soporte y técnicos para su posterior procesamiento.',
+      },
+      uploadLimit: 'Puede subir hasta 3 imágenes',
     },
   },
   info: {
