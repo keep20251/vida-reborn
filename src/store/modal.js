@@ -10,6 +10,9 @@ export const useModalStore = defineStore('modal', () => {
   const avatarTitle = ref(null)
   const content = ref(null)
 
+  const titleClass = ref('')
+  const contentClass = ref('')
+
   const confirmAction = ref(null)
   const confirmText = ref(null)
   const cancelAction = ref(null)
@@ -35,6 +38,8 @@ export const useModalStore = defineStore('modal', () => {
     size = 'sm',
     title,
     content,
+    titleClass = '',
+    contentClass = '',
     confirmAction = () => {},
     confirmText,
     showClose = false,
@@ -44,6 +49,8 @@ export const useModalStore = defineStore('modal', () => {
       size,
       title,
       content,
+      titleClass,
+      contentClass,
       confirmAction,
       confirmText,
       showClose,
@@ -55,6 +62,8 @@ export const useModalStore = defineStore('modal', () => {
     size = 'lg',
     title,
     content,
+    titleClass = '',
+    contentClass = '',
     confirmAction,
     confirmText,
     cancelAction = () => {},
@@ -68,6 +77,8 @@ export const useModalStore = defineStore('modal', () => {
       size,
       title,
       content,
+      titleClass,
+      contentClass,
       confirmAction,
       confirmText,
       cancelAction,
@@ -86,6 +97,8 @@ export const useModalStore = defineStore('modal', () => {
     imageTitle.value = options.imageTitle || null
     avatarTitle.value = options.avatarTitle || null
     content.value = options.content
+    titleClass.value = options.titleClass || ''
+    contentClass.value = options.contentClass || ''
     confirmAction.value = options.confirmAction
     confirmText.value = options.confirmText
     cancelAction.value = options.cancelAction
@@ -105,6 +118,8 @@ export const useModalStore = defineStore('modal', () => {
     imageTitle.value = null
     avatarTitle.value = null
     content.value = null
+    titleClass.value = ''
+    contentClass.value = ''
     confirmAction.value = null
     confirmText.value = null
     cancelAction.value = null
@@ -128,6 +143,9 @@ export const useModalStore = defineStore('modal', () => {
     imageTitle,
     avatarTitle,
     content,
+
+    titleClass,
+    contentClass,
 
     confirmAction,
     confirmText,
