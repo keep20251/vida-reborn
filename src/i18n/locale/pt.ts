@@ -231,6 +231,35 @@ export default {
         expiredInfo: 'Os assinantes antes da expiração continuarão a ter direitos de visualização',
       },
     },
+    feedback: {
+      title: 'Feedback',
+      subtitle: 'Encontrando problemas?',
+      type: 'Tipo de Problema',
+      textarea: {
+        label: 'Descrição do Problema',
+        placeholder: 'Para melhorar a plataforma e os serviços, compartilhe generosamente os problemas que encontrou.',
+      },
+      input: { label: 'E-mail', placeholder: 'Enviaremos a resposta para sua caixa de correio' },
+      addImage: 'Adicionar Imagem',
+      options: {
+        1: 'Problemas de pagamento',
+        2: 'Problemas de conta',
+        3: 'Reprodução de vídeo',
+        4: 'Conteúdo Recomendado',
+        5: 'Problemas de assinatura',
+        6: 'Revisão de Conteúdo',
+        7: 'Localização e Idioma',
+        8: 'Desempenho e Estabilidade',
+        9: 'Solicitações de Recursos',
+        10: 'Outros Problemas',
+      },
+      modal: {
+        title: 'Feedback Enviado',
+        content:
+          'Obrigado pelo seu feedback! Será encaminhado para nossas equipes de suporte e técnicas para processamento adicional.',
+      },
+      uploadLimit: 'Você pode enviar até 3 imagens',
+    },
   },
   info: {
     bindThirdPartyLogin: 'Vincular o login de terceiros',
@@ -589,7 +618,7 @@ export default {
     shopBuy: {
       1: 'Irá desbloquear o conteúdo de {nickname} neste trabalho',
       2: '{nickname}receberá seu pagamento integralmente',
-      confirm: "Desbloquear agora ({'$'}{price})",
+      confirm: "Desbloqueie agora ({'$'}{price})",
     },
     subscribeSuc: {
       1: 'maravilhoso! Inscrito em {nickname} com sucesso!',

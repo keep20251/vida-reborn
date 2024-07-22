@@ -181,3 +181,9 @@ export const upperSnackToCamel = (str, isLower = true) => {
   })
   return words.join('')
 }
+
+export const splitFilename = (filename) => {
+  if (!filename.includes('.')) throw new Error('Invalid filename')
+  const parts = filename.split('.')
+  return { name: parts.slice(0, -1).join('.'), ext: parts[parts.length - 1] }
+}

@@ -214,7 +214,7 @@ export default {
     error: {
       subscribeSelf: 'Ich kann mich nicht selbst abonnieren',
       shopBuySelf: 'Sie können keine eigenen Produkte kaufen',
-      subscriptionNotFound: 'Kein Abonnementplan verfügbar',
+      subscriptionNotFound: 'Kein Abonnement verfügbar',
     },
     sending: 'Senden',
     failure: 'Fehlgeschlagen',
@@ -235,6 +235,36 @@ export default {
         expiredTag: "{'#'} Über die erlaubte Planperiode hinaus",
         expiredInfo: 'Abonnenten vor dem Ablauf haben weiterhin Sehrechte',
       },
+    },
+    feedback: {
+      title: 'Rückmeldung',
+      subtitle: 'Probleme beim Benutzen?',
+      type: 'Art des Problems',
+      textarea: {
+        label: 'Beschreibung des Problems',
+        placeholder:
+          'Um die Plattform und die Dienste zu verbessern, teilen Sie uns bitte großzügig die aufgetretenen Probleme mit.',
+      },
+      input: { label: 'E-Mail', placeholder: 'Wir werden die Antwort an Ihre Mailbox senden' },
+      addImage: 'Bild hinzufügen',
+      options: {
+        1: 'Zahlungsprobleme',
+        2: 'Kontoprobleme',
+        3: 'Videowiedergabe',
+        4: 'Empfohlener Inhalt',
+        5: 'Abonnementprobleme',
+        6: 'Inhaltsprüfung',
+        7: 'Lokalisierung und Sprache',
+        8: 'Leistung und Stabilität',
+        9: 'Funktionsanforderungen',
+        10: 'Andere Probleme',
+      },
+      modal: {
+        title: 'Rückmeldung eingereicht',
+        content:
+          'Danke für Ihr Feedback! Es wird an unsere Support- und Technik-Teams zur weiteren Bearbeitung weitergeleitet.',
+      },
+      uploadLimit: 'Sie können bis zu 3 Bilder hochladen',
     },
   },
   info: {
@@ -383,7 +413,7 @@ export default {
     style: 'Cover-Stil festlegen',
     subUnlockDayAfter: 'Beiträge der letzten Tage nach dem Kauf freischalten',
     tokenExpired: 'Die Anmeldesitzung ist abgelaufen. Bitte melden Sie sich erneut an.',
-    clearSearchHistory: 'Möchten Sie Ihren Suchverlauf wirklich löschen?',
+    clearSearchHistory: 'Sind Sie sicher, dass Sie Ihren Suchverlauf löschen möchten?',
     uploadVideoLimit: {
       format:
         'Das aktuell hochgeladene Videoformat ({format}) wird nicht unterstützt. Bitte konvertieren Sie es in das MP4- oder MOV-Format und versuchen Sie es erneut.',
@@ -688,7 +718,7 @@ export default {
       17: 'Weitere Informationen und Kontakte',
       18: 'Weitere Informationen darüber, wie VIDA Ihre personenbezogenen Daten verarbeitet, finden Sie in der Datenschutzrichtlinie von VIDA (hier) und auf der Seite „Respektieren Ihrer Privatsphäre“ im Sicherheits- und Transparenzzentrum von VIDA (hier).',
       19: 'Weitere Informationen darüber, warum VIDA diese Identitätsüberprüfungs- und Authentifizierungsprüfungen durchführen muss, finden Sie auf der Seite „Alters- und Identitätsverifizierung“ in unserem Online-Sicherheits- und Transparenzzentrum (hier).',
-      20: "Bei Fragen wenden Sie sich bitte an Privacy{'@'}VIDA.com.",
+      20: "Wenn Sie Fragen haben, wenden Sie sich bitte an Privacy{'@'}VIDA.com.",
       21: 'Ihre Zustimmung',
       22: 'Indem Sie auf „[Ich stimme zu]“ klicken, verstehen und akzeptieren Sie, dass: Sie der Erfassung und Verarbeitung Ihrer biometrischen Gesichtsdaten zustimmen (d.h. diese mit dem Foto auf Ihrem Identitätsdokument abgleichen), ausschließlich zum Zweck der Überprüfung Ihres Alters und der Überprüfung und Authentifizierung Ihrer Identität. Sie haben die in dieser Mitteilung enthaltenen Informationen gelesen und verstanden.',
       23: 'Sie sind mindestens 18 Jahre alt.',
