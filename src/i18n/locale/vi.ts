@@ -231,6 +231,35 @@ export default {
         expiredInfo: 'Người đăng ký trước khi hết hạn sẽ tiếp tục có quyền xem',
       },
     },
+    feedback: {
+      title: 'Phản hồi',
+      subtitle: 'Gặp vấn đề?',
+      type: 'Loại vấn đề',
+      textarea: {
+        label: 'Mô tả vấn đề',
+        placeholder: 'Để cải thiện nền tảng và dịch vụ, vui lòng chia sẻ những vấn đề bạn gặp phải với chúng tôi.',
+      },
+      input: { label: 'Email', placeholder: 'Chúng tôi sẽ gửi phản hồi đến hộp thư của bạn' },
+      addImage: 'Thêm hình ảnh',
+      options: {
+        1: 'Vấn đề thanh toán',
+        2: 'Vấn đề tài khoản',
+        3: 'Phát lại video',
+        4: 'Nội dung được đề xuất',
+        5: 'Vấn đề đăng ký',
+        6: 'Đánh giá nội dung',
+        7: 'Địa phương hóa và Ngôn ngữ',
+        8: 'Hiệu suất và Ổn định',
+        9: 'Yêu cầu Tính năng',
+        10: 'Vấn đề khác',
+      },
+      modal: {
+        title: 'Phản hồi đã được gửi',
+        content:
+          'Cảm ơn bạn đã phản hồi! Nó sẽ được chuyển đến các đội hỗ trợ và kỹ thuật của chúng tôi để xử lý thêm.',
+      },
+      uploadLimit: 'Bạn có thể tải lên tối đa 3 hình ảnh',
+    },
   },
   info: {
     bindThirdPartyLogin: 'Liên kết đăng nhập của bên thứ ba',
@@ -596,7 +625,7 @@ export default {
     shopBuySuc: {
       1: 'tuyệt vời! Đã thanh toán thành công để mở khóa bài đăng',
       2: 'Chọn vào bài viết để xem, hoặc ở lại màn hình gốc để duyệt nhé!',
-      confirm: 'Đi tới bài viết',
+      confirm: 'Đi tới bài đăng',
     },
     title: { paySuc: 'Thanh toán được thực hiện thành công' },
     paying: { title: 'Thanh toán đang được xử lý' },

@@ -231,6 +231,36 @@ export default {
         expiredInfo: 'Subscribers before expiration will continue to have viewing rights',
       },
     },
+    feedback: {
+      title: 'Feedback',
+      subtitle: 'Encountering issues?',
+      type: 'Type of Issue',
+      textarea: {
+        label: 'Description of the Issue',
+        placeholder:
+          "To improve the platform and services, please generously share the issues you've encountered with us.",
+      },
+      input: { label: 'Email', placeholder: 'We will send the reply to your mailbox' },
+      addImage: 'Add Image',
+      options: {
+        1: 'Payment Issues',
+        2: 'Account Issues',
+        3: 'Video Playback',
+        4: 'Recommended Content',
+        5: 'Subscription Issues',
+        6: 'Content Review',
+        7: 'Localization and Language',
+        8: 'Performance and Stability',
+        9: 'Feature Requests',
+        10: 'Other Issues',
+      },
+      modal: {
+        title: 'Feedback Submitted',
+        content:
+          'Thank you for your feedback! It will be forwarded to our support and technical teams for further processing.',
+      },
+      uploadLimit: 'You can upload up to 3 images',
+    },
   },
   info: {
     bindThirdPartyLogin: 'Bind third party login',
@@ -590,7 +620,7 @@ export default {
     },
     subscribeSuc: {
       1: 'marvelous! Successfully subscribed to {nickname}!',
-      2: 'Choose to go to the creator’s homepage, or stay on the original screen and browse!',
+      2: "Choose to go to the creator's homepage, or stay on the original screen and browse!",
       confirm: 'Go to creator page',
     },
     shopBuySuc: {

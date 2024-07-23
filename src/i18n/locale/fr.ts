@@ -236,6 +236,36 @@ export default {
         expiredInfo: "Les abonnés avant l'expiration continueront d'avoir des droits de visualisation",
       },
     },
+    feedback: {
+      title: "Retour d'information",
+      subtitle: 'Rencontrez-vous des problèmes ?',
+      type: 'Type de problème',
+      textarea: {
+        label: 'Description du problème',
+        placeholder:
+          'Pour améliorer la plateforme et les services, veuillez partager généreusement les problèmes que vous avez rencontrés.',
+      },
+      input: { label: 'E-mail', placeholder: 'Nous enverrons la réponse à votre boîte aux lettres' },
+      addImage: 'Ajouter une image',
+      options: {
+        1: 'Problèmes de paiement',
+        2: 'Problèmes de compte',
+        3: 'Lecture vidéo',
+        4: 'Contenu recommandé',
+        5: "Problèmes d'abonnement",
+        6: 'Révision de contenu',
+        7: 'Localisation et langue',
+        8: 'Performance et stabilité',
+        9: 'Demandes de fonctionnalités',
+        10: 'Autres problèmes',
+      },
+      modal: {
+        title: "Retour d'information soumis",
+        content:
+          'Merci pour vos commentaires ! Ils seront transmis à nos équipes de support et techniques pour un traitement ultérieur.',
+      },
+      uploadLimit: "Vous pouvez télécharger jusqu'à 3 images",
+    },
   },
   info: {
     bindThirdPartyLogin: 'Lier la connexion tierce',
@@ -586,20 +616,20 @@ export default {
   },
   modal: {
     subscribe: {
-      1: 'Accès complet à toutes les œuvres des {days} passés',
+      1: 'Accès complet à toutes les œuvres des derniers {days}',
       2: "Possibilité d'envoyer des messages directement aux créateurs",
       3: 'Une interaction plus étroite',
       4: 'Vous pouvez annuler votre abonnement à tout moment',
       confirm: "{'$'}{price} par mois Aller au paiement",
     },
     shopBuy: {
-      1: 'Déverrouillera le contenu de {nickname} dans ce travail',
+      1: 'Déverrouillera le contenu de {nickname} dans cette œuvre',
       2: '{nickname} recevra votre paiement dans son intégralité',
       confirm: "Débloquez maintenant ({'$'}{price})",
     },
     subscribeSuc: {
       1: 'merveilleux! Vous vous êtes abonné avec succès à {nickname} !',
-      2: "Choisissez d'accéder à la page d'accueil du créateur ou de rester sur l'écran d'origine et de naviguer !",
+      2: "Choisissez d'accéder à la page d'accueil du créateur, ou restez sur l'écran d'origine et parcourez !",
       confirm: 'Aller à la page du créateur',
     },
     shopBuySuc: {

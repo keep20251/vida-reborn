@@ -203,6 +203,10 @@
           </div>
         </div>
       </transition>
+      <div class="flex cursor-pointer items-center space-x-18 active:font-bold" @click="openFeedback">
+        <Icon name="mineBeCreator" size="20"></Icon>
+        <span class="text-base">{{ $t('dialog.feedback.title') }}</span>
+      </div>
     </div>
 
     <div v-if="perm.logout" class="grid space-y-15 py-10">
@@ -228,6 +232,7 @@ import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAuthRouteStore } from '@/store/auth-route'
+import { useDialogStore } from '@/store/dialog'
 import { useModalStore } from '@/store/modal'
 import Dropdown from '@comp/form/Dropdown.vue'
 import { useLocale } from '@use/utils/locale'
@@ -246,6 +251,8 @@ const locale = useLocale()
 
 const setRoutes = ['mine-account', 'mine-password', 'mine-preference', 'mine-block', 'mine-delete']
 const aboutRoutes = ['mine-tos', 'mine-pp', 'mine-cp', 'mine-dmca']
+
+const { openFeedback } = useDialogStore()
 
 const { open: openAuthDialog } = useAuthRouteStore()
 const { confirm } = useModalStore()

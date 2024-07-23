@@ -18,6 +18,11 @@ export const useDialogStore = defineStore('dialog-store', () => {
   // 帖子適用的訂閱方案展示
   const feedSubscriptionDialog = ref(false)
 
+  /** 問題反饋 */
+  const _feedbackDialog = ref(false)
+  const openFeedback = () => (_feedbackDialog.value = true)
+  const closeFeedback = () => (_feedbackDialog.value = false)
+
   const paymentDialog = ref(false)
   const openPayment = () => (paymentDialog.value = true)
   const closePayment = () => (paymentDialog.value = false)
@@ -37,6 +42,10 @@ export const useDialogStore = defineStore('dialog-store', () => {
     subPlanDialog,
     subscriptionDialog,
     feedSubscriptionDialog,
+
+    feedbackDialog: readonly(_feedbackDialog),
+    openFeedback,
+    closeFeedback,
 
     paymentDialog: readonly(paymentDialog),
     openPayment,

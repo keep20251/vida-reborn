@@ -9,26 +9,52 @@ export const useHeadStore = defineStore('app-head', () => {
   const { t: $t } = useI18n()
   const locale = useLocale()
 
-  const title = ref($t('meta.home.title', { pipe: '|' }))
-  const description = ref($t('meta.home.description'))
+  const $title = ref({
+    key: 'meta.home.title',
+    params: {},
+  })
+  const $description = ref({
+    key: 'meta.home.description',
+    params: {},
+  })
 
-  const keywordArr = ref([
-    $t('meta.keywords.short'),
-    $t('meta.keywords.video'),
-    $t('meta.keywords.interact'),
-    $t('meta.keywords.content'),
-    $t('meta.keywords.title'),
-  ])
-  const keywords = computed(() => keywordArr.value.join(', '))
+  const parseValue = (v) => {
+    if (typeof v === 'object') return $t(v.key, { ...v?.params })
+    else if (typeof v === 'string') return v
+    else throw new Error('Title must be an object or a string')
+  }
 
-  const ogTitle = computed(() => title.value)
-  const ogDescription = computed(() => description.value)
+  const titleProxy = computed(() => parseValue($title.value))
+  const descriptionProxy = computed(() => parseValue($description.value))
+
+  const metaKeyword = ref({
+    items: [
+      'meta.keywords.short',
+      'meta.keywords.video',
+      'meta.keywords.interact',
+      'meta.keywords.content',
+      'meta.keywords.title',
+    ],
+    needTranslate: true,
+  })
+
+  const keywords = computed(() => {
+    console.log('Before: metaKeyword.value.items', metaKeyword.value.items)
+    const result = metaKeyword.value.items
+      .map((_item) => (metaKeyword.value.needTranslate ? $t(_item) : _item))
+      .join(',')
+    console.log('After: metaKeyword.value.items', { result, items: metaKeyword.value.items })
+    return result
+  })
+
+  const ogTitle = computed(() => titleProxy.value)
+  const ogDescription = computed(() => descriptionProxy.value)
   const ogUrl = ref(import.meta.env.VITE_APP_URL ?? 'https://vida.pub')
   const ogType = 'website'
   const ogImage = ref(ogUrl.value + (import.meta.env.VITE_APP_OG_IMAGE ?? '/seo/og-image.jpg'))
 
-  const twitterTitle = computed(() => title.value)
-  const twitterDescription = computed(() => description.value)
+  const twitterTitle = computed(() => titleProxy.value)
+  const twitterDescription = computed(() => descriptionProxy.value)
   const twitterImage = ref(ogUrl.value + (import.meta.env.VITE_APP_TWITTER_IMAGE ?? '/seo/twitter-image.jpg'))
 
   const canonical = ref(import.meta.env.VITE_APP_URL ?? 'https://vida.pub')
@@ -59,9 +85,9 @@ export const useHeadStore = defineStore('app-head', () => {
   async function setup({ title: _title, description: _description, keywords: _keywords, url: _url, image: _image }) {
     const ts = startUpdate()
 
-    if (_title) title.value = _title
-    if (_description) description.value = _description
-    if (_keywords) keywordArr.value = _keywords
+    if (_title) $title.value = _title
+    if (_description) $description.value = _description
+    if (_keywords) metaKeyword.value = { ..._keywords }
     if (_url) ogUrl.value = `${import.meta.env.VITE_APP_URL}/${locale.value}${_url}`
 
     if (_image) {
@@ -79,24 +105,26 @@ export const useHeadStore = defineStore('app-head', () => {
   function reset() {
     startUpdate()
 
-    title.value = $t('meta.home.title', { pipe: '|' })
-    description.value = $t('meta.home.description')
-    keywordArr.value = [
-      $t('meta.keywords.short'),
-      $t('meta.keywords.video'),
-      $t('meta.keywords.interact'),
-      $t('meta.keywords.content'),
-      $t('meta.keywords.title'),
-    ]
+    $title.value = { key: 'meta.home.title' }
+    $description.value = { key: 'meta.home.description' }
+    metaKeyword.value = {
+      items: [
+        'meta.keywords.short',
+        'meta.keywords.video',
+        'meta.keywords.interact',
+        'meta.keywords.content',
+        'meta.keywords.title',
+      ],
+      needTranslate: true,
+    }
     ogUrl.value = import.meta.env.VITE_APP_URL ?? 'https://vida.pub'
     ogImage.value = ogUrl.value + (import.meta.env.VITE_APP_OG_IMAGE ?? '/seo/og-image.jpg')
     twitterImage.value = ogUrl.value + (import.meta.env.VITE_APP_TWITTER_IMAGE ?? '/seo/twitter-image.jpg')
   }
 
   return {
-    title,
-    description,
-    keywordArr,
+    title: titleProxy,
+    description: descriptionProxy,
     keywords,
     ogTitle,
     ogDescription,

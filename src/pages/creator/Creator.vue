@@ -200,7 +200,10 @@ async function loadSeoHead() {
   await setupHead({
     title: creator.value.nickname,
     description: creator.value.description,
-    keywords: [creator.value.username],
+    keywords: {
+      items: [creator.value.username],
+      needTranslate: false,
+    },
     url: `/${creator.value.username}`,
     image: creator.value.thumb,
   })
