@@ -76,7 +76,13 @@
         <div class="text-lg font-bold">{{ $t('title.subscription') }}</div>
         <List :items="creator.subscription_list" item-key="id" divider>
           <template #default="{ item }">
-            <SubscribeCard class="py-20" :item="item" @click="subscribe({ item, creator })"></SubscribeCard>
+            <SubscribeCard
+              class="py-20"
+              :item="item"
+              show-contain
+              @click="subscribe({ item, creator })"
+              @click:contain="onContainClicked"
+            ></SubscribeCard>
           </template>
         </List>
       </div>
@@ -186,12 +192,17 @@ function nextArticleList() {
 }
 
 const { subscribe: $subscribe } = useDialog()
-const { open: $open } = useSubsciptionStore()
+const { open: $open, openDetail } = useSubsciptionStore()
 const subscribe = unblockAction($subscribe)
 const open = unblockAction($open)
 const lowestSub = computed(() =>
   creator.value?.subscription_list?.reduce((acc, cur) => (Number(acc.price) < Number(cur.price) ? acc : cur)),
 )
+
+const onContainClicked = (item) => {
+  console.log('onContainClicked', item, creator.value?.subscription_list)
+  openDetail({ activeSubscription: item, subscriptions: creator.value?.subscription_list })
+}
 
 // SEO head
 const headStore = useHeadStore()
