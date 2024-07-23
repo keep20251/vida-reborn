@@ -10,7 +10,7 @@
       ></Head>
     </template>
     <template #default>
-      <div class="flex flex-col space-y-20 pb-30">
+      <div class="flex flex-col space-y-20 pb-30" :class="{ 'mb-60': isMobile }">
         <!-- 選擇主題 -->
         <div class="flex flex-col space-y-10">
           <label class="text-left text-base leading-md">{{ $t('label.pickCaterory') }}</label>
@@ -244,6 +244,8 @@ import { useYup } from '@use/validator/yup.js'
 import { POST_TAB_TYPE } from '@const/mine'
 import { FEED_PERM, IMAGE_LIMIT_COUNT, UPLOAD_STATUS } from '@const/publish'
 import { toDateTimeString } from '@/utils/string-helper'
+
+const { isMobile } = storeToRefs(useAppStore())
 
 const { t: $t } = useI18n()
 
