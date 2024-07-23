@@ -157,15 +157,22 @@ const schema = {
   email: string().email().required(),
   description: string().required().max(300),
 }
+const onValidate = async () => {
+  try {
+    await Promise.all([validate(schema.description, description), validate(schema.email, email)])
+    return !(email.errMsg || description.errMsg)
+  } catch (e) {
+    console.log('onValidate', e)
+  }
+}
 
 const { disabled: isLoading, onExecute } = useExecutionLock()
 const serverError = ref('')
 const { alert } = useModalStore()
+
 const onConfirm = async () => {
   try {
-    await Promise.all([validate(schema.description, description), validate(schema.email, email)])
-    if (email.errMsg || description.errMsg) return
-
+    if (!(await onValidate())) return
     const attachment = await Promise.all(files.value.map((file) => uploadImage(file, () => {})))
     const params = {
       type: reason.value,
@@ -210,6 +217,6 @@ const removeFile = (index) => files.value.splice(index, 1)
 
 const decorateFilename = (filename) => {
   const { name, ext } = splitFilename(filename)
-  return `${name.slice(0, 40)}...${ext}`
+  return `${name.slice(0, 20)}...${ext}`
 }
 </script>
