@@ -57,7 +57,9 @@
       </div>
       <div v-if="showPersonalInfo" class="grid space-y-10">
         <div class="flex items-end space-x-5">
-          <div class="text-sm font-normal leading-3 text-gray-57">{{ item.view_count }} {{ $t('content.view') }}</div>
+          <div class="text-sm font-normal leading-3 text-gray-57">
+            {{ toKMBTString(item.view_count) }} {{ $t('content.view') }}
+          </div>
         </div>
         <p
           class="select-none text-base font-normal leading-lg"
@@ -101,6 +103,7 @@ import { useResizeObserver } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import Avatar from '@comp/multimedia/Avatar.vue'
+import { toKMBTString } from '@/utils/string-helper'
 
 const emits = defineEmits(['file:avatar', 'file:background'])
 
