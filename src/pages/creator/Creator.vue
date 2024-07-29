@@ -208,15 +208,19 @@ const onContainClicked = (item) => {
 const headStore = useHeadStore()
 const { setup: setupHead, reset: resetHead } = headStore
 async function loadSeoHead() {
+  const { nickname, description, username, thumb, json_info } = creator.value
   await setupHead({
-    title: creator.value.nickname,
-    description: creator.value.description,
-    keywords: {
-      items: [creator.value.username],
-      needTranslate: false,
+    title: { key: 'meta.creator.title', params: { nickname } },
+    description: {
+      key: 'meta.creator.description',
+      params: { bio: description, nickname },
     },
-    url: `/${creator.value.username}`,
-    image: creator.value.thumb,
+    keywords: { key: 'meta.creator.keywords', params: { nickname } },
+    author: username,
+    type: 'profile',
+    url: `/creator/${username}`,
+    image: thumb,
+    jsonld: json_info,
   })
 }
 onDeactivated(resetHead)
