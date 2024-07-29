@@ -76,17 +76,7 @@ function loadHead() {
   setupHead({
     title: { key: 'meta.mine.title' },
     description: { key: 'meta.mine.description' },
-    keywords: {
-      items: [
-        'meta.keywords.favorite',
-        'meta.keywords.intl',
-        'meta.keywords.subscribe',
-        'meta.keywords.interact',
-        'meta.keywords.title',
-      ],
-      needTranslate: true,
-    },
-    // url: `/${route.path}`,
+    url: `/mine`,
   })
 }
 
