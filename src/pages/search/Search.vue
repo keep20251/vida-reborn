@@ -59,18 +59,25 @@ const { t: $t } = useI18n()
 const headStore = useHeadStore()
 const { setup: setupHead, reset: resetHead } = headStore
 async function loadSeoHead() {
-  await setupHead({
+  const withinKeyword = {
+    title: { key: 'meta.searchResult.title', params: { keyword: keyword.value } },
+    description: { key: 'meta.searchResult.description', params: { keyword: keyword.value } },
+    keywords: { key: 'meta.searchResult.keywords', params: { keyword: keyword.value } },
+  }
+  const withoutKeyword = {
     title: { key: 'meta.search.title' },
     description: { key: 'meta.search.description' },
-    keywords: {
-      items: ['meta.search.keywords'],
-      needTranslate: true,
-    },
+    keywords: { key: 'meta.search.keywords' },
+  }
+
+  await setupHead({
+    ...(hasQuery.value ? withinKeyword : withoutKeyword),
     url: `/search`,
   })
 }
 onServerPrefetch(loadSeoHead)
 onActivated(loadSeoHead)
+watch(hasQuery, loadSeoHead)
 onDeactivated(resetHead)
 
 const { relatedFeeds, keyword: hydrationKeyword } = storeToRefs(useHydrationStore())

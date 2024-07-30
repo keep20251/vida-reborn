@@ -85,7 +85,7 @@ import TopSearchBar from '@comp/navigation/TopSearchBar.vue'
 import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import useRequest from '@use/request'
 import { useInfinite } from '@use/request/infinite'
-import { commaSplittedToArray } from '@/utils/string-helper'
+import { toDateYmd } from '@/utils/string-helper'
 
 const { isDesktop, isMobile } = storeToRefs(useAppStore())
 
@@ -151,15 +151,24 @@ function nextComments() {
 const headStore = useHeadStore()
 const { setup: setupHead, reset: resetHead } = headStore
 async function loadSeoHead() {
+  const { title, user, content, tags, created_ts, id, json_info } = feed.value
   await setupHead({
-    title: feed.value.title,
-    description: feed.value.content,
-    keywords: {
-      items: [feed.value.user?.username, ...commaSplittedToArray(feed.value.tags)],
-      needTranslate: false,
+    title: {
+      key: 'meta.post.title',
+      params: {
+        title,
+        nickname: user?.nickname,
+      },
     },
-    url: `/${feed.value.user?.username}/${feed.value.id}`,
-    image: feed.value.user?.thumb,
+    description: content,
+    author: user?.nickname,
+    type: 'article',
+    keywords: tags,
+    tags,
+    publishTime: toDateYmd(new Date(created_ts * 1000)),
+    url: `/${user?.username}/${id}`,
+    image: user?.thumb,
+    jsonld: json_info,
   })
 }
 onDeactivated(resetHead)

@@ -3,54 +3,36 @@ import { useI18n } from 'vue-i18n'
 import { defineStore } from 'pinia'
 import { useLocale } from '@use/utils/locale'
 import { getDecryptDataBlob } from '@/utils/encrypt-img-store'
+import { trimJson } from '@/utils/string-helper'
 import { locales } from '@/i18n'
 
 export const useHeadStore = defineStore('app-head', () => {
   const { t: $t } = useI18n()
   const locale = useLocale()
 
-  const $title = ref({
-    key: 'meta.home.title',
-    params: {},
-  })
-  const $description = ref({
-    key: 'meta.home.description',
-    params: {},
-  })
+  const $title = ref({ key: 'meta.home.title' })
+  const titleProxy = computed(() => parseValue($title.value))
 
-  const parseValue = (v) => {
+  const $description = ref({ key: 'meta.home.description' })
+  const descriptionProxy = computed(() => parseValue($description.value))
+
+  const $keyword = ref({ key: 'meta.home.keywords' })
+  const keywordProxy = computed(() => parseValue($keyword.value))
+
+  const author = ref(null)
+  const publishTime = ref(null)
+  const tags = ref(null)
+
+  function parseValue(v) {
     if (typeof v === 'object') return $t(v.key, { ...v?.params })
     else if (typeof v === 'string') return v
     else throw new Error('Title must be an object or a string')
   }
 
-  const titleProxy = computed(() => parseValue($title.value))
-  const descriptionProxy = computed(() => parseValue($description.value))
-
-  const metaKeyword = ref({
-    items: [
-      'meta.keywords.short',
-      'meta.keywords.video',
-      'meta.keywords.interact',
-      'meta.keywords.content',
-      'meta.keywords.title',
-    ],
-    needTranslate: true,
-  })
-
-  const keywords = computed(() => {
-    console.log('Before: metaKeyword.value.items', metaKeyword.value.items)
-    const result = metaKeyword.value.items
-      .map((_item) => (metaKeyword.value.needTranslate ? $t(_item) : _item))
-      .join(',')
-    console.log('After: metaKeyword.value.items', { result, items: metaKeyword.value.items })
-    return result
-  })
-
   const ogTitle = computed(() => titleProxy.value)
   const ogDescription = computed(() => descriptionProxy.value)
   const ogUrl = ref(import.meta.env.VITE_APP_URL ?? 'https://vida.pub')
-  const ogType = 'website'
+  const ogType = ref('website')
   const ogImage = ref(ogUrl.value + (import.meta.env.VITE_APP_OG_IMAGE ?? '/seo/og-image.jpg'))
 
   const twitterTitle = computed(() => titleProxy.value)
@@ -58,6 +40,9 @@ export const useHeadStore = defineStore('app-head', () => {
   const twitterImage = ref(ogUrl.value + (import.meta.env.VITE_APP_TWITTER_IMAGE ?? '/seo/twitter-image.jpg'))
 
   const canonical = ref(import.meta.env.VITE_APP_URL ?? 'https://vida.pub')
+
+  const $jsonld = ref({})
+  const jsonldSchema = computed(() => JSON.stringify($jsonld.value))
 
   const alternates = ref([
     ...locales.map((locale) => ({
@@ -82,12 +67,29 @@ export const useHeadStore = defineStore('app-head', () => {
     return ts !== updateTimestamp
   }
 
-  async function setup({ title: _title, description: _description, keywords: _keywords, url: _url, image: _image }) {
+  async function setup({
+    title: _title,
+    description: _description,
+    keywords: _keyword,
+    author: _author = null,
+    type: _type = 'website',
+    publishTime: _publishTime = null,
+    tags: _tags = null,
+    url: _url,
+    image: _image,
+    jsonld: _jsonLd,
+  }) {
     const ts = startUpdate()
+
+    author.value = _author
+    publishTime.value = _publishTime
+    tags.value = _tags
+    ogType.value = _type
+    $jsonld.value = _jsonLd ? trimJson(_jsonLd) : {}
 
     if (_title) $title.value = _title
     if (_description) $description.value = _description
-    if (_keywords) metaKeyword.value = { ..._keywords }
+    if (_keyword) $keyword.value = _keyword
     if (_url) ogUrl.value = `${import.meta.env.VITE_APP_URL}/${locale.value}${_url}`
 
     if (_image) {
@@ -107,16 +109,14 @@ export const useHeadStore = defineStore('app-head', () => {
 
     $title.value = { key: 'meta.home.title' }
     $description.value = { key: 'meta.home.description' }
-    metaKeyword.value = {
-      items: [
-        'meta.keywords.short',
-        'meta.keywords.video',
-        'meta.keywords.interact',
-        'meta.keywords.content',
-        'meta.keywords.title',
-      ],
-      needTranslate: true,
-    }
+    $keyword.value = { key: 'meta.home.keywords' }
+
+    author.value = null
+    publishTime.value = null
+    tags.value = null
+    $jsonld.value = {}
+
+    ogType.value = 'website'
     ogUrl.value = import.meta.env.VITE_APP_URL ?? 'https://vida.pub'
     ogImage.value = ogUrl.value + (import.meta.env.VITE_APP_OG_IMAGE ?? '/seo/og-image.jpg')
     twitterImage.value = ogUrl.value + (import.meta.env.VITE_APP_TWITTER_IMAGE ?? '/seo/twitter-image.jpg')
@@ -125,7 +125,10 @@ export const useHeadStore = defineStore('app-head', () => {
   return {
     title: titleProxy,
     description: descriptionProxy,
-    keywords,
+    keywords: keywordProxy,
+    author,
+    publishTime,
+    tags,
     ogTitle,
     ogDescription,
     ogUrl,
@@ -136,6 +139,7 @@ export const useHeadStore = defineStore('app-head', () => {
     twitterImage,
     canonical,
     alternates,
+    jsonldSchema,
     setup,
     reset,
   }

@@ -20,6 +20,9 @@ export function loadSeoHead() {
     title,
     description,
     keywords,
+    author,
+    publishTime: articlePublishedTime,
+    tags: articleTag,
     ogTitle,
     ogDescription,
     ogUrl,
@@ -30,12 +33,16 @@ export function loadSeoHead() {
     twitterImage,
     canonical,
     alternates,
+    jsonldSchema,
   } = storeToRefs(useHeadStore())
 
   useSeoMeta({
     title,
     description,
     keywords,
+    author,
+    articlePublishedTime,
+    articleTag,
     ogTitle,
     ogDescription,
     ogUrl,
@@ -56,8 +63,13 @@ export function loadSeoHead() {
     htmlAttrs: {
       lang: locale,
     },
-    // TODO 先預留ld+json的位置，之後再回來補
-    script: [{ textContent: JSON.stringify({}), type: 'application/ld+json' }],
+    script: [
+      {
+        key: 'json-ld-schema',
+        innerHTML: jsonldSchema,
+        type: 'application/ld+json',
+      },
+    ],
   })
 }
 

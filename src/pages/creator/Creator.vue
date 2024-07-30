@@ -76,7 +76,13 @@
         <div class="text-lg font-bold">{{ $t('title.subscription') }}</div>
         <List :items="creator.subscription_list" item-key="id" divider>
           <template #default="{ item }">
-            <SubscribeCard class="py-20" :item="item" @click="subscribe({ item, creator })"></SubscribeCard>
+            <SubscribeCard
+              class="py-20"
+              :item="item"
+              show-contain
+              @click="subscribe({ item, creator })"
+              @click:contain="onContainClicked"
+            ></SubscribeCard>
           </template>
         </List>
       </div>
@@ -186,26 +192,35 @@ function nextArticleList() {
 }
 
 const { subscribe: $subscribe } = useDialog()
-const { open: $open } = useSubsciptionStore()
+const { open: $open, openDetail } = useSubsciptionStore()
 const subscribe = unblockAction($subscribe)
 const open = unblockAction($open)
 const lowestSub = computed(() =>
   creator.value?.subscription_list?.reduce((acc, cur) => (Number(acc.price) < Number(cur.price) ? acc : cur)),
 )
 
+const onContainClicked = (item) => {
+  console.log('onContainClicked', item, creator.value?.subscription_list)
+  openDetail({ activeSubscription: item, subscriptions: creator.value?.subscription_list })
+}
+
 // SEO head
 const headStore = useHeadStore()
 const { setup: setupHead, reset: resetHead } = headStore
 async function loadSeoHead() {
+  const { nickname, description, username, thumb, json_info } = creator.value
   await setupHead({
-    title: creator.value.nickname,
-    description: creator.value.description,
-    keywords: {
-      items: [creator.value.username],
-      needTranslate: false,
+    title: { key: 'meta.creator.title', params: { nickname } },
+    description: {
+      key: 'meta.creator.description',
+      params: { bio: description, nickname },
     },
-    url: `/${creator.value.username}`,
-    image: creator.value.thumb,
+    keywords: { key: 'meta.creator.keywords', params: { nickname } },
+    author: username,
+    type: 'profile',
+    url: `/creator/${username}`,
+    image: thumb,
+    jsonld: json_info,
   })
 }
 onDeactivated(resetHead)

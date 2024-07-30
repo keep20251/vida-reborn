@@ -20,6 +20,9 @@ export const useSubsciptionStore = defineStore('subscription-store', () => {
 
   const isFeedSubscription = computed(() => !!_feed.value)
 
+  /** 訂閱彈窗是否從 #包含N篇帖子直接點擊打開 */
+  const _fromDetail = ref(false)
+
   function open({ items, creator }) {
     console.log('useSubsciptionStore.open', items)
     _items.value = items
@@ -35,6 +38,7 @@ export const useSubsciptionStore = defineStore('subscription-store', () => {
 
   function _reset() {
     subscriptionDialog.value = false
+    _fromDetail.value = false
     _items.value = []
     _feed.value = null
     _creator.value = null
@@ -47,6 +51,7 @@ export const useSubsciptionStore = defineStore('subscription-store', () => {
   const { now, goto, back, init } = useHistory({ initValue: SUBSCRIPTION_ROUTE.LIST })
   const isList = computed(() => now.value === SUBSCRIPTION_ROUTE.LIST)
   const isDetail = computed(() => now.value === SUBSCRIPTION_ROUTE.DETAIL)
+  const showBack = computed(() => isDetail.value && !_fromDetail.value)
 
   /**
    * 以下這邊都是訂閱詳情的狀態
@@ -64,6 +69,12 @@ export const useSubsciptionStore = defineStore('subscription-store', () => {
     activeSubscription.value = detailConfig.activeSubscription
     _subscriptions.value = detailConfig.subscriptions
     goto(SUBSCRIPTION_ROUTE.DETAIL)
+
+    // 彈窗沒打開代表是從創作者頁直接點擊進入，需要打開彈窗、並且不需要返回
+    if (!subscriptionDialog.value) {
+      _fromDetail.value = true
+      subscriptionDialog.value = true
+    }
   }
 
   return {
@@ -81,6 +92,7 @@ export const useSubsciptionStore = defineStore('subscription-store', () => {
     now,
     isList,
     isDetail,
+    showBack,
     goto,
     back,
 

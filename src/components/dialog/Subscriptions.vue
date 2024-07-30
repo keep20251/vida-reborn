@@ -9,7 +9,7 @@
           <div class="absolute right-0 top-0 cursor-pointer px-15 pb-10 pt-15" @click="closeFn">
             <Icon name="closeWhite" size="20"></Icon>
           </div>
-          <div v-show="isDetail" class="absolute left-0 top-0 cursor-pointer px-15 pb-10 pt-15" @click="back">
+          <div v-show="showBack" class="absolute left-0 top-0 cursor-pointer px-15 pb-10 pt-15" @click="back">
             <Icon name="backWhite" size="20"></Icon>
           </div>
         </div>
@@ -27,7 +27,7 @@ import Detail from './subscription/Detail.vue'
 import List from './subscription/List.vue'
 
 const store = useSubsciptionStore()
-const { isOpen, isFeedSubscription, isList, isDetail } = storeToRefs(store)
+const { isOpen, isFeedSubscription, isList, showBack } = storeToRefs(store)
 const { close, closeFromFeed, back } = store
 const closeFn = isFeedSubscription ? closeFromFeed : close
 const currentComponent = computed(() => (isList.value ? List : Detail))
