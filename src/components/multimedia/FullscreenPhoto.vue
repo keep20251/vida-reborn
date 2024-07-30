@@ -16,14 +16,14 @@
           :key="i"
         >
           <EncryptImage
-            :src="imgInfo.url"
+            :src="getImgUrl(imgInfo, i)"
             :border-radius="10"
             :active="i >= currIndex - 1 && i <= currIndex + 1"
             disable-draggable
           ></EncryptImage>
         </div>
       </div>
-      <LockMask v-if="isLock" :item="feed" fullscreen></LockMask>
+      <LockInfo v-if="isLock" :item="feed" fullscreen></LockInfo>
     </div>
 
     <!-- 索引 -->
@@ -66,7 +66,7 @@ import { useEventListener, whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useFullscreenPhotoStore } from '@/store/fullscreen-photo'
-import LockMask from '@comp/multimedia/LockMask.vue'
+import LockInfo from '@comp/multimedia/LockInfo.vue'
 import { useGesture } from '@use/gesture/gesture'
 import { useSwipe } from '@use/gesture/swipe'
 import { useRootScrollLock } from '@use/utils/scroll-lock'
@@ -119,8 +119,15 @@ const closeBgStyle = computed(() => ({
 const closeTransformStyle = computed(() => ({ transform: `translateY(${(1 - closeIndex.value) * 100}%)` }))
 
 const isLock = computed(
-  () => feed.value.id !== undefined && !feed.value.is_unlock && (imgInfos.value.length === 1 || animIndex.value > 0),
+  () => feed.value.id !== undefined && !feed.value.is_unlock && (imgInfos.value.length === 1 || currIndex.value > 0),
 )
+
+function getImgUrl(img, i) {
+  if (!feed.value.is_unlock && (imgInfos.value.length === 1 || i > 0)) {
+    return img.url_blur
+  }
+  return img.url
+}
 
 const gesture = ref(null)
 const {

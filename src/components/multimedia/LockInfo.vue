@@ -1,7 +1,7 @@
 <template>
   <div class="absolute left-0 top-0 h-full w-full rounded-inherit">
     <EncryptImage v-if="showImage" :src="url" :border-radius="10" cover></EncryptImage>
-    <div class="absolute top-0 h-full w-full rounded-inherit backdrop-blur">
+    <div class="absolute top-0 h-full w-full rounded-inherit">
       <div v-if="!fullscreen" class="absolute bottom-20 right-20 flex space-x-5 drop-shadow">
         <Icon v-if="icon" :name="icon" size="20"></Icon>
         <span v-if="meta" class="text-base text-white">{{ meta }}</span>
@@ -43,10 +43,10 @@ const isVideo = computed(() => props.item.resource_type === MEDIA_TYPE.VIDEO)
 const isImage = computed(() => props.item.resource_type === MEDIA_TYPE.IMAGE)
 const url = computed(() => {
   if (isVideo.value) {
-    return props.item.url[1]?.url
+    return props.item.url[1]?.url_blur
   }
   if (isImage.value) {
-    return props.item.url[0]?.url
+    return props.item.url[0]?.url_blur
   }
   return ''
 })
@@ -65,11 +65,6 @@ const clickAction = computed(() => {
   if (props.item.article_type === FEED_PERM.SUB) return openFromFeed
   if (props.item.article_type === FEED_PERM.BUY) return shopBuy
   throw new Error(`未知的帖子類型: ${props.item.article_type}`)
-})
-
-const lowestSub = computed(() => {
-  if (props.item?.subscription_list?.length === 0) return null
-  return props.item?.subscription_list?.reduce((acc, cur) => (Number(acc.price) < Number(cur.price) ? acc : cur))
 })
 
 const actionParams = computed(() => {
