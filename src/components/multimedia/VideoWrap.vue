@@ -12,13 +12,13 @@
       @ended="playEnd = true"
       @timeupdate="onTimeupdate"
     ></Video>
-    <LockMask v-if="showLockMask" :item="item" :meta="time" show-image @replay="replaySignal = Date.now()"></LockMask>
+    <LockInfo v-if="showLockInfo" :item="item" :meta="time" show-image @replay="replaySignal = Date.now()"></LockInfo>
   </div>
 </template>
 
 <script setup>
 import { computed, ref } from 'vue'
-import LockMask from '@comp/multimedia/LockMask.vue'
+import LockInfo from '@comp/multimedia/LockInfo.vue'
 import Video from '@comp/multimedia/Video.vue'
 import { useStat } from '@use/utils/stat'
 import { toVideoTimeFormat } from '@/utils/string-helper'
@@ -37,7 +37,7 @@ const isLock = computed(() => !props.item.is_unlock)
 
 const playEnd = ref(false)
 const replaySignal = ref(null)
-const showLockMask = computed(() => props.preview || (isLock.value && (url.value === '' || playEnd.value)))
+const showLockInfo = computed(() => props.preview || (isLock.value && (url.value === '' || playEnd.value)))
 
 // 統計觀看數據
 const video = ref(null)

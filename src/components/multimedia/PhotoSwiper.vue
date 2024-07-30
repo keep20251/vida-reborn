@@ -12,7 +12,7 @@
       :key="i"
     >
       <EncryptImage
-        :src="img.url"
+        :src="getImgUrl(img, i)"
         :border-radius="10"
         :active="i >= currIndex - 1 && i <= currIndex + 1"
         cover
@@ -23,7 +23,7 @@
       <Icon name="cameraWhite" size="20"></Icon>
       <span class="text-base text-white">{{ `${currIndex + 1}/${imgs.length}` }}</span>
     </div>
-    <LockMask v-if="isLock || preview" :item="item" :meta="`${currIndex + 1}/${imgs.length}`"></LockMask>
+    <LockInfo v-if="isLock" :item="item" :meta="`${currIndex + 1}/${imgs.length}`"></LockInfo>
     <div
       v-if="isDesktop && imgs.length > 1 && currIndex >= 1"
       class="absolute left-0 top-0 flex h-full w-40 cursor-pointer items-center justify-end"
@@ -51,7 +51,7 @@ import { whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useFullscreenPhotoStore } from '@/store/fullscreen-photo'
-import LockMask from '@comp/multimedia/LockMask.vue'
+import LockInfo from '@comp/multimedia/LockInfo.vue'
 import { useSwipe } from '@use/gesture/swipe'
 import { useStat } from '@use/utils/stat'
 
@@ -68,8 +68,17 @@ const { isDesktop } = storeToRefs(appStore)
 const currIndex = ref(props.index)
 const imgs = computed(() => props.item.url)
 
-const isLock = computed(() => !props.item.is_unlock && (imgs.value.length === 1 || animIndex.value > 0))
+const isLock = computed(
+  () => props.preview || (!props.item.is_unlock && (imgs.value.length === 1 || currIndex.value > 0)),
+)
 // const isLock = computed(() => false)
+
+function getImgUrl(img, i) {
+  if (props.preview || (!props.item.is_unlock && (imgs.value.length === 1 || i > 0))) {
+    return img.url_blur
+  }
+  return img.url
+}
 
 const swiper = ref(null)
 const { index: animIndex, transitioning, prev, next } = useSwipe(swiper, imgs, { initIndex: props.index })
