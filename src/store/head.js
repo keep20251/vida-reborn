@@ -85,7 +85,7 @@ export const useHeadStore = defineStore('app-head', () => {
     publishTime.value = _publishTime
     tags.value = _tags
     ogType.value = _type
-    $jsonld.value = _jsonLd ? trimJson(_jsonLd) : {}
+    $jsonld.value = _jsonLd ? JSON.parse(trimJson(_jsonLd)) : {}
 
     if (_title) $title.value = _title
     if (_description) $description.value = _description
