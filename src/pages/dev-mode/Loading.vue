@@ -14,12 +14,10 @@
       <div class="flex items-center space-x-16 py-8">rate: none<Loading></Loading></div>
       <div class="flex items-center space-x-16 py-8">
         Loading Dotted
-        <LoadingDotted size="40"></LoadingDotted>
+        <Icon size="40" name="dotLoading" />
       </div>
     </div>
   </Page>
 </template>
 
-<script setup>
-import LoadingDotted from '@/components/common/LoadingDotted.vue'
-</script>
+<script setup></script>

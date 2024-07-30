@@ -14,7 +14,7 @@
       v-if="isWaiting"
       class="absolute left-1/2 top-1/2 flex h-50 w-50 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-md bg-black bg-opacity-50"
     >
-      <LoadingDotted size="40"></LoadingDotted>
+      <Icon size="40" name="dotLoading" />
     </div>
 
     <!-- 尚未開始播放前的置中播放按鈕 -->
@@ -122,7 +122,6 @@ import { computed, onActivated, onBeforeUnmount, onDeactivated, onMounted, ref, 
 import { useElementSize, useEventListener } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
-import LoadingDotted from '@comp/common/LoadingDotted.vue'
 import { useDrag } from '@use/gesture/drag'
 import { useRootScrollLock } from '@use/utils/scroll-lock'
 import lazyloader from '@/utils/lazyloader'
