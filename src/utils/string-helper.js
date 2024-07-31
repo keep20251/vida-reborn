@@ -194,5 +194,5 @@ export const splitFilename = (filename) => {
  * @returns
  */
 export const trimJson = (json) => {
-  return json.replace(/[\u0000-\u001F\u007F-\u009F\s]/g, '')
+  return json.replace(/[\u0000-\u001F\u007F-\u009F]/g, '')
 }
