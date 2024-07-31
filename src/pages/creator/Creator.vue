@@ -179,7 +179,10 @@ async function loadNewCreator(onCleanup = () => {}) {
     }
 
     creator.value = newCreator
-    await Promise.allSettled([reload({ newParams: { uuid: creator.value.uuid, filter_by: 0 } }), loadSeoHead()])
+    await Promise.allSettled([
+      reload({ newParams: { uuid: creator.value.uuid, filter_by: 0, include_my_article: 1 } }),
+      loadSeoHead(),
+    ])
   } catch (e) {
     errMsg.value = e.message
   }
