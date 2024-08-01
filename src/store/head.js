@@ -90,6 +90,13 @@ export const useHeadStore = defineStore('app-head', () => {
     tags.value = _tags
     ogType.value = _type
 
+    /**
+     * Do not execute Jsonld schema translation before other meta tags.
+     * Because our jsonld resource from the backend could be wrong.
+     * It will break all execution down...🤪
+     */
+    $jsonld.value = _jsonLd
+
     if (_image) {
       const image = await getDecryptDataBlob(_image)
 
@@ -100,14 +107,6 @@ export const useHeadStore = defineStore('app-head', () => {
       ogImage.value = image
       twitterImage.value = image
     }
-
-    /**
-     * Do not execute Jsonld schema translation before other meta tags.
-     * Because our jsonld resource from the backend could be wrong.
-     * It will break all execution down...🤪
-     */
-    console.log('origin jsonld', _jsonLd)
-    $jsonld.value = _jsonLd || {}
   }
 
   function reset() {
