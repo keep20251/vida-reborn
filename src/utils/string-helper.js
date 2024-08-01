@@ -187,12 +187,3 @@ export const splitFilename = (filename) => {
   const parts = filename.split('.')
   return { name: parts.slice(0, -1).join('.'), ext: parts[parts.length - 1] }
 }
-
-/**
- * 將 json 字串中的控制字元去除
- * @param {String} json
- * @returns
- */
-export const trimJson = (json) => {
-  return json.replace(/[\u0000-\u001F\u007F-\u009F]/g, '')
-}

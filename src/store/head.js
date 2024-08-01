@@ -3,7 +3,6 @@ import { useI18n } from 'vue-i18n'
 import { defineStore } from 'pinia'
 import { useLocale } from '@use/utils/locale'
 import { getDecryptDataBlob } from '@/utils/encrypt-img-store'
-import { trimJson } from '@/utils/string-helper'
 import { locales } from '@/i18n'
 
 export const useHeadStore = defineStore('app-head', () => {
@@ -81,16 +80,15 @@ export const useHeadStore = defineStore('app-head', () => {
   }) {
     const ts = startUpdate()
 
-    author.value = _author
-    publishTime.value = _publishTime
-    tags.value = _tags
-    ogType.value = _type
-    $jsonld.value = _jsonLd ? JSON.parse(trimJson(_jsonLd)) : {}
-
     if (_title) $title.value = _title
     if (_description) $description.value = _description
     if (_keyword) $keyword.value = _keyword
     if (_url) ogUrl.value = `${import.meta.env.VITE_APP_URL}/${locale.value}${_url}`
+
+    author.value = _author
+    publishTime.value = _publishTime
+    tags.value = _tags
+    ogType.value = _type
 
     if (_image) {
       const image = await getDecryptDataBlob(_image)
@@ -102,6 +100,14 @@ export const useHeadStore = defineStore('app-head', () => {
       ogImage.value = image
       twitterImage.value = image
     }
+
+    /**
+     * Do not execute Jsonld schema translation before other meta tags.
+     * Because our jsonld resource from the backend could be wrong.
+     * It will break all execution down...🤪
+     */
+    console.log('origin jsonld', _jsonLd)
+    $jsonld.value = _jsonLd || {}
   }
 
   function reset() {
