@@ -64,10 +64,13 @@ export const useSubsciptionStore = defineStore('subscription-store', () => {
    * @param {Object} detailConfig
    * @param {Object} detailConfig.activeSubscription - 當前訂閱方案
    * @param {Array} detailConfig.subscriptions - 訂閱方案列表
+   * @param {Object} detailConfig.creator - 創作者信息，如果是從創作者頁進入，這個參數是必須的
    */
-  const openDetail = (detailConfig = { activeSubscription: {}, subscriptions: [] }) => {
+  const openDetail = (detailConfig = { activeSubscription: {}, subscriptions: [], creator: null }) => {
     activeSubscription.value = detailConfig.activeSubscription
     _subscriptions.value = detailConfig.subscriptions
+
+    if (detailConfig.creator) _creator.value = detailConfig.creator
     goto(SUBSCRIPTION_ROUTE.DETAIL)
 
     // 彈窗沒打開代表是從創作者頁直接點擊進入，需要打開彈窗、並且不需要返回
@@ -76,6 +79,17 @@ export const useSubsciptionStore = defineStore('subscription-store', () => {
       subscriptionDialog.value = true
     }
   }
+
+  /**
+   * 從創作者頁打開訂閱詳情
+   *
+   * @param {Object} activeSubscription - 當前訂閱方案
+   * @param {Array} subscriptions - 訂閱方案列表
+   * @param {Object} creator - 創作者信息
+   * @returns
+   */
+  const openDetailFromCreator = ({ activeSubscription, subscriptions, creator }) =>
+    openDetail({ activeSubscription, subscriptions, creator })
 
   return {
     open,
@@ -99,5 +113,6 @@ export const useSubsciptionStore = defineStore('subscription-store', () => {
     subscriptions: readonly(_subscriptions),
     activeSubscription,
     openDetail,
+    openDetailFromCreator,
   }
 })
