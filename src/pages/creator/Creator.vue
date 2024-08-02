@@ -195,17 +195,19 @@ function nextArticleList() {
 }
 
 const { subscribe: $subscribe } = useDialog()
-const { open: $open, openDetail } = useSubsciptionStore()
+const { open: $open, openDetailFromCreator } = useSubsciptionStore()
 const subscribe = unblockAction($subscribe)
 const open = unblockAction($open)
 const lowestSub = computed(() =>
   creator.value?.subscription_list?.reduce((acc, cur) => (Number(acc.price) < Number(cur.price) ? acc : cur)),
 )
 
-const onContainClicked = (item) => {
-  console.log('onContainClicked', item, creator.value?.subscription_list)
-  openDetail({ activeSubscription: item, subscriptions: creator.value?.subscription_list })
-}
+const onContainClicked = (item) =>
+  openDetailFromCreator({
+    activeSubscription: item,
+    subscriptions: creator.value?.subscription_list,
+    creator: creator.value,
+  })
 
 // SEO head
 const headStore = useHeadStore()

@@ -75,6 +75,6 @@ const videoTime = computed(() => toVideoTimeFormat(props.item.url[0]?.video_time
 const isVideo = computed(() => props.item.resource_type === MEDIA_TYPE.VIDEO)
 const isImage = computed(() => props.item.resource_type === MEDIA_TYPE.IMAGE)
 
-const imageUrl = computed(() => (isImage.value ? props.item.url[0].url : props.item.url[1].url))
+const imageUrl = computed(() => (isImage.value ? props.item.url[0]?.url : props.item.url[1]?.url ?? ''))
 const photoLength = computed(() => isImage.value && props.item.url.length)
 </script>
