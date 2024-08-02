@@ -83,7 +83,11 @@ export const useHeadStore = defineStore('app-head', () => {
     if (_title) $title.value = _title
     if (_description) $description.value = _description
     if (_keyword) $keyword.value = _keyword
-    if (_url) ogUrl.value = `${import.meta.env.VITE_APP_URL}/${locale.value}${_url}`
+    if (_url) {
+      const newUrl = `${import.meta.env.VITE_APP_URL}/${locale.value}${_url}`
+      ogUrl.value = newUrl
+      canonical.value = newUrl
+    }
 
     author.value = _author
     publishTime.value = _publishTime
@@ -125,6 +129,8 @@ export const useHeadStore = defineStore('app-head', () => {
     ogUrl.value = import.meta.env.VITE_APP_URL ?? 'https://vida.pub'
     ogImage.value = ogUrl.value + (import.meta.env.VITE_APP_OG_IMAGE ?? '/seo/og-image.jpg')
     twitterImage.value = ogUrl.value + (import.meta.env.VITE_APP_TWITTER_IMAGE ?? '/seo/twitter-image.jpg')
+
+    canonical.value = import.meta.env.VITE_APP_URL ?? 'https://vida.pub'
   }
 
   return {

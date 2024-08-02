@@ -20,7 +20,7 @@ export function useNavigator() {
   const accountStore = useAccountStore()
   const { isCreator } = storeToRefs(accountStore)
   const { afterLoginAction } = accountStore
-  const { fileSelectDialog } = storeToRefs(useDialogStore())
+  const { openFileSelect } = useDialogStore()
   const { confirm } = useModalStore()
 
   const toMessage = afterLoginAction(() => to('message'))
@@ -36,7 +36,7 @@ export function useNavigator() {
     } else if (isEditing.value) {
       to('publish')
     } else {
-      fileSelectDialog.value = true
+      openFileSelect()
     }
   })
 

@@ -7,6 +7,7 @@ import Detail from '@comp/subPlan/Detail.vue'
 import MainPage from '@comp/subPlan/MainPage.vue'
 import SubPlanSet from '@comp/subPlan/SubPlanSet.vue'
 import { SUB_PLAN } from '@const'
+import { useEscapeClose } from '@/compositions/utils/escape-close'
 
 export const useSubPlanStore = defineStore('subPlan', () => {
   const { subPlanDialog } = storeToRefs(useDialogStore())
@@ -58,16 +59,21 @@ export const useSubPlanStore = defineStore('subPlan', () => {
     now.value = history.value.pop()
   }
 
+  const { push, remove } = useEscapeClose()
+  const subPlanDialogKey = '__SUB_PLAN_DIALOG'
+
   function close() {
     now.value = SUB_PLAN.MAIN_PAGE
     subPlanDialog.value = false
     uploadFiles.value = []
     history.value = []
+    remove(subPlanDialogKey)
   }
 
   function open(curr = SUB_PLAN.MAIN_PAGE) {
     now.value = curr
     subPlanDialog.value = true
+    push({ key: subPlanDialogKey, target: subPlanDialog, fn: close })
   }
 
   /**

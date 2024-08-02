@@ -1,6 +1,7 @@
 import { computed, readonly, ref } from 'vue'
 import { defineStore, storeToRefs } from 'pinia'
 import { useHistory } from '@/compositions/routers/history'
+import { useEscapeClose } from '@/compositions/utils/escape-close'
 import { SUBSCRIPTION_ROUTE, SUBSCRIPTION_TYPE } from '@/constant'
 import { useDialogStore } from './dialog'
 
@@ -9,6 +10,11 @@ import { useDialogStore } from './dialog'
  */
 export const useSubsciptionStore = defineStore('subscription-store', () => {
   const { subscriptionDialog } = storeToRefs(useDialogStore())
+  const { push, remove } = useEscapeClose()
+
+  const subscriptionDialogKey = '__SUBSCRIPTION_DIALOG'
+  const bindOnOpen = () => push({ key: subscriptionDialogKey, target: subscriptionDialog, fn: _reset })
+  const bindOnClose = () => remove(subscriptionDialogKey)
 
   const _items = ref([])
 
@@ -28,12 +34,14 @@ export const useSubsciptionStore = defineStore('subscription-store', () => {
     _items.value = items
     _creator.value = creator
     subscriptionDialog.value = true
+    bindOnOpen()
   }
 
   function openFromFeed({ feed, creator }) {
     _feed.value = feed
     _creator.value = creator
     subscriptionDialog.value = true
+    bindOnOpen()
   }
 
   function _reset() {
@@ -46,6 +54,7 @@ export const useSubsciptionStore = defineStore('subscription-store', () => {
     activeSubscription.value = null
     currentTab.value = SUBSCRIPTION_TYPE.RECOMMEND
     init(SUBSCRIPTION_ROUTE.LIST)
+    bindOnClose()
   }
 
   const { now, goto, back, init } = useHistory({ initValue: SUBSCRIPTION_ROUTE.LIST })
@@ -77,6 +86,7 @@ export const useSubsciptionStore = defineStore('subscription-store', () => {
     if (!subscriptionDialog.value) {
       _fromDetail.value = true
       subscriptionDialog.value = true
+      bindOnOpen()
     }
   }
 

@@ -66,9 +66,9 @@
       </div>
       <div
         v-if="editMode && [FEED_STATUS.REVIEW, ...FEED_STATUS_FORMATING].includes(item.status)"
-        class="absolute top-0 flex h-full w-full items-center justify-center rounded-inherit bg-light-gray bg-opacity-50"
+        class="absolute top-0 flex h-full w-full items-center justify-center rounded-inherit bg-black bg-opacity-50"
       >
-        <span class="text-lg font-bold text-white drop-shadow-md">{{
+        <span class="select-none text-lg font-bold text-white drop-shadow-md">{{
           item.status === FEED_STATUS.REVIEW ? $t('info.underReview') : $t('info.formating')
         }}</span>
       </div>
