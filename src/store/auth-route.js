@@ -10,6 +10,7 @@ import VerifyEmailCode from '@comp/auth/VerifyEmailCode.vue'
 import VerifyPassword from '@comp/auth/VerifyPassword.vue'
 import { AUTH_ROUTES } from '@const/index'
 import { useHistory } from '@/compositions/routers/history'
+import { useEscapeClose } from '@/compositions/utils/escape-close'
 
 // import { trackEvent } from '@/gtm'
 
@@ -30,15 +31,20 @@ export const useAuthRouteStore = defineStore('authRoute', () => {
 
   const emailLoginStore = useEmailLoginStore()
 
+  const authDialogKey = '__AUTH_DIALOG'
+  const { push, remove } = useEscapeClose()
+
   function close() {
     init(AUTH_ROUTES.MAIN_PAGE)
     authDialog.value = false
     emailLoginStore.$reset()
+    remove(authDialogKey)
   }
 
   function open(curr = AUTH_ROUTES.MAIN_PAGE) {
     init(curr)
     authDialog.value = true
+    push({ key: authDialogKey, target: authDialog, fn: close })
   }
 
   //   function triggerGtm(route) {

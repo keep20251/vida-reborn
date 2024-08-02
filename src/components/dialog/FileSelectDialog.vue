@@ -1,5 +1,5 @@
 <template>
-  <BaseDialog v-if="fileSelectDialog" @click:around="fileSelectDialog = false">
+  <BaseDialog v-if="fileSelectDialog" @click:around="closeFileSelect">
     <template #default>
       <div class="flex flex-col space-y-20">
         <div class="text-center text-lg font-bold">{{ $t('title.createFeed') }}</div>
@@ -48,14 +48,15 @@
 </template>
 
 <script setup>
-// import { ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useDialogStore } from '@/store/dialog'
 import { usePublishStore } from '@/store/publish'
 import BaseDialog from '@comp/dialog/BaseDialog.vue'
 import { useRouters } from '@use/routers'
 
-const { fileSelectDialog } = storeToRefs(useDialogStore())
+const dialogStore = useDialogStore()
+const { closeFileSelect } = dialogStore
+const { fileSelectDialog } = storeToRefs(dialogStore)
 
 const { setFile } = usePublishStore()
 
@@ -70,7 +71,7 @@ async function onFile(evt) {
     } catch (e) {
       console.error(e)
     } finally {
-      fileSelectDialog.value = false
+      closeFileSelect()
     }
   }
 }
