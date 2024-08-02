@@ -1,6 +1,7 @@
 import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
 import { MODAL_TYPE } from '@const'
+import { useEscapeClose } from '@/compositions/utils/escape-close'
 
 export const useModalStore = defineStore('modal', () => {
   const type = ref(null)
@@ -33,6 +34,8 @@ export const useModalStore = defineStore('modal', () => {
   const nextAction = ref(null)
 
   const isOpen = computed(() => type.value !== null)
+
+  const canEscape = ref(false)
 
   function alert({
     size = 'sm',
@@ -90,7 +93,14 @@ export const useModalStore = defineStore('modal', () => {
     })
   }
 
+  const modalDialogKey = '__MODAL_DIALOG'
+  const { push, remove } = useEscapeClose()
+
   function open(t, options) {
+    if (options.canEscape) {
+      push({ key: modalDialogKey, target: isOpen, fn: close })
+    }
+    canEscape.value = options.canEscape || false
     type.value = t
     size.value = options.size || 'lg'
     title.value = options.title || null
@@ -112,6 +122,10 @@ export const useModalStore = defineStore('modal', () => {
   }
 
   function close() {
+    if (canEscape.value) {
+      remove(modalDialogKey)
+    }
+
     type.value = null
     size.value = 'lg'
     title.value = null
@@ -130,6 +144,7 @@ export const useModalStore = defineStore('modal', () => {
     showClose.value = false
     showConfirm.value = true
     gradientConfirm.value = false
+    canEscape.value = false
   }
 
   function setConfirmData(action) {

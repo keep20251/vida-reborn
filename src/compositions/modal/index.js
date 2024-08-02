@@ -73,6 +73,7 @@ export function useDialog() {
       confirmAction: () => {},
       showClose: true,
       gradientConfirm: true,
+      canEscape: true,
       nextAction: () =>
         openPaymentDialog({
           amount: item.price,
