@@ -223,7 +223,7 @@ async function loadSeoHead() {
     keywords: { key: 'meta.creator.keywords', params: { nickname } },
     author: username,
     type: 'profile',
-    url: `/creator/${username}`,
+    url: `/${username}`,
     image: thumb,
     jsonld: json_info,
   })
