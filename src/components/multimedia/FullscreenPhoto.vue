@@ -123,7 +123,7 @@ const isLock = computed(
 )
 
 function getImgUrl(img, i) {
-  if (!('url_blur' in feed.value)) return img.url
+  if (!img.url_blur) return img.url
   if (!feed.value.is_unlock && (imgInfos.value.length === 1 || i > 0)) {
     return img.url_blur
   }
