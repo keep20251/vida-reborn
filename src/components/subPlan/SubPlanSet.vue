@@ -16,6 +16,7 @@
     <div
       class="mr-10 max-h-[65vh] overflow-y-scroll pl-25"
       :class="{ 'hover-scrollbar pr-5': isDesktop, 'scrollbar pr-10': !isDesktop }"
+      ref="scrollRef"
     >
       <div class="flex flex-col space-y-10">
         <div class="flex flex-row items-start space-x-5">
@@ -186,8 +187,9 @@
 </template>
 
 <script setup>
-import { computed, onMounted, reactive, ref, watch } from 'vue'
+import { computed, nextTick, onMounted, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
@@ -205,8 +207,11 @@ import { SUB_PLAN_STATUS } from '@const'
 import { IMAGE_LIMIT_COUNT } from '@const/publish'
 import uploadImage from '@/http/upload/uploadImage'
 
+const scrollRef = ref(null)
+
 const showAdvanced = ref(false)
 const toggleAdvanced = () => (showAdvanced.value = !showAdvanced.value)
+whenever(showAdvanced, () => nextTick(() => (scrollRef.value.scrollTop = scrollRef.value.scrollHeight)))
 
 const accountStore = useAccountStore()
 const { updateUserData } = accountStore
