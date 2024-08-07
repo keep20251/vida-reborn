@@ -2,7 +2,7 @@
   <div class="flex h-full w-full flex-col">
     <div class="relative rounded-t-xl bg-primary px-20 py-15 text-center text-white">
       <div class="text-lg font-bold leading-5">
-        {{ $t('common.viewSubscribePlan') }}
+        {{ $t('common.subscribe') }}
       </div>
       <button @click="back" :history="history" :show-back="showBack" class="absolute left-0 top-1/3 px-20 pb-10">
         <Icon name="backWhite" size="20"></Icon>

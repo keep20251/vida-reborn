@@ -27,7 +27,7 @@
       </div>
     </div>
     <div class="mb-20 mt-10 text-base leading-lg">{{ creator.description }}</div>
-    <Button @click="open({ items: creator?.subscription_list, creator })">{{ $t('common.viewSubscribePlan') }}</Button>
+    <Button @click="open({ items: creator?.subscription_list, creator })">{{ $t('common.subscribe') }}</Button>
   </div>
   <Loading v-else></Loading>
 </template>

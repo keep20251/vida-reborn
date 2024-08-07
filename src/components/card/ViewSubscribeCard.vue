@@ -25,7 +25,7 @@
     </div>
     <div class="absolute bottom-20 right-20 flex-shrink-0 self-end" @click.stop>
       <Button :size="size" @click="open({ items: item?.subscription_list, creator: item })">{{
-        $t('common.viewSubscribePlan')
+        $t('common.subscribe')
       }}</Button>
     </div>
     <!-- 暫隱藏 -->
