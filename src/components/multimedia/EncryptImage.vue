@@ -20,12 +20,11 @@
 </template>
 
 <script setup>
-import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import { whenever } from '@vueuse/core'
 import { useFullscreenPhotoStore } from '@/store/fullscreen-photo'
 import Skeleton from '@comp/skeleton/index.vue'
 import { getDecryptDataBlob } from '@/utils/encrypt-img-store'
-import lazyloader from '@/utils/lazyloader'
 import errorImage from '@/assets/images/error-img.svg?url'
 
 const props = defineProps({
@@ -45,7 +44,6 @@ const props = defineProps({
   clickToFull: { type: Boolean, default: false },
 
   active: { type: Boolean, default: true },
-  disableLazy: { type: Boolean, default: false },
   disableDraggable: { type: Boolean, default: false },
 })
 
@@ -84,17 +82,7 @@ const url = computed(() => {
 
 const onImageError = (e) => (e.target.src = errorImage)
 
-onMounted(() => {
-  if (props.disableLazy) {
-    loadImage()
-  } else {
-    encryptImage.value.load = loadImage
-    lazyloader.observe(encryptImage.value)
-  }
-})
-onBeforeUnmount(() => {
-  lazyloader.unobserve(encryptImage.value)
-})
+onMounted(loadImage)
 watch(
   () => props.src,
   () => {
