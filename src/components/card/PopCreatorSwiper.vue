@@ -47,7 +47,7 @@
           <div class="flex grow items-center overflow-hidden text-base text-white">{{ item.description }}</div>
           <div class="mb-10" @click.stop>
             <Button @click="open({ items: item?.subscription_list, creator: item })">{{
-              $t('common.viewSubscribePlan')
+              $t('common.subscribe')
             }}</Button>
           </div>
         </div>

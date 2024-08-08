@@ -62,14 +62,12 @@
 </template>
 
 <script setup>
-import { onActivated, onDeactivated, ref } from 'vue'
+import { onActivated, onDeactivated } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 import { whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
-import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
-import { useFeedStore } from '@/store/feed'
 import { useHeadStore } from '@/store/head'
 import { useHydrationStore } from '@/store/hydration'
 import { useNavStore } from '@/store/nav'
@@ -83,9 +81,8 @@ import Comment from '@comp/message/Comment.vue'
 import Head from '@comp/navigation/Head.vue'
 import TopSearchBar from '@comp/navigation/TopSearchBar.vue'
 import { onHydration, onServerClientOnce } from '@use/lifecycle'
-import useRequest from '@use/request'
-import { useInfinite } from '@use/request/infinite'
 import { toDateYmd } from '@/utils/string-helper'
+import { useFeed } from '@/compositions/feed'
 
 const { isDesktop, isMobile } = storeToRefs(useAppStore())
 
@@ -97,55 +94,26 @@ const { show, hide } = navStore
 onActivated(hide)
 onDeactivated(show)
 
-const feedStore = useFeedStore()
-const { get: getFeed, revert: revertFeed } = feedStore
-
 const {
-  dataList: comments,
-  dataExtra: commentsExtra,
-  isLoading: isCommentsLoading,
-  noMore: commentsNoMore,
-  noData: commentsNoData,
-  reload: reloadComments,
-  revert: revertComments,
-  next: $nextComments,
-} = useInfinite('Comment.list', { readonly: false })
+  feed,
+  errMsg,
+  revertFeed,
+  loadNewFeed,
 
-const feed = ref(null)
-const errMsg = ref(null)
-async function loadNewFeed(onCleanup = () => {}) {
-  let cleanup = false
-  onCleanup(() => (cleanup = true))
-
-  feed.value = null
-  errMsg.value = null
-  try {
-    const id = parseInt(route.params.feedId)
-
-    const feedData = await getFeed(id)
-    if (cleanup) {
-      return
-    }
-
-    // 帖子 username 與 route 參數的 username 不一致必須當成是錯的
-    if (feedData.user.username !== route.params.username) {
-      errMsg.value = $t('content.feedNotExist')
-      return
-    }
-
-    feed.value = feedData
-
-    await Promise.allSettled([reloadComments({ newParams: { article_id: feed.value.id } }), loadSeoHead()])
-  } catch (e) {
-    errMsg.value = e.message
-  }
-}
-function nextComments() {
-  if (feed.value === null) {
-    return
-  }
-  $nextComments()
-}
+  commentInput,
+  replyTo,
+  comments,
+  commentsExtra,
+  isCommentsLoading,
+  commentsNoMore,
+  commentsNoData,
+  revertComments,
+  clearInput,
+  nextComments,
+  sendComment,
+  onCommentToggleLike,
+  onCommentReply,
+} = useFeed()
 
 // SEO head
 const headStore = useHeadStore()
@@ -178,7 +146,7 @@ whenever(
   () => route.name === 'feed',
   (v, _, onCleanup) => {
     if (route.params.feedId !== feed.value?.id) {
-      loadNewFeed(onCleanup)
+      loadNewFeed(route.params, onCleanup, loadSeoHead)
     } else {
       loadSeoHead()
     }
@@ -189,7 +157,7 @@ whenever(
 const hydrationStore = useHydrationStore()
 const { feed: feedFromStore, feedComments, feedError } = storeToRefs(hydrationStore)
 onServerClientOnce(async (isSSR) => {
-  await loadNewFeed()
+  await loadNewFeed(route.params, () => {}, loadSeoHead)
 
   if (isSSR) {
     feedFromStore.value = feed.value
@@ -207,69 +175,4 @@ onHydration(() => {
   loadSeoHead()
   revertComments(feedComments.value, { newParams: { article_id: feed.value.id } })
 })
-
-const commentInput = ref('')
-const replyTo = ref(null)
-const { isLoading: isSendCommentLoading, execute: execSendComment } = useRequest('Comment.add')
-const { isLoading: isCommentLikeLoading, execute: execCommentLike } = useRequest('Comment.like')
-const { isLoading: isCommentUnlikeLoading, execute: execCommentUnlike } = useRequest('Comment.unlike')
-async function $sendComment() {
-  if (isSendCommentLoading.value || isCommentsLoading.value) {
-    return
-  }
-
-  const content = commentInput.value.trim()
-
-  if (!content) {
-    return
-  }
-
-  const reqData = {
-    article_id: feed.value.id,
-    content,
-  }
-
-  if (replyTo.value) {
-    reqData.reply_comment_id = replyTo.value.id
-  }
-
-  try {
-    await execSendComment(reqData)
-    await reloadComments({ newParams: { article_id: feed.value.id } })
-
-    clearInput()
-
-    feed.value.comment += 1
-  } catch (e) {
-    console.error(e)
-  }
-}
-async function $onCommentToggleLike(comment) {
-  if (isCommentLikeLoading.value || isCommentUnlikeLoading.value) {
-    return
-  }
-
-  const exec = comment.liked ? execCommentUnlike : execCommentLike
-
-  comment.liked = !comment.liked
-  comment.like += comment.liked ? 1 : comment.like > 0 ? -1 : 0
-  try {
-    await exec({ comment_id: comment.id })
-  } catch (e) {
-    console.error('評論愛心給我出錯傻眼耶搞笑？', e)
-  }
-}
-function $onCommentReply(comment) {
-  replyTo.value = comment
-}
-function clearInput() {
-  commentInput.value = ''
-  replyTo.value = null
-}
-
-const accountStore = useAccountStore()
-const { afterLoginAction } = accountStore
-const sendComment = afterLoginAction($sendComment)
-const onCommentToggleLike = afterLoginAction($onCommentToggleLike)
-const onCommentReply = afterLoginAction($onCommentReply)
 </script>

@@ -1,6 +1,6 @@
 <template>
   <teleport to="#main">
-    <div class="fixed top-0 z-30 h-full w-full overflow-hidden bg-black bg-opacity-50">
+    <div class="fixed top-0 z-20 h-full w-full overflow-hidden bg-black bg-opacity-50">
       <div class="flex h-full items-center justify-center" @click.self="$emit('click:around')">
         <div
           :class="{

@@ -22,7 +22,7 @@
       <template #bottomButton v-if="isVisitor">
         <div class="flex w-full flex-row items-center space-x-12">
           <Button primary>
-            {{ $t('common.viewSubscribePlan') }}
+            {{ $t('common.subscribe') }}
           </Button>
           <div class="cursor-pointer">
             <Icon name="messagePrimary" size="36"></Icon>
