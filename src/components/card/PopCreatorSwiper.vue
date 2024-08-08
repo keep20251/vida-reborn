@@ -33,8 +33,7 @@
           <EncryptImage :src="item.background" :border-radius="15" cover></EncryptImage>
         </div>
         <div
-          class="absolute top-0 h-full w-full rounded-inherit bg-gradient-to-b from-[#6466E7] to-[#7FE2D3]"
-          :style="{ opacity: 0.8 - 0.7 * Math.min(1, Math.abs(i - index)) }"
+          class="absolute top-0 h-full w-full rounded-inherit bg-gradient-to-b from-[#6466E7] to-[#7FE2D3] opacity-80"
         ></div>
         <div class="absolute top-0 flex h-full w-full flex-col items-center rounded-inherit p-20">
           <!-- 暫隱藏 -->

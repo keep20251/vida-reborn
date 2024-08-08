@@ -21,9 +21,9 @@
             :active="i >= currIndex - 1 && i <= currIndex + 1"
             disable-draggable
           ></EncryptImage>
+          <LockInfo v-if="isLock && (imgInfos.length === 1 || i > 0)" :item="feed"></LockInfo>
         </div>
       </div>
-      <LockInfo v-if="isLock" :item="feed" fullscreen></LockInfo>
     </div>
 
     <!-- 索引 -->
@@ -118,12 +118,10 @@ const closeBgStyle = computed(() => ({
 }))
 const closeTransformStyle = computed(() => ({ transform: `translateY(${(1 - closeIndex.value) * 100}%)` }))
 
-const isLock = computed(
-  () => feed.value.id !== undefined && !feed.value.is_unlock && (imgInfos.value.length === 1 || currIndex.value > 0),
-)
+const isLock = computed(() => feed.value.id !== undefined && !feed.value.is_unlock)
 
 function getImgUrl(img, i) {
-  if (!('url_blur' in feed.value)) return img.url
+  if (!img.url_blur) return img.url
   if (!feed.value.is_unlock && (imgInfos.value.length === 1 || i > 0)) {
     return img.url_blur
   }

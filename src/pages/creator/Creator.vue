@@ -1,5 +1,5 @@
 <template>
-  <Page infinite @load="nextArticleList" main-top-toggle-disabled>
+  <Page infinite @load="nextArticleList" main-top-toggle-disabled pull-to-reload @reload="loadNewCreator">
     <template #main-top>
       <Head :title="creator?.nickname"></Head>
     </template>
