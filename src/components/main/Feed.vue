@@ -2,7 +2,7 @@
   <article
     class="flex w-full flex-col space-y-10"
     :class="{ 'cursor-pointer': !disableToDetail }"
-    @click="() => disableToDetail || toFeed(item.user.username, item.id)"
+    @click="() => disableToDetail || $toFeed()"
   >
     <!-- head -->
     <div class="flex h-30 w-full items-center">
@@ -141,7 +141,9 @@ import { useI18n } from 'vue-i18n'
 import { onClickOutside, useResizeObserver } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
+import { useAppStore } from '@/store/app'
 import { useFeedStore } from '@/store/feed'
+import { useFeedDialogStore } from '@/store/feed-dialog'
 import Link from '@comp/common/Link.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
 import BlockMask from '@comp/multimedia/BlockMask.vue'
@@ -197,6 +199,13 @@ function toggleContentFold(evt) {
 }
 
 const { to, toCreator, toFeed } = useRouters()
+
+const { open: openFeedDialog } = useFeedDialogStore()
+const { isMobile } = storeToRefs(useAppStore())
+const $toFeed = () =>
+  isMobile.value
+    ? toFeed(props.item.user.username, props.item.id)
+    : openFeedDialog({ feedId: props.item.id, username: props.item.user.username })
 
 const { toggleLike: $toggleLike } = useFeedStore()
 const toggleLike = afterLoginAction($toggleLike)
