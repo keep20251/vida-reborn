@@ -2,7 +2,7 @@
   <div class="absolute left-0 top-0 h-full w-full rounded-inherit">
     <EncryptImage v-if="showImage" :src="url" :border-radius="10" cover></EncryptImage>
     <div class="absolute top-0 h-full w-full rounded-inherit">
-      <div v-if="!fullscreen" class="absolute bottom-20 right-20 flex space-x-5 drop-shadow">
+      <div v-if="meta" class="absolute bottom-20 right-20 flex space-x-5 drop-shadow">
         <Icon v-if="icon" :name="icon" size="20"></Icon>
         <span v-if="meta" class="text-base text-white">{{ meta }}</span>
       </div>
@@ -34,7 +34,6 @@ const props = defineProps({
   item: { type: Object, required: true },
   showImage: { type: Boolean, default: false },
   meta: { type: String },
-  fullscreen: { type: Boolean, default: false },
 })
 
 defineEmits(['replay'])

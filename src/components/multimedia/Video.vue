@@ -119,7 +119,7 @@
 
 <script setup>
 import { computed, onActivated, onBeforeUnmount, onDeactivated, onMounted, ref, watch } from 'vue'
-import { useElementSize, useEventListener } from '@vueuse/core'
+import { useElementSize, useEventListener, useFullscreen } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useDrag } from '@use/gesture/drag'
@@ -154,6 +154,8 @@ const videoFullscreen = ref(false)
 const isLoading = ref(true)
 const isWaiting = ref(false)
 const errMsg = ref('')
+
+const { toggle } = useFullscreen(videoElement)
 
 const timeBar = ref(null)
 const { width: timeBarWidth } = useElementSize(timeBar)
@@ -229,7 +231,11 @@ const fullscreenStyle = computed(() =>
     : null,
 )
 function toggleFullscreen() {
-  videoFullscreen.value = !videoFullscreen.value
+  if (isDesktop.value) {
+    videoFullscreen.value = !videoFullscreen.value
+  } else {
+    toggle()
+  }
 }
 const { lock, unlock } = useRootScrollLock()
 watch(videoFullscreen, (v) => (v ? lock() : unlock()))
