@@ -17,13 +17,13 @@
         :active="i >= currIndex - 1 && i <= currIndex + 1"
         cover
       ></EncryptImage>
+      <LockInfo v-if="isLock && (imgs.length === 1 || i > 0)" :item="item"></LockInfo>
     </div>
 
-    <div v-if="imgs.length > 1" class="absolute bottom-20 right-20 flex select-none space-x-5 drop-shadow">
+    <div class="absolute bottom-20 right-20 flex select-none space-x-5 drop-shadow">
       <Icon name="cameraWhite" size="20"></Icon>
       <span class="text-base text-white">{{ `${currIndex + 1}/${imgs.length}` }}</span>
     </div>
-    <LockInfo v-if="isLock" :item="item" :meta="`${currIndex + 1}/${imgs.length}`"></LockInfo>
     <div
       v-if="isDesktop && imgs.length > 1 && currIndex >= 1"
       class="absolute left-0 top-0 flex h-full w-40 cursor-pointer items-center justify-end"
@@ -68,9 +68,7 @@ const { isDesktop } = storeToRefs(appStore)
 const currIndex = ref(props.index)
 const imgs = computed(() => props.item.url)
 
-const isLock = computed(
-  () => props.preview || (!props.item.is_unlock && (imgs.value.length === 1 || currIndex.value > 0)),
-)
+const isLock = computed(() => props.preview || !props.item.is_unlock)
 // const isLock = computed(() => false)
 
 function getImgUrl(img, i) {
