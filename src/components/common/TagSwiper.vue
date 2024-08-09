@@ -7,7 +7,7 @@
         :value="item[`${props.itemValue}`]"
         :label="item[`${itemLabel}`]"
         :active="modelValue === item[`${props.itemValue}`]"
-        :disabled="!item[`${itemActive}`]"
+        :disabled="item[`${itemActive}`] ? !item[`${itemActive}`] : false"
         @click="onTagClick(item)"
         ref="itemRefs"
       ></Tag>
@@ -15,14 +15,14 @@
     <div v-if="isDesktop">
       <div
         v-show="showLeft"
-        class="absolute left-0 top-0 z-50 flex h-full w-24 cursor-pointer items-center justify-center rounded-r-xl bg-black bg-opacity-40 backdrop-blur-sm"
+        class="absolute left-0 top-0 z-50 flex h-full w-24 transform-gpu cursor-pointer items-center justify-center rounded-r-xl bg-black bg-opacity-40 backdrop-blur-sm"
         @click="moveToLeft"
       >
         <Icon name="backWhite" size="16"></Icon>
       </div>
       <div
         v-show="showRight"
-        class="absolute right-0 top-0 z-50 flex h-full w-24 cursor-pointer items-center justify-center rounded-l-xl bg-black bg-opacity-40 backdrop-blur-sm"
+        class="absolute right-0 top-0 z-50 flex h-full w-24 transform-gpu cursor-pointer items-center justify-center rounded-l-xl bg-black bg-opacity-40 backdrop-blur-sm"
         @click="moveToRight"
       >
         <Icon name="backWhite" size="16" class="-scale-x-100"></Icon>
