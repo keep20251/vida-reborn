@@ -1,40 +1,40 @@
 <template>
   <div class="relative w-full" ref="outerElment">
-    <div class="flex w-full max-w-full flex-row space-x-10 overflow-x-auto" ref="scrollElement">
+    <div class="none-scrollbar flex w-full max-w-full flex-row space-x-10 overflow-x-auto" ref="scrollElement">
       <Tag
-        v-for="item in props.items"
-        :key="`tag-${item[`${props.itemValue}`]}`"
+        v-for="(item, index) in props.items"
+        :key="index"
         :value="item[`${props.itemValue}`]"
         :label="item[`${itemLabel}`]"
         :active="modelValue === item[`${props.itemValue}`]"
-        :disabled="!item[`${itemDisabled}`]"
+        :disabled="!item[`${itemActive}`]"
         @click="onTagClick(item)"
         ref="itemRefs"
       ></Tag>
     </div>
-    <div v-if="false">
+    <div v-if="isDesktop">
       <div
-        v-show="!arrivedState.left && showArrow"
-        class="w-[calc(2rem + 2px) ] absolute left-0 top-0 z-50 flex h-full cursor-pointer items-center justify-center"
-        @click="() => (x -= 250)"
+        v-show="showLeft"
+        class="absolute left-0 top-0 z-50 flex h-full w-24 cursor-pointer items-center justify-center rounded-r-xl bg-black bg-opacity-40 backdrop-blur-sm"
+        @click="moveToLeft"
       >
-        <Icon name="back" size="16" style="scale: -1"></Icon>
+        <Icon name="backWhite" size="16"></Icon>
       </div>
       <div
-        v-show="!arrivedState.right && showArrow"
-        class="w-[calc(2rem + 2px) ] absolute right-0 top-0 z-50 flex h-full cursor-pointer items-center justify-center"
-        @click="() => (x += 250)"
+        v-show="showRight"
+        class="absolute right-0 top-0 z-50 flex h-full w-24 cursor-pointer items-center justify-center rounded-l-xl bg-black bg-opacity-40 backdrop-blur-sm"
+        @click="moveToRight"
       >
-        <Icon name="back" size="16"></Icon>
+        <Icon name="backWhite" size="16" class="-scale-x-100"></Icon>
       </div>
     </div>
   </div>
 </template>
 <script setup>
-import { computed, onActivated, onMounted, ref, watch } from 'vue'
-import { useScroll } from '@vueuse/core'
+import { computed, onActivated, onMounted, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
+import { useHorizontalScroll } from '@/compositions/sensor/horizontal-scroll'
 import Tag from './Tag.vue'
 
 const { isDesktop } = storeToRefs(useAppStore())
@@ -44,7 +44,7 @@ const props = defineProps({
   items: { type: Array, required: true },
   itemValue: { type: String, default: 'value' },
   itemLabel: { type: String, default: 'label' },
-  itemDisabled: { type: String, default: 'disabled' },
+  itemActive: { type: String, default: 'active' },
   checker: { type: Function, required: false },
 })
 
@@ -57,85 +57,28 @@ const modelValue = computed({
 
 const outerElment = ref(null)
 const scrollElement = ref(null)
-const showArrow = computed(() => scrollElement.value?.scrollWidth > outerElment.value?.clientWidth + 32)
-
-const { x, arrivedState } = useScroll(scrollElement, { behavior: 'smooth' })
-function normalizeArrivedState() {
-  arrivedState.left = true
-  arrivedState.right = false
-}
-
 const itemRefs = ref([])
 const activeIndex = computed(() => props.items.findIndex((item) => item[`${props.itemValue}`] === modelValue.value))
 
-function shiftToActiveIndex() {
-  let shiftX = 0
-  for (let i = 0; i < itemRefs.value.length; i++) {
-    if (i >= activeIndex.value) break
-    shiftX += itemRefs.value[i].$el.scrollWidth
-  }
-  scrollElement.value.scrollLeft = shiftX
-}
+const { showLeft, showRight, normalizeToLeft, moveToItem, moveToLeft, moveToRight } = useHorizontalScroll(
+  outerElment,
+  scrollElement,
+  itemRefs,
+)
 
 onMounted(() => {
-  normalizeArrivedState()
-  setTimeout(() => shiftToActiveIndex(), 500)
-  console.log('outerElment', outerElment.value.clientWidth, scrollElement.value.clientWidth)
+  normalizeToLeft()
+  setTimeout(() => moveToItem(activeIndex.value), 500)
 })
 onActivated(() => {
-  normalizeArrivedState()
-  setTimeout(() => shiftToActiveIndex(), 500)
+  normalizeToLeft()
+  setTimeout(() => moveToItem(activeIndex.value), 500)
 })
-
-const index = computed(() => props.items.findIndex((item) => item[`${props.itemValue}`] === modelValue.value))
-watch(index, () => (index.value >= props.items.length / 2 ? (x.value = x.value + 1000) : void 0), { immediate: true })
 
 function onTagClick(item) {
   emit('click', item)
+  if (item[`${props.itemActive}`] === false) return
   if (props.checker && !props.checker(item)) return
   modelValue.value = item[`${props.itemValue}`]
 }
 </script>
-<style scoped lang="scss">
-.tag-container {
-  position: relative;
-  width: 100%;
-
-  .scroll {
-    display: flex;
-    width: 100%;
-    max-width: 100%;
-    overflow-x: auto;
-  }
-
-  .arrow {
-    position: absolute;
-    z-index: 50;
-    top: 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: calc(2rem + 2px);
-    height: 100%;
-
-    border-radius: 1.875rem 0rem 0rem 1.875rem;
-    background: rgba(24, 25, 37, 0.5);
-
-    backdrop-filter: blur(9px);
-
-    cursor: pointer;
-
-    &-left {
-      left: 0;
-      border-radius: 0px 30px 30px 0px;
-    }
-
-    &-right {
-      right: 0;
-      border-radius: 30px 0px 0px 30px;
-    }
-  }
-}
-</style>
