@@ -46,7 +46,7 @@
             </div>
           </div>
           <Error v-else-if="errMsg" :message="errMsg"></Error>
-          <Loading v-else></Loading>
+          <Loading v-else fit-feed></Loading>
         </div>
       </div>
     </template>

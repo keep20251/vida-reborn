@@ -232,3 +232,8 @@ export const SUBSCRIPTION_ARTICLE_TYPE = {
   CONTAIN: 1, // 有被訂閱方案包含在內的帖子
   EXPIRED: 2, // 訂閱方案已過期的帖子
 }
+
+export const CHOICE = {
+  YES: 1,
+  NO: 0,
+}

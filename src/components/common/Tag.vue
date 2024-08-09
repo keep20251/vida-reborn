@@ -1,6 +1,6 @@
 <template>
   <div
-    class="cursor-pointer rounded-xl bg-gray-f6 px-18 py-9 text-sm font-normal"
+    class="cursor-pointer select-none whitespace-nowrap rounded-xl bg-gray-f6 px-18 py-9 text-sm font-normal"
     @click="$emit('click', value)"
     :class="{
       'bg-primary text-white': active,

@@ -52,6 +52,15 @@
         >
           {{ $t('content.allPosts') }} {{ creator.post_num }}
         </div>
+        <TagSwiper
+          class="mt-20"
+          v-model="filter"
+          :items="filterOptions"
+          item-value="id"
+          item-label="label"
+          item-active="active"
+          @update:modelValue="onFilterChange"
+        ></TagSwiper>
         <List :items="items" item-key="id" divider>
           <template #default="{ item }">
             <Feed class="py-20" :item="item"></Feed>
@@ -59,7 +68,7 @@
           <template #bottom>
             <NoData v-if="noData" :reload="reload"></NoData>
             <div v-else class="flex items-center justify-center py-8 text-gray-a3">
-              <Loading v-if="isLoading">{{ $t('common.loading') }}</Loading>
+              <Loading v-if="isLoading" fit-feed>{{ $t('common.loading') }}</Loading>
               <span v-if="noMore">{{ $t('common.noMore') }}</span>
             </div>
           </template>
@@ -92,6 +101,7 @@
 
 <script setup>
 import { computed, onDeactivated, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 import { whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
@@ -117,6 +127,11 @@ import { useDialog } from '@use/modal'
 import { useInfinite } from '@use/request/infinite'
 import { useRouters } from '@use/routers'
 import { useCopyToClipboard } from '@use/utils/copyToClipboard'
+import TagSwiper from '@/components/common/TagSwiper.vue'
+import { CHOICE } from '@/constant'
+import { ARTICLE_FILTER } from '@/constant/article'
+
+const { t: $t } = useI18n()
 
 const { copy } = useCopyToClipboard()
 
@@ -264,4 +279,56 @@ onHydration(() => {
   loadSeoHead()
   revert(creatorArticleList.value, { newParams: { uuid: creator.value.uuid } })
 })
+
+const filter = ref(ARTICLE_FILTER.ALL)
+const filterOptions = computed(() => {
+  const options = [
+    {
+      id: ARTICLE_FILTER.ALL,
+      label: $t('label.all'),
+      payload: {
+        uuid: creator.value.uuid,
+        filter_by: ARTICLE_FILTER.ALL,
+        include_my_article: CHOICE.YES,
+      },
+    },
+  ]
+  const subs =
+    creator.value?.subscription_list.map((el) => ({
+      id: el.id,
+      label: el.name,
+      payload: {
+        uuid: creator.value.uuid,
+        filter_by: ARTICLE_FILTER.ALL,
+        include_my_article: CHOICE.YES,
+        subscription_id: el.id,
+      },
+    })) ?? []
+
+  const videoOption = {
+    id: ARTICLE_FILTER.VIDEO,
+    label: $t('info.video'),
+    payload: {
+      uuid: creator.value.uuid,
+      filter_by: ARTICLE_FILTER.VIDEO,
+      include_my_article: CHOICE.YES,
+    },
+  }
+
+  const photo = {
+    id: ARTICLE_FILTER.IMAGE,
+    label: $t('info.image'),
+    payload: {
+      uuid: creator.value.uuid,
+      filter_by: ARTICLE_FILTER.IMAGE,
+      include_my_article: CHOICE.YES,
+    },
+  }
+  return options.concat(subs, [videoOption, photo])
+})
+
+function onFilterChange(id) {
+  const payload = filterOptions.value.find((el) => el.id === id).payload
+  reload({ newParams: payload })
+}
 </script>

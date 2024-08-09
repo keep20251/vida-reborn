@@ -25,7 +25,7 @@
         <template #bottom>
           <NoData v-if="articleFetcher.noData" :reload="reloadAction"></NoData>
           <div v-else class="flex items-center justify-center py-8 text-gray-a3">
-            <Loading v-if="articleFetcher.isLoading"></Loading>
+            <Loading v-if="articleFetcher.isLoading" fit-feed></Loading>
             <span v-if="articleFetcher.noMore">{{ $t('common.noMore') }}</span>
           </div>
         </template>
