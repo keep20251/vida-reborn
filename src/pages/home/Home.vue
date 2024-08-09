@@ -15,7 +15,7 @@
           <template #bottom>
             <NoData v-if="feedsNoData" :reload="reload"></NoData>
             <div v-else class="flex items-center justify-center py-8 text-gray-a3">
-              <Loading v-if="feedsIsLoading"></Loading>
+              <Loading v-if="feedsIsLoading" fit-feed></Loading>
               <span v-if="feedsNoMore">{{ $t('common.noMore') }}</span>
             </div>
           </template>

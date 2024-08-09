@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center">
+  <div class="flex justify-center" :class="[fitFeedSize]">
     <div class="relative h-40 w-40">
       <div
         class="origin-[1.25rem_1.25rem] rotate-[0deg] after:absolute after:left-19 after:top-2 after:h-9 after:w-2 after:rounded-md after:bg-gray-a3"
@@ -55,9 +55,12 @@
 
 <script setup>
 import { computed } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useAppStore } from '@/store/app'
 
 const props = defineProps({
   rate: { type: Number, default: 1.0, validator: (v) => v >= 0.0 && v <= 1.0 },
+  fitFeed: { type: Boolean, default: false },
 })
 
 const anim1 = computed(() =>
@@ -126,4 +129,7 @@ const anim11 = computed(() =>
     : `opacity-0`,
 )
 const anim12 = computed(() => (props.rate >= 1.0 ? `animate-[flash_1.2s_linear_0s_infinite]` : `opacity-0`))
+
+const { isDesktop } = storeToRefs(useAppStore())
+const fitFeedSize = computed(() => (props.fitFeed ? (isDesktop.value ? 'h-[29.75rem]' : 'h-[23.5rem]') : ''))
 </script>
