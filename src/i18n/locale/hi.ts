@@ -30,7 +30,7 @@ export default {
     next: 'अगला',
     getAround: 'चारों ओर देखें',
     goNow: 'अब जाओ',
-    viewSubscribePlan: 'सदस्यता लें',
+    viewSubscribePlan: 'सदस्यता योजनाएं',
     cancel: 'रद्द करें',
     confirm: 'पुष्टि करें',
     loading: 'लोड हो रहा है',

@@ -30,7 +30,7 @@ export default {
     next: '次へ',
     getAround: '周りを見る',
     goNow: '今すぐ行く',
-    viewSubscribePlan: '登録',
+    viewSubscribePlan: '購読プラン',
     cancel: 'キャンセル',
     confirm: '確認',
     loading: '読み込み中',

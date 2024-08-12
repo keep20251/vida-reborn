@@ -30,7 +30,7 @@ export default {
     next: 'Siguiente',
     getAround: 'Echar un vistazo',
     goNow: 'Ir ahora',
-    viewSubscribePlan: 'Suscribir',
+    viewSubscribePlan: 'Planes de suscripción',
     cancel: 'Cancelar',
     confirm: 'Confirmar',
     loading: 'Cargando',

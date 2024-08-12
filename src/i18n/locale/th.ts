@@ -30,7 +30,7 @@ export default {
     next: 'ต่อไป',
     getAround: 'ชมรอบๆ',
     goNow: 'ไปเลย',
-    viewSubscribePlan: 'สมัครสมาชิก',
+    viewSubscribePlan: 'แผนการสมัครสมาชิก',
     cancel: 'ยกเลิก',
     confirm: 'ยืนยัน',
     loading: 'กำลังโหลด',

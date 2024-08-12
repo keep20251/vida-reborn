@@ -30,7 +30,7 @@ export default {
     next: 'Tiếp theo',
     getAround: 'Xem quanh',
     goNow: 'Đi ngay',
-    viewSubscribePlan: 'Đăng ký',
+    viewSubscribePlan: 'Các gói đăng ký',
     cancel: 'Hủy bỏ',
     confirm: 'Xác nhận',
     loading: 'Đang tải',

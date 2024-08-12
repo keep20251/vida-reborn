@@ -30,7 +30,7 @@ export default {
     next: '下一步',
     getAround: '先逛逛',
     goNow: '立即前往',
-    viewSubscribePlan: '订阅',
+    viewSubscribePlan: '查看订阅方案',
     cancel: '取消',
     confirm: '确认',
     loading: '载入中',

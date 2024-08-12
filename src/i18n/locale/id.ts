@@ -30,7 +30,7 @@ export default {
     next: 'Selanjutnya',
     getAround: 'Jelajahi',
     goNow: 'Pergi sekarang',
-    viewSubscribePlan: 'Berlangganan',
+    viewSubscribePlan: 'Paket langganan',
     cancel: 'Batalkan',
     confirm: 'Konfirmasi',
     loading: 'Memuat',
