@@ -187,6 +187,7 @@ async function loadNewCreator(onCleanup = () => {}) {
   onCleanup(() => (cleanup = true))
 
   creator.value = null
+  filter.value = ARTICLE_FILTER.ALL
   try {
     const newCreator = await getCreator(route.params.username)
     if (cleanup) {
