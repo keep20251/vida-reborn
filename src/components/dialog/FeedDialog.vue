@@ -1,5 +1,5 @@
 <template>
-  <BaseDialog v-if="isOpen" size="lg" no-padding @click:around="closeDialog">
+  <BaseDialog v-if="isOpen" size="lg" z-priority="low" no-padding @click:around="closeDialog">
     <template #default>
       <div class="relative w-full pb-20 pl-20 pr-20 pt-40">
         <div class="absolute right-0 top-0 cursor-pointer select-none pr-10 pt-10" @click="closeDialog">

@@ -1,6 +1,6 @@
 <template>
   <teleport to="#main">
-    <div class="fixed top-0 z-20 h-full w-full overflow-hidden bg-black bg-opacity-50">
+    <div class="fixed top-0 h-full w-full overflow-hidden bg-black bg-opacity-50" :class="[zIndex]">
       <div class="flex h-full items-center justify-center" @click.self="$emit('click:around')">
         <div
           :class="{
@@ -23,6 +23,7 @@ import { computed } from 'vue'
 const props = defineProps({
   noPadding: { type: Boolean, default: false },
   size: { type: String, default: 'lg' },
+  zPriority: { type: String, default: 'medium' },
 })
 
 defineEmits(['click:around'])
@@ -40,5 +41,12 @@ const maxWidth = computed(() => {
   if (props.size === 'sm') return 'max-w-sm'
   if (props.size === 'auto') return ''
   return 'lg'
+})
+
+const zIndex = computed(() => {
+  if (props.zPriority === 'high') return 'z-40'
+  if (props.zPriority === 'medium') return 'z-30'
+  if (props.zPriority === 'low') return 'z-20'
+  return 'z-30'
 })
 </script>
