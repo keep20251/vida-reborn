@@ -19,7 +19,10 @@
           <div class="text-sm font-normal leading-3 text-white">{{ $t('info.clickToUploadBg') }}</div>
         </div>
       </div>
-      <div v-if="showBgData" class="absolute left-1/2 top-1/2 w-full -translate-x-2/4 -translate-y-2/4">
+      <div
+        v-if="showBgData"
+        class="pointer-events-none absolute left-1/2 top-1/2 w-full -translate-x-2/4 -translate-y-2/4"
+      >
         <div class="flex justify-around">
           <div v-if="false" class="flex w-[175px] flex-col items-center space-y-5">
             <p class="text-xl font-bold leading-xl text-white drop-shadow-lg">{{ item.subscriber_count }}</p>
