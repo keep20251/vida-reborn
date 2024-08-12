@@ -7,7 +7,14 @@
         </div>
         <div class="scrollbar-md hover-scrollbar relative max-h-[80vh] overflow-auto">
           <div v-if="feed">
-            <Feed class="mb-24" :item="feed" disable-to-detail disable-content-fold></Feed>
+            <Feed
+              class="mb-24"
+              :item="feed"
+              disable-to-detail
+              disable-content-fold
+              @click:creator="close"
+              @click:tag="close"
+            ></Feed>
             <List :items="comments" item-key="id">
               <template #default="{ item }">
                 <Comment :item="item" @click:reply="onCommentReply" @click:like="onCommentToggleLike"></Comment>

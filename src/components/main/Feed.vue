@@ -6,11 +6,11 @@
   >
     <!-- head -->
     <div class="flex h-30 w-full items-center">
-      <Link class="mr-10" :href="`/${item.user?.username}`" @click.stop="toCreator(item.user.username)">
+      <Link class="mr-10" :href="`/${item.user?.username}`" @click.stop="$toCreator(item.user?.username)">
         <Avatar :radius="15" :src="item.user?.thumb"></Avatar>
       </Link>
       <div class="mr-10 line-clamp-1 text-base font-bold leading-none">
-        <Link class="hover:underline" :href="`/${item.user?.username}`" @click.stop="toCreator(item.user?.username)"
+        <Link class="hover:underline" :href="`/${item.user?.username}`" @click.stop="$toCreator(item.user?.username)"
           >{{ item.user?.nickname }}
         </Link>
       </div>
@@ -111,7 +111,7 @@
             :key="i"
             :href="`/search?q=${tag}`"
             class="text-base leading-lg text-primary"
-            @click.stop="to('search', { query: { q: tag } })"
+            @click.stop="$toTagSearch(tag)"
             >#{{ tag.length > 20 ? tag.substring(0, 20) + '...' : tag }}</Link
           >
         </div>
@@ -165,7 +165,15 @@ const props = defineProps({
   preview: { type: Boolean, default: false },
 })
 
-const emits = defineEmits('edit', 'delete')
+const emits = defineEmits('edit', 'delete', 'click:creator', 'click:tag')
+function $toCreator(username) {
+  toCreator(username)
+  emits('click:creator')
+}
+function $toTagSearch(tag) {
+  to('search', { query: { q: tag } })
+  emits('click:tag')
+}
 
 const accountStore = useAccountStore()
 const { userId, isVisitor } = storeToRefs(accountStore)
