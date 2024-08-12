@@ -104,13 +104,13 @@
             >
               <Icon name="mineSetPw" size="20"></Icon><span class="text-base">{{ $t('title.password') }}</span>
             </router-link>
-            <router-link
+            <!-- <router-link
               :to="{ name: 'mine-preference' }"
               :class="{ 'font-bold': $route.name === 'mine-preference' }"
               class="flex cursor-pointer items-center space-x-18 pt-10"
             >
               <Icon name="mineSetPrefer" size="20"></Icon><span class="text-base">{{ $t('title.prefer') }}</span>
-            </router-link>
+            </router-link> -->
             <router-link
               :to="{ name: 'mine-block' }"
               :class="{ 'font-bold': $route.name === 'mine-block' }"
@@ -249,7 +249,7 @@ const aboutOpen = ref(false)
 
 const locale = useLocale()
 
-const setRoutes = ['mine-account', 'mine-password', 'mine-preference', 'mine-block', 'mine-delete']
+const setRoutes = ['mine-account', 'mine-password', /* 'mine-preference', */ 'mine-block', 'mine-delete']
 const aboutRoutes = ['mine-tos', 'mine-pp', 'mine-cp', 'mine-dmca']
 
 const { openFeedback } = useDialogStore()
