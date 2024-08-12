@@ -7,7 +7,7 @@
           :items="paywayOptions"
           item-label="name"
           item-value="id"
-          item-disabled="active"
+          item-active="active"
           :checker="(item) => item.active"
           @click="checkAmount"
         ></TagSwiper>

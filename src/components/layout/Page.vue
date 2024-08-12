@@ -145,7 +145,7 @@ function onScroll() {
       if (!props.mainTopToggleDisabled) {
         mainTopOpen.value = false
       }
-      if (!props.scrollNavToggleDisabled && isMobile.value) {
+      if (!isScrollBottom() && !props.scrollNavToggleDisabled && isMobile.value) {
         execOrIgnoreNavHandle(hideNav)
       }
     }
@@ -175,6 +175,16 @@ function execOrIgnoreNavHandle(navHandler) {
   } else {
     navHandler()
   }
+}
+
+function isScrollBottom() {
+  const BOTTOM_DISTANCE = 60
+
+  const documentHeight = document.documentElement.scrollHeight
+  const windowHeight = window.innerHeight
+  const scrollBottom = documentHeight - document.documentElement.scrollTop - windowHeight
+
+  return scrollBottom <= BOTTOM_DISTANCE
 }
 
 let active

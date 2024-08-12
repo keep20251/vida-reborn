@@ -21,6 +21,7 @@
       <List v-else :items="data" item-key="id" divider>
         <template #default="{ item }">
           <SubscribeCard
+            class="my-20"
             :item="item"
             show-contain
             :height="260"

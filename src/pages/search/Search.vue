@@ -38,13 +38,14 @@ import Carousel from '@comp/common/Carousel.vue'
 import Tab from '@comp/navigation/Tab.vue'
 import TopSearchBar from '@comp/navigation/TopSearchBar.vue'
 import { SEARCH_TAB } from '@const'
+import { whenNavSearchAgain } from '@/utils/nav-again'
 import { onHydration, onServerClientOnce } from '@/compositions/lifecycle'
 
 const appStore = useAppStore()
 const { isMobile } = storeToRefs(appStore)
 
 const searchStore = useSearchStore()
-const { setKeyword } = searchStore
+const { setKeyword, reset } = searchStore
 const { activeTab, nextAction, keyword, hasQuery, articleFetcher, reloadAction, requestParams } =
   storeToRefs(searchStore)
 
@@ -97,4 +98,6 @@ onHydration(() => {
   if (!keyword.value) return
   articleFetcher.value.revert({ dataList: relatedFeeds.value }, { newParams: requestParams.value })
 })
+
+whenNavSearchAgain(reset)
 </script>
