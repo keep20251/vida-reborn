@@ -18,7 +18,7 @@ import MineSetAcc from '@/pages/mine/MineSetAcc.vue'
 import MineSetBlock from '@/pages/mine/MineSetBlock.vue'
 import MineSetDelete from '@/pages/mine/MineSetDelete.vue'
 import MineSetPassword from '@/pages/mine/MineSetPassword.vue'
-import MineSetPref from '@/pages/mine/MineSetPref.vue'
+// import MineSetPref from '@/pages/mine/MineSetPref.vue'
 import Agreement from '@/pages/mine/be-creator/Agreement.vue'
 import IdentityAgreement from '@/pages/mine/be-creator/IdentityAgreement.vue'
 import TakePicture from '@/pages/mine/be-creator/TakePicture.vue'
@@ -113,7 +113,7 @@ export default [
     meta: { permissionKey: 'settings' },
   },
   { name: `${prefix}-password`, path: `password`, component: MineSetPassword, meta: { permissionKey: 'settings' } },
-  { name: `${prefix}-preference`, path: `preference`, component: MineSetPref, meta: { permissionKey: 'settings' } },
+  // { name: `${prefix}-preference`, path: `preference`, component: MineSetPref, meta: { permissionKey: 'settings' } },
   { name: `${prefix}-block`, path: `block`, component: MineSetBlock, meta: { permissionKey: 'settings' } },
   { name: `${prefix}-delete`, path: `delete`, component: MineSetDelete, meta: { permissionKey: 'settings' } },
   { name: `${prefix}-tos`, path: `tos`, component: MineAboutTOS, meta: {} },
