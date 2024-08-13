@@ -26,7 +26,18 @@
         </div>
       </div>
     </div>
-    <div class="mb-20 mt-10 text-base leading-lg">{{ creator.description }}</div>
+    <div class="mb-20 mt-10 text-base leading-lg">
+      <p ref="content" @click.stop="toggleContentFold" :class="{ 'line-clamp-3': contentFold }">
+        {{ creator.description }}
+      </p>
+      <div
+        v-show="showContentMore"
+        class="cursor-pointer select-none text-right text-base font-normal leading-lg"
+        @click.stop="toggleContentFold"
+      >
+        {{ $t('common.more') }}
+      </div>
+    </div>
     <Button @click="open({ items: creator?.subscription_list, creator })">{{ $t('common.subscribe') }}</Button>
   </div>
   <Loading v-else></Loading>
@@ -34,6 +45,7 @@
 
 <script setup>
 import { ref, watch } from 'vue'
+import { useResizeObserver } from '@vueuse/core'
 import { useCreatorStore } from '@/store/creator'
 import { useSubsciptionStore } from '@/store/subscription'
 import Button from '@comp/common/Button.vue'
@@ -47,9 +59,7 @@ const props = defineProps({
 const creator = ref(null)
 const creatorStore = useCreatorStore()
 const { get: getCreator } = creatorStore
-
 const { open } = useSubsciptionStore()
-
 const { toCreator } = useRouters()
 
 watch(
@@ -73,4 +83,13 @@ watch(
   },
   { immediate: true },
 )
+
+const content = ref(null)
+const showContentMore = ref(false)
+useResizeObserver(content, () => (showContentMore.value = content.value.scrollHeight > content.value.clientHeight))
+
+const contentFold = ref(true)
+function toggleContentFold() {
+  contentFold.value = !contentFold.value
+}
 </script>
