@@ -171,9 +171,6 @@ useEventListener('keydown', (evt) => {
     case 'ArrowRight':
       next()
       break
-    case 'Escape':
-      close()
-      break
   }
 })
 
