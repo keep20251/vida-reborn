@@ -12,8 +12,8 @@
               :item="feed"
               disable-to-detail
               disable-content-fold
-              @click:creator="close"
-              @click:tag="close"
+              @click:creator="closeDialog"
+              @click:tag="closeDialog"
             ></Feed>
             <List :items="comments" item-key="id">
               <template #default="{ item }">

@@ -10,14 +10,14 @@ export const useFeedDialogStore = defineStore('feed-dialog', () => {
   const _id = ref(null)
   const _username = ref(null)
 
-  const modalDialogKey = '__MODAL_DIALOG'
+  const escapeKey = '__FEED_DIALOG'
   const { push, remove } = useEscapeClose()
 
   function open({ feedId, username }) {
     _id.value = feedId
     _username.value = username
     feedDialog.value = true
-    push({ key: modalDialogKey, target: feedDialog, fn: close })
+    push({ key: escapeKey, target: feedDialog, fn: close })
   }
 
   function close() {
@@ -25,7 +25,7 @@ export const useFeedDialogStore = defineStore('feed-dialog', () => {
     _id.value = null
     _username.value = null
     feedDialog.value = false
-    remove(modalDialogKey)
+    remove(escapeKey)
   }
 
   return {
