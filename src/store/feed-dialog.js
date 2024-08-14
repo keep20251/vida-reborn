@@ -1,5 +1,6 @@
 import { computed, readonly, ref } from 'vue'
 import { defineStore, storeToRefs } from 'pinia'
+import { useHistoryState } from '@/compositions/routers/history-state'
 import { useEscapeClose } from '@/compositions/utils/escape-close'
 import { useDialogStore } from './dialog'
 
@@ -13,11 +14,14 @@ export const useFeedDialogStore = defineStore('feed-dialog', () => {
   const escapeKey = '__FEED_DIALOG'
   const { push, remove } = useEscapeClose()
 
+  const { replace, revert } = useHistoryState()
+
   function open({ feedId, username }) {
     _id.value = feedId
     _username.value = username
     feedDialog.value = true
     push({ key: escapeKey, target: feedDialog, fn: close })
+    replace(`/${username}/${feedId}`)
   }
 
   function close() {
@@ -26,6 +30,7 @@ export const useFeedDialogStore = defineStore('feed-dialog', () => {
     _username.value = null
     feedDialog.value = false
     remove(escapeKey)
+    revert()
   }
 
   return {
