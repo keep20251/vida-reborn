@@ -155,7 +155,7 @@ const isLoading = ref(true)
 const isWaiting = ref(false)
 const errMsg = ref('')
 
-const { toggle } = useFullscreen(videoElement)
+const { toggle, isFullscreen } = useFullscreen(videoElement)
 
 const timeBar = ref(null)
 const { width: timeBarWidth } = useElementSize(timeBar)
@@ -328,6 +328,21 @@ function onRootClick() {
   }
 }
 
+function onVolumeChangeWhenSystemFullscreen(evt) {
+  if (!isFullscreen.value) return
+  clearTimeout(onVolumeChangeWhenSystemFullscreen.timerId)
+
+  // 先把本來的事件拿掉，不然下一行調整 muted 屬性後又會再自行觸發導致無限輪迴
+  videoElement.value.onvolumechange = undefined
+
+  toggleVideoMuted()
+
+  // 延遲一個我隨便亂抓的時間(因為這個時間看起來操作算是流暢的)後再重新將事件綁回去
+  onVolumeChangeWhenSystemFullscreen.timerId = setTimeout(() => {
+    videoElement.value.onvolumechange = onVolumeChangeWhenSystemFullscreen
+  }, 200)
+}
+
 // 自動播放相關配置
 // let videoAutoplayController
 // let autoPlayEnable = true
@@ -379,6 +394,9 @@ function setupVideo() {
     // 視頻時長更新回呼
     videoElement.value.ondurationchange = () => (videoDuration.value = videoElement.value?.duration || 0)
 
+    // 手機全屏是用系統內建的，這是後只能偵測他聲音切換的事件來對我們的聲音開關做修改
+    videoElement.value.onvolumechange = onVolumeChangeWhenSystemFullscreen
+
     // videoAutoplayController = new IntersectionObserver(
     //   (entries) => {
     //     entries.forEach((entry) => {
@@ -410,6 +428,8 @@ function releaseVideo() {
 
   // 清掉客製掛上去的視頻時長更新回呼
   videoElement.value.ondurationchange = undefined
+
+  videoElement.value.onvolumechange = undefined
 
   // 紀錄當前播放到的時間，下次回來直接從此處開始播
   videoCurrentTime.value = videoElement.value.currentTime
