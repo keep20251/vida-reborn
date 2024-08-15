@@ -52,7 +52,7 @@
     },
     "contact": {
       "title": "Liên hệ",
-      "content": "Các câu hỏi hoặc thắc mắc liên quan đến các Điều khoản này có thể được gửi tới support@VIDA. Xin lưu ý rằng thông tin liên lạc qua email không nhất thiết phải được bảo mật; do đó, bạn không nên đưa thông tin thẻ tín dụng hoặc thông tin nhạy cảm khác vào thư điện tử của bạn với chúng tôi. Các truy vấn về thanh toán phải được chuyển đến Billing@VIDA"
+      "content": "Các câu hỏi hoặc thắc mắc liên quan đến các Điều khoản này có thể được gửi tới official@vida.contact. Xin lưu ý rằng thông tin liên lạc qua email không nhất thiết phải được bảo mật; do đó, bạn không nên đưa thông tin thẻ tín dụng hoặc thông tin nhạy cảm khác vào thư điện tử của bạn với chúng tôi. Các truy vấn về thanh toán phải được chuyển đến official@vida.contact"
     },
     "miscellaneous": {
       "title": "Điều khoản khác",
@@ -60,9 +60,9 @@
     },
     "language": {
       "title": "Ngôn ngữ",
-      "content": "Các Điều khoản này ban đầu được viết bằng tiếng Anh. Trong trường hợp bất kỳ phiên bản dịch nào của các Điều khoản này xung đột với phiên bản tiếng Anh thì phiên bản tiếng Anh sẽ kiểm soát. Sửa đổi lần cuối: Tháng 7 năm 2023 © 2023 VIDA trừ khi có ghi chú khác. Đã đăng ký Bản quyền."
+      "content": "Các Điều khoản này ban đầu được viết bằng tiếng Anh. Trong trường hợp bất kỳ phiên bản dịch nào của các Điều khoản này xung đột với phiên bản tiếng Anh thì phiên bản tiếng Anh sẽ kiểm soát. Sửa đổi lần cuối: Tháng 7 năm 2023 © 2024 VIDA trừ khi có ghi chú khác. Đã đăng ký Bản quyền."
     },
     "final": "Sửa đổi lần cuối: tháng 7 năm 2023",
-    "VIDA": "© 2023 VIDA One Trừ khi có quy định khác. Đã đăng ký Bản quyền."
+    "VIDA": "© 2024 VIDA One Trừ khi có quy định khác. Đã đăng ký Bản quyền."
   }
 }

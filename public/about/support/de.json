@@ -4,7 +4,7 @@
       "title": "Konto",
       "a": {
         "subtitle": "Ich habe mein Passwort vergessen",
-        "content": "Gehen Sie zum Anmeldebildschirm und klicken Sie im Passwortfeld auf „Vergessen“. Wenn Sie sich nicht mehr an Ihre E-Mail-Adresse erinnern, wenden Sie sich an support@VIDA"
+        "content": "Gehen Sie zum Anmeldebildschirm und klicken Sie im Passwortfeld auf „Vergessen“. Wenn Sie sich nicht mehr an Ihre E-Mail-Adresse erinnern, wenden Sie sich an official@vida.contact"
       },
       "b": {
         "subtitle": "Wie kann ich mein Konto löschen?",
@@ -38,7 +38,7 @@
       "title": "Kontakt",
       "a": {
         "subtitle": "Wie kontaktiere ich den VIDA-Support?",
-        "content": "Wir helfen Ihnen jederzeit gerne bei Ihren Fragen weiter. Um direkt mit uns in Kontakt zu treten, verwenden Sie bitte die folgenden Links und Kontaktinformationen: Allgemeiner und Website-Support: support@VIDAAbrechnungssupport: support@VIDA oder besuchen Sie https://www.VIDA (nur Abrechnung)."
+        "content": "Wir helfen Ihnen jederzeit gerne bei Ihren Fragen weiter. Um direkt mit uns in Kontakt zu treten, verwenden Sie bitte die folgenden Links und Kontaktinformationen: Allgemeiner und Website-Support: official@vida.contactAbrechnungssupport: official@vida.contact oder besuchen Sie https://www.VIDA (nur Abrechnung)."
       }
     },
     "about": {
@@ -49,7 +49,7 @@
       },
       "b": {
         "subtitle": "Wie teile ich Feedback?",
-        "content": "Ohne Sie gäbe es VIDA nicht und Ihre Meinung ist uns wichtig. Wir freuen uns immer über Ihre Gedanken, Anregungen oder Anliegen. Der einfachste Weg, Feedback zu senden, ist eine E-Mail an support@VIDA"
+        "content": "Ohne Sie gäbe es VIDA nicht und Ihre Meinung ist uns wichtig. Wir freuen uns immer über Ihre Gedanken, Anregungen oder Anliegen. Der einfachste Weg, Feedback zu senden, ist eine E-Mail an official@vida.contact"
       }
     },
     "menu": {

@@ -4,7 +4,7 @@
       "title": "Conta",
       "a": {
         "subtitle": "Esqueci a minha senha",
-        "content": "Vá para a tela de login e clique em ‘esqueci’ no campo de senha. Se você não se lembra mais do seu endereço de e-mail, entre em contato com support@VIDA"
+        "content": "Vá para a tela de login e clique em ‘esqueci’ no campo de senha. Se você não se lembra mais do seu endereço de e-mail, entre em contato com official@vida.contact"
       },
       "b": {
         "subtitle": "Como posso excluir minha conta?",
@@ -38,7 +38,7 @@
       "title": "Contato",
       "a": {
         "subtitle": "Como entro em contato com o suporte do VIDA?",
-        "content": "Estamos sempre felizes em ajudar com suas dúvidas. Para entrar em contato conosco diretamente, use os links e informações de contato abaixo:Suporte geral e do site: support@VIDASuporte de cobrança: support@VIDA ou visite https: //www.VIDA (somente cobrança)"
+        "content": "Estamos sempre felizes em ajudar com suas dúvidas. Para entrar em contato conosco diretamente, use os links e informações de contato abaixo:Suporte geral e do site: official@vida.contactSuporte de cobrança: official@vida.contact ou visite https: //vida.pub (somente cobrança)"
       }
     },
     "about": {
@@ -49,7 +49,7 @@
       },
       "b": {
         "subtitle": "Como compartilho feedback?",
-        "content": "VIDA não existiria sem você, e sua opinião é importante para nós. Estamos sempre ansiosos para ouvir suas idéias, sugestões ou preocupações. A maneira mais fácil de enviar feedback é enviando um email para support@VIDA"
+        "content": "VIDA não existiria sem você, e sua opinião é importante para nós. Estamos sempre ansiosos para ouvir suas idéias, sugestões ou preocupações. A maneira mais fácil de enviar feedback é enviando um email para official@vida.contact"
       }
     },
     "menu": {

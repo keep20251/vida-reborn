@@ -4,7 +4,7 @@
       "title": "Compte",
       "a": {
         "subtitle": "j'ai oublié mon mot de passe",
-        "content": "Accédez à l'écran de connexion et cliquez sur « oublié » dans le champ du mot de passe. Si vous ne vous souvenez plus de votre adresse e-mail, contactez support@VIDA"
+        "content": "Accédez à l'écran de connexion et cliquez sur « oublié » dans le champ du mot de passe. Si vous ne vous souvenez plus de votre adresse e-mail, contactez official@vida.contact"
       },
       "b": {
         "subtitle": "Comment puis-je supprimer mon compte ?",
@@ -38,7 +38,7 @@
       "title": "Contact",
       "a": {
         "subtitle": "Comment contacter le support VIDA ?",
-        "content": "Nous sommes toujours heureux de répondre à vos questions. Pour nous contacter directement, veuillez utiliser les liens et les coordonnées ci-dessous : Assistance générale et site Web : support@VIDA Assistance de facturation : support@VIDA ou visitez https : //www.VIDA (facturation uniquement)"
+        "content": "Nous sommes toujours heureux de répondre à vos questions. Pour nous contacter directement, veuillez utiliser les liens et les coordonnées ci-dessous : Assistance générale et site Web : official@vida.contact Assistance de facturation : official@vida.contact ou visitez https : //www.VIDA (facturation uniquement)"
       }
     },
     "about": {
@@ -49,7 +49,7 @@
       },
       "b": {
         "subtitle": "Comment partager des commentaires ?",
-        "content": "VIDA n'existerait pas sans vous et votre avis nous tient à cœur. Nous sommes toujours impatients de connaître vos réflexions, suggestions ou préoccupations. Le moyen le plus simple d'envoyer des commentaires est d'envoyer un e-mail à support@VIDA"
+        "content": "VIDA n'existerait pas sans vous et votre avis nous tient à cœur. Nous sommes toujours impatients de connaître vos réflexions, suggestions ou préoccupations. Le moyen le plus simple d'envoyer des commentaires est d'envoyer un e-mail à official@vida.contact"
       }
     },
     "menu": {

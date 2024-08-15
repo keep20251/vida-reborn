@@ -4,7 +4,7 @@
       "title": "Account",
       "a": {
         "subtitle": "I forgot my password",
-        "content": "Go to the login screen and click 'forgot' in the password field. If you no longer remember your email address, contact support@VIDA"
+        "content": "Go to the login screen and click 'forgot' in the password field. If you no longer remember your email address, contact official@vida.contact"
       },
       "b": {
         "subtitle": "How can I delete my account?",
@@ -38,7 +38,7 @@
       "title": "Contact",
       "a": {
         "subtitle": "How do I contact VIDA support?",
-        "content": "We are always happy to help with your queries. To get in touch with us directly, please use the links and contact information below:General & Website Support: support@VIDABilling Support: support@VIDA or visit https: //www.VIDA (billing only)"
+        "content": "We are always happy to help with your queries. To get in touch with us directly, please use the links and contact information below:General & Website Support: official@vida.contactBilling Support: official@vida.contact"
       }
     },
     "about": {
@@ -49,7 +49,7 @@
       },
       "b": {
         "subtitle": "How do I share feedback?",
-        "content": "VIDA wouldn't exist without you, and your opinion is important to us. We are always looking forward to hearing about your thoughts, suggestions, or concerns. The easiest way to send feedback is by sending an email to support@VIDA"
+        "content": "VIDA wouldn't exist without you, and your opinion is important to us. We are always looking forward to hearing about your thoughts, suggestions, or concerns. The easiest way to send feedback is by sending an email to official@vida.contact"
       }
     },
     "menu": {

@@ -4,7 +4,7 @@
       "title": "帐号",
       "a": {
         "subtitle": "我忘记了我的密码",
-        "content": "前往登入画面，并在密码栏位中点击‘忘记’。如果您不再记得您的电子邮件地址，请联系support@VIDA"
+        "content": "前往登入画面，并在密码栏位中点击‘忘记’。如果您不再记得您的电子邮件地址，请联系official@vida.contact"
       },
       "b": {
         "subtitle": "如何删除我的帐号？",
@@ -35,7 +35,7 @@
       "title": "联系",
       "a": {
         "subtitle": "如何联系VIDA客户支持？",
-        "content": "我们很乐意帮助您解答问题。若要直接与我们联系，请使用以下链接和联络信息：一般与网站支持：support@VIDA、帐单支持：support@VIDA 或访问https: //www.VIDA （仅限帐单相关）"
+        "content": "我们很乐意帮助您解答问题。若要直接与我们联系，请使用以下链接和联络信息：一般与网站支持：official@vida.contact"
       }
     },
     "about": {
@@ -46,7 +46,7 @@
       },
       "b": {
         "subtitle": "如何分享反馈？",
-        "content": "VIDA 离不开您，您的意见对我们很重要。我们期待听取您的想法、建议或疑虑。最简单的发送反馈方式是发送电子邮件至support@VIDA"
+        "content": "VIDA 离不开您，您的意见对我们很重要。我们期待听取您的想法、建议或疑虑。最简单的发送反馈方式是发送电子邮件至official@vida.contact"
       }
     },
     "menu": {

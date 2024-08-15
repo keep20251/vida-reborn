@@ -4,7 +4,7 @@
       "title": "Tài khoản",
       "a": {
         "subtitle": "Tôi quên mật khẩu của tôi",
-        "content": "Chuyển đến màn hình đăng nhập và nhấp vào 'quên' trong trường mật khẩu. Nếu bạn không còn nhớ địa chỉ email của mình, hãy liên hệ với support@VIDA"
+        "content": "Chuyển đến màn hình đăng nhập và nhấp vào 'quên' trong trường mật khẩu. Nếu bạn không còn nhớ địa chỉ email của mình, hãy liên hệ với official@vida.contact"
       },
       "b": {
         "subtitle": "Làm cách nào để xóa tài khoản của tôi?",
@@ -38,7 +38,7 @@
       "title": "Liên hệ",
       "a": {
         "subtitle": "Làm cách nào để liên hệ với bộ phận hỗ trợ của VIDA?",
-        "content": "Chúng tôi luôn sẵn lòng trợ giúp với các thắc mắc của bạn. Để liên hệ trực tiếp với chúng tôi, vui lòng sử dụng các liên kết và thông tin liên hệ bên dưới: Hỗ trợ chung & trang web: support@VIDA Hỗ trợ thanh toán: support@VIDA hoặc truy cập https: //www.VIDA (chỉ thanh toán)"
+        "content": "Chúng tôi luôn sẵn lòng trợ giúp với các thắc mắc của bạn. Để liên hệ trực tiếp với chúng tôi, vui lòng sử dụng các liên kết và thông tin liên hệ bên dưới: Hỗ trợ chung & trang web: official@vida.contact Hỗ trợ thanh toán: official@vida.contact hoặc truy cập https: //vida.pub (chỉ thanh toán)"
       }
     },
     "about": {
@@ -49,7 +49,7 @@
       },
       "b": {
         "subtitle": "Làm cách nào để chia sẻ phản hồi?",
-        "content": "VIDA sẽ không tồn tại nếu không có bạn và ý kiến ​​của bạn rất quan trọng đối với chúng tôi. Chúng tôi luôn mong muốn được nghe về những suy nghĩ, đề xuất hoặc mối quan tâm của bạn. Cách dễ nhất để gửi phản hồi là gửi email đến support@VIDA"
+        "content": "VIDA sẽ không tồn tại nếu không có bạn và ý kiến ​​của bạn rất quan trọng đối với chúng tôi. Chúng tôi luôn mong muốn được nghe về những suy nghĩ, đề xuất hoặc mối quan tâm của bạn. Cách dễ nhất để gửi phản hồi là gửi email đến official@vida.contact"
       }
     },
     "menu": {

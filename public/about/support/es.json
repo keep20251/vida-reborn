@@ -4,7 +4,7 @@
       "title": "Cuenta",
       "a": {
         "subtitle": "Olvidé mi contraseña",
-        "content": "Vaya a la pantalla de inicio de sesión y haga clic en \"olvidé\" en el campo de contraseña. Si ya no recuerda su dirección de correo electrónico, comuníquese con support@VIDA"
+        "content": "Vaya a la pantalla de inicio de sesión y haga clic en \"olvidé\" en el campo de contraseña. Si ya no recuerda su dirección de correo electrónico, comuníquese con official@vida.contact"
       },
       "b": {
         "subtitle": "¿Cómo puedo eliminar mi cuenta?",
@@ -38,7 +38,7 @@
       "title": "Contacto",
       "a": {
         "subtitle": "¿Cómo me comunico con el soporte técnico de VIDA?",
-        "content": "Siempre estaremos encantados de ayudarle con sus consultas. Para ponerse en contacto con nosotros directamente, utilice los enlaces y la información de contacto a continuación: Soporte general y de sitio web: support@VIDA Soporte de facturación: support@VIDA o visite https: //www.VIDA (solo facturación)"
+        "content": "我们很乐意帮助您解答问题。若要直接与我们联系，请使用以下链接和联络信息：一般与网站支持：official@vida.contact 或访问https: //vida.pub （仅限帐单相关）"
       }
     },
     "about": {
@@ -49,7 +49,7 @@
       },
       "b": {
         "subtitle": "¿Cómo comparto comentarios?",
-        "content": "VIDA no existiría sin ti, y tu opinión es importante para nosotros. Siempre estamos deseando escuchar sus pensamientos, sugerencias o inquietudes. La forma más sencilla de enviar comentarios es enviando un correo electrónico a support@VIDA"
+        "content": "VIDA no existiría sin ti, y tu opinión es importante para nosotros. Siempre estamos deseando escuchar sus pensamientos, sugerencias o inquietudes. La forma más sencilla de enviar comentarios es enviando un correo electrónico a official@vida.contact"
       }
     },
     "menu": {
