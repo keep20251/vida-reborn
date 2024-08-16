@@ -25,7 +25,7 @@
                     </div>
                     <div class="mx-2 text-sm font-normal leading-3 text-gray-57">•</div>
                     <div class="max-w-[3rem] overflow-hidden text-ellipsis text-sm font-normal leading-3 text-gray-57">
-                      {{ item.view_count }}<span class="pl-1">{{ $t('content.view') }}</span>
+                      {{ toKMBTString(item.view_count) }}<span class="pl-1">{{ $t('content.view') }}</span>
                     </div>
                   </div>
                 </div>
@@ -67,6 +67,7 @@ import Link from '@comp/common/Link.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
 import { useInfinite } from '@use/request/infinite'
 import { useRouters } from '@use/routers'
+import { toKMBTString } from '@/utils/string-helper'
 
 const { toCreator } = useRouters()
 
