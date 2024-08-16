@@ -17,7 +17,9 @@
           </div>
           <div class="text-sm font-normal leading-3 text-gray-57">{{ item.post_num }} {{ $t('info.perPost') }}</div>
           <div class="text-sm font-normal leading-3 text-gray-57">•</div>
-          <div class="text-sm font-normal leading-3 text-gray-57">{{ item.view_count }} {{ $t('content.view') }}</div>
+          <div class="text-sm font-normal leading-3 text-gray-57">
+            {{ toKMBTString(item.view_count) }} {{ $t('content.view') }}
+          </div>
         </div>
         <div class="text-sm font-normal leading-4 text-gray-a3">
           {{ $t('content.subIn') }} {{ formatDate(item.expire_time) }}
@@ -72,6 +74,7 @@ import { useDialog } from '@use/modal'
 import useRequest from '@use/request/index.js'
 import { useRouters } from '@use/routers'
 import { CANCEL_SUB_TYPE, SUB_STATUS } from '@const'
+import { toKMBTString } from '@/utils/string-helper'
 
 const { t: $t } = useI18n()
 const { confirm } = useModalStore()

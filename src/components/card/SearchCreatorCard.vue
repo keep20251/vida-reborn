@@ -37,7 +37,7 @@ import { computed } from 'vue'
 import Link from '@comp/common/Link.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
 import { useRouters } from '@use/routers'
-import { toKiloRoundString } from '@/utils/string-helper'
+import { toKMBTString } from '@/utils/string-helper'
 
 const { toCreator } = useRouters()
 
@@ -56,5 +56,5 @@ const props = defineProps({
   },
 })
 
-const viewCount = computed(() => toKiloRoundString(props.item?.view_count ?? 0, 1))
+const viewCount = computed(() => toKMBTString(props.item?.view_count ?? 0, 1))
 </script>

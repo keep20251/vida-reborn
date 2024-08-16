@@ -35,7 +35,7 @@
                 </div>
                 <div class="text-sm font-normal leading-3 text-gray-57">•</div>
                 <div class="text-sm font-normal leading-3 text-gray-57">
-                  {{ item?.view_count }} {{ $t('content.view') }}
+                  {{ toKMBTString(item?.view_count) }} {{ $t('content.view') }}
                 </div>
               </div>
             </div>
@@ -58,6 +58,7 @@ import Link from '@comp/common/Link.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
 import useRequest from '@use/request'
 import { useRouters } from '@use/routers'
+import { toKMBTString } from '@/utils/string-helper'
 
 const { toCreator } = useRouters()
 

@@ -21,7 +21,7 @@
           <div class="text-sm font-normal leading-3 text-gray-57">{{ creator.post_num }} {{ $t('content.posts') }}</div>
           <div class="mx-2 text-sm font-normal leading-3 text-gray-57">•</div>
           <div class="text-sm font-normal leading-3 text-gray-57">
-            {{ creator.view_count }} {{ $t('content.view') }}
+            {{ toKMBTString(creator.view_count) }} {{ $t('content.view') }}
           </div>
         </div>
       </div>
@@ -51,6 +51,7 @@ import { useSubsciptionStore } from '@/store/subscription'
 import Button from '@comp/common/Button.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
 import { useRouters } from '@use/routers'
+import { toKMBTString } from '@/utils/string-helper'
 
 const props = defineProps({
   username: { type: String, required: true },
