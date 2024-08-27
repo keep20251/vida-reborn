@@ -50,7 +50,7 @@
           class="sticky z-10 flex h-36 w-full items-center bg-gray-f6 px-20 text-base font-bold"
           :class="{ 'top-44': isMobile, 'top-52': isDesktop }"
         >
-          {{ $t('content.allPosts') }} {{ creator.post_num }}
+          {{ $t('content.allPosts') }} {{ dataExtra.total }}
         </div>
         <TagSwiper
           class="mt-20"
