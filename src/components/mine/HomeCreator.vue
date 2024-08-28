@@ -80,7 +80,11 @@ const { dataList, isLoading, noMore, noData, next, init, reload } = useInfinite(
 
 const { setNextFn, clearNextFn, setReloadFn, clearReloadFn } = useMineStore()
 
-onMounted(async () => init())
+onMounted(async () => {
+  init()
+  setNextFn(next)
+  setReloadFn(reload)
+})
 onUnmounted(() => {
   clearNextFn(next)
   clearReloadFn()
