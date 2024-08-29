@@ -76,7 +76,7 @@ const onWithdraw = async () => {
     credential.wdrlAmount.value = ''
   } catch (e) {
     alert({
-      title: 'title.publishFail',
+      title: 'info.wdrlFlr',
       content: e.message,
     })
   }
