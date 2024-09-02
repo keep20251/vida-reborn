@@ -50,7 +50,7 @@
           class="sticky z-10 flex h-36 w-full items-center bg-gray-f6 px-20 text-base font-bold"
           :class="{ 'top-44': isMobile, 'top-52': isDesktop }"
         >
-          {{ $t('content.allPosts') }} {{ dataExtra.total }}
+          {{ $t('content.allPosts') }} {{ dataExtra?.total }}
         </div>
         <TagSwiper
           class="mt-20"
@@ -128,7 +128,7 @@ import { useInfinite } from '@use/request/infinite'
 import { useRouters } from '@use/routers'
 import { useCopyToClipboard } from '@use/utils/copyToClipboard'
 import TagSwiper from '@/components/common/TagSwiper.vue'
-import { CHOICE } from '@/constant'
+import { useFeedFilter } from '@/compositions/feed/filter'
 import { ARTICLE_FILTER } from '@/constant/article'
 
 const { t: $t } = useI18n()
@@ -281,55 +281,10 @@ onHydration(() => {
   revert(creatorArticleList.value, { newParams: { uuid: creator.value.uuid } })
 })
 
-const filter = ref(ARTICLE_FILTER.ALL)
-const filterOptions = computed(() => {
-  const options = [
-    {
-      id: ARTICLE_FILTER.ALL,
-      label: $t('label.all'),
-      payload: {
-        uuid: creator.value.uuid,
-        filter_by: ARTICLE_FILTER.ALL,
-        include_my_article: CHOICE.YES,
-      },
-    },
-  ]
-  const subs =
-    creator.value?.subscription_list.map((el) => ({
-      id: el.id,
-      label: el.name,
-      payload: {
-        uuid: creator.value.uuid,
-        filter_by: ARTICLE_FILTER.ALL,
-        include_my_article: CHOICE.YES,
-        subscription_id: el.id,
-      },
-    })) ?? []
-
-  const videoOption = {
-    id: ARTICLE_FILTER.VIDEO,
-    label: $t('info.video'),
-    payload: {
-      uuid: creator.value.uuid,
-      filter_by: ARTICLE_FILTER.VIDEO,
-      include_my_article: CHOICE.YES,
-    },
-  }
-
-  const photo = {
-    id: ARTICLE_FILTER.IMAGE,
-    label: $t('info.image'),
-    payload: {
-      uuid: creator.value.uuid,
-      filter_by: ARTICLE_FILTER.IMAGE,
-      include_my_article: CHOICE.YES,
-    },
-  }
-  return options.concat(subs, [videoOption, photo])
+const subscriptions = computed(() => creator.value?.subscription_list)
+const { filter, filterOptions, onFilterChange } = useFeedFilter({
+  subscriptions,
+  uuid: creator.value?.uuid,
+  loadAction: reload,
 })
-
-function onFilterChange(id) {
-  const payload = filterOptions.value.find((el) => el.id === id).payload
-  reload({ newParams: payload })
-}
 </script>
