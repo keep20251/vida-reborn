@@ -1,3 +1,4 @@
+import { onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useLocale } from '../utils/locale'
 
@@ -10,13 +11,13 @@ export function useHistoryState(initUrl = '') {
   const route = useRoute()
   const locale = useLocale()
 
-  function replace(url = initUrl) {
-    history.push({ type: STATE_REPLACE, url: route.path })
+  function replace(url = initUrl, { onPrev = () => {} }) {
+    history.push({ type: STATE_REPLACE, url: route.path, onPrev })
     window.history.replaceState({}, '', `/${locale.value}${url}`)
   }
 
-  function push(url = initUrl) {
-    history.push({ type: STATE_PUSH, url: route.path })
+  function push(url = initUrl, { onPrev = () => {} }) {
+    history.push({ type: STATE_PUSH, url: route.path, onPrev })
     window.history.pushState({}, '', `/${locale.value}${url}`)
   }
 
@@ -26,13 +27,29 @@ export function useHistoryState(initUrl = '') {
       return
     }
 
-    const prev = history.pop()
-    if (prev.type === STATE_REPLACE) {
-      window.history.replaceState({}, '', prev.url)
+    const { type, url, onPrev } = history.pop()
+    onPrev && onPrev()
+
+    if (type === STATE_REPLACE) {
+      window.history.replaceState({}, '', url)
     } else {
       window.history.back()
     }
   }
+
+  onMounted(() => {
+    window.addEventListener('popstate', () => {
+      if (history.length > 0) {
+        const prev = history.pop()
+        prev.onPrev && prev.onPrev()
+      }
+    })
+  })
+  onUnmounted(() => {
+    window.removeEventListener('popstate', () => {
+      console.log('removeEventListener')
+    })
+  })
 
   return { push, replace, revert }
 }
