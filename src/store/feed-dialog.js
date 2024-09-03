@@ -12,16 +12,24 @@ export const useFeedDialogStore = defineStore('feed-dialog', () => {
   const _username = ref(null)
 
   const escapeKey = '__FEED_DIALOG'
-  const { push, remove } = useEscapeClose()
+  const { push: add, remove } = useEscapeClose()
 
-  const { replace, revert } = useHistoryState()
+  const backByPopState = ref(false)
+  const { push, revert } = useHistoryState()
 
   function open({ feedId, username }) {
     _id.value = feedId
     _username.value = username
     feedDialog.value = true
-    push({ key: escapeKey, target: feedDialog, fn: close })
-    replace(`/${username}/${feedId}`)
+    backByPopState.value = false
+    add({ key: escapeKey, target: feedDialog, fn: close })
+
+    push(`/${username}/${feedId}`, {
+      onPrev: () => {
+        backByPopState.value = true
+        close()
+      },
+    })
   }
 
   function close() {
@@ -30,7 +38,9 @@ export const useFeedDialogStore = defineStore('feed-dialog', () => {
     _username.value = null
     feedDialog.value = false
     remove(escapeKey)
-    revert()
+
+    // 如果是透過瀏覽器的上一頁按鈕返回，則不需要觸發 revert
+    if (!backByPopState.value) revert()
   }
 
   return {

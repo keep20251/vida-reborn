@@ -32,8 +32,17 @@
       </template>
     </SelfIntro>
     <div class="sticky top-0 z-10 flex h-36 w-full items-center bg-gray-f6 px-20 text-base font-bold">
-      {{ $t('content.allPosts') }} {{ userData.post_num }}
+      {{ $t('content.allPosts') }} {{ dataExtra?.total }}
     </div>
+    <TagSwiper
+      class="mt-20"
+      v-model="filter"
+      :items="filterOptions"
+      item-value="id"
+      item-label="label"
+      item-active="active"
+      @update:modelValue="onFilterChange"
+    ></TagSwiper>
     <div class="overflow-x-hidden">
       <List :items="dataList" item-key="id" divider>
         <template #default="{ item }">
@@ -52,7 +61,7 @@
 </template>
 
 <script setup>
-import { onActivated, onDeactivated, onMounted, onUnmounted } from 'vue'
+import { computed, onActivated, onDeactivated, onMounted, onUnmounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useFeedStore } from '@/store/feed'
@@ -65,6 +74,8 @@ import Feed from '@comp/main/Feed.vue'
 import SelfIntro from '@comp/main/SelfIntro.vue'
 import { useInfinite } from '@use/request/infinite'
 import { useCopyToClipboard } from '@use/utils/copyToClipboard'
+import { useFeedFilter } from '@/compositions/feed/filter'
+import TagSwiper from '../common/TagSwiper.vue'
 
 const { copy } = useCopyToClipboard()
 
@@ -73,9 +84,16 @@ const { open: openSubPlanDialog } = useSubPlanStore()
 const { userData } = storeToRefs(useAccountStore())
 
 const feedStore = useFeedStore()
-const { dataList, isLoading, noMore, noData, next, init, reload } = useInfinite('Article.list', {
+const { dataList, dataExtra, isLoading, noMore, noData, next, init, reload } = useInfinite('Article.list', {
   params: { uuid: userData.value?.uuid, filter_by: 0, include_my_article: 1 },
   transformer: feedStore.sync,
+})
+
+const subscriptions = computed(() => userData.value?.subscription_list)
+const { filter, filterOptions, onFilterChange } = useFeedFilter({
+  subscriptions,
+  uuid: userData.value?.uuid,
+  loadAction: reload,
 })
 
 const { setNextFn, clearNextFn, setReloadFn, clearReloadFn } = useMineStore()
