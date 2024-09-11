@@ -90,11 +90,8 @@ const { dataList, dataExtra, isLoading, noMore, noData, next, init, reload } = u
 })
 
 const subscriptions = computed(() => userData.value?.subscription_list)
-const { filter, filterOptions, onFilterChange } = useFeedFilter({
-  subscriptions,
-  uuid: userData.value?.uuid,
-  loadAction: reload,
-})
+const { filter, filterOptions, payload } = useFeedFilter({ subscriptions })
+const onFilterChange = () => reload({ newParams: { ...payload.value, uuid: userData.value?.uuid } })
 
 const { setNextFn, clearNextFn, setReloadFn, clearReloadFn } = useMineStore()
 

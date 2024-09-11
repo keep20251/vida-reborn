@@ -6,11 +6,11 @@ import { ARTICLE_FILTER } from '@/constant/article'
 /**
  * @param {Object} param0
  * @param {Ref<Array>} param0.subscriptions
- * @param {String} param0.uuid
+ * @param {Ref<String>} param0.uuidRef
  * @param {Function} param0.loadAction
  * @returns
  */
-export function useFeedFilter({ subscriptions, uuid, loadAction }) {
+export function useFeedFilter({ subscriptions }) {
   const { t: $t } = useI18n()
 
   const filter = ref(ARTICLE_FILTER.ALL)
@@ -20,7 +20,6 @@ export function useFeedFilter({ subscriptions, uuid, loadAction }) {
         id: ARTICLE_FILTER.ALL,
         label: $t('label.all'),
         payload: {
-          uuid,
           filter_by: ARTICLE_FILTER.ALL,
           include_my_article: CHOICE.YES,
         },
@@ -31,7 +30,6 @@ export function useFeedFilter({ subscriptions, uuid, loadAction }) {
         id: el.id,
         label: el.name,
         payload: {
-          uuid,
           filter_by: ARTICLE_FILTER.ALL,
           include_my_article: CHOICE.YES,
           subscription_id: el.id,
@@ -42,7 +40,6 @@ export function useFeedFilter({ subscriptions, uuid, loadAction }) {
       id: ARTICLE_FILTER.VIDEO,
       label: $t('info.video'),
       payload: {
-        uuid,
         filter_by: ARTICLE_FILTER.VIDEO,
         include_my_article: CHOICE.YES,
       },
@@ -52,7 +49,6 @@ export function useFeedFilter({ subscriptions, uuid, loadAction }) {
       id: ARTICLE_FILTER.IMAGE,
       label: $t('info.image'),
       payload: {
-        uuid,
         filter_by: ARTICLE_FILTER.IMAGE,
         include_my_article: CHOICE.YES,
       },
@@ -60,13 +56,7 @@ export function useFeedFilter({ subscriptions, uuid, loadAction }) {
     return options.concat(subs, [videoOption, photo])
   })
 
-  /**
-   * @param {Number} id
-   */
-  function onFilterChange(id) {
-    const payload = filterOptions.value.find((el) => el.id === id).payload
-    loadAction({ newParams: payload })
-  }
+  const payload = computed(() => filterOptions.value.find((el) => el.id === filter.value).payload)
 
-  return { filter, filterOptions, onFilterChange }
+  return { filter, filterOptions, payload }
 }
