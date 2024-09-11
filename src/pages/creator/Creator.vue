@@ -282,9 +282,6 @@ onHydration(() => {
 })
 
 const subscriptions = computed(() => creator.value?.subscription_list)
-const { filter, filterOptions, onFilterChange } = useFeedFilter({
-  subscriptions,
-  uuid: creator.value?.uuid,
-  loadAction: reload,
-})
+const { filter, filterOptions, payload } = useFeedFilter({ subscriptions })
+const onFilterChange = () => reload({ newParams: { ...payload.value, uuid: creator.value?.uuid } })
 </script>
