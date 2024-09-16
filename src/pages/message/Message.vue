@@ -34,10 +34,7 @@
                   <div class="text-sm text-primary">
                     {{
                       item.messages[item.messages.length - 1]
-                        ? toDateTimeString(new Date(item.messages[item.messages.length - 1].timestamp)).substring(
-                            11,
-                            16,
-                          )
+                        ? toHumanTime(item.messages[item.messages.length - 1].timestamp)
                         : ''
                     }}
                   </div>
@@ -62,6 +59,7 @@
 
 <script setup>
 import { onActivated, ref, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
@@ -74,7 +72,7 @@ import PageMessage from '@comp/layout/PageMessage.vue'
 import Room from '@comp/message/Room.vue'
 import Avatar from '@comp/multimedia/Avatar.vue'
 import { useRouters } from '@use/routers'
-import { toDateTimeString } from '@/utils/string-helper'
+import { toDateYmd, tsSecondToHumanString } from '@/utils/string-helper'
 
 const appStore = useAppStore()
 const { isDesktop } = storeToRefs(appStore)
@@ -120,5 +118,12 @@ function messageTo(user) {
     updateParams({ params: { to: user.username } })
     msgingUUID.value = user.uuid
   }
+}
+
+const { t: $t } = useI18n()
+function toHumanTime(ts) {
+  const ymd = toDateYmd(new Date(ts))
+  const hms = tsSecondToHumanString(ts / 1000, ymd)
+  return typeof hms === 'string' ? hms : $t(hms.key, hms.values)
 }
 </script>
