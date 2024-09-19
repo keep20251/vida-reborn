@@ -78,5 +78,10 @@ const isActive = ref(false)
 
 const isVideo = computed(() => props.item.resource_type === MEDIA_TYPE.VIDEO)
 const isPhoto = computed(() => props.item.resource_type === MEDIA_TYPE.IMAGE)
-const imageUrl = computed(() => (isPhoto.value ? props.item.url_detail[0].url : props.item.url_detail[1].url))
+const imageUrl = computed(() => {
+  if (isPhoto.value) return props.item.url_detail[0].url
+  if (props.item.url_detail.length > 1) return props.item.url_detail[1].url
+  console.warn('Feed is video but no video cover...using fallback image 😅')
+  return ''
+})
 </script>
