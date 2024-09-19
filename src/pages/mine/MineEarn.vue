@@ -72,7 +72,7 @@
           </div>
           <div class="flex w-4/12 flex-col space-y-10">
             <div class="text-base font-normal leading-md">{{ $t('content.periodIncome') }}</div>
-            <div class="text-lg font-bold leading-lg">${{ overallData?.total_income || 0 }}</div>
+            <div class="text-lg font-bold leading-lg">${{ overallData?.total_income_count || 0 }}</div>
           </div>
           <div class="flex w-4/12 flex-col justify-start space-y-10">
             <div class="text-base font-normal leading-md">{{ $t('content.unsubscribers') }}</div>
