@@ -8,7 +8,7 @@
       <div class="text-lg font-bold">{{ $t('info.valid') }}</div>
       <i18n-t keypath="info.totalCount" tag="div" class="text-sm text-primary">
         <template #count>
-          {{ count }}
+          {{ totalSubValid }}
         </template>
       </i18n-t>
     </div>
@@ -111,17 +111,18 @@ const pages = {
 
 const items = computed(() => pages[tab.value].infinite.dataList.value)
 const total = computed(() => pages[tab.value].infinite.dataExtra.value?.total || 0)
-const count = computed(() => pages[tab.value].infinite.dataExtra.value?.count || 0)
 const isLoading = computed(() => pages[tab.value].infinite.isLoading.value)
 const noMore = computed(() => pages[tab.value].infinite.noMore.value)
 const noData = computed(() => pages[tab.value].infinite.noData.value)
 const reload = computed(() => pages[tab.value].infinite.reload)
 
+const totalSubValid = computed(() => pages[MINE_BUY_TAB.SUBSCRIPTION].infinite.dataExtra.value?.total || 0)
+
 const itemsSubExpired = computed(() => pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED].infinite.dataList.value)
 const isLoadingSubExpired = computed(() => pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED].infinite.isLoading.value)
 const noDataSubExpired = computed(() => pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED].infinite.noData.value)
 const reloadSubExpired = computed(() => pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED].infinite.reload)
-const totalSubExpired = computed(() => pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED].infinite.dataExtra.value?.count || 0)
+const totalSubExpired = computed(() => pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED].infinite.dataExtra.value?.total || 0)
 
 const mineStore = useMineStore()
 const { setTab, clearTab, setNextFn, clearNextFn, setReloadFn, clearReloadFn } = mineStore
