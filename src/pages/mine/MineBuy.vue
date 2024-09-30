@@ -29,18 +29,18 @@
       <div class="font-bold">{{ $t('info.invalid') }}</div>
       <i18n-t keypath="info.totalCount" tag="div" class="text-sm text-primary">
         <template #count>
-          {{ totalSubExpired }}
+          {{ subExpired.dataExtra.value?.total || 0 }}
         </template>
       </i18n-t>
     </div>
     <div class="text-sm text-gray-a3">{{ $t('info.invalidInfo') }}</div>
-    <List :items="itemsSubExpired" item-key="id" divider>
+    <List :items="subExpired.dataList.value" item-key="id" divider>
       <template #default="{ item }">
-        <Subscription :item="item" @reload="pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED].infinite.reload"></Subscription>
+        <Subscription :item="item" @reload="subExpired.reload"></Subscription>
       </template>
       <template #bottom>
-        <NoData v-if="noDataSubExpired" :reload="reloadSubExpired"></NoData>
-        <div v-if="isLoadingSubExpired" class="animate-pulse-none flex flex-col space-y-10 pt-10">
+        <NoData v-if="subExpired.noData.value" :reload="subExpired.reload"></NoData>
+        <div v-if="subExpired.isLoading.value" class="animate-pulse-none flex flex-col space-y-10 pt-10">
           <div class="h-80 w-full rounded-sm bg-gray-e5"></div>
         </div>
       </template>
@@ -117,12 +117,7 @@ const noData = computed(() => pages[tab.value].infinite.noData.value)
 const reload = computed(() => pages[tab.value].infinite.reload)
 
 const totalSubValid = computed(() => pages[MINE_BUY_TAB.SUBSCRIPTION].infinite.dataExtra.value?.total || 0)
-
-const itemsSubExpired = computed(() => pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED].infinite.dataList.value)
-const isLoadingSubExpired = computed(() => pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED].infinite.isLoading.value)
-const noDataSubExpired = computed(() => pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED].infinite.noData.value)
-const reloadSubExpired = computed(() => pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED].infinite.reload)
-const totalSubExpired = computed(() => pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED].infinite.dataExtra.value?.total || 0)
+const subExpired = computed(() => pages[MINE_BUY_TAB.SUBSCRIPTION_EXPIRED].infinite)
 
 const mineStore = useMineStore()
 const { setTab, clearTab, setNextFn, clearNextFn, setReloadFn, clearReloadFn } = mineStore
