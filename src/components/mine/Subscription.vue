@@ -31,7 +31,7 @@
                 : $t('content.expiration')
           }}
         </div>
-        <div class="text-sm font-semibold leading-normal text-primary">{{ item.subscription_title }}</div>
+        <div class="text-sm font-semibold leading-normal text-primary">{{ item.subscription_name }}</div>
       </div>
       <div
         class="flex items-center justify-center"
