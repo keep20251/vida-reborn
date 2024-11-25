@@ -7,7 +7,7 @@
         :value="item[`${props.itemValue}`]"
         :label="item[`${itemLabel}`]"
         :active="modelValue === item[`${props.itemValue}`]"
-        :disabled="item[`${itemActive}`] ? !item[`${itemActive}`] : false"
+        :disabled="!item[`${itemActive}`] || false"
         @click="onTagClick(item)"
         ref="itemRefs"
       ></Tag>
