@@ -15,6 +15,7 @@ export default defineConfig({
       { text: 'icon管理', link: '/icon' },
       { text: 'docker啟用方式', link: '/docker' },
       { text: 'SSR渲染機制與組件', link: '/ssr' },
+      { text: '支付相關', link: '/payment' },
       {
         text: '組件',
         items: [
