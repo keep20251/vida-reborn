@@ -31,7 +31,7 @@
   </div>
 </template>
 <script setup>
-import { computed, onActivated, onMounted, ref } from 'vue'
+import { computed, nextTick, onActivated, onMounted, ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useHorizontalScroll } from '@/compositions/sensor/horizontal-scroll'
@@ -60,11 +60,8 @@ const scrollElement = ref(null)
 const itemRefs = ref([])
 const activeIndex = computed(() => props.items.findIndex((item) => item[`${props.itemValue}`] === modelValue.value))
 
-const { showLeft, showRight, normalizeToLeft, moveToItem, moveToLeft, moveToRight } = useHorizontalScroll(
-  outerElment,
-  scrollElement,
-  itemRefs,
-)
+const { showLeft, showRight, normalizeToLeft, moveToItem, moveToLeft, moveToRight, forceUpdateWidth } =
+  useHorizontalScroll(outerElment, scrollElement, itemRefs)
 
 onMounted(() => {
   normalizeToLeft()
@@ -74,6 +71,12 @@ onActivated(() => {
   normalizeToLeft()
   setTimeout(() => moveToItem(activeIndex.value), 500)
 })
+
+// 因為 props.items 變動時 HTMLElement 的 Ref 不會主動通知，所以需要手動更新
+watch(
+  () => props.items,
+  () => nextTick(forceUpdateWidth),
+)
 
 function onTagClick(item) {
   emit('click', item)
