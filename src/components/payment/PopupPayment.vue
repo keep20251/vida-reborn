@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col space-y-10">
     <div class="flex flex-row space-x-10">
-      <img v-if="currentPayment.img" :src="currentPayment.img" alt="" />
+      <img v-if="currentPayment.img" :src="currentPayment.img" alt="" class="h-36 w-36" />
       <div class="flex items-center text-base font-normal leading-md">{{ $t(currentPayment.title) }}</div>
     </div>
     <div class="text-xs font-medium leading-3 text-gray-57">{{ $t('payment.popup.info') }}</div>
@@ -11,6 +11,7 @@
 import { computed } from 'vue'
 import AliPayImg from '@/assets/images/payment/payway/ali-pay.png'
 import UnionPayImg from '@/assets/images/payment/payway/union-pay.png'
+import USDTImg from '@/assets/images/payment/payway/usdt.png'
 import { PAYMENT_GROUP } from '@/constant/payment'
 
 const props = defineProps({
@@ -20,6 +21,7 @@ const props = defineProps({
 const paymentMap = {
   [PAYMENT_GROUP.ALI_PAY]: { img: AliPayImg, title: 'payment.popup.ali.title' },
   [PAYMENT_GROUP.UNION_PAY]: { img: UnionPayImg, title: 'payment.popup.union.title' },
+  [PAYMENT_GROUP.USDT]: { img: USDTImg, title: 'payment.popup.usdt.title' },
   [PAYMENT_GROUP.OTHER]: { img: null, title: 'payment.popup.other.title' },
 }
 

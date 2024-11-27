@@ -11,4 +11,5 @@ export const PAYMENT_GROUP = {
   PAYPAL: 3,
   UNION_PAY: 4,
   CREDIT_CARD: 5,
+  USDT: 6,
 }
