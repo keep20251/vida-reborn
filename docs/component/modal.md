@@ -1,4 +1,4 @@
-## Modal 彈跳視窗
+# Modal 彈跳視窗
 
 1. 在 `@comp/modal/Text.vue` 中新增檔案，檔案為該視窗內容
 2. 在 `@/constant/index.js` 的 `MODAL_TYPE` 新增對應的 `key` ，範例：

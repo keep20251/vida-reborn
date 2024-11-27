@@ -36,3 +36,6 @@ public/google*.html
 
 # report files
 reports/*
+
+# docs cache
+docs/.vitepress/cache
