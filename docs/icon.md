@@ -1,6 +1,6 @@
-## Custom Icon 設定
+# Custom Icon 設定
 
-#### 引入
+## 引入
 
 1. 將SVG檔案放置於`src/assets/icons`資料夾內
 2. 在 src/constant/icon-map.js 內新增對應的icon名稱，範例：
@@ -17,7 +17,7 @@ export const iconMap = {
 }
 ```
 
-#### 使用
+## 使用
 
 目前已經將 `Icon.vue` 在 `main.js` 全域載入，所以不需要特別 import
 
