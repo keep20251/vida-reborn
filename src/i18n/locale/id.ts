@@ -590,11 +590,12 @@ export default {
   },
   payment: {
     title: 'Pilih metode pembayaran',
-    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'Kartu kredit', other: 'Lainnya' },
+    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'Kartu kredit', other: 'Lainnya', usdt: 'USDT' },
     popup: {
       ali: { title: 'Alipay terpilih' },
       union: { title: 'UnionPay terpilih' },
       other: { title: 'Lainnya terpilih' },
+      usdt: { title: 'USDT (TRC) yang dipilih' },
       info: 'Setelah pengiriman, Anda akan dialihkan untuk menyelesaikan langkah berikutnya dengan aman di halaman baru.',
     },
     error: { amountRange: "Jumlah pembayaran harus antara {'$'}{min} dan {max}" },

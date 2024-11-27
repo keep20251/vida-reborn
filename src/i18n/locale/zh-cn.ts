@@ -573,11 +573,12 @@ export default {
   },
   payment: {
     title: '选择支付方式',
-    payway: { aliPay: '支付宝', unionPay: '银联卡', creditCard: '银行卡', other: '其他' },
+    payway: { aliPay: '支付宝', unionPay: '银联卡', creditCard: '银行卡', other: '其他', usdt: 'USDT' },
     popup: {
       ali: { title: '已选择支付宝' },
       union: { title: '已选择银联卡' },
       other: { title: '已选择其他' },
+      usdt: { title: '已选择USDT(TRC)' },
       info: '提交后，您将被跳转，在新的页面安全地完成后续步骤。',
     },
     error: { amountRange: "支付金额须介于 {'$'}{min}至{max}之间" },

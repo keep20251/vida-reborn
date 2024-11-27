@@ -585,11 +585,12 @@ export default {
   },
   payment: {
     title: 'เลือกวิธีการชำระเงิน',
-    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'บัตรเครดิต', other: 'อื่น ๆ' },
+    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'บัตรเครดิต', other: 'อื่น ๆ', usdt: 'USDT' },
     popup: {
       ali: { title: 'เลือก Alipay แล้ว' },
       union: { title: 'เลือก UnionPay แล้ว' },
       other: { title: 'เลือกตัวเลือกอื่นแล้ว' },
+      usdt: { title: 'เลือก USDT (TRC)' },
       info: 'หลังจากส่งแล้ว คุณจะถูกเปลี่ยนเส้นทางไปยังหน้าที่ปลอดภัยเพื่อตรวจสอบขั้นตอนถัดไป',
     },
     error: { amountRange: "จำนวนเงินชำระต้องอยู่ระหว่าง {'$'}{min} ถึง {max}" },

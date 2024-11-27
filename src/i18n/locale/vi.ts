@@ -589,11 +589,12 @@ export default {
   },
   payment: {
     title: 'Chọn phương thức thanh toán',
-    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'Thẻ tín dụng', other: 'Khác' },
+    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'Thẻ tín dụng', other: 'Khác', usdt: 'USDT' },
     popup: {
       ali: { title: 'Đã chọn Alipay' },
       union: { title: 'Đã chọn UnionPay' },
       other: { title: 'Đã chọn khác' },
+      usdt: { title: 'Đã chọn USDT (TRC)' },
       info: 'Sau khi nộp, bạn sẽ được chuyển hướng để hoàn thành các bước tiếp theo một cách an toàn trên một trang mới.',
     },
     error: { amountRange: "Số tiền thanh toán phải nằm trong khoảng {'$'}{min} đến {max}" },

@@ -588,11 +588,12 @@ export default {
   },
   payment: {
     title: '支払い方法を選択',
-    payway: { aliPay: '支付宝', unionPay: '銀聯カード', creditCard: 'クレジットカード', other: 'その他' },
+    payway: { aliPay: '支付宝', unionPay: '銀聯カード', creditCard: 'クレジットカード', other: 'その他', usdt: 'USDT' },
     popup: {
       ali: { title: 'Alipayを選択しました' },
       union: { title: '銀聯カードを選択しました' },
       other: { title: '他のものを選択しました' },
+      usdt: { title: 'USDT(TRC)が選択されました' },
       info: '送信後、新しいページで次の手順を安全に完了するためにリダイレクトされます。',
     },
     error: { amountRange: "支払い金額は {'$'}{min} から {max} の間でなければなりません" },

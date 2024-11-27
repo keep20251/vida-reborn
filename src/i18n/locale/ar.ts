@@ -585,11 +585,12 @@ export default {
   },
   payment: {
     title: 'اختر طريقة الدفع',
-    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'بطاقة ائتمان', other: 'أخرى' },
+    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'بطاقة ائتمان', other: 'أخرى', usdt: 'USDT' },
     popup: {
       ali: { title: 'تم اختيار Alipay' },
       union: { title: 'تم اختيار UnionPay' },
       other: { title: 'تم اختيار أخرى' },
+      usdt: { title: 'تم اختيار USDT (TRC)' },
       info: 'بعد الإرسال، سيتم إعادة توجيهك لإكمال الخطوات التالية بأمان على صفحة جديدة.',
     },
     error: { amountRange: "يجب أن يكون مبلغ الدفع بين {'$'}{min} و {max}" },

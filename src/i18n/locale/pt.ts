@@ -590,11 +590,12 @@ export default {
   },
   payment: {
     title: 'Escolha um método de pagamento',
-    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'Cartão de crédito', other: 'Outro' },
+    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'Cartão de crédito', other: 'Outro', usdt: 'USDT' },
     popup: {
       ali: { title: 'Alipay selecionado' },
       union: { title: 'UnionPay selecionado' },
       other: { title: 'Outro selecionado' },
+      usdt: { title: 'USDT (TRC) selecionado' },
       info: 'Após o envio, você será redirecionado para concluir com segurança as próximas etapas em uma nova página.',
     },
     error: { amountRange: "O valor do pagamento deve estar entre {'$'}{min} e {max}" },

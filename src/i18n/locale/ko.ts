@@ -586,11 +586,12 @@ export default {
   },
   payment: {
     title: '결제 방법 선택',
-    payway: { aliPay: '알리페이', unionPay: '유니온페이', creditCard: '신용카드', other: '기타' },
+    payway: { aliPay: '알리페이', unionPay: '유니온페이', creditCard: '신용카드', other: '기타', usdt: 'USDT' },
     popup: {
       ali: { title: 'Alipay 선택됨' },
       union: { title: 'UnionPay 선택됨' },
       other: { title: '기타 선택됨' },
+      usdt: { title: 'USDT(TRC) 선택됨' },
       info: '제출 후 새 페이지에서 다음 단계를 안전하게 완료하도록 리디렉션됩니다.',
     },
     error: { amountRange: "결제 금액은 {'$'}{min} 에서 {max} 사이여야 합니다" },

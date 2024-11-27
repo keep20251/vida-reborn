@@ -596,11 +596,12 @@ export default {
   },
   payment: {
     title: 'Выберите способ оплаты',
-    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'Кредитная карта', other: 'Другие' },
+    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'Кредитная карта', other: 'Другие', usdt: 'USDT' },
     popup: {
       ali: { title: 'Выбрано Alipay' },
       union: { title: 'Выбрано UnionPay' },
       other: { title: 'Выбрано другое' },
+      usdt: { title: 'Выбран USDT (TRC)' },
       info: 'После отправки вы будете перенаправлены на новую страницу для безопасного выполнения следующих шагов.',
     },
     error: { amountRange: "Сумма платежа должна быть между {'$'}{min} и {max}" },

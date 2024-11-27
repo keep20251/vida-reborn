@@ -575,11 +575,12 @@ export default {
   category: { 1: '', 2: '', 3: '', 4: '', 5: '', 6: '', 7: '', 8: '', 9: '', 10: '', 11: '' },
   payment: {
     title: 'भुगतान विधि चुनें',
-    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'क्रेडिट कार्ड', other: 'अन्य' },
+    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'क्रेडिट कार्ड', other: 'अन्य', usdt: 'USDT' },
     popup: {
       ali: { title: 'Alipay चयनित' },
       union: { title: 'UnionPay चयनित' },
       other: { title: 'अन्य चयनित' },
+      usdt: { title: 'चुना गया USDT (TRC)' },
       info: 'सबमिशन के बाद, आपको नए पेज पर सुरक्षित रूप से अगले चरणों को पूरा करने के लिए रीडायरेक्ट कर दिया जाएगा।',
     },
     error: { amountRange: "भुगतान राशि {'$'}{min} और {max} के बीच होनी चाहिए" },

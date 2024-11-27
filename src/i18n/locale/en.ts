@@ -590,11 +590,12 @@ export default {
   },
   payment: {
     title: 'Choose a payment method',
-    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'Credit Card', other: 'Other' },
+    payway: { aliPay: 'Alipay', unionPay: 'UnionPay', creditCard: 'Credit Card', other: 'Other', usdt: 'USDT' },
     popup: {
       ali: { title: 'Alipay selected' },
       union: { title: 'UnionPay selected' },
       other: { title: 'Other selected' },
+      usdt: { title: 'Selected USDT (TRC)' },
       info: 'After submission, you will be redirected to securely complete the next steps on a new page.',
     },
     error: { amountRange: "Payment amount must be between {'$'}{min} and {max}" },
