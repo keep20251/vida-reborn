@@ -58,7 +58,6 @@
           :items="filterOptions"
           item-value="id"
           item-label="label"
-          item-active="active"
           @update:modelValue="onFilterChange"
         ></TagSwiper>
         <List :items="items" item-key="id" divider>
