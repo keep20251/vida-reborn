@@ -1,0 +1,66 @@
+<script setup>
+import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import InputRadio from '../form/InputRadio.vue'
+import InputWrap from '../form/InputWrap.vue'
+
+const { t: $t } = useI18n()
+
+const props = defineProps({
+  modelValue: { type: Number, required: true },
+  options: { type: Array, required: true },
+  label: { type: String, required: true },
+})
+
+const emits = defineEmits(['update:modelValue'])
+
+const modelValue = computed({
+  get: () => props.modelValue,
+  set: (value) => emits('update:modelValue', parseInt(value, 10)),
+})
+
+const _options = computed(() => [...props.options, { label: $t('info.customDays'), type: 'custom', value: 0 }])
+
+function initType() {
+  const values = props.options.map((option) => option.value)
+  return values.includes(props.modelValue) ? '' : 'custom'
+}
+
+const type = ref(initType())
+const setType = (v) => (type.value = v)
+</script>
+<template>
+  <div class="grid space-y-10">
+    <label class="text-left text-base font-normal not-italic leading-md">{{ label }}</label>
+    <div class="flex flex-wrap space-y-5">
+      <template v-for="(option, index) in _options" :key="index">
+        <InputRadio
+          v-if="option.type !== 'custom'"
+          v-model="modelValue"
+          :id="`radio-${index}`"
+          :label="option.label"
+          :value="option.value"
+          name="radio"
+          class="mr-30"
+          @click="() => setType(option.type)"
+        />
+        <div v-else class="flex items-center">
+          <InputRadio
+            v-model="type"
+            :label="$t('info.customDays')"
+            :value="option.type"
+            :id="`radio-${index}`"
+            name="radio"
+          />
+          <InputWrap
+            v-if="type === option.type"
+            v-model="modelValue"
+            :placeholder="$t('yup.number.value')"
+            class="ml-10"
+            number
+          ></InputWrap>
+        </div>
+      </template>
+    </div>
+  </div>
+</template>

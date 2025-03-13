@@ -26,13 +26,31 @@ export const useSubPlanStore = defineStore('subPlan', () => {
   const subPlanComponent = computed(() => routes.find((route) => route.value === now.value).component)
 
   const subList = computed(() => {
-    return isCreator.value ? userData.value.subscription_list : ''
+    return isCreator.value ? userData.value.subscription_list : []
   })
 
   const addSubPlan = ref(false)
-  const data = ref('')
-  const index = ref('')
-  const lastIndex = ref(null)
+  const lastIndex = ref(0)
+
+  const _initItemValue = {
+    id: 0,
+    name: '',
+    content: '',
+    price: 0,
+    unlock_day_after_subscribe: 30,
+    expire_days: 30,
+    picture: '',
+    status: 0,
+  }
+  const currentSubList = ref([])
+  const currentIndex = ref(0)
+
+  const currentSubItem = ref(_initItemValue)
+  const setCurrentSubItem = (subItem) => {
+    console.log(`setCurrentSubItem`, subItem)
+    currentSubItem.value = subItem
+  }
+  const clearCurrentSubItem = () => setCurrentSubItem(_initItemValue)
 
   const subPlanName = ref('') // 必傳
   const subPlanContent = ref('')
@@ -42,8 +60,8 @@ export const useSubPlanStore = defineStore('subPlan', () => {
   const status = ref('')
 
   const subPicture = ref('')
-  const uploadFiles = ref([])
-  const selDefaultItem = ref(appConfig.subscription_images[0])
+  const uploadFiles = ref([]) // 上傳的檔案，編輯時是封面圖
+  const selDefaultItem = ref(appConfig.subscription_images[0]) // 預設封面，初始用第一張，編輯時用目前的封面
   const selUploadItem = ref(null)
 
   function to(value) {
@@ -102,8 +120,8 @@ export const useSubPlanStore = defineStore('subPlan', () => {
     close,
     open,
     addSubPlan,
-    data,
-    index,
+    currentSubList,
+    currentIndex,
     subList,
     lastIndex,
     status,
@@ -120,5 +138,9 @@ export const useSubPlanStore = defineStore('subPlan', () => {
     subscriptions: readonly(_subscriptions),
     activeSubscription,
     openDetail,
+
+    currentSubItem: readonly(currentSubItem),
+    setCurrentSubItem,
+    clearCurrentSubItem,
   }
 })
