@@ -86,7 +86,8 @@ import { SUBSCRIPTION_ARTICLE_TYPE } from '@/constant'
 
 const { isDesktop } = storeToRefs(useAppStore())
 
-const { close, back } = useSubPlanStore()
+const subPlanStore = useSubPlanStore()
+const { close, back } = subPlanStore
 const showBack = computed(() => history.value.length > 0)
-const { history, index: i, subList, activeSubscription, subscriptions } = storeToRefs(useSubPlanStore())
+const { history, subList, activeSubscription, subscriptions } = storeToRefs(subPlanStore)
 </script>

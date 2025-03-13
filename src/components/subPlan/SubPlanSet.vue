@@ -109,6 +109,7 @@
           step
           @keyup="priceValidate"
         ></InputWrap>
+        <RegionSelector v-model="effectDays" :options="effectDayOptions" :label="$t('label.daySet')" />
         <div class="flex w-full justify-end">
           <span class="cursor-pointer text-base text-primary" @click="toggleAdvanced">
             {{ $t('common.advancedOption') }}
@@ -122,72 +123,25 @@
           leave-from-class="transform translate-y-0 scale-y-100"
           leave-to-class="transform -translate-y-50 scale-y-0"
         >
-          <div v-show="showAdvanced" class="grid space-y-10">
-            <label class="text-left text-base font-normal not-italic leading-md">{{
-              $t('content.subUnlockDayAfter')
-            }}</label>
-            <div class="flex flex-wrap space-y-5">
-              <InputRadio
-                v-model="radioValue"
-                id="radioOption4"
-                :label="$t('info.allDays')"
-                :value="1000"
-                name="radio"
-                class="mr-30"
-              />
-              <InputRadio
-                v-model="radioValue"
-                id="radioOption1"
-                :label="$t('info.within30days')"
-                :value="30"
-                name="radio"
-                class="mr-30"
-              />
-              <InputRadio
-                v-model="radioValue"
-                id="radioOption2"
-                :label="$t('info.within90days')"
-                :value="90"
-                name="radio"
-                class="mr-30"
-              />
-              <InputRadio
-                v-model="radioValue"
-                id="radioOption3"
-                :label="$t('info.within360days')"
-                :value="360"
-                name="radio"
-                class="mr-30"
-              />
-              <div class="flex items-center">
-                <InputRadio
-                  v-model="radioValue"
-                  id="radioOption5"
-                  :label="$t('info.customDays')"
-                  :value="'custom'"
-                  name="radio"
-                /><InputWrap
-                  v-if="radioValue === 'custom'"
-                  :placeholder="$t('yup.number.value')"
-                  v-model="customValue"
-                  class="ml-10"
-                  number
-                ></InputWrap>
-              </div>
-            </div>
+          <div v-show="showAdvanced">
+            <RegionSelector
+              v-model="unlockPrevFeedDays"
+              :options="unlockPrevOptions"
+              :label="$t('content.subUnlockDayAfter')"
+            />
           </div>
         </transition>
       </div>
     </div>
-    <div class="px-25 py-30">
-      <Button @click="onSubmit" size="lg">{{ addSubPlan ? $t('label.submit') : $t('common.save') }}</Button>
+    <div class="flex flex-col space-y-10 px-25 py-30">
       <div v-if="!!serverError" class="text-sm font-normal leading-md text-warning">{{ serverError }}</div>
+      <Button @click="onSubmit" size="lg">{{ addSubPlan ? $t('label.submit') : $t('common.save') }}</Button>
     </div>
   </div>
 </template>
 
 <script setup>
-import { computed, nextTick, onMounted, reactive, ref, watch } from 'vue'
+import { computed, nextTick, onActivated, onDeactivated, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
@@ -198,7 +152,6 @@ import { usePopupMessageStore } from '@/store/popup-message'
 import { usePublishStore } from '@/store/publish'
 import { useSubPlanStore } from '@/store/sub-plan'
 import Button from '@comp/common/Button.vue'
-import InputRadio from '@comp/form/InputRadio.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
 import TextareaWrap from '@comp/form/TextareaWrap.vue'
 import useRequest from '@use/request'
@@ -206,6 +159,9 @@ import { useYup } from '@use/validator/yup'
 import { SUB_PLAN_STATUS } from '@const'
 import { IMAGE_LIMIT_COUNT } from '@const/publish'
 import uploadImage from '@/http/upload/uploadImage'
+import RegionSelector from './RegionSelector.vue'
+
+const { t: $t } = useI18n()
 
 const scrollRef = ref(null)
 
@@ -221,26 +177,42 @@ const publishStore = usePublishStore()
 const { isEditing } = storeToRefs(publishStore)
 
 const serverError = ref('')
-const radioValue = ref(0)
-const customValue = ref(0)
-const subUnlockDayAfterValue = computed(() => {
-  if (radioValue.value === 'custom' && customValue.value !== 0) {
-    return parseInt(customValue.value)
-  } else {
-    return radioValue.value
-  }
+
+const unlockPrevOptions = [
+  { label: $t('info.allDays'), type: '', value: 1000 },
+  { label: $t('info.within30days'), type: '', value: 30 },
+  { label: $t('info.within90days'), type: '', value: 90 },
+  { label: $t('info.within360days'), type: '', value: 360 },
+]
+const unlockPrevFeedDays = ref(0)
+watch(unlockPrevFeedDays, (v) => {
+  const i18nKey = v > 1000 ? 'yup.number.max' : v <= 0 ? 'yup.number.positive' : ''
+  const i18nValue = v > 1000 ? { max: 1000 } : v <= 0 ? {} : {}
+  serverError.value = i18nKey ? $t(i18nKey, i18nValue) : ''
 })
 
-const { t: $t } = useI18n()
+const effectDayOptions = [
+  { label: $t('info.number30days'), type: '', value: 30 },
+  { label: $t('info.number60days'), type: '', value: 60 },
+  { label: $t('info.number90days'), type: '', value: 90 },
+]
+const effectDays = ref(0)
+watch(effectDays, (v) => {
+  const i18nKey = v <= 0 ? 'yup.number.positive' : v < 30 ? 'yup.number.min' : v > 365 ? 'yup.number.max' : ''
+  const i18nValue = v <= 0 ? {} : v < 30 ? { min: 30 } : v > 365 ? { max: 365 } : {}
+  serverError.value = i18nKey ? $t(i18nKey, i18nValue) : ''
+})
+
 const { Yup, validate } = useYup()
 const subPlanStore = useSubPlanStore()
 const { alert, confirm } = useModalStore()
 const { open: openMessage } = usePopupMessageStore()
-const { back, close } = subPlanStore
+const { back, close, clearCurrentSubItem } = subPlanStore
 const {
   history,
-  data,
-  index,
+  // currentSubList,
+  // currentIndex,
+  currentSubItem,
   status,
   subList,
   addSubPlan,
@@ -254,19 +226,19 @@ const {
 
 const credential = reactive({
   subPlanName: {
-    value: data.value[index.value]?.name || '',
+    value: currentSubItem.value?.name || '',
     error: '',
     check: false,
     schema: Yup.string().required().max(32),
   },
   subPlanContent: {
-    value: data.value[index.value]?.content || '',
+    value: currentSubItem.value?.content || '',
     error: '',
     check: false,
     schema: Yup.string().required().max(300),
   },
   subPlanPrice: {
-    value: data.value[index.value]?.price || 0,
+    value: currentSubItem.value?.price || 0,
     error: '',
     check: false,
     schema: Yup.number()
@@ -290,105 +262,108 @@ async function priceValidate() {
   }
 }
 
-onMounted(() => {
-  credential.subPlanName.value = data.value[index.value]?.name
-  credential.subPlanContent.value = data.value[index.value]?.content
-  credential.subPlanPrice.value = data.value[index.value]?.price
-  subUnlockDayAfter.value = data.value[index.value]?.unlock_day_after_subscribe
-  subId.value = data.value[index.value]?.id
-  subPicture.value = data.value[index.value]?.picture
-  status.value = data.value[index.value]?.status
+onActivated(() => {
+  console.log(`[DEBUG] SubPlanSet mounted`, currentSubItem.value)
+
+  credential.subPlanName.value = currentSubItem.value.name
+  credential.subPlanContent.value = currentSubItem.value.content
+  credential.subPlanPrice.value = currentSubItem.value.price
+
+  subUnlockDayAfter.value = currentSubItem.value.unlock_day_after_subscribe
+  unlockPrevFeedDays.value = currentSubItem.value.unlock_day_after_subscribe
+
+  effectDays.value = currentSubItem.value.expire_days
+
+  subId.value = currentSubItem.value.id
+  subPicture.value = currentSubItem.value.picture
+  selUploadItem.value = currentSubItem.value.picture
+  selDefaultItem.value = currentSubItem.value.picture
+  status.value = currentSubItem.value.status
+
+  subPicture.value && uploadFiles.value.push({ result: subPicture.value, progress: 1 })
 })
 
-// 重新進入任一設定頁，會監聽數據是否改變了
-watch(index, (newIndex) => {
-  if (newIndex !== null && data.value[newIndex]) {
-    credential.subPlanName.value = data.value[newIndex].name
-    credential.subPlanContent.value = data.value[newIndex].content
-    credential.subPlanPrice.value = data.value[newIndex].price
-    subPicture.value = data.value[newIndex]?.picture
-    selUploadItem.value = data.value[newIndex]?.picture
-    status.value = data.value[newIndex]?.status
-    subId.value = data.value[index.value]?.id
-    resetFormError('subPlanName', 'subPlanContent', 'subPlanPrice')
-    serverError.value = ''
-  }
-  if (newIndex !== null && subList.value[newIndex]) {
-    subId.value = subList.value[newIndex].id
-    subUnlockDayAfter.value = subList.value[newIndex].unlock_day_after_subscribe
-  }
-  if (![30, 90, 360].includes(subUnlockDayAfter.value)) {
-    radioValue.value = 'custom'
-    customValue.value = subUnlockDayAfter.value
-  } else {
-    radioValue.value = subUnlockDayAfter.value
-    customValue.value = 0
-  }
+onDeactivated(() => {
+  console.log(`[DEBUG] SubPlanSet unmounted`)
+  clearError()
+  resetAllData()
+  showAdvanced.value = false
 })
 
-watch(subUnlockDayAfter, (newSubUnlockDayAfter) => {
-  if (![30, 90, 360].includes(newSubUnlockDayAfter)) {
-    if (addSubPlan.value) {
-      radioValue.value = 1000
-    } else {
-      radioValue.value = 'custom'
-      customValue.value = newSubUnlockDayAfter
-    }
-  } else {
-    radioValue.value = newSubUnlockDayAfter
-    customValue.value = 0
-  }
-})
-
-watch(addSubPlan, (newAddSubPlan) => {
-  if (newAddSubPlan) {
-    uploadFiles.value = []
-    selUploadItem.value = null
-    selDefaultItem.value = appConfig.subscription_images[0]
-    resetForm('subPlanName', 'subPlanContent', 'subPlanPrice')
-    subUnlockDayAfter.value = ''
-    subPicture.value = ''
-  } else {
-    credential.subPlanName.value = data.value[index.value].name
-    credential.subPlanContent.value = data.value[index.value].content
-    credential.subPlanPrice.value = data.value[index.value].price
-    selDefaultItem.value = null
-    selUploadItem.value = data.value[index.value].picture
-  }
+function clearError() {
   resetFormError('subPlanName', 'subPlanContent', 'subPlanPrice')
   serverError.value = ''
-})
+}
 
-watch(subPicture, (newSubPicture) => {
-  if (!addSubPlan.value && newSubPicture) {
-    selDefaultItem.value = null
-    selUploadItem.value = newSubPicture
-    uploadFiles.value = []
-    uploadFiles.value.push({ result: newSubPicture, progress: 1 })
-  }
-})
+function resetAllData() {
+  clearCurrentSubItem()
+  uploadFiles.value = []
+  selUploadItem.value = null
+  selDefaultItem.value = appConfig.subscription_images[0]
+  resetForm('subPlanName', 'subPlanContent', 'subPlanPrice')
+  subUnlockDayAfter.value = ''
+  subPicture.value = ''
+  status.value = SUB_PLAN_STATUS.ENABLE
+}
 
-watch(subList, (newSubList) => {
-  if (newSubList && data.value.length > 0 && data.value.length !== index.value) {
-    credential.subPlanName.value = newSubList[index.value].name
-    credential.subPlanContent.value = newSubList[index.value].content
-    credential.subPlanPrice.value = newSubList[index.value].price
-    subUnlockDayAfter.value = newSubList[index.value].unlock_day_after_subscribe
-    subPicture.value = newSubList[index.value].picture
-    selUploadItem.value = subPicture.value
-    subId.value = newSubList[index.value].id
-  }
-})
+// 重新進入任一設定頁，會監聽數據是否改變了
+// watch(currentIndex, (newIndex) => {
+//   if (newIndex !== null && currentSubList.value[newIndex]) {
+//     credential.subPlanName.value = currentSubList.value[newIndex].name
+//     credential.subPlanContent.value = currentSubList.value[newIndex].content
+//     credential.subPlanPrice.value = currentSubList.value[newIndex].price
+//     subPicture.value = currentSubList.value[newIndex]?.picture
+//     selUploadItem.value = currentSubList.value[newIndex]?.picture
+//     status.value = currentSubList.value[newIndex]?.status
+//     subId.value = currentSubItem.value?.id
+//     resetFormError('subPlanName', 'subPlanContent', 'subPlanPrice')
+//     serverError.value = ''
+//   }
+//   if (newIndex !== null && subList.value[newIndex]) {
+//     subId.value = subList.value[newIndex].id
+//     subUnlockDayAfter.value = subList.value[newIndex].unlock_day_after_subscribe
+//   }
+// })
 
-watch(customValue, (v) => {
-  if (v > 999) {
-    serverError.value = $t('yup.number.max', { max: 999 })
-  } else if (v <= 0) {
-    serverError.value = $t('yup.number.positive')
-  } else {
-    serverError.value = ''
-  }
-})
+// watch(addSubPlan, (newAddSubPlan) => {
+//   if (newAddSubPlan) {
+//     uploadFiles.value = []
+//     selUploadItem.value = null
+//     selDefaultItem.value = appConfig.subscription_images[0]
+//     resetForm('subPlanName', 'subPlanContent', 'subPlanPrice')
+//     subUnlockDayAfter.value = ''
+//     subPicture.value = ''
+//   } else {
+//     credential.subPlanName.value = currentSubItem.value.name
+//     credential.subPlanContent.value = currentSubItem.value.content
+//     credential.subPlanPrice.value = currentSubItem.value.price
+//     selDefaultItem.value = null
+//     selUploadItem.value = currentSubItem.value.picture
+//   }
+//   resetFormError('subPlanName', 'subPlanContent', 'subPlanPrice')
+//   serverError.value = ''
+// })
+
+// watch(subPicture, (newSubPicture) => {
+//   if (!addSubPlan.value && newSubPicture) {
+//     selDefaultItem.value = null
+//     selUploadItem.value = newSubPicture
+//     uploadFiles.value = []
+//     uploadFiles.value.push({ result: newSubPicture, progress: 1 })
+//   }
+// })
+
+// watch(subList, (newSubList) => {
+//   if (newSubList && currentSubList.value.length > 0 && currentSubList.value.length !== currentIndex.value) {
+//     credential.subPlanName.value = newSubList[currentIndex.value].name
+//     credential.subPlanContent.value = newSubList[currentIndex.value].content
+//     credential.subPlanPrice.value = newSubList[currentIndex.value].price
+//     subUnlockDayAfter.value = newSubList[currentIndex.value].unlock_day_after_subscribe
+//     subPicture.value = newSubList[currentIndex.value].picture
+//     selUploadItem.value = subPicture.value
+//     subId.value = newSubList[currentIndex.value].id
+//   }
+// })
 
 const selDefaultImg = (item) => {
   selDefaultItem.value = item
@@ -432,25 +407,22 @@ const handleFileUpload = async (event) => {
     }
   }
 }
-const removeUploadFile = (index) => {
-  uploadFiles.value.splice(index, 1)
-}
+const removeUploadFile = (index) => uploadFiles.value.splice(index, 1)
+
 function onDelete() {
   confirm({
     size: 'sm',
     title: 'beCreator.title.reConfirm',
     content: $t('content.delSubPlan'),
-    confirmAction: () => {
-      delSubPlan()
-    },
+    confirmAction: deleteSubPlan,
   })
 }
-const delSubPlan = async () => {
+const deleteSubPlan = async () => {
   const { execute: subPlanDel } = useRequest('Subscription.bulkDel')
   try {
     await subPlanDel({ ids: subId.value })
-    data.value = data.value.filter((item) => item.id !== subId.value)
-    updateUserData({ subscription_list: data.value })
+    subList.value = subList.value.filter((item) => item.id !== subId.value)
+    updateUserData({ subscription_list: subList.value })
     back()
     openMessage('title.delSuccess')
     serverError.value = ''
@@ -518,25 +490,21 @@ const onSubmit = async () => {
 }
 
 function makeReqData() {
-  const data = {
+  const payload = {
     name: credential.subPlanName.value,
     content: credential.subPlanContent.value,
     price: credential.subPlanPrice.value,
-    unlock_day_after_subscribe: subUnlockDayAfterValue.value,
-  }
-  if (subId.value) {
-    data.id = subId.value
-  }
-  if (selDefaultItem.value || selUploadItem.value) {
-    data.picture = selDefaultItem.value || selUploadItem.value
-  }
-  if (status.value === SUB_PLAN_STATUS.DISABLE) {
-    data.status = SUB_PLAN_STATUS.DISABLE
-  } else if (status.value === SUB_PLAN_STATUS.ENABLE) {
-    data.status = SUB_PLAN_STATUS.ENABLE
+    unlock_day_after_subscribe: unlockPrevFeedDays.value,
+    expire_days: effectDays.value,
+    status: status.value,
   }
 
-  return data
+  subId.value && (payload.id = subId.value)
+
+  const picture = selDefaultItem.value || selUploadItem.value
+  picture && (payload.picture = picture)
+
+  return payload
 }
 
 const resetForm = (...keys) => {

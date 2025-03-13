@@ -48,10 +48,10 @@
               edit-mode
               subscript-btn
               show-contain
-              @move:up="toUp(subList, index)"
-              @move:down="toDown(subList, index)"
-              @edit="subPlanEdit(subList, index)"
-              @delete="onDelete(subList, index)"
+              @move:up="toUp(index)"
+              @move:down="toDown(index)"
+              @edit="subPlanEdit(item)"
+              @delete="onDelete(item)"
               @click:contain="onContainClicked"
             ></SubscribeCard>
           </template>
@@ -62,7 +62,7 @@
 </template>
 <script setup>
 import debounce from 'lodash/debounce'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
@@ -78,10 +78,12 @@ const { open: openMessage } = usePopupMessageStore()
 const { confirm } = useModalStore()
 const { appConfig } = useAppStore()
 const { isDesktop } = storeToRefs(useAppStore())
-const { to, close, openDetail } = useSubPlanStore()
+
+const subPlanStore = useSubPlanStore()
+const { to, close, openDetail, setCurrentSubItem } = subPlanStore
+
 const {
-  data,
-  index: i,
+  currentSubItem,
   subList,
   lastIndex,
   addSubPlan,
@@ -91,7 +93,9 @@ const {
   subUnlockDayAfter,
   uploadFiles,
   selDefaultItem,
-} = storeToRefs(useSubPlanStore())
+} = storeToRefs(subPlanStore)
+
+onMounted(() => console.log(`subList:`, subList.value))
 
 const editTrigger = ref(false)
 const closeEdit = () => (editTrigger.value = !editTrigger.value)
@@ -106,43 +110,52 @@ function subPlanAdd() {
   selDefaultItem.value = appConfig.subscription_images[0]
 }
 
-function subPlanEdit(d, index) {
+function subPlanEdit(subItem) {
+  console.log(`subItem:`, subItem)
+
   to(SUB_PLAN.SET)
   addSubPlan.value = false
-  data.value = d
-  i.value = index
-  if (lastIndex.value !== null && lastIndex.value === index) {
-    uploadFiles.value = [{ result: data.value[i.value].picture, progress: 1 }]
-    subPlanName.value = data.value[i.value].name
-    subPlanContent.value = data.value[i.value].content
-    subPlanPrice.value = data.value[i.value].price
-    subUnlockDayAfter.value = data.value[i.value].unlock_day_after_subscribe
-  }
-  lastIndex.value = index
+  setCurrentSubItem(subItem)
+
+  // if (lastIndex.value !== null && lastIndex.value === index) {
+  //   uploadFiles.value = [{ result: currentSubItem.value.picture, progress: 1 }]
+  //   subPlanName.value = currentSubItem.value.name
+  //   subPlanContent.value = currentSubItem.value.content
+  //   subPlanPrice.value = currentSubItem.value.price
+  //   subUnlockDayAfter.value = currentSubItem.value.unlock_day_after_subscribe
+  // }
+  // lastIndex.value = index
 }
 
-const toUp = debounce((subList, index) => {
+/**
+ * Move the subscription up or down
+ * @param params
+ * @param params.subList {Array} - Subscription List
+ * @param params.index {Number} - Index of the Subscription List
+ * @param params.direction {String} - Direction of the move, 'up' or 'down'
+ */
+function resort({ list, index, direction }) {
+  const temp = list[index]
+  const spliceIndex = direction === 'up' ? index - 1 : index + 1
+  list.splice(index, 1)
+  list.splice(spliceIndex, 0, temp)
+
+  const id = list[index].id
+  updateSort(id, direction)
+}
+
+const toUp = debounce((index) => {
   if (index > 0) {
-    const temp = subList[index]
-    const toUpId = subList[index].id
-    subList.splice(index, 1)
-    subList.splice(index - 1, 0, temp)
-    updateSort(toUpId, 'up')
+    resort({ list: subList.value, index, direction: 'up' })
     openMessage('common.editSubscription.moveUp')
   } else {
     openMessage('info.firstItem')
   }
 })
 
-const toDown = debounce((subList, index) => {
-  if (index < subList.length - 1) {
-    const temp = subList[index]
-    const toDownId = subList[index].id
-    subList.splice(index, 1)
-    subList.splice(index + 1, 0, temp)
-    updateSort(toDownId, 'down')
-    console.log(subList)
-
+const toDown = debounce((index) => {
+  if (index < subList.value.length - 1) {
+    resort({ list: subList.value, index, direction: 'down' })
     openMessage('common.editSubscription.moveDown')
   } else {
     openMessage('info.lastItem')
@@ -150,28 +163,28 @@ const toDown = debounce((subList, index) => {
 })
 
 const updateSort = async (id, direction) => {
-  const { execute: changeSort } = useRequest('Subscription.updateSort')
   try {
-    const data = { id, sort: direction }
-    console.log('data:', data)
+    const { execute: changeSort } = useRequest('Subscription.updateSort')
     await changeSort({ id, sort: direction })
   } catch (e) {
     console.error(e)
   }
 }
 
-const onDelete = (subList, index) => {
+const onDelete = (subItem) => {
   confirm({
     size: 'sm',
     title: 'beCreator.title.reConfirm',
     content: $t('content.delSubPlan'),
-    confirmAction: () => delSubPlan(subList, index),
+    confirmAction: () => delSubPlan(subItem),
   })
 }
-const delSubPlan = async (subList, index) => {
-  const { execute: subPlanDel } = useRequest('Subscription.bulkDel')
+const delSubPlan = async (subItem) => {
   try {
-    await subPlanDel({ ids: subList[index].id })
+    const { execute: subPlanDel } = useRequest('Subscription.bulkDel')
+    await subPlanDel({ ids: subItem.id })
+
+    const index = subList.value.findIndex((item) => item.id === subItem.id)
     subList.splice(index, 1)
     openMessage('title.delSuccess')
   } catch (e) {
