@@ -187,6 +187,7 @@ export default {
     hoursAgo: '{hours} giờ trước',
     yesterday: 'hôm qua',
     goToSet: 'Đi đến cài đặt',
+    daySet: 'Ngày đăng ký',
   },
   placeholder: {
     account: 'Vui lòng nhập tên người dùng',
@@ -347,6 +348,9 @@ export default {
     within360days: 'Trong vòng 360 ngày',
     allDays: 'Tất cả các ngày',
     customDays: 'Ngày tùy chỉnh',
+    number30days: '30 Ngày',
+    number60days: '60 Ngày',
+    number90days: '90 Ngày',
     invalidCard: 'Không hợp lệ',
     publishTagNameLess: 'Thẻ quá ngắn',
     publishTagNameMore: 'Tên thẻ phải có tối đa 20 ký tự',

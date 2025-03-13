@@ -192,6 +192,7 @@ export default {
     hoursAgo: '{hours} часов назад',
     yesterday: 'вчера',
     goToSet: 'Перейти к настройкам',
+    daySet: 'Дни подписки',
   },
   placeholder: {
     account: 'Пожалуйста, введите имя пользователя',
@@ -353,6 +354,9 @@ export default {
     within360days: 'В пределах 360 дней',
     allDays: 'Все дни',
     customDays: 'Пользовательские дни',
+    number30days: '30 Дней',
+    number60days: '60 Дней',
+    number90days: '90 Дней',
     invalidCard: 'Недействительный',
     publishTagNameLess: 'Тег слишком короткий',
     publishTagNameMore: 'Имя тега должно быть не более 20 символов',

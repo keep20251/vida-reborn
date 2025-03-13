@@ -187,6 +187,7 @@ export default {
     hoursAgo: '{hours} 小時前',
     yesterday: '昨天',
     goToSet: '前往設置',
+    daySet: '訂閱天數',
   },
   placeholder: {
     account: '請輸入用戶名',
@@ -338,6 +339,9 @@ export default {
     within360days: '360天以內',
     allDays: '所有天數',
     customDays: '自訂天數',
+    number30days: '30天',
+    number60days: '60天',
+    number90days: '90天',
     invalidCard: '已失效',
     publishTagNameLess: '標籤過短',
     publishTagNameMore: '標籤長度需在10個字以內',

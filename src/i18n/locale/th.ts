@@ -187,6 +187,7 @@ export default {
     hoursAgo: '{hours} ชั่วโมงที่แล้ว',
     yesterday: 'เมื่อวาน',
     goToSet: 'ไปที่การตั้งค่า',
+    daySet: 'วันสมัครสมาชิก',
   },
   placeholder: {
     account: 'กรุณาใส่ชื่อผู้ใช้',
@@ -346,6 +347,9 @@ export default {
     within360days: 'ภายใน 360 วัน',
     allDays: 'ทุกวัน',
     customDays: 'กำหนดวันเอง',
+    number30days: '30 วัน',
+    number60days: '60 วัน',
+    number90days: '90 วัน',
     invalidCard: 'ไม่ถูกต้อง',
     publishTagNameLess: 'แท็กสั้นเกินไป',
     publishTagNameMore: 'ชื่อแท็กต้องไม่เกิน 20 ตัวอักษร',

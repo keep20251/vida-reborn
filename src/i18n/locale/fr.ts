@@ -192,6 +192,7 @@ export default {
     hoursAgo: 'il y a {hours} heures',
     yesterday: 'hier',
     goToSet: 'Aller aux réglages',
+    daySet: "Jours d'abonnement",
   },
   placeholder: {
     account: 'Veuillez entrer le nom d’utilisateur',
@@ -353,6 +354,9 @@ export default {
     within360days: 'Dans les 360 jours',
     allDays: 'Tous les jours',
     customDays: 'Jours personnalisés',
+    number30days: '30 Jours',
+    number60days: '60 Jours',
+    number90days: '90 Jours',
     invalidCard: 'Invalide',
     publishTagNameLess: 'Étiquette trop courte',
     publishTagNameMore: "La longueur de l'étiquette doit être de 20 caractères maximum",

@@ -187,6 +187,7 @@ export default {
     hoursAgo: '{hours} hours ago',
     yesterday: 'yesterday',
     goToSet: 'Go to settings',
+    daySet: 'Subscription Days',
   },
   placeholder: {
     account: 'Please enter username',
@@ -348,6 +349,9 @@ export default {
     within360days: 'Within 360 days',
     allDays: 'All days',
     customDays: 'Custom days',
+    number30days: '30 Days',
+    number60days: '60 Days',
+    number90days: '90 Days',
     invalidCard: 'Invalid',
     publishTagNameLess: 'Tag too short',
     publishTagNameMore: 'Tag name must be within 20 characters',

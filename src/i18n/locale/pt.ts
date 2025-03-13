@@ -187,6 +187,7 @@ export default {
     hoursAgo: 'há {hours} horas',
     yesterday: 'ontem',
     goToSet: 'Ir para configurações',
+    daySet: 'Dias de assinatura',
   },
   placeholder: {
     account: 'Por favor, insira o nome de usuário',
@@ -347,6 +348,9 @@ export default {
     within360days: 'Dentro de 360 dias',
     allDays: 'Todos os dias',
     customDays: 'Dias personalizados',
+    number30days: '30 Dias',
+    number60days: '60 Dias',
+    number90days: '90 Dias',
     invalidCard: 'Inválido',
     publishTagNameLess: 'Etiqueta muito curta',
     publishTagNameMore: 'O nome da tag deve ter até 20 caracteres',

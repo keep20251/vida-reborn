@@ -187,6 +187,7 @@ export default {
     hoursAgo: '{hours} घंटे पहले',
     yesterday: 'कल',
     goToSet: 'सेटिंग्स पर जाएं',
+    daySet: 'सदस्यता दिन',
   },
   placeholder: {
     account: 'कृपया उपयोगकर्ता नाम दर्ज करें',
@@ -347,6 +348,9 @@ export default {
     within360days: '360 दिनों के भीतर',
     allDays: 'सभी दिन',
     customDays: 'कस्टम दिन',
+    number30days: '30 दिन',
+    number60days: '60 दिन',
+    number90days: '90 दिन',
     invalidCard: 'अमान्य',
     publishTagNameLess: 'टैग बहुत छोटा है',
     publishTagNameMore: 'टैग का नाम 20 वर्णों के भीतर होना चाहिए',

@@ -187,6 +187,7 @@ export default {
     hoursAgo: '{hours} jam yang lalu',
     yesterday: 'kemarin',
     goToSet: 'Pergi ke pengaturan',
+    daySet: 'Hari langganan',
   },
   placeholder: {
     account: 'Silakan masukkan nama pengguna',
@@ -348,6 +349,9 @@ export default {
     within360days: 'Dalam 360 hari',
     allDays: 'Semua hari',
     customDays: 'Hari khusus',
+    number30days: '30 Hari',
+    number60days: '60 Hari',
+    number90days: '90 Hari',
     invalidCard: 'Tidak berlaku',
     publishTagNameLess: 'Label terlalu pendek',
     publishTagNameMore: 'Nama tag harus dalam 20 karakter',

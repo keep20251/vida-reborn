@@ -187,6 +187,7 @@ export default {
     hoursAgo: '{hours}시간 전',
     yesterday: '어제',
     goToSet: '설정으로 이동',
+    daySet: '구독 일수',
   },
   placeholder: {
     account: '사용자 이름을 입력하세요',
@@ -346,6 +347,9 @@ export default {
     within360days: '360일 이내',
     allDays: '모든 날',
     customDays: '사용자 지정 일',
+    number30days: '30일',
+    number60days: '60일',
+    number90days: '90일',
     invalidCard: '무효',
     publishTagNameLess: '태그가 너무 짧습니다.',
     publishTagNameMore: '태그 이름은 10자 이내여야 합니다',

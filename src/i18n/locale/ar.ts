@@ -187,6 +187,7 @@ export default {
     hoursAgo: 'منذ {hours} ساعات',
     yesterday: 'أمس',
     goToSet: 'اذهب إلى الإعدادات',
+    daySet: 'أيام الاشتراك',
   },
   placeholder: {
     account: 'الرجاء إدخال اسم المستخدم',
@@ -346,6 +347,9 @@ export default {
     within360days: 'خلال 360 يومًا',
     allDays: 'جميع الأيام',
     customDays: 'أيام مخصصة',
+    number30days: '30 يومًا',
+    number60days: '60 يومًا',
+    number90days: '90 يومًا',
     invalidCard: 'غير صالح',
     publishTagNameLess: 'العلامة قصيرة جدًا',
     publishTagNameMore: 'اسم الوسم يجب أن يكون ضمن 20 حروف',

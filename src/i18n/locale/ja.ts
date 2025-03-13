@@ -187,6 +187,7 @@ export default {
     hoursAgo: '{hours}時間前',
     yesterday: '昨日',
     goToSet: '設定へ移動',
+    daySet: 'サブスクリプション日数',
   },
   placeholder: {
     account: 'ユーザー名を入力してください',
@@ -346,6 +347,9 @@ export default {
     within360days: '360日以内',
     allDays: '全日',
     customDays: 'カスタム日数',
+    number30days: '30日',
+    number60days: '60日',
+    number90days: '90日',
     invalidCard: '無効',
     publishTagNameLess: 'タグが短すぎます',
     publishTagNameMore: 'タグ名は10文字以内である必要があります',
