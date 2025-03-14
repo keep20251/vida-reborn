@@ -109,7 +109,12 @@
           step
           @keyup="priceValidate"
         ></InputWrap>
-        <RegionSelector v-model="effectDays" :options="effectDayOptions" :label="$t('label.daySet')" />
+        <RegionSelector
+          v-model="effectDays"
+          radio-key="expire-days"
+          :options="effectDayOptions"
+          :label="$t('label.daySet')"
+        />
         <div class="flex w-full justify-end">
           <span class="cursor-pointer text-base text-primary" @click="toggleAdvanced">
             {{ $t('common.advancedOption') }}
@@ -126,6 +131,7 @@
           <div v-show="showAdvanced">
             <RegionSelector
               v-model="unlockPrevFeedDays"
+              radio-key="unlock-prev-feed-days"
               :options="unlockPrevOptions"
               :label="$t('content.subUnlockDayAfter')"
             />
