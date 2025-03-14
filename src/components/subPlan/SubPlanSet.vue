@@ -18,7 +18,7 @@ import { useYup } from '@use/validator/yup'
 import { SUB_PLAN_STATUS } from '@const'
 import { IMAGE_LIMIT_COUNT } from '@const/publish'
 import uploadImage from '@/http/upload/uploadImage'
-import RegionSelector from './RegionSelector.vue'
+import RadioGroup from '../form/RadioGroup.vue'
 
 const { t: $t } = useI18n()
 
@@ -399,11 +399,13 @@ function transferToSubItem() {
           step
           @update:model-value="validateFnList.price"
         ></InputWrap>
-        <RegionSelector
+        <RadioGroup
+          v-if="addSubPlan"
           v-model="subPlan.expireDays.value"
           radio-key="expire-days"
           :options="effectDayOptions"
           :label="$t('label.daySet')"
+          :err-msg="subPlan.expireDays.error"
           @update:model-value="validateFnList.expireDays"
         />
         <div class="flex w-full justify-end">
@@ -420,11 +422,12 @@ function transferToSubItem() {
           leave-to-class="transform -translate-y-50 scale-y-0"
         >
           <div v-show="showAdvanced">
-            <RegionSelector
+            <RadioGroup
               v-model="subPlan.unlockDayAfter.value"
               radio-key="unlock-prev-feed-days"
               :options="unlockPrevOptions"
               :label="$t('content.subUnlockDayAfter')"
+              :err-msg="subPlan.unlockDayAfter.error"
               @update:model-value="validateFnList.unlockDayAfter"
             />
           </div>

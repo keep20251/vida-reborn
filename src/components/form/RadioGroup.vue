@@ -11,6 +11,7 @@ const props = defineProps({
   radioKey: { type: String, required: true },
   options: { type: Array, required: true },
   label: { type: String, required: true },
+  errMsg: { type: String, default: '' },
 })
 
 const emits = defineEmits(['update:modelValue'])
@@ -62,6 +63,9 @@ const setType = (v) => (type.value = v)
           ></InputWrap>
         </div>
       </template>
+    </div>
+    <div v-if="errMsg" class="text-left text-sm font-normal not-italic leading-md text-warning">
+      {{ errMsg }}
     </div>
   </div>
 </template>
