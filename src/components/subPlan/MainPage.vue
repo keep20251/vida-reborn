@@ -11,7 +11,7 @@
         class="max-h-[65vh] overflow-y-auto"
         :class="{ 'my-10': subList.length === 0, 'hover-scrollbar pr-10': isDesktop, 'scrollbar pr-15': !isDesktop }"
       >
-        <div @click="subPlanAdd" class="cursor-pointer text-center text-base font-bold leading-md text-gray-57">
+        <div @click="addPlan" class="cursor-pointer text-center text-base font-bold leading-md text-gray-57">
           ＋ {{ $t('content.AddNewSubPlan') }}
           <label
             v-if="subList.length === 0"
@@ -50,7 +50,7 @@
               show-contain
               @move:up="toUp(index)"
               @move:down="toDown(index)"
-              @edit="subPlanEdit(item)"
+              @edit="editPlan(item)"
               @delete="onDelete(item)"
               @click:contain="onContainClicked"
             ></SubscribeCard>
@@ -62,7 +62,7 @@
 </template>
 <script setup>
 import debounce from 'lodash/debounce'
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
@@ -70,62 +70,22 @@ import { useModalStore } from '@/store/modal'
 import { usePopupMessageStore } from '@/store/popup-message'
 import { useSubPlanStore } from '@/store/sub-plan'
 import useRequest from '@use/request'
-import { SUB_PLAN } from '@const'
 import SubscribeCard from '@/components/card/SubscribeCard.vue'
 
 const { t: $t } = useI18n()
 const { open: openMessage } = usePopupMessageStore()
 const { confirm } = useModalStore()
-const { appConfig } = useAppStore()
 const { isDesktop } = storeToRefs(useAppStore())
 
 const subPlanStore = useSubPlanStore()
-const { to, close, openDetail, setCurrentSubItem } = subPlanStore
+const { close, openDetail, addPlan, editPlan } = subPlanStore
 
-const {
-  currentSubItem,
-  subList,
-  lastIndex,
-  addSubPlan,
-  subPlanName,
-  subPlanContent,
-  subPlanPrice,
-  subUnlockDayAfter,
-  uploadFiles,
-  selDefaultItem,
-} = storeToRefs(subPlanStore)
-
-onMounted(() => console.log(`subList:`, subList.value))
+const { subList } = storeToRefs(subPlanStore)
 
 const editTrigger = ref(false)
 const closeEdit = () => (editTrigger.value = !editTrigger.value)
 
-const onContainClicked = (item) => {
-  openDetail({ activeSubscription: item, subscriptions: subList.value })
-}
-function subPlanAdd() {
-  to(SUB_PLAN.SET)
-  addSubPlan.value = true
-  uploadFiles.value = []
-  selDefaultItem.value = appConfig.subscription_images[0]
-}
-
-function subPlanEdit(subItem) {
-  console.log(`subItem:`, subItem)
-
-  to(SUB_PLAN.SET)
-  addSubPlan.value = false
-  setCurrentSubItem(subItem)
-
-  // if (lastIndex.value !== null && lastIndex.value === index) {
-  //   uploadFiles.value = [{ result: currentSubItem.value.picture, progress: 1 }]
-  //   subPlanName.value = currentSubItem.value.name
-  //   subPlanContent.value = currentSubItem.value.content
-  //   subPlanPrice.value = currentSubItem.value.price
-  //   subUnlockDayAfter.value = currentSubItem.value.unlock_day_after_subscribe
-  // }
-  // lastIndex.value = index
-}
+const onContainClicked = (item) => openDetail({ activeSubscription: item, subscriptions: subList.value })
 
 /**
  * Move the subscription up or down
@@ -141,7 +101,7 @@ function resort({ list, index, direction }) {
   list.splice(spliceIndex, 0, temp)
 
   const id = list[index].id
-  updateSort(id, direction)
+  useRequest('Subscription.updateSort', { params: { id, sort: direction }, immediate: true })
 }
 
 const toUp = debounce((index) => {
@@ -162,28 +122,17 @@ const toDown = debounce((index) => {
   }
 })
 
-const updateSort = async (id, direction) => {
-  try {
-    const { execute: changeSort } = useRequest('Subscription.updateSort')
-    await changeSort({ id, sort: direction })
-  } catch (e) {
-    console.error(e)
-  }
-}
-
 const onDelete = (subItem) => {
   confirm({
     size: 'sm',
     title: 'beCreator.title.reConfirm',
     content: $t('content.delSubPlan'),
-    confirmAction: () => delSubPlan(subItem),
+    confirmAction: () => deletePlan(subItem),
   })
 }
-const delSubPlan = async (subItem) => {
+const deletePlan = async (subItem) => {
   try {
-    const { execute: subPlanDel } = useRequest('Subscription.bulkDel')
-    await subPlanDel({ ids: subItem.id })
-
+    await useRequest('Subscription.bulkDel', { params: { ids: subItem.id }, immediate: true })
     const index = subList.value.findIndex((item) => item.id === subItem.id)
     subList.splice(index, 1)
     openMessage('title.delSuccess')
