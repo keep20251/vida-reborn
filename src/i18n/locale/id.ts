@@ -547,7 +547,7 @@ export default {
       positive: 'Silakan masukkan angka positif.',
       negative: 'Silakan masukkan angka negatif.',
       twoDecimal: 'Hanya dua tempat desimal yang diizinkan',
-      integer: '',
+      integer: 'Harap masukkan angka bulat',
       truncate: '',
       round: 'Silakan masukkan nomor.',
       cardNum: 'Silakan masukkan nomor kartu, misalnya, 1234********1234.',

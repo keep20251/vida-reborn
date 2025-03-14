@@ -543,7 +543,7 @@ export default {
       positive: '양수를 입력하세요.',
       negative: '음수를 입력하세요.',
       twoDecimal: '소수점 이하 두 자리만 허용됨',
-      integer: '',
+      integer: '정수만 입력해 주세요',
       truncate: '',
       round: '숫자를 입력하세요.',
       cardNum: '카드 번호를 입력하세요. 예: 1234********1234.',

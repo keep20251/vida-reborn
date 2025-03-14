@@ -547,7 +547,7 @@ export default {
       positive: 'Please enter a positive number.',
       negative: 'Please enter a negative number.',
       twoDecimal: 'Only two decimal places allowed',
-      integer: '',
+      integer: 'Please enter a non-decimal number',
       truncate: '',
       round: 'Please enter a number.',
       cardNum: 'Please enter a card number, e.g., 1234********1234.',

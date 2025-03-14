@@ -530,7 +530,7 @@ export default {
       positive: '请输入正数。',
       negative: '请输入负数。',
       twoDecimal: '仅允许输入小数点后两位',
-      integer: '',
+      integer: '请输非小数点数字',
       truncate: '',
       round: '请输入数字。',
       cardNum: '请输入卡号，例如:1234********1234。',

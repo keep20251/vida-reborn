@@ -546,7 +546,7 @@ export default {
       positive: 'Vui lòng nhập một số dương.',
       negative: 'Vui lòng nhập một số âm.',
       twoDecimal: 'Chỉ cho phép nhập hai chữ số thập phân',
-      integer: '',
+      integer: 'Vui lòng nhập số nguyên',
       truncate: '',
       round: 'Vui lòng nhập số.',
       cardNum: 'Vui lòng nhập số thẻ, ví dụ: 1234********1234.',

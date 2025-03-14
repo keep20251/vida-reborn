@@ -555,7 +555,7 @@ export default {
       positive: 'Bitte geben Sie eine positive Zahl ein.',
       negative: 'Bitte geben Sie eine negative Zahl ein.',
       twoDecimal: 'Nur zwei Dezimalstellen erlaubt',
-      integer: '',
+      integer: 'Bitte geben Sie eine ganze Zahl ein',
       truncate: '',
       round: 'Bitte geben Sie eine Nummer ein.',
       cardNum: 'Bitte geben Sie eine Kartennummer ein, z. B. 1234********1234.',

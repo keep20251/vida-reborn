@@ -545,7 +545,7 @@ export default {
       positive: '正の数を入力してください。',
       negative: '負の数を入力してください。',
       twoDecimal: '小数点以下2桁まで入力可能です',
-      integer: '',
+      integer: '小数点を含まない数字を入力してください',
       truncate: '',
       round: '数字を入力してください。',
       cardNum: 'カード番号を入力してください、例:1234********1234。',

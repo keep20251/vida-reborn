@@ -547,7 +547,7 @@ export default {
       positive: 'Por favor, insira um número positivo.',
       negative: 'Por favor, insira um número negativo.',
       twoDecimal: 'Apenas duas casas decimais permitidas',
-      integer: '',
+      integer: 'Por favor, insira um número inteiro',
       truncate: '',
       round: 'Por favor, insira um número.',
       cardNum: 'Por favor, insira um número de cartão, p. ex., 1234********1234.',

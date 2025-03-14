@@ -554,7 +554,7 @@ export default {
       positive: 'Veuillez entrer un nombre positif.',
       negative: 'Veuillez entrer un nombre négatif.',
       twoDecimal: 'Seules deux décimales sont autorisées',
-      integer: '',
+      integer: 'Veuillez entrer un nombre entier',
       truncate: '',
       round: 'Veuillez entrer un numéro.',
       cardNum: 'Veuillez entrer un numéro de carte, par exemple, 1234********1234.',
