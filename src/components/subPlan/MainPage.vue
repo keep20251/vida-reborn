@@ -48,10 +48,10 @@
               edit-mode
               subscript-btn
               show-contain
-              @move:up="toUp(index)"
-              @move:down="toDown(index)"
-              @edit="editPlan(item)"
-              @delete="onDelete(item)"
+              @move:up="() => toUp(index)"
+              @move:down="() => toDown(index)"
+              @edit="() => editPlan(item)"
+              @delete="() => onDelete(item)"
               @click:contain="onContainClicked"
             ></SubscribeCard>
           </template>
@@ -79,7 +79,6 @@ const { isDesktop } = storeToRefs(useAppStore())
 
 const subPlanStore = useSubPlanStore()
 const { close, openDetail, addPlan, editPlan } = subPlanStore
-
 const { subList } = storeToRefs(subPlanStore)
 
 const editTrigger = ref(false)

@@ -29,6 +29,7 @@ const publishStore = usePublishStore()
 const { isEditing } = storeToRefs(publishStore)
 
 const { Yup, validate } = useYup()
+
 const { alert, confirm } = useModalStore()
 const { open: openMessage } = usePopupMessageStore()
 
@@ -63,18 +64,6 @@ const effectDayOptions = [
   { label: $t('info.number60days'), type: '', value: 60 },
   { label: $t('info.number90days'), type: '', value: 90 },
 ]
-
-const initSubPlan = {
-  id: 0,
-  name: '',
-  content: '',
-  price: 0,
-  unlockDayAfter: 30,
-  expireDays: 30,
-  uploadImageList: [],
-  defaultImage: '',
-  status: SUB_PLAN_STATUS.ENABLE,
-}
 
 const subPlan = reactive({
   id: 0,
@@ -125,11 +114,9 @@ const uploadImageList = computed(() => {
 const validateFnList = Object.entries(subPlan)
   .filter(([_, property]) => !!property?.schema)
   .reduce((acc, [key, property]) => {
-    acc[key] = debounce(() => validate(property.schema, property), 1000)
+    acc[key] = debounce(() => validate(property.schema, property), 500)
     return acc
   }, {})
-
-console.log(`[DEBUG] validations`, validateFnList)
 
 function setupPlan() {
   subPlan.id = currentSubItem.value.id
@@ -145,10 +132,28 @@ function setupPlan() {
     : []
 }
 
-onActivated(setupPlan)
-onDeactivated(resetAllData)
+onActivated(() => {
+  resetAllData()
+  setupPlan()
+})
+onDeactivated(() => {
+  resetAllData()
+  clearCurrentSubItem()
+})
 
-function resetValues() {
+function resetSubPlan() {
+  const initSubPlan = {
+    id: 0,
+    name: '',
+    content: '',
+    price: 0,
+    unlockDayAfter: 30,
+    expireDays: 30,
+    uploadImageList: [],
+    defaultImage: '',
+    status: SUB_PLAN_STATUS.ENABLE,
+  }
+
   Object.entries(subPlan).forEach(([key, value]) => {
     if (!!value?.check && !!value?.error) {
       value.value = initSubPlan[key]
@@ -164,8 +169,7 @@ const setServerError = (msg) => (serverError.value = msg)
 const clearServerError = () => setServerError('')
 
 function resetAllData() {
-  resetValues()
-  clearCurrentSubItem()
+  resetSubPlan()
   clearServerError()
   disableAdvanced()
 }
@@ -178,6 +182,7 @@ const removeUploadFile = (item) => {
 
 const handleFileUpload = async (event) => {
   const files = event.target.files
+
   if (!files || files.length === 0) return
   if (subPlan.uploadImageList.length + files.length > 7) {
     alert({ title: 'info.upToTen' })
@@ -229,6 +234,7 @@ async function onSubmit() {
 
     await validateSchema()
     const maybeId = await doRequest(addSubPlan.value)
+    console.log(`maybeId: ${maybeId}`)
     addSubPlan.value && (subPlan.id = maybeId)
 
     const _subItem = transferToSubItem()
@@ -246,7 +252,7 @@ async function onSubmit() {
     // 正在編輯帖子的話代表是沒有任何訂閱計畫時點擊發布帖子後被引導過來這的，這時候要直接關閉繼續編輯帖子
     addSubPlan.value && isEditing.value && close()
 
-    resetValues()
+    resetSubPlan()
   } catch (e) {
     console.error(e)
   }
@@ -264,7 +270,7 @@ async function doRequest(requestForAdd = true) {
   try {
     const apiReq = requestForAdd ? 'Subscription.create' : 'Subscription.update'
     const payload = makePayload()
-    await useRequest(apiReq, { params: payload, immediate: true })
+    return await useRequest(apiReq, { params: payload, immediate: true })
   } catch (e) {
     setServerError(e.message)
   }

@@ -22,9 +22,6 @@ export const useSubPlanStore = defineStore('subPlan', () => {
   const history = ref([])
   const historyProxy = computed(() => history.value)
   const subPlanComponent = computed(() => routes.find((route) => route.value === now.value).component)
-  const subList = computed(() => (isCreator.value ? userData.value.subscription_list : []))
-
-  const addSubPlan = ref(false)
 
   const _initItemValue = {
     id: 0,
@@ -36,6 +33,9 @@ export const useSubPlanStore = defineStore('subPlan', () => {
     picture: '',
     status: 0,
   }
+
+  const addSubPlan = ref(false)
+  const subList = computed(() => (isCreator.value ? userData.value.subscription_list : []))
 
   const currentSubItem = ref(_initItemValue)
   const setCurrentSubItem = (subItem) => (currentSubItem.value = { ...currentSubItem.value, ...subItem })
