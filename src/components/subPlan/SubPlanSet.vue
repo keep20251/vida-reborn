@@ -94,15 +94,7 @@ const subPlan = reactive({
     value: 0,
     error: '',
     check: false,
-    schema: Yup.number()
-      .typeError({ key: 'yup.number.round', values: {} })
-      .test('is-decimal', { key: 'yup.number.twoDecimal', values: {} }, (value) => {
-        const decimalPart = (value + '').split('.')[1]
-        return !decimalPart || decimalPart.length <= 2
-      })
-      .required()
-      .max(999)
-      .min(1),
+    schema: Yup.number().typeError({ key: 'yup.number.round', values: {} }).required().max(999).min(1).floatTwo(),
   },
   unlockDayAfter: {
     value: 30,
