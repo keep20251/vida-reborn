@@ -1,7 +1,6 @@
 import { computed, readonly, ref } from 'vue'
 import { defineStore, storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
-import { useAppStore } from '@/store/app'
 import { useDialogStore } from '@/store/dialog'
 import Detail from '@comp/subPlan/Detail.vue'
 import MainPage from '@comp/subPlan/MainPage.vue'
@@ -11,7 +10,6 @@ import { useEscapeClose } from '@/compositions/utils/escape-close'
 
 export const useSubPlanStore = defineStore('subPlan', () => {
   const { subPlanDialog } = storeToRefs(useDialogStore())
-  const { appConfig } = useAppStore()
   const { userData, isCreator } = storeToRefs(useAccountStore())
 
   const routes = [
@@ -25,13 +23,6 @@ export const useSubPlanStore = defineStore('subPlan', () => {
   const historyProxy = computed(() => history.value)
   const subPlanComponent = computed(() => routes.find((route) => route.value === now.value).component)
 
-  const subList = computed(() => {
-    return isCreator.value ? userData.value.subscription_list : []
-  })
-
-  const addSubPlan = ref(false)
-  const lastIndex = ref(0)
-
   const _initItemValue = {
     id: 0,
     name: '',
@@ -42,27 +33,13 @@ export const useSubPlanStore = defineStore('subPlan', () => {
     picture: '',
     status: 0,
   }
-  const currentSubList = ref([])
-  const currentIndex = ref(0)
+
+  const addSubPlan = ref(false)
+  const subList = computed(() => (isCreator.value ? userData.value.subscription_list : []))
 
   const currentSubItem = ref(_initItemValue)
-  const setCurrentSubItem = (subItem) => {
-    console.log(`setCurrentSubItem`, subItem)
-    currentSubItem.value = subItem
-  }
-  const clearCurrentSubItem = () => setCurrentSubItem(_initItemValue)
-
-  const subPlanName = ref('') // 必傳
-  const subPlanContent = ref('')
-  const subPlanPrice = ref('') // 必傳
-  const subUnlockDayAfter = ref('') // 必傳(解鎖Ｎ天前的內榮)
-  const subId = ref('') // 必傳
-  const status = ref('')
-
-  const subPicture = ref('')
-  const uploadFiles = ref([]) // 上傳的檔案，編輯時是封面圖
-  const selDefaultItem = ref(appConfig.subscription_images[0]) // 預設封面，初始用第一張，編輯時用目前的封面
-  const selUploadItem = ref(null)
+  const setCurrentSubItem = (subItem) => (currentSubItem.value = { ...currentSubItem.value, ...subItem })
+  const clearCurrentSubItem = () => (currentSubItem.value = _initItemValue)
 
   function to(value) {
     history.value.push(now.value)
@@ -73,7 +50,6 @@ export const useSubPlanStore = defineStore('subPlan', () => {
     if (history.value.length <= 0) {
       throw new Error('[Auth Route Error] History is empty, you shoud not call back()')
     }
-    uploadFiles.value = []
     now.value = history.value.pop()
   }
 
@@ -83,7 +59,6 @@ export const useSubPlanStore = defineStore('subPlan', () => {
   function close() {
     now.value = SUB_PLAN.MAIN_PAGE
     subPlanDialog.value = false
-    uploadFiles.value = []
     history.value = []
     remove(subPlanDialogKey)
   }
@@ -112,6 +87,16 @@ export const useSubPlanStore = defineStore('subPlan', () => {
     to(SUB_PLAN.DETAIL)
   }
 
+  const addPlan = () => {
+    addSubPlan.value = true
+    to(SUB_PLAN.SET)
+  }
+  const editPlan = (subItem) => {
+    addSubPlan.value = false
+    setCurrentSubItem(subItem)
+    to(SUB_PLAN.SET)
+  }
+
   return {
     subPlanComponent,
     history: historyProxy,
@@ -120,24 +105,13 @@ export const useSubPlanStore = defineStore('subPlan', () => {
     close,
     open,
     addSubPlan,
-    currentSubList,
-    currentIndex,
     subList,
-    lastIndex,
-    status,
-    subPlanName,
-    subPlanContent,
-    subPlanPrice,
-    subUnlockDayAfter,
-    subId,
-    subPicture,
-    uploadFiles,
-    selDefaultItem,
-    selUploadItem,
 
     subscriptions: readonly(_subscriptions),
     activeSubscription,
     openDetail,
+    addPlan,
+    editPlan,
 
     currentSubItem: readonly(currentSubItem),
     setCurrentSubItem,

@@ -530,7 +530,7 @@ export default {
       positive: '請輸入正數。',
       negative: '請輸入負數。',
       twoDecimal: '僅允許輸入小數點後兩位',
-      integer: '',
+      integer: '請輸入非小數點數字',
       truncate: '',
       round: '請輸入數字。',
       cardNum: '請輸入卡號，如:1234********1234。',

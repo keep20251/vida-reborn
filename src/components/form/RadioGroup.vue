@@ -8,8 +8,10 @@ const { t: $t } = useI18n()
 
 const props = defineProps({
   modelValue: { type: Number, required: true },
+  radioKey: { type: String, required: true },
   options: { type: Array, required: true },
   label: { type: String, required: true },
+  errMsg: { type: String, default: '' },
 })
 
 const emits = defineEmits(['update:modelValue'])
@@ -37,10 +39,10 @@ const setType = (v) => (type.value = v)
         <InputRadio
           v-if="option.type !== 'custom'"
           v-model="modelValue"
-          :id="`radio-${index}`"
+          :id="`${radioKey}-radio-${index}`"
           :label="option.label"
           :value="option.value"
-          name="radio"
+          :name="`${radioKey}-radio`"
           class="mr-30"
           @click="() => setType(option.type)"
         />
@@ -49,8 +51,8 @@ const setType = (v) => (type.value = v)
             v-model="type"
             :label="$t('info.customDays')"
             :value="option.type"
-            :id="`radio-${index}`"
-            name="radio"
+            :id="`${radioKey}-radio-${index}`"
+            :name="`${radioKey}-radio`"
           />
           <InputWrap
             v-if="type === option.type"
@@ -61,6 +63,9 @@ const setType = (v) => (type.value = v)
           ></InputWrap>
         </div>
       </template>
+    </div>
+    <div v-if="errMsg" class="text-left text-sm font-normal not-italic leading-md text-warning">
+      {{ errMsg }}
     </div>
   </div>
 </template>

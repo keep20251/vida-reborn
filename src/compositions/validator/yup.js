@@ -229,3 +229,10 @@ Yup.addMethod(Yup.string, 'account', function () {
     .max(20)
     .matches(/^[a-zA-Z0-9]*$/, { message: { key: 'yup.string.account' } })
 })
+
+Yup.addMethod(Yup.number, 'floatTwo', function () {
+  return this.test('floatTwo', { key: 'yup.number.twoDecimal', values: {} }, (value) => {
+    const decimalPart = (value + '').split('.')[1]
+    return !decimalPart || decimalPart.length <= 2
+  })
+})
