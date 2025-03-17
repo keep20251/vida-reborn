@@ -119,7 +119,8 @@
             <div v-for="file in uploadFiles" class="relative overflow-hidden rounded-sm pb-[56%]" :key="file.id">
               <div class="absolute top-0 h-full w-full">
                 <EncryptImage v-if="file.status === UPLOAD_STATUS.SAVE" :src="file.url" cover></EncryptImage>
-                <img v-else :src="file.result" class="h-full w-full rounded-sm object-cover" />
+                <img v-else-if="file.result" :src="file.result" class="h-full w-full rounded-sm object-cover" />
+                <Skeleton v-else></Skeleton>
               </div>
               <div
                 class="absolute top-0 h-full w-full origin-right bg-white opacity-60 will-change-transform"
@@ -238,6 +239,7 @@ import OptionsPicker from '@comp/form/OptionsPicker.vue'
 import TagEditor from '@comp/form/TagEditor.vue'
 import TextareaWrap from '@comp/form/TextareaWrap.vue'
 import Head from '@comp/navigation/Head.vue'
+import Skeleton from '@comp/skeleton/index.vue'
 import useRequest from '@use/request'
 import { useRouters } from '@use/routers'
 import { useYup } from '@use/validator/yup.js'
