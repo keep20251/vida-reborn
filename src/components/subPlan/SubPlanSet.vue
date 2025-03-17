@@ -95,7 +95,7 @@ const subPlan = reactive({
     value: 30,
     error: '',
     check: false,
-    schema: Yup.number().required().positive().min(30).max(365).integer(),
+    schema: Yup.number().required().positive().min(7).max(365).integer(),
   },
   uploadImageList: [],
   defaultImage: '',
@@ -130,6 +130,12 @@ function setupPlan() {
   subPlan.uploadImageList = currentSubItem.value.picture
     ? [{ result: currentSubItem.value.picture, progress: 1, removable: true }]
     : []
+}
+
+function resetAllData() {
+  resetSubPlan()
+  clearServerError()
+  disableAdvanced()
 }
 
 onActivated(() => {
@@ -167,12 +173,6 @@ function resetSubPlan() {
 
 const setServerError = (msg) => (serverError.value = msg)
 const clearServerError = () => setServerError('')
-
-function resetAllData() {
-  resetSubPlan()
-  clearServerError()
-  disableAdvanced()
-}
 
 const setDefaultImage = (item) => (subPlan.defaultImage = item.result)
 const removeUploadFile = (item) => {
