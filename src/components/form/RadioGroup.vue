@@ -17,9 +17,11 @@ const props = defineProps({
 
 const emits = defineEmits(['update:modelValue'])
 
+const isEnable = computed(() => !props.disabled)
+
 const modelValue = computed({
   get: () => props.modelValue,
-  set: (value) => !props.disabled && emits('update:modelValue', parseInt(value, 10)),
+  set: (value) => isEnable.value && emits('update:modelValue', parseInt(value, 10)),
 })
 
 const _options = computed(() => [...props.options, { label: $t('info.customDays'), type: 'custom', value: 0 }])
@@ -46,7 +48,7 @@ const setType = (v) => (type.value = v)
           :name="`${radioKey}-radio`"
           :disabled="disabled"
           class="mr-30"
-          @click="() => setType(option.type)"
+          @click="() => isEnable && setType(option.type)"
         />
         <div v-else class="flex items-center">
           <InputRadio
