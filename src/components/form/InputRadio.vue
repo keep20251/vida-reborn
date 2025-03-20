@@ -31,7 +31,5 @@ const emits = defineEmits(['update:modelValue'])
 
 const isChecked = computed(() => props.modelValue === props.value)
 
-const handleChange = () => {
-  emits('update:modelValue', props.value)
-}
+const handleChange = () => !props.disabled && emits('update:modelValue', props.value)
 </script>

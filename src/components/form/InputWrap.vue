@@ -147,7 +147,7 @@ const value = computed({
     return props.modelValue
   },
   set(newValue) {
-    emits('update:modelValue', newValue)
+    !props.disabled && emits('update:modelValue', newValue)
   },
 })
 
