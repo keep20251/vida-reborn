@@ -12,20 +12,21 @@ const props = defineProps({
   options: { type: Array, required: true },
   label: { type: String, required: true },
   errMsg: { type: String, default: '' },
+  disabled: { type: Boolean, default: false },
 })
 
 const emits = defineEmits(['update:modelValue'])
 
 const modelValue = computed({
   get: () => props.modelValue,
-  set: (value) => emits('update:modelValue', parseInt(value, 10)),
+  set: (value) => !props.disabled && emits('update:modelValue', parseInt(value, 10)),
 })
 
 const _options = computed(() => [...props.options, { label: $t('info.customDays'), type: 'custom', value: 0 }])
 
 function initType() {
   const values = props.options.map((option) => option.value)
-  return values.includes(props.modelValue) ? '' : 'custom'
+  return values.includes(modelValue) ? '' : 'custom'
 }
 
 const type = ref(initType())
@@ -43,6 +44,7 @@ const setType = (v) => (type.value = v)
           :label="option.label"
           :value="option.value"
           :name="`${radioKey}-radio`"
+          :disabled="disabled"
           class="mr-30"
           @click="() => setType(option.type)"
         />
@@ -53,11 +55,13 @@ const setType = (v) => (type.value = v)
             :value="option.type"
             :id="`${radioKey}-radio-${index}`"
             :name="`${radioKey}-radio`"
+            :disabled="disabled"
           />
           <InputWrap
             v-if="type === option.type"
             v-model="modelValue"
             :placeholder="$t('yup.number.value')"
+            :disabled="disabled"
             class="ml-10"
             number
           ></InputWrap>

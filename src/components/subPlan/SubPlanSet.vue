@@ -406,12 +406,12 @@ function transferToSubItem() {
           @update:model-value="validateFnList.price"
         ></InputWrap>
         <RadioGroup
-          v-if="addSubPlan"
           v-model="subPlan.expireDays.value"
           radio-key="expire-days"
           :options="effectDayOptions"
           :label="$t('label.daySet')"
           :err-msg="subPlan.expireDays.error"
+          :disabled="!addSubPlan"
           @update:model-value="validateFnList.expireDays"
         />
         <div class="flex w-full justify-end">
