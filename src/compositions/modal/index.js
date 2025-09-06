@@ -5,6 +5,7 @@ import { useAccountStore } from '@/store/account'
 import { useModalStore } from '@/store/modal'
 import { usePaymentStore } from '@/store/payment'
 import { usePopupMessageStore } from '@/store/popup-message'
+import { useBottomPromptStore } from '@/store/bottom-prompt'
 import { useRouters } from '@use/routers'
 import { CONSUME_TYPE, MODAL_TYPE } from '@const/index'
 import uploadImage from '@/http/upload/uploadImage'
@@ -16,10 +17,11 @@ export function useDialog() {
 
   const accountStore = useAccountStore()
   const { afterLoginAction } = accountStore
-  const { userData } = storeToRefs(accountStore)
+  const { userData, isLogin } = storeToRefs(accountStore)
 
   const { open: openMessage } = usePopupMessageStore()
   const { open: openPaymentDialog } = usePaymentStore()
+  const { showPrompt } = useBottomPromptStore()
 
   async function uploadImageDialog(file, callback = null) {
     try {
@@ -53,13 +55,18 @@ export function useDialog() {
   }
 
   async function subscribe({ item, creator }) {
+    console.log('subscribe 函数被调用', { item, creator, isLogin: isLogin.value })
+    
     if (!item) {
+      console.log('订阅项不存在')
       openMessage('message.error.subscriptionNotFound')
       close()
       return
     }
 
-    if (userData.value.aff === creator.aff) {
+    // 只有登录用户才检查是否订阅自己
+    if (isLogin.value && userData.value.aff === creator.aff) {
+      console.log('用户尝试订阅自己的内容')
       openMessage('message.error.subscribeSelf')
       close()
       return
@@ -93,7 +100,8 @@ export function useDialog() {
   }
 
   function shopBuy(feed) {
-    if (userData.value.aff === feed.user.aff) {
+    // 只有登录用户才检查是否购买自己的产品
+    if (isLogin.value && userData.value.aff === feed.user.aff) {
       openMessage($t('message.error.shopBuySelf'))
       close()
       return
@@ -126,33 +134,60 @@ export function useDialog() {
   }
 
   function subscribeSuccess(creator) {
-    open(MODAL_TYPE.SUBSCRIBE_SUCCESS, {
-      size: 'sm',
-      title: 'modal.title.paySuc',
-      content: creator,
-      confirmText: $t('modal.subscribeSuc.confirm'),
-      confirmAction: () => toCreator(creator.username),
-      showClose: true,
-    })
+    // 如果用户未登录，显示底部提示栏
+    if (!isLogin.value) {
+      showPrompt({
+        message: '尽快点击前往注册或登录，避免购买资料遗失',
+        autoHide: false
+      })
+    } else {
+      // 已登录用户显示成功弹窗
+      open(MODAL_TYPE.SUBSCRIBE_SUCCESS, {
+        size: 'sm',
+        title: 'modal.title.paySuc',
+        content: creator,
+        confirmText: $t('modal.subscribeSuc.confirm'),
+        confirmAction: () => toCreator(creator.username),
+        showClose: true,
+      })
+    }
   }
 
   function shopBuySuccess(feed) {
-    open(MODAL_TYPE.SHOP_BUY_SUCCESS, {
-      size: 'sm',
-      title: 'modal.title.paySuc',
-      content: {},
-      confirmText: $t('modal.shopBuySuc.confirm'),
-      confirmAction: () => toFeed(feed.user.username, feed.id),
-      showClose: true,
+    // 如果用户未登录，显示底部提示栏
+    if (!isLogin.value) {
+      showPrompt({
+        message: '尽快点击前往注册或登录，避免购买资料遗失',
+        autoHide: false
+      })
+    } else {
+      // 已登录用户显示成功弹窗
+      open(MODAL_TYPE.SHOP_BUY_SUCCESS, {
+        size: 'sm',
+        title: 'modal.title.paySuc',
+        content: {},
+        confirmText: $t('modal.shopBuySuc.confirm'),
+        confirmAction: () => toFeed(feed.user.username, feed.id),
+        showClose: true,
+      })
+    }
+  }
+
+  // 测试函数：手动显示底部提示栏
+  function testBottomPrompt() {
+    showPrompt({
+      message: '尽快点击前往注册或登录，避免购买资料遗失',
+      autoHide: false
     })
   }
 
   return {
     uploadImageDialog,
 
-    subscribe: afterLoginAction(subscribe),
-    shopBuy: afterLoginAction(shopBuy),
+    subscribe, // 移除 afterLoginAction 包装，允许未登录用户订阅
+    shopBuy, // 移除 afterLoginAction 包装，允许未登录用户购买
     subscribeSuccess,
     shopBuySuccess,
+    testBottomPrompt, // 测试函数
   }
 }

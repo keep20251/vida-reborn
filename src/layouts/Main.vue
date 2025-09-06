@@ -16,6 +16,7 @@
       <MinePrvwBanner></MinePrvwBanner>
       <PaymentDialog />
       <PopupMessage></PopupMessage>
+      <BottomPromptBar></BottomPromptBar>
     </ClientOnly>
   </div>
   <NavigatorMobile v-if="isMobile"></NavigatorMobile>
@@ -44,6 +45,7 @@ import NavigatorMobile from '@comp/layout/NavigatorMobile.vue'
 import FeedDialog from '@/components/dialog/FeedDialog.vue'
 import FeedbackDailog from '@/components/dialog/FeedbackDailog.vue'
 import PaymentDialog from '@/components/dialog/PaymentDialog.vue'
+import BottomPromptBar from '@/components/common/BottomPromptBar.vue'
 import { isClose, isConnecting, isOpen } from '@/ws'
 
 const isDev = ref(import.meta.env.DEV)

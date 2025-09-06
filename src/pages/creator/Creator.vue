@@ -211,7 +211,13 @@ function nextArticleList() {
 
 const { subscribe: $subscribe } = useDialog()
 const { open: $open, openDetailFromCreator } = useSubsciptionStore()
-const subscribe = unblockAction($subscribe)
+
+// 包装订阅函数以添加调试信息
+const subscribe = (params) => {
+  console.log('Creator.vue 中的 subscribe 被调用', params)
+  return $subscribe(params)
+}
+
 const open = unblockAction($open)
 const lowestSub = computed(() =>
   creator.value?.subscription_list?.reduce((acc, cur) => (Number(acc.price) < Number(cur.price) ? acc : cur)),
