@@ -78,10 +78,13 @@ onHydration(() => {
     const { status, value, reason } = hydrationTarget.value
     if (status === 'fulfilled') {
       hydrationAction(value)
-      console.log('[Hydration]', name, 'is reverted', value)
     } else {
-      logout()
-      console.log('[Hydration]', name, 'is rejected', reason)
+      // 开发环境下不自动登出，避免无限刷新
+      if (import.meta.env.DEV) {
+        console.warn('[Hydration]', name, 'is rejected in dev mode, skipping logout:', reason)
+      } else {
+        logout()
+      }
       break
     }
   }
