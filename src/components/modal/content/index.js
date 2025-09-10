@@ -14,6 +14,7 @@ import SignUpSuccess from './SignUpSuccess.vue'
 import SocialLink from './SocialLink.vue'
 import Subscribe from './Subscribe.vue'
 import SubscribeSuccess from './SubscribeSuccess.vue'
+import SubscribeSuccessWithAvatar from './SubscribeSuccessWithAvatar.vue'
 import TermsOfService from './TermsOfService.vue'
 import Test from './Test.vue'
 import Text from './Text.vue'
@@ -35,6 +36,7 @@ const obj = {
   [MODAL_TYPE.SHOP_BUY]: ShopBuy,
   [MODAL_TYPE.PAYING]: Paying,
   [MODAL_TYPE.SUBSCRIBE_SUCCESS]: SubscribeSuccess,
+  [MODAL_TYPE.SUBSCRIBE_SUCCESS_WITH_AVATAR]: SubscribeSuccessWithAvatar,
   [MODAL_TYPE.SHOP_BUY_SUCCESS]: ShopBuySuccess,
   [MODAL_TYPE.ADD_CREDIT_CARD]: AddCreditCard,
 

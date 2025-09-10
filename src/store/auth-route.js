@@ -1,4 +1,4 @@
-import { computed } from 'vue'
+import { computed, readonly, ref } from 'vue'
 import { defineStore, storeToRefs } from 'pinia'
 import { useDialogStore } from '@/store/dialog'
 import { useEmailLoginStore } from '@/store/email-login'
@@ -28,6 +28,9 @@ export const useAuthRouteStore = defineStore('authRoute', () => {
 
   const { now, history, goto, back, init } = useHistory({ initValue: AUTH_ROUTES.MAIN_PAGE })
   const authComponent = computed(() => routes.find((route) => route.value === now.value).component)
+  
+  // 支付成功参数
+  const paymentParams = ref(null)
 
   const emailLoginStore = useEmailLoginStore()
 
@@ -37,12 +40,14 @@ export const useAuthRouteStore = defineStore('authRoute', () => {
   function close() {
     init(AUTH_ROUTES.MAIN_PAGE)
     authDialog.value = false
+    paymentParams.value = null // 清除支付参数
     emailLoginStore.$reset()
     remove(authDialogKey)
   }
 
-  function open(curr = AUTH_ROUTES.MAIN_PAGE) {
+  function open(curr = AUTH_ROUTES.MAIN_PAGE, params = null) {
     init(curr)
+    paymentParams.value = params // 保存支付参数
     authDialog.value = true
     push({ key: authDialogKey, target: authDialog, fn: close })
   }
@@ -67,5 +72,13 @@ export const useAuthRouteStore = defineStore('authRoute', () => {
   //     }
   //   }
 
-  return { authComponent, history, to: goto, back, close, open }
+  return { 
+    authComponent, 
+    history, 
+    to: goto, 
+    back, 
+    close, 
+    open,
+    paymentParams: readonly(paymentParams) // 导出支付参数供组件使用
+  }
 })

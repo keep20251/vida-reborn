@@ -65,6 +65,16 @@ export const useAccountStore = defineStore('account-store', () => {
     // 關閉 auth dialog
     authDialog.value = false
 
+    // 登录成功后隐藏底部提示条并清除支付参数
+    try {
+      const { useBottomPromptStore } = await import('@/store/bottom-prompt')
+      const bottomPromptStore = useBottomPromptStore()
+      bottomPromptStore.hidePrompt()
+      bottomPromptStore.clearPaymentParams() // 清除支付参数
+    } catch (error) {
+      console.warn('Failed to hide bottom prompt after login:', error)
+    }
+
     // tempAction 有東西就執行
     if (tempAction) {
       const { ctx, args, action } = tempAction

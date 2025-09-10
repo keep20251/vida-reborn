@@ -5,7 +5,7 @@
         class="relative m-100 mx-20 flex w-full flex-col items-center rounded-xl bg-white px-36 py-30"
         :class="[modalSize]"
       >
-        <div v-if="!!title" class="mb-20 text-center font-bold leading-lg" :class="[titleFontSize, titleClass]">
+        <div v-if="!!title && title !== null" class="mb-20 text-center font-bold leading-lg" :class="[titleFontSize, titleClass]">
           {{ title !== null ? (title.includes('.') ? $t(title) : title) : '' }}
         </div>
         <div v-if="!!imageTitle" class="absolute -top-50 flex w-full items-center justify-center">

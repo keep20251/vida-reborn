@@ -89,11 +89,12 @@ export function useDialog() {
             data: { item_id: item.id, aff: creator.aff, amount: item.price },
             paymentType: CONSUME_TYPE.SUBSCRIBE,
             onSuccess: () => {
+              console.log('支付成功，调用 subscribeSuccess', creator)
               subscribeSuccess(creator)
             },
             onFailure: failed,
-            onCancel: () => console.log('取消付款啦'),
-            onTimeout: () => console.log('付款逾時啦'),
+            onCancel: () => {},
+            onTimeout: () => {},
           },
         }),
     })
@@ -123,42 +124,82 @@ export function useDialog() {
             data: { item_id: feed.id, aff: feed.user.aff, amount: feed.price },
             paymentType: CONSUME_TYPE.SHOP_BUY,
             onSuccess: () => {
+              console.log('支付成功，调用 shopBuySuccess', feed)
               shopBuySuccess(feed)
             },
             onFailure: failed,
-            onCancel: () => console.log('取消付款啦'),
-            onTimeout: () => console.log('付款逾時啦'),
+            onCancel: () => {},
+            onTimeout: () => {},
           },
         }),
     })
   }
 
   function subscribeSuccess(creator) {
-    // 如果用户未登录，显示底部提示栏
-    if (!isLogin.value) {
-      showPrompt({
-        message: '尽快点击前往注册或登录，避免购买资料遗失',
-        autoHide: false
-      })
-    } else {
-      // 已登录用户显示成功弹窗
-      open(MODAL_TYPE.SUBSCRIBE_SUCCESS, {
-        size: 'sm',
-        title: 'modal.title.paySuc',
-        content: creator,
-        confirmText: $t('modal.subscribeSuc.confirm'),
-        confirmAction: () => toCreator(creator.username),
-        showClose: true,
-      })
-    }
+    // 所有用户都使用带头像的弹窗
+    open(MODAL_TYPE.SUBSCRIBE_SUCCESS_WITH_AVATAR, {
+      size: 'sm',
+      title: null,
+      content: creator,
+      confirmText: $t('modal.subscribeSuc.confirm'),
+      confirmAction: () => {
+        if (!isLogin.value) {
+          // 未登录用户：点击"前往查看"后显示底部注册提示条
+          showPrompt({
+            message: '尽快点击前往注册或登录，避免购买资料遗失',
+            autoHide: false,
+            paymentParams: {
+              type: 'subscribe',
+              creator: creator,
+              timestamp: Date.now()
+            }
+          })
+        }
+        toCreator(creator.username)
+        close() // 关闭弹窗
+      },
+      cancelText: $t('modal.subscribeSuc.cancel'),
+      cancelAction: () => {
+        if (!isLogin.value) {
+          // 未登录用户：点击"先再逛逛"后显示底部注册提示条
+          showPrompt({
+            message: '尽快点击前往注册或登录，避免购买资料遗失',
+            autoHide: false,
+            paymentParams: {
+              type: 'subscribe',
+              creator: creator,
+              timestamp: Date.now()
+            }
+          })
+        }
+        close() // 关闭弹窗
+      },
+      showClose: true,
+    })
   }
 
   function shopBuySuccess(feed) {
-    // 如果用户未登录，显示底部提示栏
     if (!isLogin.value) {
-      showPrompt({
-        message: '尽快点击前往注册或登录，避免购买资料遗失',
-        autoHide: false
+      // 未登录用户：显示成功弹窗，点击确认后显示底部注册提示条
+      open(MODAL_TYPE.SHOP_BUY_SUCCESS, {
+        size: 'sm',
+        title: 'modal.title.paySuc',
+        content: {},
+        confirmText: $t('modal.shopBuySuc.confirm'),
+        confirmAction: () => {
+          // 点击确认后显示底部注册提示条
+          showPrompt({
+            message: '尽快点击前往注册或登录，避免购买资料遗失',
+            autoHide: false,
+            paymentParams: {
+              type: 'shop_buy',
+              feed: feed,
+              timestamp: Date.now()
+            }
+          })
+          toFeed(feed.user.username, feed.id)
+        },
+        showClose: true,
       })
     } else {
       // 已登录用户显示成功弹窗
