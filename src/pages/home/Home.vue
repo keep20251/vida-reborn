@@ -1,7 +1,7 @@
 <template>
   <Page infinite @load="onPageEnd" :pull-to-reload="isPullToReloadEnable" @reload="reload">
     <template v-if="isMobile" #app-top>
-      <TopSearchBar logo to-search></TopSearchBar>
+      <TopSearchBar logo ></TopSearchBar>
     </template>
     <template #default>
       <div v-if="hasSubscribe">
@@ -22,12 +22,17 @@
         </List>
       </div>
       <div v-else ref="creatorsPage">
-        <PopCreatorSwiper
-          v-if="isMobile"
+        <!-- <PopCreatorSwiper
+         
           :items="creators"
           @load="creatorsNext"
           @reload="creatorsReload"
-        ></PopCreatorSwiper>
+        ></PopCreatorSwiper> -->
+        <!--  -->
+        <template  v-if="isMobile">
+          <!-- 未登录展示 -->
+          <NoSubscripeCard />
+        </template>
         <div v-else>
           <div class="flex justify-between pt-20">
             <div class="text-base font-bold leading-md">{{ $t('info.popularCreator') }}</div>
@@ -83,6 +88,7 @@ import FeedSkeleton from '@comp/skeleton/Feed.vue'
 import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import { useInfinite } from '@use/request/infinite'
 import { whenNavHomeAgain } from '@/utils/nav-again'
+import NoSubscripeCard from '@/components/card/NoSubscripeCard.vue'
 
 const appStore = useAppStore()
 const { isDesktop, isMobile } = storeToRefs(appStore)

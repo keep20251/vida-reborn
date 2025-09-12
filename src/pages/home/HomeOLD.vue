@@ -1,7 +1,7 @@
 <template>
   <Page infinite @load="onPageEnd" :pull-to-reload="isPullToReloadEnable" @reload="reload">
     <template v-if="isMobile" #app-top>
-      <!-- <TopSearchBar logo to-search></TopSearchBar> -->
+      <TopSearchBar logo to-search></TopSearchBar>
     </template>
     <template #default>
       <div v-if="hasSubscribe">
