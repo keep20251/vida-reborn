@@ -3,7 +3,7 @@
     <Link v-if="logo" href="/home" title="VIDA" @click="reload">
       <img class="h-30 w-54" src="@/assets/logo.svg?url" alt="VIDA" />
     </Link>
-    <InputWrap
+    <!-- <InputWrap
       class="grow"
       v-model="input"
       :placeholder="$t('placeholder.search')"
@@ -11,7 +11,7 @@
       @click:append="triggerSearch"
       @keypress:enter="triggerSearch"
       @keyup="autoTriggerSearch"
-    ></InputWrap>
+    ></InputWrap> -->
     <div v-if="featureIcon" class="flex" @click="emits('feature')">
       <Icon :name="featureIcon" size="20"></Icon>
     </div>
