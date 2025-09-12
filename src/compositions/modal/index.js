@@ -2,10 +2,10 @@ import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
+import { useBottomPromptStore } from '@/store/bottom-prompt'
 import { useModalStore } from '@/store/modal'
 import { usePaymentStore } from '@/store/payment'
 import { usePopupMessageStore } from '@/store/popup-message'
-import { useBottomPromptStore } from '@/store/bottom-prompt'
 import { useRouters } from '@use/routers'
 import { CONSUME_TYPE, MODAL_TYPE } from '@const/index'
 import uploadImage from '@/http/upload/uploadImage'
@@ -16,7 +16,6 @@ export function useDialog() {
   const { toCreator, toFeed } = useRouters()
 
   const accountStore = useAccountStore()
-  const { afterLoginAction } = accountStore
   const { userData, isLogin } = storeToRefs(accountStore)
 
   const { open: openMessage } = usePopupMessageStore()
@@ -56,7 +55,7 @@ export function useDialog() {
 
   async function subscribe({ item, creator }) {
     console.log('subscribe 函数被调用', { item, creator, isLogin: isLogin.value })
-    
+
     if (!item) {
       console.log('订阅项不存在')
       openMessage('message.error.subscriptionNotFound')
@@ -71,13 +70,12 @@ export function useDialog() {
       close()
       return
     }
-
     open(MODAL_TYPE.SUBSCRIBE, {
       size: 'sm',
       imageTitle: item.picture,
       content: item,
       confirmText: $t('modal.subscribe.confirm', { price: item.price }),
-      confirmAction: () => {},
+      confirmAction: () => { },
       showClose: true,
       gradientConfirm: true,
       canEscape: true,
@@ -90,14 +88,41 @@ export function useDialog() {
             paymentType: CONSUME_TYPE.SUBSCRIBE,
             onSuccess: () => {
               console.log('支付成功，调用 subscribeSuccess', creator)
+              // 此处将订阅记录在LocalStorage，避免重复弹窗
+              // 1. 不用登入即可完成 單片或訂閱 購買＆觀看。
+              // 2. 若不註冊，僅在同一瀏覽器可觀看（換瀏覽器/裝置不可看）。
+              const key = `nologin_subscriptions`
+              if (localStorage.getItem(key)) {
+                const data = JSON.parse(localStorage.getItem(key))
+                const items = data.items.filter((i) => i.id !== item.id)
+                // 如果已订阅则不重复添加
+                if (!items.find((i) => i.id === item.id)) {
+                  items.push({ ...item, timestamp: Date.now() })
+                }
+              }
+
               subscribeSuccess(creator)
             },
             onFailure: failed,
-            onCancel: () => {},
-            onTimeout: () => {},
+            onCancel: () => { },
+            onTimeout: () => { },
           },
         }),
     })
+  }
+
+  function setNoLoginSubscriptionToUser(creator) {
+    if (!isLogin.value) return
+    const key = `nologin_subscriptions`
+    if (localStorage.getItem(key)) {
+      const data = JSON.parse(localStorage.getItem(key))
+      const items = data.items
+        .filter((i) => i.timestamp && Date.now() - i.timestamp < 7 * 24 * 60 * 60 * 1000) // 仅保留7天内的记录
+        .map((i) => ({ item_id: i.id, aff: creator.aff, amount: i.price }))
+      if (items.length === 0) return
+      accountStore.setNoLoginSubscriptions(items)
+      localStorage.removeItem(key) // 清除记录，避免重复提交
+    }
   }
 
   function shopBuy(feed) {
@@ -113,7 +138,7 @@ export function useDialog() {
       avatarTitle: feed.user.thumb,
       content: feed,
       confirmText: $t('modal.shopBuy.confirm', { price: feed.price }),
-      confirmAction: () => {},
+      confirmAction: () => { },
       showClose: true,
       gradientConfirm: true,
       nextAction: () =>
@@ -128,8 +153,8 @@ export function useDialog() {
               shopBuySuccess(feed)
             },
             onFailure: failed,
-            onCancel: () => {},
-            onTimeout: () => {},
+            onCancel: () => { },
+            onTimeout: () => { },
           },
         }),
     })
@@ -151,8 +176,8 @@ export function useDialog() {
             paymentParams: {
               type: 'subscribe',
               creator: creator,
-              timestamp: Date.now()
-            }
+              timestamp: Date.now(),
+            },
           })
         }
         toCreator(creator.username)
@@ -168,8 +193,8 @@ export function useDialog() {
             paymentParams: {
               type: 'subscribe',
               creator: creator,
-              timestamp: Date.now()
-            }
+              timestamp: Date.now(),
+            },
           })
         }
         close() // 关闭弹窗
@@ -194,8 +219,8 @@ export function useDialog() {
             paymentParams: {
               type: 'shop_buy',
               feed: feed,
-              timestamp: Date.now()
-            }
+              timestamp: Date.now(),
+            },
           })
           toFeed(feed.user.username, feed.id)
         },
@@ -218,13 +243,12 @@ export function useDialog() {
   function testBottomPrompt() {
     showPrompt({
       message: '尽快点击前往注册或登录，避免购买资料遗失',
-      autoHide: false
+      autoHide: false,
     })
   }
 
   return {
     uploadImageDialog,
-
     subscribe, // 移除 afterLoginAction 包装，允许未登录用户订阅
     shopBuy, // 移除 afterLoginAction 包装，允许未登录用户购买
     subscribeSuccess,
