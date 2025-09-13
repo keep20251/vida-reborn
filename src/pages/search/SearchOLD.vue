@@ -1,26 +1,21 @@
 <template>
   <Page infinite @load="nextAction" :pull-to-reload="hasQuery" @reload="reloadAction" :scroll-to-top-signal="keyword">
     <template #app-top>
-      <div class="search-header">
-        <TopSearchBar :input-value="keyword" :logo="isMobile" to-search auto-trigger></TopSearchBar>
-      </div>
+      <TopSearchBar :input-value="keyword" :logo="isMobile" to-search auto-trigger></TopSearchBar>
     </template>
     <template #main-top v-if="hasQuery">
-      <Tab v-model="activeTab" :options="tabOptions" class="search-tabs"></Tab>
+      <Tab v-model="activeTab" :options="tabOptions"></Tab>
     </template>
     <template #default>
-      <div class="search-content">
-        <SearchResult v-if="hasQuery"></SearchResult>
-        <!-- <SearchHistory v-else class="mt-20"></SearchHistory> -->
-      </div>
+      <SearchResult v-if="hasQuery"></SearchResult>
+      <SearchHistory v-else class="mt-20"></SearchHistory>
     </template>
     <template #aside>
       <ClientOnly>
-        <div class="search-aside mt-20">
+        <div class="mt-20">
           <RelCreatorsCard></RelCreatorsCard>
           <BulletinCard class="mt-20"></BulletinCard>
           <Carousel class="mt-30" interval-time :label="$t('label.eventAd')"></Carousel>
-          <NoSubscripeCard v-if="!isLoggedIn" class="mt-20"></NoSubscripeCard>
         </div>
       </ClientOnly>
     </template>
@@ -33,14 +28,12 @@ import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import SearchHistory from '@/pages/search/SearchHistory.vue'
 import SearchResult from '@/pages/search/SearchResult.vue'
-import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
 import { useHeadStore } from '@/store/head'
 import { useHydrationStore } from '@/store/hydration'
 import { useSearchStore } from '@/store/search'
 import BulletinCard from '@comp/aside/BulletinCard.vue'
 import RelCreatorsCard from '@comp/aside/RelCreatorsCard.vue'
-import NoSubscripeCard from '@comp/card/NoSubscripeCard.vue'
 import Carousel from '@comp/common/Carousel.vue'
 import Tab from '@comp/navigation/Tab.vue'
 import TopSearchBar from '@comp/navigation/TopSearchBar.vue'
@@ -50,9 +43,6 @@ import { onHydration, onServerClientOnce } from '@/compositions/lifecycle'
 
 const appStore = useAppStore()
 const { isMobile } = storeToRefs(appStore)
-
-const accountStore = useAccountStore()
-const { isLoggedIn } = storeToRefs(accountStore)
 
 const searchStore = useSearchStore()
 const { setKeyword, reset } = searchStore
@@ -111,21 +101,3 @@ onHydration(() => {
 
 whenNavSearchAgain(reset)
 </script>
-
-<style lang="scss" scoped>
-.search-header {
-  @apply w-full px-20;
-}
-
-.search-tabs {
-  @apply bg-white px-20 py-10;
-}
-
-.search-content {
-  @apply px-20 py-10;
-}
-
-.search-aside {
-  @apply px-20;
-}
-</style>
