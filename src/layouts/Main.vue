@@ -15,6 +15,7 @@
       <Subscriptions></Subscriptions>
       <MinePrvwBanner></MinePrvwBanner>
       <PaymentDialog />
+      <AlreadySubscribedDialog />
       <PopupMessage></PopupMessage>
       <BottomPromptBar></BottomPromptBar>
     </ClientOnly>
@@ -42,10 +43,11 @@ import SubPlanDialog from '@comp/dialog/SubPlanDialog.vue'
 import Subscriptions from '@comp/dialog/Subscriptions.vue'
 import Navigator from '@comp/layout/Navigator.vue'
 import NavigatorMobile from '@comp/layout/NavigatorMobile.vue'
+import BottomPromptBar from '@/components/common/BottomPromptBar.vue'
+import AlreadySubscribedDialog from '@/components/dialog/AlreadySubscribedDialog.vue'
 import FeedDialog from '@/components/dialog/FeedDialog.vue'
 import FeedbackDailog from '@/components/dialog/FeedbackDailog.vue'
 import PaymentDialog from '@/components/dialog/PaymentDialog.vue'
-import BottomPromptBar from '@/components/common/BottomPromptBar.vue'
 import { isClose, isConnecting, isOpen } from '@/ws'
 
 const isDev = ref(import.meta.env.DEV)

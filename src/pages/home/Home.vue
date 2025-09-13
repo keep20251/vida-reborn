@@ -1,7 +1,7 @@
 <template>
   <Page infinite @load="onPageEnd" :pull-to-reload="isPullToReloadEnable" @reload="reload">
     <template v-if="isMobile" #app-top>
-      <TopSearchBar logo ></TopSearchBar>
+      <TopSearchBar logo></TopSearchBar>
     </template>
     <template #default>
       <div v-if="hasSubscribe">
@@ -29,7 +29,7 @@
           @reload="creatorsReload"
         ></PopCreatorSwiper> -->
         <!--  -->
-        <template  v-if="isMobile">
+        <template v-if="isMobile">
           <!-- 未登录展示 -->
           <NoSubscripeCard />
         </template>
@@ -78,7 +78,6 @@ import { useFeedStore } from '@/store/feed'
 import { useHydrationStore } from '@/store/hydration'
 import BulletinCard from '@comp/aside/BulletinCard.vue'
 import RecCard from '@comp/aside/RecCard.vue'
-import PopCreatorSwiper from '@comp/card/PopCreatorSwiper.vue'
 import ViewSubscribeCard from '@comp/card/ViewSubscribeCard.vue'
 import Carousel from '@comp/common/Carousel.vue'
 import NoData from '@comp/info/NoData.vue'
