@@ -24,7 +24,6 @@ import { ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useSearchStore } from '@/store/search'
 import Link from '@comp/common/Link.vue'
-import Icon from '@comp/common/Icon.vue'
 import InputWrap from '@comp/form/InputWrap.vue'
 import { useRouters } from '@/compositions/routers'
 

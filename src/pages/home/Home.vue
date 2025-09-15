@@ -22,13 +22,6 @@
         </List>
       </div>
       <div v-else ref="creatorsPage">
-        <!-- <PopCreatorSwiper
-         
-          :items="creators"
-          @load="creatorsNext"
-          @reload="creatorsReload"
-        ></PopCreatorSwiper> -->
-        <!--  -->
         <template v-if="isMobile">
           <!-- 未登录展示 -->
           <NoSubscripeCard />

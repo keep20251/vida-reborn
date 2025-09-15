@@ -1,14 +1,12 @@
 <template>
   <!-- 内容描述组件：展示文本内容和标签 -->
-  <div class="text-gray-800 text-sm">
+  <div class="text-sm text-gray-800">
     <!-- 问候语 -->
     <p class="mb-1">{{ greeting }}</p>
-    
-    <!-- 标签 -->
     <p class="mb-1">
-      <span v-for="tag in tags" :key="tag" class="text-indigo-600 mr-2">#{{ tag }}</span>
+      <span v-for="tag in tags" :key="tag" class="mr-2 text-indigo-600">#{{ tag }}</span>
     </p>
-    
+
     <!-- 详细描述 -->
     <p class="text-gray-600">{{ description }}</p>
   </div>
@@ -20,17 +18,17 @@ defineProps({
   greeting: {
     type: String,
     required: true,
-    description: "问候语内容"
+    description: '问候语内容',
   },
   tags: {
     type: Array,
     required: true,
-    description: "标签数组，如['黑丝', '写真']"
+    description: "标签数组，如['黑丝', '写真']",
   },
   description: {
     type: String,
     required: true,
-    description: "详细描述文本"
-  }
-});
+    description: '详细描述文本',
+  },
+})
 </script>

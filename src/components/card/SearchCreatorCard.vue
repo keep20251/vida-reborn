@@ -1,60 +1,151 @@
 <template>
-  <Link
-    class="cursor-pointer"
-    :href="`/${props.item?.username}`"
-    :title="props.item?.nickname"
-    @click="toCreator(props.item?.username)"
-  >
-    <div class="relative h-full select-none rounded-md bg-gray-f6">
-      <div class="h-full w-full px-20 py-30">
-        <div class="flex h-full flex-row items-center">
-          <Avatar :radius="35" class="mr-10" :src="props.item?.thumb" :alt="props.item?.username"></Avatar>
-          <div class="flex flex-col space-y-10">
-            <div class="flex cursor-pointer flex-row items-center space-x-5">
-              <div class="text-lg font-bold leading-5 text-black">{{ props.item?.nickname }}</div>
-              <div class="text-sm font-normal leading-3 text-black">@{{ props.item?.username }}</div>
-            </div>
-            <div class="flex text-sm font-normal leading-3 text-black">
-              <div>{{ props.item?.post_num }} {{ $t('content.posts') }}</div>
-              <div class="mx-2 text-sm font-normal leading-3 text-gray-57">•</div>
-              <div>{{ viewCount }} {{ $t('content.view') }}</div>
-            </div>
-            <div class="line-clamp-2 text-base font-normal leading-5 text-black">
-              {{ props.item?.description }}
-            </div>
+  <div class="flex select-none flex-col space-y-20" @click="onOutsideClicked">
+    <div class="flex flex-col space-y-10">
+      <div class="flex items-center justify-between">
+        <div class="text-base font-normal leading-lg">
+          <span class="text-xl font-bold leading-xl">${{ removeDecimalIfHundred(props.item.price) }}</span> /
+          {{ $t('unit.day', { days: props.item.expire_days }) }}
+        </div>
+        <div class="flex flex-row items-center justify-center">
+          <span class="text-base font-bold leading-md text-subscribe-orange">
+            {{ props.item.name }}
+          </span>
+          <div v-if="props.editMode" class="relative flex select-none flex-row items-center justify-center">
+            <Icon name="moreVertical" size="20" class="cursor-pointer" @click.stop="toggleEditing"></Icon>
+            <transition
+              enter-active-class="transition duration-300 ease-out"
+              enter-from-class="transform scale-0 -translate-y-75 translate-x-75"
+              enter-to-class="transform scale-100 translate-y-0 translate-x-0"
+              leave-active-class="transition duration-300 ease-out"
+              leave-from-class="transform scale-100 translate-y-0 translate-x-0"
+              leave-to-class="transform scale-0 -translate-y-75 translate-x-55"
+            >
+              <div v-show="isEditing" class="absolute right-10 top-20 w-[7.5rem] rounded bg-white">
+                <div class="flex flex-col shadow-lg">
+                  <div
+                    v-for="(editOption, index) in editOptions"
+                    :key="`edit-option-${index}`"
+                    class="cursor-pointer px-12 py-6 hover:bg-primary hover:text-white"
+                    @click.stop="editOption.action"
+                  >
+                    {{ $t(editOption.label) }}
+                  </div>
+                </div>
+              </div>
+            </transition>
           </div>
         </div>
       </div>
-      <!-- 這是豆腐遙遠的夢想，他想要跟Facebook一樣，可以刪除不想看到的創作者，減少曝光度，先不要刪掉 -->
-      <div v-show="false" class="absolute right-20 top-20 cursor-pointer">
-        <Icon name="close" size="20"></Icon>
+      <div :class="{ 'h-[11.875rem]': !height }">
+        <EncryptImage :src="props.item.picture" :borderRadius="15" cover :height="height"></EncryptImage>
+      </div>
+      <div class="flex w-full justify-between">
+        <div class="text-sm font-normal leading-3 text-gray-a3">
+          {{ $t('info.subscription.unlockSubscribe', { days: props.item.unlock_day_after_subscribe }) }}
+        </div>
+        <div
+          v-show="props.showContain"
+          class="cursor-pointer text-sm font-normal leading-3 text-primary underline"
+          @click.stop="closeEditing(() => emit('click:contain', props.item))"
+        >
+          {{ $t('info.subscription.containFeeds', { feeds: props.item.article_contain ?? 0 }) }}
+        </div>
+      </div>
+      <div>
+        <div class="whitespace-pre-wrap text-sm font-medium leading-normal text-gray-a3" @click.stop="toggleFold">
+          <p :class="{ 'line-clamp-3': fold }" ref="content">{{ props.item.content }}</p>
+        </div>
+        <div
+          v-show="showContentMore"
+          class="cursor-pointer select-none text-right text-sm font-medium leading-normal text-gray-a3"
+          @click.stop="toggleFold"
+        >
+          {{ $t('common.more') }}
+        </div>
       </div>
     </div>
-  </Link>
+    <Button v-if="!subscriptBtn" gradient @click="onSubscribeClicked">
+      {{ item.is_subscribed ? $t('common.subscribed') : $t('common.subscribe') }}
+    </Button>
+  </div>
 </template>
 <script setup>
-import { computed } from 'vue'
-import Link from '@comp/common/Link.vue'
-import Avatar from '@comp/multimedia/Avatar.vue'
-import { useRouters } from '@use/routers'
-import { toKMBTString } from '@/utils/string-helper'
+import { ref, watch } from 'vue'
+import { useResizeObserver } from '@vueuse/core'
+import Button from '@comp/common/Button.vue'
 
-const { toCreator } = useRouters()
+const emit = defineEmits([
+  'click',
+  'click:contain',
+  'move:up',
+  'move:down',
+  'edit',
+  'edit:close',
+  'delete',
+  'update:editing',
+])
 
 const props = defineProps({
   item: {
     type: Object,
     default: () => ({
-      background: null,
-      thumb: null,
-      nickname: 'Angelababy',
-      username: '@angelababy',
-      description: `🇩🇪/🇺🇸 - 19 years😇 check my link to get to know me <3, I'm convinced your massive dick will help me get to the spread, daddy💦💦`,
-      post_num: 5,
-      videos_count: 5100,
+      id: 0,
+      name: '',
+      content:'',
+      expire_days: 30,
+      price: 9.99,
+      picture: '',
     }),
   },
+  editMode: { type: Boolean, default: false },
+  editTrigger: {},
+  subscriptBtn: { type: Boolean, default: false },
+  showContain: { type: Boolean, default: false },
+  height: { type: Number },
 })
 
-const viewCount = computed(() => toKMBTString(props.item?.view_count ?? 0, 1))
+const fold = ref(true)
+
+const content = ref(null)
+const showContentMore = ref(false)
+useResizeObserver(content, () => (showContentMore.value = content.value.scrollHeight > content.value.clientHeight))
+
+function toggleFold() {
+  fold.value = !fold.value
+}
+
+function removeDecimalIfHundred(value) {
+  const num = Number(value) // 因為後端拿回來是字串
+
+  // 判斷是否是百位數以上的整數
+  if (!isNaN(num) && Number.isInteger(num) && num >= 100) {
+    return Math.trunc(num) // 去掉小數點
+  } else {
+    return num
+  }
+}
+
+const isEditing = ref(false)
+watch(isEditing, (v) => emit('update:editing', v))
+
+const toggleEditing = () => (isEditing.value = !isEditing.value)
+const closeEditing = (fn = null) => {
+  isEditing.value = false
+  !!fn && fn()
+}
+
+const editOptions = [
+  { label: 'common.editSubscription.moveUp', action: () => closeEditing(() => emit('move:up', props.item)) },
+  { label: 'common.editSubscription.moveDown', action: () => closeEditing(() => emit('move:down', props.item)) },
+  { label: 'common.editSubscription.edit', action: () => closeEditing(() => emit('edit', props.item)) },
+  { label: 'common.editSubscription.delete', action: () => closeEditing(() => emit('delete', props.item)) },
+]
+
+const onOutsideClicked = () => props.editMode && closeEditing()
+watch(() => props.editTrigger, onOutsideClicked)
+
+function onSubscribeClicked() {
+  if (props.item.is_subscribed) return
+  emit('click', props.item)
+}
 </script>
