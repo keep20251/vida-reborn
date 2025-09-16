@@ -147,8 +147,8 @@ async function handleSubscription(type, userSubscriptionId) {
   const { execute } = useRequest('Payment.cancelSub')
   try {
     await execute({
-      type: type,
-      userSubscriptionId: userSubscriptionId,
+      type,
+      userSubscriptionId,
     })
     reload()
     serverError.value = ''

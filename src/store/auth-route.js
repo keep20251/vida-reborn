@@ -28,7 +28,7 @@ export const useAuthRouteStore = defineStore('authRoute', () => {
 
   const { now, history, goto, back, init } = useHistory({ initValue: AUTH_ROUTES.MAIN_PAGE })
   const authComponent = computed(() => routes.find((route) => route.value === now.value).component)
-  
+
   // 支付成功参数
   const paymentParams = ref(null)
 
@@ -72,13 +72,13 @@ export const useAuthRouteStore = defineStore('authRoute', () => {
   //     }
   //   }
 
-  return { 
-    authComponent, 
-    history, 
-    to: goto, 
-    back, 
-    close, 
+  return {
+    authComponent,
+    history,
+    to: goto,
+    back,
+    close,
     open,
-    paymentParams: readonly(paymentParams) // 导出支付参数供组件使用
+    paymentParams: readonly(paymentParams), // 导出支付参数供组件使用
   }
 })

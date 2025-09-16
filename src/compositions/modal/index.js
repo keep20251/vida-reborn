@@ -75,7 +75,7 @@ export function useDialog() {
       imageTitle: item.picture,
       content: item,
       confirmText: $t('modal.subscribe.confirm', { price: item.price }),
-      confirmAction: () => { },
+      confirmAction: () => {},
       showClose: true,
       gradientConfirm: true,
       canEscape: true,
@@ -104,8 +104,8 @@ export function useDialog() {
               subscribeSuccess(creator)
             },
             onFailure: failed,
-            onCancel: () => { },
-            onTimeout: () => { },
+            onCancel: () => {},
+            onTimeout: () => {},
           },
         }),
     })
@@ -138,7 +138,7 @@ export function useDialog() {
       avatarTitle: feed.user.thumb,
       content: feed,
       confirmText: $t('modal.shopBuy.confirm', { price: feed.price }),
-      confirmAction: () => { },
+      confirmAction: () => {},
       showClose: true,
       gradientConfirm: true,
       nextAction: () =>
@@ -153,8 +153,8 @@ export function useDialog() {
               shopBuySuccess(feed)
             },
             onFailure: failed,
-            onCancel: () => { },
-            onTimeout: () => { },
+            onCancel: () => {},
+            onTimeout: () => {},
           },
         }),
     })
@@ -175,7 +175,7 @@ export function useDialog() {
             autoHide: false,
             paymentParams: {
               type: 'subscribe',
-              creator: creator,
+              creator,
               timestamp: Date.now(),
             },
           })
@@ -192,7 +192,7 @@ export function useDialog() {
             autoHide: false,
             paymentParams: {
               type: 'subscribe',
-              creator: creator,
+              creator,
               timestamp: Date.now(),
             },
           })
@@ -218,7 +218,7 @@ export function useDialog() {
             autoHide: false,
             paymentParams: {
               type: 'shop_buy',
-              feed: feed,
+              feed,
               timestamp: Date.now(),
             },
           })

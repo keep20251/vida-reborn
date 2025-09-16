@@ -91,7 +91,7 @@ const props = defineProps({
     default: () => ({
       id: 0,
       name: '',
-      content:'',
+      content: '',
       expire_days: 30,
       price: 9.99,
       picture: '',

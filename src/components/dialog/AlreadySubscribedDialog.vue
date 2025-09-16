@@ -38,12 +38,12 @@
   </BaseDialog>
 </template>
 <script setup>
-import { storeToRefs } from 'pinia'
 import { useI18n } from 'vue-i18n'
+import { storeToRefs } from 'pinia'
 import { useAlreadySubscribedDialogStore } from '@/store/already-subscribed-dialog'
-import BaseDialog from './BaseDialog.vue'
 import Button from '@/components/common/Button.vue'
 import Icon from '@/components/common/Icon.vue'
+import BaseDialog from './BaseDialog.vue'
 
 const store = useAlreadySubscribedDialogStore()
 const { isOpen, creatorName } = storeToRefs(store)
