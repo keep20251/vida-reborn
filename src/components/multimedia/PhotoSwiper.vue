@@ -2,7 +2,7 @@
   <div
     class="relative h-full w-full cursor-pointer overflow-hidden rounded-inherit"
     ref="swiper"
-    @click="open(item, currIndex)"
+    @click="openPlayer"
   >
     <div
       v-for="(img, i) in imgs"
@@ -51,6 +51,7 @@ import { whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/store/app'
 import { useFullscreenPhotoStore } from '@/store/fullscreen-photo'
+import { usePlayerStore } from '@/store/player'
 import LockInfo from '@comp/multimedia/LockInfo.vue'
 import { useSwipe } from '@use/gesture/swipe'
 import { useStat } from '@use/utils/stat'
@@ -96,4 +97,10 @@ if (props.stat) {
 }
 
 const { open } = useFullscreenPhotoStore()
+const playerStore = usePlayerStore()
+
+// 打開播放器
+function openPlayer() {
+  playerStore.open([props.item], 0, currIndex.value)
+}
 </script>

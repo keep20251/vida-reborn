@@ -1,5 +1,5 @@
 <template>
-  <div class="relative flex h-full items-center justify-center rounded-inherit" @click.stop>
+  <div class="relative flex h-full items-center justify-center rounded-inherit cursor-pointer" @click.stop="openPlayer">
     <Video
       v-if="url !== ''"
       ref="video"
@@ -22,6 +22,7 @@ import LockInfo from '@comp/multimedia/LockInfo.vue'
 import Video from '@comp/multimedia/Video.vue'
 import { useStat } from '@use/utils/stat'
 import { toVideoTimeFormat } from '@/utils/string-helper'
+import { usePlayerStore } from '@/store/player'
 
 const props = defineProps({
   item: { type: Object, required: true },
@@ -50,5 +51,11 @@ if (props.stat) {
     id: props.item.id,
     activeMs: () => Math.floor(playTime * 1000),
   })
+}
+
+// 打開播放器
+const playerStore = usePlayerStore()
+function openPlayer() {
+  playerStore.open([props.item], 0)
 }
 </script>
