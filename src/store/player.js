@@ -90,7 +90,7 @@ export const usePlayerStore = defineStore('player', () => {
       const post = posts.value[index]
       if (post && post.resource_type === 'video' && post.url[0]?.url) {
         // 預載視頻的 m3u8 首段
-        preloadVideo(post.url[0].url)
+        preloadVideoSegment(post.url[0].url)
       } else if (post && post.resource_type === 'image' && post.url) {
         // 預載圖片
         post.url.forEach(img => {
@@ -102,29 +102,95 @@ export const usePlayerStore = defineStore('player', () => {
     })
   }
 
-  // 預載視頻
-  function preloadVideo(url) {
+  // 預載視頻首段（針對 m3u8 優化）
+  function preloadVideoSegment(url) {
     try {
-      // 創建一個隱藏的 video 元素來預載
+      // 檢查是否為 m3u8 格式
+      if (url.includes('.m3u8')) {
+        // 對於 m3u8，只預載 manifest 和首段
+        preloadM3U8Manifest(url)
+      } else {
+        // 對於其他格式，使用原有邏輯但限制預載量
+        preloadVideoMetadata(url)
+      }
+    } catch (error) {
+      console.warn('Failed to preload video segment:', error)
+    }
+  }
+
+  // 預載 m3u8 manifest 和首段
+  async function preloadM3U8Manifest(manifestUrl) {
+    try {
+      // 先載入 manifest
+      const response = await fetch(manifestUrl)
+      const manifestText = await response.text()
+      
+      // 解析 manifest 找到首段 URL
+      const lines = manifestText.split('\n')
+      let firstSegmentUrl = null
+      
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim()
+        if (line && !line.startsWith('#')) {
+          // 找到第一個媒體段
+          firstSegmentUrl = new URL(line, manifestUrl).href
+          break
+        }
+      }
+      
+      // 預載首段（只載入部分內容）
+      if (firstSegmentUrl) {
+        const segmentResponse = await fetch(firstSegmentUrl, {
+          headers: {
+            'Range': 'bytes=0-65535' // 只載入前 64KB
+          }
+        })
+        console.log(`Preloaded first segment of ${manifestUrl}`)
+      }
+    } catch (error) {
+      console.warn('Failed to preload m3u8 manifest:', error)
+    }
+  }
+
+  // 預載視頻元數據（非 m3u8 格式）
+  function preloadVideoMetadata(url) {
+    try {
       const video = document.createElement('video')
-      video.preload = 'metadata'
+      video.preload = 'metadata' // 只載入元數據
       video.src = url
       video.style.display = 'none'
+      video.muted = true // 避免自動播放問題
+      
+      // 設置載入超時
+      const timeoutId = setTimeout(() => {
+        if (document.body.contains(video)) {
+          document.body.removeChild(video)
+        }
+      }, 5000) // 5秒超時
+      
       document.body.appendChild(video)
       
-      // 載入後移除
       video.addEventListener('loadedmetadata', () => {
-        document.body.removeChild(video)
+        clearTimeout(timeoutId)
+        if (document.body.contains(video)) {
+          document.body.removeChild(video)
+        }
       })
       
       video.addEventListener('error', () => {
+        clearTimeout(timeoutId)
         if (document.body.contains(video)) {
           document.body.removeChild(video)
         }
       })
     } catch (error) {
-      console.warn('Failed to preload video:', error)
+      console.warn('Failed to preload video metadata:', error)
     }
+  }
+
+  // 預載視頻（保留原有函數名以兼容）
+  function preloadVideo(url) {
+    preloadVideoSegment(url)
   }
 
   // 預載圖片
