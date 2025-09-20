@@ -26,7 +26,13 @@ const { content } = storeToRefs(useModalStore())
 
 const { t: $t } = useI18n()
 const documents = [
-  computed(() => $t('modal.subscribe.1', { days: content.value?.unlock_day_after_subscribe })),
+  computed(() => {
+    // 如果解鎖天數是99999，顯示"全部內容"，否則顯示具體天數
+    if (content.value?.unlock_day_after_subscribe >= 99999) {
+      return $t('modal.subscribe.allContent')
+    }
+    return $t('modal.subscribe.1', { days: content.value?.unlock_day_after_subscribe })
+  }),
   computed(() => $t('modal.subscribe.2')),
   computed(() => $t('modal.subscribe.3')),
   computed(() => $t('modal.subscribe.4')),

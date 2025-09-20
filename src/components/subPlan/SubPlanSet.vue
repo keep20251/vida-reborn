@@ -53,7 +53,7 @@ const serverError = ref('')
 const showBack = computed(() => history.value.length > 0)
 
 const unlockPrevOptions = [
-  { label: $t('info.allDays'), type: '', value: 1000 },
+  { label: $t('info.allDays'), type: '', value: 99999 }, // 改為很大的數值表示全部內容
   { label: $t('info.within30days'), type: '', value: 30 },
   { label: $t('info.within90days'), type: '', value: 90 },
   { label: $t('info.within360days'), type: '', value: 360 },
@@ -86,10 +86,10 @@ const subPlan = reactive({
     schema: Yup.number().typeError({ key: 'yup.number.round', values: {} }).required().max(999).min(1).floatTwo(),
   },
   unlockDayAfter: {
-    value: 30,
+    value: 99999, // 默認設置為無限制
     error: '',
     check: false,
-    schema: Yup.number().required().max(1000).positive(0).integer(),
+    schema: Yup.number().required().max(99999).positive(0).integer(),
   },
   expireDays: {
     value: 30,
@@ -153,7 +153,7 @@ function resetSubPlan() {
     name: '',
     content: '',
     price: 0,
-    unlockDayAfter: 30,
+    unlockDayAfter: 99999, // 重置時也設為無限制
     expireDays: 30,
     uploadImageList: [],
     defaultImage: '',

@@ -28,7 +28,7 @@ export const useSubPlanStore = defineStore('subPlan', () => {
     name: '',
     content: '',
     price: 0,
-    unlock_day_after_subscribe: 30,
+    unlock_day_after_subscribe: 99999, // 設置為很大的數值表示無限制
     expire_days: 30,
     picture: '',
     status: 0,
