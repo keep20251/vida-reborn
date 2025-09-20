@@ -9,6 +9,12 @@ export const usePlayerStore = defineStore('player', () => {
   const currentPostIndex = ref(0)
   const currentImageIndex = ref(0)
   
+  // 增強播放器狀態
+  const useEnhancedPlayer = ref(true) // 使用新的增強播放器
+  const videoMuted = ref(true) // 預設靜音自動播放
+  const isVerticalDragging = ref(false)
+  const isHorizontalDragging = ref(false)
+  
   // 當前貼文
   const currentPost = computed(() => posts.value[currentPostIndex.value])
   
@@ -16,6 +22,18 @@ export const usePlayerStore = defineStore('player', () => {
   const currentCreatorPosts = computed(() => {
     if (!currentPost.value) return []
     return posts.value.filter(post => post.user?.id === currentPost.value.user?.id)
+  })
+
+  // 虛擬列表 - 只渲染當前和相鄰的貼文
+  const visiblePosts = computed(() => {
+    const result = []
+    const start = Math.max(0, currentPostIndex.value - 1)
+    const end = Math.min(posts.value.length - 1, currentPostIndex.value + 1)
+    
+    for (let i = start; i <= end; i++) {
+      result.push(posts.value[i])
+    }
+    return result
   })
 
   // 打開播放器
@@ -35,12 +53,15 @@ export const usePlayerStore = defineStore('player', () => {
     posts.value = []
     currentPostIndex.value = 0
     currentImageIndex.value = 0
+    isVerticalDragging.value = false
+    isHorizontalDragging.value = false
   }
 
   // 設置當前貼文索引
   function setCurrentPost(index) {
     if (index >= 0 && index < posts.value.length) {
       currentPostIndex.value = index
+      currentImageIndex.value = 0 // 重置圖片索引
       preloadAdjacentPosts()
     }
   }
@@ -233,14 +254,73 @@ export const usePlayerStore = defineStore('player', () => {
     }
   }
 
+  // 新增：切換到上一個貼文（任何創作者）
+  function goToPrevPost() {
+    if (currentPostIndex.value > 0) {
+      setCurrentPost(currentPostIndex.value - 1)
+    }
+  }
+
+  // 新增：切換到下一個貼文（任何創作者）
+  function goToNextPost() {
+    if (currentPostIndex.value < posts.value.length - 1) {
+      setCurrentPost(currentPostIndex.value + 1)
+    } else {
+      // 到底了，可以觸發載入更多
+      return false // 返回 false 表示已到底
+    }
+    return true
+  }
+
+  // 新增：切換到上一張圖片
+  function goToPrevImage() {
+    const post = currentPost.value
+    if (post && post.url && currentImageIndex.value > 0) {
+      currentImageIndex.value--
+      return true
+    }
+    return false
+  }
+
+  // 新增：切換到下一張圖片
+  function goToNextImage() {
+    const post = currentPost.value
+    if (post && post.url && currentImageIndex.value < post.url.length - 1) {
+      currentImageIndex.value++
+      return true
+    }
+    return false
+  }
+
+  // 新增：設置拖拽狀態
+  function setVerticalDragging(dragging) {
+    isVerticalDragging.value = dragging
+  }
+
+  function setHorizontalDragging(dragging) {
+    isHorizontalDragging.value = dragging
+  }
+
+  // 新增：切換靜音狀態
+  function toggleMuted() {
+    videoMuted.value = !videoMuted.value
+  }
+
   return {
     // 狀態
     isOpen,
     posts,
     currentPostIndex,
     currentImageIndex,
+    useEnhancedPlayer,
+    videoMuted,
+    isVerticalDragging,
+    isHorizontalDragging,
+    
+    // 計算屬性
     currentPost,
     currentCreatorPosts,
+    visiblePosts,
     
     // 方法
     open,
@@ -248,8 +328,18 @@ export const usePlayerStore = defineStore('player', () => {
     setCurrentPost,
     setCurrentImage,
     loadMorePosts,
+    preloadAdjacentPosts,
+    preloadVideoSegment,
+    preloadVideo,
+    preloadImage,
     goToPrevCreatorPost,
     goToNextCreatorPost,
-    preloadAdjacentPosts
+    goToPrevPost,
+    goToNextPost,
+    goToPrevImage,
+    goToNextImage,
+    setVerticalDragging,
+    setHorizontalDragging,
+    toggleMuted
   }
 })

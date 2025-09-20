@@ -24,7 +24,12 @@
       <div v-else ref="creatorsPage">
         <template v-if="isMobile">
           <!-- 未登录展示 -->
-          <NoSubscripeCard />
+          <div v-if="hasUserActivity" class="px-4">
+            <RecommendedCreatorsCard />
+          </div>
+          <div v-else class="px-4">
+            <NoSubscripeCard />
+          </div>
         </template>
         <div v-else>
           <div class="flex justify-between pt-20">
@@ -62,13 +67,16 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useWindowSize, whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
 import { useFeedStore } from '@/store/feed'
 import { useHydrationStore } from '@/store/hydration'
+import { useSearchStore } from '@/store/search'
+import useRequest from '@use/request'
+
 import BulletinCard from '@comp/aside/BulletinCard.vue'
 import RecCard from '@comp/aside/RecCard.vue'
 import ViewSubscribeCard from '@comp/card/ViewSubscribeCard.vue'
@@ -81,12 +89,53 @@ import { onHydration, onServerClientOnce } from '@use/lifecycle'
 import { useInfinite } from '@use/request/infinite'
 import { whenNavHomeAgain } from '@/utils/nav-again'
 import NoSubscripeCard from '@/components/card/NoSubscripeCard.vue'
+import RecommendedCreatorsCard from '@/components/card/RecommendedCreatorsCard.vue'
 
 const appStore = useAppStore()
 const { isDesktop, isMobile } = storeToRefs(appStore)
 
 const accountStore = useAccountStore()
 const { isLogin } = storeToRefs(accountStore)
+
+const searchStore = useSearchStore()
+const { historyTags } = storeToRefs(searchStore)
+
+// 用戶行為狀態檢查
+const userSubscriptions = ref([])
+const userPurchaseHistory = ref([])
+const hasUserActivity = ref(false)
+
+// 檢查用戶是否有關注、搜索或購買行為
+const checkUserActivity = async () => {
+  if (!isLogin.value) {
+    hasUserActivity.value = false
+    return
+  }
+
+  try {
+    // 檢查訂閱清單
+    const subsResponse = await useRequest('User.listSubs', { immediate: true })
+    userSubscriptions.value = subsResponse || []
+    
+    // 檢查搜索歷史
+    const hasSearchHistory = historyTags.value && historyTags.value.length > 0
+    
+    // 檢查購買記錄 (通過用戶自身帖子列表的已購買項目)
+    const purchaseResponse = await useRequest('User.listArticle', { 
+      params: { type: 1 }, // BOUGHT = 1
+      immediate: true 
+    })
+    userPurchaseHistory.value = purchaseResponse?.list || []
+    
+    // 如果有任一行為，則顯示推薦已關注博主
+    hasUserActivity.value = userSubscriptions.value.length > 0 || 
+                           hasSearchHistory || 
+                           userPurchaseHistory.value.length > 0
+  } catch (error) {
+    console.error('檢查用戶活動狀態失敗:', error)
+    hasUserActivity.value = false
+  }
+}
 
 const feedStore = useFeedStore()
 const {
@@ -116,7 +165,11 @@ const {
   reload: creatorsReload,
 } = useInfinite('User.getNewCreator')
 
-const hasSubscribe = computed(() => isLogin.value && !feedsNoData.value)
+// 修改 hasSubscribe 計算屬性
+const hasSubscribe = computed(() => {
+  // 如果用戶有任何活動（關注、搜索、購買），則顯示推薦內容
+  return isLogin.value && (hasUserActivity.value || !feedsNoData.value)
+})
 const isPullToReloadEnable = computed(() => isMobile.value && hasSubscribe.value)
 
 const hydrationStore = useHydrationStore()
@@ -205,4 +258,14 @@ whenNavHomeAgain(reload)
 //     showClose: true,
 //   })
 // }
+// 在登錄狀態變化時檢查用戶活動
+watch([isLogin], async ([newLoginVal]) => {
+  if (newLoginVal) {
+    await checkUserActivity()
+  } else {
+    hasUserActivity.value = false
+    userSubscriptions.value = []
+    userPurchaseHistory.value = []
+  }
+}, { immediate: true })
 </script>

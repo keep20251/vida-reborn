@@ -717,6 +717,19 @@ export default {
       btn: '同意并进入下一步',
     },
   },
+  player: {
+    unlockTitle: '解锁观看',
+    unlockDescription: '订阅此创作者即可解锁所有专属内容',
+    unlockButton: '订阅解锁',
+    unlocking: '解锁中...',
+    subscriptionHint: '订阅后可观看所有付费内容',
+    reachedTop: '到顶了',
+    reachedBottom: '到底了',
+    videoMuted: '已静音',
+    videoUnmuted: '已开声',
+    unlockSuccess: '解锁成功！',
+    unlockFailed: '解锁失败',
+  },
   official: {
     hero: { 1: '赋能创作者', 2: '与粉丝', 3: '建立', 4: '更亲密的联系', 5: '让你的创作变得简单' },
     about: {

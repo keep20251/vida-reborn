@@ -18,6 +18,7 @@
       <AlreadySubscribedDialog />
       <PopupMessage></PopupMessage>
       <BottomPromptBar></BottomPromptBar>
+      <EnhancedPlayer></EnhancedPlayer>
     </ClientOnly>
   </div>
   <NavigatorMobile v-if="isMobile"></NavigatorMobile>
@@ -48,6 +49,7 @@ import AlreadySubscribedDialog from '@/components/dialog/AlreadySubscribedDialog
 import FeedDialog from '@/components/dialog/FeedDialog.vue'
 import FeedbackDailog from '@/components/dialog/FeedbackDailog.vue'
 import PaymentDialog from '@/components/dialog/PaymentDialog.vue'
+import EnhancedPlayer from '@/components/multimedia/EnhancedPlayer.vue'
 import { isClose, isConnecting, isOpen } from '@/ws'
 
 const isDev = ref(import.meta.env.DEV)
