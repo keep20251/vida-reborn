@@ -1,27 +1,24 @@
 <template>
-  <div class="px-6 py-2">
-    <p class="flex items-center text-xl font-semibold">👋 歡迎！</p>
-    <p class="mt-2 text-gray-600">立即前往第一個創作者的頻道吧</p>
+  <div class="text-xl font-bold mt-30">
+    <p>👋 歡迎！</p>
+    <p class="mt-20">立即前往第一個創作者的頻道吧</p>
   </div>
-  <div class="px-6 py-2">
-    <div class="shadow rounded-lg bg-white p-6">
-      <h3 class="mb-4 text-center font-medium">前往創作者頻道</h3>
-      <div class="mb-4 flex items-center">
-        <label for="creatorId" class="mr-2">創作者 @ID 號碼</label>
-        <button class="ml-auto text-indigo-500" @click="handleScanCode">掃碼</button>
-      </div>
-      <InputWrap
-        v-model="creatorId"
-        id="creatorId"
-        :placeholder="$t('placeholder.enterCreatorId')"
-        class="mb-4"
-        @keypress.enter="goToCreator"
-      ></InputWrap>
-      <Button gradient size="lg" class="w-full" @click="goToCreator">立即前往</Button>
+  <div class="mt-30 rounded-lg border-[0.5px] border-[#B2B2B2] p-30">
+    <h3 class="text-center text-[14px] font-bold">前往創作者頻道</h3>
+    <div class="mb-20 mt-30 flex items-center text-[14px]">
+      <label for="creatorId">創作者 @ID 號碼</label>
+      <button class="ml-auto text-[#6567E8]" @click="handleScanCode">掃碼</button>
     </div>
+    <InputWrap
+      v-model="creatorId"
+      id="creatorId"
+      :placeholder="$t('placeholder.enterCreatorId')"
+      @keypress.enter="goToCreator"
+    ></InputWrap>
+    <Button size="lg" class="w-full mt-20" @click="goToCreator">立即前往</Button>
   </div>
-  <div class="px-6 py-4 text-center">
-    <p class="text-gray-500">我是創作者</p>
+  <div class="text-center mt-30">
+    <p class="text-[#575757] underline">我是創作者</p>
   </div>
 </template>
 
