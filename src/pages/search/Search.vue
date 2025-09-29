@@ -11,16 +11,20 @@
     <template #default>
       <div class="search-content">
         <SearchResult v-if="hasQuery"></SearchResult>
-        <!-- <SearchHistory v-else class="mt-20"></SearchHistory> -->
+        <template v-else>
+          <p class="font-bold my-30">搜索</p>
+          <NoSubscripeCard :showWelcome="false" :showBottom="false" class="" ></NoSubscripeCard>
+          <SearchHistory class="mt-30"></SearchHistory>
+        </template>
       </div>
     </template>
     <template #aside>
       <ClientOnly>
-        <div class="search-aside mt-20">
+        <div class="mt-20 search-aside">
           <RelCreatorsCard></RelCreatorsCard>
           <BulletinCard class="mt-20"></BulletinCard>
           <Carousel class="mt-30" interval-time :label="$t('label.eventAd')"></Carousel>
-          <NoSubscripeCard v-if="!isLoggedIn" class="mt-20"></NoSubscripeCard>
+          <NoSubscripeCard :showWelcome="false" class="mt-20"></NoSubscripeCard>
         </div>
       </ClientOnly>
     </template>
@@ -122,7 +126,7 @@ whenNavSearchAgain(reset)
 }
 
 .search-content {
-  @apply px-20 py-10;
+  @apply py-10;
 }
 
 .search-aside {
