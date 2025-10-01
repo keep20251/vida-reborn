@@ -24,12 +24,14 @@
       <div v-else ref="creatorsPage">
         <template v-if="isMobile">
           <!-- 未登录展示 -->
-          <div v-if="hasUserActivity" class="px-4">
+          <!-- <div v-if="hasUserActivity" class="px-4">
             <RecommendedCreatorsCard />
           </div>
-          <div v-else class="px-4">
-            <NoSubscripeCard />
-          </div>
+          <div v-else class="px-4"> -->
+
+          <NoSubscripeCard />
+
+          <!-- </div> -->
         </template>
         <div v-else>
           <div class="flex justify-between pt-20">
@@ -75,8 +77,6 @@ import { useAppStore } from '@/store/app'
 import { useFeedStore } from '@/store/feed'
 import { useHydrationStore } from '@/store/hydration'
 import { useSearchStore } from '@/store/search'
-import useRequest from '@use/request'
-
 import BulletinCard from '@comp/aside/BulletinCard.vue'
 import RecCard from '@comp/aside/RecCard.vue'
 import ViewSubscribeCard from '@comp/card/ViewSubscribeCard.vue'
@@ -86,6 +86,7 @@ import Feed from '@comp/main/Feed.vue'
 import TopSearchBar from '@comp/navigation/TopSearchBar.vue'
 import FeedSkeleton from '@comp/skeleton/Feed.vue'
 import { onHydration, onServerClientOnce } from '@use/lifecycle'
+import useRequest from '@use/request'
 import { useInfinite } from '@use/request/infinite'
 import { whenNavHomeAgain } from '@/utils/nav-again'
 import NoSubscripeCard from '@/components/card/NoSubscripeCard.vue'
@@ -116,21 +117,20 @@ const checkUserActivity = async () => {
     // 檢查訂閱清單
     const subsResponse = await useRequest('User.listSubs', { immediate: true })
     userSubscriptions.value = subsResponse || []
-    
+
     // 檢查搜索歷史
     const hasSearchHistory = historyTags.value && historyTags.value.length > 0
-    
+
     // 檢查購買記錄 (通過用戶自身帖子列表的已購買項目)
-    const purchaseResponse = await useRequest('User.listArticle', { 
+    const purchaseResponse = await useRequest('User.listArticle', {
       params: { type: 1 }, // BOUGHT = 1
-      immediate: true 
+      immediate: true,
     })
     userPurchaseHistory.value = purchaseResponse?.list || []
-    
+
     // 如果有任一行為，則顯示推薦已關注博主
-    hasUserActivity.value = userSubscriptions.value.length > 0 || 
-                           hasSearchHistory || 
-                           userPurchaseHistory.value.length > 0
+    hasUserActivity.value =
+      userSubscriptions.value.length > 0 || hasSearchHistory || userPurchaseHistory.value.length > 0
   } catch (error) {
     console.error('檢查用戶活動狀態失敗:', error)
     hasUserActivity.value = false
@@ -259,13 +259,17 @@ whenNavHomeAgain(reload)
 //   })
 // }
 // 在登錄狀態變化時檢查用戶活動
-watch([isLogin], async ([newLoginVal]) => {
-  if (newLoginVal) {
-    await checkUserActivity()
-  } else {
-    hasUserActivity.value = false
-    userSubscriptions.value = []
-    userPurchaseHistory.value = []
-  }
-}, { immediate: true })
+watch(
+  [isLogin],
+  async ([newLoginVal]) => {
+    if (newLoginVal) {
+      await checkUserActivity()
+    } else {
+      hasUserActivity.value = false
+      userSubscriptions.value = []
+      userPurchaseHistory.value = []
+    }
+  },
+  { immediate: true },
+)
 </script>

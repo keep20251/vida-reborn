@@ -1,10 +1,21 @@
 import { reactive } from 'vue'
-import { whenever } from '@vueuse/core'
+import { useLocalStorage, whenever } from '@vueuse/core'
 import { defineStore, storeToRefs } from 'pinia'
 import { useAccountStore } from '@/store/account'
 import useRequest from '@use/request'
+import { LOCAL_STORAGE_KEYS, SEARCH_TAB } from '@const'
 
 export const useCreatorStore = defineStore('creator', () => {
+  const historyViewedCreators = useLocalStorage(LOCAL_STORAGE_KEYS.RECENTLY_VIEWED_CREATORS, [])
+
+  function clearHistoryViewedCreators(item) {
+    if(!item) {
+      historyViewedCreators.value = []
+      return
+    }
+    historyViewedCreators.value = historyViewedCreators.value.filter((creator) => creator.uuid !== item.uuid)
+  }
+
   /**
    * {
    *   [username]: {
@@ -28,14 +39,25 @@ export const useCreatorStore = defineStore('creator', () => {
   }
 
   async function get(username) {
+
     if (creatorsMap.has(username)) {
-      return creatorsMap.get(username)
+      const creator = creatorsMap.get(username)
+       historyViewedCreators.value = [
+        creator,
+        ...historyViewedCreators.value.filter((item) => item.uuid !== creator.uuid),
+      ]
+      return creator
     }
 
     if (inRequesting[username]) {
       const { request, promise } = inRequesting[username]
       await promise
-      return setupCreator(username, request.data.value)
+      const creator = setupCreator(username, request.data.value)
+      historyViewedCreators.value = [
+        creator,
+        ...historyViewedCreators.value.filter((item) => item.uuid !== creator.uuid),
+      ]
+      return creator
     }
 
     const request = useRequest('User.otherInfo', { params: { uuid: username } })
@@ -44,7 +66,13 @@ export const useCreatorStore = defineStore('creator', () => {
 
     try {
       await promise
-      return setupCreator(username, request.data.value)
+      const creator = setupCreator(username, request.data.value)
+      historyViewedCreators.value = [
+        creator,
+        ...historyViewedCreators.value.filter((item) => item.uuid !== creator.uuid),
+      ]
+
+      return creator
     } finally {
       delete inRequesting[username]
     }
@@ -95,6 +123,10 @@ export const useCreatorStore = defineStore('creator', () => {
     })
   }
 
+  function removeFromHistory(){
+    
+  }
+
   function toggleBlock(username, isBlock) {
     if (creatorsMap.has(username)) {
       creatorsMap.get(username).is_block = isBlock
@@ -108,5 +140,7 @@ export const useCreatorStore = defineStore('creator', () => {
     clear,
 
     toggleBlock,
+    historyViewedCreators,
+    clearHistoryViewedCreators
   }
 })

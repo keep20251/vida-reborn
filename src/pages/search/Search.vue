@@ -13,8 +13,41 @@
         <SearchResult v-if="hasQuery"></SearchResult>
         <template v-else>
           <p class="font-bold my-30">搜索</p>
-          <NoSubscripeCard :showWelcome="false" :showBottom="false" class="" ></NoSubscripeCard>
-          <SearchHistory class="mt-30"></SearchHistory>
+
+          <NoSubscripeCard :showWelcome="false" :showBottom="false" class=""></NoSubscripeCard>
+          <div v-if="historyViewedCreators.length > 0">
+            <div class="flex justify-between pt-20">
+              <div class="text-base font-bold leading-md">最近看过的创作者</div>
+            </div>
+            <List :items="historyViewedCreators" item-key="aff">
+              <template #default="{ item }">
+                <div
+                  @click="toCreator(item.username)"
+                  class="relative my-20 flex flex-col gap-20 rounded-xl bg-gradient-to-b from-[#6466E7] to-[#7FE2D3] p-20"
+                >
+                  <div @click.stop="clearHistoryViewedCreators(item)" class="absolute cursor-pointer right-20 top-20">
+                    <Icon name="closeWhite" size="20"></Icon>
+                  </div>
+                  <div class="flex gap-30">
+                    <div class="h-70">
+                      <Avatar :radius="35" :src="item.thumb"></Avatar>
+                    </div>
+                    <div class="flex flex-col">
+                      <span class="text-lg font-bold text-white">{{ item.nickname }} </span>
+                      <span class="mt-5 text-sm text-white text-opacity-60"> @{{ item.username }}</span>
+                      <div class="flex items-center gap-10 mt-10 text-sm text-white">
+                        <span>Post {{ item.post_num }}</span>
+                        <div class="w-1 h-12 bg-white"></div>
+                        <span>Followers {{ toKMBTString(item.view_count) }}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <span v-if="item.description" class="text-base text-white">{{ item.description }}</span>
+                </div>
+                <!-- <ViewSubscribeCard class="my-5" :item="item" :theme="(index + 2) % 3"></ViewSubscribeCard> -->
+              </template>
+            </List>
+          </div>
         </template>
       </div>
     </template>
@@ -31,30 +64,36 @@
   </Page>
 </template>
 <script setup>
+import { remove } from 'lodash'
 import { onActivated, onDeactivated, onServerPrefetch, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
-import SearchHistory from '@/pages/search/SearchHistory.vue'
 import SearchResult from '@/pages/search/SearchResult.vue'
 import { useAccountStore } from '@/store/account'
 import { useAppStore } from '@/store/app'
+import { useCreatorStore } from '@/store/creator'
 import { useHeadStore } from '@/store/head'
 import { useHydrationStore } from '@/store/hydration'
 import { useSearchStore } from '@/store/search'
 import BulletinCard from '@comp/aside/BulletinCard.vue'
 import RelCreatorsCard from '@comp/aside/RelCreatorsCard.vue'
 import NoSubscripeCard from '@comp/card/NoSubscripeCard.vue'
+import ViewSubscribeCard from '@comp/card/ViewSubscribeCard.vue'
 import Carousel from '@comp/common/Carousel.vue'
+import Avatar from '@comp/multimedia/Avatar.vue'
 import Tab from '@comp/navigation/Tab.vue'
 import TopSearchBar from '@comp/navigation/TopSearchBar.vue'
 import { SEARCH_TAB } from '@const'
 import { whenNavSearchAgain } from '@/utils/nav-again'
+import { toKMBTString } from '@/utils/string-helper'
 import { onHydration, onServerClientOnce } from '@/compositions/lifecycle'
+import { useRouters } from '@/compositions/routers'
 
+const { toCreator } = useRouters()
 const appStore = useAppStore()
 const { isMobile } = storeToRefs(appStore)
-
+const { historyViewedCreators, clearHistoryViewedCreators } = useCreatorStore()
 const accountStore = useAccountStore()
 const { isLoggedIn } = storeToRefs(accountStore)
 
