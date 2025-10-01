@@ -7,12 +7,12 @@
         cover
         :click-to-full="fullBg"
       ></EncryptImage>
-      <div v-else class="h-full w-full rounded-inherit bg-gray-f6">
-        <img class="h-full w-full rounded-inherit" src="@/assets/images/default-bg.jpg?url" alt="DefaultAvatar" />
+      <div v-else class="w-full h-full rounded-inherit bg-gray-f6">
+        <img class="w-full h-full rounded-inherit" src="@/assets/images/default-bg.jpg?url" alt="DefaultAvatar" />
       </div>
       <div
         v-if="showBgUpload"
-        class="absolute left-1/2 top-1/2 w-full -translate-x-2/4 -translate-y-2/4 cursor-pointer"
+        class="absolute w-full cursor-pointer left-1/2 top-1/2 -translate-x-2/4 -translate-y-2/4"
         @click.stop="() => inputBackground.click()"
       >
         <div class="flex justify-center">
@@ -21,34 +21,39 @@
       </div>
       <div
         v-if="showBgData"
-        class="pointer-events-none absolute left-1/2 top-1/2 w-full -translate-x-2/4 -translate-y-2/4"
+        class="absolute w-full px-20 pointer-events-none left-1/2 top-1/2 -translate-x-2/4 -translate-y-2/4"
       >
-        <div class="flex justify-around">
-          <div v-if="false" class="flex w-[175px] flex-col items-center space-y-5">
-            <p class="text-xl font-bold leading-xl text-white drop-shadow-lg">{{ item.subscriber_count }}</p>
-            <p class="text-sm font-normal leading-3 text-white drop-shadow-lg">{{ $t('info.perSubscriber') }}</p>
+        <div class="flex items-center">
+          <div class="flex flex-col items-center flex-1 space-y-5">
+            <p class="text-xl font-bold text-white leading-xl drop-shadow-lg">
+              {{ toKMBTString(item.subscriber_count) }}
+            </p>
+            <p class="text-sm font-normal leading-3 text-[#F6F6F6] drop-shadow-lg">{{ $t('info.perSubscriber') }}</p>
           </div>
-          <div v-if="false" class="h-25 w-1 bg-[#DCDCDC]"></div>
-          <div class="flex w-[175px] flex-col items-center space-y-5">
-            <p class="text-xl font-bold leading-xl text-white drop-shadow-lg">{{ item.post_num }}</p>
-            <p class="text-sm font-normal leading-3 text-white drop-shadow-lg">{{ $t('info.perPost') }}</p>
+          <div class="h-25 w-1 bg-[#DCDCDC]"></div>
+          <div class="flex flex-col items-center flex-1 space-y-5">
+            <p class="text-xl font-bold text-white leading-xl drop-shadow-lg">{{ toKMBTString(item.post_num) }}</p>
+            <p class="text-sm font-normal leading-3 text-[#F6F6F6] drop-shadow-lg">{{ $t('info.perPost') }}</p>
           </div>
         </div>
       </div>
-      <div class="absolute -bottom-35 flex h-70 w-full px-20">
-        <Avatar
-          :radius="35"
-          :src="coverAvatar || item.thumb"
-          :cameraIcon="cameraIcon"
-          :click-to-full="fullAvatar"
-          @click:camera="() => inputAvatar.click()"
-        ></Avatar>
-      </div>
-      <div class="absolute -bottom-50 right-0 mr-20 flex w-full justify-end sm:mr-0 xl:mr-0">
-        <slot name="topButton"></slot>
+      <div class="absolute flex items-end w-full gap-10 px-20 -bottom-35">
+        <div class="h-70">
+          <Avatar
+            :radius="35"
+            :src="coverAvatar || item.thumb"
+            :cameraIcon="cameraIcon"
+            :click-to-full="fullAvatar"
+            @click:camera="() => inputAvatar.click()"
+          ></Avatar>
+        </div>
+
+        <div class="flex-1">
+          <slot name="topButton"></slot>
+        </div>
       </div>
     </div>
-    <div v-if="showAllInfo" class="mx-20 grid space-y-10 pt-30 sm:ml-0 sm:mr-0 xl:ml-0 xl:mr-0">
+    <div v-if="showAllInfo" class="grid pt-10 mx-20 space-y-10 sm:ml-0 sm:mr-0 xl:ml-0 xl:mr-0">
       <div class="flex items-end justify-between">
         <div class="flex items-end space-x-5">
           <div class="max-w-[10rem] overflow-hidden text-ellipsis whitespace-nowrap text-lg font-bold leading-lg">
@@ -65,7 +70,7 @@
           </div>
         </div>
         <p
-          class="select-none text-base font-normal leading-lg"
+          class="text-base font-normal select-none leading-lg"
           :class="{ 'line-clamp-3': contentFold }"
           ref="content"
           @click.stop="toggleContentFold"
@@ -74,14 +79,14 @@
         </p>
         <div
           v-show="showContentMore"
-          class="cursor-pointer select-none text-right text-base font-normal leading-lg"
+          class="text-base font-normal text-right cursor-pointer select-none leading-lg"
           @click.stop="toggleContentFold"
         >
           {{ $t('common.more') }}
         </div>
       </div>
     </div>
-    <div v-if="$slots['bottomButton']" class="my-20 flex space-x-10" :class="{ 'mx-20': isMobile }">
+    <div v-if="$slots['bottomButton']" class="flex my-20 space-x-10" :class="{ 'mx-20': isMobile }">
       <slot name="bottomButton"></slot>
     </div>
     <input

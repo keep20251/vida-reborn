@@ -7,7 +7,7 @@
       <div v-if="creator">
         <SelfIntro :item="creator" show-bg-data show-all-info show-personal-info full-avatar full-bg>
           <template #topButton>
-            <div class="flex w-full items-center justify-between pl-100">
+            <div class="flex items-center justify-between w-full">
               <div class="flex items-center space-x-10">
                 <SocialIcon name="instagram" :url="creator?.instagram_link" size="15"></SocialIcon>
                 <SocialIcon name="facebook" :url="creator?.facebook_link" size="15"></SocialIcon>
@@ -17,26 +17,26 @@
               </div>
               <div class="flex items-center space-x-10">
                 <!-- 暫時先把TopButton的聊天Icon關起來，搞不好又會改回來XD -->
-                <!-- <div class="flex cursor-pointer items-center" @click="toMessage(creator?.username)">
+                <!-- <div class="flex items-center cursor-pointer" @click="toMessage(creator?.username)">
                   <Icon name="comment" size="20"></Icon>
                 </div> -->
-                <div v-if="isLogin" class="flex cursor-pointer items-center" @click="dissSomeone()">
+                <div v-if="isLogin" class="flex items-center cursor-pointer" @click="dissSomeone()">
                   <Icon name="report" size="20"></Icon>
                 </div>
-                <div class="flex cursor-pointer items-center" @click="copy(creator.share_url)">
+                <div class="flex items-center cursor-pointer" @click="copy(creator.share_url)">
                   <Icon name="link" size="20"></Icon>
                 </div>
-                <Button v-if="creator?.is_subscribed" size="sm" disabled>
+                <Button v-if="creator?.is_subscribed" size="md" disabled>
                   {{ $t('common.subscribed') }}
                 </Button>
-                <Button v-else size="sm" @click="subscribe({ item: lowestSub, creator })">
+                <Button v-else size="md" @click="subscribe({ item: lowestSub, creator })">
                   {{ $t('common.subscribe') }}
                 </Button>
               </div>
             </div>
           </template>
           <template #bottomButton>
-            <div class="flex w-full flex-row items-center space-x-12">
+            <div class="flex flex-row items-center w-full space-x-12">
               <Button primary @click="open({ items: creator?.subscription_list, creator })">
                 {{ $t('common.viewSubscribePlan') }}
               </Button>
@@ -47,13 +47,13 @@
           </template>
         </SelfIntro>
         <div
-          class="sticky z-10 flex h-36 w-full items-center bg-gray-f6 px-20 text-base font-bold"
+          class="sticky z-10 flex items-center px-20 -mx-20 text-base font-bold h-36 bg-gray-f6"
           :class="{ 'top-44': isMobile, 'top-52': isDesktop }"
         >
           {{ $t('content.allPosts') }} {{ dataExtra?.total }}
         </div>
         <TagSwiper
-          class="mt-20"
+          class="mt-20 "
           v-model="filter"
           :items="filterOptions"
           item-value="id"
