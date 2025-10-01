@@ -15,7 +15,7 @@
       :placeholder="$t('placeholder.enterCreatorId')"
       @keypress.enter="goToCreator"
     ></InputWrap>
-    <Button size="lg" class="w-full mt-20" @click="goToCreator">立即前往</Button>
+    <Button size="lg" class="w-full mt-20" @click="goToCreator">{{$t('common.goNow')}}</Button>
   </div>
   <div v-if="bottom" class="text-center mt-30">
     <p class="text-[#575757] underline">我是創作者</p>
