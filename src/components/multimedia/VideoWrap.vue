@@ -1,5 +1,5 @@
 <template>
-  <div class="relative flex h-full items-center justify-center rounded-inherit cursor-pointer" @click.stop="openPlayer">
+  <div class="relative flex items-center justify-center h-full cursor-pointer rounded-inherit" @click.stop="openPlayer">
     <Video
       v-if="url !== ''"
       ref="video"
@@ -18,11 +18,11 @@
 
 <script setup>
 import { computed, ref } from 'vue'
+import { usePlayerStore } from '@/store/player'
 import LockInfo from '@comp/multimedia/LockInfo.vue'
 import Video from '@comp/multimedia/Video.vue'
 import { useStat } from '@use/utils/stat'
 import { toVideoTimeFormat } from '@/utils/string-helper'
-import { usePlayerStore } from '@/store/player'
 
 const props = defineProps({
   item: { type: Object, required: true },

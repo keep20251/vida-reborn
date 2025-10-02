@@ -22,14 +22,14 @@
           </template>
         </List>
         <div
-          class="bottom-0 w-full bg-white pb-16 pt-8"
+          class="bottom-0 w-full pt-8 pb-16 bg-white"
           :class="{
             'fixed left-0 px-16': isMobile,
             sticky: isDesktop,
           }"
         >
-          <div v-if="replyTo" class="flex items-center bg-gray-f6 px-20 py-4">
-            <div class="grow text-sm text-gray-a3">
+          <div v-if="replyTo" class="flex items-center px-20 py-4 bg-gray-f6">
+            <div class="text-sm grow text-gray-a3">
               {{ $t('content.replyTo', { name: `@${replyTo.author?.nickname}` }) }}
             </div>
             <div class="cursor-pointer" @click="replyTo = null">

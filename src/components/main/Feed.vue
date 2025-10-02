@@ -1,28 +1,28 @@
 <template>
   <article
-    class="flex w-full flex-col space-y-10"
+    class="flex flex-col w-full space-y-10"
     :class="{ 'cursor-pointer': !disableToDetail }"
     @click="() => disableToDetail || $toFeed()"
   >
     <!-- head -->
-    <div class="flex h-30 w-full items-center">
+    <div class="flex items-center w-full h-30">
       <Link class="mr-10" :href="`/${item.user?.username}`" @click.stop="$toCreator(item.user?.username)">
         <Avatar :radius="15" :src="item.user?.thumb"></Avatar>
       </Link>
-      <div class="mr-10 line-clamp-1 text-base font-bold leading-none">
+      <div class="mr-10 text-base font-bold leading-none line-clamp-1">
         <Link class="hover:underline" :href="`/${item.user?.username}`" @click.stop="$toCreator(item.user?.username)"
           >{{ item.user?.nickname }}
         </Link>
       </div>
-      <div class="mr-10 flex grow items-center justify-end">
-        <div class="h-20 w-20" @click.stop="copy(item.share_url)">
+      <div class="flex items-center justify-end mr-10 grow">
+        <div class="w-20 h-20" @click.stop="copy(item.share_url)">
           <Icon name="link" size="20"></Icon>
         </div>
       </div>
-      <div class="line-clamp-1 shrink-0 text-right text-sm font-medium leading-5 text-gray-57">{{ postTime }}</div>
+      <div class="text-sm font-medium leading-5 text-right line-clamp-1 shrink-0 text-gray-57">{{ postTime }}</div>
       <div
         v-if="editMode || (!isVisitor && !isSelf)"
-        class="relative flex cursor-pointer select-none items-center"
+        class="relative flex items-center cursor-pointer select-none"
         ref="moreToggler"
       >
         <Icon name="moreVertical" size="20" @click.stop="toggleMorePanel"></Icon>
@@ -36,17 +36,17 @@
         >
           <div
             v-if="showMorePanel"
-            class="absolute right-16 top-full z-10 min-w-max rounded-sm bg-white py-4 drop-shadow"
+            class="absolute z-10 py-4 bg-white rounded-sm right-16 top-full min-w-max drop-shadow"
             ref="morePanel"
           >
             <div
-              class="flex cursor-pointer items-center space-x-5 px-26 py-6 hover:bg-primary hover:text-white"
+              class="flex items-center py-6 space-x-5 cursor-pointer px-26 hover:bg-primary hover:text-white"
               @click.stop="onMore1"
             >
               <div class="text-base">{{ more1Text }}</div>
             </div>
             <div
-              class="flex cursor-pointer items-center space-x-5 px-26 py-6 hover:bg-primary hover:text-white"
+              class="flex items-center py-6 space-x-5 cursor-pointer px-26 hover:bg-primary hover:text-white"
               @click.stop="onMore2"
             >
               <div class="text-base">{{ more2Text }}</div>
@@ -55,39 +55,38 @@
         </transition>
       </div>
     </div>
-
     <!-- media -->
-    <div class="relative inline-block w-full cursor-auto rounded-md" @click.stop>
+    <div class="relative inline-block w-full rounded-md cursor-auto" @click.stop>
       <div class="mt-[60%]"></div>
-      <div class="absolute left-0 top-0 h-full w-full rounded-inherit">
+      <div class="absolute top-0 left-0 w-full h-full rounded-inherit">
         <BlockMask v-if="isBlock" :item="item"></BlockMask>
         <VideoWrap v-else-if="isVideo" :item="item" :stat="!disableStat" :preview="preview"></VideoWrap>
         <PhotoSwiper v-else-if="isImage" :item="item" :stat="!disableStat" :preview="preview"></PhotoSwiper>
       </div>
       <div
         v-if="editMode && [FEED_STATUS.REVIEW, ...FEED_STATUS_FORMATING].includes(item.status)"
-        class="absolute top-0 flex h-full w-full items-center justify-center rounded-inherit bg-black bg-opacity-50"
+        class="absolute top-0 flex items-center justify-center w-full h-full bg-black bg-opacity-50 rounded-inherit"
       >
-        <span class="select-none text-lg font-bold text-white drop-shadow-md">{{
+        <span class="text-lg font-bold text-white select-none drop-shadow-md">{{
           item.status === FEED_STATUS.REVIEW ? $t('info.underReview') : $t('info.formating')
         }}</span>
       </div>
-      <div v-if="showAutoPublishTime" class="absolute left-20 top-20 text-base font-bold text-white">
+      <div v-if="showAutoPublishTime" class="absolute text-base font-bold text-white left-20 top-20">
         {{ $t('content.autoPublishAt', { datetime: tsSecondToYMDhm(item.display_ts, item.display_at) }) }}
       </div>
     </div>
 
     <!-- feature -->
-    <div class="flex h-20 select-none space-x-32">
-      <div class="flex cursor-pointer space-x-10" @click.stop="toggleLike(item)">
+    <div class="flex h-20 space-x-32 select-none">
+      <div class="flex space-x-10 cursor-pointer" @click.stop="toggleLike(item)">
         <Icon :name="item.is_liked ? 'like' : 'likeOutline'" size="20"></Icon>
         <div class="text-sm font-medium leading-5">{{ item.like_num }}</div>
       </div>
-      <div class="flex cursor-pointer space-x-10">
+      <div class="flex space-x-10 cursor-pointer">
         <Icon name="comment" size="20"></Icon>
         <div class="text-sm font-medium leading-5">{{ item.comment_num }}</div>
       </div>
-      <div class="flex cursor-pointer space-x-10" @click.stop="copy(item.share_url)">
+      <div class="flex space-x-10 cursor-pointer" @click.stop="copy(item.share_url)">
         <Icon name="sharePost" size="20"></Icon>
         <div class="text-sm font-medium leading-5">{{ item.share_num }}</div>
       </div>
@@ -105,7 +104,7 @@
     <div class="flex flex-col space-y-5">
       <div class="text-base font-bold leading-none">{{ item.title }}</div>
       <div>
-        <div class="flex select-none flex-wrap space-x-5">
+        <div class="flex flex-wrap space-x-5 select-none">
           <Link
             v-for="(tag, i) in tags"
             :key="i"
@@ -116,7 +115,7 @@
           >
         </div>
         <p
-          class="whitespace-pre-wrap break-words text-base leading-lg"
+          class="text-base break-words whitespace-pre-wrap leading-lg"
           :class="{ 'line-clamp-2': contentFold }"
           ref="content"
           @click="toggleContentFold"
@@ -125,7 +124,7 @@
         </p>
         <div
           v-if="showContentMore"
-          class="select-none text-right text-base leading-lg text-gray-57"
+          class="text-base text-right select-none leading-lg text-gray-57"
           @click="toggleContentFold"
         >
           more
