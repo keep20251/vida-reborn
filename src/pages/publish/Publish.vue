@@ -13,21 +13,21 @@
       <div class="flex flex-col space-y-20 pb-30" :class="{ 'mb-60': isMobile }">
         <!-- 選擇主題 -->
         <div class="flex flex-col space-y-10">
-          <label class="text-left text-base leading-md">{{ $t('label.pickCaterory') }}</label>
+          <label class="text-base text-left leading-md">{{ $t('label.pickCaterory') }}</label>
           <Dropdown v-model="publishParams.category" :options="categories" inset></Dropdown>
         </div>
 
         <!-- 上傳視頻 -->
         <div v-if="isVideo" class="flex flex-col">
-          <div class="mb-10 flex">
-            <div class="flex grow flex-col space-y-10">
-              <label class="text-left text-base leading-md">{{ $t('label.uploadVideo') }}</label>
-              <span class="text-left text-sm text-gray-57">{{ $t('info.videoFormat') }}</span>
+          <div class="flex mb-10">
+            <div class="flex flex-col space-y-10 grow">
+              <label class="text-base text-left leading-md">{{ $t('label.uploadVideo') }}</label>
+              <span class="text-sm text-left text-gray-57">{{ $t('info.videoFormat') }}</span>
             </div>
           </div>
           <div v-if="noUploadFiles" class="relative rounded-md pb-[56%]">
             <label
-              class="absolute top-0 flex h-full w-full cursor-pointer flex-col items-center justify-center space-y-10 rounded-inherit bg-gray-f6 py-72"
+              class="absolute top-0 flex flex-col items-center justify-center w-full h-full space-y-10 cursor-pointer rounded-inherit bg-gray-f6 py-72"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="62" height="55" viewBox="0 0 62 55" fill="none">
                 <path
@@ -59,14 +59,14 @@
             </label>
           </div>
           <div v-else class="relative overflow-hidden rounded-md pb-[56%]">
-            <video class="absolute top-0 h-full w-full" ref="video" controls></video>
+            <video class="absolute top-0 w-full h-full" ref="video" controls></video>
             <div
               v-if="uploadFiles[0].status !== UPLOAD_STATUS.DONE"
-              class="absolute top-0 h-full w-full origin-right bg-white bg-opacity-60 p-20 will-change-transform"
+              class="absolute top-0 w-full h-full p-20 origin-right bg-white bg-opacity-60 will-change-transform"
               :style="{ transform: `scaleX(${1 - uploadFiles[0].progress})` }"
             ></div>
             <div class="absolute top-0 w-full">
-              <div class="flex items-center justify-end space-x-10 pr-20 pt-20">
+              <div class="flex items-center justify-end pt-20 pr-20 space-x-10">
                 <span class="text-sm text-white drop-shadow-sm">
                   {{
                     uploadFiles[0].status === UPLOAD_STATUS.UPLOADING
@@ -77,14 +77,14 @@
                 <div
                   v-if="isCreate"
                   @click="cancel(uploadFiles[0].id, uploadFiles[0].status)"
-                  class="right-10 top-10 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-white"
+                  class="flex items-center justify-center bg-white rounded-full cursor-pointer right-10 top-10 h-15 w-15"
                 >
                   <Icon name="close" size="10"></Icon>
                 </div>
               </div>
             </div>
           </div>
-          <div v-if="uploadError" class="text-left text-sm font-normal not-italic leading-md text-warning">
+          <div v-if="uploadError" class="text-sm not-italic font-normal text-left leading-md text-warning">
             {{ uploadError }}
           </div>
         </div>
@@ -92,16 +92,16 @@
         <!-- 上傳圖片 -->
         <div v-if="isImage" class="flex flex-col space-y-10">
           <div class="flex">
-            <div class="flex grow flex-col space-y-10">
-              <label class="text-left text-base leading-md"
+            <div class="flex flex-col space-y-10 grow">
+              <label class="text-base text-left leading-md"
                 >{{ $t('label.uploadImage') }}
-                <span class="text-left text-sm text-gray-57">{{
+                <span class="text-sm text-left text-gray-57">{{
                   `${
                     uploadFiles.filter((f) => [UPLOAD_STATUS.DONE, UPLOAD_STATUS.SAVE].includes(f.status)).length
                   }/${IMAGE_LIMIT_COUNT}`
                 }}</span></label
               >
-              <span class="text-left text-sm text-gray-57">{{ $t('info.imageFormat') }}</span>
+              <span class="text-sm text-left text-gray-57">{{ $t('info.imageFormat') }}</span>
             </div>
             <Button v-if="isCreate" class="self-end" size="md" @click="() => inputImage.click()">{{
               $t('common.append')
@@ -117,25 +117,25 @@
           </div>
           <div class="grid grid-cols-3 gap-10">
             <div v-for="file in uploadFiles" class="relative overflow-hidden rounded-sm pb-[56%]" :key="file.id">
-              <div class="absolute top-0 h-full w-full">
+              <div class="absolute top-0 w-full h-full">
                 <EncryptImage v-if="file.status === UPLOAD_STATUS.SAVE" :src="file.url" cover></EncryptImage>
-                <img v-else-if="file.result" :src="file.result" class="h-full w-full rounded-sm object-cover" />
+                <img v-else-if="file.result" :src="file.result" class="object-cover w-full h-full rounded-sm" />
                 <Skeleton v-else></Skeleton>
               </div>
               <div
-                class="absolute top-0 h-full w-full origin-right bg-white opacity-60 will-change-transform"
+                class="absolute top-0 w-full h-full origin-right bg-white opacity-60 will-change-transform"
                 :style="{ transform: `scaleX(${1 - file.progress})` }"
               ></div>
               <div
                 v-if="isCreate"
-                class="absolute right-10 top-10 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-white"
+                class="absolute flex items-center justify-center bg-white rounded-full cursor-pointer right-10 top-10 h-15 w-15"
                 @click="removeUploadFile(file.id)"
               >
                 <Icon name="close" size="10"></Icon>
               </div>
             </div>
           </div>
-          <div v-if="uploadError" class="text-left text-sm font-normal not-italic leading-md text-warning">
+          <div v-if="uploadError" class="text-sm not-italic font-normal text-left leading-md text-warning">
             {{ uploadError }}
           </div>
         </div>
@@ -158,21 +158,21 @@
 
         <!-- 誰可以看到 -->
         <div class="flex flex-col space-y-10">
-          <label class="text-left text-base leading-md">{{ $t('label.pickPerm') }}</label>
+          <label class="text-base text-left leading-md">{{ $t('label.pickPerm') }}</label>
           <OptionsPicker v-model="publishParams.perm" :options="permOptions"></OptionsPicker>
         </div>
 
         <!-- 指定訂閱組 -->
         <div v-if="publishParams.perm === FEED_PERM.SUB" class="flex flex-col space-y-10">
-          <label class="flex items-end space-x-5 text-left text-base leading-md">
+          <label class="flex items-end space-x-5 text-base text-left leading-md">
             <span>{{ $t('label.pickSub') }}</span>
-            <span class="grow text-sm leading-3 text-gray-57">{{ $t('label.pickPermSub') }}</span>
+            <span class="text-sm leading-3 grow text-gray-57">{{ $t('label.pickPermSub') }}</span>
             <span class="cursor-pointer text-primary" @click="toggleSubsAll">{{
               isSubSelectAll ? $t('label.unpickAll') : $t('label.pickAll')
             }}</span>
           </label>
           <OptionsPicker v-model="publishParams.subs" :options="subOptions" can-pick-none></OptionsPicker>
-          <div v-if="subsError" class="text-left text-sm font-normal not-italic leading-md text-warning">
+          <div v-if="subsError" class="text-sm not-italic font-normal text-left leading-md text-warning">
             {{ subsError }}
           </div>
         </div>
@@ -192,7 +192,7 @@
         <!-- 排定發布 -->
         <div class="relative flex flex-col space-y-10">
           <div class="flex justify-between">
-            <label class="text-left text-base leading-md">{{ $t('label.schedule') }}</label>
+            <label class="text-base text-left leading-md">{{ $t('label.schedule') }}</label>
             <InputSwitch v-model="publishTimeOpen"></InputSwitch>
           </div>
           <InputWrap
@@ -203,7 +203,7 @@
             @click:append="postTimeEditing = true"
           ></InputWrap>
           <DatePicker
-            class="absolute bottom-36 self-end"
+            class="absolute self-end bottom-36"
             v-if="publishTimeOpen && postTimeEditing"
             v-model="publishParams.postTime"
             include-time
