@@ -12,10 +12,10 @@
     <template #default>
       <div class="flex flex-col space-y-20 pb-30" :class="{ 'mb-60': isMobile }">
         <!-- 選擇主題 -->
-        <div class="flex flex-col space-y-10">
+        <!-- <div class="flex flex-col space-y-10">
           <label class="text-base text-left leading-md">{{ $t('label.pickCaterory') }}</label>
           <Dropdown v-model="publishParams.category" :options="categories" inset></Dropdown>
-        </div>
+        </div> -->
 
         <!-- 上傳視頻 -->
         <div v-if="isVideo" class="flex flex-col">
