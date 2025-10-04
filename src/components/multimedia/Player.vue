@@ -47,11 +47,11 @@
           <div
             v-if="!post.is_unlock"
             class="absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm"
-            @click="handleUnlockClick(post)"
+            
           >
             <div class="text-center text-white">
               <Icon name="lock" size="48" class="mx-auto mb-4 opacity-80" />
-              <div class="w-224 h-36 rounded-2xl bg-[#6567E8] text-center font-bold">Subscribe to unlock</div>
+              <div @click="handleUnlockClick(post)" class="w-224 h-36 rounded-2xl bg-[#6567E8] text-center font-bold">Subscribe to unlock</div>
               <!-- <div class="mb-2 text-xl font-bold">Subscribe to Unlock</div>
               <div class="mb-4 text-lg">解鎖觀看</div>
               <div class="px-6 py-3 transition-colors bg-blue-500 rounded-lg cursor-pointer hover:bg-blue-600">
@@ -88,11 +88,15 @@
               <div
                 v-if="isImageLocked(post, imgIndex)"
                 class="absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm"
-                @click="handleUnlockClick(post)"
               >
                 <div class="text-center text-white">
                   <Icon name="lock" size="48" class="mx-auto mb-4 opacity-80" />
-                  <div class="w-224 h-36 rounded-2xl bg-[#6567E8] text-center font-bold">Subscribe to unlock</div>
+                  <div
+                    @click="handleUnlockClick(post)"
+                    class="w-224 h-36 rounded-2xl bg-[#6567E8] text-center font-bold"
+                  >
+                    Subscribe to unlock
+                  </div>
                   <!-- <div class="mb-2 text-xl font-bold">Subscribe to Unlock</div>
                   <div class="mb-4 text-lg">解鎖觀看</div>
                   <div class="px-6 py-3 transition-colors bg-blue-500 rounded-lg cursor-pointer hover:bg-blue-600">
