@@ -44,7 +44,6 @@
                   </div>
                   <span v-if="item.description" class="text-base text-white">{{ item.description }}</span>
                 </div>
-                <!-- <ViewSubscribeCard class="my-5" :item="item" :theme="(index + 2) % 3"></ViewSubscribeCard> -->
               </template>
             </List>
           </div>

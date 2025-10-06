@@ -53,7 +53,7 @@
           {{ $t('content.allPosts') }} {{ dataExtra?.total }}
         </div>
         <TagSwiper
-          class="mt-20 "
+          class="mt-20"
           v-model="filter"
           :items="filterOptions"
           item-value="id"

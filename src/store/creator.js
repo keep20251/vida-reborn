@@ -9,7 +9,7 @@ export const useCreatorStore = defineStore('creator', () => {
   const historyViewedCreators = useLocalStorage(LOCAL_STORAGE_KEYS.RECENTLY_VIEWED_CREATORS, [])
 
   function clearHistoryViewedCreators(item) {
-    if(!item) {
+    if (!item) {
       historyViewedCreators.value = []
       return
     }
@@ -38,26 +38,20 @@ export const useCreatorStore = defineStore('creator', () => {
     whenever(isLogin, clear)
   }
 
-  async function get(username) {
+  function setHistoryViewedCreators(creator) {
+    historyViewedCreators.value = [creator, ...historyViewedCreators.value.filter((item) => item.uuid !== creator.uuid)]
+    return creator
+  }
 
+  async function get(username) {
     if (creatorsMap.has(username)) {
-      const creator = creatorsMap.get(username)
-       historyViewedCreators.value = [
-        creator,
-        ...historyViewedCreators.value.filter((item) => item.uuid !== creator.uuid),
-      ]
-      return creator
+      return setHistoryViewedCreators(creatorsMap.get(username))
     }
 
     if (inRequesting[username]) {
       const { request, promise } = inRequesting[username]
       await promise
-      const creator = setupCreator(username, request.data.value)
-      historyViewedCreators.value = [
-        creator,
-        ...historyViewedCreators.value.filter((item) => item.uuid !== creator.uuid),
-      ]
-      return creator
+      return setHistoryViewedCreators(setupCreator(username, request.data.value))
     }
 
     const request = useRequest('User.otherInfo', { params: { uuid: username } })
@@ -66,13 +60,7 @@ export const useCreatorStore = defineStore('creator', () => {
 
     try {
       await promise
-      const creator = setupCreator(username, request.data.value)
-      historyViewedCreators.value = [
-        creator,
-        ...historyViewedCreators.value.filter((item) => item.uuid !== creator.uuid),
-      ]
-
-      return creator
+      return setHistoryViewedCreators(setupCreator(username, request.data.value))
     } finally {
       delete inRequesting[username]
     }
@@ -123,9 +111,7 @@ export const useCreatorStore = defineStore('creator', () => {
     })
   }
 
-  function removeFromHistory(){
-    
-  }
+  function removeFromHistory() {}
 
   function toggleBlock(username, isBlock) {
     if (creatorsMap.has(username)) {
@@ -141,6 +127,6 @@ export const useCreatorStore = defineStore('creator', () => {
 
     toggleBlock,
     historyViewedCreators,
-    clearHistoryViewedCreators
+    clearHistoryViewedCreators,
   }
 })
