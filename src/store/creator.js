@@ -11,9 +11,10 @@ export const useCreatorStore = defineStore('creator', () => {
   function clearHistoryViewedCreators(item) {
     if (!item) {
       historyViewedCreators.value = []
-      return
+    } else {
+      historyViewedCreators.value = historyViewedCreators.value.filter((creator) => creator.uuid !== item.uuid)
     }
-    historyViewedCreators.value = historyViewedCreators.value.filter((creator) => creator.uuid !== item.uuid)
+    historyViewedCreators.value = [...historyViewedCreators.value]
   }
 
   /**

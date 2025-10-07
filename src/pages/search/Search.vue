@@ -15,17 +15,17 @@
           <p class="font-bold my-30">搜索</p>
 
           <NoSubscripeCard :showWelcome="false" :showBottom="false" class=""></NoSubscripeCard>
-          <div v-if="historyViewedCreators.length > 0">
+          <div v-if="creatorStore.historyViewedCreators.length > 0">
             <div class="flex justify-between pt-20">
               <div class="text-base font-bold leading-md">最近看过的创作者</div>
             </div>
-            <List :items="historyViewedCreators" item-key="aff">
+            <List :items="creatorStore.historyViewedCreators" item-key="uuid">
               <template #default="{ item }">
                 <div
                   @click="toCreator(item.username)"
                   class="relative my-20 flex flex-col gap-20 rounded-xl bg-gradient-to-b from-[#6466E7] to-[#7FE2D3] p-20"
                 >
-                  <div @click.stop="clearHistoryViewedCreators(item)" class="absolute cursor-pointer right-20 top-20">
+                  <div @click.stop="creatorStore.clearHistoryViewedCreators(item)" class="absolute cursor-pointer right-20 top-20">
                     <Icon name="closeWhite" size="20"></Icon>
                   </div>
                   <div class="flex gap-30">
@@ -92,7 +92,8 @@ import { useRouters } from '@/compositions/routers'
 const { toCreator } = useRouters()
 const appStore = useAppStore()
 const { isMobile } = storeToRefs(appStore)
-const { historyViewedCreators, clearHistoryViewedCreators } = useCreatorStore()
+const creatorStore = useCreatorStore()
+
 const accountStore = useAccountStore()
 const { isLoggedIn } = storeToRefs(accountStore)
 
