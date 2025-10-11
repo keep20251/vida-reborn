@@ -1,31 +1,31 @@
 <template>
   <div
-    class="relative h-full w-full overflow-hidden rounded-inherit"
+    class="relative w-full h-full overflow-hidden rounded-inherit"
     :style="fullscreenStyle"
     @mousemove="onRootMouseMove"
     @mouseleave="onRootMouseLeave"
     @click.stop="onRootClick"
   >
     <!-- video 嵌入位置 -->
-    <div ref="videoWrap" class="absolute top-0 h-full w-full rounded-inherit"></div>
+    <div ref="videoWrap" class="absolute top-0 w-full h-full rounded-inherit"></div>
 
     <!-- 視頻資源載入被卡住的 loading -->
     <div
       v-if="isWaiting"
-      class="absolute left-1/2 top-1/2 flex h-50 w-50 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-md bg-black bg-opacity-50"
+      class="absolute flex items-center justify-center -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-50 rounded-md left-1/2 top-1/2 h-50 w-50"
     >
       <Icon size="40" name="dotLoading" />
     </div>
 
     <!-- 尚未開始播放前的置中播放按鈕 -->
-    <div v-if="!videoElement" class="absolute top-0 h-full w-full cursor-pointer rounded-inherit">
+    <div v-if="!videoElement" class="absolute top-0 w-full h-full cursor-pointer rounded-inherit">
       <EncryptImage :src="posterUrl" :border-radius="10" cover></EncryptImage>
       <div
-        class="absolute left-1/2 top-1/2 flex h-50 w-50 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-md bg-black bg-opacity-50"
+        class="absolute flex items-center justify-center -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-50 rounded-md left-1/2 top-1/2 h-50 w-50"
       >
         <Icon name="playBtn2" size="20"></Icon>
       </div>
-      <div class="absolute bottom-20 right-20 flex items-center space-x-5 rounded-inherit drop-shadow">
+      <div class="absolute flex items-center space-x-5 bottom-20 right-20 rounded-inherit drop-shadow">
         <Icon name="videoWhite" size="20"></Icon>
         <span class="text-base text-white">{{ time }}</span>
       </div>
@@ -34,7 +34,7 @@
     <!-- 播放器 control -->
     <div
       v-else
-      class="absolute bottom-0 w-full rounded-inherit rounded-t-none bg-black bg-opacity-50 px-20 pb-20 transition-transform"
+      class="absolute bottom-0 w-full px-20 pb-20 transition-transform bg-black bg-opacity-50 rounded-t-none rounded-inherit"
       :class="{
         'translate-y-full': !showControl,
       }"
@@ -42,7 +42,7 @@
     >
       <div class="relative w-full cursor-pointer" :class="[videoFullscreen ? 'h-34' : 'h-27']" ref="timeBar">
         <div
-          class="absolute top-16 w-full rounded-full"
+          class="absolute w-full rounded-full top-16"
           :class="[videoFullscreen ? 'h-4' : 'h-2']"
           :style="{
             backgroundImage: `linear-gradient(
@@ -58,14 +58,14 @@
           :style="{ transform: `translateX(${timeBarWidth * videoTimeRate}px)` }"
         ></div>
       </div>
-      <div class="flex items-center space-x-10 px-10">
+      <div class="flex items-center px-10 space-x-10">
         <Icon
           :name="videoPlay ? 'pauseBtn' : 'playBtn'"
           :size="videoFullscreen ? '24' : '16'"
           class="cursor-pointer"
           @click.stop="togglePlay"
         />
-        <div class="grow select-none font-mono text-white" :class="[videoFullscreen ? 'text-md' : 'text-sm']">
+        <div class="font-mono text-white select-none grow" :class="[videoFullscreen ? 'text-md' : 'text-sm']">
           {{ `${toVideoTimeFormat(videoCurrentTime)} / ${toVideoTimeFormat(videoDuration)}` }}
         </div>
         <div class="relative flex items-center">
@@ -79,18 +79,18 @@
           />
           <div
             v-if="isDesktop && (isVolumeBarDragging || showVolumeControl)"
-            class="absolute -left-10 -top-37 flex h-100 w-32 -translate-y-full flex-col items-center justify-between rounded-full bg-black bg-opacity-50 py-10"
+            class="absolute flex flex-col items-center justify-between w-32 py-10 -translate-y-full bg-black bg-opacity-50 rounded-full -left-10 -top-37 h-100"
           >
-            <div class="select-none font-mono text-base text-white">{{ Math.round(videoVolume * 100) }}</div>
+            <div class="font-mono text-base text-white select-none">{{ Math.round(videoVolume * 100) }}</div>
             <div
-              class="relative h-50 w-full cursor-pointer"
+              class="relative w-full cursor-pointer h-50"
               ref="volumeBar"
               @mouseover="cancelCloseVolumeControl"
               @mouseleave="closeVolumeControl"
             >
-              <div class="absolute left-1/2 h-full w-1 -translate-x-1/2 rounded-full bg-white"></div>
+              <div class="absolute w-1 h-full -translate-x-1/2 bg-white rounded-full left-1/2"></div>
               <div
-                class="absolute bottom-0 left-1/2 h-full w-2 -translate-x-1/2 rounded-full"
+                class="absolute bottom-0 w-2 h-full -translate-x-1/2 rounded-full left-1/2"
                 :style="{
                   backgroundImage: `linear-gradient(
                                      to top,
@@ -100,7 +100,7 @@
                 }"
               ></div>
               <div
-                class="absolute -bottom-3 left-1/2 h-6 w-6 rounded-full bg-contrast will-change-transform"
+                class="absolute w-6 h-6 rounded-full -bottom-3 left-1/2 bg-contrast will-change-transform"
                 :style="{ transform: `translate(-50%, -${volumeBarHeight * videoVolume}px)` }"
               ></div>
             </div>
